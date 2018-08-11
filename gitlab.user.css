@@ -1,0 +1,34 @@
+/* ==UserStyle==
+@name         GitLab Dark by Mew
+@description  Dark theme for GitLab.
+@namespace    gitlab.com/vednoc/gitlab-dark
+@version      0.1.0
+@author       vednoc
+@preprocessor uso
+
+@var color dark    "Dark color."    #222222
+@var color darker  "Darker color."  #141414
+@var color light   "Light color."   #d1d1d1
+@var color lighter "Lighter color." #e9e9e9
+@var color icon    "Icon color."    #e1e1e1
+@var color accent  "Accent color."  #7289da
+@var color blue    "Blue color."    #527AA3
+@var color green   "Green color."   #70A352
+@var color red     "Red color."     #A3525B
+@var color shadow  "Shadow"         rgba(0,0,0,0.07)
+==/UserStyle== */
+
+@-moz-document domain("gitlab.com") {
+  :root {
+    --dark: /*[[dark]]*/ ;
+    --darker: /*[[darker]]*/ ;
+    --light: /*[[light]]*/ ;
+    --lighter: /*[[lighter]]*/ ;
+    --accent: /*[[accent]]*/ ;
+    --icon: /*[[icon]]*/ ;
+    --shadow: /*[[shadow]]*/ ;
+    --mred: /*[[mred]]*/ ;
+    --mgreen: /*[[mgreen]]*/ ;
+    --mblue: /*[[mblue]]*/ ;
+  }
+}
