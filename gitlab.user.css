@@ -368,4 +368,59 @@
   .btn-missing:hover {
     background-color: var(--darker) !important;
   }
+
+  /* Latest commit message.. */
+  .info-well {
+    color: var(--light);
+    border-color: var(--darker);
+    background: var(--dark);
+  }
+  .info-well a {
+    color: var(--lighter);
+  }
+  /* Commit button. */
+  .commit-sha-group .label,
+  .commit-sha-group .btn {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  
+
+  /* Readme wrapper. */
+  .file-holder {
+    border-color: var(--darker) !important; }
+  /* Readme preview. */
+  .file-holder .file-title-flex-parent,
+  .file-holder .file-content {
+    border-color: var(--darker);
+    background: var(--darker);
+  }
+
+  /* Files. */
+  .table-holder {
+    border-radius: 4px;
+    border: 1px solid var(--darker) !important;
+  }
+  /* Remove unnecessary borders. */
+  .tree-holder .tree-table tr {
+    border-color: transparent !important;
+  }
+  .tree-holder .tree-table tr td {
+    border-color: var(--darker) !important;
+  }
+  /* Text color. */
+  .tree-holder .tree-item .tree-item-file-name i,
+  .tree-holder .tree-item .tree-item-file-name a,
+  .tree-holder .tree-commit .tree-commit-link,
+  .tree-holder .tree-time-ago {
+    color: var(--light);
+  }
+  /* Background colors. */
+  table.table tr th,
+  .file-holder .file-title,
+  .tree-holder .tree-table tr:hover:not(.tree-truncated-warning) td {
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
 }
