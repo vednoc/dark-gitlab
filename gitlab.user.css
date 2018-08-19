@@ -194,4 +194,54 @@
   .nav .dropdown.show a:hover svg {
     fill: var(--icon) !important;
   }
+
+
+  /* New project. */
+  .gitlab-tabs {
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+  }
+  .gitlab-tabs li:not(:last-child) {
+    border-right-color: var(--darker);
+  }
+  /* On event. */
+  .gitlab-tabs li a.active,
+  .gitlab-tabs li a:hover {
+    color: var(--lighter) !important;
+    border-color: var(--accent) !important;
+    background-color: var(--dark) !important;
+  }
+
+  /* Tab content. */
+  .gitlab-tab-content {
+    border-color: var(--darker);
+  }
+  /* Inputs. */
+  .gitlab-tab-content [class*="input-group"] {
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+    background-color: transparent !important;
+  }
+  /* Text colors. */
+  .gitlab-tab-content label,
+  .option-title {
+    color: var(--lighter) !important;
+  }
+  .option-description {
+    color: var(--light) !important;
+  }
+  .account-btn-link,
+  .profile-settings-sidebar a,
+  .settings-sidebar a {
+    color: var(--accent);
+  }
+  /* Form control. */
+  .form-control {
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .form-control:focus {
+    box-shadow: 0 0 0.3rem 0 var(--blue);
+  }
 }
