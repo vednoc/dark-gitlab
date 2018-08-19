@@ -147,4 +147,51 @@
   .navbar #search {
     color: var(--lighter) !important;
   }
+
+
+  /* Dropdowns. */
+  .dropdown-menu,
+  .dropdown-menu-nav {
+    box-shadow: 0 2px 8px var(--shadow);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Dropdown toggle. */
+  .dropdown-toggle,
+  .dropdown-menu-toggle {
+    color: var(--light);
+    border-color: var(--darker) !important;
+    background-color: var(--dark);
+  }
+  /* Items. */
+  .dropdown-menu li a,
+  .dropdown-header,
+  .dropdown-menu .current-user,
+  .navbar-sub-nav {
+    color: var(--lighter) !important;
+  }
+  /* Divider. */
+  .dropdown-menu .divider {
+    border-color: var(--darker);
+  }
+  /* On event. */
+  .dropdown-menu li a:not(.disable-hover):hover,
+  .dropdown-menu li a.is-focused {
+    color: var(--light);
+    background-color: var(--darker) !important;
+  }
+  /* Open dropdowns. */
+  .navbar-sub-nav > li.active > button,
+  .navbar-sub-nav > li > button:hover,
+  .navbar-sub-nav > li > a:hover,
+  .dropdown.show > button,
+  .dropdown.show > a {
+    color: var(--lighter) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Icon colors. */
+  .nav a svg,
+  .nav .dropdown.show a:hover svg {
+    fill: var(--icon) !important;
+  }
 }
