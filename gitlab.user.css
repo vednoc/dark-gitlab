@@ -20,15 +20,16 @@
 
 @-moz-document domain("gitlab.com") {
   :root {
-    --dark: /*[[dark]]*/ ;
-    --darker: /*[[darker]]*/ ;
-    --light: /*[[light]]*/ ;
-    --lighter: /*[[lighter]]*/ ;
-    --accent: /*[[accent]]*/ ;
-    --icon: /*[[icon]]*/ ;
-    --shadow: /*[[shadow]]*/ ;
-    --mred: /*[[mred]]*/ ;
-    --mgreen: /*[[mgreen]]*/ ;
-    --mblue: /*[[mblue]]*/ ;
+    --dark:    /*[[dark]]*/;
+    --darker:  /*[[darker]]*/;
+    --light:   /*[[light]]*/ ;
+    --lighter: /*[[lighter]]*/;
+    --accent:  /*[[accent]]*/;
+    --icon:    /*[[icon]]*/;
+    --shadow:  /*[[shadow]]*/;
+    --red:     /*[[red]]*/;
+    --green:   /*[[green]]*/;
+    --blue:    /*[[blue]]*/;
+  }
   }
 }
