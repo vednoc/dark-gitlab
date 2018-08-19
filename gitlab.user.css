@@ -73,4 +73,61 @@
   [class^="btn"]:hover {
     opacity: 0.7 !important;
   }
+
+
+  /* Sign in page. */
+  body.navless {
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Navbar. */
+  .navbar-empty {
+    border-bottom-color: var(--darker);
+    background-color: var(--darker);
+  }
+
+  /* Sign in/register buttons. */
+  .login-page .new-session-tabs {
+    border-color: var(--darker);
+    box-shadow: 0 0 0 1px var(--darker);
+  }
+  .login-page .new-session-tabs li {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+  }
+  .login-page .new-session-tabs li a.active,
+  .login-page .new-session-tabs li a:hover {
+    color: var(--lighter) !important;
+    border-color: var(--accent) !important;
+    background-color: var(--darker) !important;
+  }
+
+  /* Sign in/register section. */
+  .login-page .login-box,
+  .login-page .omniauth-container {
+    box-shadow: 0 0 0 1px var(--darker);
+  }
+  .login-page .form-group input {
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+    background: var(--dark) !important;
+  }
+  /* Misc text color. */
+  .login-page .light,
+  .login-page .description-block {
+    color: var(--light);
+  }
+
+  /* Footer. */
+  hr.footer-fixed {
+    border-top-color: var(--darker);
+    background: none !important;
+  }
+  .footer-container {
+    background: none !important;
+  }
+  .footer-container a {
+    color: var(--accent);
+  }
 }
