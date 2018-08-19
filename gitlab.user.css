@@ -332,4 +332,40 @@
     border-color: var(--darker);
     background-color: var(--darker) !important;
   }
+
+
+  /* Project/group page. */
+  .project-home-panel,
+  .group-home-panel {
+    border-bottom-color: var(--darker);
+    background-color: var(--shadow);
+  }
+  /* Button group. */
+  .input-group-prepend,
+  .input-group-append {
+    background-color: transparent !important;
+  }
+  /* Buttons. */
+  .count-with-arrow .count,
+  .clone-dropdown-btn,
+  .btn-clipboard {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Arrows. */
+  .count-with-arrow .arrow::before {
+    border-right-color: var(--darker) !important;
+  }
+  .count-with-arrow .arrow::after {
+    border-right-color: var(--dark) !important;
+  }
+  /* Missing buttons. */
+  .btn-missing {
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+  }
+  .btn-missing:hover {
+    background-color: var(--darker) !important;
+  }
 }
