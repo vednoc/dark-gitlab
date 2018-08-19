@@ -49,5 +49,28 @@
     /* opacity: 0.7; */
     color: var(--accent);
   }
+
+
+  /* Bootstrap reset. */
+  .btn, .btn:hover {
+    color: var(--lighter);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .btn.btn-success,
+  .btn.btn-new,
+  .btn.btn-create,
+  .btn.comment-btn,
+  .btn.btn-save {
+    color: var(--lighter) !important;
+    border-color: var(--green) !important;
+    background-color: var(--green) !important;
+  }
+  /* Global. */
+  [class^="btn"] {
+    transition: 200ms ease-in-out !important;
+  }
+  [class^="btn"]:hover {
+    opacity: 0.7 !important;
   }
 }
