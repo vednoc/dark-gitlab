@@ -297,4 +297,39 @@
     color: var(--light);
     border-color: var(--darker);
   }
+
+
+  /* Left sidebar. */
+  .nav-sidebar {
+    background: var(--darker);
+    box-shadow: inset -2px 0 0 var(--darkerz);
+  }
+  /* Items. */
+  .nav-sidebar li a {
+    color: var(--light);
+  }
+  .nav-sidebar li a:hover {
+    color: var(--lighter);
+  }
+  /* Dropdown. */
+  .is-showing-fly-out .sidebar-sub-level-items {
+    box-shadow: 2px 1px 3px var(--shadow) !important;
+    border-radius: 0 4px 4px 0 !important;
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+  }
+  /* Items. */
+  .sidebar-sub-level-items a {
+    color: var(--light) !important;
+  }
+  .sidebar-sub-level-items a:hover {
+    background-color: var(--dark) !important;
+  }
+  /* Toggle button. */
+  .toggle-sidebar-button,
+  .close-nav-button {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--darker) !important;
+  }
 }
