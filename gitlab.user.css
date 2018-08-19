@@ -130,4 +130,21 @@
   .footer-container a {
     color: var(--accent);
   }
+
+
+  /* Navbar. */
+  .navbar {
+    background: var(--darker) !important;
+    border-color: var(--darker) !important; }
+  /* Logo text color. */
+  .navbar .logo-text svg {
+    fill: var(--lighter) !important }
+  /* Search. */
+  .navbar .search form {
+    color: var(--lighter) !important;
+    background-color: var(--dark) !important;
+    background-color: var(--dark) !important; }
+  .navbar #search {
+    color: var(--lighter) !important;
+  }
 }
