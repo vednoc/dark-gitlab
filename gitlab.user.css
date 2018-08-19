@@ -244,4 +244,57 @@
   .form-control:focus {
     box-shadow: 0 0 0.3rem 0 var(--blue);
   }
+
+
+  /* Projects dashboard. */
+  .breadcrumbs .breadcrumbs-container {
+    border-color: var(--darker) !important;
+  }
+  .breadcrumbs,
+  .breadcrumbs-sub-title a {
+    color: var(--lighter);
+  }
+
+  /* Nav section. */
+  .top-area,
+  .nav-links,
+  .wiki-page-header {
+    border-bottom-color: var(--darker);
+  }
+  .nav-links li a {
+    color: var(--light);
+  }
+  .nav-links li.active a,
+  .nav-links li:hover a {
+    color: var(--lighter);
+    border-bottom-color: var(--accent) !important;
+  }
+
+
+  /* Projects list. */
+  .projects-list > li {
+    padding: 5px 0;
+    border-bottom-color: var(--darker);
+  }
+  /* Avatar background. */
+  .avatar,
+  .avatar-circle,
+  .avatar-container {
+    border-color: var(--darker) !important;
+  }
+  .identicon {
+    color: var(--light);
+    background-color: transparent !important;
+  }
+  /* Project details. */
+  .project-details .text-plain {
+    color: var(--light);
+  }
+  .project-details .text-plain:hover {
+    color: var(--lighter);
+  }
+  .user-access-role {
+    color: var(--light);
+    border-color: var(--darker);
+  }
 }
