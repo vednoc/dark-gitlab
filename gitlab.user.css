@@ -350,6 +350,44 @@
     background-color: var(--dark);
   }
 
+
+  /* Timeline content. */
+  .timeline-entry {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: transparent;
+  }
+  /* Comments. */
+  .notes .timeline-entry-inner {
+    border-color: var(--darker) !important;
+  }
+  .note-headline-light,
+  .discussion-headline-light,
+  .note-headline-meta .system-note-separator {
+    color: var(--light);
+  }
+  .notes a:hover {
+    color: var(--accent) !important;
+  }
+
+  /* Note area. */
+  .common-note-form .md-area {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Input area. */
+  .markdown-area {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Toolbar. */
+  .comment-toolbar, .md {
+    color: var(--light);
+    border-color: var(--darker) !important;
+  }
+
+
   /* Left sidebar. */
   .nav-sidebar {
     background: var(--darker);
