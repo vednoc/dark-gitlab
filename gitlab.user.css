@@ -303,6 +303,52 @@
     border-color: var(--darker);
   }
 
+  /* Commits. */
+  .commit-header {
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
+  ul.content-list li {
+    border-color: var(--darker);
+  }
+  ul.content-list li a {
+    color: var(--lighter);
+  }
+
+  /* Branch info border color. */
+  .commit-box,
+  .info-well .well-segment:not(:last-of-type) {
+    border-color: var(--darker);
+  }
+  /* Diff summary. */
+  .diff-files-changed {
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  /* TODO: Remove if they fix diff header. */
+  .diff-files-changed .commit-stat-summary {
+    background-color: var(--transparent) !important;
+  }
+  /* Diff file header. */
+  .diff-file .file-title:hover,
+  .diff-file .file-title-flex-parent:hover,
+  .diff-file .diff-content {
+    background-color: var(--dark);
+  }
+  /* Text color. */
+  .branch-info > span,
+  .file-title-flex-parent a {
+    color: var(--light);
+  }
+  /* Badge. */
+  .info-well .badge.badge-gray {
+    color: var(--light);
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
 
   /* Left sidebar. */
   .nav-sidebar {
