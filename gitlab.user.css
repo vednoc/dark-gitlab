@@ -390,12 +390,35 @@
   /* Readme wrapper. */
   .file-holder {
     border-color: var(--darker) !important; }
+  /* Readme header. */
+  .tree-holder .file-title a:not(.btn) {
+    color: var(--lighter);
+  }
   /* Readme preview. */
   .file-holder .file-title-flex-parent,
   .file-holder .file-content {
     border-color: var(--darker);
-    background: var(--darker);
+    background: var(--dark);
   }
+
+  /* Wiki. */
+  .wiki {
+    color: var(--light);
+  }
+  .wiki h1,
+  .wiki h2 {
+    border-bottom-color: var(--darker);
+  }
+  .wiki a {
+    color: var(--accent);
+  }
+  .wiki pre,
+  .wiki code {
+    color: var(--lighter);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+
 
   /* Files. */
   .table-holder {
