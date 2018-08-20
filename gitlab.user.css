@@ -251,6 +251,8 @@
     border-color: var(--darker) !important;
   }
   .breadcrumbs,
+  .breadcrumb.repo-breadcrumb a,
+  .breadcrumbs-list > li > a,
   .breadcrumbs-sub-title a {
     color: var(--lighter);
   }
@@ -286,11 +288,14 @@
     color: var(--light);
     background-color: transparent !important;
   }
+
   /* Project details. */
-  .project-details .text-plain {
+  .project-details .text-plain,
+  .project-stats .nav .stat-link {
     color: var(--light);
   }
-  .project-details .text-plain:hover {
+  .project-details .text-plain:hover,
+  .project-stats .nav .stat-link:hover {
     color: var(--lighter);
   }
   .user-access-role {
