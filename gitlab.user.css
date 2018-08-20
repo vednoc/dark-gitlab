@@ -423,4 +423,48 @@
     border-color: var(--darker);
     background-color: var(--darker);
   }
+
+
+  /** Profile cover. */
+  .cover-block {
+    border-color: var(--darker);
+    background: var(--darker);
+  }
+  /* Profile activity. */
+  #activity > .row-content-block {
+    border-color: var(--darker) !important;
+    background-color: transparent !important;
+  }
+  /* White activity rectangles. */
+  #activity rect[fill*="#ededed"] {
+    fill: var(--darker);
+  }
+  /* Nav. */
+  .nav-links li a.active {
+    color: var(--lighter) !important;
+    border-color: var(--accent) !important;
+  }
+
+  /* Most recent activity. */
+  #activity .event-item {
+    color: var(--light);
+    border-bottom-color: var(--darker);
+  }
+  /* Text color. */
+  .cover-block .cover-desc,
+  .nothing-here-block,
+  .event-item .event-title,
+  .content-list li {
+    color: var(--light) !important;
+  }
+  /* Emphasized text color. */
+  .cover-block .cover-title,
+  .event-item a,
+  .event-item .commit-sha{
+    color: var(--lighter) !important;
+  }
+  /* Icons. */
+  [class*="pushed-"] svg {
+    fill: var(--icon) !important;
+  }
 }
