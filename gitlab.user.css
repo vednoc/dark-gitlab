@@ -641,6 +641,30 @@
   }
 
 
+
+
+  /* Issues section. */
+  .filtered-search-box {
+    border-color: var(--darker);
+    background-color: transparent;
+  }
+  /* Search field. */
+  .filtered-search-box .form-control {
+    color: var(--light) !important;
+    border-color: transparent !important;
+  }
+  /* Search field words. */
+  .filtered-search-box .name {
+    color: var(--light);
+  }
+  .filtered-search-token * {
+    color: var(--light);
+    background-color: var(--darker) !important;
+  }
+  /* Search field button. */
+  .filtered-search-box .clear-search {
+    background-color: var(--dark);
+  }
   /* Milestones page. */
   .milestones {
     background-color: var(--dark);
