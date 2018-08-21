@@ -163,6 +163,15 @@
     border-color: var(--darker) !important;
     background-color: var(--dark);
   }
+  /* Dropdown search. */
+  .dropdown-input-field,
+  .default-dropdown-input {
+    background-color: var(--dark);
+  }
+  /* Separator. */
+  .dropdown-menu [class*="dropdown-sidebar"] {
+    border-color: var(--darker);
+  }
   /* Items. */
   .dropdown-menu li a,
   .dropdown-header,
@@ -395,12 +404,17 @@
     border-right: 1px solid var(--darker) !important;
     background-color: var(--dark);
     box-shadow: none;
+    overflow: hidden;
+  }
+  .nav-sidebar > div {
+    width: calc(100% + 10px);
   }
   /* Items. */
   .nav-sidebar li a,
   .sidebar-sub-level-items a {
     color: var(--light) !important;
   }
+  .nav-sidebar .context-header > a,
   .nav-sidebar li a:hover,
   .sidebar-sub-level-items a:hover {
     color: var(--lighter) !important;
@@ -467,7 +481,6 @@
   .project-home-panel,
   .group-home-panel {
     border-bottom-color: var(--darker);
-    background-color: var(--shadow);
   }
   /* Button group. */
   .input-group-prepend,
@@ -497,6 +510,11 @@
   .btn-missing:hover {
     background-color: var(--darker) !important;
   }
+  /* Border colors. */
+  .banner-callout.banner-non-empty-state,
+  .project-stats {
+    border-bottom-color: var(--darker);
+  }
 
   /* Latest commit message.. */
   .info-well {
@@ -518,6 +536,7 @@
 
   /* Readme wrapper. */
   .file-holder {
+    overflow: hidden;
     border-color: var(--darker) !important; }
   /* Readme header. */
   .tree-holder .file-title a:not(.btn) {
@@ -577,7 +596,7 @@
   }
 
 
-  /** Profile cover. */
+  /* Profile cover. */
   .cover-block {
     border-color: var(--darker);
     background: var(--darker);
@@ -605,6 +624,7 @@
   /* Text color. */
   .cover-block .cover-desc,
   .nothing-here-block,
+  .calendar-hint,
   .event-item .event-title,
   .content-list li {
     color: var(--light) !important;
