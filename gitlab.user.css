@@ -426,6 +426,38 @@
     border-color: var(--darker);
     background-color: var(--dark) !important;
   }
+
+
+  /* Right sidebar. */
+  .right-sidebar {
+    border-left-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Separator. */
+  .right-sidebar .block {
+    border-bottom-color: var(--darker);
+  }
+  .right-sidebar.right-sidebar-collapsed .block:hover {
+    background-color: var(--darker) !important;
+  }
+  /* Text color. */
+  .right-sidebar .title {
+    color: var(--lighter);
+  }
+  .right-sidebar .no-value {
+    color: var(--light) !important;
+  }
+  .right-sidebar .btn-link,
+  .right-sidebar .edit-link,
+  .right-sidebar .lock-edit,
+  .right-sidebar .confidential-edit {
+    color: var(--lighter) !important;
+  }
+  /* Icons. */
+  .right-sidebar .fa,
+  .right-sidebar svg {
+    color: var(--icon) !important;
+    fill: var(--icon) !important;
   }
 
 
