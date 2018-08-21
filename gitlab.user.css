@@ -686,6 +686,39 @@
   }
 
 
+  /* Issues :: Board section. */
+  .board-inner {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .board-blank-state,
+  .board-promotion-state {
+    background-color: var(--dark);
+  }
+  /* Cards. */
+  .board-card {
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+    box-shadow: none;
+  }
+  .board-card.is-active,
+  .board-card.is-active .board-card-assignee:hover a {
+    background-color: var(--darker);
+  }
+  /* Text color. */
+  .board-title,
+  .issue-count-badge {
+    color: var(--light) !important;
+    border-color: var(--darker);
+  }
+  .board-card-title a {
+    color: var(--lighter);
+  }
+  .board-card-number {
+    color: var(--light);
+  }
+
+
   /* Milestones page. */
   .milestones {
     background-color: var(--dark);
