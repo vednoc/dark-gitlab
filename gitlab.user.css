@@ -665,6 +665,27 @@
   .filtered-search-box .clear-search {
     background-color: var(--dark);
   }
+
+  /* Issue section colors. */
+  .detail-page-header,
+  .issuable-details .content-block {
+    color: var(--light);
+    border-color: var(--darker);
+  }
+  /* Buttons. */
+  .award-control.user-authored {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Created branch button. */
+  .issuable-details code {
+    color: var(--lighter) !important;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+
+
   /* Milestones page. */
   .milestones {
     background-color: var(--dark);
