@@ -719,6 +719,22 @@
   }
 
 
+  /* Issues :: Labels. */
+  .labels-container {
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  .manage-labels-list>li:not(.empty-message):not(.is-not-draggable) {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .label-badge-gray {
+    color: var(--light);
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+
+
   /* Milestones page. */
   .milestones {
     background-color: var(--dark);
