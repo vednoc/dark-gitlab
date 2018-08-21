@@ -646,4 +646,25 @@
     color: var(--light);
     background-color: var(--green) !important;
   }
+
+
+  /* Pagination. */
+  .page-item .page-link {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Selected. */
+  .page-item.active .page-link,
+  .page-item .page-link:hover {
+    color: var(--lighter);
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
+  /* Disabled. */
+  .page-item.disabled .page-link {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
 }
