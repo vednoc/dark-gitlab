@@ -114,9 +114,9 @@
     background: var(--dark) !important;
   }
   /* Misc text color. */
-  .login-page .light,
-  .login-page .description-block {
-    color: var(--light);
+  .light,
+  .description-block {
+    color: var(--light) !important;
   }
 
   /* Footer. */
@@ -263,12 +263,14 @@
   .wiki-page-header {
     border-bottom-color: var(--darker);
   }
-  .nav-links li a {
-    color: var(--light);
+  .nav-links li a,
+  .nav-links li a .badge.badge-pill {
+    color: var(--light) !important;
   }
   .nav-links li.active a,
-  .nav-links li:hover a {
-    color: var(--lighter);
+  .nav-links li:hover a,
+  .nav-links li.active a .badge.badge-pill {
+    color: var(--lighter) !important;
     border-bottom-color: var(--accent) !important;
   }
 
@@ -616,5 +618,32 @@
   /* Icons. */
   [class*="pushed-"] svg {
     fill: var(--icon) !important;
+  }
+
+
+  /* Milestones page. */
+  .milestones {
+    background-color: var(--dark);
+  }
+  .milestones .milestone,
+  .milestones .status-box {
+    color: var(--light);
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  /* Text color. */
+  .milestone-range {
+    color: var(--light);
+  }
+  .milestone .milestone-progress a {
+    color: var(--accent) !important;
+  }
+  /* Bar background. */
+  .milestone .progress {
+    background-color: var(--darker);
+  }
+  .bg-success {
+    color: var(--light);
+    background-color: var(--green) !important;
   }
 }
