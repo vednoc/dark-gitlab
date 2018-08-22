@@ -413,10 +413,15 @@
     color: var(--accent) !important;
   }
 
-  /* Note area. */
+  /* Issues :: Details - add comment. */
   .common-note-form .md-area {
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  /* On focus. */
+  .common-note-form .md-area.is-focused {
+    outline: none !important;
+    box-shadow: 0 0 2px 4px var(--shadow) !important;
   }
   /* Input area. */
   .markdown-area {
@@ -424,9 +429,17 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  /* Toolbar. */
-  .comment-toolbar, .md {
+  /* Toolbar colors. */
+  .edited-text,
+  .comment-toolbar,
+  .nav-links,
+  .md {
     color: var(--light);
+    border-color: var(--darker) !important;
+  }
+  /* Markdown selectors. */
+  .md h1,
+  .md h2 {
     border-color: var(--darker) !important;
   }
   .md pre {
@@ -440,6 +453,10 @@
   /* Images. */
   .md img:not(.emoji) {
     border-color: var(--darker);
+  }
+  /* Attach a file. */
+  .markdown-selector {
+    color: var(--accent);
   }
   /* Fullscreen (zen) mode. */
   .zen-backdrop.fullscreen {
