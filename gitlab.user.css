@@ -827,6 +827,34 @@
   }
 
 
+  /* Calendar. */
+  .pika-single {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Header. */
+  .pika-single .pika-label {
+    color: var(--lighter) !important;
+    background-color: transparent;
+  }
+  /* Cells. */
+  .pika-single td {
+    border-color: var(--darker) !important;
+  }
+  .pika-single .pika-day {
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Active. */
+  .pika-single .pika-day:hover,
+  .pika-single .is-today .pika-day,
+  .pika-single .is-selected .pika-day {
+    color: var(--lighter) !important;
+    background-color: var(--darker) !important;
+  }
+
+
   /* Pagination. */
   .page-item .page-link {
     color: var(--light);
