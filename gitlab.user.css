@@ -789,7 +789,7 @@
   }
 
 
-  /* Milestones page. */
+  /* Issues :: Milestones. */
   .milestones {
     background-color: var(--dark);
   }
@@ -813,6 +813,17 @@
   .bg-success {
     color: var(--light);
     background-color: var(--green) !important;
+  }
+  /* Create milestone footer. */
+  .form-actions,
+  hr {
+    border-top-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Promotional. */
+  .user-callout.promotion-callout .bordered-box {
+    border-color: var(--darker);
+    background-color: var(--dark);
   }
 
 
