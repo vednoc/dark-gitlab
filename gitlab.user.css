@@ -61,12 +61,14 @@
   }
 
 
-  /* Bootstrap reset. */
+  /* Button reset. */
   .btn, .btn:hover {
+    transition: 200ms ease-in-out !important;
     color: var(--lighter);
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  /* Various green buttons. */
   .btn.btn-success,
   .btn.btn-new,
   .btn.btn-create,
@@ -74,14 +76,27 @@
   .btn.btn-save {
     color: var(--lighter) !important;
     border-color: var(--green) !important;
-    background-color: var(--green) !important;
+    background-color: var(--dark) !important;
   }
-  /* Global. */
-  [class^="btn"] {
-    transition: 200ms ease-in-out !important;
+  /* Close buttons. */
+  .btn.btn-close,
+  .btn.btn-close-color {
+    color: var(--lighter) !important;
+    border-color: var(--red) !important;
+    background-color: var(--dark) !important;
   }
-  [class^="btn"]:hover {
-    opacity: 0.7 !important;
+  /* Disabled buttons. */
+  .btn[disabled],
+  .btn[disabled]:hover {
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+    opacity: 0.6 !important;
+  }
+  /* On event. */
+  .btn:hover:not([disabled="disabled"]),
+  .btn:focus:not([disabled="disabled"]) {
+    transform: translateY(-2px);
   }
 
 
