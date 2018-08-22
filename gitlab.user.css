@@ -389,6 +389,11 @@
   .note-headline-meta .system-note-separator {
     color: var(--light);
   }
+  /* Text color. */
+  ul.notes>li .note-body .note-text blockquote p, ul.notes>li .note-body .note-text .blockquote p {
+    color: var(--light) !important;
+  }
+  .notes a,
   .notes a:hover {
     color: var(--accent) !important;
   }
@@ -408,6 +413,18 @@
   .comment-toolbar, .md {
     color: var(--light);
     border-color: var(--darker) !important;
+  }
+  .md pre {
+    border-color: var(--darker);
+  }
+  .md blockquote,
+  .blockquote {
+    border-left-color: var(--accent) !important;
+    background-color: var(--shadow);
+  }
+  /* Images. */
+  .md img:not(.emoji) {
+    border-color: var(--darker);
   }
   /* Fullscreen (zen) mode. */
   .zen-backdrop.fullscreen {
@@ -663,7 +680,7 @@
 
 
 
-  /* Issues section. */
+  /* Issues :: List. */
   .filtered-search-box {
     border-color: var(--darker);
     background-color: transparent;
@@ -686,20 +703,22 @@
     background-color: var(--dark);
   }
 
-  /* Issue section colors. */
+  /* Issues :: Details. */
   .detail-page-header,
   .issuable-details .content-block {
     color: var(--light);
     border-color: var(--darker);
   }
   /* Buttons. */
+  .award-control.is-active,
   .award-control.user-authored {
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
   /* Created branch button. */
-  .issuable-details code {
+  .issuable-details p > code,
+  a.gfm-project_member {
     color: var(--lighter) !important;
     border: 1px solid var(--darker);
     background-color: var(--dark);
