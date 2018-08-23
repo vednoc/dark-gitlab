@@ -476,30 +476,45 @@
     border-right: 1px solid var(--darker) !important;
     background-color: var(--dark);
     box-shadow: none;
-    overflow: hidden;
   }
-  .nav-sidebar > div {
-    width: calc(100% + 10px);
+  /* Hide scrollbar. */
+  .nav-sidebar ::-webkit-scrollbar {
+    display: none !important;
   }
   /* Items. */
   .nav-sidebar li a,
-  .sidebar-sub-level-items a {
+  .sidebar-sub-level-items a,
+  .nav-sidebar .context-header > a {
     color: var(--light) !important;
   }
-  .nav-sidebar .context-header > a,
   .nav-sidebar li a:hover,
   .sidebar-sub-level-items a:hover {
     color: var(--lighter) !important;
-    background-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
   }
+
   /* Active sub-menu. */
   .nav-sidebar li.active {
-    background-color: var(--darker) !important;
+    box-shadow: inset 4px 0 0 0 var(--accent) !important;
+    background-color: var(--shadow) !important;
   }
+  .nav-sidebar li.active .badge {
+    color: var(--lighter) !important;
+  }
+  .nav-sidebar li.active svg,
+  .toggle-sidebar-button svg {
+    fill: var(--accent) !important;
+  }
+
   /* Collapse button. */
   .nav-sidebar .toggle-sidebar-button {
-    width: calc(100% - 10px);
+    transition: 200ms ease-in-out !important;
+    height: 44px;
   }
+  .toggle-sidebar-button .collapse-text {
+    color: var(--light) !important;
+  }
+
   /* Dropdown. */
   .is-showing-fly-out .sidebar-sub-level-items {
     box-shadow: 2px 1px 3px var(--shadow) !important;
