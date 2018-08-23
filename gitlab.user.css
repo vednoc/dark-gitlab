@@ -181,6 +181,11 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  /* Title. */
+  .dropdown-title {
+    color: var(--lighter);
+    border-bottom-color: var(--darker);
+  }
   /* Dropdown toggle. */
   .dropdown-toggle,
   .dropdown-menu-toggle {
@@ -194,6 +199,7 @@
     background-color: var(--dark);
   }
   /* Separator. */
+  .dropdown-menu .divider,
   .dropdown-menu [class*="dropdown-sidebar"] {
     border-color: var(--darker);
   }
@@ -206,11 +212,8 @@
   .navbar-sub-nav {
     color: var(--light) !important;
   }
-  /* Divider. */
-  .dropdown-menu .divider {
-    border-color: var(--darker);
-  }
   /* On event. */
+  .dropdown-menu li button:hover,
   .dropdown-menu li a:not(.disable-hover):hover,
   .dropdown-menu li a.is-focused {
     color: var(--light);
