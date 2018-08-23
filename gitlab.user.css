@@ -774,6 +774,23 @@
     background-color: var(--dark);
   }
 
+  /* Cards. */
+  .card, .card-slim {
+    overflow: hidden;
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .card-header {
+    background-color: var(--dark);
+  }
+
+  /* Emoji picker. */
+  .emoji-menu {
+    border-radius: 4px;
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+
 
   /* Issues :: Board section. */
   .board-inner {
