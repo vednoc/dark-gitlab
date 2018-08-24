@@ -204,7 +204,14 @@
   /* Dropdown search. */
   .dropdown-input-field,
   .default-dropdown-input {
+    border-color: var(--darker);
     background-color: var(--dark);
+  }
+  /* On event. */
+  .dropdown-input-field:focus,
+  .default-dropdown-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 1px 3px var(--shadow);
   }
   /* Separator. */
   .dropdown-menu .divider,
@@ -235,6 +242,10 @@
   .dropdown.show > a {
     color: var(--lighter) !important;
     background-color: var(--dark) !important;
+  }
+  /* Text color. */
+  .dropdown-toggle-text.is-default {
+    color: var(--light);
   }
   /* Icon colors. */
   .nav a svg,
