@@ -78,6 +78,14 @@
     border-color: var(--green) !important;
     background-color: var(--dark) !important;
   }
+  /* Blue buttons. */
+  .btn.btn-info,
+  .btn.btn-primary,
+  .btn.btn-register {
+    color: var(--lighter) !important;
+    border-color: var(--blue) !important;
+    background-color: var(--blue) !important;
+  }
   /* Close buttons. */
   .btn.btn-close,
   .btn.btn-close-color {
