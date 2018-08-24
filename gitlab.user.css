@@ -762,6 +762,42 @@
   }
 
 
+  /* Issues/Todos. */
+  .row-content-block,
+  .issue.today {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .todos-list > .todo {
+    border-bottom-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Text color. */
+  .issuable-milestone,
+  .issuable-info,
+  .task-status,
+  .issuable-updated-at {
+    color: var(--light) !important;
+  }
+  .author-link {
+    color: var(--accent) !important;
+  }
+  /* Merged/closed. */
+  .merge-request.merged,
+  .issue.merged,
+  .merge-request.closed,
+  .issue.closed {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Item on hover. */
+  .card > ul > li:hover,
+  .todos-list > .todo:hover {
+    border-top-color: transparent !important;
+    border-bottom-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
+  }
 
 
   /* Issues :: List. */
