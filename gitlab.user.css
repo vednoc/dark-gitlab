@@ -343,10 +343,11 @@
   .avatar-circle,
   .avatar-container {
     border-color: var(--darker) !important;
+    background-color: transparent !important;
   }
+  .avatar-container,
   .identicon {
     color: var(--light);
-    background-color: transparent !important;
   }
 
   /* Project details. */
@@ -379,6 +380,13 @@
   .commit-box,
   .info-well .well-segment:not(:last-of-type) {
     border-color: var(--darker);
+  }
+  /* Recently pushed branches. */
+  .container-fluid > .row-content-block.white {
+    border-radius: 4px;
+    border-left: 1px solid var(--darker);
+    border-right: 1px solid var(--darker);
+    background-color: var(--dark);
   }
   /* Diff summary. */
   .diff-files-changed {
@@ -706,6 +714,13 @@
   .cover-block {
     border-color: var(--darker);
     background: var(--darker);
+  }
+  /* Scrolling tabs. */
+  .scrolling-tabs-container .fade-right {
+    background: linear-gradient(to left, var(--darker) 45%, transparent);
+  }
+  .scrolling-tabs-container .fade-left {
+    background: linear-gradient(to right, var(--darker) 45%, transparent);
   }
   /* Profile activity. */
   #activity > .row-content-block {
