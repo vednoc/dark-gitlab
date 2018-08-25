@@ -42,11 +42,6 @@
     background: var(--accent);
   }
 
-  body {
-    color: var(--light) !important;
-    background-color: var(--dark) !important;
-  }
-
   h1, h2, h3, h4, h5, h6, p {
     color: var(--lighter) !important;
   }
@@ -68,7 +63,7 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  /* Various green buttons. */
+  /* Green buttons. */
   .btn.btn-success,
   .btn.btn-new,
   .btn.btn-create,
@@ -107,8 +102,13 @@
     transform: translateY(-2px);
   }
 
+  /* Global styles. */
+  [class*="author-link"] {
+    color: var(--accent) !important;
+  }
 
   /* Sign in page. */
+  body,
   body.navless {
     color: var(--light) !important;
     background-color: var(--dark) !important;
@@ -388,9 +388,10 @@
   }
   /* Recently pushed branches. */
   .container-fluid > .row-content-block.white {
+    margin-top: 10px;
     border-radius: 4px;
-    border-left: 1px solid var(--darker);
-    border-right: 1px solid var(--darker);
+    border: 1px solid var(--darker);
+    border-top: 2px solid var(--accent);
     background-color: var(--dark);
   }
   /* Diff summary. */
@@ -785,9 +786,6 @@
   .task-status,
   .issuable-updated-at {
     color: var(--light) !important;
-  }
-  .author-link {
-    color: var(--accent) !important;
   }
   /* Merged/closed. */
   .merge-request.merged,
