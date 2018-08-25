@@ -718,14 +718,17 @@
   /* Profile cover. */
   .cover-block {
     border-color: var(--darker);
-    background: var(--darker);
+    background: var(--dark);
   }
   /* Scrolling tabs. */
+  .scrolling-tabs-container {
+    background-color: var(--dark);
+  }
   .scrolling-tabs-container .fade-right {
-    background: linear-gradient(to left, var(--darker) 45%, transparent);
+    background: linear-gradient(to left, var(--dark) 45%, transparent);
   }
   .scrolling-tabs-container .fade-left {
-    background: linear-gradient(to right, var(--darker) 45%, transparent);
+    background: linear-gradient(to right, var(--dark) 45%, transparent);
   }
   /* Profile activity. */
   #activity > .row-content-block {
