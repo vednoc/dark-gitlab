@@ -336,7 +336,12 @@
   /* Projects list. */
   .projects-list > li {
     padding: 5px 0;
+    transition: 200ms ease-in-out;
     border-bottom-color: var(--darker);
+  }
+  /* On event. */
+  .projects-list > li:hover {
+    background-color: var(--shadow);
   }
   /* Avatar background. */
   .avatar,
@@ -762,16 +767,14 @@
   }
 
 
-  /* Issues/Todos. */
-  .row-content-block,
-  .issue.today {
+  /* Dashboard. */
+  .row-content-block {
     color: var(--light);
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  .todos-list > .todo {
-    border-bottom-color: var(--darker);
-    background-color: var(--dark);
+  [class*="card"] > ul > li {
+    transition: 200ms ease-in-out;
   }
   /* Text color. */
   .issuable-milestone,
@@ -790,6 +793,11 @@
   .issue.closed {
     border-color: var(--darker);
     background-color: var(--dark);
+  }
+  /* New issues. */
+  .issue.today {
+    border-color: var(--darker);
+    background-color: var(--shadow);
   }
   /* Item on hover. */
   .card > ul > li:hover,
