@@ -333,12 +333,16 @@
   }
   /* Form control. */
   .form-control {
+    transition: 200ms ease-in-out !important;
     color: var(--lighter) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
+  /* On event. */
+  .form-control:hover,
   .form-control:focus {
-    box-shadow: 0 0 0.3rem 0 var(--blue);
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 2px 1px var(--shadow);
   }
 
 
