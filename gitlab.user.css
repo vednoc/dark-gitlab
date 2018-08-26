@@ -46,7 +46,7 @@
   }
 
   h1, h2, h3, h4, h5, h6, p {
-    color: var(--lighter) !important;
+    color: var(--light) !important;
   }
 
   a {
@@ -724,16 +724,20 @@
   }
   .wiki h1,
   .wiki h2 {
-    border-bottom-color: var(--darker);
+    color: var(--lighter) !important;
+    border-bottom-color: var(--darker) !important;
   }
   .wiki a {
-    color: var(--accent);
+    color: var(--accent) !important;
   }
   .wiki pre,
   .wiki code {
-    color: var(--lighter);
-    border-color: var(--darker);
-    background-color: var(--dark);
+    color: var(--lighter) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .wiki > p > code {
+    border: 1px solid var(--darker) !important;
   }
 
 
