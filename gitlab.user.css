@@ -16,6 +16,8 @@
 @var color green   "Green color."   #70A352
 @var color red     "Red color."     #A3525B
 @var color shadow  "Shadow"         rgba(0,0,0,0.07)
+
+@var text maxWidth "Fixed width"    1280px
 ==/UserStyle== */
 
 @-moz-document domain("gitlab.com") {
@@ -30,6 +32,7 @@
     --red:     /*[[red]]*/;
     --green:   /*[[green]]*/;
     --blue:    /*[[blue]]*/;
+    --width:   /*[[maxWidth]]*/;
   }
 
   ::-webkit-scrollbar {
@@ -1050,5 +1053,11 @@
     color: var(--light);
     border-color: var(--darker);
     background-color: var(--darker);
+  }
+
+
+  /* Custom width for fixed width layout. */
+  .container-limited {
+    max-width: var(--width) !important;
   }
 }
