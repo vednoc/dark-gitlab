@@ -180,6 +180,14 @@
   .navbar #search {
     color: var(--lighter) !important;
   }
+  /* Collapsable nav. */
+  .navbar-collapse ul > li:hover a {
+    background-color: var(--dark) !important;
+  }
+  /* Input placeholder. */
+  .navbar input::placeholder {
+    color: var(--light) !important;
+  }
 
 
   /* Dropdowns. */
@@ -230,7 +238,10 @@
   /* On event. */
   .dropdown-menu li button:hover,
   .dropdown-menu li a:not(.disable-hover):hover,
-  .dropdown-menu li a.is-focused {
+  .dropdown-menu li a:focus,
+  .dropdown-menu li a.is-focused,
+  .dropdown-menu .droplab-item-selected > .menu-item,
+  .dropdown-menu > li:hover > .menu-item {
     color: var(--light);
     background-color: var(--darker) !important;
   }
@@ -246,6 +257,9 @@
   /* Text color. */
   .dropdown-toggle-text.is-default {
     color: var(--light);
+  }
+  .dropdown-menu .form-group label {
+    color: var(--lighter);
   }
   /* Icon colors. */
   .nav a svg,
