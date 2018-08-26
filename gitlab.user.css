@@ -268,6 +268,29 @@
   }
 
 
+  /* A brand new dropdown? */
+  .select2-drop,
+  .select2-drop.select2-drop-above {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Input/select elements. */
+  .select2-choice,
+  .select2-drop input {
+    color: var(--light) !important;
+    border-color: var(--darker);
+    background-color: transparent !important;
+  }
+  /* On event. */
+  .select2-results .select2-highlighted {
+    color: var(--lighter);
+  }
+  .select2-results .select2-highlighted .select2-result-label {
+    background-color: var(--darker);
+  }
+
+
   /* New project. */
   .gitlab-tabs {
     border-color: var(--darker) !important;
