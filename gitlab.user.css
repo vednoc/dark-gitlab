@@ -76,7 +76,8 @@
   /* Blue buttons. */
   .btn.btn-info,
   .btn.btn-primary,
-  .btn.btn-register {
+  .btn.btn-register,
+  .project-feature-toggle.is-checked {
     color: var(--lighter) !important;
     border-color: var(--blue) !important;
     background-color: var(--blue) !important;
@@ -607,17 +608,21 @@
     background-color: var(--dark);
   }
   /* Separator. */
-  .right-sidebar .block {
-    border-bottom-color: var(--darker);
+  .right-sidebar .block,
+  .right-sidebar .gutter-toggle {
+    border-bottom-color: var(--darker) !important;
   }
+  /* Button background. */
+  .right-sidebar .js-move-issue:hover,
   .right-sidebar.right-sidebar-collapsed .block:hover {
-    background-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
   }
   /* Text color. */
   .right-sidebar .title {
     color: var(--lighter);
   }
-  .right-sidebar .no-value {
+  .right-sidebar .no-value,
+  .right-sidebar .sidebar-collapsed-icon {
     color: var(--light) !important;
   }
   .right-sidebar .btn-link,
