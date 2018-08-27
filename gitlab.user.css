@@ -1098,6 +1098,32 @@
   }
 
 
+  /* Docs :: Search results. */
+  .algolia-autocomplete [class*="dataset"],
+  .algolia-autocomplete [class*="docsearch-s"] {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Remove shadow. */
+  .algolia-autocomplete .ds-dropdown-menu {
+    box-shadow: 0 4px 16px -4px var(--shadow);
+  }
+  /* Header. */
+  .algolia-autocomplete [class*="header"] {
+    color: var(--lighter) !important;
+    border-bottom-color: var(--darker) !important;
+  }
+  /* Separator. */
+  .algolia-autocomplete .algolia-docsearch-suggestion--content::before {
+    background: var(--darker) !important;
+  }
+  /* Matching result. */
+  .algolia-autocomplete [class*="highlight"] {
+    box-shadow: inset 0 -2px 0 0 var(--blue) !important;
+  }
+
+
   /* Custom width for fixed width layout. */
   .container-limited {
     max-width: var(--width) !important;
