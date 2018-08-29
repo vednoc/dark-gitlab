@@ -524,6 +524,9 @@
   .md h2 {
     border-color: var(--darker) !important;
   }
+  .md hr {
+    border-color: var(--darker);
+  }
   .md pre {
     border-color: var(--darker);
   }
@@ -1079,6 +1082,43 @@
   .line-resolve-all {
     border-color: var(--darker);
     background-color: var(--dark);
+  }
+
+
+  /* Merge Requests :: Notes. */
+  .discussion-body .notes .note,
+  .diff-file .notes .note {
+    border-bottom-color: var(--darker);
+  }
+  /* Reply. */
+  .discussion-body .discussion-reply-holder,
+  .diff-file .discussion-reply-holder {
+    background-color: var(--dark);
+  }
+  /* Text color. */
+  .timeline .system-note .note-text,
+  .notes .note-body .note-text {
+    color: var(--light) !important;
+  }
+  .notes .system-note .system-note-commit-list-toggler {
+    color: var(--accent) !important;
+  }
+  /* Table. */
+  .notes .note-body .note-text table,
+  .notes .note-body .note-text table {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+  }
+  .notes .note-body .note-text table tr th {
+    border: 1px solid var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .notes .note-body .note-text table tr td {
+    border-color: var(--darker) !important;
+  }
+  /* Commit list. */
+  .notes .system-note .note-body .note-text:not(.hide-shade)::after {
+    background: linear-gradient(transparent -100px, var(--dark) 100%) !important;
   }
 
 
