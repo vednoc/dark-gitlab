@@ -63,7 +63,9 @@
 
 
   /* Button reset. */
-  .btn, .btn:hover {
+  .btn,
+  .btn:hover,
+  .btn:focus {
     transition: 200ms ease-in-out !important;
     color: var(--lighter);
     border-color: var(--darker);
@@ -95,7 +97,15 @@
     border-color: var(--red) !important;
     background-color: var(--dark) !important;
   }
+  /* Inverted buttons. */
+  .btn.btn-inverted.btn-remove {
+    color: var(--red);
+    border-color: var(--red);
+    background-color: var(--dark);
+  }
   /* Disabled buttons. */
+  .btn.disabled,
+  .btn.disabled:hover,
   .btn[disabled],
   .btn[disabled]:hover {
     color: var(--lighter) !important;
