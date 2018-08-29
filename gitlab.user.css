@@ -1122,6 +1122,24 @@
   }
 
 
+  /* Merge Requests :: Diff. */
+  .diff-file .notes_holder .notes_line {
+    color: var(--light) !important;
+    border-color: var(--dark) !important;
+    border-right-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .diff-file .notes_holder .notes_content {
+    color: var(--light) !important;
+    border-color: var(--dark) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Discussion. */
+  .diff-file .notes_holder .notes_content .notes {
+    background-color: var(--dark) !important;
+  }
+
+
   /* Docs :: Landing. */
   .landing .landing-header-top {
     border-color: var(--shadow) !important;
