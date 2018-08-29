@@ -432,6 +432,34 @@
   .info-well .well-segment:not(:last-of-type) {
     border-color: var(--darker);
   }
+
+  /* Invalid GPG button. */
+  .gpg-status-box.invalid,
+  .gpg-status-box.invalid:focus {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Popover. */
+  .popover {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .popover-header {
+    border-bottom-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
+  }
+  .popover-body {
+    color: var(--light) !important;
+  }
+  /* Arrow. */
+  .arrow::after {
+    border-top-color: var(--dark) !important;
+  }
+  .arrow::before {
+    border-top-color: var(--darker) !important;
+  }
+
   /* Recently pushed branches. */
   .container-fluid > .row-content-block.white {
     margin-top: 10px;
