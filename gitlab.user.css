@@ -416,6 +416,15 @@
     color: var(--light);
     border-color: var(--darker);
   }
+  /* Empty project. */
+  .project-empty-note-panel {
+    border-color: var(--darker);
+  }
+  .git-empty pre.bg-light {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
 
   /* Commits. */
   .commit-header {
@@ -455,10 +464,10 @@
     color: var(--light) !important;
   }
   /* Arrow. */
-  .arrow::after {
+  .popover .arrow::after {
     border-top-color: var(--dark) !important;
   }
-  .arrow::before {
+  .popover .arrow::before {
     border-top-color: var(--darker) !important;
   }
 
