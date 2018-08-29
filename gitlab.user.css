@@ -1061,6 +1061,27 @@
   }
 
 
+  /* Merge Requests :: Details. */
+  .merge-request-tabs-holder {
+    border-bottom-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Nav background. */
+  .limit-container-width .merge-request-tabs-container .inner-page-scroll-tabs {
+    background-color: transparent;
+  }
+  /* Active tab. */
+  .nav-links .active a,
+  .nav-links li a.active {
+    border-bottom-color: var(--accent);
+  }
+  /* Resolved. */
+  .line-resolve-all {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+
+
   /* Docs :: Landing. */
   .landing .landing-header-top {
     border-color: var(--shadow) !important;
