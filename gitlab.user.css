@@ -286,9 +286,11 @@
     background-color: var(--dark) !important;
   }
   /* Text color. */
+  .dropdown-menu-inner-content,
   .dropdown-toggle-text.is-default {
     color: var(--light);
   }
+  .dropdown-menu-inner-title,
   .dropdown-menu .form-group label {
     color: var(--lighter);
   }
@@ -310,7 +312,7 @@
   .select2-choice,
   .select2-drop input {
     color: var(--light) !important;
-    border-color: var(--darker);
+    border-color: var(--darker) !important;
     background-color: transparent !important;
   }
   /* On event. */
@@ -343,6 +345,9 @@
     border-color: var(--darker);
   }
   /* Inputs. */
+  .input-group .input-group-btn {
+    background: transparent !important;
+  }
   .gitlab-tab-content [class*="input-group"] {
     color: var(--lighter) !important;
     border-color: var(--darker) !important;
@@ -1028,7 +1033,8 @@
   }
   /* Created branch button. */
   .issuable-details p > code,
-  a.gfm-project_member {
+  a.gfm-project_member,
+  .notes .note-body .note-text code {
     color: var(--lighter) !important;
     border: 1px solid var(--darker);
     background-color: var(--dark);
@@ -1404,6 +1410,12 @@
     color: var(--accent);
     border: 1px solid var(--darker);
     background-color: var(--dark);
+  }
+
+
+  /* Prevent horizontal scrollbar from showing up because of tooltips. */
+  .tooltip {
+    position: fixed !important;
   }
 
 
