@@ -989,6 +989,23 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  /* Emoji autocomplete. */
+  .atwho-view {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+    box-shadow: 0 0 5px var(--shadow);
+  }
+  /* Matching text. */
+  .atwho-view .atwho-view-ul li strong {
+    color: var(--lighter);
+  }
+  /* Selected. */
+  .atwho-view .atwho-view-ul li:hover,
+  .atwho-view .atwho-view-ul li.cur {
+    color: var(--lighter);
+    background-color: var(--darker);
+  }
 
 
   /* Issues :: Board section. */
