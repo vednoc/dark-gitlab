@@ -1488,4 +1488,34 @@
   .dirty-diff-modified {
     background-color: var(--blue);
   }
+
+
+  /* IDE :: Monaco syntax. */
+  .mtk1 {
+    color: var(--light);
+  }
+  .mtk3 {
+    color: var(--light);
+  }
+  .mtk4 {
+    color: var(--red);
+  }
+  .mtk5 {
+    color: var(--blue);
+  }
+  .mtk6 {
+    color: var(--blue);
+  }
+  .mtk8 {
+    color: var(--green);
+  }
+  .mtk10 {
+    color: var(--lighter);
+  }
+  .mtk14 {
+    color: var(--magenta);
+  }
+  .mtk22 {
+    color: var(--cyan);
+  }
 }
