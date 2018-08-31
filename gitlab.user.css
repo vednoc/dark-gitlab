@@ -1415,4 +1415,30 @@
     color: var(--lighter) !important;
     background-color: var(--red) !important;
   }
+
+
+  /* IDE :: Edit area. */
+  .multi-file-edit-pane,
+  .ide-mode-tabs {
+    border-color: var(--darker);
+  }
+  /* Resize. */
+  .drag-handle:hover {
+    width: 4px;
+    background-color: var(--darker);
+  }
+  /* Tabs. */
+  .multi-file-tabs {
+    background-color: var(--dark);
+    box-shadow: inset 0 -1px var(--darker);
+  }
+  /* Items. */
+  .multi-file-tabs li {
+    border-color: var(--darker);
+    background-color: var(--shadow);
+  }
+  .multi-file-tabs li.active {
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
 }
