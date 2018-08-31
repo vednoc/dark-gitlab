@@ -1387,4 +1387,32 @@
   .multi-file-commit-form > .commit-form-compact {
     border-top-color: var(--darker);
   }
+
+
+  /* IDE :: Right sidebar. */
+  .ide-view .multi-file-commit-panel {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Jobs. */
+  .ide-view .card-header,
+  .ide-view .ide-job-item:not(:last-child) {
+    border-color: var(--darker);
+  }
+  /* Build header. */
+  .build-page .top-bar {
+    color: var(--lighter) !important;
+    border-color: var(--dark) !important;
+    background-color: var(--darker) !important;
+  }
+  /* Build log. */
+  .build-page .build-trace {
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  /* Red alert. */
+  .flash-container .flash-alert {
+    color: var(--lighter) !important;
+    background-color: var(--red) !important;
+  }
 }
