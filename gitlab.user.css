@@ -1355,4 +1355,36 @@
   .ide-sidebar-link.active::after {
     background-color: var(--dark);
   }
+
+
+  /* IDE :: Left sidebar. */
+  .multi-file-commit-panel-inner-content,
+  .multi-file-commit-form {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Icons. */
+  .ide-tree-header button {
+    color: var(--icon);
+  }
+  /* Branch on hover */
+  .ide-tree-header button:hover {
+    color: var(--light) !important;
+    background-color: var(--darker) !important;
+  }
+  /* File tree. */
+  .ide-tree-header {
+    border-bottom-color: var(--darker);
+  }
+  /* Selected. */
+  .ide-file-list .file:hover,
+  .ide-file-list .file.file-active,
+  .multi-file-commit-list-path:hover,
+  .multi-file-commit-list-path.is-active {
+    background-color: var(--darker);
+  }
+  /* Commit changes. */
+  .multi-file-commit-form > .commit-form-compact {
+    border-top-color: var(--darker);
+  }
 }
