@@ -103,6 +103,10 @@
     border-color: var(--red);
     background-color: var(--dark);
   }
+  /* Blank buttons. */
+  .btn-blank {
+    background: transparent !important;
+  }
   /* Disabled buttons. */
   .btn.disabled,
   .btn.disabled:hover,
@@ -1318,5 +1322,37 @@
   /* Custom width for fluid layout; enables us to emulate the fixed width layout without altering many elements. */
   .layout-page .container-fluid {
     max-width: var(--width) !important;
+  }
+
+
+  /* IDE! */
+  .ide-view {
+    color:  var(--light);
+  }
+  /* Status/activity bars. */
+  .ide-right-sidebar .ide-activity-bar,
+  .ide-status-bar {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Left sidebar title. */
+  .ide-view .context-header > a,
+  .ide-view .text-secondary {
+    color: var(--light) !important;
+  }
+  /* On event. */
+  .ide-sidebar-link:focus,
+  .ide-sidebar-link:hover {
+    background-color: var(--darker);
+  }
+  /* Active mode. */
+  .ide-sidebar-link.active {
+    color: var(--accent) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+    box-shadow: inset 3px 0 var(--accent) !important;
+  }
+  .ide-sidebar-link.active::after {
+    background-color: var(--dark);
   }
 }
