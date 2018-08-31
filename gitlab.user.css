@@ -1441,4 +1441,51 @@
     border-color: var(--darker);
     background-color: var(--darker);
   }
+
+
+  /* IDE :: Monaco. */
+  .monaco-editor,
+  .monaco-editor-background {
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Useless element. */
+  .monaco-editor .scroll-decoration {
+    box-shadow: inset 0 6px 6px -6px var(--dark);
+  }
+  /* Gutter. */
+  .monaco-editor .margin {
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+  }
+  .monaco-editor .line-numbers {
+    color: var(--light) !important;
+  }
+  /* Current line. */
+  .monaco-editor .view-overlays .current-line,
+  .current-line-margin {
+    border-color: transparent !important;
+    background-color: var(--darker);
+  }
+  .monaco-editor .cursor {
+    width: 8px !important;
+    color: var(--light) !important;
+    border-color: var(--accent) !important;
+    background-color: var(--accent) !important;
+  }
+  /* Indent guide. */
+  .monaco-editor .lines-content .cigra {
+    box-shadow: inset 2px 0 0 0 var(--accent) !important;
+  }
+  /* Diff view. */
+  .diffOverviewRuler {
+    background-color: var(--dark);
+  }
+  /* Git. */
+  .dirty-diff-added {
+    background-color: var(--green);
+  }
+  .dirty-diff-modified {
+    background-color: var(--blue);
+  }
 }
