@@ -376,6 +376,67 @@
   }
 
 
+  /* User Settings :: Everything. */
+  .settings-message {
+    color: var(--light) !important;
+    border-color: var(--accent) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Social icons. */
+  .provider-btn-group {
+    border-color: var(--darker);
+  }
+  .provider-btn-image {
+    border-color: var(--darker);
+  }
+  .provider-btn {
+    color: var(--accent) !important;
+    background-color: var(--dark);
+  }
+  /* Path. */
+  .input-group-text {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--darker) !important;
+  }
+  /* Linked emails. */
+  .account-well {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* List items. */
+  ul.bordered-list > li {
+    border-bottom-color: var(--darker);
+  }
+  /* Active sessions. */
+  .card .list-group-item {
+    color: var(--light) !important;
+    border: 1px solid var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Pipeline quota table. */
+  .pipeline-quota,
+  .table tr td {
+    border-color: var(--darker) !important;
+  }
+  .pipeline-quota .progress {
+    box-shadow: 0 0 0 1px var(--shadow);
+    background-color: var(--darker);
+  }
+  /* Text color. */
+  .text-muted,
+  .description {
+    color: var(--light) !important;
+  }
+  .profile-settings-content a {
+    color: var(--accent);
+  }
+  .form-control::placeholder {
+    color: var(--light) !important;
+  }
+
+
   /* Projects dashboard. */
   .breadcrumbs .breadcrumbs-container {
     border-color: var(--darker) !important;
