@@ -1622,4 +1622,28 @@
   .mtk22 {
     color: var(--cyan);
   }
+
+
+  /* Project :: Code view. */
+  .code.white,
+  .code.white pre.code,
+  .code.white .line_holder .line_content {
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  /* Gutter. */
+  .code.white .line-numbers,
+  .code.white .diff-line-num {
+    color: var(--lighter) !important;
+    background-color: var(--dark);
+  }
+  /* Gutter border. */
+  .code.white pre.code,
+  .code.white .diff-line-num {
+    border-color: var(--darker);
+  }
+  /* Highlighted line. */
+  .code.white pre .hll {
+    background-color: var(--darker) !important;
+  }
 }
