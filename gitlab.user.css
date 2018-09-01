@@ -1646,4 +1646,39 @@
   .code.white pre .hll {
     background-color: var(--darker) !important;
   }
+
+  /* Project :: Code syntax. */
+  .code.white .c {
+    color: var(--lighter);
+  }
+  .code.white .cp {
+    color: var(--lighter);
+  }
+  .code.white .n {
+    color: var(--light);
+  }
+  .code.white .m {
+    color: var(--cyan);
+  }
+  .code.white .nb {
+    color: var(--blue);
+  }
+  .code.white .nc {
+    color: var(--blue);
+  }
+  .code.white .s1 {
+    color: var(--magenta);
+  }
+  .code.white .s2 {
+    color: var(--red);
+  }
+  .code.white .nv {
+    color: var(--cyan);
+  }
+  .code.white .nt {
+    color: var(--violet);
+  }
+  .code.white .se {
+    color: var(--magenta);
+  }
 }
