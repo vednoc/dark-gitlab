@@ -253,6 +253,8 @@
     box-shadow: 0 0 1px 3px var(--shadow);
   }
   /* Separator. */
+  .divider,
+  .dropdown-divider,
   .dropdown-menu .divider,
   .dropdown-menu [class*="dropdown-sidebar"] {
     border-color: var(--darker);
@@ -709,6 +711,12 @@
     box-shadow: inset 4px 0 0 0 var(--accent) !important;
     background-color: var(--shadow) !important;
   }
+  /* Hide indicators. */
+  @media (min-width: 576px) {
+    .sidebar-sub-level-items > li.active {
+      box-shadow: none !important;
+    }
+  }
   .nav-sidebar li.active .badge {
     color: var(--lighter) !important;
   }
@@ -834,7 +842,7 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  
+
 
   /* Readme wrapper. */
   .file-holder {
@@ -1488,7 +1496,6 @@
     border-top-color: var(--darker);
   }
 
-
   /* IDE :: Right sidebar. */
   .ide-view .multi-file-commit-panel {
     border-color: var(--darker);
@@ -1516,7 +1523,6 @@
     background-color: var(--red) !important;
   }
 
-
   /* IDE :: Edit area. */
   .multi-file-edit-pane,
   .ide-mode-tabs {
@@ -1541,7 +1547,6 @@
     border-color: var(--darker);
     background-color: var(--darker);
   }
-
 
   /* IDE :: Monaco. */
   .monaco-editor,
@@ -1588,7 +1593,6 @@
   .dirty-diff-modified {
     background-color: var(--blue);
   }
-
 
   /* IDE :: Monaco syntax. */
   .mtk1 {
