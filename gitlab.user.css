@@ -1681,4 +1681,48 @@
   .code.white .se {
     color: var(--magenta);
   }
+
+
+  /* Project CI/CD :: Pipelines. */
+  .ci-table > [class*="row"] {
+    padding: 8px 10px;
+    border-color: var(--darker);
+  }
+  /* Header. */
+  .table-holder .ci-table th {
+    font-weight: 700;
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  /* Pipeline commit. */
+  .commit a,
+  .generic_cimmit_status a,
+  .pipelines .ci-table .pipeline-id,
+  .ci-table .branch-commit .commit-sha {
+    color: var(--light);
+  }
+  /* Buttons. */
+  .ci-status.ci-success {
+    color: var(--green);
+    border-color: var(--green);
+  }
+  .ci-status.ci-running {
+    color: var(--blue);
+    border-color: var(--blue);
+  }
+  .ci-status.ci-failed {
+    color: var(--red);
+    border-color: var(--red);
+  }
+  .ci-status.ci-created,
+  .ci-status.ci-skipped,
+  .ci-status.ci-manual {
+    color: var(--lighter);
+    border-color: var(--darker);
+  }
+  /* Badges */
+  .badge-success {
+    color: var(--light);
+    background-color: var(--green);
+  }
 }
