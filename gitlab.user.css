@@ -1509,13 +1509,27 @@
   /* Build header. */
   .build-page .top-bar {
     color: var(--lighter) !important;
-    border-color: var(--dark) !important;
-    background-color: var(--darker) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
   }
   /* Build log. */
   .build-page .build-trace {
     color: var(--light);
+    border: 1px solid var(--darker);
+    border-top-color: transparent;
     background-color: var(--dark);
+  }
+  .build-page .environment-information {
+    border-color: var(--darker);
+  }
+  /* Build sidebar. */
+  .build-sidebar .builds-container {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .build-sidebar .builds-container .build-job:hover {
+    background-color: var(--darker) !important;
   }
   /* Red alert. */
   .flash-container .flash-alert {
