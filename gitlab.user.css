@@ -1725,4 +1725,29 @@
     color: var(--light);
     background-color: var(--green);
   }
+
+  /* Project CI/CD :: Pipeline details. */
+  .pipeline-tab-content {
+    background-color: transparent;
+  }
+  /* Pipeline node. */
+  .pipeline-graph .build .build-content {
+    border-width: 2px !important;
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* On event. */
+  .pipeline-graph .build .build-content:hover {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
+  }
+  /* Connectors. */
+  .pipeline-graph .stage-column .curve::before,
+  .pipeline-graph .stage-column .curve::after,
+  .pipeline-graph .build::before,
+  .pipeline-graph .build::after {
+    border-color: var(--darker) !important;
+  }
 }
