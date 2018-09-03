@@ -880,6 +880,18 @@
   .wiki > p > code {
     border: 1px solid var(--darker) !important;
   }
+  .wiki table {
+    color: var(--light);
+  }
+  .wiki table tr th {
+    color: var(--lighter);
+    border-bottom-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .wiki table th,
+  .wiki table tr td {
+    border-color: var(--darker);
+  }
 
 
   /* Files. */
