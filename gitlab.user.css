@@ -1442,7 +1442,7 @@
 
 
   /* Custom width for fluid layout; enables us to emulate the fixed width layout without altering many elements. */
-  .layout-page .container-fluid {
+  .layout-page .container-fluid:not(.container-limited) {
     max-width: var(--width) !important;
   }
 
