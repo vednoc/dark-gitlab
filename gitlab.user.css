@@ -1446,6 +1446,18 @@
     max-width: var(--width) !important;
   }
 
+  /* Fix bugged left sidebar. */
+  @media screen and (max-width: 1200px) {
+    /* Cut transitions. */
+    .page-with-contextual-sidebar,
+    .nav-sidebar,
+    .toggle-sidebar-button,
+    .close-nav-button,
+    .nav-sidebar a {
+      transition-duration: 0s !important;
+    }
+  }
+
 
   /* IDE! */
   .ide-view {
