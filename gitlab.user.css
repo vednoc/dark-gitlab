@@ -48,13 +48,14 @@
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--shadow);
+    background: var(--dark);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--accent);
+    border: 2px solid var(--dark);
+    background: var(--darker);
   }
 
   h1, h2, h3, h4, h5, h6, p {
