@@ -456,7 +456,14 @@
     color: var(--lighter);
   }
 
-  /* Nav section. */
+  /* Nav section. TODO: Fix the fixed layout version. */
+  .container-fluid > .top-area {
+    margin-top: 10px;
+    padding: 0 10px;
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+  }
+  /* Wrapper. */
   .top-area,
   .nav-links,
   .wiki-page-header {
