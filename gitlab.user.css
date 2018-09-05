@@ -500,13 +500,17 @@
   /* Avatar background. */
   .avatar,
   .avatar-circle,
-  .avatar-container {
-    border-color: var(--darker) !important;
+  .avatar-container,
+  .breadcrumbs-links .avatar-tile {
+    border: none !important;
     background-color: transparent !important;
   }
   .avatar-container,
   .identicon {
     color: var(--light);
+  }
+  img.avatar {
+    filter: drop-shadow(1px 1px 2px var(--darker));
   }
 
   /* Project details. */
