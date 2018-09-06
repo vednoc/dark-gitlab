@@ -844,11 +844,9 @@
   }
   /* Missing buttons. */
   .btn-missing {
-    color: var(--lighter) !important;
+    color: var(--light) !important;
     border-color: var(--darker) !important;
-  }
-  .btn-missing:hover {
-    background-color: var(--darker) !important;
+    background-color: var(--dark) !important;
   }
   /* Border colors. */
   .banner-callout.banner-non-empty-state,
@@ -1294,6 +1292,14 @@
   .diff-file .discussion-reply-holder {
     background-color: var(--dark);
   }
+  /* Comments disabled. */
+  #notes .disabled-comment {
+    margin-top: 10px;
+    padding: 15px 0;
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
   /* Text color. */
   .timeline .system-note .note-text,
   .notes .note-body .note-text {
@@ -1336,6 +1342,12 @@
   /* Discussion. */
   .diff-file .notes_holder .notes_content .notes {
     background-color: var(--dark) !important;
+  }
+
+
+  /* Snippets :: Reaction. */
+  .row-content-block.content-component-block {
+    background-color: transparent;
   }
 
 
@@ -1626,6 +1638,9 @@
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  .right-sidebar.build-sidebar .link-commit {
+    color: var(--accent);
   }
   .build-sidebar .builds-container .build-job:hover {
     background-color: var(--darker) !important;
