@@ -1512,10 +1512,6 @@
   }
 
 
-  /* Prevent horizontal scrollbar from showing up because of tooltips. */
-  .tooltip {
-    position: fixed !important;
-  }
 
 
   /* Custom width for fluid layout; enables us to emulate the fixed width layout without altering many elements. */
