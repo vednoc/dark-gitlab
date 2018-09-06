@@ -553,6 +553,17 @@
   .info-well .well-segment:not(:last-of-type) {
     border-color: var(--darker);
   }
+  /* Latest commit. */
+  .info-well > .well-segment {
+    padding: 8px;
+  }
+  /* Center items. */
+  .info-well > .well-segment a > img {
+    margin-top: 3px;
+  }
+  .info-well > .well-segment .commit-detail {
+    align-items: center;
+  }
 
   /* Invalid GPG button. */
   .gpg-status-box.invalid,
