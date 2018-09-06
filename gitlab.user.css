@@ -1338,6 +1338,53 @@
   }
 
 
+  /* About page :: Applications. */
+  .applications .search-container {
+    color: var(--light);
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  .applications .search-container input {
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  .applications .search-container .suggestions {
+    background-color: var(--dark);
+  }
+  .applications .search-container .suggestions li:hover {
+    border-radius: 4px;
+    background-color: var(--darker);
+  }
+  .applications .search-container .suggestions .hl {
+    background-color: var(--accent);
+  }
+  /* Category names. */
+  .app-category .category-name {
+    color: var(--light);
+  }
+  .category-applications .tile {
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  /* Scroll. */
+  .scroll-to-top {
+    color: var(--light);
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  /* Footer. */
+  .applications .footer {
+    background-color: var(--violet);
+  }
+  .applications .footer a {
+    color: var(--light);
+  }
+  .applications .source-link {
+    color: var(--light);
+    background-color: var(--darker);
+  }
+
+
   /* Docs :: Landing. */
   .landing .landing-header-top {
     border-color: var(--shadow) !important;
