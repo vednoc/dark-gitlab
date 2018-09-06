@@ -25,9 +25,10 @@
 @var color shadow  "Shadow"         rgba(0,0,0,0.07)
 
 @var text maxWidth "Fixed width"    100%
+@var text regexp "Apply userstyle on" https?:\/\/(.*)?(gitlab.com)(\/.*)?
 ==/UserStyle== */
 
-@-moz-document domain("gitlab.com") {
+@-moz-document regexp("/*[[regexp]]*/") {
   :root {
     --dark:    /*[[dark]]*/;
     --darker:  /*[[darker]]*/;
