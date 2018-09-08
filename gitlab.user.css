@@ -502,7 +502,8 @@
   .avatar,
   .avatar-circle,
   .avatar-container,
-  .breadcrumbs-links .avatar-tile {
+  .breadcrumbs-links .avatar-tile,
+  .header-user-avatar {
     border: none !important;
     background-color: transparent !important;
   }
@@ -745,6 +746,7 @@
   @media (min-width: 576px) {
     .sidebar-sub-level-items > li.active {
       box-shadow: none !important;
+      background-color: transparent !important;
     }
   }
   .nav-sidebar li.active .badge {
@@ -1107,6 +1109,12 @@
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  /* Reacted to. */
+  .award-control.active {
+    color: var(--light);
+    border-color: var(--blue);
+    background-color: var(--dark);
   }
   /* Created branch button. */
   .issuable-details p > code,
