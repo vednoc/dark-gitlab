@@ -822,6 +822,33 @@
   .group-home-panel {
     border-bottom-color: var(--darker);
   }
+  /* Project page header new design. */
+  .project-home-panel > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+  }
+  .project-home-panel > div > div {
+    justify-content: center;
+    text-align: center;
+  }
+  /* Fix buttons. */
+  .project-home-panel .count-badge-count,
+  .project-home-panel .count-badge-button {
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Fix text color. */
+  .project-home-panel .project-visibility,
+  .project-home-panel .text-secondary,
+  .project-home-panel .count-buttons .count {
+    color: var(--light) !important;
+  }
+  /* Fix stats. */
+  .project-stats .nav {
+    justify-content: center;
+  }
   /* Button group. */
   .input-group-prepend,
   .input-group-append {
