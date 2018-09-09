@@ -1412,6 +1412,29 @@
   }
 
 
+  /* Ace editor. */
+  .ace-tm {
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  .ace-tm .ace_gutter {
+    color: var(--lighter);
+    background-color: var(--darker);
+  }
+  .ace-tm .ace_gutter-cell {
+    background-color: transparent;
+  }
+  .ace-tm .ace_gutter-active-line {
+    background-color: var(--dark);
+  }
+  .ace-tm .ace_print-margin {
+    background-color: var(--darker);
+  }
+  .ace-tm .ace_cursor {
+    color: var(--light);
+  }
+
+
   /* About page :: Applications. */
   .applications .search-container {
     color: var(--light);
