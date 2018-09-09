@@ -1412,6 +1412,18 @@
   }
 
 
+  /* Editor settings. */
+  .template-selectors-menu {
+    border-left-color: var(--darker);
+  }
+  .file-editor .editor-ref {
+    border-color: var(--dark);
+    background-color: var(--dark);
+  }
+  .text-info {
+    color: var(--light) !important;
+  }
+
   /* Ace editor. */
   .ace-tm {
     color: var(--light);
