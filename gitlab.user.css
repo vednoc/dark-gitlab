@@ -1328,12 +1328,15 @@
     background-color: var(--dark);
   }
   /* Comments disabled. */
-  #notes .disabled-comment {
+  .disabled-comment {
     margin-top: 10px;
     padding: 15px 0;
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  .disabled-comment a {
+    color: var(--accent);
   }
   /* Text color. */
   .timeline .system-note .note-text,
@@ -1380,6 +1383,29 @@
   }
 
 
+
+  /* Merge Requests :: Diff. */
+  .mr-version-controls {
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  /* Added lines. */
+  .line_holder .diff-line-num.new,
+  .line_holder .line_content.new {
+    border-color: var(--green) !important;
+    background-color: var(--green) !important;
+  }
+  /* Removed lines. */
+  .line_holder .diff-line-num.old,
+  .line_holder .line_content.old {
+    border-color: var(--red) !important;
+    background-color: var(--red) !important;
+  }
+  /* Matching lines. */
+  .line_holder .line_content.match {
+    color: var(--lighter) !important;
+    background-color: var(--dark) !important;
+  }
   /* Snippets :: Reaction. */
   .row-content-block.content-component-block {
     background-color: transparent;
