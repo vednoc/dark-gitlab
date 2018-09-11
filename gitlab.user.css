@@ -1103,6 +1103,35 @@
   }
 
 
+  /* Dashboard :: Activity. */
+  .nav-block.activities {
+    border-bottom-color: var(--darker);
+    margin-bottom: 10px;
+  }
+  /* Fix RSS icon. */
+  .activities .controls {
+    margin: 20px 10px 0 10px;
+  }
+  /* List. */
+  .activities .content_list {
+    /* padding: 0 8px; */
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  /* Items. */
+  .activities .event-item {
+    padding: 5px 10px 5px 50px;
+    color: var(--light);
+    border-bottom-color: var(--darker);
+  }
+  /* Adjust avatars. */
+  .activities .event-item .user-avatar {
+    top: 10px;
+    margin-left: 10px;
+  }
+
+
   /* Issues :: List. */
   .filtered-search-box {
     border-color: var(--darker);
