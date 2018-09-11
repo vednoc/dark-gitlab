@@ -83,6 +83,12 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  .btn:active,
+  .btn.active {
+    color: var(--light) !important;
+    border-color: var(--accent) !important;
+    background-color: var(--dark) !important;
+  }
   /* Green buttons. */
   .btn.btn-success,
   .btn.btn-new,
@@ -1190,6 +1196,14 @@
     border-color: var(--blue);
     background-color: var(--dark);
   }
+  /**
+   * * Add a reaction button.
+   * ! Doesn't align vertically.
+   * TODO Remove if/when they fix it.
+   */
+  .award-control .award-control-icon svg {
+    margin-top: -7px;
+  }
   /* Created branch button. */
   .issuable-details p > code,
   a.gfm-project_member,
@@ -1281,16 +1295,21 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
+  .label-badge-blue {
+    color: var(--light);
+    border: 1px solid var(--blue);
+    background-color: var(--dark);
+  }
 
 
   /* Issues :: Milestones. */
   .milestones {
-    background-color: var(--dark);
+    background-color: transparent;
   }
   .milestones .milestone,
   .milestones .status-box {
     color: var(--light);
-    border: 1px solid var(--darker);
+    border: 1px solid var(--darker) !important;
     background-color: var(--dark);
   }
   /* Text color. */
@@ -1366,7 +1385,8 @@
   .page-item.disabled .page-link {
     color: var(--light);
     border-color: var(--darker);
-    background-color: var(--darker);
+    background-color: var(--dark);
+    opacity: 0.6;
   }
 
 
@@ -1454,6 +1474,10 @@
   /* Discussion. */
   .diff-file .notes_holder .notes_content .notes {
     background-color: var(--dark) !important;
+  }
+  /* Click to expand button. */
+  .btn.click-to-expand {
+    padding: 3px;
   }
 
 
