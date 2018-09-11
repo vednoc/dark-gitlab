@@ -312,12 +312,17 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  /* Flashing on input. */
+  .select2-container-multi .select2-choices .select2-search-field input.select2-active {
+    background: var(--dark) !important;
+  }
   /* Input/select elements. */
   .select2-choice,
-  .select2-drop input {
+  .select2-drop input,
+  .select2-container-multi .select2-choices {
     color: var(--light) !important;
     border-color: var(--darker) !important;
-    background-color: transparent !important;
+    background-color: var(--dark) !important;
   }
   /* On event. */
   .select2-results .select2-highlighted {
@@ -325,6 +330,10 @@
   }
   .select2-results .select2-highlighted .select2-result-label {
     background-color: var(--darker);
+  }
+  .select2-arrow {
+    padding-left: 10px;
+    background-color: var(--dark) !important;
   }
 
 
