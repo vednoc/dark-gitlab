@@ -1412,6 +1412,31 @@
   }
 
 
+  /* Merge Requests :: New MR. */
+  .mr-source-target {
+    padding: 8px;
+    min-height: auto;
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Description container. */
+  .mr-section-container {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Borders. */
+  .mr-state-widget .mr-widget-section,
+  .mr-state-widget .mr-widget-footer {
+    border-radius: 4px;
+    border-color: var(--darker);
+  }
+  /* Text color. */
+  .mr-state-widget,
+  .mr-state-widget .diverged-commits-count,
+  .mr-state-widget .mr-widget-body .spacing,
+  .mr-state-widget .mr-widget-body .bold {
+    color: var(--light);
+  }
 
   /* Merge Requests :: Diff. */
   .mr-version-controls {
