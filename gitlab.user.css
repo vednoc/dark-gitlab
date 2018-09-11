@@ -348,11 +348,17 @@
 
   /* New project. */
   .gitlab-tabs {
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
   }
   .gitlab-tabs li:not(:last-child) {
     border-right-color: var(--darker);
+  }
+  .gitlab-tabs .nav-link.active,
+  .gitlab-tabs .nav-link:hover {
+    border-radius: 0;
   }
   /* On event. */
   .gitlab-tabs li a.active,
@@ -364,7 +370,9 @@
 
   /* Tab content. */
   .gitlab-tab-content {
+    border-radius: 0 0 4px 4px;
     border-color: var(--darker);
+    background-color: var(--dark);
   }
   /* Inputs. */
   .input-group .input-group-btn {
@@ -374,6 +382,9 @@
     color: var(--lighter) !important;
     border-color: var(--darker) !important;
     background-color: transparent !important;
+  }
+  .gitlab-tab-content .template-option {
+    border-color: var(--darker) !important;
   }
   /* Text colors. */
   .gitlab-tab-content label,
@@ -390,7 +401,7 @@
   }
   /* Form control. */
   .form-control {
-    transition: 200ms ease-in-out !important;
+    transition: border-color 200ms ease-in-out !important;
     color: var(--lighter) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
