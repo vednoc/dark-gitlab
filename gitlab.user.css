@@ -214,7 +214,9 @@
     color: var(--lighter) !important;
   }
   /* Collapsable nav. */
+  .navbar ul li.active a,
   .navbar-collapse ul > li:hover a {
+    color: var(--light) !important;
     background-color: var(--dark) !important;
   }
   /* Input placeholder. */
@@ -226,9 +228,16 @@
   /* Dropdowns. */
   .dropdown-menu,
   .dropdown-menu-nav {
-    box-shadow: 0 2px 8px var(--shadow);
+    box-shadow: 0 2px 8px -2px var(--shadow);
     border-color: var(--darker);
     background-color: var(--dark);
+  }
+  /* Loading. */
+  [class*="dropdown-loading"] {
+    background-color: var(--dark);
+  }
+  .fa-spinner:before {
+    color: var(--light);
   }
   /* Title. */
   .dropdown-title {
