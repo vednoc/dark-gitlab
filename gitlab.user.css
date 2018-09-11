@@ -516,6 +516,7 @@
     margin: 10px 0;
     border-radius: 4px;
     border: 1px solid var(--darker);
+    background-color: var(--dark);
   }
   /* Items. */
   .projects-list > li {
@@ -880,6 +881,10 @@
   .project-stats .nav {
     justify-content: center;
   }
+  /* Fix metadata. xdddd */
+  .project-home-panel .project-metadata {
+    align-items: center !important;
+  }
   /* Button group. */
   .input-group-prepend,
   .input-group-append {
@@ -1015,8 +1020,19 @@
     border-color: var(--darker);
     background: var(--dark);
   }
+  /* Fix master/history/find file/web ide section when low-resolution. */
+  @media (max-width: 740px) {
+    .nav-block {
+      flex-direction: column;
+    }
+  }
   /* Scrolling tabs. */
   .scrolling-tabs-container {
+    margin: 10px 0;
+    padding: 0 10px;
+    /* overflow: hidden; */
+    border-radius: 4px;
+    border: 1px solid var(--darker);
     background-color: var(--dark);
   }
   .scrolling-tabs-container .fade-right {
@@ -1826,8 +1842,9 @@
   }
   /* Red alert. */
   .flash-container .flash-alert {
-    color: var(--lighter) !important;
-    background-color: var(--red) !important;
+    color: var(--light) !important;
+    border: 1px solid var(--red) !important;
+    background-color: var(--dark) !important;
   }
 
   /* IDE :: Edit area. */
@@ -1943,6 +1960,10 @@
   .code.white .diff-line-num {
     color: var(--lighter) !important;
     background-color: var(--dark);
+  }
+  /* Gutters in file diff. */
+  .diff-line-num a::before {
+    color: var(--lighter);
   }
   /* Gutter border. */
   .code.white pre.code,
