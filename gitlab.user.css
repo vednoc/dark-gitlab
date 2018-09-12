@@ -965,6 +965,16 @@
     color: var(--lighter) !important;
     border-bottom-color: var(--darker) !important;
   }
+  .wiki blockquote,
+  .wiki .blockquote {
+    color: var(--lighter) !important;
+    border-left-color: var(--accent) !important;
+    background-color: var(--dark);
+  }
+  .wiki blockquote p,
+  .wiki .blockquote p {
+    color: var(--lighter) !important;
+  }
   .wiki a {
     color: var(--accent) !important;
   }
