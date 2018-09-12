@@ -2102,4 +2102,15 @@
   .pipeline-graph .build::after {
     border-color: var(--darker) !important;
   }
+
+  /**
+  * * Skeleton.
+  * ? Changes color of loading elements.
+  */
+  .animation-container [class^="skeleton-line-"] {
+    background-color: var(--darker);
+  }
+  .animation-container [class^="skeleton-line-"]::after {
+    background-image: linear-gradient(to right, var(--darker) 0%, var(--dark) 100%);
+  }
 }
