@@ -900,9 +900,22 @@
   .project-stats .nav {
     justify-content: center;
   }
-  /* Fix metadata. xdddd */
+  /* Fix metadata alignment. */
   .project-home-panel .project-metadata {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
     align-items: center !important;
+    line-height: 20px;
+  }
+  .project-home-panel .project-metadata .project-license {
+    display: inline-block !important;
+  }
+  .project-home-panel .project-metadata .project-license .btn {
+    background: 0 !important;
+  }
+  .project-home-panel .project-metadata .project-license .icon {
+    top: -2px !important;
   }
   /* Button group. */
   .input-group-prepend,
