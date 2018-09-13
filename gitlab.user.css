@@ -506,6 +506,7 @@
     padding: 0 10px;
     border-radius: 4px;
     border: 1px solid var(--darker);
+    background-color: var(--dark);
   }
   /* Wrapper. */
   .top-area,
@@ -600,13 +601,18 @@
     border-color: var(--darker);
   }
   /* Latest commit. */
+  ul.content-list > li,
   .info-well > .well-segment {
     padding: 8px;
   }
-  /* Center items. */
+  /* Center avatar. */
+  [id*="commit"] a > img,
   .info-well > .well-segment a > img {
     margin-top: 3px;
+    margin-left: 3px;
   }
+  /* Adjust sha. */
+  .commit > .commit-detail,
   .info-well > .well-segment .commit-detail {
     align-items: center;
   }
