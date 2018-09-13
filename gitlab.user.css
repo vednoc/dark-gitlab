@@ -784,7 +784,12 @@
   /* Active sub-menu. */
   .nav-sidebar li.active {
     box-shadow: inset 4px 0 0 0 var(--accent) !important;
-    background-color: var(--shadow) !important;
+    background-color: var(--darker) !important;
+  }
+  /* Active tab. */
+  .nav-sidebar .sidebar-sub-level-items .active a {
+    box-shadow: inset -4px 0 0 0 var(--accent) !important;
+    background-color: var(--dark);
   }
   /* Hide indicators. */
   @media (min-width: 576px) {
