@@ -73,6 +73,13 @@
     color: var(--accent);
   }
 
+  code {
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  table td {
+    background-color: var(--dark);
+  }
 
   /* Button reset. */
   .btn,
@@ -585,8 +592,10 @@
 
   /* Commits. */
   .commit-header {
+    border-radius: 4px;
+    border: 1px solid var(--darker) !important;
     border-color: var(--darker);
-    background-color: var(--darker);
+    background-color: var(--dark);
   }
   ul.content-list li {
     border-color: var(--darker);
@@ -1032,6 +1041,7 @@
     color: var(--lighter) !important;
   }
   .wiki a {
+    text-decoration: underline;
     color: var(--accent) !important;
   }
   .wiki pre,
@@ -1042,6 +1052,9 @@
   }
   .wiki > p > code {
     border: 1px solid var(--darker) !important;
+  }
+  .wiki img:not(.emoji) {
+    border-color: var(--darker) !important;
   }
   .wiki table {
     color: var(--light);
@@ -1281,11 +1294,13 @@
 
   /* Cards. */
   .card, .card-slim {
-    overflow: hidden;
+    /* overflow: hidden; */
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  .card-header {
+  .card-header,
+  .card-footer {
+    border-color: var(--darker);
     background-color: var(--dark);
   }
 
@@ -1361,7 +1376,8 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  .label-badge-blue {
+  .label-badge-blue,
+  .badge-info {
     color: var(--light);
     border: 1px solid var(--blue);
     background-color: var(--dark);
