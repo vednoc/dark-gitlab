@@ -955,6 +955,21 @@
     border-bottom-color: var(--darker);
   }
 
+  /* Project settings menu. */
+  .settings {
+    border-bottom-color: var(--darker);
+  }
+  .project-visibility-setting {
+    border-radius: 4px 4px 0 0;
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .project-feature-settings {
+    border-radius: 0 0 4px 4px;
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+
   /* Latest commit message.. */
   .info-well {
     color: var(--light);
