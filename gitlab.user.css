@@ -954,6 +954,15 @@
   .project-stats {
     border-bottom-color: var(--darker);
   }
+  /* Language bar. */
+  .repository-languages-bar {
+    background-color: transparent;
+  }
+  /* Languages. */
+  .repository-languages-bar .progress-bar {
+    margin: 0 4px 0 0;
+    border-radius: 8px;
+  }
 
   /* Project settings menu. */
   .settings {
