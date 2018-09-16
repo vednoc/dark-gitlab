@@ -675,6 +675,9 @@
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
+  .gpg-popover-user-link {
+    color: var(--light);
+  }
   /* Popover. */
   .popover {
     border-color: var(--darker);
@@ -707,8 +710,8 @@
   /* Commits :: Diff summary. */
   .diff-files-changed {
     border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 4px;
+    margin: 10px 0;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
@@ -1227,6 +1230,11 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  /* Sub-header found in compare branches. */
+  .sub-header-block {
+    border-color: var(--darker);
+    background-color: transparent;
+  }
   [class*="card"] > ul > li {
     transition: 200ms ease-in-out;
   }
@@ -1554,7 +1562,9 @@
     border-bottom-color: var(--darker);
   }
   /* Reply. */
-  .discussion-form-container,
+  .discussion-form {
+    background-color: transparent !important;
+  }
   .discussion-body .discussion-reply-holder,
   .diff-file .discussion-reply-holder {
     background-color: var(--dark);
@@ -1654,7 +1664,8 @@
 
   /* File Diff :: Expanded view. */
   .diff-expanded > [class*="side"],
-  .diff-expanded .diff-line-num {
+  .diff-expanded .diff-line-num,
+  .diff-expanded .line_content {
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
@@ -2187,6 +2198,10 @@
   /* Highlighted line. */
   .code.white pre .hll {
     background-color: var(--darker) !important;
+  }
+  /* Reset code element in code section. */
+  .code code {
+    border: 0 !important;
   }
 
   /* Project :: Code syntax. */
