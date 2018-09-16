@@ -2210,6 +2210,33 @@
   .code.white .se {
     color: var(--magenta);
   }
+  .code.white .gh {
+    color: var(--light);
+  }
+  .code.white .gu {
+    color: var(--magenta);
+  }
+  .code.white .sx {
+    color: var(--red);
+  }
+  .code.white .ss {
+    color: var(--magenta);
+  }
+  .code.white .sb {
+    color: var(--red);
+  }
+  .code.white .s {
+    color: var(--red);
+  }
+  .code.white .nf {
+    color: var(--red);
+  }
+  .code.white .na {
+    color: var(--cyan);
+  }
+  .code.white .si {
+    color: var(--violet);
+  }
 
 
   /* Project CI/CD :: Pipelines. */
