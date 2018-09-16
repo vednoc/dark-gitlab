@@ -1639,20 +1639,38 @@
   /* Added lines. */
   .line_holder .diff-line-num.new,
   .line_holder .line_content.new {
-    border-color: var(--green) !important;
-    background-color: var(--green) !important;
+    border-color: var(--shadow) !important;
+    background-color: rgba(149, 200, 99, 0.3) !important;
+  }
+  .line_holder .line_content.new .idiff {
+    background-color: rgba(149, 200, 99, 0.3) !important;
   }
   /* Removed lines. */
   .line_holder .diff-line-num.old,
   .line_holder .line_content.old {
-    border-color: var(--red) !important;
-    background-color: var(--red) !important;
+    border-color: var(--shadow) !important;
+    background-color: rgba(200, 49, 49, 0.3) !important;
+  }
+  .line_holder .line_content.old .idiff {
+    background-color: rgba(200, 49, 49, 0.3) !important;
   }
   /* Matching lines. */
   .line_holder .line_content.match {
     color: var(--lighter) !important;
     background-color: var(--dark) !important;
   }
+  /* Text colors. */
+  .diff-stats-summary-toggler {
+    color: var(--blue) !important;
+  }
+  #diff-stats .cgreen {
+    color: var(--green);
+  }
+  #diff-stats .cred {
+    color: var(--red);
+  }
+
+
   /* Snippets :: Reaction. */
   .row-content-block.content-component-block {
     background-color: transparent;
