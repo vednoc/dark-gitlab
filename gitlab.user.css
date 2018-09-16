@@ -690,16 +690,29 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  /* Diff summary. */
+
+  /* Commits :: Diff summary. */
   .diff-files-changed {
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 8px;
     margin-bottom: 10px;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  /* TODO: Remove if they fix diff header. */
+  .diff-files-changed > .files-changed-inner {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    /* justify-content: space-between; */
+  }
+  /* Center buttons vertically. */
+  .diff-files-changed .inline-parallel-buttons {
+    float: none;
+    padding: 3px 5px 5px 5px;
+  }
+  /* TODO: Remove if they fix diff header && fix responsiveness. */
   .diff-files-changed .commit-stat-summary {
+    margin: auto auto auto 0;
+    padding: 0 8px;
     background-color: var(--transparent) !important;
   }
   /* Diff file header. */
