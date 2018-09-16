@@ -2334,4 +2334,9 @@
     background-image: url("/*[[bg_image]]*/");
     filter: invert(/*[[bg_invert]]*/) /*[[bg_filter]]*/;
   }
+
+  /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
+  html {
+    overflow-x: hidden;
+  }
 }
