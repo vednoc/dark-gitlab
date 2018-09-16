@@ -1636,6 +1636,19 @@
     color: var(--light);
     background-color: var(--dark);
   }
+
+
+  /* File Diff :: Expanded view. */
+  .diff-expanded > [class*="side"],
+  .diff-expanded .diff-line-num {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  /* Fix borders on expanded sections. */
+  .diff-expanded + .line_holder .diff-line-num,
+  .diff-expanded + .line_holder .line_content {
+    border-top-color: var(--darker) !important;
+  }
   /* Added lines. */
   .line_holder .diff-line-num.new,
   .line_holder .line_content.new {
