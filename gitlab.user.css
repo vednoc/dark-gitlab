@@ -638,7 +638,20 @@
   .info-well .well-segment:not(:last-of-type) {
     border-color: var(--darker);
   }
-  /* Latest commit. */
+  /* Commit description. */
+  .commit-description,
+  .commit-row-description {
+    color: var(--light) !important;
+    border-left-color: var(--accent) !important;
+  }
+  /* Link. */
+  .commit .gfm {
+    color: var(--accent) !important;
+  }
+  /* Deleted branch. */
+  .info-well .limit-box {
+    background-color: var(--red) !important;
+  }
   ul.content-list > li,
   .info-well > .well-segment {
     padding: 8px;
