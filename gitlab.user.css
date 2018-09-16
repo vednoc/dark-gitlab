@@ -619,10 +619,18 @@
   .commit-list .commit a {
     color: var(--light);
   }
-    border-color: var(--darker);
+
+  /* Modal. */
+  .modal .modal-content {
+    background-color: var(--dark) !important;
   }
-  ul.content-list li a {
-    color: var(--lighter);
+  .modal .modal-header {
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
+  .modal .modal-body {
+    border-radius: 0 0 4px 4px;
+    background-color: var(--dark) !important;
   }
 
   /* Branch info border color. */
