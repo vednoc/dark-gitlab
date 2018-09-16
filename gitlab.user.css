@@ -595,14 +595,30 @@
     background-color: var(--dark) !important;
   }
 
-  /* Commits. */
+  /* Project :: Commits. */
   .commit-header {
     border-radius: 4px;
     border: 1px solid var(--darker) !important;
     border-color: var(--darker);
+    background-color: var(--darker);
+  }
+  .commit-list .commit {
+    border-color: var(--darker);
+  }
+  /* Commit expand. */
+  .commit .text-expander {
+    color: var(--accent);
+    border-color: var(--darker);
     background-color: var(--dark);
   }
-  ul.content-list li {
+  /* Commit description. */
+  .commit .commit-row-description {
+    color: var(--light);
+    border-left-color: var(--accent);
+  }
+  .commit-list .commit a {
+    color: var(--light);
+  }
     border-color: var(--darker);
   }
   ul.content-list li a {
@@ -661,9 +677,9 @@
   /* Recently pushed branches. */
   .container-fluid > .row-content-block.white {
     margin-top: 10px;
+    padding: 8px;
     border-radius: 4px;
     border: 1px solid var(--darker);
-    border-top: 2px solid var(--accent);
     background-color: var(--dark);
   }
   /* Diff summary. */
