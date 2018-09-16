@@ -1541,6 +1541,7 @@
     border-bottom-color: var(--darker);
   }
   /* Reply. */
+  .discussion-form-container,
   .discussion-body .discussion-reply-holder,
   .diff-file .discussion-reply-holder {
     background-color: var(--dark);
@@ -1671,6 +1672,27 @@
   .line_holder .line_content.match {
     color: var(--lighter) !important;
     background-color: var(--dark) !important;
+  }
+  /* Add a diff note. */
+  .line_holder .add-diff-note {
+    height: 18px;
+    width: 18px;
+    margin-left: -44px !important;
+    padding: 0;
+    border: 0;
+    color: var(--light);
+    background-color: transparent;
+  }
+  .line_holder .add-diff-note:hover {
+    background-color: var(--shadow);
+  }
+  /* Highlight the entire line. */
+  .line_holder [class*="side"]:hover,
+  .line_holder [class*="noteable"]:hover,
+  .line_holder .diff-line-num.is-over,
+  .line_holder .diff-line-num.hll:not(.empty-cell).is-over {
+    border-color: var(--shadow) !important;
+    background-color: var(--darker) !important;
   }
   /* Text colors. */
   .diff-stats-summary-toggler {
