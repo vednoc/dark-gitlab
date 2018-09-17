@@ -1557,7 +1557,7 @@
   .page-item.disabled .page-link {
     color: var(--light);
     border-color: var(--darker);
-    background-color: var(--dark);
+    background-color: var(--darker);
     opacity: 0.6;
   }
 
