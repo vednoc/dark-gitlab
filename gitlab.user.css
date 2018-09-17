@@ -732,6 +732,39 @@
     background: var(--darker);
   }
 
+  /* Project :: Graph. */
+  .project-network {
+    margin-top: 10px;
+    border-radius: 4px;
+    border-color: var(--darker);
+  }
+  .project-network .controls {
+    border: var(--darker);
+    background-color: var(--darker);
+  }
+  /* Graph background. */
+  .project-network .network-graph {
+    fill: var(--light);
+    background-color: var(--dark);
+  }
+  /* Hover over commit. */
+  .project-network .network-graph > svg rect[width*="310"] {
+    stroke: var(--shadow);
+    fill: var(--darker);
+  }
+  /* Text color. */
+  .project-network .network-graph > svg text {
+    fill: var(--light);
+  }
+  /* Sidebar. */
+  .project-network .network-graph > svg rect[width*="40"],
+  .project-network .network-graph > svg rect[width*="30"] {
+    stroke-width: 0;
+    stroke: var(--darker);
+    fill: var(--darker);
+  }
+  /* TODO: Style extras in the future. */
+
   /* Modal. */
   .modal .modal-content {
     background-color: var(--dark) !important;
