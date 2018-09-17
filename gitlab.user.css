@@ -620,6 +620,29 @@
     color: var(--light);
   }
 
+  /* Project :: Branches. */
+  .content-list li {
+    border-color: var(--darker) !important;
+  }
+  /* Graph color. */
+  .divergence-graph .graph-separator,
+  .divergence-graph .graph-side [class*="bar"] {
+    background-color: var(--accent);
+  }
+  /* Text color. */
+  .commit-row-message,
+  .branch-commit,
+  .content-list li [class*="item"],
+  .content-list li [class*="graph"] [class*="count"]
+   {
+    color: var(--light) !important;
+  }
+  .branch-commit .commit-sha,
+  .branch-commit .gfm-commit,
+  .branch-commit .gfm-commit_range {
+    color: var(--accent) !important;
+  }
+
   /* Modal. */
   .modal .modal-content {
     background-color: var(--dark) !important;
