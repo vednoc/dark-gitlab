@@ -562,6 +562,59 @@
   }
 
 
+  /* Billing. */
+  .bg-info {
+    background-color: var(--darker) !important;
+  }
+  .billing-plans .card .card-header, .billing-plans .card-slim .card-header {
+    background-color: var(--accent) !important;
+  }
+  .billing-plans .card.current .card-body, .billing-plans .current.card-slim .card-body,
+  .billing-plans .card, .billing-plans .card-slim {
+    border-color: var(--accent) !important;
+    background-color: var(--shadow) !important;
+  }
+  /* Items. */
+  .billing-plans .card .card-body .feature-list li,
+  .billing-plans .card-slim .card-body .feature-list li {
+    background-color: var(--shadow) !important;
+  }
+  /* Price per month. */
+  .billing-plans .card.current .card-body .price-per-month,
+  .billing-plans .current.card-slim .card-body .price-per-month,
+  .billing-plans .card.current .card-body .price-per-year,
+  .billing-plans .current.card-slim .card-body .price-per-year,
+  .billing-plans .card .card-body .price-per-month,
+  .billing-plans .card-slim .card-body .price-per-month {
+    color: var(--accent) !important;
+  }
+  /* Annually. */
+  .billing-plans .card .card-body .price-per-year, .billing-plans .card-slim .card-body .price-per-year {
+    color: var(--green) !important;
+  }
+
+  /* Applications. */
+  .text-secondary {
+    color: var(--light) !important;
+  }
+
+  /* Emails. */
+  .email-badge .badge-verification-status.verified:hover:not(span),
+  .email-badge .badge-verification-status.verified:not(span) {
+    background-color: var(--green) !important;
+    border-color: var(--green) !important;
+    color: var(--lighter) !important;
+  }
+
+  /* SSH Keys. */
+  pre,
+  code.key-fingerprint {
+    background-color: var(--darker) !important;
+    border-color: var(--darker) !important;
+    color: var(--lighter) !important;
+  }
+
+
   /* Projects list. */
   .projects-list {
     margin: 10px 0;
