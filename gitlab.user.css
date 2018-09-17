@@ -42,6 +42,7 @@
     --accent:  /*[[accent]]*/;
     --icon:    /*[[icon]]*/;
     --shadow:  /*[[shadow]]*/;
+    --box-shadow: 0 2px 3px 0 var(--shadow);
     --yellow:  /*[[yellow]]*/;
     --orange:  /*[[orange]]*/;
     --red:     /*[[red]]*/;
@@ -109,7 +110,8 @@
   .btn.btn-save {
     color: var(--lighter) !important;
     border-color: var(--green) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--green) !important;
+    box-shadow: var(--box-shadow) !important;
   }
   /* Blue buttons. */
   .btn.btn-info,
@@ -119,19 +121,37 @@
     color: var(--lighter) !important;
     border-color: var(--blue) !important;
     background-color: var(--blue) !important;
+    box-shadow: var(--box-shadow) !important;
   }
   /* Close buttons. */
   .btn.btn-close,
   .btn.btn-close-color {
     color: var(--lighter) !important;
     border-color: var(--red) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--red) !important;
+    box-shadow: var(--box-shadow) !important;
   }
+  /* Remove buttons. */
+  .btn.btn-danger,
+  .btn.btn-danger:hover,
+  .btn.btn-danger:focus,
+  .btn.btn-remove,
+  .btn.btn-remove:hover,
+  .btn.btn-remove:focus,
+  .btn.btn-red,
+  .btn.btn-red:hover,
+  .btn.btn-red:focus {
+    color: var(--lighter) !important;
+    border-color: var(--red) !important;
+    background-color: var(--red) !important;
+    box-shadow: var(--box-shadow) !important;
+
   /* Inverted buttons. */
   .btn.btn-inverted.btn-remove {
-    color: var(--red);
+    color: var(--lighter);
     border-color: var(--red);
-    background-color: var(--dark);
+    background-color: var(--red);
+    box-shadow: var(--box-shadow) !important;
   }
   /* Blank buttons. */
   .btn-blank {
@@ -144,8 +164,9 @@
   .btn[disabled]:hover {
     color: var(--lighter) !important;
     border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--darker) !important;
     opacity: 0.6 !important;
+    box-shadow: var(--box-shadow) !important;
   }
   /* On event. */
   .btn:hover:not([disabled="disabled"]),
@@ -958,10 +979,16 @@
   }
   /* Fix buttons. */
   .project-home-panel .count-badge-count,
-  .project-home-panel .count-badge-button {
+  .project-home-panel .count-badge-button,
+  .input-group-prepend .btn,
+  .input-group-append .btn.btn-clipboard,
+  .btn:not(:disabled):not(.disabled),
+  .dropdown-toggle,
+  .dropdown-menu-toggle
+ {
     color: var(--light) !important;
     border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--darker) !important;
   }
   /* Fix text color. */
   .project-home-panel .project-visibility,
@@ -1014,7 +1041,7 @@
   .btn-missing {
     color: var(--light) !important;
     border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--darker) !important;
   }
   /* Border colors. */
   .banner-callout.banner-non-empty-state,
