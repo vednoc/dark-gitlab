@@ -470,13 +470,14 @@
   /* Social icons. */
   .provider-btn-group {
     border-color: var(--darker);
+    background: var(--darker) !important;
   }
   .provider-btn-image {
     border-color: var(--darker);
   }
   .provider-btn {
     color: var(--accent) !important;
-    background-color: var(--dark);
+    background-color: var(--darker);
   }
   /* Path. */
   .input-group-text {
