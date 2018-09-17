@@ -732,6 +732,33 @@
     background: var(--darker);
   }
 
+
+  /* Project :: Contributors. */
+  #contributors-master .tint-box,
+  #contributors .person .spark {
+    color: var(--light);
+    background: var(--darker);
+  }
+  #contributors-master .tint-box .area {
+    fill: var(--green);
+  }
+  #contributors .person .area-contributor {
+    fill: var(--orange);
+  }
+  /* Lines. */
+  #contributors-master .tint-box .axis .domain,
+  #contributors-master .tint-box .axis line,
+  #contributors .spark .axis .domain,
+  #contributors .spark .axis line {
+    stroke: var(--dark) !important;
+  }
+  /* Text color. */
+  #contributors-master .tint-box .axis text,
+  #contributors .axis text {
+    fill: var(--light);
+  }
+
+
   /* Project :: Graph. */
   .project-network {
     margin-top: 10px;
@@ -764,6 +791,7 @@
     fill: var(--darker);
   }
   /* TODO: Style extras in the future. */
+
 
   /* Modal. */
   .modal .modal-content {
