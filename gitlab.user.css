@@ -1018,9 +1018,10 @@
   /* Fix buttons. */
   .project-home-panel .count-badge-count,
   .project-home-panel .count-badge-button,
+  .project-home-panel .btn,
+  .project-home-panel input,
   .input-group-prepend .btn,
   .input-group-append .btn.btn-clipboard,
-  .btn:not(:disabled):not(.disabled):not(.btn.btn-cancel),
   .dropdown-toggle,
   .dropdown-menu-toggle
  {
