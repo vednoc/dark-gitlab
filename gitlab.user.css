@@ -107,7 +107,8 @@
   .btn.btn-new,
   .btn.btn-create,
   .btn.comment-btn,
-  .btn.btn-save {
+  .btn.btn-save,
+  .btn.commit-btn.js-commit-button.btn-create {
     color: var(--lighter) !important;
     border-color: var(--green) !important;
     background-color: var(--green) !important;
@@ -125,7 +126,8 @@
   }
   /* Close buttons. */
   .btn.btn-close,
-  .btn.btn-close-color {
+  .btn.btn-close-color,
+  .btn.btn-cancel {
     color: var(--lighter) !important;
     border-color: var(--red) !important;
     background-color: var(--red) !important;
@@ -994,7 +996,7 @@
   .project-home-panel .count-badge-button,
   .input-group-prepend .btn,
   .input-group-append .btn.btn-clipboard,
-  .btn:not(:disabled):not(.disabled),
+  .btn:not(:disabled):not(.disabled):not(.btn.btn-cancel),
   .dropdown-toggle,
   .dropdown-menu-toggle
  {
