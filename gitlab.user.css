@@ -90,7 +90,8 @@
   /* Button reset. */
   .btn,
   .btn:hover,
-  .btn:focus {
+  .btn:focus,
+  .btn.btn-default {
     transition: 200ms ease-in-out !important;
     color: var(--light);
     border-color: var(--darker);
@@ -1137,8 +1138,7 @@
   .input-group-prepend .btn,
   .input-group-append .btn.btn-clipboard,
   .dropdown-toggle,
-  .dropdown-menu-toggle
- {
+  .dropdown-menu-toggle {
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
@@ -1153,22 +1153,9 @@
   .project-stats .nav {
     justify-content: center;
   }
-  /* Fix metadata alignment. */
-  .project-home-panel .project-metadata {
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center !important;
-    line-height: 20px;
-  }
-  .project-home-panel .project-metadata .project-license {
-    display: inline-block !important;
-  }
+  /* Remove background from the license button. */
   .project-home-panel .project-metadata .project-license .btn {
     background: 0 !important;
-  }
-  .project-home-panel .project-metadata .project-license .icon {
-    top: -2px !important;
   }
   /* Button group. */
   .input-group-prepend,
