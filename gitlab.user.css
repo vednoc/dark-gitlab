@@ -8,7 +8,7 @@
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @preprocessor uso
 
-@var checkbox bg_invert "Background image inversion" 0
+@var checkbox bg_invert "Background image inversion" 1
 @var text     bg_filter "Background image filters" opacity(0.05)
 @var text     bg_size   "Background image size" 15px
 @var text     bg_image  "Background image url/base64" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==
@@ -711,8 +711,7 @@
   .commit-row-message,
   .branch-commit,
   .content-list li [class*="item"],
-  .content-list li [class*="graph"] [class*="count"]
-   {
+  .content-list li [class*="graph"] [class*="count"] {
     color: var(--light) !important;
   }
   .branch-commit .commit-sha,
@@ -1121,10 +1120,14 @@
     border-bottom-color: var(--darker);
   }
   /* Project page header new design. */
+  .project-home-panel {
+    margin: 0 auto;
+    max-width: var(--width);
+  }
+  /* Center everything. */
   .project-home-panel > div {
     display: flex;
     flex-direction: column;
-    justify-content: center !important;
   }
   .project-home-panel > div > div {
     justify-content: center;
@@ -1137,8 +1140,8 @@
   .project-home-panel input,
   .input-group-prepend .btn,
   .input-group-append .btn.btn-clipboard,
-  .dropdown-toggle,
-  .dropdown-menu-toggle {
+  .project-home-panel .dropdown-toggle,
+  .project-home-panel .dropdown-menu-toggle {
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
