@@ -11,7 +11,8 @@
 @var checkbox bg_invert "Background image inversion" 1
 @var text     bg_filter "Background image filters" opacity(0.05)
 @var text     bg_size   "Background image size" 15px
-@var text     bg_image  "Background image url/base64" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==
+@var text     bg_repeat "Background image repeat" repeat
+@var text     bg_image  "Background image url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 
 @var color dark    "Dark color."    #2e2e2e
 @var color darker  "Darker color."  #212121
@@ -2526,11 +2527,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-repeat: repeat;
     background-position: center;
-    background-size: /*[[bg_size]]*/;
-    background-image: url("/*[[bg_image]]*/");
-    filter: invert(/*[[bg_invert]]*/) /*[[bg_filter]]*/;
+    background-repeat: bg_repeat;
+    background-size: bg_size;
+    filter: invert(bg_invert) bg_filter;
+  }
+  // ! Use literal css because stylus has its own url() function.
+  @css {
+    body::after {
+      background-image: var(--background);
+    }
   }
 
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
