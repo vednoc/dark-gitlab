@@ -1,17 +1,19 @@
 /* ==UserStyle==
 @name         GitLab Dark by Mew
 @namespace    gitlab.com/vednoc/gitlab-dark
-@version      0.1.0
+@version      0.2.0
 @description  Dark theme for GitLab.
 @author       vednoc
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
-@preprocessor uso
+@preprocessor stylus
 
-@var checkbox bg_invert "Background image inversion" 1
-@var text     bg_filter "Background image filters" opacity(0.05)
-@var text     bg_size   "Background image size" 15px
-@var text     bg_image  "Background image url/base64" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==
+@var checkbox p_header  "Centers project header elements" 1
+@var checkbox bg_invert "Background inversion" 1
+@var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
+@var text     bg_filter "Background filters" opacity(0.05)
+@var text     bg_size   "Background size" 15px
+@var text     bg_repeat "Background repeat" repeat
 
 @var color dark    "Dark color."    #2e2e2e
 @var color darker  "Darker color."  #212121
@@ -30,28 +32,28 @@
 @var color shadow  "Shadow"         rgba(0,0,0,0.07)
 
 @var text maxWidth "Fixed width"    100%
-@var text regexp "Apply userstyle on" https?:\/\/(.*)?(gitlab.com)(\/.*)?
 ==/UserStyle== */
 
-@-moz-document regexp("/*[[regexp]]*/") {
+@-moz-document regexp("https?:\/\/(.*)?(gitlab.com|gitgud.io|salsa.debian.org|framagit.org|gitlab.gnome.org)(\/.*)?") {
   :root {
-    --dark:    /*[[dark]]*/;
-    --darker:  /*[[darker]]*/;
-    --light:   /*[[light]]*/ ;
-    --lighter: /*[[lighter]]*/;
-    --accent:  /*[[accent]]*/;
-    --icon:    /*[[icon]]*/;
-    --shadow:  /*[[shadow]]*/;
+    --dark      : dark;
+    --darker    : darker;
+    --light     : light;
+    --lighter   : lighter;
+    --accent    : accent;
+    --icon      : icon;
+    --shadow    : shadow;
     --box-shadow: 0 2px 3px 0 var(--shadow);
-    --yellow:  /*[[yellow]]*/;
-    --orange:  /*[[orange]]*/;
-    --red:     /*[[red]]*/;
-    --magenta: /*[[magenta]]*/;
-    --violet:  /*[[violet]]*/;
-    --blue:    /*[[blue]]*/;
-    --cyan:    /*[[cyan]]*/;
-    --green:   /*[[green]]*/;
-    --width:   /*[[maxWidth]]*/;
+    --yellow    : yellow;
+    --orange    : orange;
+    --red       : red;
+    --magenta   : magenta;
+    --violet    : violet;
+    --blue      : blue;
+    --cyan      : cyan;
+    --green     : green;
+    --width     : maxWidth;
+    --background: bg_image
   }
 
   ::-webkit-scrollbar {
@@ -2517,7 +2519,22 @@
   }
 
 
-  /* Background image. */
+  // * Centers project header elements; old design lookalike.
+  if p_header {
+    .project-home-panel > div {
+      display: flex;
+      flex-direction: column;
+      > div {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+    .project-stats .nav {
+      justify-content: center;
+    }
+  }
+
+  // * Custom app background.
   body::after {
     position: fixed;
     z-index: -1;
@@ -2526,11 +2543,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-repeat: repeat;
     background-position: center;
-    background-size: /*[[bg_size]]*/;
-    background-image: url("/*[[bg_image]]*/");
-    filter: invert(/*[[bg_invert]]*/) /*[[bg_filter]]*/;
+    background-repeat: bg_repeat;
+    background-size: bg_size;
+    filter: invert(bg_invert) bg_filter;
+  }
+  // ! Use literal css because stylus has its own url() function.
+  @css {
+    body::after {
+      background: var(--background);
+    }
   }
 
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
