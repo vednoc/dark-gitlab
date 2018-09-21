@@ -1,5 +1,4 @@
-# dark-gitlab
-
+![alt tag](./images/banner.png)
 
 ## Roadmap to v1.0.0
 
