@@ -2518,7 +2518,7 @@
   }
 
 
-  /* Background image. */
+  // * Custom app background.
   body::after {
     position: fixed;
     z-index: -1;
@@ -2535,7 +2535,7 @@
   // ! Use literal css because stylus has its own url() function.
   @css {
     body::after {
-      background-image: var(--background);
+      background: var(--background);
     }
   }
 
