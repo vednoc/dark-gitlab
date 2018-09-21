@@ -8,6 +8,7 @@
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @preprocessor stylus
 
+@var checkbox p_header  "Centers project header elements" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05)
@@ -2517,6 +2518,21 @@
     background-image: linear-gradient(to right, var(--darker) 0%, var(--dark) 100%);
   }
 
+
+  // * Centers project header elements; old design lookalike.
+  if p_header {
+    .project-home-panel > div {
+      display: flex;
+      flex-direction: column;
+      > div {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+    .project-stats .nav {
+      justify-content: center;
+    }
+  }
 
   // * Custom app background.
   body::after {
