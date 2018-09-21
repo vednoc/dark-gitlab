@@ -8,7 +8,8 @@
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @preprocessor stylus
 
-@var checkbox p_header  "Centers project header elements" 1
+@var text     max_width "Maximum width for fluid layout" 100%
+@var checkbox p_header  "Center project header elements" 0
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05)
@@ -31,7 +32,6 @@
 @var color green   "Green color."   #8c9440
 @var color shadow  "Shadow"         rgba(0,0,0,0.07)
 
-@var text maxWidth "Fixed width"    100%
 ==/UserStyle== */
 
 @-moz-document regexp("https?:\/\/(.*)?(gitlab.com|gitgud.io|salsa.debian.org|framagit.org|gitlab.gnome.org)(\/.*)?") {
@@ -52,7 +52,7 @@
     --blue      : blue;
     --cyan      : cyan;
     --green     : green;
-    --width     : maxWidth;
+    --width     : max_width;
     --background: bg_image
   }
 
@@ -1121,20 +1121,6 @@
   .group-home-panel {
     border-bottom-color: var(--darker);
   }
-  /* Project page header new design. */
-  .project-home-panel {
-    margin: 0 auto;
-    max-width: var(--width);
-  }
-  /* Center everything. */
-  .project-home-panel > div {
-    display: flex;
-    flex-direction: column;
-  }
-  .project-home-panel > div > div {
-    justify-content: center;
-    text-align: center;
-  }
   /* Fix buttons. */
   .project-home-panel .count-badge-count,
   .project-home-panel .count-badge-button,
@@ -1153,10 +1139,6 @@
   .project-home-panel .text-secondary,
   .project-home-panel .count-buttons .count {
     color: var(--light) !important;
-  }
-  /* Fix stats. */
-  .project-stats .nav {
-    justify-content: center;
   }
   /* Remove background from the license button. */
   .project-home-panel .project-metadata .project-license .btn {
