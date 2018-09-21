@@ -1,8 +1,9 @@
-# dark-gitlab
-
+![alt tag](./images/banner.png)
 
 ## Roadmap to v1.0.0
 
+* [X] Make a better logo.
+* [X] Add a banner.
 * [ ] Write a concise readme.
 * [ ] Add issue and merge request templates.
 * [ ] Convert to [Stylus-lang](https://stylus-lang.org):
