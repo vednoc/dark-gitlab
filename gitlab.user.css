@@ -1021,8 +1021,8 @@
   .nav-sidebar .context-header > a {
     color: var(--light) !important;
   }
-  .nav-sidebar li a:hover,
-  .sidebar-sub-level-items a:hover {
+  .nav-sidebar li a:hover,  .nav-sidebar li a:focus,
+  .sidebar-sub-level-items a:hover, .sidebar-sub-level-items a:focus {
     color: var(--lighter) !important;
     background-color: var(--shadow) !important;
   }
