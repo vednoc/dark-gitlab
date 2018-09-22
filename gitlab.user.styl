@@ -343,8 +343,9 @@
     color: var(--light);
     background-color: var(--shadow) !important;
   }
-  .dropdown.show > a > *, .dropdown.show > button > *, .show > button > *, .show > #notifications-button,
-  .show > #clone-dropdown > * {
+  .dropdown.show > a > *, .dropdown.show > button > *, .show > button, .show > button > *, .show > #notifications-button,
+  .show > #clone-dropdown > *,
+  #nav-projects-dropdown > button[aria-expanded="true"], #nav-groups-dropdown > button[aria-expanded="true"] {
 	transition: none !important;
     transition-delay: none !important;
 	color: var(--accent) !important;
