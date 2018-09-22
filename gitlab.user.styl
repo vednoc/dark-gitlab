@@ -826,16 +826,24 @@
 
 
   /* Modal. */
-  .modal .modal-content {
-    background-color: var(--dark) !important;
-  }
-  .modal .modal-header {
-    border-color: var(--darker);
-    background-color: var(--darker);
-  }
-  .modal .modal-body {
-    border-radius: 0 0 4px 4px;
-    background-color: var(--dark) !important;
+  .modal {
+    .modal-content {
+      background-color: var(--dark) !important;
+    }
+    .modal-header {
+      border-color: var(--darker);
+      background-color: var(--dark);
+    }
+    .modal-body {
+      border-radius: 0 0 4px 4px;
+      background-color: var(--dark) !important;
+      .export-modal-subheader {
+        border-color: var(--darker);
+      }
+    }
+    .modal-footer {
+      border-color: var(--darker);
+    }
   }
 
   /* Branch info border color. */
