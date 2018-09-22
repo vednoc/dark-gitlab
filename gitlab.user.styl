@@ -1922,7 +1922,26 @@
   }
 
 
-  /* Snippets :: Reaction. */
+  // * Snippets
+  .blob-content pre.code,
+  .notes pre.code {
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }
+  // Edit button.
+  .detail-page-header a,
+  .snippet-edited-ago {
+    color: var(--light);
+  }
+  // Toggle discussion.
+  .note-action-button {
+    color: var(--light);
+    &:focus,
+    &:hover {
+      color: var(--lighter);
+    }
+  }
+  // Reactions.
   .row-content-block.content-component-block {
     background-color: transparent;
   }
