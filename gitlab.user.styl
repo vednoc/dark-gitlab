@@ -2372,66 +2372,29 @@
     border: 0 !important;
   }
 
-  /* Project :: Code syntax. */
-  .code.white .c {
-    color: var(--lighter);
-  }
-  .code.white .cp {
-    color: var(--lighter);
-  }
-  .code.white .n {
-    color: var(--light);
-  }
-  .code.white .m {
-    color: var(--cyan);
-  }
-  .code.white .nb {
-    color: var(--blue);
-  }
-  .code.white .nc {
-    color: var(--blue);
-  }
-  .code.white .s1 {
-    color: var(--magenta);
-  }
-  .code.white .s2 {
-    color: var(--red);
-  }
-  .code.white .nv {
-    color: var(--cyan);
-  }
-  .code.white .nt {
-    color: var(--violet);
-  }
-  .code.white .se {
-    color: var(--magenta);
-  }
-  .code.white .gh {
-    color: var(--light);
-  }
-  .code.white .gu {
-    color: var(--magenta);
-  }
-  .code.white .sx {
-    color: var(--red);
-  }
-  .code.white .ss {
-    color: var(--magenta);
-  }
-  .code.white .sb {
-    color: var(--red);
-  }
-  .code.white .s {
-    color: var(--red);
-  }
-  .code.white .nf {
-    color: var(--red);
-  }
-  .code.white .na {
-    color: var(--cyan);
-  }
-  .code.white .si {
-    color: var(--violet);
+  // * Project :: Code syntax highlighting.
+  .code.white {
+    .n, .gh {
+      color: var(--light);
+    }
+    .c, .cp {
+      color: var(--lighter);
+    }
+    .m, .nv, .na {
+      color: var(--cyan);
+    }
+    .nb, .nc {
+      color: var(--blue);
+    }
+    .ss, .s1, .se, .gu {
+      color: var(--magenta);
+    }
+    .s, .s2, .sx, .sb, .sh, .nf {
+      color: var(--red);
+    }
+    .nt, .si {
+      color: var(--violet);
+    }
   }
 
 
