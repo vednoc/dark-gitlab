@@ -73,19 +73,33 @@
   }
   a {
     transition: 200ms ease-in-out;
+    text-decoration: none !important;
     color: var(--accent);
+    &:hover,
+    &:focus {
+      filter: brightness(110%);
+      color: var(--accent);
+    }
   }
-  a:hover,
-  a:focus {
-    color: var(--accent);
+  hr {
+    border-top: none;
+    border-color: var(--shadow);
+    background-color var(--shadow);
   }
-
+  img.transparent,
+  img.lazy {
+    background: transparent !important;
+  }
   code {
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
   table td {
     background-color: var(--dark);
+  }
+  // Fix emojis being cropped.
+  gl-emoji {
+    line-height: 1.20em;
   }
 
   /* Button reset. */
