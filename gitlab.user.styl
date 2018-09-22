@@ -70,14 +70,12 @@
   h1, h2, h3, h4, h5, h6, p {
     color: var(--light) !important;
   }
-
   a {
     transition: 200ms ease-in-out;
     color: var(--accent);
   }
   a:hover,
   a:focus {
-    /* opacity: 0.7; */
     color: var(--accent);
   }
 
@@ -245,7 +243,9 @@
   /* Navbar. */
   .navbar {
     background: var(--darker) !important;
-    border-color: var(--darker) !important; }
+    border-color: var(--darker) !important;
+	box-shadow: var(--box-shadow) !important;
+  }
   /* Logo text color. */
   .navbar .logo-text svg {
     fill: var(--lighter) !important }
@@ -261,7 +261,7 @@
   .navbar ul li.active a,
   .navbar-collapse ul > li:hover a {
     color: var(--light) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--darker) !important;
   }
   /* Input placeholder. */
   .navbar input::placeholder {
@@ -272,9 +272,9 @@
   /* Dropdowns. */
   .dropdown-menu,
   .dropdown-menu-nav {
-    box-shadow: 0 2px 8px -2px var(--shadow);
+    box-shadow: var(--box-shadow) !important;
     border-color: var(--darker);
-    background-color: var(--dark);
+    background-color: var(--darker);
   }
   /* Loading. */
   [class*="dropdown-loading"] {
@@ -326,10 +326,12 @@
   .dropdown-menu li a,
   .dropdown-menu li button,
   .dropdown-menu li .menu-item,
-  .dropdown-header,
   .dropdown-menu .current-user,
   .navbar-sub-nav {
     color: var(--light) !important;
+  }
+  .dropdown-header {
+	color: var(--lighter) !important;
   }
   /* On event. */
   .dropdown-menu li button:hover,
@@ -339,7 +341,15 @@
   .dropdown-menu .droplab-item-selected > .menu-item,
   .dropdown-menu > li:hover > .menu-item {
     color: var(--light);
-    background-color: var(--darker) !important;
+    background-color: var(--shadow) !important;
+  }
+  .dropdown.show > a > *, .dropdown.show > button > *, .show > button, .show > button > *, .show > #notifications-button,
+  .show > #clone-dropdown > *,
+  #nav-projects-dropdown > button[aria-expanded="true"], #nav-groups-dropdown > button[aria-expanded="true"] {
+	transition: none !important;
+    transition-delay: none !important;
+	color: var(--accent) !important;
+	fill: var(--accent) !important;
   }
   /* Open dropdowns. */
   .navbar-sub-nav > li.active > button,
@@ -348,7 +358,7 @@
   .dropdown.show > button,
   .dropdown.show > a {
     color: var(--lighter) !important;
-    background-color: var(--dark) !important;
+    background-color: var(--darker) !important;
   }
   /* Text color. */
   .dropdown-menu-inner-content,
@@ -371,7 +381,7 @@
   .select2-drop.select2-drop-above {
     color: var(--light);
     border-color: var(--darker);
-    background-color: var(--dark);
+    background-color: var(--darker);
   }
   /* Flashing on input. */
   .select2-container-multi .select2-choices .select2-search-field input.select2-active {
@@ -391,6 +401,9 @@
   }
   .select2-results .select2-highlighted .select2-result-label {
     background-color: var(--darker);
+  }
+  .select2-results .select2-highlighted .select2-result-label:hover {
+	  background-color: var(--shadow) !important;
   }
   .select2-arrow {
     padding-left: 10px;
