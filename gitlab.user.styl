@@ -381,7 +381,7 @@
   .select2-drop.select2-drop-above {
     color: var(--light);
     border-color: var(--darker);
-    background-color: var(--dark);
+    background-color: var(--darker);
   }
   /* Flashing on input. */
   .select2-container-multi .select2-choices .select2-search-field input.select2-active {
@@ -401,6 +401,9 @@
   }
   .select2-results .select2-highlighted .select2-result-label {
     background-color: var(--darker);
+  }
+  .select2-results .select2-highlighted .select2-result-label:hover {
+	  background-color: var(--shadow) !important;
   }
   .select2-arrow {
     padding-left: 10px;
