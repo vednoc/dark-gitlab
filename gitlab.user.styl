@@ -2521,6 +2521,36 @@
   }
 
 
+  // * Group header.
+  .explore-groups {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  // * Group body.
+  .group-list-tree {
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+    // Make some spacing.
+    > .group-row.is-open > ul {
+      margin: 10px 0 10px 30px;
+    }
+    // On event.
+    .group-row-contents:hover {
+      border-color: var(--mred);
+      background-color: var(--darker);
+    }
+    // Activity?
+    .group-row::before,
+    .group-list-tree::before {
+      border-color: var(--lighter) !important;
+      background: var(--lighter) !important;
+    }
+    .group-row .stats {
+      color: var(--light);
+    }
+  }
+
   // Invert illustrations.
   .banner-graphic > svg,
   img[src*="/assets/illustrations/"] {
