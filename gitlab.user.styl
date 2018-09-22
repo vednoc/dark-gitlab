@@ -2385,17 +2385,28 @@
 
 
   /* Project :: Code view. */
-  .code.white,
-  .code.white pre.code,
-  .code.white .line_holder .line_content {
+  .code.white {
     color: var(--light);
     background-color: var(--dark);
-  }
-  /* Gutter. */
-  .code.white .line-numbers,
-  .code.white .diff-line-num {
-    color: var(--lighter) !important;
-    background-color: var(--dark);
+    .line_holder .line_content {
+      color: var(--light);
+      background: none;
+    }
+    // * Gutters.
+    .line-numbers {
+      color: var(--light) !important;
+      background-color: var(--shadow);
+      .diff-line-num {
+        color: var(--lighter);
+        background-color: transparent;
+      }
+    }
+    .line_holder {
+      .diff-line-num {
+        color: var(--lighter);
+        background-color: var(--shadow);
+      }
+    }
   }
   /* Gutters in file diff. */
   .diff-line-num a::before {
