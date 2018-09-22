@@ -632,23 +632,24 @@
   }
 
 
-  /* Projects list. */
+  // * Projects list.
   .projects-list {
     margin: 10px 0;
     border-radius: 4px;
     border: 1px solid var(--darker);
     background-color: var(--dark);
+    // Items.
+    > li {
+      padding: 5px;
+      transition: 200ms ease-in-out;
+      border-bottom-color: var(--darker);
+      // On event.
+      &:hover {
+        background-color: var(--shadow);
+      }
+    }
   }
-  /* Items. */
-  .projects-list > li {
-    padding: 5px;
-    transition: 200ms ease-in-out;
-    border-bottom-color: var(--darker);
-  }
-  /* On event. */
-  .projects-list > li:hover {
-    background-color: var(--shadow);
-  }
+
   /* Avatar background. */
   .avatar,
   .avatar-circle,
@@ -663,7 +664,7 @@
     color: var(--light);
   }
   img.avatar {
-    filter: drop-shadow(1px 1px 2px var(--darker));
+    filter: drop-shadow(1px 1px 2px var(--shadow));
   }
 
   /* Project details. */
@@ -678,6 +679,7 @@
   .user-access-role {
     color: var(--light);
     border-color: var(--darker);
+    background-color: var(--darker);
   }
   /* Empty project. */
   .project-empty-note-panel {
