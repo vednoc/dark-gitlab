@@ -1109,21 +1109,22 @@
   .nav-sidebar .context-header > a {
     color: var(--light) !important;
   }
-  .nav-sidebar li a:hover,  .nav-sidebar li a:focus,
-  .sidebar-sub-level-items a:hover, .sidebar-sub-level-items a:focus {
+  /* Left sidebar. */
+  .nav-sidebar li a:hover,
+  .sidebar-sub-level-items a:hover {
     color: var(--lighter) !important;
     background-color: var(--shadow) !important;
   }
 
   /* Active sub-menu. */
   .nav-sidebar li.active {
-    box-shadow: inset 4px 0 0 0 var(--accent) !important;
+    box-shadow: none !important;
     background-color: var(--darker) !important;
   }
   /* Active tab. */
   .nav-sidebar .sidebar-sub-level-items .active a {
-    box-shadow: inset -4px 0 0 0 var(--accent) !important;
-    background-color: var(--dark);
+    box-shadow: inset 4px 0 0 0 var(--accent) !important;
+    background-color: var(--shadow) !important;
   }
   /* Hide indicators. */
   @media (min-width: 576px) {
