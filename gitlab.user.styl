@@ -2034,6 +2034,9 @@
     background-color: rgba(149, 200, 99, 0.3) !important;
   }
   .line_holder .line_content.new .idiff {
+  .line_holder .line_content.new .idiff,
+  .idiff.addition {
+    padding: 0 2px;
     background-color: rgba(149, 200, 99, 0.3) !important;
   }
   /* Removed lines. */
@@ -2042,7 +2045,9 @@
     border-color: var(--shadow) !important;
     background-color: rgba(200, 49, 49, 0.3) !important;
   }
-  .line_holder .line_content.old .idiff {
+  .line_holder .line_content.old .idiff,
+  .idiff.deletion {
+    padding: 0 2px;
     background-color: rgba(200, 49, 49, 0.3) !important;
   }
   /* Matching lines. */
@@ -2058,10 +2063,10 @@
     padding: 0;
     border: 0;
     color: var(--light);
-    background-color: transparent;
+    background-color: var(--darker);
   }
   .line_holder .add-diff-note:hover {
-    background-color: var(--shadow);
+    background-color: var(--dark);
   }
   /* Highlight the entire line. */
   .line_holder [class*="side"]:hover,
