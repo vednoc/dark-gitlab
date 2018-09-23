@@ -77,7 +77,6 @@
     color: var(--accent);
     &:hover,
     &:focus {
-      opacity: 0.8;
       color: var(--accent);
     }
   }
@@ -139,11 +138,19 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  .btn:focus,
+  .btn.focus {
+    box-shadow: none;
+  }
   .btn:active,
   .btn.active {
-    color: var(--light) !important;
-    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+    // Active icons!
+    > i, > .fa {
+      color: inherit !important;
+    }
   }
   /* Green buttons. */
   .btn.btn-success,
