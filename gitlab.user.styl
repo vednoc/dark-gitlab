@@ -886,6 +886,23 @@
     }
   }
 
+  // * Close buttons.
+  // ! Blame @RaitaroH for this one.
+  .close {
+    transition: 200ms ease-in-out;
+    text-shadow: (0 1px 0 var(--shadow));
+    color: var(--icon);
+    &:hover, &:focus {
+      color: var(--accent);
+    }
+    // Non-modal.
+    &:not(:disabled):not(.disabled) .fa {
+      text-shadow: (0 1px 0 var(--shadow));
+      transform: translateY(-10px);
+      color: var(--icon) !important;
+    }
+  }
+
   /* Branch info border color. */
   .commit-box,
   .info-well .well-segment:not(:last-of-type) {
