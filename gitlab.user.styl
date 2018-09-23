@@ -410,6 +410,10 @@
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
+  /* Text color. */
+  .select2-drop .select2-result-label {
+    color: var(--light) !important;
+  }
   /* On event. */
   .select2-results .select2-highlighted {
     color: var(--lighter);
@@ -487,7 +491,6 @@
     background-color: var(--dark) !important;
   }
   /* On event. */
-  .form-control:hover,
   .form-control:focus {
     border-color: var(--blue) !important;
     box-shadow: 0 0 2px 1px var(--shadow);
@@ -638,7 +641,7 @@
   }
 
   /* SSH Keys. */
-  pre,
+  // pre,
   code.key-fingerprint {
     background-color: var(--darker) !important;
     border-color: var(--darker) !important;
@@ -745,6 +748,9 @@
   .content-list li [class*="item"],
   .content-list li [class*="graph"] [class*="count"] {
     color: var(--light) !important;
+  }
+  .content-list li a {
+    color: var(--accent) !important;
   }
   .branch-commit .commit-sha,
   .branch-commit .gfm-commit,
@@ -914,7 +920,7 @@
   /* Recently pushed branches. */
   .container-fluid > .row-content-block.white {
     margin-top: 10px;
-    padding: 8px;
+    padding: 12px 8px;
     border-radius: 4px;
     border: 1px solid var(--darker);
     background-color: var(--dark);
@@ -949,6 +955,10 @@
   .diff-file .file-title-flex-parent:hover,
   .diff-file .diff-content {
     background-color: var(--dark);
+  }
+  /* On event. */
+  .diff-file .file-title:hover {
+    background-color: var(--shadow) !important;
   }
   /* Text color. */
   .branch-info > span,
@@ -1126,6 +1136,10 @@
   .right-sidebar .block,
   .right-sidebar .gutter-toggle {
     border-bottom-color: var(--darker) !important;
+  }
+  /* Toggle border. */
+  .right-sidebar .gutter-toggle {
+    border-left-color: var(--darker) !important;
   }
   /* Button background. */
   .right-sidebar .js-move-issue:hover,
@@ -1436,6 +1450,10 @@
   .task-status,
   .issuable-updated-at {
     color: var(--light) !important;
+  }
+  /* Email button. */
+  .issuable-email-modal-btn {
+    color: var(--accent);
   }
   /* Merged/closed. */
   .merge-request.merged,
@@ -2520,10 +2538,8 @@
     border-color: var(--darker) !important;
   }
 
-  /**
-  * * Skeleton.
-  * ? Changes color of loading elements.
-  */
+  // * Skeleton.
+  // ? Changes color of loading elements.
   .animation-container [class^="skeleton-line-"] {
     background-color: var(--darker);
   }
