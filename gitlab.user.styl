@@ -973,16 +973,27 @@
   }
 
 
-  /* Timeline content. */
+  // * Timeline content.
   .timeline-entry {
     color: var(--light);
     border-color: var(--darker);
     background-color: transparent;
+    // Entry borders.
+    .timeline-entry-inner {
+      border-color: var(--darker) !important;
+    }
+    // Highlighted entry.
+    &:target, &.target {
+      border-color: var(--darker) !important;
+      background-color: var(--darker);
+    }
+    // Fix button background.
+    .note-action-button {
+      background-color: transparent;
+    }
   }
-  /* Comments. */
-  .notes .timeline-entry-inner {
-    border-color: var(--darker) !important;
-  }
+
+  /* Text color. */
   .note-headline-light,
   .discussion-headline-light,
   .note-headline-meta .system-note-separator {
@@ -1831,6 +1842,7 @@
   }
   /* Discussion. */
   .diff-file .notes_holder .notes_content .notes {
+    border-top: 1px solid var(--darker);
     background-color: var(--dark) !important;
   }
   /* Click to expand button. */
