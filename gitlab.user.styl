@@ -77,7 +77,7 @@
     color: var(--accent);
     &:hover,
     &:focus {
-      filter: brightness(110%);
+      opacity: 0.8;
       color: var(--accent);
     }
   }
@@ -100,6 +100,33 @@
   // Fix emojis being cropped.
   gl-emoji {
     line-height: 1.20em;
+  }
+
+  /* Icons! */
+  .fa, svg {
+    color: var(--icon) !important;
+    fill: var(--icon) !important;
+    &:hover {
+      opacity: 0.8 !important;
+    }
+  }
+
+  /* Bootstrap reset. */
+  .bg-white {
+    background-color: var(--dark) !important;
+  }
+  .badge {
+    &.unverified {
+      border-color: var(--lighter) !important;
+    }
+  }
+  .badge-pill,
+  .shortcut-mappings .key {
+    color: var(--light) !important;
+  }
+  .cgray,
+  .committed_ago {
+    color: var(--lighter) !important;
   }
 
   /* Button reset. */
