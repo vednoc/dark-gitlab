@@ -2052,7 +2052,6 @@
     border-color: var(--shadow) !important;
     background-color: rgba(149, 200, 99, 0.3) !important;
   }
-  .line_holder .line_content.new .idiff {
   .line_holder .line_content.new .idiff,
   .idiff.addition {
     padding: 0 2px;
@@ -2132,22 +2131,35 @@
   }
 
 
-  /* Editor settings. */
-  .template-selectors-menu {
-    border-left-color: var(--darker);
-  }
-  .file-editor .editor-ref {
-    border-color: var(--dark);
-    background-color: var(--dark);
+  // * File editor.
+  // TODO unfinished.
+  .file-editor {
+    // Header.
+    .nav-links {
+      border-color: var(--darker);
+      background-color: var(--dark);
+    }
+    // Branch name.
+    .editor-ref {
+      border-color: var(--darker);
+      background-color: var(--darker);
+    }
   }
   .text-info {
-    color: var(--light) !important;
+    color: var(--red) !important;
+  }
+  .template-selectors-menu {
+    border-left-color: var(--darker);
   }
 
   /* Ace editor. */
   .ace-tm {
     color: var(--light);
     background-color: var(--dark);
+  }
+  // Scroller.
+  .ace_scroller.ace_scroll-left {
+    box-shadow: 17px 0 16px -16px var(--darker) inset;
   }
   .ace-tm .ace_gutter {
     color: var(--lighter);
