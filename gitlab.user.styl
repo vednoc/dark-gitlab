@@ -158,7 +158,8 @@
   .btn.btn-create,
   .btn.comment-btn,
   .btn.btn-save,
-  .btn.commit-btn.js-commit-button.btn-create {
+  .btn.commit-btn.js-commit-button.btn-create,
+  .status-box.status-box-open {
     color: var(--lighter) !important;
     border-color: var(--green) !important;
     background-color: var(--green) !important;
@@ -622,8 +623,10 @@
   .nav-links li a .badge.badge-pill {
     color: var(--light) !important;
   }
+  // TODO fix btn-missing properly and refactor this section.
+  .top-area .nav-links li:hover a,
+  .nav-block .nav-links li:hover a,
   .nav-links li.active a,
-  .nav-links li:hover a,
   .nav-links li.active a .badge.badge-pill {
     color: var(--lighter) !important;
     border-bottom-color: var(--accent) !important;
@@ -1133,9 +1136,10 @@
   .nav-sidebar .context-header > a {
     color: var(--light) !important;
   }
-  /* Left sidebar. */
+  /* Items on event. */
   .nav-sidebar li a:hover,
-  .sidebar-sub-level-items a:hover {
+  .sidebar-sub-level-items a:hover,
+  .sidebar-sub-level-items a:focus {
     color: var(--lighter) !important;
     background-color: var(--shadow) !important;
   }
@@ -1295,6 +1299,7 @@
   }
   /* Missing buttons. */
   .btn-missing {
+    border-style: solid !important;
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
