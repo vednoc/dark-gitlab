@@ -1594,40 +1594,41 @@
     background-color: var(--dark);
   }
 
-  /* Issues :: Details. */
+  // * Issues :: Details.
   .detail-page-header,
   .issuable-details .content-block {
     color: var(--light);
     border-color: var(--darker);
   }
-  /* Buttons. */
-  .award-control.is-active,
-  .award-control.user-authored {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+  // Edited.
+  .detail-page-description small {
+    color: var(--lighter);
   }
-  /* Reacted to. */
-  .award-control.active {
+  // Buttons.
+  .award-control {
+    &.is-active, &.user-authored {
+      color: var(--light) !important;
+      border-color: var(--darker) !important;
+      background-color: var(--dark) !important;
+    }
+    // Reacted to.
+    &.active {
     color: var(--light);
     border-color: var(--blue);
     background-color: var(--dark);
+    }
   }
-  /**
-   * * Add a reaction button.
-   * ! Doesn't align vertically.
-   * TODO Remove if/when they fix it.
-   */
-  .award-control .award-control-icon svg {
-    margin-top: -7px;
-  }
+
   /* Created branch button. */
   .issuable-details p > code,
-  a.gfm-project_member,
-  .notes .note-body .note-text code {
+  a.gfm-project_member {
     color: var(--lighter) !important;
     border: 1px solid var(--darker);
     background-color: var(--dark);
+  }
+  // Notes.
+  .note-text pre {
+    border-radius: 4px !important;
   }
 
   /* Cards. */
