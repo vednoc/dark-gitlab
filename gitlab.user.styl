@@ -1786,12 +1786,25 @@
 
   /* Merge Requests :: Details. */
   .merge-request-tabs-holder {
-    border-bottom-color: var(--darker);
+    overflow: hidden;
+    margin: 10px 0;
+    padding: 0 8px;
+    border-radius: 4px;
+    border: 1px solid var(--darker);
     background-color: var(--dark);
+    .scrolling-tabs-container {
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      border: 0;
+    }
   }
   /* Nav background. */
   .limit-container-width .merge-request-tabs-container .inner-page-scroll-tabs {
     background-color: transparent;
+  }
+  .nav-tabs .nav-link.active {
+    background-color: transparent !important;
   }
   /* Active tab. */
   .nav-links .active a,
@@ -1881,7 +1894,6 @@
 
   /* Merge Requests :: New MR. */
   .mr-source-target {
-    padding: 8px;
     min-height: auto;
     border-color: var(--darker);
     background-color: var(--dark);
@@ -1892,17 +1904,26 @@
     background-color: var(--dark);
   }
   /* Borders. */
+  .mr-state-widget .media-section,
+  .mr-state-widget .mr-widget-heading,
   .mr-state-widget .mr-widget-section,
   .mr-state-widget .mr-widget-footer {
-    border-radius: 4px;
     border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  .mr-widget-heading:not(.deploy-heading)::before {
+    border-left: 1px solid var(--darker);
   }
   /* Text color. */
   .mr-state-widget,
+  .mr-state-widget .ci-widget,
   .mr-state-widget .diverged-commits-count,
   .mr-state-widget .mr-widget-body .spacing,
   .mr-state-widget .mr-widget-body .bold {
     color: var(--light);
+  }
+  .ci-widget-container .coverage {
+    color: var(--lighter);
   }
 
   /* Merge Requests :: Diff. */
