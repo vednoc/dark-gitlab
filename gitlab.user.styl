@@ -1122,9 +1122,13 @@
     background-color: var(--darker) !important;
   }
   /* Active tab. */
-  .nav-sidebar .sidebar-sub-level-items .active a {
+  .nav-sidebar .sidebar-sub-level-items .active:not(.fly-out-top-item) a {
     box-shadow: inset 4px 0 0 0 var(--accent) !important;
     background-color: var(--shadow) !important;
+  }
+  /* Remove unused shadow. */
+  .sidebar-sub-level-items > .active a {
+    background: none !important;
   }
   /* Hide indicators. */
   @media (min-width: 576px) {
