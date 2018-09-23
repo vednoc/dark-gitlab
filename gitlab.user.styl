@@ -1732,6 +1732,33 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
+  .issuable-row {
+    background-color: transparent;
+    .issuable-number {
+      color: var(--lighter) !important;
+    }
+  }
+  // * Chart.
+  // TODO unfinished
+  .burndown-chart {
+    background-color: var(--darker);
+    text {
+      fill: var(--light);
+    }
+    // ? Legend!
+    .legend {
+      rect {
+        stroke: var(--lighter);
+      }
+      text {
+        fill: var(--light);
+      }
+    }
+    .actual.line {
+      stroke: var(--accent);
+      fill: none !important;
+    }
+  }
 
 
   /* Calendar. */
