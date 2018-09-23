@@ -1383,52 +1383,53 @@
     background: var(--dark);
   }
 
-  /* Wiki. */
+  // * Wiki.
   .wiki {
     color: var(--light);
-  }
-  .wiki h1,
-  .wiki h2 {
-    color: var(--lighter) !important;
-    border-bottom-color: var(--darker) !important;
-  }
-  .wiki blockquote,
-  .wiki .blockquote {
-    color: var(--lighter) !important;
-    border-left-color: var(--accent) !important;
-    background-color: var(--dark);
-  }
-  .wiki blockquote p,
-  .wiki .blockquote p {
-    color: var(--lighter) !important;
-  }
-  .wiki a {
-    text-decoration: underline;
-    color: var(--accent) !important;
-  }
-  .wiki pre,
-  .wiki code {
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  .wiki > p > code {
-    border: 1px solid var(--darker) !important;
-  }
-  .wiki img:not(.emoji) {
-    border-color: var(--darker) !important;
-  }
-  .wiki table {
-    color: var(--light);
-  }
-  .wiki table tr th {
-    color: var(--lighter);
-    border-bottom-color: var(--darker);
-    background-color: var(--dark);
-  }
-  .wiki table th,
-  .wiki table tr td {
-    border-color: var(--darker);
+    a {
+      text-decoration: underline;
+      color: var(--accent) !important;
+    }
+    h1, h2 {
+      color: var(--lighter) !important;
+      border-bottom-color: var(--darker) !important;
+    }
+    > p > code {
+      border: 1px solid var(--darker) !important;
+    }
+    blockquote, .blockquote {
+      color: var(--lighter) !important;
+      border-left-color: var(--accent) !important;
+      background-color: var(--dark);
+      p {
+        color: var(--lighter) !important;
+      }
+    }
+    pre, code {
+      color: var(--lighter) !important;
+      border-color: var(--darker) !important;
+      background-color: var(--dark) !important;
+    }
+    img:not(.emoji) {
+      border-color: var(--darker) !important;
+    }
+    kbd {
+      color: var(--accent);
+      background-color: var(--dark);
+      border-color: var(--shadow);
+      box-shadow: none;
+    }
+    table {
+      color: var(--light);
+      tr th {
+        color: var(--lighter);
+        border-bottom-color: var(--darker);
+        background-color: var(--dark);
+      }
+      th, tr td {
+        border-color: var(--darker);
+      }
+    }
   }
 
 
