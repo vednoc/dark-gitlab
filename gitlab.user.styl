@@ -2726,8 +2726,17 @@
     }
   }
 
+
+  // * Invert image icons.
+  // TODO adjust if it causes weird things.
+  img[src*="/assets/icon"] {
+    filter: invert(1);
+  }
+
   // Invert illustrations.
+  .wiki .anchor,
   .banner-graphic > svg,
+  .explore-groups > .svg-container > svg,
   img[src*="/assets/illustrations/"] {
     filter: opacity(0.9) invert(0.9) hue-rotate(40deg) drop-shadow(1px 1px 3px var(--shadow)) !important;
   }
