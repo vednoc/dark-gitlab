@@ -245,33 +245,37 @@
     background-color: var(--darker);
   }
 
-  /* Sign in/register buttons. */
-  .login-page .new-session-tabs {
-    border-color: var(--darker);
-    box-shadow: 0 0 0 1px var(--darker);
-  }
-  .login-page .new-session-tabs li {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-  }
-  .login-page .new-session-tabs li a.active,
-  .login-page .new-session-tabs li a:hover {
-    color: var(--lighter) !important;
-    border-color: var(--accent) !important;
-    background-color: var(--darker) !important;
+  // * Sign in/register page.
+  .login-page {
+    // Header.
+    .new-session-tabs {
+      border-color: var(--darker);
+      box-shadow: 0 0 0 1px var(--darker);
+      li {
+        color: var(--light) !important;
+        border-color: var(--darker) !important;
+        background-color: var(--darker) !important;
+        a.active,
+        a:hover {
+          color: var(--lighter) !important;
+          border-color: var(--accent) !important;
+          background-color: var(--darker) !important;
+        }
+      }
+    }
+    // Body.
+    .login-box,
+    .omniauth-container {
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px var(--darker);
+      background-color: var(--dark);
+      .form-control,
+      .omniauth-btn {
+        background-color: var(--darker) !important;
+      }
+    }
   }
 
-  /* Sign in/register section. */
-  .login-page .login-box,
-  .login-page .omniauth-container {
-    box-shadow: 0 0 0 1px var(--darker);
-  }
-  .login-page .form-group input {
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background: var(--dark) !important;
-  }
   /* Misc text color. */
   .light,
   .description-block {
