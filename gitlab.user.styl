@@ -9,6 +9,7 @@
 @preprocessor stylus
 
 @var text     max_width "Maximum width for fluid layout" 100%
+@var text     code_font "Custom code font" """"
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox bg_invert "Background inversion" 1
@@ -2838,6 +2839,13 @@
     body::after {
       background: var(--background);
     }
+  }
+
+  // * Code font.
+  code, .code, pre.code code,
+  [class*="monospace"],
+  #editor, .monaco-editor * {
+    font-family: code_font, "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace !important;
   }
 
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
