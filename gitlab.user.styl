@@ -718,9 +718,62 @@
     color: var(--green) !important;
   }
 
-  /* Applications. */
-  .text-secondary {
-    color: var(--light) !important;
+  // * Purchases.
+  // ? https://customers.gitlab.com/customers/sign_up
+  .white-card {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--dark);
+    .title {
+      border-bottom-color: var(--darker);
+    }
+    label {
+      color: var(--lighter);
+    }
+    select, option, input {
+      color: var(--lighter) !important;
+      background-color: var(--darker) !important;
+      box-shadow: none;
+    }
+    // Select one.
+    .chosen-container {
+      // Results.
+      .chosen-drop {
+        border-color: var(--darker) !important;
+        background-color: var(--darker) !important;
+        box-shadow: none !important;
+        .chosen-results {
+          color: var(--light) !important;
+          .highlighted {
+            color: var(--light);
+            background-color: var(--accent);
+            background-image: none;
+          }
+        }
+      }
+      // Input element.
+      .chosen-single {
+        min-height: 34px;
+        line-height: 34px;
+        color: var(--light) !important;
+        border-color: var(--darker) !important;
+        background-color: var(--darker) !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        // Caret position.
+        b {
+          background-position: 0px 6px !important;
+        }
+      }
+    }
+    // Register button.
+    .btn-gitlab:hover,
+    .btn-gitlab:focus,
+    .btn-gitlab:active {
+      color: var(--light) !important;
+      border-color: var(--accent) !important;
+      background-color: var(--accent) !important;
+    }
   }
 
   /* Emails. */
