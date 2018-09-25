@@ -1679,8 +1679,11 @@
 
   /* Dashboard. */
   .row-content-block {
+    margin-top: 10px !important;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--darker);
     color: var(--light);
-    border-color: var(--darker);
     background-color: var(--dark);
   }
   /* Sub-header found in compare branches. */
@@ -2047,6 +2050,19 @@
   }
 
 
+  // * Merge Requests :: List.
+  .merge-requests-holder {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+    li {
+      transition: background 0.15s ease-in-out;
+      &:hover {
+        background-color: var(--darker);
+      }
+    }
+  }
   /* Merge Requests :: Details. */
   .merge-request-tabs-holder {
     overflow: hidden;
