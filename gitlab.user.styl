@@ -1753,27 +1753,49 @@
   }
 
 
-  /* Issues :: List. */
+  // * Issues :: List.
+  .issues-holder {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+    // Email a new issue to this project.
+    .issuable-footer {
+      padding: 10px;
+      border-top: 1px solid var(--darker);
+    }
+    li {
+      transition: background 0.15s ease-in-out;
+      &:hover {
+        background-color: var(--darker);
+      }
+    }
+  }
+
+  // * Search or filter results.
   .filtered-search-box {
     border-color: var(--darker);
     background-color: transparent;
-  }
-  /* Search field. */
-  .filtered-search-box .form-control {
-    color: var(--light) !important;
-    border-color: transparent !important;
-  }
-  /* Search field words. */
-  .filtered-search-box .name {
-    color: var(--light);
-  }
-  .filtered-search-token * {
-    color: var(--light);
-    background-color: var(--darker) !important;
-  }
-  /* Search field button. */
-  .filtered-search-box .clear-search {
-    background-color: var(--dark);
+    // Search field.
+    .form-control {
+      color: var(--light) !important;
+      border-color: transparent !important;
+    }
+    // Search field words.
+    .name {
+      color: var(--light);
+    }
+    /* Search field button. */
+    .clear-search {
+      background-color: var(--dark);
+    }
+    // Search tokens (labels).
+    .filtered-search-token > .name,
+    .selectable > div {
+      border-radius: 4px;
+      color: var(--light);
+      background-color: var(--darker) !important;
+    }
   }
 
   // * Issues :: Details.
