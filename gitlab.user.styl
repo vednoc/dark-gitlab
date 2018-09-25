@@ -102,13 +102,20 @@
     line-height: 1.20em;
   }
 
-  /* Icons! */
+  // * Icons!
   .fa, svg {
     color: var(--icon) !important;
     fill: var(--icon) !important;
     &:hover {
       opacity: 0.8 !important;
     }
+  }
+  // * Fix icons that need extra path selector.
+  // ? Calendar, add reaction, commit icon.
+  .nav-controls .has-tooltip svg > path,
+  .award-control-icon svg path,
+  .commit-icon path {
+    fill: var(--icon) !important;
   }
 
   /* Bootstrap reset. */
