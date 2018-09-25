@@ -128,6 +128,12 @@
   .committed_ago {
     color: var(--lighter) !important;
   }
+  .text-secondary {
+    color: var(--light) !important;
+  }
+  .text-danger {
+    color: var(--red) !important;
+  }
 
   /* Button reset. */
   .btn,
@@ -1286,6 +1292,7 @@
   .nav-sidebar .toggle-sidebar-button {
     transition: 200ms ease-in-out !important;
     height: 44px;
+    width: 100%;
   }
   .toggle-sidebar-button .collapse-text {
     color: var(--light) !important;
@@ -2289,6 +2296,12 @@
       border-color: var(--darker);
       background-color: var(--darker);
     }
+    // Commit or disband.
+    .form-actions {
+      padding: 12px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--darker);
+    }
   }
   .text-info {
     color: var(--red) !important;
@@ -2994,6 +3007,7 @@
   }
 
   // * Code font.
+  .gfm-commit,
   code, .code, pre.code code,
   [class*="monospace"],
   #editor, .monaco-editor * {
