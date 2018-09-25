@@ -1628,19 +1628,49 @@
   .cover-block .cover-desc,
   .nothing-here-block,
   .calendar-hint,
-  .event-item .event-title,
   .content-list li {
     color: var(--light) !important;
   }
   /* Emphasized text color. */
-  .cover-block .cover-title,
-  .event-item a,
-  .event-item .commit-sha{
+  .cover-block .cover-title {
     color: var(--lighter) !important;
   }
   /* Icons. */
   [class*="pushed-"] svg {
     fill: var(--icon) !important;
+  }
+
+  // * Project :: Activity.
+  // ? https://gitlab.com/vednoc/dark-gitlab/activity
+  .project-activity {
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+  }
+  .event-item {
+    padding: 8px 8px 8px 50px;
+    border-color: var(--darker);
+    transition: background 0.15s ease-in-out;
+    &:hover {
+      background-color: var(--darker);
+    }
+    // Move avatar off the edge.
+    .user-avatar {
+      margin-left: 8px;
+    }
+    .event-title {
+      color: var(--light);
+    }
+    .event-body,
+    &-timestamp {
+      color: var(--lighter);
+    }
+    a, .commit-sha {
+      color: var(--accent);
+    }
+    .commit-sha {
+      font-family: code_font;
+    }
   }
 
 
