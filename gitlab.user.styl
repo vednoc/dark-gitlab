@@ -112,6 +112,7 @@
   }
   // * Fix icons that need extra path selector.
   // ? Calendar, add reaction, commit icon.
+  // TODO add missing icons here.
   .nav-controls .has-tooltip svg > path,
   .award-control-icon svg path,
   .commit-icon path {
@@ -452,7 +453,8 @@
   .navbar-sub-nav {
     color: var(--light) !important;
   }
-  .dropdown-header {
+  .dropdown-header,
+  .dropdown-bold-header {
 	color: var(--lighter) !important;
   }
   /* On event. */
@@ -1546,10 +1548,11 @@
     }
     table {
       color: var(--light);
+      background-color: var(--dark);
       tr th {
         color: var(--lighter);
         border-bottom-color: var(--darker);
-        background-color: var(--dark);
+        background-color: var(--darker);
       }
       th, tr td {
         border-color: var(--darker);
@@ -1621,6 +1624,10 @@
     // Prevent SVG from fading.
     svg:hover {
       opacity: 1 !important;
+    }
+    // Text color.
+    svg text {
+      fill: var(--light);
     }
   }
   // Reset navigation.
@@ -1996,7 +2003,7 @@
     }
   }
   // * Chart.
-  // TODO unfinished
+  // TODO unfinished.
   .burndown-chart {
     background-color: var(--darker);
     text {
