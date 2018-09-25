@@ -84,7 +84,7 @@
   hr {
     border-top: none;
     border-color: var(--shadow);
-    background-color var(--shadow);
+    background-color: var(--shadow);
   }
   img.transparent,
   img.lazy {
@@ -170,7 +170,8 @@
   .btn.btn-info,
   .btn.btn-primary,
   .btn.btn-register,
-  .project-feature-toggle.is-checked {
+  .project-feature-toggle.is-checked,
+  .status-box.status-box-mr-merged {
     color: var(--lighter) !important;
     border-color: var(--blue) !important;
     background-color: var(--blue) !important;
@@ -179,7 +180,8 @@
   /* Close buttons. */
   .btn.btn-close,
   .btn.btn-close-color,
-  .btn.btn-cancel {
+  .btn.btn-cancel,
+  .status-box.status-box-issue-closed {
     color: var(--lighter) !important;
     border-color: var(--red) !important;
     background-color: var(--red) !important;
@@ -2155,6 +2157,7 @@
   /* Text color. */
   .mr-state-widget,
   .mr-state-widget .ci-widget,
+  .mr-state-widget .label-branch,
   .mr-state-widget .diverged-commits-count,
   .mr-state-widget .mr-widget-body .spacing,
   .mr-state-widget .mr-widget-body .bold {
@@ -2162,6 +2165,11 @@
   }
   .ci-widget-container .coverage {
     color: var(--lighter);
+  }
+  // Icon color.
+  .mr-source-target .git-merge-icon-container {
+    color: var(--light);
+    border-color: var(--darker);
   }
 
   /* Merge Requests :: Diff. */
@@ -2460,6 +2468,10 @@
   .main .alert-warning {
     border-color: var(--red);
     background-color: var(--dark);
+  }
+  .alert.alert-success {
+    border-color: var(--violet);
+    background-color: var(--violet);
   }
   /* Tables. */
   .main table td,
@@ -2827,6 +2839,10 @@
   .badge-success {
     color: var(--light);
     background-color: var(--green);
+  }
+  .badge-primary {
+    color: var(--light);
+    background-color: var(--blue);
   }
 
   /* Project CI/CD :: Pipeline details. */
