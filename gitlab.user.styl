@@ -115,6 +115,9 @@
   .bg-white {
     background-color: var(--dark) !important;
   }
+  .bg-info {
+    background-color: var(--darker) !important;
+  }
   .badge {
     &.unverified {
       border-color: var(--lighter) !important;
@@ -695,35 +698,26 @@
   }
 
 
-  /* Billing. */
-  .bg-info {
-    background-color: var(--darker) !important;
-  }
-  .billing-plans .card .card-header, .billing-plans .card-slim .card-header {
-    background-color: var(--accent) !important;
-  }
-  .billing-plans .card.current .card-body, .billing-plans .current.card-slim .card-body,
-  .billing-plans .card, .billing-plans .card-slim {
-    border-color: var(--accent) !important;
-    background-color: var(--shadow) !important;
-  }
-  /* Items. */
-  .billing-plans .card .card-body .feature-list li,
-  .billing-plans .card-slim .card-body .feature-list li {
-    background-color: var(--shadow) !important;
-  }
-  /* Price per month. */
-  .billing-plans .card.current .card-body .price-per-month,
-  .billing-plans .current.card-slim .card-body .price-per-month,
-  .billing-plans .card.current .card-body .price-per-year,
-  .billing-plans .current.card-slim .card-body .price-per-year,
-  .billing-plans .card .card-body .price-per-month,
-  .billing-plans .card-slim .card-body .price-per-month {
-    color: var(--accent) !important;
-  }
-  /* Annually. */
-  .billing-plans .card .card-body .price-per-year, .billing-plans .card-slim .card-body .price-per-year {
-    color: var(--green) !important;
+  // * Settings :: Billing.
+  .billing-plans {
+    [class*="card"] {
+      background-color: var(--dark) !important;
+      // Header.
+      .card-header {
+        background-color: var(--accent) !important;
+      }
+      /* Items. */
+      .feature-list li {
+        background-color: var(--darker) !important;
+      }
+      // Pricing.
+      .price-per-month {
+        color: var(--accent) !important;
+      }
+      .price-per-year {
+        color: var(--green) !important;
+      }
+    }
   }
 
   // * Purchases.
