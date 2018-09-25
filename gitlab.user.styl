@@ -1610,6 +1610,17 @@
   /* Profile activity. */
   #activity > .row-content-block {
     border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+    // Prevent SVG from fading.
+    svg:hover {
+      opacity: 1 !important;
+    }
+  }
+  // Reset navigation.
+  .user-profile .scrolling-tabs-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
     background-color: transparent !important;
   }
   /* White activity rectangles. */
