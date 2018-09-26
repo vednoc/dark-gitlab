@@ -1675,29 +1675,46 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  .event-item {
-    padding: 8px 8px 8px 50px;
-    border-color: var(--darker);
-    transition: background 0.15s ease-in-out;
-    &:hover {
-      background-color: var(--darker);
-    }
-    // Move avatar off the edge.
-    .user-avatar {
-      margin-left: 8px;
-    }
-    .event-title {
-      color: var(--light);
-    }
-    .event-body,
-    &-timestamp {
-      color: var(--lighter);
-    }
-    a, .commit-sha {
-      color: var(--accent);
-    }
-    .commit-sha {
-      font-family: code_font;
+  // Items.
+  .user-profile .content_list {
+    border-radius: 4px;
+    border: 1px solid var(--darker);
+    background-color: var(--dark);
+    .event-item {
+      padding: 8px 8px 8px 50px;
+      border-color: var(--darker);
+      transition: background 0.15s ease-in-out;
+      &:hover {
+        background-color: var(--darker);
+      }
+      // Remove left padding on small resolution.
+      @media (max-width: 575px) {
+        padding-left: 8px;
+      }
+      // Adjust icon position.
+      .system-note-image {
+        left: 8px;
+        top: 8px;
+        padding: 8px;
+        // background-color: var(--shadow);
+      }
+      // Move avatar off the edge.
+      .user-avatar {
+        margin-left: 8px;
+      }
+      .event-title {
+        color: var(--light);
+      }
+      .event-body,
+      &-timestamp {
+        color: var(--lighter);
+      }
+      a, .commit-sha {
+        color: var(--accent);
+      }
+      .commit-sha {
+        font-family: code_font;
+      }
     }
   }
 
