@@ -1,30 +1,48 @@
-![alt tag](./images/banner.png)
+# dark-gitlab
 
-## Roadmap to v1.0.0
+A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by [vednoc](https://gitlab.com/vednoc) and [@RaitaroH](https://gitlab.com/RaitaroH). 
+
+
+# ToC
+- [dark-gitlab](#dark-gitlab)
+- [ToC](#toc)
+- [Roadmap to v1.0.0](#roadmap-to-v100)
+- [Features](#features)
+- [Install](#install)
+    - [Using a browser extension:](#using-a-browser-extension)
+    - [Then install this style:](#then-install-this-style)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+
+
+# Roadmap to v1.0.0
 
 * [X] Make a better logo.
 * [X] Add a banner.
-* [ ] Write a concise readme.
+* [ ] Add a license.
+* [ ] Add a contribution guide.
+* [ ] Add a changelog.
+* [x] Write a concise readme.
 * [ ] Add issue and merge request templates.
-* [ ] Convert to [Stylus-lang](https://stylus-lang.org):
+* [x] Convert to [Stylus-lang](https://stylus-lang.org):
   * [ ] Make a use of vars, nesting, etc.
   * [ ] Refactor existing CSS.
   * [ ] Full coverage.
 * [ ] Convert to [BetterComments](https://github.com/aaron-bond/better-comments):
   * [ ] Full coverage.
 * [ ] Cover most of the GitLab website.
-* [ ] Have a *decent* compatability with older versions and self-hosted instances.
-* 
-A customizable Stylus theme for Gitlab made by [vednoc](https://gitlab.com/vednoc) and [@RaitaroH](https://gitlab.com/RaitaroH). 
+* [x] Have a *decent* compatability with older versions and self-hosted instances.
 
 
-# Description
+# Features
 
-* Whole UI is styled to match the overall theme
-* Customizable colors, wide variety of light and dark color-schemes supported, using the [theme_switcher](https://gitlab.com/vednoc/theme_switcher)
-* Custom background images can be set in the settings
-* Custom red, green, cyan etc colors that are perfectly chosen for each color scheme (Solarized, Gruvbox, BreezeDark)
-* Custom regexp
+* **Customizable colors**: Both light and dark color-schemes are fully supported; you can use built-in color picker to customize colors and/or use my [ThemeSwitcher](https://gitlab.com/vednoc/theme_switcher) to choose from already available presets. Tip: Use both, one for light and the other for dark color-scheme.
+* **Customizable background**: Whether you like the default background or you want a custom image, color or nothing at all, you're able to do whatever you want from within the popup.
+* **Custom regexp**: Support for public self-hosted GitLab instances. You can easily add your own by editing the `@-moz-document regexp(...)` locally (**Note**: that prevents the auto-update feature, unfortunately, but you can always force an update).
+* **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
+* **Old-design project header**: If you prefer to have the elements in the center, now you can have it back.
+* **Complete theme**: for the entire UI; still very much WIP and it'll only get better with time.
+* Anything else you'd like to have? Feel free to make a suggestion.
 
 
 # Install
@@ -38,67 +56,13 @@ A customizable Stylus theme for Gitlab made by [vednoc](https://gitlab.com/vedno
   >This is only available using Stylus (see the [documentation](https://github.com/openstyles/stylus/wiki/Usercss)). :tada:
 
 
-# I Found a Bug
-
-At the first instance of finding a bug, have a look if there is already an open issue, if so add the required information as described in the [issue template](.github/ISSUE_TEMPLATE.md).
-
-
-# Contributions
-
-You will need to ideally:
-
-* [Fork](https://gitlab.com/vednoc/dark-gitlab/forks/new) the project.
-
-* Limit to the [K&R (KNF variation style)](https://en.wikipedia.org/wiki/Indentation_style#Variant:_BSD_KNF), and **1 TAB INDENTATION** (not more, and not less than 1 tab).
-
-  * K&R - KNF Variation Example:
-	```css
-	element[attr='value'] {
-	-property: value;
-	}
-	```
-
-  * **Not Allman**
-	```css
-	element[property='value']
-	{
-	-property: value;
-	}
-	```
-
-  * Strict space between the `selector` and the `{`:
-	```css
-	/* good */
-	element[attr='value'] { }
-
-	/* bad */
-	element[attr='value']{ }
-	```
-
-  * 1 tab indentation
-	```css
-	/* good */
-	-property: value;
-
-	/* bad */
-	····property: value;
-	----property: value;
-	·property: value;
-	```
-
-Try to wrap lines at around 80 characters.
-
-
 # Screenshots
+
+Project page view with BreezeDark color-scheme from [ThemeSwitcher](h), max-width of 1300px and old project header design enabled.
 
 ![preview](images/preview.png)
 
 
-# Donations
+# Contributing
 
-Any sort of contribution is more than welcome. If you'd like to tip me then you can buy me a [ko-fi](https://ko-fi.com/vednoc).
-
-
-# License
-
-[![MIT](https://img.shields.io/badge/License-MIT-blue.svg?longCache=true&style=for-the-badge)](LICENSE)
+Any contribution is greatly appreciated. If you'd like to tip me then you can buy me a coffee on [ko-fi](https://ko-fi.com/vednoc).
