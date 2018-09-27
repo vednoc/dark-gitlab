@@ -814,11 +814,11 @@
     // Items.
     > li {
       padding: 5px;
-      transition: 200ms ease-in-out;
+      transition: 0.15s ease-in-out;
       border-bottom-color: var(--darker);
       // On event.
       &:hover {
-        background-color: var(--shadow);
+        background-color: var(--darker);
       }
     }
   }
@@ -2130,6 +2130,11 @@
         background-color: var(--darker);
       }
     }
+    // Email a new MR.
+    .issuable-footer {
+      padding: 10px;
+      border-top: 1px solid var(--darker);
+    }
   }
   /* Merge Requests :: Details. */
   .merge-request-tabs-holder {
@@ -3107,7 +3112,7 @@
   }
 
   // * Code font.
-  .gfm-commit,
+  .gfm-commit, .diff-file table,
   code, .code, pre.code code,
   [class*="monospace"],
   #editor, .monaco-editor * {
