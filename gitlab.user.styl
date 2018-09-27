@@ -500,6 +500,26 @@
     fill: var(--icon) !important;
   }
 
+  // * Dropdown.
+  // TODO unfinished.
+  .dropdown {
+    // Fix the double scrollbar.
+    &.show .dropdown-menu {
+      max-height: 340px !important;
+    }
+    // On event.
+    &-item {
+      transition: background 0.15s ease-in-out;
+      &:hover, &:focus {
+        color: var(--light);
+        background-color: var(--dark);
+      }
+    }
+    // Shadow.
+    &-content-faded-mask::after {
+      background: none;
+    }
+  }
 
   /* A brand new dropdown? */
   .select2-drop,
