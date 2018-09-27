@@ -2979,24 +2979,26 @@
   .ci-table .branch-commit .commit-sha {
     color: var(--light);
   }
-  /* Buttons. */
-  .ci-status.ci-success {
-    color: var(--green);
-    border-color: var(--green);
-  }
-  .ci-status.ci-running {
-    color: var(--blue);
-    border-color: var(--blue);
-  }
-  .ci-status.ci-failed {
-    color: var(--red);
-    border-color: var(--red);
-  }
-  .ci-status.ci-created,
-  .ci-status.ci-skipped,
-  .ci-status.ci-manual {
-    color: var(--lighter);
-    border-color: var(--darker);
+  /* Pipeline status. */
+  .ci-status {
+    &.ci-success {
+      color: var(--green);
+      border-color: var(--green);
+    }
+    &.ci-running {
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+    &.ci-failed {
+      color: var(--red);
+      border-color: var(--red);
+    }
+    &.ci-created,
+    &.ci-skipped,
+    &.ci-manual {
+      color: var(--lighter);
+      border-color: var(--darker);
+    }
   }
   /* Badges */
   .badge-success {
