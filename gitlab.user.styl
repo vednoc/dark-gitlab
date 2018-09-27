@@ -1492,6 +1492,7 @@
 
   /* Latest commit message.. */
   .info-well {
+    margin-bottom: 0;
     color: var(--light);
     border-color: var(--darker);
     background: var(--dark);
@@ -2936,16 +2937,40 @@
   }
 
 
-  /* Project CI/CD :: Pipelines. */
-  .ci-table > [class*="row"] {
-    padding: 8px 10px;
-    border-color: var(--darker);
-  }
-  /* Header. */
-  .table-holder .ci-table th {
-    font-weight: 700;
-    color: var(--light);
-    background-color: var(--dark);
+  // * Project CI/CD :: Pipelines.
+  // TODO polish mini pipelines.
+  .table-holder {
+    margin: 10px 0 0 0;
+    .ci-table {
+      // Pipelines.
+      > [class*="row"] {
+        padding: 8px 10px;
+        border-color: var(--darker);
+      }
+      // Header.
+      th, .table-row-header {
+        font-weight: 700;
+        color: var(--light);
+        border-color: transparent;
+        background-color: var(--darker);
+      }
+      // On hover.
+      .commit, .commit > td {
+        transition: background 0.15s ease-in-out;
+        &:hover, &:hover > td {
+          background-color: var(--darker) !important;
+        }
+      }
+      // Mini pipelines.
+      .mini-pipeline-graph-dropdown-toggle {
+        border-color: var(--darker);
+        background-color: var(--darker);
+        box-shadow: var(--box-shadow);
+      }
+      .stage-container:not(:last-child)::after {
+        border-color: var(--darker);
+      }
+    }
   }
   /* Pipeline commit. */
   .commit a,
