@@ -11,9 +11,11 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 - [ToC](#toc)
 - [Roadmap to v1.0.0](#roadmap-to-v100)
 - [Features](#features)
-- [Install](#install)
+- [Install and setup](#install-and-setup)
     - [Using a browser extension:](#using-a-browser-extension)
-    - [Then install this style:](#then-install-this-style)
+    - [Install this theme:](#install-this-theme)
+    - [GitLab settings:](#gitlab-settings)
+    - [Further customization:](#further-customization)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 
@@ -28,7 +30,7 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * [x] Write a concise readme.
 * [ ] Add issue and merge request templates.
 * [x] Convert to [Stylus-lang](https://stylus-lang.org):
-  * [ ] Make a use of vars, nesting, etc.
+  * [ ] Make a use of vars, mixins, nesting, etc.
   * [ ] Refactor existing CSS.
   * [ ] Full coverage.
 * [ ] Convert to [BetterComments](https://github.com/aaron-bond/better-comments):
@@ -48,24 +50,33 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * Anything else you'd like to have? Feel free to make a suggestion.
 
 
-# Install
+# Install and setup
 
 ### Using a browser extension:
 * Stylus - get the addon for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) and [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/).
 
-### Then install this style:  
+### Install this theme:  
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=for-the-badge)](https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl)
   >Installs directly from this repository.  
   >This is only available using Stylus (see the [documentation](https://github.com/openstyles/stylus/wiki/Usercss)). :tada:
 
+### GitLab settings:
+The theme works best with the default settings and it's not extensively tested with GitLab's default presets. Go to settings -> preferences and select indigo for the navigation theme and white for the syntax highlighting.
+
+### Further customization:
+Open the Stylus extension popup while you're on any GitLab page, click on the cogwheel icon and that'll open up a menu from which you can set your own preferences.
+
+**NOTE:** To use "maximum width for fluid layout" go to settings -> preferences and change the layout from fixed to fluid.
 
 # Screenshots
 
 Project page view with BreezeDark color-scheme from [ThemeSwitcher](h), max-width of 1300px and old project header design enabled.
 
-![preview](images/preview.png)
+![preview](./images/preview.png)
 
 
 # Contributing
 
-Any contribution is greatly appreciated. If you'd like to tip me then you can buy me a coffee on [ko-fi](https://ko-fi.com/vednoc).
+Any contribution is greatly appreciated. If you really like the project and would like to tip me then you can buy me a coffee over at [ko-fi](https://ko-fi.com/vednoc).
+
+- [Back to top.](#dark-gitlab)
