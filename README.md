@@ -2,6 +2,9 @@
 
 A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by [vednoc](https://gitlab.com/vednoc) and [@RaitaroH](https://gitlab.com/RaitaroH). 
 
+<p align="center">
+  <img alt="banner" src="./images/banner.png">
+</p>
 
 # ToC
 - [dark-gitlab](#dark-gitlab)
