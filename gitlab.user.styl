@@ -2834,39 +2834,37 @@
     background-color: var(--darker);
   }
 
-  /* IDE :: Monaco. */
-  .monaco-editor,
-  .monaco-editor-background {
-    color: var(--light) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Useless element. */
-  .monaco-editor .scroll-decoration {
-    box-shadow: inset 0 6px 6px -6px var(--dark);
-  }
-  /* Gutter. */
-  .monaco-editor .margin {
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-  }
-  .monaco-editor .line-numbers {
-    color: var(--light) !important;
-  }
-  /* Current line. */
-  .monaco-editor .view-overlays .current-line,
-  .current-line-margin {
-    border-color: transparent !important;
-    background-color: var(--darker);
-  }
-  .monaco-editor .cursor {
-    width: 8px !important;
-    color: var(--light) !important;
-    border-color: var(--accent) !important;
-    background-color: var(--accent) !important;
-  }
-  /* Indent guide. */
-  .monaco-editor .lines-content .cigra {
-    box-shadow: inset 2px 0 0 0 var(--accent) !important;
+  // * IDE :: Monaco editor.
+  .monaco-editor {
+    colors: $light, 0, $dark;
+    // Background.
+    &-background {
+      colors: $light, 0, $dark;
+    }
+    // TODO figure out what this was. XD
+    .scroll-decoration {
+      box-shadow: inset 0 6px 6px -6px $dark !important;
+    }
+    // Gutter.
+    .margin {
+      colors: 0, $darker, $darker;
+      .line-numbers {
+        colors: $lighter, 0, 0;
+      }
+    }
+    // Current line.
+    [class*="current-line"]  {
+      colors: 0, $darker, $darker;
+    }
+    // Cursor.
+    .cursor {
+      // width: 8px !important;
+      colors: $light, $accent, $accent;
+    }
+    // Indent guide.
+    .monaco-editor .lines-content .cigra {
+      box-shadow: inset 2px 0 0 0 $accent !important;
+    }
   }
   /* Diff view. */
   .diffOverviewRuler {
