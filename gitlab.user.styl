@@ -180,28 +180,25 @@
     color: var(--red) !important;
   }
 
-  /* Button reset. */
-  .btn,
-  .btn:hover,
-  .btn:focus,
-  .btn.btn-default {
-    transition: 200ms ease-in-out !important;
+  // * Button reset.
+  .btn {
+    transition: transform 0.2s ease-in-out !important;
     color: var(--light);
     border-color: var(--darker);
     background-color: var(--dark);
-  }
-  .btn:focus,
-  .btn.focus {
-    box-shadow: none;
-  }
-  .btn:active,
-  .btn.active {
-    color: var(--accent) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-    // Active icons!
-    > i, > .fa {
-      color: inherit !important;
+    &:hover, &:focus, &.focus, &.btn-default {
+      colors: $light, $darker, $dark;
+    }
+    &:active, &.active {
+      colors: $accent, $darker, $dark;
+      // Active icons!
+      > i, > .fa {
+        color: inherit !important;
+      }
+    }
+    // Remove blue outline.
+    &:focus, &.focus {
+      box-shadow: none;
     }
   }
   /* Green buttons. */
