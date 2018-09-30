@@ -2833,6 +2833,28 @@
     border-color: var(--darker);
     background-color: var(--darker);
   }
+  // Commit header.
+  .ide-commit-editor-header {
+    colors: $light, $darker, $dark;
+    box-shadow: inset 0 -1px var(--darker);
+  }
+  // Git additions/deletions.
+  .monaco-diff-editor {
+    .line-delete {
+      border-color: transparent !important;
+      background-color: rgba(200, 49, 49, 0.3) !important;
+    }
+    .char-delete {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+    .line-insert {
+      border-color: transparent !important;
+      background-color: rgba(149, 200, 99, 0.3) !important;
+    }
+    .char-insert {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+  }
 
   // * IDE :: Monaco editor.
   .monaco-editor {
