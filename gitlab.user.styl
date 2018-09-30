@@ -76,6 +76,22 @@
   $blue    = var(--blue);
   $cyan    = var(--cyan);
   $green   = var(--green);
+
+  // * Color mixin.
+  // ? All colors -> colors: $light, $darker, $dark;
+  // ? Only background-color -> colors: 0, 0, $dark;
+  colors(x, y, z) {
+    if x is a 'call' {
+      color: x !important;
+    }
+    if y is a 'call' {
+      border-color: y !important;
+    }
+    if z is a 'call' {
+      background-color: z !important;
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 12px;
   }
