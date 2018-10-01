@@ -102,6 +102,10 @@
     border: 2px solid var(--dark);
     background: var(--darker);
   }
+  // Input placeholder.
+  input::placeholder {
+    color: $lighter !important;
+  }
 
   h1, h2, h3, h4, h5, h6, p {
     color: var(--light) !important;
@@ -1566,6 +1570,10 @@
     border-color: var(--darker);
     background: var(--dark);
   }
+  // File search header.
+  .tree-holder .tree-table .selected td {
+    colors: $light, $darker, $dark;
+  }
 
   // * Wiki.
   .wiki {
@@ -1814,6 +1822,11 @@
   .sub-header-block {
     border-color: var(--darker);
     background-color: transparent;
+  }
+  /* There isn't anything to compare. */
+  .card.bg-light {
+    border: 1px solid var(--darker) !important;
+    background-color: var(--dark) !important;
   }
   [class*="card"] > ul > li {
     transition: 200ms ease-in-out;
