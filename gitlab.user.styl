@@ -1188,6 +1188,14 @@
   .diff-file .diff-content {
     background-color: var(--dark);
   }
+  // Image background.
+  // TODO refactor with other file-holder related elements.
+  .diff-content .file-container,
+  .file-holder .file-content.image_file,
+  .file_holder .file-content.video,
+  .file-holder .file-content.blob-no-preview {
+    background-color: var(--dark);
+  }
   /* On event. */
   .diff-file .file-title:hover {
     background-color: var(--shadow) !important;
