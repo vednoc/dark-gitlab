@@ -2506,6 +2506,34 @@
   .ace-tm .ace_cursor {
     color: var(--light);
   }
+  // ? https://gitlab.com/vednoc/dark-gitlab/issues/4
+  .ace_search {
+	  border-color: var(--shadow) !important;
+	  background-color: var(--darker) !important;
+	  box-shadow: var(--box-shadow);
+  }
+  // Input
+  .ace_search_field {
+	  color: var(--light) !important;
+	  background-color: var(--dark) !important;
+  }
+  .ace_search_form, .ace_replace_form {
+	  border-color: var(--shadow) !important;
+  }
+  // Icons
+  .ace_searchbtn, .ace_replacebtn {
+	  border-color: var(--shadow) !important;
+	  background-color: var(--dark) !important;
+  }
+  .ace_button {
+	  border: none !important;
+	  color: var(--icon) !important;
+	  background-color: var(--darker) !important;
+    &:hover {
+	    background-color: var(--darker) !important;
+      color: var(--accent) !important;
+    }
+  }
 
 
   /* About page :: Applications. */
