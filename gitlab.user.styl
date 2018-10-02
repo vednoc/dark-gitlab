@@ -1648,28 +1648,30 @@
   }
 
 
-  /* Files. */
+  // * Project :: Files.
   .table-holder {
     border-radius: 4px;
     border: 1px solid var(--darker);
     background-color: var(--dark);
+    // Remove unnecessary borders.
+    .tree-table tr {
+      border-color: transparent !important;
+      td {
+        border-color: var(--darker) !important;
+        transition: 0.2s ease;
+      }
+    }
+    // Text color.
+    .tree-item {
+      .tree-time-ago,
+      .tree-commit-link,
+      &-file-name i, &-file-name a {
+        color: var(--light) !important;
+      }
+    }
   }
-  /* Remove unnecessary borders. */
-  .tree-holder .tree-table tr {
-    border-color: transparent !important;
-  }
-  .tree-holder .tree-table tr td {
-    border-color: var(--darker) !important;
-    transition: .2s ease;
-  }
-  /* Text color. */
-  .tree-holder .tree-item .tree-item-file-name i,
-  .tree-holder .tree-item .tree-item-file-name a,
-  .tree-holder .tree-commit .tree-commit-link,
-  .tree-holder .tree-time-ago {
-    color: var(--light);
-  }
-  /* Background colors. */
+  // File/table headers.
+  // TODO refactor.
   table.table tr th,
   .file-holder .file-title,
   .tree-holder .tree-table tr:hover:not(.tree-truncated-warning) td {
