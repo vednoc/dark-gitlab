@@ -1200,16 +1200,58 @@
   .file-holder .file-content.image_file,
   .file_holder .file-content.video,
   .file-holder .file-content.blob-no-preview {
-    background-color: var(--dark);
+    background-color: $dark;
   }
-  /* On event. */
-  .diff-file .file-title:hover {
-    background-color: var(--shadow) !important;
+
+  // * Diff :: Image.
+  // ? vednoc/dark-gitlab/commit/x (image)
+  .diff-file {
+    // Background image.
+    .image {
+      colors: 0, 0, $dark;
+      // Image frame.
+      .frame {
+        colors: 0, 0, $darker;
+        // Broken image.
+        img {
+          background: none;
+          colors: $light, $dark, 0;
+        }
+      }
+      // Added/removed images.
+      .frame {
+        &.deleted {
+          colors: 0, $red, 0;
+        }
+        &.added {
+          colors: 0, $green, 0;
+        }
+      }
+    }
+    // Modes.
+    .view-modes {
+      colors: 0, 0, $dark;
+      ul li {
+        colors: $light, $darker, 0;
+        &.active {
+          colors: $accent, 0, 0;
+        }
+      }
+    }
+  }
+  // * Add note.
+  // TODO move to a more appropriate place.
+  .note-container {
+    colors: 0, $darker, $dark;
+    // Reply background.
+    .new-note, .discussion-notes {
+      colors: 0, $darker, 0;
+    }
   }
   /* Text color. */
   .branch-info > span,
   .file-title-flex-parent a {
-    color: var(--light);
+    color: var(--light) !important;
   }
   /* Badge. */
   .info-well .badge.badge-gray {
