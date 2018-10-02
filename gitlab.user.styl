@@ -191,7 +191,9 @@
     border-color: var(--darker);
     background-color: var(--dark);
     &:hover, &:focus, &.focus, &.btn-default {
-      colors: $light, $darker, $dark;
+      color: var(--light);
+      border-color: var(--darker);
+      background-color: var(--dark);
     }
     &:active, &.active {
       colors: $accent, $darker, $dark;
@@ -280,6 +282,10 @@
   .btn:hover:not([disabled="disabled"]),
   .btn:focus:not([disabled="disabled"]) {
     transform: translateY(-2px);
+  }
+  // Disable hover state for disabled elements.
+  .btn.disabled:hover {
+    transform: translateY(0px);
   }
 
   /* Global styles. */
