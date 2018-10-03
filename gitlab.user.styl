@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         GitLab Dark by Mew
 @namespace    gitlab.com/vednoc/gitlab-dark
-@version      0.3.0
+@version      0.5.0
 @description  Dark theme for GitLab.
 @author       vednoc
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
@@ -102,6 +102,10 @@
     border: 2px solid var(--dark);
     background: var(--darker);
   }
+  // Input placeholder.
+  input::placeholder {
+    color: $lighter !important;
+  }
 
   h1, h2, h3, h4, h5, h6, p {
     color: var(--light) !important;
@@ -187,7 +191,9 @@
     border-color: var(--darker);
     background-color: var(--dark);
     &:hover, &:focus, &.focus, &.btn-default {
-      colors: $light, $darker, $dark;
+      color: var(--light);
+      border-color: var(--darker);
+      background-color: var(--dark);
     }
     &:active, &.active {
       colors: $accent, $darker, $dark;
@@ -276,6 +282,10 @@
   .btn:hover:not([disabled="disabled"]),
   .btn:focus:not([disabled="disabled"]) {
     transform: translateY(-2px);
+  }
+  // Disable hover state for disabled elements.
+  .btn.disabled:hover {
+    transform: translateY(0px);
   }
 
   /* Global styles. */
@@ -1184,14 +1194,64 @@
   .diff-file .diff-content {
     background-color: var(--dark);
   }
-  /* On event. */
-  .diff-file .file-title:hover {
-    background-color: var(--shadow) !important;
+  // Image background.
+  // TODO refactor with other file-holder related elements.
+  .diff-content .file-container,
+  .file-holder .file-content.image_file,
+  .file_holder .file-content.video,
+  .file-holder .file-content.blob-no-preview {
+    background-color: $dark;
+  }
+
+  // * Diff :: Image.
+  // ? vednoc/dark-gitlab/commit/x (image)
+  .diff-file {
+    // Background image.
+    .image {
+      colors: 0, 0, $dark;
+      // Image frame.
+      .frame {
+        colors: 0, 0, $darker;
+        // Broken image.
+        img {
+          background: none;
+          colors: $light, $dark, 0;
+        }
+      }
+      // Added/removed images.
+      .frame {
+        &.deleted {
+          colors: 0, $red, 0;
+        }
+        &.added {
+          colors: 0, $green, 0;
+        }
+      }
+    }
+    // Modes.
+    .view-modes {
+      colors: 0, 0, $dark;
+      ul li {
+        colors: $light, $darker, 0;
+        &.active {
+          colors: $accent, 0, 0;
+        }
+      }
+    }
+  }
+  // * Add note.
+  // TODO move to a more appropriate place.
+  .note-container {
+    colors: 0, $darker, $dark;
+    // Reply background.
+    .new-note, .discussion-notes {
+      colors: 0, $darker, 0;
+    }
   }
   /* Text color. */
   .branch-info > span,
   .file-title-flex-parent a {
-    color: var(--light);
+    color: var(--light) !important;
   }
   /* Badge. */
   .info-well .badge.badge-gray {
@@ -1551,20 +1611,31 @@
     border-color: var(--darker);
   }
 
-
-  /* Readme wrapper. */
-  .file-holder {
-    overflow: hidden;
-    border-color: var(--darker) !important; }
-  /* Readme header. */
+  // * Project :: Badges.
+  .project-badge {
+    transition: 0.2s opacity ease-in-out;
+    &[src*="for-the-badge"] {
+      border-radius: 4px;
+    }
+  }
+   // Project :: Readme.
+   .file-holder {
+     overflow: hidden;
+     colors: 0, $darker, $dark;
+   }
+  // Header.
   .tree-holder .file-title a:not(.btn) {
-    color: var(--lighter);
+    color: $light;
   }
   /* Readme preview. */
   .file-holder .file-title-flex-parent,
   .file-holder .file-content {
     border-color: var(--darker);
     background: var(--dark);
+  }
+  // File search header.
+  .tree-holder .tree-table .selected td {
+    colors: $light, $darker, $dark;
   }
 
   // * Wiki.
@@ -1618,28 +1689,30 @@
   }
 
 
-  /* Files. */
+  // * Project :: Files.
   .table-holder {
     border-radius: 4px;
     border: 1px solid var(--darker);
     background-color: var(--dark);
+    // Remove unnecessary borders.
+    .tree-table tr {
+      border-color: transparent !important;
+      td {
+        border-color: var(--darker) !important;
+        transition: 0.2s ease;
+      }
+    }
+    // Text color.
+    .tree-item {
+      .tree-time-ago,
+      .tree-commit-link,
+      &-file-name i, &-file-name a {
+        color: var(--light) !important;
+      }
+    }
   }
-  /* Remove unnecessary borders. */
-  .tree-holder .tree-table tr {
-    border-color: transparent !important;
-  }
-  .tree-holder .tree-table tr td {
-    border-color: var(--darker) !important;
-    transition: .2s ease;
-  }
-  /* Text color. */
-  .tree-holder .tree-item .tree-item-file-name i,
-  .tree-holder .tree-item .tree-item-file-name a,
-  .tree-holder .tree-commit .tree-commit-link,
-  .tree-holder .tree-time-ago {
-    color: var(--light);
-  }
-  /* Background colors. */
+  // File/table headers.
+  // TODO refactor.
   table.table tr th,
   .file-holder .file-title,
   .tree-holder .tree-table tr:hover:not(.tree-truncated-warning) td {
@@ -1814,6 +1887,11 @@
   .sub-header-block {
     border-color: var(--darker);
     background-color: transparent;
+  }
+  /* There isn't anything to compare. */
+  .card.bg-light {
+    border: 1px solid var(--darker) !important;
+    background-color: var(--dark) !important;
   }
   [class*="card"] > ul > li {
     transition: 200ms ease-in-out;
@@ -2453,6 +2531,10 @@
   // * File editor.
   // TODO unfinished.
   .file-editor {
+    // Fix flashing white background.
+    > #editor {
+      background-color: var(--darker) !important;
+    }
     // Header.
     .nav-links {
       border-color: var(--darker);
@@ -2501,6 +2583,34 @@
   }
   .ace-tm .ace_cursor {
     color: var(--light);
+  }
+  // ? https://gitlab.com/vednoc/dark-gitlab/issues/4
+  .ace_search {
+	  border-color: var(--shadow) !important;
+	  background-color: var(--darker) !important;
+	  box-shadow: var(--box-shadow);
+  }
+  // Input
+  .ace_search_field {
+	  color: var(--light) !important;
+	  background-color: var(--dark) !important;
+  }
+  .ace_search_form, .ace_replace_form {
+	  border-color: var(--shadow) !important;
+  }
+  // Icons
+  .ace_searchbtn, .ace_replacebtn {
+	  border-color: var(--shadow) !important;
+	  background-color: var(--dark) !important;
+  }
+  .ace_button {
+	  border: none !important;
+	  color: var(--icon) !important;
+	  background-color: var(--darker) !important;
+    &:hover {
+	    background-color: var(--darker) !important;
+      color: var(--accent) !important;
+    }
   }
 
 
