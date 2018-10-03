@@ -1902,6 +1902,37 @@
     }
   }
 
+  // * Project :: Cycle Analytics.
+  #cycle-analytics {
+    // Introduction.
+    .landing {
+      colors: 0, $darker, $dark;
+    }
+    // Colors.
+    .stage-nav {
+      .stage-nav-item {
+        colors: $light, $darker, $dark;
+        &.active {
+          colors: 0, $dark, $dark;
+          box-shadow: inset 2px 0 0 0 var(--accent);
+        }
+        // Median.
+        .stage-empty, .not-available {
+          color: var(--lighter);
+        }
+      }
+    }
+    // Related issues.
+    .stage-event-item {
+      colors: $lighter, $darker, 0;
+      .issue-link, .issue-date, .build-date {
+        colors: $lighter, 0, 0;
+      }
+      .item-title a {
+        colors: $light, 0, 0;
+      }
+    }
+  }
 
   /* Dashboard. */
   .row-content-block {
