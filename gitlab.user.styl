@@ -1827,10 +1827,39 @@
   // ? https://gitlab.com/vednoc/dark-gitlab/activity
   .project-activity {
     border-radius: 4px;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    background-color: $dark;
+    // Item.
+    .event-item {
+      padding: 8px 8px 8px 50px;
+      colors: $light, $darker, 0;
+      transition: background 0.15s ease-in-out;
+      &:hover {
+        background-color: $darker;
+      }
+      // Text color.
+      .event-title {
+        color: $light;
+        .author_name a, strong a {
+          color: $accent;
+        }
+      }
+      a {
+        color: $accent;
+      }
+      // Remove left padding on small resolution.
+      @media (max-width: 575px) {
+        padding-left: 8px;
+      }
+      // Avatar position.
+      .user-avatar {
+        margin-left: 8px;
+      }
+    }
   }
-  // Items.
+
+  // * Profile :: Activity
+  // TODO possible refactor with project::activity.
   .user-profile .content_list {
     border-radius: 4px;
     border: 1px solid var(--darker);
@@ -1931,8 +1960,7 @@
 
   /* Dashboard :: Activity. */
   .nav-block.activities {
-    border-bottom-color: var(--darker);
-    margin-bottom: 10px;
+    border-bottom: none;
   }
   /* Fix RSS icon. */
   .activities .controls {
