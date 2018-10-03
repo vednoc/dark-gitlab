@@ -1027,9 +1027,12 @@
   .project-network .network-graph {
     fill: var(--light);
     background-color: var(--dark);
+    &:hover > svg {
+      opacity: 1 !important;
+    }
   }
   /* Hover over commit. */
-  .project-network .network-graph > svg rect[width*="310"] {
+  .project-network .network-graph > svg rect[rx*="4"][ry*="4"] {
     stroke: var(--shadow);
     fill: var(--darker);
   }
