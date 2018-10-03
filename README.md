@@ -74,6 +74,15 @@ Project page view with BreezeDark color-scheme from [ThemeSwitcher](h), max-widt
 
 ![preview](./images/preview.png)
 
+Default theme, withthout ThemeSwitcher:
+![default](./images/Default.png)
+
+Solarized light/dark:
+![Solarized](./images/Solarized.png)
+
+Gruvbox light/dark:
+![Gruvbox](./images/Gruvbox.png)
+
 
 # Contributing
 
