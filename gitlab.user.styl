@@ -3236,30 +3236,52 @@
     background-color: var(--blue);
   }
 
-  /* Project CI/CD :: Pipeline details. */
-  .pipeline-tab-content {
-    background-color: transparent;
-  }
-  /* Pipeline node. */
-  .pipeline-graph .build .build-content {
-    border-width: 2px !important;
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* On event. */
-  .pipeline-graph .build .build-content:hover {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--shadow) !important;
-  }
-  /* Connectors. */
-  .pipeline-graph .stage-column .curve::before,
-  .pipeline-graph .stage-column .curve::after,
-  .pipeline-graph .build::before,
-  .pipeline-graph .build::after {
-    border-color: var(--darker) !important;
-  }
+  // * Project CI/CD :: Pipeline details.
+  .pipeline-graph {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    colors: $light, $darker, $dark;
+    // Pipeline node.
+    .build .build-content {
+      border-width: 2px !important;
+      colors: $light, $darker, $dark;
+      // On event.
+      &:hover {
+        colors: $light, $darker, $darker;
+      }
+    }
+    // Triangle.
+    .cross-project-triangle {
+      margin-top: 1px;
+      border-left-color: var(--darker);
+    }
+    // Linked pipeline?
+    // ? https://gitlab.com/gitlab-org/gitlab-ce/pipelines/31973329
+    .linked-pipeline {
+      &-content {
+        border-width: 2px !important;
+        border-radius: 10px !important;
+        colors: $light, $darker, $dark;
+        &:hover {
+          colors: 0, 0, $darker;
+        }
+      }
+      &::before {
+        margin-top: 2px;
+      }
+    }
+    // Actions.
+    .ci-action-icon-container {
+      margin: 1px 1px 0 0;
+      colors: 0, $darker, $dark;
+    }
+    /* Connectors. */
+    .stage-column .curve::before,
+    .stage-column .curve::after,
+    .build::before, .build::after {
+      border-color: var(--darker) !important;
+    }
 
   // * Skeleton.
   // ? Changes color of loading elements.
