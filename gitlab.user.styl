@@ -112,7 +112,7 @@
   }
   a {
     transition: 200ms ease-in-out;
-    text-decoration: none !important;
+    // text-decoration: none !important;
     color: var(--accent);
     &:hover,
     &:focus {
@@ -1192,7 +1192,7 @@
   .diff-file .file-title:hover,
   .diff-file .file-title-flex-parent:hover,
   .diff-file .diff-content {
-    background-color: var(--dark);
+    background-color: var(--darker) !important;
   }
   // Image background.
   // TODO refactor with other file-holder related elements.
@@ -3208,22 +3208,20 @@
   /* Pipeline status. */
   .ci-status {
     &.ci-success {
-      color: var(--green);
-      border-color: var(--green);
+      colors: $green, $green, 0;
     }
     &.ci-running {
-      color: var(--blue);
-      border-color: var(--blue);
+      colors: $blue, $blue, 0;
     }
     &.ci-failed {
-      color: var(--red);
-      border-color: var(--red);
+      colors: $red, $red, 0;
     }
     &.ci-created,
     &.ci-skipped,
+    &.ci-canceled,
+    &.ci-disabled,
     &.ci-manual {
-      color: var(--lighter);
-      border-color: var(--darker);
+      colors: $lighter, $darker, 0;
     }
   }
   /* Badges */
@@ -3366,7 +3364,7 @@
     filter: invert(1);
   }
 
-  // Invert illustrations.
+  // * Invert illustrations.
   .wiki .anchor,
   .banner-graphic > svg,
   .explore-groups > .svg-container > svg,
