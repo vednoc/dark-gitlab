@@ -3282,6 +3282,42 @@
     .build::before, .build::after {
       border-color: var(--darker) !important;
     }
+  }
+
+  // * Pipelines :: Failed Jobs.
+  .build-failures {
+    .table {
+      margin-top: 10px;
+      border: 1px solid;
+      colors: 0, $darker, $darker;
+      // Table header.
+      > thead th {
+        colors: $light, 0, 0;
+      }
+    }
+    // Log output.
+    .build-trace {
+      colors: 0, $dark, 0;
+      > code {
+        colors: $light, $darker, $darker;
+      }
+    }
+    .build-name a {
+      color: $accent;
+    }
+  }
+
+  // * Pipelines :: Security.
+  .split-report-section {
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    colors: $light, $darker, $dark;
+    // Wrapper.
+    .report-block-container {
+      colors: $light, $darker, $dark;
+    }
+  }
 
   // * Skeleton.
   // ? Changes color of loading elements.
