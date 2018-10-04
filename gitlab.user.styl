@@ -3316,6 +3316,13 @@
     filter: opacity(0.9) invert(0.9) hue-rotate(40deg) drop-shadow(1px 1px 3px var(--shadow)) !important;
   }
 
+  // * Invert `shadow-root (closed)` SVG icons.
+  // TODO remove if/when fixed on upstream.
+  [class*="ci-status"] svg.s16 {
+    fill: #222222 !important;
+    filter: invert(bg_invert - 0.2) hue-rotate(180deg);
+  }
+
   // * Centers project header elements; old design lookalike.
   if p_header {
     .project-home-panel > div {
