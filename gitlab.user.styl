@@ -2920,9 +2920,35 @@
     color: var(--light) !important;
     background-color: var(--darker) !important;
   }
-  /* File tree. */
+
+  // * IDE :: Merge Requests / Branches.
   .ide-tree-header {
     border-bottom-color: var(--darker);
+    // Branch popup.
+    .ide-nav-form {
+      // Inactive tab.
+      .nav-links li a:not(.active) {
+        colors: 0, 0, $darker;
+      }
+      .border-bottom {
+        border-color: $dark !important;
+      }
+      // Search container.
+      .filtered-search-wrapper {
+        colors: 0, $darker, $dark;
+        input {
+          background-color: $t !important;
+        }
+      }
+      // Project metadata.
+      .ide-merge-request-project-path {
+        color: $lighter;
+      }
+    }
+    // Branch on hover.
+    button:hover {
+      colors: $light, 0, $darker;
+    }
   }
   /* Selected. */
   .ide-file-list .file:hover,
