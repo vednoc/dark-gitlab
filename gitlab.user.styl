@@ -3524,4 +3524,131 @@
   .select-kit.combo-box.category-chooser .select-kit-row .topic-count {
     color: var(--lighter) !important;
   }
+
+
+  // Topic filter
+  .list-controls .combo-box .combo-box-header,
+  .nav-pills > li > a{
+    background-color: var(--darker) !important;
+    border-color: var(--shadow) !important;
+    color: var(--lighter) !important;
+      &:hover {
+       transform: translateY(-2px);
+      }
+	}
+
+  // Topic list
+  tr, tbody {
+    border-color: var(--shadow) !important;
+  }
+  .topic-list th {
+    color: var(--lighter) !important;
+  }
+  .topic-list {
+    .topic-excerpt {
+      color: var(--light) !important;
+    }
+    .main-link a.title {
+      color: var(--accent) !important;
+        &:visited {
+          color: var(--lighter) !important;
+        }
+    }
+  }
+  // Topic numbers
+  .topic-list .num {
+    color: var(--light)
+  }
+  // Heatmap for topic number
+  .heatmap-high, .heatmap-high a {
+    color: var(--red) !important;
+  }
+  .heatmap-med, .heatmap-med a {
+    color: var(--orange) !important;
+  }
+  .heatmap-low, .heatmap-low a {
+    color: var(--yellow) !important;
+  }
+
+  // Topic bodies
+  // vednoc: there is a transition effect when the page loads
+  #topic-title h1 a, .topic-link {
+    color: var(--accent) !important;
+  }
+  .topic-body, .topic-avatar, .topic-status-info {
+    border-color: var(--shadow) !important;
+  }
+  .post-links-container {
+    .post-links {
+      border-color: var(--shadow) !important;
+    }
+    ul li a[href] {
+      color: var(--light) !important;
+    }
+  }
+  // Pinned topics
+  .names span a {
+    color: var(--lighter) !important;
+  }
+  .small-action {
+    border-color: var(--shadow) !important;
+      .small-action-desc {
+     color: var(--light) !important;
+    }
+  }
+  // Mods
+  .moderator .clearfix > .topic-meta-data > .names span.user-title, .moderator .nav-pills > .topic-meta-data > .names span.user-title,
+  .moderator .container > .topic-meta-data > .names span.user-title, .moderator .wrap > .topic-meta-data > .names span.user-title,
+  /*post*/ .moderator .regular > .cooked {
+    background-color: var(--darker) !important;
+    color: var(--accent) !important;
+  }
+
+  .alert.alert-info {
+    background-color: var(--darker) !important;
+    color: var(--lighter) !important;
+  }
+
+  // Badges
+  .badge-notification {
+    background-color: var(--darker) !important;
+    color: var(--accent) !important;
+  }
+  // Like and share buttons
+  nav.post-controls *:hover {
+    background-color: transparent !important;
+       & > .fa {
+        color: var(--accent) !important;
+      }
+  }
+  // Topic map
+  .topic-map{
+    background-color: var(--darker) !important;
+    border-color: var(--shadow) !important;
+      section {
+        border-color: var(--shadow) !important;
+      }
+      .buttons .btn {
+         background-color: var(--darker) !important;
+         border-color: var(--shadow) !important;
+      }
+      .map .number, .map i {
+        color: var(--light) !important;
+      }
+  }
+  // Timeline
+  .timeline-container .topic-timeline {
+    .timeline-handle {
+      background-color: var(--lighter) !important;
+    }
+    .timeline-scrollarea {
+      border-color: var(--lighter) !important;
+    }
+    .timeline-replies {
+      color: var(--lighter) !important;
+    }
+    .timeline-ago, .start-date, .now-date {
+      color: var(--light) !important;
+    }
+  }
 }
