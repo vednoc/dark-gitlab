@@ -3511,7 +3511,8 @@
   }
 }
 
-@-moz-document regexp("https?:\/\/(forum.)?(gitlab.com)(\/.*)?") {
+// * Code for forum on GitLab. Might be split into a separate userstyle if it gets quite large.
+@-moz-document regexp("https?://forum.gitlab.com(/.*)") {
   nav#bar {
     background: $darker !important;
     li a:hover {
