@@ -3460,3 +3460,68 @@
     overflow-x: hidden;
   }
 }
+
+@-moz-document regexp("https?:\/\/(forum.)?(gitlab.com)(\/.*)?") {
+  nav#bar {
+    background: var(--darker);
+      li a:hover { 
+          color: var(--accent);
+        }
+  }
+  .d-header {
+    background: var(--darker);
+    border-color: var(--shadow);
+    box-shadow: var(--box-shadow);
+     .icon:hover, .icon:focus {
+       background-color: transparent !important; 
+     }
+      .d-header-icons .d-icon:hover {
+        color: var(--accent) !important;
+      }
+  }
+  // Search
+  .menu-panel {
+    background: var(--darker);
+    border-color: var(--shadow);
+    box-shadow: var(--box-shadow);
+  }
+  input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+  input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"],
+  input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    background-color: var(--shadow) !important;
+    color: var(--lighter) !important;
+    border-color: var(--shadow) !important;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus,
+  input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus,
+  input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus {
+    box-shadow: none !important;
+    border-color: var(--accent) !important;
+  }
+  // Advanced search
+  .search-container .search-advanced-sidebar .search-advanced-title,
+  .search-container .search-advanced-sidebar .search-advanced-filters {
+    background: var(--darker) !important;
+  }
+   div.ac-wrap, .select-kit.combo-box .select-kit-header, .select-kit.multi-select .multi-select-header {
+    background-color: var(--dark) !important;
+    border-color: var(--shadow) !important;
+      &.is-focused {			/*vednoc, tagged focused isn't styled*/
+        box-shadow: none !important;
+        border-color: var(--accent) !important;
+      }
+  }
+  // > dropdowns
+  .select-kit.combo-box .select-kit-filter,
+	.select-kit.combo-box .select-kit-row {
+    background-color: var(--dark) !important;
+    border-color: var(--shadow) !important;
+  }
+  .select-kit .select-kit-row.is-highlighted {
+    background-color: var(--darker) !important;
+  }
+  .badge-wrapper.bar span.badge-category,
+  .select-kit.combo-box.category-chooser .select-kit-row .topic-count {
+    color: var(--lighter) !important;
+  }
+}
