@@ -3472,13 +3472,21 @@
     background: var(--darker);
     border-color: var(--shadow);
     box-shadow: var(--box-shadow);
-     .icon:hover, .icon:focus {
-       background-color: transparent !important; 
+     .icon:hover, .icon:focus, .d-header-icons .active .icon, .d-header-icons .active .icon::after {
+       background-color: transparent !important;
+       border-color: var(--shadow) !important;
      }
       .d-header-icons .d-icon:hover {
         color: var(--accent) !important;
       }
   }
+
+  // Burger
+  .menu-panel ul.menu-links li a:hover, .menu-panel ul.menu-links li a:focus, .menu-panel ul li.heading a:hover, .menu-panel ul li.heading a:focus {
+    background-color: var(--dark) !important;
+    border-color: var(--shadow) !important;
+  }
+  
   // Search
   .menu-panel {
     background: var(--darker);
@@ -3528,7 +3536,7 @@
 
   // Topic filter
   .list-controls .combo-box .combo-box-header,
-  .nav-pills > li > a{
+  .nav-pills > li > a {
     background-color: var(--darker) !important;
     border-color: var(--shadow) !important;
     color: var(--lighter) !important;
@@ -3536,6 +3544,36 @@
        transform: translateY(-2px);
       }
 	}
+  .select-kit.dropdown-select-box.period-chooser .period-chooser-header h2.selected-name {
+    .top-date-string {
+      color: var(--lighter) !important;
+    }
+    .date-section {
+      color: var(--accent) !important;
+    }
+  }
+  // Filter dropdown by date
+  .select-kit .select-kit-collection {
+    background-color: var(--darker) !important;
+	}
+  .select-kit .select-kit-row.is-selected.is-highlighted, .select-kit .select-kit-row.is-selected,
+  .select-kit .select-kit-row:hover /*li hover*/ {
+    background-color: var(--dark) !important;
+  }
+  .select-kit.dropdown-select-box {
+    .select-kit-body {
+      border-color: var(--shadow) !important;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Date
+    &.period-chooser .period-chooser-row .date-section {
+      color: var(--accent) !important;
+    }
+    // Info
+    &.period-chooser .period-chooser-row .top-date-string {
+      color: var(--lighter) !important;
+    }
+  }
 
   // Topic list
   tr, tbody {
@@ -3553,6 +3591,9 @@
         &:visited {
           color: var(--lighter) !important;
         }
+    }
+    .sortable:hover {
+      background-color: var(--darker) !important;
     }
   }
   // Topic numbers
@@ -3603,17 +3644,41 @@
     background-color: var(--darker) !important;
     color: var(--accent) !important;
   }
-
   .alert.alert-info {
     background-color: var(--darker) !important;
     color: var(--lighter) !important;
   }
-
   // Badges
+  // in topics
   .badge-notification {
     background-color: var(--darker) !important;
     color: var(--accent) !important;
   }
+  // in badges page and user pages
+  .badge-card {
+    background-color: var(--darker) !important;
+    border-color: var(--shadow) !important;
+      .badge-contents .badge-info {
+        background: transparent !important;
+        border: none !important;
+        color: var(--lighter) !important;
+          h3 {
+            color: var(--accent) !important;
+          }
+      }
+  }
+  .badge-card .badge-contents .badge-icon {
+     &.badge-type-gold .fa {
+       color: var(--yellow) !important;
+     }
+     &.badge-type-silver .fa {
+       color: var(--light) !important;
+     }
+     &.badge-type-bronze .fa {
+       color: var(--orange) !important;
+     }
+  }
+  
   // Like and share buttons
   nav.post-controls *:hover {
     background-color: transparent !important;
@@ -3651,4 +3716,61 @@
       color: var(--light) !important;
     }
   }
+
+  // User pages
+  .user-content {
+    background-color: var(--dark) !important;
+  }
+  .user-main .about {
+    .details, &.collapsed-info .details {
+      background-color: var(--darker);
+      border-color: var(--shadow);
+    }
+    .secondary {
+      background-color: var(--darker) !important;
+      border-color: var(--shadow) !important;
+        dt {
+          color: var(--light) !important;
+        }
+        dd {
+          color: var(--lighter) !important;
+        }
+    }
+  }
+  .stats-section .value {
+    color: var(--light) !important;
+  }
+  .user-main .d-icon-heart {
+    color: var(--red) !important;
+  }
+  // Top borders
+  .top-sub-section li {
+    border-color: var(--darker) !important;
+  }
+  // Other user names
+  .user-info .user-detail .username a {
+    color: var(--lighter) !important;
+  }
+  .user-info .user-detail .name {
+    color: var(--light) !important;
+  }
+  // Top links
+  .links-section .domain {
+    color: var(--light) !important;
+  }
+  // date
+  .top-sub-section .topic-info {
+    color: var(--light) !important;
+  }
+  // User activity
+  .user-stream .item, .user-stream .user-stream-item {
+    background-color: var(--darker) !important;
+    border-color: var(--shadow) !important;
+   }
+   .user-stream .time, .user-stream .delete-info {
+     color: var(--light) !important;
+   }
+   .user-navigation .nav-stacked a {
+     color: var(--lighter) !important;
+   }
 }
