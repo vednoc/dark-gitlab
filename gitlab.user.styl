@@ -2907,21 +2907,34 @@
     }
   }
 
-
-  /* IDE :: Left sidebar. */
-  .multi-file-commit-panel-inner-content,
-  .multi-file-commit-form {
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Icons. */
-  .ide-tree-header button {
-    color: var(--icon);
-  }
-  /* Branch on hover */
-  .ide-tree-header button:hover {
-    color: var(--light) !important;
-    background-color: var(--darker) !important;
+  // * IDE :: File explorer.
+  .ide {
+    // Tree.
+    .multi-file-commit-panel-inner-content {
+      colors: 0, $darker, $dark;
+      // File in the tree.
+      .file-row {
+        transition: 0.2s ease-in-out;
+        &.is-active, &:hover, &:active {
+          colors: 0, 0, $darker;
+        }
+        // File options.
+        .ide-entry-dropdown-toggle {
+          colors: $light, 0, $dark;
+        }
+      }
+    }
+    // Commit.
+    .multi-file-commit-form {
+      colors: 0, $darker, $dark;
+      > .commit-form-compact {
+        border-top-color: var(--darker);
+      }
+    }
+    // Icons.
+    .ide-tree-header button {
+      color: var(--icon);
+    }
   }
 
   // * IDE :: Merge Requests / Branches.
@@ -2960,12 +2973,8 @@
   .multi-file-commit-list-path.is-active {
     background-color: var(--darker);
   }
-  /* Commit changes. */
-  .multi-file-commit-form > .commit-form-compact {
-    border-top-color: var(--darker);
-  }
 
-  /* IDE :: Right sidebar. */
+  // * IDE :: Right sidebar.
   .ide-view .multi-file-commit-panel {
     border-color: var(--darker);
     background-color: var(--dark);
@@ -3415,7 +3424,7 @@
 
   // * Invert `shadow-root (closed)` SVG icons.
   // TODO remove if/when fixed on upstream.
-  [class*="ci-status"] svg.s16 {
+  [class*="ci-status"] svg.s16, svg.ic-upload {
     fill: #222222 !important;
     filter: invert(bg_invert - 0.2) hue-rotate(180deg);
   }
