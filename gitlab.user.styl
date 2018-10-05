@@ -55,6 +55,7 @@
     --blue      : blue;
     --cyan      : cyan;
     --green     : green;
+    --t         : transparent !important;
     --width     : max_width;
     --background: bg_image
   }
@@ -76,7 +77,7 @@
   $blue    = var(--blue);
   $cyan    = var(--cyan);
   $green   = var(--green);
-  $t       = transparent;
+  $t       = var(--t);
   $box     = var(--box-shadow);
 
   // * Color mixin.
@@ -2983,26 +2984,20 @@
   /* IDE :: Edit area. */
   .multi-file-edit-pane,
   .ide-mode-tabs {
-    border-color: var(--darker);
-  }
-  /* Resize. */
-  .drag-handle:hover {
-    width: 4px;
-    background-color: var(--darker);
+    colors: 0, $darker, $darker;
   }
   /* Tabs. */
   .multi-file-tabs {
     background-color: var(--dark);
     box-shadow: inset 0 -1px var(--darker);
-  }
-  /* Items. */
-  .multi-file-tabs li {
-    border-color: var(--darker);
-    background-color: var(--shadow);
-  }
-  .multi-file-tabs li.active {
-    border-color: var(--darker);
-    background-color: var(--darker);
+    // Items.
+    li {
+      transition: 0.2s ease-in-out;
+      colors: $lighter, $darker, $t;
+      &.active, &:hover {
+        colors: $accent, $darker, $darker;
+      }
+    }
   }
   // Commit header.
   .ide-commit-editor-header {
