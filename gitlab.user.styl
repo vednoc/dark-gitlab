@@ -2873,35 +2873,38 @@
   }
 
 
-  /* IDE! */
-  .ide-view {
-    color:  var(--light);
+  // * IDE!
+  .ide {
+    // Text color.
+    .ide-view {
+      colors: $light, 0, 0;
+      // Left sidebar title.
+      .context-header > a,
+      .ide-review-sub-header {
+        colors: $light, 0, 0;
+      }
+    }
+    // Status bar.
+    .ide-activity-bar, .ide-status-bar {
+      colors: 0, $darker, $dark;
+    }
+    // Resize.
+    .drag-handle {
+      colors: 0, 0, $dark;
+    }
   }
-  /* Status/activity bars. */
-  .ide-right-sidebar .ide-activity-bar,
-  .ide-status-bar {
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Left sidebar title. */
-  .ide-view .context-header > a,
-  .ide-view .text-secondary {
-    color: var(--light) !important;
-  }
-  /* On event. */
-  .ide-sidebar-link:focus,
-  .ide-sidebar-link:hover {
-    background-color: var(--darker);
-  }
-  /* Active mode. */
-  .ide-sidebar-link.active {
-    color: var(--accent) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-    box-shadow: inset 3px 0 var(--accent) !important;
-  }
-  .ide-sidebar-link.active::after {
-    background-color: var(--dark);
+
+  // Left sidebar active.
+  .ide-sidebar-link {
+    transition: 0.2s ease-in-out;
+    // On event.
+    &:focus, &:hover, &.active {
+      colors: $accent, $darker, $darker;
+      box-shadow: inset 3px 0 var(--accent) !important;
+    }
+    &::after {
+      colors: 0, 0, $dark;
+    }
   }
 
 
