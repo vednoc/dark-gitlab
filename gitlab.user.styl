@@ -3651,6 +3651,15 @@
   .alert.alert-info {
     colors: $lighter, 0, $darker
   }
+  // @ mentions
+  a.mention, a.mention-group {
+    colors: $accent, 0, $darker
+  }
+  // code
+  p > code, li > code, pre > code {
+    colors: $lighter, $darker, $darker
+  }
+
   // Badges
   // in topics
   .badge-notification {
@@ -3687,6 +3696,13 @@
         color: $accent !important;
       }
   }
+  #share-link {
+    background: $darker
+      div > a:hover > .fa {
+        color: $accent !important
+      }
+  }
+  
   // Topic map
   .topic-map{
     colors: 0, $shadow, $darker
