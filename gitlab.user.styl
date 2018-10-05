@@ -3010,15 +3010,12 @@
       border-color: transparent !important;
       background-color: rgba(200, 49, 49, 0.3) !important;
     }
-    .char-delete {
+    .char-delete, .char-insert {
       background-color: rgba(0, 0, 0, 0.15) !important;
     }
     .line-insert {
       border-color: transparent !important;
       background-color: rgba(149, 200, 99, 0.3) !important;
-    }
-    .char-insert {
-      background-color: rgba(0, 0, 0, 0.15) !important;
     }
   }
 
@@ -3035,7 +3032,7 @@
     }
     // Gutter.
     .margin {
-      colors: 0, $darker, $darker;
+      colors: 0, $dark, $dark;
       .line-numbers {
         colors: $lighter, 0, 0;
       }
@@ -3050,8 +3047,26 @@
       colors: $light, $accent, $accent;
     }
     // Indent guide.
-    .monaco-editor .lines-content .cigra {
-      box-shadow: inset 2px 0 0 0 $accent !important;
+    .lines-content .cigr,
+    .lines-content .cigra {
+      box-shadow: inset 1px 0 0 0 $accent !important;
+    }
+    // Context menu.
+    .context-view {
+      colors: 0, 0, $darker;
+      box-shadow: 0 2px 8px $shadow;
+    }
+    // Hover popup.
+    .monaco-editor-hover {
+      colors: 0, $shadow, $darker;
+    }
+    // Selection.
+    .cslr.selected-text {
+      background-color: $darker;
+    }
+    // Matching.
+    .selectionHighlight {
+      background-color: $accent !important;
     }
   }
   /* Diff view. */
