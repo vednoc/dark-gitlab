@@ -76,6 +76,8 @@
   $blue    = var(--blue);
   $cyan    = var(--cyan);
   $green   = var(--green);
+  $t       = transparent;
+  $box     = var(--box-shadow);
 
   // * Color mixin.
   // ? All colors -> colors: $light, $darker, $dark;
@@ -3459,4 +3461,312 @@
   html {
     overflow-x: hidden;
   }
+}
+
+@-moz-document regexp("https?:\/\/(forum.)?(gitlab.com)(\/.*)?") {
+  nav#bar {
+    background: $darker !important;
+      li a:hover { 
+          color: $accent !important;
+        }
+  }
+  .d-header {
+    colors: 0, $shadow, $darker
+    box-shadow: $box
+     .icon:hover, .icon:focus, 
+     &-icons .active .icon, &-icons .active .icon::after {
+       colors: 0, $shadow, $dark
+     }
+      .d-header-icons .d-icon:hover {
+        color: var(--accent) !important;
+      }
+  }
+  // Logo
+  if dark_logo {
+    .d-header .title{
+      background: url("https://gitlab.com/vednoc/dark-gitlab/raw/forum/images/forum_navbar.png") no-repeat !important;
+      background-size: 141px 50px !important;
+      margin-top: -5px !important;
+        #site-logo {
+          opacity: 0;
+          margin-top: 0 !important;
+        }
+    }
+  }
+
+  // Burger
+  .menu-panel ul.menu-links li a:hover, .menu-panel ul.menu-links li a:focus, .menu-panel ul li.heading a:hover, .menu-panel ul li.heading a:focus {
+    colors: 0, $shadow, $dark
+  }
+  
+  // Search
+  .menu-panel {
+    colors: 0, $shadow, $darker
+    box-shadow: $box !important;
+  }
+  input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+  input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"],
+  input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    colors: $lighter, $shadow, $shadow
+  }
+  input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus,
+  input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus,
+  input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus {
+    box-shadow: none !important;
+    border-color: $accent !important;
+  }
+  // Advanced search
+  .search-container .search-advanced-sidebar .search-advanced-title,
+  .search-container .search-advanced-sidebar .search-advanced-filters {
+    background: $darker !important;
+  }
+   div.ac-wrap, .select-kit.combo-box .select-kit-header, .select-kit.multi-select .multi-select-header {
+    colors: 0, $shadow, $dark
+      &.is-focused {			/*vednoc, tagged focused isn't styled*/
+        box-shadow: none !important;
+        border-color: $accent !important;
+      }
+  }
+  // > dropdowns
+  .select-kit.combo-box .select-kit-filter,
+	.select-kit.combo-box .select-kit-row {
+    colors: 0, $shadow, $dark
+  }
+  .select-kit .select-kit-row.is-highlighted {
+    background-color: $darker !important;
+  }
+  .badge-wrapper.bar span.badge-category,
+  .select-kit.combo-box.category-chooser .select-kit-row .topic-count {
+    color: $lighter !important;
+  }
+
+
+  // Topic filter
+  .list-controls .combo-box .combo-box-header,
+  .nav-pills > li > a {
+    colors: $lighter, $shadow, $darker
+      &:hover {
+       transform: translateY(-2px);
+      }
+	}
+  .select-kit.dropdown-select-box.period-chooser .period-chooser-header h2.selected-name {
+    .top-date-string {
+      color: $lighter !important;
+    }
+    .date-section {
+      color: $accent !important;
+    }
+  }
+  // Filter dropdown by date
+  .select-kit .select-kit-collection {
+    background-color: $darker !important;
+	}
+  .select-kit .select-kit-row.is-selected.is-highlighted, .select-kit .select-kit-row.is-selected,
+  .select-kit .select-kit-row:hover /*li hover*/ {
+    background-color: $dark !important;
+  }
+  .select-kit.dropdown-select-box {
+    .select-kit-body {
+      border-color: $shadow !important;
+      box-shadow: $box !important;
+    }
+    // Date
+    &.period-chooser .period-chooser-row .date-section {
+      color: $accent !important;
+    }
+    // Info
+    &.period-chooser .period-chooser-row .top-date-string {
+      color: $lighter !important;
+    }
+  }
+
+  // Topic list
+  tr, tbody {
+    border-color: $shadow !important;
+  }
+  .topic-list th {
+    color: $lighter !important;
+  }
+  .topic-list {
+    .topic-excerpt {
+      color: $light !important;
+    }
+    .main-link a.title {
+      color: $accent !important;
+        &:visited {
+          color: $lighter !important;
+        }
+    }
+    .sortable:hover {
+      background-color: $darker !important;
+    }
+  }
+  // Topic numbers
+  .topic-list .num {
+    color: $light !important;
+  }
+  // Heatmap for topic number
+  .heatmap-high, .heatmap-high a {
+    color: $red !important;
+  }
+  .heatmap-med, .heatmap-med a {
+    color: $orange !important;
+  }
+  .heatmap-low, .heatmap-low a {
+    color: $yellow !important;
+  }
+
+  // Topic bodies
+  // vednoc: there is a transition effect when the page loads
+  #topic-title h1 a, .topic-link {
+    color: $accent !important;
+  }
+  .topic-body, .topic-avatar, .topic-status-info {
+    border-color: $shadow !important;
+  }
+  .post-links-container {
+    .post-links {
+      border-color: $shadow !important;
+    }
+    ul li a[href] {
+      color: $light !important;
+    }
+  }
+  // Pinned topics
+  .names span a {
+    color: $lighter !important;
+  }
+  .small-action {
+    border-color: $shadow !important;
+      .small-action-desc {
+     color: $light !important;
+    }
+  }
+  // Mods
+  .moderator .clearfix > .topic-meta-data > .names span.user-title, .moderator .nav-pills > .topic-meta-data > .names span.user-title,
+  .moderator .container > .topic-meta-data > .names span.user-title, .moderator .wrap > .topic-meta-data > .names span.user-title,
+  /*post*/ .moderator .regular > .cooked {
+    colors: $accent, 0, $darker
+  }
+  .alert.alert-info {
+    colors: $lighter, 0, $darker
+  }
+  // Badges
+  // in topics
+  .badge-notification {
+    colors: $accent, 0, $darker
+  }
+  // in badges page and user pages
+  .badge-card {
+    colors: 0, $shadow, $darker
+      .badge-contents .badge-info {
+        background: $t !important;
+        border: none !important;
+        color: $lighter !important;
+          h3 {
+            color: $accent !important;
+          }
+      }
+  }
+  .badge-card .badge-contents .badge-icon {
+     &.badge-type-gold .fa {
+       color: $yellow !important;
+     }
+     &.badge-type-silver .fa {
+       color: $light !important;
+     }
+     &.badge-type-bronze .fa {
+       color: $orange !important;
+     }
+  }
+  
+  // Like and share buttons
+  nav.post-controls *:hover {
+    background-color: transparent !important;
+       & > .fa {
+        color: $accent !important;
+      }
+  }
+  // Topic map
+  .topic-map{
+    colors: 0, $shadow, $darker
+      section {
+        border-color: $shadow !important;
+      }
+      .buttons .btn {
+        colors: 0, $shadow, $darker
+      }
+      .map .number, .map i {
+        color: $light !important;
+      }
+  }
+  // Timeline
+  .timeline-container .topic-timeline {
+    .timeline-handle {
+      background-color: $lighter !important;
+    }
+    .timeline-scrollarea {
+      border-color: $lighter !important;
+    }
+    .timeline-replies {
+      color: $lighter !important;
+    }
+    .timeline-ago, .start-date, .now-date {
+      color: $light !important;
+    }
+  }
+
+  // User pages
+  .user-content {
+    background-color: $dark !important;
+  }
+  .user-main .about {
+    .details, &.collapsed-info .details {
+      colors: 0, $shadow, $darker
+    }
+    .secondary {
+      colors: 0, $shadow, $darker
+        dt {
+          color: $light !important;
+        }
+        dd {
+          color: $lighter !important;
+        }
+    }
+  }
+  .stats-section .value {
+    color: $light !important;
+  }
+  .user-main .d-icon-heart {
+    color: $red !important;
+  }
+  // Top borders
+  .top-sub-section li {
+    border-color: $darker !important;
+  }
+  // Other user names
+  .user-info .user-detail .username a {
+    color: $lighter !important;
+  }
+  .user-info .user-detail .name {
+    color: $light !important;
+  }
+  // Top links
+  .links-section .domain {
+    color: $light !important;
+  }
+  // date
+  .top-sub-section .topic-info {
+    color: $light !important;
+  }
+  // User activity
+  .user-stream .item, .user-stream .user-stream-item {
+    colors: 0, $shadow, $darker
+   }
+   .user-stream .time, .user-stream .delete-info {
+     color: $light !important;
+   }
+   .user-navigation .nav-stacked a {
+     color: $lighter !important;
+   }
 }
