@@ -97,13 +97,13 @@
 
   ::-webkit-scrollbar {
     width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--dark);
-  }
-  ::-webkit-scrollbar-thumb {
-    border: 2px solid var(--dark);
-    background: var(--darker);
+    &-track {
+      background: var(--dark);
+    }
+    &-thumb {
+      border: 2px solid var(--dark);
+      background: var(--darker);
+    }
   }
   // Input placeholder.
   input::placeholder {
@@ -129,6 +129,7 @@
   }
   img.transparent,
   img.lazy {
+    border: 1px solid var(--dark) !important;
     background: transparent !important;
   }
   code {
@@ -1323,7 +1324,10 @@
     color: var(--light);
     border-color: var(--darker) !important;
   }
-  /* Markdown selectors. */
+  // * Markdown selectors.
+  .md a {
+    color: var(--accent);
+  }
   .md h1,
   .md h2 {
     border-color: var(--darker) !important;
