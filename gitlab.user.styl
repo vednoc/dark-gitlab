@@ -3584,7 +3584,7 @@
   }
   // > dropdowns
   .select-kit.combo-box .select-kit-filter,
-	.select-kit.combo-box .select-kit-row {
+  .select-kit.combo-box .select-kit-row {
     colors: 0, $shadow, $dark;
   }
   .select-kit .select-kit-row.is-highlighted {
@@ -3603,7 +3603,7 @@
     &:hover {
       transform: translateY(-2px);
     }
-	}
+  }
   .select-kit.dropdown-select-box.period-chooser .period-chooser-header h2.selected-name {
     .top-date-string {
       color: $lighter !important;
@@ -3615,7 +3615,7 @@
   // Filter dropdown by date
   .select-kit .select-kit-collection {
     background-color: $darker !important;
-	}
+  }
   .select-kit .select-kit-row.is-selected.is-highlighted, .select-kit .select-kit-row.is-selected,
   .select-kit .select-kit-row:hover /*li hover*/ {
     background-color: $dark !important;
@@ -3636,12 +3636,6 @@
   }
 
   // Topic list
-  tr, tbody {
-    border-color: $shadow !important;
-  }
-  tr:hover > td {
-    background-color: $darker !important;
-  }
   .topic-list th {
     color: $lighter !important;
   }
@@ -3656,6 +3650,12 @@
       }
     }
     .sortable:hover {
+      background-color: $darker !important;
+    }
+    tr, tbody {
+      border-color: $shadow !important;
+    }
+    tr:hover > td {
       background-color: $darker !important;
     }
   }
@@ -3681,9 +3681,7 @@
     }
   }
 
-
   // Topic bodies
-  // TODO vednoc: there is a transition effect when the page loads
   #topic-title h1 a, .topic-link {
     color: $accent !important;
   }
@@ -3696,6 +3694,13 @@
     }
     ul li a[href] {
       color: $light !important;
+    }
+  }
+  // Topic animation
+  .topic-body {
+    animation: 0s !important;
+    &.highlighted {
+      animation: 0s !important;
     }
   }
   // Pinned topics
@@ -3722,8 +3727,21 @@
     colors: $accent, 0, $darker;
   }
   // code
-  p > code, li > code, pre > code {
-    colors: $lighter, $darker, $darker;
+  .topic-post {
+    p > code, li > code, pre > code, blockquote {
+      colors: $lighter, $darker, $darker;
+    }
+  }
+  .quote-button {
+    colors: $lighter, $shadow, 0;
+    background-color: black !important;
+    box-shadow: $box !important;
+    &:hover, &:hover > .fa {
+      color: $accent !important;
+    }
+  }
+  aside.quote .title {
+    colors: $light, $accent, $darker;
   }
 
   // Badges
@@ -3756,15 +3774,38 @@
   }
 
   // Like and share buttons
-  nav.post-controls *:hover {
-    background-color: transparent !important;
-    & > .fa {
-      color: $accent !important;
+  nav.post-controls {
+    *:hover {
+      background-color: transparent !important;
+      & > .fa {
+        color: $accent !important;
+      }
+    }
+    // TODO vednoc: is this code wrong? on hover it should make the count blue
+    .like-button {
+      .like-count {
+        color: $light !important;
+      }
+      &:hover {
+        .like-count {
+          color: $accent !important;
+          &.d-hover {
+            color: $accent !important;
+          }
+        }
+      }
     }
   }
   #share-link {
     background: $darker;
     div > a:hover > .fa {
+      color: $accent !important;
+    }
+  }
+  // Reply
+  nav.post-controls button.create {
+    color: $light !important;
+    &:hover {
       color: $accent !important;
     }
   }
@@ -3775,7 +3816,7 @@
     section {
       border-color: $shadow !important;
     }
-    .buttons .btn {
+    .buttons .btn, .link-summary .btn {
       colors: 0, $shadow, $darker;
     }
     .map .number, .map i {
@@ -3797,6 +3838,12 @@
       color: $light !important;
     }
   }
+  .timeline-container.timeline-fullscreen,
+  #topic-progress {
+    colors: $lighter, $shadow, $darker;
+    box-shadow: $box;
+  }
+
   // New topic modal / comment modal
   .open .grippie {
     background: $accent !important;
@@ -3835,6 +3882,12 @@
       }
      }
     &.toolbar-popup-menu-options .select-kit-row .name, &.toolbar-popup-menu-options .select-kit-row .d-icon {
+      color: $light !important;
+    }
+    .select-kit-row .texts .name {
+      color: $accent !important;
+    }
+    .select-kit-row .texts .desc {
       color: $light !important;
     }
   }
@@ -3906,82 +3959,122 @@
     .instructions {
       color: $light !important;
     }
+  }
 
-    // About
-    .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
-      border-color: $shadow !important;
-      & .d-editor-preview {
-        background-color: $dark !important;
-      }
-      & textarea {
-        color: $light !important;
-      }
+  // About
+  .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
+    border-color: $shadow !important;
+    & .d-editor-preview {
+      background-color: $dark !important;
     }
-    .d-editor {
-      &-spacer {
-        background-color: $shadow !important;
-      }
-      &-button-bar {
-        border-color: $shadow !important;
-      }
-      &-textarea-wrapper {
-        colors: $light, $shadow, $darker;
-      }
-      // insert link
-      & .d-editor-modal {
-        colors: $light, $shadow, $dark;
-      }
-      &-textarea-wrapper textarea {
-        colors: $light, $shadow, $dark;
-      }
-    }
-    // emoji
-    .emoji-picker {
-      colors: $light, $shadow, $darker;
-      box-shadow: $box;
-      .categories-column {
-        colors: 0, $shadow, $darker;
-      }
-      .filter {
-        border-color: $shadow !important;
-        .clear-filter .fa, .d-icon-search .fa {
-          color: $icon !important;
-        }
-        .clear-filter:hover .fa, .d-icon-search:hover {
-          color: $accent !important;
-        }
-      }
-      .section-header .title {
-        color: $lighter !important;
-      }
-      .section-group button.emoji:hover, .results button.emoji:hover {
-        background-color: $dark !important;
-      }
-      .footer {
-        border-color: $shadow !important;
-      }
-    }
-    // upload image
-    .uploaded-image-preview {
-      background-color: $darker !important;
-    }
-    .upload-selector .radios .inputs input[type="file"] {
+    & textarea {
       color: $light !important;
     }
-    // modals
-    .modal {
-      &-inner-container {
-        colors: $light, $shadow, $dark;
-        box-shadow: $box !important;
+  }
+  .d-editor {
+    &-spacer {
+      background-color: $shadow !important;
+    }
+    &-button-bar {
+      border-color: $shadow !important;
+    }
+    &-textarea-wrapper {
+      colors: $light, $shadow, $darker;
+    }
+    // insert link
+    & .d-editor-modal {
+      colors: $light, $shadow, $dark;
+    }
+    &-textarea-wrapper textarea {
+      colors: $light, $shadow, $dark;
+    }
+  }
+  // emoji
+  .emoji-picker {
+    colors: $light, $shadow, $darker;
+    box-shadow: $box;
+    .categories-column {
+      colors: 0, $shadow, $darker;
+    }
+    .filter {
+      border-color: $shadow !important;
+      .clear-filter .fa, .d-icon-search .fa {
+        color: $icon !important;
       }
-      .modal-body label {
-        color: $lighter !important;
+      .clear-filter:hover .fa, .d-icon-search:hover {
+        color: $accent !important;
       }
     }
-    // Login
-    // done
-    #simple-container {
-      background-color: $darker;
+    .section-header .title {
+      color: $lighter !important;
+    }
+    .section-group button.emoji:hover, .results button.emoji:hover {
+      background-color: $dark !important;
+    }
+    .footer {
+      border-color: $shadow !important;
+    }
+  }
+  // upload image
+  .uploaded-image-preview {
+    background-color: $darker !important;
+  }
+  .upload-selector .radios .inputs input[type="file"] {
+    color: $light !important;
+  }
+  // modals
+  .modal {
+    &-inner-container {
+      colors: $light, $shadow, $dark;
+      box-shadow: $box !important;
+    }
+    .modal-body label {
+      color: $lighter !important;
+    }
+  }
+
+  // Notifications
+  .user-menu .notifications li {
+    colors: $light, $shadow, $darker;
+    $:hover, &:focus {
+      background-color: $dark !important;
+    }
+    span {
+      color: $accent !important;
+    }
+  }
+  div.menu-links-header a {
+    color: $lighter;
+    &:hover, &:focus {
+      colors: $accent, 0, $dark;
+      .fa {
+        color: $accent !important;
+      }
+    }
+  }
+
+  // Login
+  // done
+  #simple-container {
+    background-color: $darker;
+  }
+  .login-modal #login-buttons:not(.hidden), .create-account #login-buttons:not(.hidden) {
+    border-color: $shadow !important;
+  }
+  button#login-link, button#new-account-link {
+    color: $lighter !important;
+  }
+  #login-form a {
+    color: $light !important;
+  }
+
+  // History
+  .modal.history-modal {
+    #revision-details, tbody {
+      border-color: $shadow !important;
+    }
+    .diff-ins {
+      colors: $lighter, 0, $green;
     }
   }
 }
