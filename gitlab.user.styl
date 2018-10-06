@@ -3515,7 +3515,9 @@
   }
 }
 
-// * Code for forum on GitLab. Might be split into a separate userstyle if it gets quite large.
+// * Code for forum on GitLab.
+// ? Might be split into a separate userstyle if it gets quite large.
+// ! @RaitaroH takes the full responsibility for this section. (=
 @-moz-document regexp("https?://forum.gitlab.com(/.*)") {
   nav#bar {
     background: $darker !important;
@@ -3905,82 +3907,81 @@
       color: $light !important;
     }
 
-// About
-  .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
-    border-color: $shadow !important;
-    & .d-editor-preview {
-      background-color: $dark !important;
+    // About
+    .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
+      border-color: $shadow !important;
+      & .d-editor-preview {
+        background-color: $dark !important;
+      }
+      & textarea {
+        color: $light !important;
+      }
     }
-    & textarea {
+    .d-editor {
+      &-spacer {
+        background-color: $shadow !important;
+      }
+      &-button-bar {
+        border-color: $shadow !important;
+      }
+      &-textarea-wrapper {
+        colors: $light, $shadow, $darker;
+      }
+      // insert link
+      & .d-editor-modal {
+        colors: $light, $shadow, $dark;
+      }
+      &-textarea-wrapper textarea {
+        colors: $light, $shadow, $dark;
+      }
+    }
+    // emoji
+    .emoji-picker {
+      colors: $light, $shadow, $darker;
+      box-shadow: $box;
+      .categories-column {
+        colors: 0, $shadow, $darker;
+      }
+      .filter {
+        border-color: $shadow !important;
+        .clear-filter .fa, .d-icon-search .fa {
+          color: $icon !important;
+        }
+        .clear-filter:hover .fa, .d-icon-search:hover {
+          color: $accent !important;
+        }
+      }
+      .section-header .title {
+        color: $lighter !important;
+      }
+      .section-group button.emoji:hover, .results button.emoji:hover {
+        background-color: $dark !important;
+      }
+      .footer {
+        border-color: $shadow !important;
+      }
+    }
+    // upload image
+    .uploaded-image-preview {
+      background-color: $darker !important;
+    }
+    .upload-selector .radios .inputs input[type="file"] {
       color: $light !important;
     }
-  }
-  .d-editor {
-    &-spacer {
-      background-color: $shadow !important;
-    }
-    &-button-bar {
-      border-color: $shadow !important;
-    }
-    &-textarea-wrapper {
-      colors: $light, $shadow, $darker;
-    }
-    // insert link
-    & .d-editor-modal {
-      colors: $light, $shadow, $dark;
-    }
-    &-textarea-wrapper textarea {
-      colors: $light, $shadow, $dark;
-    }
-  }
-  // emoji
-  .emoji-picker {
-    colors: $light, $shadow, $darker;
-    box-shadow: $box;
-    .categories-column {
-      colors: 0, $shadow, $darker;
-    }
-    .filter {
-      border-color: $shadow !important;
-      .clear-filter .fa, .d-icon-search .fa {
-        color: $icon !important;
+    // modals
+    .modal {
+      &-inner-container {
+        colors: $light, $shadow, $dark;
+        box-shadow: $box !important;
       }
-      .clear-filter:hover .fa, .d-icon-search:hover {
-        color: $accent !important;
+      .modal-body label {
+        color: $lighter !important;
       }
     }
-    .section-header .title {
-      color: $lighter !important;
-    }
-    .section-group button.emoji:hover, .results button.emoji:hover {
-      background-color: $dark !important;
-    }
-    .footer {
-      border-color: $shadow !important;
-    }
-  }
-  // upload image
-  .uploaded-image-preview {
-    background-color: $darker !important;
-  }
-  .upload-selector .radios .inputs input[type="file"] {
-    color: $light !important;
-  }
-  // modals
-  .modal {
-    &-inner-container {
-      colors: $light, $shadow, $dark;
-      box-shadow: $box !important;
-    }
-    .modal-body label {
-      color: $lighter !important;
-    }
-  }
-
-  // Login
-  // done
-  #simple-container {
-    background-color: $darker;
+    // Login
+    // done
+    #simple-container {
+      background-color: $darker;
     }
   }
 }
