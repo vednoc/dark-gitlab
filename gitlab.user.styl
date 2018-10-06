@@ -3671,6 +3671,14 @@
   .heatmap-low, .heatmap-low a {
     color: $yellow !important;
   }
+  // Last visit
+  .topic-list .topic-list-item-separator td {
+    border-color: $accent !important;
+    span {
+      colors: $accent, $shadow, $darker;
+    }
+  }
+
 
   // Topic bodies
   // TODO vednoc: there is a transition effect when the page loads
@@ -3787,6 +3795,50 @@
       color: $light !important;
     }
   }
+  // New topic modal / comment modal
+  .open .grippie {
+    background: $accent !important;
+  }
+  #reply-control {
+    colors: $light, $shadow, $darker;
+    box-shadow: $box !important;
+    .reply-to .composer-action-title .action-title,
+    #draft-status, #file-uploading {
+      color: $light !important;
+    }
+    .save-or-cancel .cancel {
+      color: $lighter !important;
+      &:hover {
+        color: $red !important;
+      }
+    }
+  }
+  .select-kit.dropdown-select-box.composer-actions .select-kit-header {
+    &:hover, &:focus {
+      colors: $icon, $t, $dark;
+    }
+    .d-icon {
+      border-color: $t;
+    }
+  }
+  .select-kit.dropdown-select-box {
+    .select-kit-body {
+      colors: $light, $shadow, $darker;
+      box-shadow: $box;
+    }
+    &.toolbar-popup-menu-options .select-kit-row {
+      colors: $lighter, 0, $dark;
+      &:hover .name {
+        color: $accent !important;
+      }
+     }
+    &.toolbar-popup-menu-options .select-kit-row .name, &.toolbar-popup-menu-options .select-kit-row .d-icon {
+      color: $light !important;
+    }
+  }
+  .composer-popup {
+    colors: $lighter, $shadow, $dark;
+  }
 
   // User pages
   .user-content {
@@ -3795,6 +3847,9 @@
   .user-main .about {
     .details, &.collapsed-info .details {
       colors: 0, $shadow, $darker;
+    }
+    &.collapsed-info .controls ul a, & .controls a {
+      colors: $light, 0, $darker;
     }
     .secondary {
       colors: 0, $shadow, $darker;
@@ -3834,11 +3889,97 @@
   // User activity
   .user-stream .item, .user-stream .user-stream-item {
     colors: 0, $shadow, $darker;
-   }
+  }
   .user-stream .time, .user-stream .delete-info {
     color: $light !important;
   }
-  .user-navigation .nav-stacked a {
+  .user-navigation .nav-stacked a, .form-vertical .controls > .btn[href] {
     color: $lighter !important;
+  }
+  // Logged user settings
+  .user-preferences {
+    .static {
+       color: $lighter !important;
+    }
+    .instructions {
+      color: $light !important;
+    }
+
+// About
+  .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
+    border-color: $shadow !important;
+    & .d-editor-preview {
+      background-color: $dark !important;
+    }
+    & textarea {
+      color: $light !important;
+    }
+  }
+  .d-editor {
+    &-spacer {
+      background-color: $shadow !important;
+    }
+    &-button-bar {
+      border-color: $shadow !important;
+    }
+    &-textarea-wrapper {
+      colors: $light, $shadow, $darker;
+    }
+    // insert link
+    & .d-editor-modal {
+      colors: $light, $shadow, $dark;
+    }
+    &-textarea-wrapper textarea {
+      colors: $light, $shadow, $dark;
+    }
+  }
+  // emoji
+  .emoji-picker {
+    colors: $light, $shadow, $darker;
+    box-shadow: $box;
+    .categories-column {
+      colors: 0, $shadow, $darker;
+    }
+    .filter {
+      border-color: $shadow !important;
+      .clear-filter .fa, .d-icon-search .fa {
+        color: $icon !important;
+      }
+      .clear-filter:hover .fa, .d-icon-search:hover {
+        color: $accent !important;
+      }
+    }
+    .section-header .title {
+      color: $lighter !important;
+    }
+    .section-group button.emoji:hover, .results button.emoji:hover {
+      background-color: $dark !important;
+    }
+    .footer {
+      border-color: $shadow !important;
+    }
+  }
+  // upload image
+  .uploaded-image-preview {
+    background-color: $darker !important;
+  }
+  .upload-selector .radios .inputs input[type="file"] {
+    color: $light !important;
+  }
+  // modals
+  .modal {
+    &-inner-container {
+      colors: $light, $shadow, $dark;
+      box-shadow: $box !important;
+    }
+    .modal-body label {
+      color: $lighter !important;
+    }
+  }
+
+  // Login
+  // done
+  #simple-container {
+    background-color: $darker;
   }
 }
