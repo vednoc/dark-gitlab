@@ -3653,7 +3653,7 @@
       background-color: $darker !important;
     }
     tr, tbody {
-      border-color: $shadow !important;
+      border-color: $darker !important;
     }
     tr:hover > td {
       background-color: $darker !important;
@@ -3680,17 +3680,21 @@
       colors: $accent, $shadow, $darker;
     }
   }
+  // Tags
+  .discourse-tag.simple, .discourse-tag.simple:visited, .discourse-tag.simple:hover {
+    color: $lighter !important;
+  }
 
   // Topic bodies
   #topic-title h1 a, .topic-link {
     color: $accent !important;
   }
   .topic-body, .topic-avatar, .topic-status-info {
-    border-color: $shadow !important;
+    border-color: $darker !important;
   }
   .post-links-container {
     .post-links {
-      border-color: $shadow !important;
+      border-color: $darker !important;
     }
     ul li a[href] {
       color: $light !important;
@@ -3708,7 +3712,7 @@
     color: $lighter !important;
   }
   .small-action {
-    border-color: $shadow !important;
+    border-color: $darker !important;
     .small-action-desc {
       color: $light !important;
     }
@@ -3819,9 +3823,13 @@
     .buttons .btn, .link-summary .btn {
       colors: 0, $shadow, $darker;
     }
-    .map .number, .map i {
+    .map .number, .map i, span.domain {
       color: $light !important;
     }
+    td {
+      background-color: $t !important;
+    }
+
   }
   // Timeline
   .timeline-container .topic-timeline {
@@ -3839,9 +3847,12 @@
     }
   }
   .timeline-container.timeline-fullscreen,
-  #topic-progress {
+  #topic-progress, #topic-progress .bg {
     colors: $lighter, $shadow, $darker;
     box-shadow: $box;
+    .topic-timeline .username, .topic-timeline .title a {
+      color: $accent !important;
+    }
   }
 
   // New topic modal / comment modal
