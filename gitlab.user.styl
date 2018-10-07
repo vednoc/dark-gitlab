@@ -1987,12 +1987,14 @@
     border-color: var(--darker);
     background-color: var(--shadow);
   }
-  /* Item on hover. */
-  .card > ul > li:hover,
-  .todos-list > .todo:hover {
-    border-top-color: transparent !important;
-    border-bottom-color: var(--darker) !important;
-    background-color: var(--shadow) !important;
+  // Items on hover.
+  .card > ul > li {
+    &:hover, &.done-reversible {
+      colors: 0, 0, $darker;
+    }
+    .btn {
+      colors: 0, 0, $dark;
+    }
   }
 
 
