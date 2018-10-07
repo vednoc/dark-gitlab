@@ -3515,6 +3515,166 @@
   }
 }
 
+// * Code for about page on GitLab.
+// ? Might be split into a separate userstyle if it gets quite large.
+// ! @RaitaroH takes the full responsibility for this section. (=
+
+@-moz-document regexp("https?://about.gitlab.com(/.*)") {
+  .navbar .navbar-right ul li {
+    a, .search-icon {
+      colors: $light, $shadow, 0;
+      &:hover, &:focus {
+        colors: $accent, $shadow, $dark;
+      }
+    }
+    .dropdown {
+      colors: $light, $darker, $darker;
+      a {
+        color: $light !important;
+        &:hover {
+          color: $accent !important;
+        }
+      }
+    }
+  }
+
+  // Front page
+  .sdlc-container .sdlc-table {
+    td:not(:last-child), td:not(:last-child), tr:not(:last-child) {
+      border-color: $darker !important;
+    }
+    .competitor-logo-container {
+      background-color: $darker !important;
+    }
+  }
+  // Card
+  .gke-layer .gke-layer-body, .gke-layer .k8s-layer-media,
+  .testimonials-container .testimonials-row .testimonial, .forrester-graphic-title,
+  .feature {
+    colors: $light, $shadow, $darker;
+    box-shadow: $box;
+  }
+  .u-subtle-bg {
+    background-color: $dark;
+  }
+
+  // Cards
+  .flex-tile-list > .tile {
+    colors: $light, $darker, $darker;
+  }
+  .cta-btn.accent, .cta-btn.accent:hover {
+    colors: $lighter, $shadow, $accent;
+    box-shadow: $box;
+  }
+  .panel, .panel-info > .panel-heading {
+    colors: $light, $darker, $darker;
+  }
+  .panel-success > .panel-heading {
+    colors: $lighter, $green, $green;
+    .panel-title {
+      color: $lighter !important;
+    }
+  }
+  .panel-warning > .panel-heading {
+    colors: $lighter, $orange, $orange;
+    .panel-title {
+      color: $lighter !important;
+    }
+  }
+
+  // Search
+  .search-box {
+    colors: $lighter, $darker, $dark;
+  }
+  .search-input {
+    color: $lighter !important;
+  }
+  .st-ui-injected-overlay-container {
+    colors: $lighter, $darker, $dark;
+    .st-ui-header, .st-ui-footer {
+      colors: $lighter, $darker, $dark;
+      input[type="text"] {
+        color: $lighter !important;
+      }
+    }
+  }
+  a.st-ui-result {
+    border-color: $darker !important;
+    &:hover .st-ui-type-detail, &:hover .st-ui-type-detail-bold {
+      color: $light !important;
+    }
+  }
+  .st-install-Z4n7msKyctXXfJs66EKx .st-ui-result em {
+    colors: $accent, $darker, $darker;
+  }
+  a.st-ui-close-button {
+    filter: invert(1);
+  }
+
+  // Code
+  .command, .alert-warning {
+    colors: $accent, $shadow, $darker;
+  }
+  .panel-body pre {
+    colors: $accent, $shadow, $dark;
+  }
+  .method p a:not(.btn) {
+    color: $accent !important;
+  }
+  .distro-content .display-extra-links li {
+    a {
+      colors: $accent, $darler, 0;
+      background: $t !important;
+      text-shadow: none !important;
+      text-decoration: none !important;
+    }
+    &:not(:last-child)::before {
+      background-color: $darker !important;
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: $darker !important;
+    a:hover {
+      color: $accent !important;
+    }
+  }
+  .source-link {
+    background-color: $dark !important;
+  }
+
+  // Logo
+  if dark_logo {
+    .wordmark {
+      fill: $light !important;
+    }
+    path.logo-dark-orange-shape:nth-child(5), path.logo-light-orange-shape:nth-child(4),
+    .footer-logo path.logo-dark-orange-shape:nth-child(4), .footer-logo path.logo-light-orange-shape:nth-child(3) {
+      fill: #212121 !important;
+      stroke: var(--shadow);
+    }
+    path.logo-light-orange-shape:nth-child(7),
+    .footer-logo path.logo-svg-shape:nth-child(1) {
+      fill: #31363b !important;
+      stroke: var(--shadow);
+    }
+    path.logo-dark-orange-shape:nth-child(2), path.logo-svg-shape:nth-child(8),
+    .footer-logo path.logo-dark-orange-shape:nth-child(7), .footer-logo path.logo-light-orange-shape:nth-child(6) {
+      fill: #303539 !important;
+      stroke: var(--shadow);
+    }
+    path.logo-orange-shape:nth-child(3),
+    .footer-logo path.logo-orange-shape:nth-child(2) {
+      fill: #7289da !important;
+    }
+    path.logo-orange-shape:nth-child(6),
+    .footer-logo path.logo-orange-shape:nth-child(5) {
+      fill: #3daee9 !important;
+    }
+  }
+}
+
 // * Code for forum on GitLab.
 // ? Might be split into a separate userstyle if it gets quite large.
 // ! @RaitaroH takes the full responsibility for this section. (=
