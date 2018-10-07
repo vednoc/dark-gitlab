@@ -3095,6 +3095,45 @@
     .lines-content .cigra {
       box-shadow: inset 1px 0 0 0 $accent !important;
     }
+    // Command palette.
+    .monaco-quick-open-widget {
+      colors: $light, $darker, $dark;
+      box-shadow: $box !important;
+      // Focused.
+      .monaco-tree-row {
+        &:hover, &.focused {
+          colors: $accent, 0, $darker;
+        }
+      }
+    }
+    // Inspect tokens.
+    .tokens-inspect-widget {
+      colors: $light, $darker, $dark;
+    }
+    // Input.
+    .monaco-inputbox {
+      colors: $light, $darker, $dark;
+      input {
+        colors: $light, 0, $dark;
+      }
+    }
+    // Resize.
+    .monaco-sash {
+      colors: 0, 0, $accent;
+    }
+    // Find palette.
+    .find-widget {
+      colors: 0, 0, $darker;
+      box-shadow: $box;
+      .button, .label {
+        filter: invert(bg_invert);
+      }
+    }
+    // Accessibility.
+    .accessibilityHelpWidget {
+      colors: $light, $darker, $dark;
+      box-shadow: $box;
+    }
     // Context menu.
     .context-view {
       colors: 0, 0, $darker;
@@ -3123,6 +3162,13 @@
   }
   .dirty-diff-modified {
     background-color: var(--blue);
+  }
+  // ? Dropdown for file finder.
+  .ide-view .dropdown-menu {
+    max-height: 500px;
+    li button.is-focused {
+      colors: 0, 0, $dark;
+    }
   }
 
   /* IDE :: Monaco editor syntax. */
