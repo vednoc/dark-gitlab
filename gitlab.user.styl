@@ -3261,25 +3261,6 @@
   .ci-table .branch-commit .commit-sha {
     color: var(--light);
   }
-  /* Pipeline status. */
-  .ci-status {
-    &.ci-success {
-      colors: $green, $green, 0;
-    }
-    &.ci-running {
-      colors: $blue, $blue, 0;
-    }
-    &.ci-failed {
-      colors: $red, $red, 0;
-    }
-    &.ci-created,
-    &.ci-skipped,
-    &.ci-canceled,
-    &.ci-disabled,
-    &.ci-manual {
-      colors: $lighter, $darker, 0;
-    }
-  }
   /* Badges */
   .badge-success {
     color: var(--light);
@@ -3430,9 +3411,44 @@
 
   // * Invert `shadow-root (closed)` SVG icons.
   // TODO remove if/when fixed on upstream.
-  [class*="ci-status"] svg.s16, svg.ic-upload {
-    fill: #222222 !important;
+  [class*="ci-status"] svg.s24,
+  [class*="ci-status"]:not(#stageDropdown) svg.s16,
+  svg.ic-upload {
+    fill: black !important;
+    // ? bg_invert must be enabled/disabled in Dark-GitLab.
+    // ? Doesn't work with ThemeSwitcher (yet, but it might in a future update).
     filter: invert(bg_invert - 0.2) hue-rotate(180deg);
+  }
+  // * CI icons.
+  .ci-status {
+    &.ci-success, &-icon-success, &-icon-passed {
+      colors: $green, $green, 0;
+    }
+    &.ci-running {
+      colors: $blue, $blue, 0;
+    }
+    &-icon-pending, &-icon-success_with_warnings {
+      colors: $orange, $orange, 0;
+    }
+    &.ci-failed {
+      colors: $red, $red, 0;
+    }
+    &.ci-created, &.ci-skipped,
+    &.ci-canceled, &.ci-disabled,
+    &.ci-manual, &-icon-skipped {
+      colors: $lighter, $shadow, 0;
+    }
+  }
+  // * CI icons on hover.
+  .stage-container {
+    // Connectors.
+    &::after {
+      colors: 0, $darker, 0;
+    }
+    // Icon background.
+    .mini-pipeline-graph-dropdown-toggle {
+      colors: 0, 0, $darker;
+    }
   }
 
   // * Centers project header elements; old design lookalike.
