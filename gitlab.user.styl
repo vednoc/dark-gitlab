@@ -3537,6 +3537,61 @@
       }
     }
   }
+  .blog-category-nav ul li {
+    color: $lighter !important;
+    &:after {
+      background-color: $accent !important;
+    }
+    &:hover {
+      color: $accent !important;
+    }
+  }
+  .navbar .sign-up, .navbar .search-icon {
+    color: $lighter !important;
+    &:hover {
+      color: $accent !important;
+    }
+  }
+  .navbar .mobile-icons .mobile-icon .icon-bar {
+    background: $lighter !important;
+    &:hover {
+      background: $accent !important;
+    }
+  }
+  .navbar .mobile-menu {
+    background: $dark !important;
+    li .dropdown a {
+      color: $lighter !important;
+      &:hover {
+        color: $accent !important;
+      }
+    }
+    li .main-nav-link {
+      color: $accent !important;
+    }
+    ul .sign-up-container {
+      background: $darker !important;
+      li .sign-up {
+        background: $dark !important;
+      }
+    }
+  }
+
+
+  // Sign up
+  .mktoForm input[type="text"], .mktoForm input[type="url"], .mktoForm input[type="email"],.mktoForm input[type="tel"],
+  .mktoForm input[type="number"], .mktoForm input[type="date"], .mktoForm select.mktoField, .mktoForm textarea.mktoField {
+    colors: $light, $shadow, $dark;
+  }
+  .newsletter-form .mktoButton {
+    colors: $light, $shadow, $dark;
+    &:hover {
+      colors: $accent, $shadow, $dark;
+    }
+  }
+  .newsletter-form .mktoForm .mktoLogicalField label {
+    color: $light !important;
+  }
 
   // Front page
   .sdlc-container .sdlc-table {
@@ -3547,6 +3602,7 @@
       background-color: $darker !important;
     }
   }
+
   // Card
   .gke-layer .gke-layer-body, .gke-layer .k8s-layer-media,
   .testimonials-container .testimonials-row .testimonial, .forrester-graphic-title,
@@ -3557,8 +3613,6 @@
   .u-subtle-bg {
     background-color: $dark;
   }
-
-  // Cards
   .flex-tile-list > .tile {
     colors: $light, $darker, $darker;
   }
@@ -3580,6 +3634,24 @@
     .panel-title {
       color: $lighter !important;
     }
+  }
+  // Featured Posts cards
+  .blog.list {
+    .article-information {
+      colors: $lighter, $shadow, $darker;
+      a {
+        color: $accent !important;
+      }
+    }
+    .more, .browse {
+      colors: $lighter, $dark, $dark;
+      &:hover {
+        background-color: $accent !important;
+      }
+    }
+  }
+  .blog .callout, .blog .gitlab-trial {
+    colors: $lighter, $shadow, $darker;
   }
 
   // Search
