@@ -991,29 +991,49 @@
   }
 
 
-  /* Project :: Contributors. */
-  #contributors-master .tint-box,
-  #contributors .person .spark {
-    color: var(--light);
-    background: var(--darker);
+  // * Project :: Contributors.
+  #contributors-master {
+    // Prevent the hover.
+    &:hover > svg {
+      opacity: 1 !important;
+    }
+    // Svg styles.
+    .tint-box {
+      colors: $light, 0, $darker;
+      .area {
+        fill: var(--green);
+      }
+      .axis {
+        .domain, line {
+          stroke: $dark !important;
+        }
+        text {
+          fill: $light;
+        }
+      }
+    }
+    .person .area-contributor {
+      fill: var(--orange);
+    }
   }
-  #contributors-master .tint-box .area {
-    fill: var(--green);
-  }
-  #contributors .person .area-contributor {
-    fill: var(--orange);
-  }
-  /* Lines. */
-  #contributors-master .tint-box .axis .domain,
-  #contributors-master .tint-box .axis line,
-  #contributors .spark .axis .domain,
-  #contributors .spark .axis line {
-    stroke: var(--dark) !important;
-  }
-  /* Text color. */
-  #contributors-master .tint-box .axis text,
-  #contributors .axis text {
-    fill: var(--light);
+  #contributors {
+    // Prevent the hover.
+    &:hover svg.spark {
+      opacity: 1 !important;
+    }
+    // Svg styles.
+    .person .spark {
+      color: var(--light);
+      background: var(--darker);
+      .axis {
+        .domain, line {
+          stroke: var(--dark) !important;
+        }
+        text {
+          fill: $light;
+        }
+      }
+    }
   }
 
 
