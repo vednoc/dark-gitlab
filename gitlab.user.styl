@@ -4385,3 +4385,97 @@
     }
   }
 }
+
+// * Code for docs page on GitLab.
+// ? Might be split into a separate userstyle if it gets quite large.
+// ! @RaitaroH takes the full responsibility for this section. (=
+
+@-moz-document regexp("https?://docs.gitlab.com(/.*)") {
+  // Navbar
+  .landing .scrolling-header {
+    box-shadow: $box;
+  }
+  .landing .header-link:hover p {
+    color: $accent !important;
+  }
+
+  // Search
+  // TODO vednoc: find that bloody orange box-shadow
+  .landing .input-container img {
+    filter: invert(1);
+  }
+
+  // Cards
+  .main-topics li .wrapper h2 {
+    border-color: $darker !important;
+  }
+  .landing .topics-container .topic:hover {
+    opacity: 1 !important;
+    h4, p {
+      color: $accent !important;
+
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: $darker;
+    a:hover {
+      .fa{
+        color: $accent !important;
+      }
+    }
+  }
+  .source-link {
+    colors: $lighter, $darker, $dark;
+    a {
+      color: $accent !important;
+    }
+  }
+
+
+  // Logo
+  if dark_logo {
+    .landing .landing-header-top .logo {
+      height: 0 !important;
+      width: 0 !important;
+      padding: 40px 0 0 40px !important;
+      background-image: url("https://gitlab.com/vednoc/dark-gitlab/raw/master/images/docs_logo.png") !important;
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+    }
+    .footer-logo path.logo-dark-orange-shape:nth-child(4), .footer-logo path.logo-light-orange-shape:nth-child(3) {
+      fill: #212121 !important;
+      stroke: var(--shadow);
+    }
+    .footer-logo path.logo-svg-shape:nth-child(1) {
+      fill: #31363b !important;
+      stroke: var(--shadow);
+    }
+    .footer-logo path.logo-dark-orange-shape:nth-child(7), .footer-logo path.logo-light-orange-shape:nth-child(6) {
+      fill: #303539 !important;
+      stroke: var(--shadow);
+    }
+    .footer-logo path.logo-orange-shape:nth-child(2) {
+      fill: #7289da !important;
+    }
+    .footer-logo path.logo-orange-shape:nth-child(5) {
+      fill: #3daee9 !important;
+    }
+  }
+
+  // Actual docs
+  h1 {
+    border-color: $accent !important;
+  }
+  .main img {
+    box-shadow: none !important;
+  }
+  .anchor {
+    filter: invert(1);
+  }
+  .badge-small:hover::after {
+    colors: $accent, $shadow, $darker;
+    box-shadow: $box !important;
+  }
+}
