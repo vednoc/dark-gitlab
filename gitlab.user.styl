@@ -3171,7 +3171,15 @@
     }
     // Matching.
     .selectionHighlight {
-      background-color: $accent !important;
+      background-color: $darker !important;
+    }
+    // Suggestion.
+    .tree {
+      colors: $light, $darker, $darker;
+      box-shadow: $box;
+      .focused {
+        colors: $accent, 0, $dark;
+      }
     }
   }
   /* Diff view. */
