@@ -3044,10 +3044,13 @@
     background-color: var(--dark) !important;
   }
 
-  /* IDE :: Edit area. */
-  .multi-file-edit-pane,
-  .ide-mode-tabs {
-    colors: 0, $darker, $darker;
+  // * IDE :: Edit area.
+  .multi-file-edit-pane {
+   colors: 0, $darker, $dark;
+   // Tabs.
+   .ide-mode-tabs {
+     colors: 0, $darker, $darker;
+   }
   }
   /* Tabs. */
   .multi-file-tabs {
