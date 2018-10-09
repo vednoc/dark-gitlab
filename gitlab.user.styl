@@ -1401,19 +1401,18 @@
   .nav-sidebar li a:hover,
   .sidebar-sub-level-items a:hover,
   .sidebar-sub-level-items a:focus {
-    color: var(--lighter) !important;
-    background-color: var(--shadow) !important;
+    background-color: var(--darker) !important;
   }
 
   /* Active sub-menu. */
   .nav-sidebar li.active {
-    box-shadow: none !important;
-    background-color: var(--darker) !important;
+    box-shadow: inset 4px 0 0 $darker !important;
+    background-color: $dark !important;
   }
   /* Active tab. */
   .nav-sidebar .sidebar-sub-level-items .active:not(.fly-out-top-item) a {
     box-shadow: inset 4px 0 0 0 var(--accent) !important;
-    background-color: var(--shadow) !important;
+    background-color: $darker !important;
   }
   /* Remove unused shadow. */
   .sidebar-sub-level-items > .active a {
