@@ -70,17 +70,20 @@ Open the Stylus extension popup while you're on any GitLab page, click on the co
 
 # Screenshots
 
-Project page view with BreezeDark color-scheme from [ThemeSwitcher](h), max-width of 1300px and old project header design enabled.
+Project page view with BreezeDark color-scheme from [ThemeSwitcher](https://gitlab.com/vednoc/theme_switcher), max-width of 1300px and old project header design enabled.
 
 ![preview](./images/preview.png)
 
-Default theme, withthout ThemeSwitcher:
+Default theme, without ThemeSwitcher:
+
 ![default](./images/Default.png)
 
 Solarized light/dark:
+
 ![Solarized](./images/Solarized.png)
 
 Gruvbox light/dark:
+
 ![Gruvbox](./images/Gruvbox.png)
 
 
