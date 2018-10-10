@@ -2250,17 +2250,29 @@
       }
     }
   }
-  /* Text color. */
-  .board-title,
-  .issue-count-badge {
-    color: var(--light) !important;
-    border-color: var(--darker);
-  }
-  .board-card-title a {
-    color: var(--lighter);
-  }
-  .board-card-number {
-    color: var(--light);
+
+  // * Board cards.
+  // ? They turn into a tooltip once dragged so we must style them here.
+  .board-card {
+    transition: background 0.2s ease-in-out;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+    box-shadow: 0px 1px 2px 0px $shadow;
+    &:hover {
+      colors: 0, $darker, $darker;
+      box-shadow: 0px 2px 3px 2px $shadow;
+    }
+    // Text color.
+    .board-card-title a {
+      color: $light;
+    }
+    .board-card-number {
+      color: $lighter;
+    }
+    // Assignee background.
+    .board-card-assignee:hover a {
+      background-color: $t !important;
+    }
   }
 
 
