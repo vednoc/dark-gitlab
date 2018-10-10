@@ -2137,9 +2137,15 @@
   /* Created branch button. */
   .issuable-details p > code,
   a.gfm-project_member {
-    color: var(--lighter) !important;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid;
+    colors: $light, $darker, $dark;
+  }
+  // Current user (you).
+  .gfm.current-user {
+    colors: $light, $accent, $accent;
+    &:hover {
+      color: $light !important;
+    }
   }
   // Notes.
   .note-text pre {
