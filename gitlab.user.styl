@@ -1892,6 +1892,38 @@
     }
   }
 
+  // * Profile :: Overview.
+  .user-profile {
+    // Sections.
+    [class*="col"] > [class*="block"] {
+      padding: 8px 16px;
+      margin-top: 2rem;
+      border: 1px solid;
+      border-radius: 4px;
+      colors: 0, $darker, $dark;
+      // Remove padding for titles.
+      > [class*="block"] {
+        padding: 0;
+        colors: 0, $darker, 0;
+        // Hide border in "activity" section.
+        &:first-child {
+          colors: 0, $t, 0;
+        }
+      }
+    }
+    // Event items.
+    // TODO possible refactor with styles beneath.
+    .event-item {
+      border-color: $darker;
+      .event-title {
+        color: $light;
+        a {
+          color: $accent;
+        }
+      }
+    }
+  }
+
   // * Profile :: Activity
   // TODO possible refactor with project::activity.
   .user-profile .content_list {
