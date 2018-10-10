@@ -143,6 +143,10 @@
   gl-emoji {
     line-height: 1.20em;
   }
+  // Time element.
+  time {
+    color: $light;
+  }
 
   // * Icons!
   .fa, svg {
@@ -293,6 +297,7 @@
   }
 
   /* Global styles. */
+  [class*="committer-link"],
   [class*="author-link"] {
     color: var(--accent) !important;
   }
@@ -3304,8 +3309,7 @@
     }
     // * Gutters.
     .line-numbers {
-      color: var(--light) !important;
-      background-color: var(--shadow);
+      colors: $light, 0, $t;
       .diff-line-num {
         color: var(--lighter);
         background-color: transparent;
