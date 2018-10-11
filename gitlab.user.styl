@@ -214,86 +214,68 @@
     &:focus, &.focus {
       box-shadow: none;
     }
+    &-link {
+      color: $accent !important;
+    }
   }
-  /* Green buttons. */
-  .btn.btn-success,
-  .btn.btn-new,
-  .btn.btn-create,
-  .btn.comment-btn,
-  .btn.btn-save,
-  .btn.commit-btn.js-commit-button.btn-create,
-  .status-box.status-box-open {
-    color: var(--lighter) !important;
-    border-color: var(--green) !important;
-    background-color: var(--green) !important;
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* Blue buttons. */
-  .btn.btn-info,
-  .btn.btn-primary,
-  .btn.btn-register,
-  .project-feature-toggle.is-checked,
-  .status-box.status-box-mr-merged {
-    color: var(--lighter) !important;
-    border-color: var(--blue) !important;
-    background-color: var(--blue) !important;
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* Close buttons. */
-  .btn.btn-close,
-  .btn.btn-close-color,
-  .btn.btn-cancel,
-  .status-box.status-box-issue-closed {
-    color: var(--lighter) !important;
-    border-color: var(--red) !important;
-    background-color: var(--red) !important;
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* Remove buttons. */
-  .btn.btn-danger,
-  .btn.btn-danger:hover,
-  .btn.btn-danger:focus,
-  .btn.btn-remove,
-  .btn.btn-remove:hover,
-  .btn.btn-remove:focus,
-  .btn.btn-red,
-  .btn.btn-red:hover,
-  .btn.btn-red:focus {
-    color: var(--lighter) !important;
-    border-color: var(--red) !important;
-    background-color: var(--red) !important;
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* Inverted buttons. */
-  .btn.btn-inverted.btn-remove {
-    color: var(--lighter);
-    border-color: var(--red);
-    background-color: var(--red);
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* Blank buttons. */
-  .btn-blank {
-    background: transparent !important;
-  }
-  /* Disabled buttons. */
-  .btn.disabled,
-  .btn.disabled:hover,
-  .btn[disabled],
-  .btn[disabled]:hover {
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-    opacity: 0.6 !important;
-    box-shadow: var(--box-shadow) !important;
-  }
-  /* On event. */
-  .btn:hover:not([disabled="disabled"]),
-  .btn:focus:not([disabled="disabled"]) {
-    transform: translateY(-2px);
-  }
-  // Disable hover state for disabled elements.
-  .btn.disabled:hover {
-    transform: translateY(0px);
+  // Colored buttons.
+  .btn {
+    // Green buttons.
+    &-success,
+    &-new,
+    &-create,
+    &-save,
+    .comment-btn,
+    .commit-btn {
+      colors: $light, $green, $green;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Blue buttons.
+    &-info,
+    &-primary,
+    &-register {
+      colors: $light, $blue, $blue;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Close buttons.
+    &-close,
+    &-close-color,
+    &-cancel {
+      colors: $light, $red, $red;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Remove buttons.
+    &-danger,
+    &-remove,
+    &-red {
+      colors: $light, $red, $red;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Inverted buttons.
+    &-inverted.btn-remove {
+      colors: $light, $red, $red;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Blank buttons.
+    &-blank {
+      colors: 0, 0, $t;
+    }
+    // Disabled buttons.
+    &.disabled, &.disabled:hover,
+    &[disabled], &[disabled]:hover {
+      opacity: 0.6 !important;
+      colors: $lighter, $darker, $darker;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // On event.
+    &:hover:not([disabled="disabled"]),
+    &:focus:not([disabled="disabled"]) {
+      transform: translateY(-2px);
+    }
+    // Disable hover state for disabled elements.
+    &.disabled:hover {
+      transform: translateY(0px);
+    }
   }
 
   /* Global styles. */
