@@ -278,6 +278,30 @@
     }
   }
 
+  // Project notifications.
+  // TODO move to appropriate section.
+  .project-feature-toggle {
+    colors: 0, 0, $darker;
+    &.is-checked {
+      colors: 0, 0, $accent;
+    }
+  }
+  // Issue/Merge status.
+  .status-box {
+    &-mr-merged {
+      colors: $light, 0, $blue;
+    }
+    &-mr-closed {
+      colors: $light, 0, $red;
+    }
+    &-open {
+      colors: $light, 0, $green;
+    }
+    &-issue-closed {
+      colors: $light, 0, $blue;
+    }
+  }
+
   /* Global styles. */
   [class*="committer-link"],
   [class*="author-link"] {
