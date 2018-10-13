@@ -1925,6 +1925,10 @@
           colors: 0, $t, 0;
         }
       }
+      // Force calendar to stay full opacity.
+      .contrib-calendar:hover {
+        opacity: 1 !important;
+      }
     }
     // Event items.
     // TODO possible refactor with styles beneath.
@@ -1935,6 +1939,10 @@
         a {
           color: $accent;
         }
+      }
+      // Body text color.
+      .event-body {
+        colors: $light, 0, 0;
       }
     }
   }
