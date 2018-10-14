@@ -2211,16 +2211,20 @@
     border-radius: 4px !important;
   }
 
-  /* Cards. */
+  // * Cards.
   .card, .card-slim {
-    /* overflow: hidden; */
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  .card-header,
-  .card-footer {
-    border-color: var(--darker);
-    background-color: var(--dark);
+    // overflow: hidden;
+    colors: 0, $darker, $dark;
+    .card-header,
+    .card-footer {
+      colors: 0, $darker, $darker;
+    }
+    .card-body {
+      pre {
+        border-radius: 4px;
+        colors: $light, $darker, $dark;
+      }
+    }
   }
 
   /* Emoji picker. */
