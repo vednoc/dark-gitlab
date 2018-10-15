@@ -681,6 +681,25 @@
     box-shadow: 0 0 2px 1px var(--shadow);
   }
 
+  // * Tables.
+  .table-responsive {
+    border-radius: 4px;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+    // Remove extra margin.
+    > .table {
+      margin-bottom: 0px;
+      tr:hover > td {
+        colors: 0, 0, $darker;
+      }
+    }
+    // Imported projects.
+    .table-success,
+    .table-success > td {
+      colors: 0, 0, $darker;
+    }
+  }
+
 
   /* User Settings :: Everything. */
   .settings-message {
