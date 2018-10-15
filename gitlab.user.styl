@@ -1442,14 +1442,13 @@
     background-color: var(--darker) !important;
   }
 
-  /* Active sub-menu. */
-  .nav-sidebar li.active {
+  // Active sub-menu.
+  .nav-sidebar .sidebar-top-level-items li.active {
     box-shadow: inset 4px 0 0 $darker !important;
     background-color: $dark !important;
-  }
-  // Active tab on settings page.
-  .nav-sidebar li.active [href*="/profile"] {
-    colors: 0, 0, $darker;
+    > a {
+      colors: $accent, 0, $darker;
+    }
   }
   /* Active tab. */
   .nav-sidebar .sidebar-sub-level-items .active:not(.fly-out-top-item) a {
