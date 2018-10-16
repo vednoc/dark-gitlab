@@ -1442,12 +1442,20 @@
     background-color: var(--darker) !important;
   }
 
-  // Active sub-menu.
-  .nav-sidebar .sidebar-top-level-items li.active {
-    box-shadow: inset 4px 0 0 $darker !important;
-    background-color: $dark !important;
-    > a {
-      colors: $accent, 0, $darker;
+  // * Sidebar sub-menu.
+  .nav-sidebar .sidebar-top-level-items li {
+    // Active items.
+    &.active {
+      box-shadow: inset 4px 0 0 $darker !important;
+      background-color: $dark !important;
+      > a {
+        colors: $accent, $dark, $darker;
+      }
+    }
+    // Non-active items.
+    a {
+      margin-right: 0;
+      transition: background 0.1s ease-in-out;
     }
   }
   /* Active tab. */
