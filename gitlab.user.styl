@@ -762,16 +762,25 @@
     color: var(--light) !important;
   }
 
-
-  /* Projects dashboard. */
-  .breadcrumbs .breadcrumbs-container {
-    border-color: var(--darker) !important;
+  // * Bootstrap breadcrumbs.
+  .breadcrumbs {
+    colors: $light, 0, 0;
+    // Wrapper.
+    .breadcrumbs-container {
+      padding: 0 1em;
+      margin-top: 0.8rem;
+      border-radius: 4px;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+    }
+    &-list a, &-sub-title a {
+      colors: $lighter, 0, 0;
+    }
   }
-  .breadcrumbs,
-  .breadcrumb.repo-breadcrumb a,
-  .breadcrumbs-list > li > a,
-  .breadcrumbs-sub-title a {
-    color: var(--lighter);
+  .breadcrumb {
+    .breadcrumb-item a {
+      colors: $lighter, 0, 0;
+    }
   }
 
   /* Nav section. TODO: Fix the fixed layout version. */
