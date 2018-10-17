@@ -13,6 +13,7 @@
 @var text     code_font "Custom code font" ""custom_font", "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
+@var text     b_radius  "Custom border radius" 4px
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05)
@@ -57,6 +58,7 @@
     --green     : green;
     --t         : transparent !important;
     --width     : max_width;
+    --radius    : b_radius;
     --background: bg_image
   }
 
@@ -77,6 +79,7 @@
   $blue    = var(--blue);
   $cyan    = var(--cyan);
   $green   = var(--green);
+  $radius  = var(--radius);
   $t       = var(--t);
   $box     = var(--box-shadow);
 
@@ -93,6 +96,13 @@
     if z is a 'call' {
       background-color: z !important;
     }
+  }
+
+  // * Border radius mixin.
+  radius(args...) {
+    -webkit-border-radius: args;
+    -moz-border-radius: args;
+    border-radius: args;
   }
 
   ::-webkit-scrollbar {
@@ -341,7 +351,7 @@
     // Body.
     .login-box,
     .omniauth-container {
-      border-radius: 4px;
+      radius: $radius;
       box-shadow: 0 0 0 1px var(--darker);
       background-color: var(--dark);
       .form-control,
@@ -618,7 +628,7 @@
   /* New project. */
   .gitlab-tabs {
     overflow: hidden;
-    border-radius: 4px 4px 0 0;
+    radius: $radius $radius 0 0;
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
   }
@@ -627,7 +637,7 @@
   }
   .gitlab-tabs .nav-link.active,
   .gitlab-tabs .nav-link:hover {
-    border-radius: 0;
+    radius: 0;
   }
   /* On event. */
   .gitlab-tabs li a.active,
@@ -639,7 +649,7 @@
 
   /* Tab content. */
   .gitlab-tab-content {
-    border-radius: 0 0 4px 4px;
+    radius: 0 0 $radius $radius;
     border-color: var(--darker);
     background-color: var(--dark);
   }
@@ -683,7 +693,7 @@
 
   // * Tables.
   .table-responsive {
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid;
     colors: 0, $darker, $dark;
     // Remove extra margin.
@@ -769,7 +779,7 @@
     .breadcrumbs-container {
       padding: 0 1em;
       margin-top: 0.8rem;
-      border-radius: 4px;
+      radius: $radius;
       border: 1px solid;
       colors: 0, $darker, $dark;
     }
@@ -787,7 +797,7 @@
   .container-fluid > .top-area {
     margin-top: 10px;
     padding: 0 10px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
@@ -911,7 +921,7 @@
   // * Projects list.
   .projects-list {
     margin: 10px 0;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     // Items.
@@ -980,7 +990,7 @@
       }
     }
     .commit-header {
-      border-radius: 4px;
+      radius: $radius;
       border: 1px solid;
       colors: 0, $darker, $dark;
     }
@@ -1030,7 +1040,7 @@
     &:hover svg { opacity: 1 !important; }
     // Svg styles.
     .person .spark, .tint-box {
-      border-radius: 4px;
+      radius: $radius;
       colors: $light, 0, $darker;
       .axis {
         .domain, line { stroke: $lighter; }
@@ -1045,7 +1055,7 @@
   // * Project :: Graph.
   .project-network {
     margin-top: 10px;
-    border-radius: 4px;
+    radius: $radius;
     border-color: var(--darker);
     .controls {
       colors: 0, $darker, $darker;
@@ -1086,7 +1096,7 @@
       background-color: var(--dark);
     }
     .modal-body {
-      border-radius: 0 0 4px 4px;
+      radius: 0 0 $radius $radius;
       background-color: var(--dark) !important;
       .export-modal-subheader {
         border-color: var(--darker);
@@ -1196,14 +1206,14 @@
   .container-fluid > .row-content-block.white {
     margin-top: 10px;
     padding: 12px 8px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
 
   /* Commits :: Diff summary. */
   .diff-files-changed {
-    border-radius: 4px;
+    radius: $radius;
     padding: 4px;
     margin: 10px 0;
     border: 1px solid var(--darker);
@@ -1470,7 +1480,7 @@
   /* Dropdown. */
   .is-showing-fly-out .sidebar-sub-level-items {
     box-shadow: 2px 1px 3px var(--shadow) !important;
-    border-radius: 0 4px 4px 0 !important;
+    radius: 0 $radius $radius 0 !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
@@ -1601,14 +1611,14 @@
   /* Languages. */
   .repository-languages-bar .progress-bar {
     margin: 0 4px 0 0;
-    border-radius: 8px;
+    radius: 8px;
   }
 
   /* Project settings menu. */
   .settings {
     border-bottom-color: var(--darker);
     .sub-section {
-      border-radius: 4px;
+      radius: $radius;
       border-color: var(--darker);
       background-color: var(--dark);
     }
@@ -1620,17 +1630,17 @@
     }
     [class^="protected"] {
       overflow: hidden;
-      border-radius: 4px;
+      radius: $radius;
       border: 1px solid var(--darker);
     }
   }
   .project-visibility-setting {
-    border-radius: 4px 4px 0 0;
+    radius: $radius $radius 0 0;
     border-color: var(--darker);
     background-color: var(--dark);
   }
   .project-feature-settings {
-    border-radius: 0 0 4px 4px;
+    radius: 0 0 $radius $radius;
     border-color: var(--darker);
     background-color: var(--dark);
   }
@@ -1665,7 +1675,7 @@
   .project-badge {
     transition: 0.2s opacity ease-in-out;
     &[src*="for-the-badge"] {
-      border-radius: 4px;
+      radius: $radius;
     }
   }
    // Project :: Readme.
@@ -1741,7 +1751,7 @@
 
   // * Project :: Files.
   .table-holder {
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     // Remove unnecessary borders.
@@ -1787,7 +1797,7 @@
     margin: 10px 0;
     padding: 0 10px;
     /* overflow: hidden; */
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
@@ -1876,7 +1886,7 @@
   // * Project :: Activity.
   // ? https://gitlab.com/vednoc/dark-gitlab/activity
   .project-activity {
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid $darker;
     background-color: $dark;
     // Item.
@@ -1915,7 +1925,7 @@
       padding: 8px 16px;
       margin-top: 2rem;
       border: 1px solid;
-      border-radius: 4px;
+      radius: $radius;
       colors: 0, $darker, $dark;
       // Remove padding for titles.
       > [class*="block"] {
@@ -1951,7 +1961,7 @@
   // * Profile :: Activity
   // TODO possible refactor with project::activity.
   .user-profile .content_list {
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     .event-item {
@@ -2028,7 +2038,7 @@
   .row-content-block {
     margin-top: 10px !important;
     padding: 8px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     color: var(--light);
     background-color: var(--dark);
@@ -2092,7 +2102,7 @@
   /* List. */
   .activities .content_list {
     /* padding: 0 8px; */
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
@@ -2118,7 +2128,7 @@
   // * Issues :: List.
   .issues-holder {
     margin-top: 10px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     // Email a new issue to this project.
@@ -2154,7 +2164,7 @@
     // Search tokens (labels).
     .filtered-search-token > .name,
     .selectable > div {
-      border-radius: 4px;
+      radius: $radius;
       color: var(--light);
       background-color: var(--darker) !important;
     }
@@ -2209,7 +2219,7 @@
   }
   // Notes.
   .note-text pre {
-    border-radius: 4px !important;
+    radius: $radius !important;
   }
 
   // * Cards.
@@ -2223,7 +2233,7 @@
     .card-body {
       pre {
         font-family: code_font;
-        border-radius: 4px;
+        radius: $radius;
         colors: $light, $darker, $dark;
       }
     }
@@ -2231,7 +2241,7 @@
 
   /* Emoji picker. */
   .emoji-menu {
-    border-radius: 4px;
+    radius: $radius;
     border-color: var(--darker);
     background-color: var(--dark);
   }
@@ -2441,7 +2451,7 @@
   // * Merge Requests :: List.
   .merge-requests-holder {
     margin-top: 10px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     li {
@@ -2461,13 +2471,13 @@
     overflow: hidden;
     margin: 10px 0;
     padding: 0 8px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     .scrolling-tabs-container {
       margin: 0;
       padding: 0;
-      border-radius: 0;
+      radius: 0;
       border: 0;
     }
   }
@@ -2728,7 +2738,7 @@
     // Commit or disband.
     .form-actions {
       padding: 12px 8px;
-      border-radius: 4px;
+      radius: $radius;
       border: 1px solid var(--darker);
     }
   }
@@ -2808,7 +2818,7 @@
     background-color: var(--dark);
   }
   .applications .search-container .suggestions li:hover {
-    border-radius: 4px;
+    radius: $radius;
     background-color: var(--darker);
   }
   .applications .search-container .suggestions .hl {
@@ -2912,7 +2922,7 @@
   }
   /* Search button. */
   .header .docsearch {
-    border-radius: 3px !important;
+    radius: $radius !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
@@ -3445,7 +3455,7 @@
   // * Project CI/CD :: Pipeline details.
   .pipeline-graph {
     margin-top: 10px;
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid;
     colors: $light, $darker, $dark;
     // Pipeline node.
@@ -3467,7 +3477,7 @@
     .linked-pipeline {
       &-content {
         border-width: 2px !important;
-        border-radius: 10px !important;
+        radius: 10px !important;
         colors: $light, $darker, $dark;
         &:hover {
           colors: 0, 0, $darker;
@@ -3517,7 +3527,7 @@
   .split-report-section {
     margin-top: 10px;
     border: 1px solid;
-    border-radius: 4px;
+    radius: $radius;
     colors: $light, $darker, $dark;
     // Wrapper.
     .report-block-container {
@@ -3542,7 +3552,7 @@
   }
   // * Group body.
   .group-list-tree {
-    border-radius: 4px;
+    radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
     // Make some spacing.
