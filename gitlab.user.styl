@@ -967,29 +967,23 @@
     background-color: var(--dark) !important;
   }
 
-  /* Project :: Commits. */
-  .commit-header {
-    border-radius: 4px;
-    border: 1px solid var(--darker) !important;
-    border-color: var(--darker);
-    background-color: var(--darker);
-  }
-  .commit-list .commit {
-    border-color: var(--darker);
-  }
-  /* Commit expand. */
-  .commit .text-expander {
-    color: var(--accent);
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* Commit description. */
-  .commit .commit-row-description {
-    color: var(--light);
-    border-left-color: var(--accent);
-  }
-  .commit-list .commit a {
-    color: var(--light);
+  // * Project :: Commits.
+  #commits-list {
+    .commit-list {
+      .commit {
+        colors: 0, $darker, 0;
+        a { colors: $light, 0, 0; }
+        // Commit expand.
+        .text-expander { colors: $accent, $darker, $dark; }
+        // Commit description.
+        .commit-row-description { colors: $light, $accent, $darker; }
+      }
+    }
+    .commit-header {
+      border-radius: 4px;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+    }
   }
 
   /* Project :: Branches. */
