@@ -1031,50 +1031,22 @@
 
 
   // * Project :: Contributors.
-  #contributors-master {
+  [id*="contributors"] {
     // Prevent the hover.
-    &:hover > svg {
-      opacity: 1 !important;
-    }
+    &:hover svg { opacity: 1 !important; }
     // Svg styles.
-    .tint-box {
+    .person .spark, .tint-box {
+      border-radius: 4px;
       colors: $light, 0, $darker;
-      .area {
-        fill: var(--green);
-      }
       .axis {
-        .domain, line {
-          stroke: $dark !important;
-        }
-        text {
-          fill: $light;
-        }
+        .domain, line { stroke: $lighter; }
+        text { fill: $light; }
       }
-    }
-    .person .area-contributor {
-      fill: var(--orange);
+      // Graph colors.
+      .area { fill: $green !important; }
+      .area-contributor { fill: $orange !important; }
     }
   }
-  #contributors {
-    // Prevent the hover.
-    &:hover svg.spark {
-      opacity: 1 !important;
-    }
-    // Svg styles.
-    .person .spark {
-      color: var(--light);
-      background: var(--darker);
-      .axis {
-        .domain, line {
-          stroke: var(--dark) !important;
-        }
-        text {
-          fill: $light;
-        }
-      }
-    }
-  }
-
 
   // * Project :: Graph.
   .project-network {
