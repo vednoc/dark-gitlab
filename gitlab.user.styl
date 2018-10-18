@@ -996,14 +996,21 @@
     }
   }
 
-  /* Project :: Branches. */
-  .content-list li {
-    border-color: var(--darker) !important;
+  // * Project :: Branches.
+  .all-branches {
+    margin-top: 10px !important;
+    radius: $radius;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+    li {
+      colors: 0, $darker, 0;
+    }
   }
-  /* Graph color. */
-  .divergence-graph .graph-separator,
-  .divergence-graph .graph-side [class*="bar"] {
-    background-color: var(--accent);
+  // Graph color.
+  .divergence-graph {
+    .graph-separator, .graph-side [class*="bar"] {
+      colors: 0, 0, $accent;
+    }
   }
   /* Text color. */
   .commit-row-message,
