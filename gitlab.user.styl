@@ -1445,14 +1445,15 @@
     fill: var(--accent) !important;
   }
 
-  /* Collapse button. */
+  // * Collapse button.
   .nav-sidebar .toggle-sidebar-button {
-    transition: 200ms ease-in-out !important;
     height: 44px;
     width: 100%;
-  }
-  .toggle-sidebar-button .collapse-text {
-    color: var(--light) !important;
+    transition: 0.2s ease-in-out !important;
+    colors: $light, $darker, $dark;
+    &:hover { colors: 0, 0, $darker; }
+    // Text color.
+    .collapse-text { colors: $light, 0, 0; }
   }
 
   /* Dropdown. */
@@ -1463,7 +1464,6 @@
     background-color: var(--dark) !important;
   }
   /* Toggle button. */
-  .toggle-sidebar-button,
   .close-nav-button {
     color: var(--light);
     border-color: var(--darker);
