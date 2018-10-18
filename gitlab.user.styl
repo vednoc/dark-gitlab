@@ -267,7 +267,7 @@
       box-shadow: var(--box-shadow) !important;
     }
     // Blank buttons.
-    &-blank {
+    &-blank, &-clipboard {
       colors: 0, 0, $t;
     }
     // Disabled buttons.
@@ -288,14 +288,14 @@
     }
   }
 
-  // Project notifications.
+  // * Project notifications.
   // TODO move to appropriate section.
   .project-feature-toggle {
     colors: 0, 0, $darker;
-    &.is-checked {
-      colors: 0, 0, $accent;
-    }
+    &.is-checked { colors: 0, 0, $accent; }
+    .toggle-icon { colors: 0, 0, $dark; }
   }
+
   // Issue/Merge status.
   .status-box {
     &-mr-merged {
