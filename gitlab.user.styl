@@ -1392,27 +1392,17 @@
   }
 
 
-  /* Left sidebar. */
+  // * Left sidebar.
   .nav-sidebar {
-    border-right: 1px solid var(--darker) !important;
-    background-color: var(--dark);
-    box-shadow: none;
-  }
-  /* Hide scrollbar. */
-  .nav-sidebar ::-webkit-scrollbar {
-    display: none !important;
-  }
-  /* Items. */
-  .nav-sidebar li a,
-  .sidebar-sub-level-items a,
-  .nav-sidebar .context-header > a {
-    color: var(--light) !important;
-  }
-  /* Items on event. */
-  .nav-sidebar li a:hover,
-  .sidebar-sub-level-items a:hover,
-  .sidebar-sub-level-items a:focus {
-    background-color: var(--darker) !important;
+    colors: 0, 0, $dark;
+    box-shadow: 1px 0px 0px 0px $darker;
+    // Hide scrollbar.
+    ::-webkit-scrollbar { display: none !important; }
+    // Links.
+    li a, .context-header > a {
+      colors: $light, 0, 0;
+      &:hover, &:focus { colors: 0, 0, $darker; }
+    }
   }
 
   // * Sidebar sub-menu.
