@@ -1573,35 +1573,25 @@
     radius: 8px;
   }
 
-  /* Project settings menu. */
+  // * Project :: Settings.
   .settings {
     border-bottom-color: var(--darker);
     .sub-section {
       radius: $radius;
-      border-color: var(--darker);
-      background-color: var(--dark);
+      colors: 0, $darker, $dark;
     }
     .bs-callout-info {
-      color: var(--lighter);
-      border-color: var(--darker);
-      background-color: var(--dark);
-      border-left-color: var(--accent);
+      colors: $lighter, $darker, $dark;
+      border-left-color: $accent !important;
     }
-    [class^="protected"] {
-      overflow: hidden;
-      radius: $radius;
-      border: 1px solid var(--darker);
+    .project-visibility-setting {
+      radius: $radius $radius 0 0;
+      colors: $light, $darker, $dark;
     }
-  }
-  .project-visibility-setting {
-    radius: $radius $radius 0 0;
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  .project-feature-settings {
-    radius: 0 0 $radius $radius;
-    border-color: var(--darker);
-    background-color: var(--dark);
+    .project-feature-settings {
+      radius: 0 0 $radius $radius;
+      colors: 0, $darker, $dark;
+    }
   }
 
   /* Latest commit message.. */
