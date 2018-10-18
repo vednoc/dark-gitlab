@@ -1592,6 +1592,17 @@
       radius: 0 0 $radius $radius;
       colors: 0, $darker, $dark;
     }
+    table {
+      border-collapse: separate !important;
+      colors: 0, $t, 0;
+      // Remove double-borders.
+      tbody tr td:not(:last-child) { border-right: none !important; }
+      // Overengineered round corners. xd
+      thead tr th:first-child { border-radius: $radius 0 0 0 !important; }
+      thead tr th:last-child { border-radius: 0 $radius 0 0 !important; }
+      tbody tr td:last-child { border-radius: 0 0 $radius 0 !important; }
+      tbody tr td:first-child { border-radius: 0 0 0 $radius !important; }
+    }
   }
 
   /* Latest commit message.. */
