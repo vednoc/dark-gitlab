@@ -232,6 +232,8 @@
   .btn {
     // Green buttons.
     &-success,
+    &-register,
+    &.comment-btn,
     &-new,
     &-create,
     &-save,
@@ -245,6 +247,11 @@
     &-primary,
     &-register {
       colors: $light, $blue, $blue;
+      box-shadow: var(--box-shadow) !important;
+    }
+    // Orange buttons.
+    &-warning {
+      colors: $light, $orange, $orange;
       box-shadow: var(--box-shadow) !important;
     }
     // Close buttons.
