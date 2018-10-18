@@ -1361,33 +1361,22 @@
   /* Toolbar colors. */
   .edited-text,
   .comment-toolbar,
-  .nav-links,
-  .md {
+  .nav-links {
     color: var(--light);
     border-color: var(--darker) !important;
   }
+
   // * Markdown selectors.
-  .md a {
-    color: var(--accent);
-  }
-  .md h1,
-  .md h2 {
-    border-color: var(--darker) !important;
-  }
-  .md hr {
-    border-color: var(--darker);
-  }
-  .md pre {
-    border-color: var(--darker);
-  }
-  .md blockquote,
-  .blockquote {
-    border-left-color: var(--accent) !important;
-    background-color: var(--shadow);
-  }
-  /* Images. */
-  .md img:not(.emoji) {
-    border-color: var(--darker);
+  .md {
+    colors: $light, $dark, 0;
+    a { colors: $accent, 0, 0; }
+    h1, h2 { colors: 0, $darker, 0; }
+    hr, pre { colors: 0, $darker, 0; }
+    blockquote { colors: 0, $accent, $darker; }
+    img:not(.emoji) {
+      radius: $radius;
+      colors: 0, $darker, $dark;
+    }
   }
   /* Attach a file. */
   .markdown-selector {
