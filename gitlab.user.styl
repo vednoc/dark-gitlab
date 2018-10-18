@@ -1350,21 +1350,13 @@
     color: var(--accent) !important;
   }
 
-  /* Issues :: Details - add comment. */
+  // * Issues :: New note.
   .common-note-form .md-area {
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* On focus. */
-  .common-note-form .md-area.is-focused {
-    outline: none !important;
-    box-shadow: 0 0 2px 4px var(--shadow) !important;
-  }
-  /* Input area. */
-  .markdown-area {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
+    radius: $radius;
+    colors: 0, $darker, $dark;
+    &.is-focused { box-shadow: 0 0 0px 2px $shadow !important; }
+    // Input area.
+    .markdown-area { colors: $light, $darker, $dark; }
   }
   /* Toolbar colors. */
   .edited-text,
