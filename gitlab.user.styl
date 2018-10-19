@@ -1225,29 +1225,32 @@
     background-color: var(--dark);
   }
 
-  /* Commits :: Diff summary. */
+  // * Commits :: Diff summary.
   .diff-files-changed {
     radius: $radius;
-    padding: 4px;
+    padding: 2px;
     margin: 10px 0;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  .diff-files-changed > .files-changed-inner {
-    display: flex;
-    flex-flow: row-reverse wrap;
-    /* justify-content: space-between; */
-  }
-  /* Center buttons vertically. */
-  .diff-files-changed .inline-parallel-buttons {
-    float: none;
-    padding: 3px 5px 5px 5px;
-  }
-  /* TODO: Remove if they fix diff header && fix responsiveness. */
-  .diff-files-changed .commit-stat-summary {
-    margin: auto auto auto 0;
-    padding: 0 8px;
-    background-color: var(--transparent) !important;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+    // Wrapper.
+    > .files-changed-inner {
+      display: flex;
+      flex-flow: row-reverse wrap;
+      // Center buttons vertically.
+      .inline-parallel-buttons {
+        float: none;
+        padding: 3px 5px 5px 5px;
+        // Hide buttons on small resolution.
+        @media (max-width: 885px) { display: none !important; }
+      }
+      // ? "Showing x changed..."
+      // TODO: Remove if/when they fix it.
+      .commit-stat-summary {
+        margin: auto auto auto 0;
+        padding: 0 8px;
+        colors: 0, 0, $t;
+      }
+    }
   }
   /* Diff file header. */
   .diff-file .file-title:hover,
