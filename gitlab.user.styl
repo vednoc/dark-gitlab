@@ -1542,11 +1542,17 @@
     }
   }
 
-  /* Border colors. */
-  .banner-callout.banner-non-empty-state,
-  .project-stats {
-    border-bottom-color: var(--darker);
+  // * Arrows.
+  // ? Old GitLab design.
+  .count-with-arrow {
+    .count { colors: 0, $darker, $dark; }
+    .arrow::before { border-right-color: $darker !important; }
+    .arrow::after { border-right-color: $dark !important; }
   }
+  // Missing buttons.
+  .btn-missing { colors: $light, $darker, $darker; }
+  // Separator.
+  .project-stats { colors: 0, $darker, 0; }
   // Language bar.
   .repository-languages-bar {
     background-color: transparent;
