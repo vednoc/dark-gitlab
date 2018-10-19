@@ -1252,12 +1252,23 @@
       }
     }
   }
-  /* Diff file header. */
-  .diff-file .file-title:hover,
-  .diff-file .file-title-flex-parent:hover,
-  .diff-file .diff-content {
-    background-color: var(--darker) !important;
+
+  // * Diff file header.
+  .diff-file {
+    radius: $radius;
+    // Header.
+    [class*="file-title"]  {
+      padding: 8px;
+      transition: 0.2s background ease-in-out;
+      &:hover { colors: 0, 0, $shadow; }
+    }
+    // Collapsed file content.
+    .diff-content {
+      colors: 0, 0, $dark;
+      .btn-link { colors: 0, $t, 0; }
+    }
   }
+
   // Image background.
   // TODO refactor with other file-holder related elements.
   .diff-content .file-container,
