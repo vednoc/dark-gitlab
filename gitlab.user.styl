@@ -1026,6 +1026,9 @@
   .content-list li [class*="graph"] [class*="count"] {
     color: var(--light) !important;
   }
+  .content-list li {
+    colors: 0, $darker, 0;
+  }
   .content-list li a {
     color: var(--accent) !important;
   }
@@ -1585,14 +1588,13 @@
   .project-stats {
     border-bottom-color: var(--darker);
   }
-  /* Language bar. */
+  // Language bar.
   .repository-languages-bar {
     background-color: transparent;
-  }
-  /* Languages. */
-  .repository-languages-bar .progress-bar {
-    margin: 0 4px 0 0;
-    radius: 8px;
+    .progress-bar {
+      margin: 0 4px 0 0;
+      radius: 8px;
+    }
   }
 
   // * Project :: Settings.
@@ -1630,13 +1632,11 @@
   /* Latest commit message.. */
   .info-well {
     margin-bottom: 0;
-    color: var(--light);
-    border-color: var(--darker);
-    background: var(--dark);
+    radius: $radius;
+    colors: $light, $darker, $dark;
+    a { color: var(--lighter); }
   }
-  .info-well a {
-    color: var(--lighter);
-  }
+
   /* Commit button. */
   .commit-sha-group .label,
   .commit-sha-group .btn {
@@ -1660,7 +1660,8 @@
       radius: $radius;
     }
   }
-   // Project :: Readme.
+
+   // * Project :: Readme.
    .file-holder {
      overflow: hidden;
      colors: 0, $darker, $dark;
@@ -1702,13 +1703,17 @@
         color: var(--lighter) !important;
       }
     }
+    pre {
+      radius: $radius;
+    }
     pre, code {
       color: var(--lighter) !important;
       border-color: var(--darker) !important;
       background-color: var(--dark) !important;
     }
     img:not(.emoji) {
-      border-color: var(--darker) !important;
+      radius: $radius;
+      colors: 0, $darker, $dark;
     }
     kbd {
       color: var(--accent);
@@ -3322,6 +3327,7 @@
     .line_holder .line_content {
       color: var(--light);
       background: none;
+      &.new::before, &.old::before { colors: $lighter, 0, 0; }
     }
     // * Gutters.
     .line-numbers {
