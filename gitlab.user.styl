@@ -1518,71 +1518,30 @@
   }
 
 
-  /* Project/group page. */
+  // * Project :: Project/group home panel.
   .project-home-panel,
   .group-home-panel {
-    border-bottom-color: var(--darker);
+    colors: 0, $darker, 0;
+    // Text color.
+    .text-secondary, .count { colors: $light, 0, 0; }
+    // Buttons.
+    .btn, input { colors: 0, $darker, $dark; }
+    .count-badge-count { colors: 0, $darker, $dark; }
+    .count-badge-button { colors: $light, $darker, $darker; }
+    // Remove button backgrounds.
+    .input-group-prepend, .input-group-append { colors: 0, 0, $t; }
+    .js-read-more-trigger { colors: $accent, 0, $t; }
+    // Metadata text color.
+    .project-metadata * {
+      colors: $lighter, 0, 0;
+      // Reset license button.
+      &.project-license .btn {
+        transform: translate(0) !important;
+        background: 0 !important;
+      }
+    }
   }
-  /* Project page header new design. */
-  .project-home-panel {
-    margin: 0 auto;
-    max-width: var(--width);
-  }
-  /* Fix buttons. */
-  .project-home-panel .count-badge-count,
-  .project-home-panel .count-badge-button,
-  .project-home-panel .btn,
-  .project-home-panel input,
-  .input-group-prepend .btn,
-  .input-group-append .btn.btn-clipboard,
-  .project-home-panel .dropdown-toggle,
-  .project-home-panel .dropdown-menu-toggle {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-  }
-  /* Fix text color. */
-  .project-home-panel .project-visibility,
-  .project-home-panel .text-secondary,
-  .project-home-panel .count-buttons .count {
-    color: var(--light) !important;
-  }
-  /* Fix secondary text. */
-  .project-home-panel .project-license,
-  .project-home-panel .project-tag-list {
-    color: var(--lighter);
-  }
-  /* Remove background from the license button. */
-  .project-home-panel .project-metadata .project-license .btn {
-    background: 0 !important;
-  }
-  /* Button group. */
-  .input-group-prepend,
-  .input-group-append {
-    background-color: transparent !important;
-  }
-  /* Buttons. */
-  .count-with-arrow .count,
-  .clone-dropdown-btn,
-  .btn-clipboard {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Arrows. */
-  .count-with-arrow .arrow::before {
-    border-right-color: var(--darker) !important;
-  }
-  .count-with-arrow .arrow::after {
-    border-right-color: var(--dark) !important;
-  }
-  /* Missing buttons. */
-  .btn-missing {
-    border-style: solid !important;
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-  }
+
   /* Border colors. */
   .banner-callout.banner-non-empty-state,
   .project-stats {
