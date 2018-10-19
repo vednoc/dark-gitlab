@@ -182,6 +182,9 @@
   .bg-info {
     background-color: var(--darker) !important;
   }
+  .text-white {
+    color: $light !important;
+  }
   .badge {
     &.unverified {
       border-color: var(--lighter) !important;
@@ -835,6 +838,10 @@
       // Header.
       .card-header {
         background-color: var(--accent) !important;
+      }
+      // Body.
+      .card-body {
+        colors: 0, $accent, 0;
       }
       /* Items. */
       .feature-list li {
@@ -2188,6 +2195,7 @@
     colors: 0, $darker, $dark;
     .card-header,
     .card-footer {
+      font-weight: 600 !important;
       colors: 0, $darker, $darker;
     }
     .card-body {
@@ -2683,7 +2691,7 @@
   .file-editor {
     // Fix flashing white background.
     > #editor {
-      background-color: var(--darker) !important;
+      background-color: var(--dark) !important;
     }
     // Header.
     .nav-links {
