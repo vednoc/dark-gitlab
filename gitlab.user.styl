@@ -1621,8 +1621,16 @@
   // * Project :: Badges.
   .project-badge {
     transition: 0.2s opacity ease-in-out;
-    &[src*="for-the-badge"] {
-      radius: $radius;
+  }
+  [src*="for-the-badge"] {
+    radius: $radius;
+  }
+  span.badge {
+    colors: var(--white), 0, 0;
+    &:not(.badge-pill) {
+      opacity: 0.6;
+      transition: 0.2s opacity ease-in-out;
+      &:hover { opacity: 1; }
     }
   }
 
