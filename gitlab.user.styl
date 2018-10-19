@@ -1405,11 +1405,12 @@
   }
   /* Fullscreen (zen) mode. */
   .zen-backdrop.fullscreen {
-    background-color: var(--darker);
-  }
-  .zen-backdrop.fullscreen textarea {
-    color: var(--light);
-    background-color: var(--dark);
+    colors: 0, 0, $darker;
+    textarea {
+      margin-top: 5px;
+      radius: $radius;
+      colors: $light, 0, $dark;
+    }
   }
 
 
