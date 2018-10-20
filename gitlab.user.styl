@@ -2743,50 +2743,39 @@
   }
 
 
-  /* About page :: Applications. */
-  .applications .search-container {
-    color: var(--light);
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  .applications .search-container input {
-    color: var(--light);
-    background-color: var(--dark);
-  }
-  .applications .search-container .suggestions {
-    background-color: var(--dark);
-  }
-  .applications .search-container .suggestions li:hover {
-    radius: $radius;
-    background-color: var(--darker);
-  }
-  .applications .search-container .suggestions .hl {
-    background-color: var(--accent);
-  }
-  /* Category names. */
-  .app-category .category-name {
-    color: var(--light);
-  }
-  .category-applications .tile {
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  /* Scroll. */
-  .scroll-to-top {
-    color: var(--light);
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  /* Footer. */
-  .applications .footer {
-    background-color: var(--violet);
-  }
-  .applications .footer a {
-    color: var(--light);
-  }
-  .applications .source-link {
-    color: var(--light);
-    background-color: var(--darker);
+  // * About page :: Applications.
+  // ? https://about.gitlab.com/applications
+  .applications {
+    // Search area.
+    .search-container {
+      border: 1px solid;
+      colors: $light, $darker, $dark;
+      input { colors: $light, 0, $dark; }
+      .suggestions {
+        colors: 0, 0, $dark;
+        li:hover, .hl { radius: $radius; }
+        li:hover { colors: 0, 0, $darker; }
+        .hl { colors: 0, 0, $accent; }
+      }
+    }
+    // Categories.
+    .category-name { colors: $light, 0, 0; }
+    .category-applications .tile {
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+    }
+    // Scroll.
+    .scroll-to-top {
+      border: 1px solid;
+      colors: $light, $darker, $dark;
+    }
+    // Footer links.
+    .footer a { color: var(--light); }
+    // Source!
+    .source-link {
+      colors: $light, 0, $darker;
+      .external-source-link { colors: $accent, $t, 0; }
+    }
   }
 
 
