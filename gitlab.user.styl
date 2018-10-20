@@ -2854,58 +2854,35 @@
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
-  /* Main content. */
+
+  // * Main content.
   .main {
     background-color: transparent !important;
     box-shadow: none !important;
-  }
-  /* TOC. */
-  .main .doc-nav > ul {
-    background-color: var(--darke);
-  }
-  /* Remove sidebar. */
-  .main ::-webkit-scrollbar {
-    display: none !important;
-  }
-  /* Alerts. */
-  .main .alert-info,
-  .main blockquote {
-    border-color: var(--blue);
-    background-color: var(--dark);
-  }
-  .main .alert-warning {
-    border-color: var(--red);
-    background-color: var(--dark);
-  }
-  .alert.alert-success {
-    border-color: var(--violet);
-    background-color: var(--violet);
-  }
-  /* Tables. */
-  .main table td,
-  .main table th {
-    border-color: var(--darker);
-  }
-  .main table thead {
-    background-color: var(--darker);
-  }
-  /* Border colors. */
-  .main h2,
-  .main h3,
-  .main h4,
-  .main h5,
-  .main h6,
-  .main .edit-on,
-  .main .comments {
-    border-color: var(--darker);
-  }
-  .main .article-metadata {
-    color: var(--light);
-  }
-  .main code {
-    color: var(--accent);
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    // TOC.
+    .doc-nav > ul {
+      margin-right: 10px;
+      colors: 0, 0, $dark;
+    }
+    // Remove sidebar.
+    // *::-webkit-scrollbar { display: none !important; }
+    // Alerts.
+    .alert-info, blockquote { colors: 0, $blue, $dark; }
+    .alert-warning { colors: 0, $red, $dark; }
+    .alert.alert-success { colors: 0, $violet, $violet; }
+    // Table related.
+    table td, table th { colors: 0, $darker, 0; }
+    table thead { colors: 0, 0, $darker; }
+    // Border colors.
+    h2, h3, h4, h5, h6, .edit-on, .comments { colors: 0, $darker, 0; }
+    // Text colors.
+    a:hover, a:focus { text-decoration: underline; }
+    .article-metadata { colors: $light, 0, 0; }
+    .highlight.plaintext code { colors: $light, 0, 0; }
+    code {
+      border: 1px solid;
+      colors: $accent, $darker, $dark;
+    }
   }
 
 
