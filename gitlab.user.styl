@@ -2725,58 +2725,46 @@
     border-left-color: var(--darker);
   }
 
-  /* Ace editor. */
+  // * Ace editor.
   .ace-tm {
-    color: var(--light);
-    background-color: var(--dark);
-  }
-  // Scroller.
-  .ace_scroller.ace_scroll-left {
-    box-shadow: 17px 0 16px -16px var(--darker) inset;
-  }
-  .ace-tm .ace_gutter {
-    color: var(--lighter);
-    background-color: var(--darker);
-  }
-  .ace-tm .ace_gutter-cell {
-    background-color: transparent;
-  }
-  .ace-tm .ace_gutter-active-line {
-    background-color: var(--dark);
-  }
-  .ace-tm .ace_print-margin {
-    background-color: var(--darker);
-  }
-  .ace-tm .ace_cursor {
-    color: var(--light);
-  }
-  // ? https://gitlab.com/vednoc/dark-gitlab/issues/4
-  .ace_search {
-	  border-color: var(--shadow) !important;
-	  background-color: var(--darker) !important;
-	  box-shadow: var(--box-shadow);
-  }
-  // Input
-  .ace_search_field {
-	  color: var(--light) !important;
-	  background-color: var(--dark) !important;
-  }
-  .ace_search_form, .ace_replace_form {
-	  border-color: var(--shadow) !important;
-  }
-  // Icons
-  .ace_searchbtn, .ace_replacebtn {
-	  border-color: var(--shadow) !important;
-	  background-color: var(--dark) !important;
-  }
-  .ace_button {
-	  border: none !important;
-	  color: var(--icon) !important;
-	  background-color: var(--darker) !important;
-    &:hover {
-	    background-color: var(--darker) !important;
-      color: var(--accent) !important;
+    colors: $light, 0, $dark;
+    // Gutter.
+    .ace_gutter {
+      colors: $lighter, 0, $shadow;
+      .ace_gutter-cell { colors: 0, 0, $t; }
     }
+    // Highlighted line.
+    .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
+    .ace_selected-word, .ace_selection { colors: 0, $accent, $accent; }
+    .ace_cursor { colors: $accent, 0, 0; }
+    // Wrap line.
+    .ace_print-margin { colors: 0, 0, $darker; }
+    // Search/replace popout.
+    .ace_search {
+      padding: 0 4px;
+      margin: 10px 10px 0 0;
+      border: 1px solid;
+      radius: $radius;
+      colors: 0, $darker, $dark;
+      box-shadow: 0 4px 8px 0 $shadow;
+      // Inputs.
+      &_field { colors: $light, 0, $dark; }
+      .ace_search_form, .ace_replace_form { colors: 0, $darker, 0; }
+      .ace_searchbtn, .ace_replacebtn { colors: 0, $darker, $darker; }
+    }
+    // Options.
+    .ace_search_options {
+      margin: 4px 0 0 0;
+      text-align: left;
+      .ace_button {
+        padding: 5px;
+        border-radius: 3px;
+        colors: $icon, $t, $dark;
+        &:hover, &.checked { colors: $accent, 0, $t; }
+      }
+    }
+    // Scroller.
+    .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px $dark; }
   }
 
 
