@@ -1673,9 +1673,9 @@
 
   // * Wiki.
   .wiki {
+    padding: 16px !important;
     color: var(--light);
     a {
-      text-decoration: underline;
       color: var(--accent) !important;
     }
     h1, h2 {
@@ -1686,29 +1686,21 @@
       border: 1px solid var(--darker) !important;
     }
     blockquote, .blockquote {
-      color: var(--lighter) !important;
-      border-left-color: var(--accent) !important;
-      background-color: var(--dark);
-      p {
-        color: var(--lighter) !important;
-      }
+      colors: $light, $accent, $darker;
+      p { colors: $light, 0, 0; }
     }
     pre {
       radius: $radius;
     }
     pre, code {
-      color: var(--lighter) !important;
-      border-color: var(--darker) !important;
-      background-color: var(--dark) !important;
+      colors: $lighter, $darker, $dark;
     }
     img:not(.emoji) {
       radius: $radius;
       colors: 0, $darker, $dark;
     }
     kbd {
-      color: var(--accent);
-      background-color: var(--dark);
-      border-color: var(--shadow);
+      colors: $accent, $dark, $shadow;
       box-shadow: none;
     }
     table {
