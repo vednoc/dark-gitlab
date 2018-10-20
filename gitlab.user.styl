@@ -1641,7 +1641,9 @@
     radius: $radius;
   }
   span.badge {
-    colors: var(--white), 0, 0;
+    // Apply everywhere except on color-label elements.
+    &:not(.color-label) { colors: var(--white), 0, 0; }
+    // Apply everywhere except on badge-pill elements.
     &:not(.badge-pill) {
       opacity: 0.6;
       transition: 0.2s opacity ease-in-out;
