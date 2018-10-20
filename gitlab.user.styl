@@ -2266,25 +2266,26 @@
   }
 
 
-  /* Issues :: Labels. */
+  // * Issues :: Labels.
   .labels-container {
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  .manage-labels-list>li:not(.empty-message):not(.is-not-draggable) {
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  .label-badge-gray {
-    color: var(--light);
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  .label-badge-blue,
-  .badge-info {
-    color: var(--light);
-    border: 1px solid var(--blue);
-    background-color: var(--dark);
+    radius: $radius;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+    // List.
+    .manage-labels-list > li:not(.empty-message):not(.is-not-draggable) {
+      radius: $radius;
+      colors: 0, $darker, $dark;
+      transition: background 0.2s ease-in-out;
+      &:hover { colors: 0, $darker, $darker; }
+    }
+    .label-badge-gray {
+      border: 1px solid;
+      colors: $light, $darker, $dark;
+    }
+    .label-badge-blue, .badge-info {
+      border: 1px solid;
+      colors: $light, $blue, $dark;
+    }
   }
 
 
