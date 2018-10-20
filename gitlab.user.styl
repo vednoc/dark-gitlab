@@ -2289,48 +2289,51 @@
   }
 
 
-  /* Issues :: Milestones. */
+  // * Issues :: Milestones.
   .milestones {
-    background-color: transparent;
+    colors: 0, 0, $t;
+    // Items.
+    .milestone, .status-box {
+      border: 1px solid !important;
+      colors: $light, $darker, $dark;
+      // Text color.
+      .milestone-range { colors: $light, 0, 0; }
+      // Links.
+      .milestone-progress a { colors: $accent, 0, 0; }
+    }
   }
-  .milestones .milestone,
-  .milestones .status-box {
-    color: var(--light);
-    border: 1px solid var(--darker) !important;
-    background-color: var(--dark);
+
+  // Progress bar background.
+  .progress {
+    colors: 0, 0, $darker;
+    // Filled progress.
+    .bg-success { colors: $light, 0, $green; }
   }
-  /* Text color. */
-  .milestone-range {
-    color: var(--light);
+
+  // Details.
+  .issuable-row {
+    colors: 0, 0, $t;
+    .issuable-number { colors: $lighter, 0, 0; }
   }
-  .milestone .milestone-progress a {
-    color: var(--accent) !important;
-  }
-  /* Bar background. */
-  .milestone .progress {
-    background-color: var(--darker);
-  }
-  .bg-success {
-    color: var(--light);
-    background-color: var(--green) !important;
-  }
+
   /* Create milestone footer. */
   .form-actions,
   hr {
     border-top-color: var(--darker);
     background-color: var(--dark);
   }
+  .form-actions {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid;
+    colors: 0, $darker, 0;
+  }
   /* Promotional. */
   .user-callout.promotion-callout .bordered-box {
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  .issuable-row {
-    background-color: transparent;
-    .issuable-number {
-      color: var(--lighter) !important;
-    }
-  }
+
   // * Chart.
   // TODO unfinished.
   .burndown-chart {
