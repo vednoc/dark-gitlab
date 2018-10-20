@@ -2769,13 +2769,16 @@
       border: 1px solid;
       colors: $light, $darker, $dark;
     }
-    // Footer links.
-    .footer a { color: var(--light); }
     // Source!
     .source-link {
       colors: $light, 0, $darker;
       .external-source-link { colors: $accent, $t, 0; }
     }
+  }
+  // Footer links.
+  footer.footer a {
+    colors: $lighter, 0, 0;
+    &:hover, &:focus { colors: $accent, 0, 0; }
   }
 
 
@@ -2865,7 +2868,7 @@
       colors: 0, 0, $dark;
     }
     // Remove sidebar.
-    // *::-webkit-scrollbar { display: none !important; }
+    *::-webkit-scrollbar { display: none !important; }
     // Alerts.
     .alert-info, blockquote { colors: 0, $blue, $dark; }
     .alert-warning { colors: 0, $red, $dark; }
