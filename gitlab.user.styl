@@ -1798,32 +1798,13 @@
   }
   // * Contributions.
   // ? Use accent color for contributions.
-  // ! There is a bug with parsing if we target selectors like this: fill="rgb(37, 78, 119)"
   svg.contrib-calendar > g {
-    rect[fill="#ededed"] {
-      fill: var(--accent);
-      opacity: 0.075;
-    }
-    // 1-9
-    rect[fill^="rgb(172"] {
-      fill: var(--accent);
-      opacity: 0.25 !important;
-    }
-    // 10-19
-    rect[fill^="rgb(127"] {
-      fill: var(--accent);
-      opacity: 0.475 !important;
-    }
-    // 20-29
-    rect[fill^="rgb(82"] {
-      fill: var(--accent);
-      opacity: 0.75 !important;
-    }
-    // 30+
-    rect[fill^="rgb(37"] {
-      fill: var(--accent);
-      opacity: 1 !important;
-    }
+    rect { fill: $accent; }
+    rect[fill="#ededed"] { opacity: 0.075; }
+    rect[fill^="rgb(17"] { opacity: 0.25; }
+    rect[fill^="rgb(12"] { opacity: 0.475; }
+    rect[fill^="rgb(82"] { opacity: 0.75; }
+    rect[fill^="rgb(37"] { opacity: 1; }
   }
   /* Nav. */
   .nav-links li a.active {
