@@ -1193,24 +1193,14 @@
     .gpg-popover-user-link { colors: $light, 0, 0; }
   }
 
-  /* Popover. */
+  // * Popover.
   .popover {
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  .popover-header {
-    border-bottom-color: var(--darker) !important;
-    background-color: var(--shadow) !important;
-  }
-  .popover-body {
-    color: var(--light) !important;
-  }
-  /* Arrow. */
-  .popover .arrow::after {
-    border-top-color: var(--dark) !important;
-  }
-  .popover .arrow::before {
-    border-top-color: var(--darker) !important;
+    colors: 0, $darker, $dark;
+    box-shadow: $box;
+    &-header { colors: 0, $darker, $darker; }
+    &-body { colors: $light, 0, 0; }
+    .arrow::before { border-top-color: $darker !important; }
+    .arrow::after { border-top-color: $dark !important; }
   }
 
   /* Recently pushed branches. */
