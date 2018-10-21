@@ -2165,28 +2165,21 @@
     }
   }
 
-  /* Emoji picker. */
+  // * Emoji picker.
   .emoji-menu {
     radius: $radius;
-    border-color: var(--darker);
-    background-color: var(--dark);
+    colors: 0, $darker, $dark;
   }
-  /* Emoji autocomplete. */
+  // * Emoji autocomplete.
   .atwho-view {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
-    box-shadow: 0 0 5px var(--shadow);
-  }
-  /* Matching text. */
-  .atwho-view .atwho-view-ul li strong {
-    color: var(--lighter);
-  }
-  /* Selected. */
-  .atwho-view .atwho-view-ul li:hover,
-  .atwho-view .atwho-view-ul li.cur {
-    color: var(--lighter);
-    background-color: var(--darker);
+    colors: $light, $darker, $dark;
+    box-shadow: $box;
+    .atwho-view-ul {
+      // Matching text.
+      li strong { colors: $lighter, 0, 0; }
+      // Selected.
+      li:hover, li.cur { colors: $lighter, 0, $darker; }
+    }
   }
 
 
