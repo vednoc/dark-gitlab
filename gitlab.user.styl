@@ -1186,21 +1186,13 @@
     align-items: center;
   }
 
-  /* GPG button. */
-  .gpg-status-box.valid {
-    color: var(--green) !important;
-    border-color: var(--green) !important;
-    background: var(--dark) !important;
+  // * GPG button.
+  .gpg-status-box {
+    &.valid { colors: $green, $green, $dark; }
+    &.invalid, &.invalid:focus { colors: $light, $darker, $dark; }
+    .gpg-popover-user-link { colors: $light, 0, 0; }
   }
-  .gpg-status-box.invalid,
-  .gpg-status-box.invalid:focus {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  .gpg-popover-user-link {
-    color: var(--light);
-  }
+
   /* Popover. */
   .popover {
     border-color: var(--darker);
