@@ -1621,10 +1621,16 @@
   }
 
    // * Project :: Readme.
-   .file-holder {
-     overflow: hidden;
-     colors: 0, $darker, $dark;
-   }
+  .file-holder {
+    radius: $radius !important;
+    colors: 0, $darker, $dark;
+    // Corners for child elements.
+    .file-title {
+      radius: $radius $radius 0 0;
+      box-shadow: 0 0 0 1px $darker; // ? Escape empty space between borders.
+    }
+    .blob-viewer > .file-content { radius: 0 0 $radius $radius; }
+  }
   // Header.
   .tree-holder .file-title a:not(.btn) {
     color: $light;
