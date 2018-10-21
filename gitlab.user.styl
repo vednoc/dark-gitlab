@@ -1145,8 +1145,8 @@
     }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
-      text-shadow: (0 1px 0 var(--shadow));
-      transform: translateY(-10px);
+      text-shadow: 0 1px 0 var(--shadow);
+      transform: translateY(-5px);
       color: var(--icon) !important;
     }
   }
@@ -2296,10 +2296,17 @@
     border: 1px solid;
     colors: 0, $darker, 0;
   }
-  /* Promotional. */
+
+  // * Promotional.
   .user-callout.promotion-callout .bordered-box {
     border-color: var(--darker);
     background-color: var(--dark);
+  }
+  .banner-non-empty-state {
+    padding: 5px 0 0 0;
+    border: 1px solid;
+    radius: $radius;
+    colors: 0, $darker, $dark;
   }
 
   // * Chart.
