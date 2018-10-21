@@ -1118,33 +1118,20 @@
   }
 
 
-  /* Modal. */
+  // * Modal.
   .modal {
-    .modal-content {
-      background-color: var(--dark) !important;
-    }
-    .modal-header {
-      border-color: var(--darker);
-      background-color: var(--dark);
-    }
+    .modal-content { colors: 0, 0, $dark; }
+    .modal-header { colors: 0, $darker, $dark; }
     .modal-body {
       radius: 0 0 $radius $radius;
-      background-color: var(--dark) !important;
-      .export-modal-subheader {
-        border-color: var(--darker);
-      }
+      colors: 0, 0, $dark;
+      .export-modal-subheader { colors: 0, $darker, 0; }
       // Font color.
       // ? Board scope.
-      .title {
-        colors: $lighter, 0, 0;
-      }
-      .block + .block {
-        border-top-color: $darker;
-      }
+      .title { colors: $lighter, 0, 0; }
+      .block + .block { border-top-color: $darker; }
     }
-    .modal-footer {
-      border-color: var(--darker);
-    }
+    .modal-footer { colors: 0, $darker, 0; }
   }
 
   // * Close buttons.
