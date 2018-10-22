@@ -1649,27 +1649,16 @@
   // * Wiki.
   .wiki {
     padding: 16px !important;
-    color: var(--light);
-    a {
-      color: var(--accent) !important;
-    }
-    h1, h2 {
-      color: var(--lighter) !important;
-      border-bottom-color: var(--darker) !important;
-    }
-    > p > code {
-      border: 1px solid var(--darker) !important;
-    }
+    color: $light;
+    a { color: $accent !important; }
+    h1, h2 { colors: $lighter, $darker, 0; }
+    > p > code { border: 1px solid $darker !important; }
     blockquote, .blockquote {
       colors: $light, $accent, $darker;
       p { colors: $light, 0, 0; }
     }
-    pre {
-      radius: $radius;
-    }
-    pre, code {
-      colors: $lighter, $darker, $dark;
-    }
+    pre { radius: $radius; }
+    pre, code { colors: $lighter, $darker, $dark; }
     img:not(.emoji) {
       radius: $radius;
       colors: 0, $darker, $dark;
@@ -1679,19 +1668,11 @@
       box-shadow: none;
     }
     table {
-      color: var(--light);
-      background-color: var(--dark);
-      tr th {
-        color: var(--lighter);
-        border-bottom-color: var(--darker);
-        background-color: var(--darker);
-      }
-      th, tr td {
-        border-color: var(--darker);
-      }
+      colors: $light, 0, $dark;
+      tr th { colors: $light, $darker, $darker; }
+      th, tr td { border-color: $darker; }
     }
   }
-
 
   // * Project :: Files.
   .table-holder {
