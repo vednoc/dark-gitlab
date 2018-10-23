@@ -2609,23 +2609,23 @@
   .file-editor {
     // Fix flashing white background.
     > #editor {
-      background-color: var(--dark) !important;
+      radius: 0 0 $radius $radius;
+      colors: 0, 0, $dark;
     }
     // Header.
     .nav-links {
-      border-color: var(--darker);
-      background-color: var(--dark);
+      margin-bottom: 10px;
+      padding: 0 8px;
+      radius: $radius;
+      colors: 0, $darker, $dark;
     }
     // Branch name.
-    .editor-ref {
-      border-color: var(--darker);
-      background-color: var(--darker);
-    }
+    .editor-ref { colors: 0, $darker, $darker; }
     // Commit or disband.
     .form-actions {
       padding: 12px 8px;
       radius: $radius;
-      border: 1px solid var(--darker);
+      border: 1px solid $darker;
     }
   }
   .text-info {
