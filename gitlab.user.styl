@@ -2628,6 +2628,18 @@
       border: 1px solid $darker;
     }
   }
+  // * Rounded corners for preview mode. c(:
+  // ? Overengineered; don't waste time figuring it out. :p
+  .file-holder.file-holder-bottom-radius {
+    radius: $radius $radius $radius $radius !important;
+    .file-editor #preview {
+      .file-holder.diff-file, .diff-content, .wiki {
+        margin: 0;
+        border: none !important;
+        radius: 0 0 $radius $radius !important;
+      }
+    }
+  }
   .text-info {
     color: var(--red) !important;
   }
