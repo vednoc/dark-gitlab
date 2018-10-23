@@ -438,35 +438,27 @@
     }
   }
 
-
-  /* Navbar. */
+  // * Navbar.
   .navbar {
-    background: var(--darker) !important;
-    border-color: var(--darker) !important;
-	box-shadow: var(--box-shadow) !important;
+    colors: 0, $darker, $darker;
+    box-shadow: $box !important;
+    // Logo text color.
+    .logo-text svg { fill: $light !important; }
+    // Search.
+    .search form {
+      colors: $lighter, $dark, $dark;
+      #search { colors: $lighter, 0, 0; }
+    }
+    // Input placeholder.
+    input::placeholder { colors: $light, 0, 0; }
+    // Colors for buttons and links.
+    a, button {
+      transition: background 0.2s ease-in-out;
+      &:hover, &:focus { colors: $light, 0, $dark; }
+    }
+    // Change the background for active dropdowns.
+    .dropdown.show > button { colors: 0, 0, $dark; }
   }
-  /* Logo text color. */
-  .navbar .logo-text svg {
-    fill: var(--lighter) !important }
-  /* Search. */
-  .navbar .search form {
-    color: var(--lighter) !important;
-    background-color: var(--dark) !important;
-    background-color: var(--dark) !important; }
-  .navbar #search {
-    color: var(--lighter) !important;
-  }
-  /* Collapsable nav. */
-  .navbar ul li.active a,
-  .navbar-collapse ul > li:hover a {
-    color: var(--light) !important;
-    background-color: var(--darker) !important;
-  }
-  /* Input placeholder. */
-  .navbar input::placeholder {
-    color: var(--light) !important;
-  }
-
 
   /* Dropdowns. */
   .dropdown-menu,
@@ -552,11 +544,7 @@
 	fill: var(--accent) !important;
   }
   /* Open dropdowns. */
-  .navbar-sub-nav > li.active > button,
-  .navbar-sub-nav > li > button:hover,
-  .navbar-sub-nav > li > a:hover,
-  .dropdown.show > button,
-  .dropdown.show > a {
+  .navbar-sub-nav > li.active > button {
     color: var(--lighter) !important;
     background-color: var(--darker) !important;
   }
