@@ -2029,6 +2029,23 @@
     .project-item-select-holder.btn-group { overflow: visible; }
   }
 
+  // * Dashboard :: Issues/MR page.
+  [class$="-filters"] + .card {
+    colors: 0, $t, $t;
+    // List.
+    .issuable-list {
+      margin-top: 10px !important;
+      radius: $radius;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+      // Round corners.
+      li {
+        &:first-child { border-radius: $radius $radius 0 0; }
+        &:last-child { border-radius: 0 0 $radius $radius; }
+      }
+    }
+  }
+
   // * Issues :: List.
   .issues-holder {
     margin-top: 10px;
