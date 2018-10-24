@@ -2046,6 +2046,27 @@
     }
   }
 
+  // * Dashboard :: Todos page.
+  .js-todos-all .card {
+    margin-top: 10px;
+    radius: $radius;
+    colors: 0, 0, $t;
+    // List wrapper.
+    .todos-list {
+      radius: $radius;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+      // List items.
+      .todo {
+        border: none;
+        // Reset borders and round corners.
+        &:not(:first-child) { border-top: 1px solid $darker; }
+        &:first-child { border-radius: $radius $radius 0 0; }
+        &:last-child { border-radius: 0 0 $radius $radius; }
+      }
+    }
+  }
+
   // * Issues :: List.
   .issues-holder {
     margin-top: 10px;
