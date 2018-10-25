@@ -1777,27 +1777,17 @@
       padding: 8px 8px 8px 50px;
       colors: $light, $darker, 0;
       transition: background 0.15s ease-in-out;
-      &:hover {
-        background-color: $darker;
-      }
+      &:hover { background-color: $darker; }
       // Text color.
+      a { color: $accent; }
       .event-title {
         color: $light;
-        .author_name a, strong a {
-          color: $accent;
-        }
-      }
-      a {
-        color: $accent;
+        .author_name a, strong a { color: $accent; }
       }
       // Remove left padding on small resolution.
-      @media (max-width: 575px) {
-        padding-left: 8px;
-      }
+      @media (max-width: 575px) { padding-left: 8px; }
       // Avatar position.
-      .user-avatar {
-        margin-left: 8px;
-      }
+      .user-avatar { margin-left: 8px; }
     }
   }
 
