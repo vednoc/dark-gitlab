@@ -2315,24 +2315,18 @@
     colors: 0, $darker, $dark;
   }
 
-  // * Chart.
+  // * Project :: Chart.
   // TODO unfinished.
   .burndown-chart {
-    background-color: var(--darker);
-    text {
-      fill: var(--light);
-    }
+    background-color: $darker;
+    text { fill: $red; }
     // ? Legend!
     .legend {
-      rect {
-        stroke: var(--lighter);
-      }
-      text {
-        fill: var(--light);
-      }
+      rect { stroke: $lighter; }
+      text { fill: $light; }
     }
     .actual.line {
-      stroke: var(--accent);
+      stroke: $accent;
       fill: none !important;
     }
   }
