@@ -995,8 +995,6 @@
       .commit {
         colors: 0, $darker, 0;
         a { colors: $light, 0, 0; }
-        // Commit expand.
-        .text-expander { colors: $accent, $darker, $dark; }
         // Commit description.
         .commit-row-description { colors: $light, $accent, $darker; }
       }
@@ -1006,6 +1004,12 @@
       border: 1px solid;
       colors: 0, $darker, $dark;
     }
+  }
+  // Show commit message.
+  .text-expander {
+    colors: $light, $darker, $darker;
+    transition: background 0.2s ease-in-out;
+    &.open, &:hover { colors: $light, $darker, $accent; }
   }
 
   // * Project :: Branches.
@@ -1042,19 +1046,6 @@
   .branch-commit .gfm-commit_range {
     color: var(--accent) !important;
   }
-
-  /* Show commit message. */
-  .text-expander {
-    color: var(--light);
-    border-color: var(--darker);
-    background: var(--darker);
-  }
-  .text-expander:hover {
-    color: var(--accent);
-    border-color: var(--darker);
-    background: var(--darker);
-  }
-
 
   // * Project :: Contributors.
   [id*="contributors"] {
