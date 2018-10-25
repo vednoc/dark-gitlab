@@ -457,7 +457,7 @@
       &:hover, &:focus { colors: $light, 0, $dark; }
     }
     // Active tab.
-    li.active a { colors: $accent, 0, $dark; }
+    &-sub-nav > li.active > button, &-nav > li.active > a { colors: $light, 0, $dark; }
     // Change the background for active dropdowns.
     .dropdown.show > button { colors: 0, 0, $dark; }
   }
@@ -544,11 +544,6 @@
     transition-delay: none !important;
 	color: var(--accent) !important;
 	fill: var(--accent) !important;
-  }
-  /* Open dropdowns. */
-  .navbar-sub-nav > li.active > button {
-    color: var(--lighter) !important;
-    background-color: var(--darker) !important;
   }
   /* Text color. */
   .dropdown-menu-inner-content,
