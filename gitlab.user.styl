@@ -3606,6 +3606,41 @@
   }
 }
 
+@-moz-document regexp("https?://design.gitlab.com(/.*)") {
+  // Loading bar.
+  .nuxt-progress { colors: 0, 0, $accent; }
+  // Contribute section.
+  .contribute { colors: 0, $darker, $dark; }
+  // Cards.
+  .card--header { colors: 0, $darker, $darker; }
+  // Navigation.
+  .nav-sidebar {
+    colors: 0, $darker, 0;
+    &__header {
+      colors: 0, $darker, 0;
+      &-anchor { colors: $light, 0, 0; }
+    }
+    // Links.
+    summary:hover, details > a:hover { colors: 0, 0, $darker; }
+    &__section-items-anchor { colors: $lighter, 0, 0; }
+    .nuxt-link-exact-active {
+      colors: $light, 0, $darker;
+      box-shadow: inset 4px 0 0 $accent !important;
+    }
+  }
+  // Fix color details.
+  .palette:not(.neutral) > .color { background-color: $darker; }
+  .todo { colors: 0, $darker, $dark; }
+  table {
+    colors: $light, $darker, $dark;
+    thead { colors: 0, $darker, $darker; }
+    td, th { colors: 0, $darker, 0; }
+    td.header, th.header { colors: 0, $darker, $darker; }
+  }
+  // Typography spacing.
+  .baseline--typography:after { background-image: linear-gradient($darker 1px, $t 0); }
+}
+
 // * Code for about page on GitLab.
 // ? Might be split into a separate userstyle if it gets quite large.
 // ! @RaitaroH takes the full responsibility for this section. (=
