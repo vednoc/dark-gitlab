@@ -1987,9 +1987,16 @@
   }
 
 
-  /* Dashboard :: Activity. */
+  // * Dashboard :: Activity.
   .nav-block.activities {
     border-bottom: none;
+    // ? Solves the conflicting styles.
+    .scrolling-tabs-container {
+      padding: 0;
+      border: none;
+      border-bottom: 1px solid var(--darker);
+      .fade-right { right: 1px; }
+    }
   }
   /* Fix RSS icon. */
   .activities .controls {
