@@ -1392,8 +1392,9 @@
 
   // * Sidebar sub-menu.
   .nav-sidebar .sidebar-top-level-items li {
-    // Active items.
-    &.active {
+    // Active links.
+    // ? Specify the :not(...) in order to prevent first link being active.
+    &.active:not(.fly-out-top-item) {
       box-shadow: inset 4px 0 0 $darker !important;
       background-color: $dark !important;
       > a {
