@@ -1972,33 +1972,28 @@
       .fade-right { right: 1px; }
     }
   }
-  /* Fix RSS icon. */
-  .activities .controls {
-    margin: 20px 10px 0 10px;
-  }
-  /* List. */
-  .activities .content_list {
-    /* padding: 0 8px; */
-    radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
-  /* Items. */
-  .activities .event-item {
-    padding: 5px 10px 5px 50px;
-    color: var(--light);
-    border-bottom-color: var(--darker);
-  }
-  .activities .event-item .event-title {
-    color: var(--light);
-  }
-  .activities .event-item a {
-    color: var(--accent);
-  }
-  /* Adjust avatars. */
-  .activities .event-item .user-avatar {
-    top: 10px;
-    margin-left: 10px;
+  // * List.
+  .activities {
+    // Fix RSS icon.
+    .controls { margin: 20px 10px 0 10px; }
+    // List.
+    .content_list {
+      radius: $radius;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+    }
+    // Items.
+    .event-item {
+      padding: 5px 10px 5px 50px;
+      colors: $light, $darker, 0;
+      .event-title { color: $light; }
+      a { color: $accent; }
+      // Adjust avatars.
+      .user-avatar {
+        top: 10px;
+        margin-left: 10px;
+      }
+    }
   }
 
   // * Dashboard :: Top navigation.
