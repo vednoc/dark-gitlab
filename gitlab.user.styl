@@ -3219,33 +3219,31 @@
   }
 
 
-  /* Project :: Code view. */
+  // * Project :: Code view.
   .code.white {
-    color: var(--light);
-    background-color: var(--dark);
+    color: $light;
+    background-color: $dark;
     .line_holder .line_content {
-      color: var(--light);
-      background: none;
+      color: $light;
+      background: $t;
       &.new::before, &.old::before { colors: $lighter, 0, 0; }
     }
     // * Gutters.
     .line-numbers {
       colors: $light, 0, $t;
-      .diff-line-num {
-        color: var(--lighter);
-        background-color: transparent;
-      }
+      // Inner gutter.
+      .diff-line-num { colors: $lighter, 0, $t; }
     }
     .line_holder {
+      // Gutters in file diff.
       .diff-line-num {
-        color: var(--lighter);
-        background-color: var(--shadow);
+        colors: $lighter, $darker, $shadow;
+        // Text color.
+        a::before { color: $lighter; }
+        // ? Hacky solution to add left border to parallel view in file diff.
+        &:nth-child(3) { border-left: 1px solid $darker !important; }
       }
     }
-  }
-  /* Gutters in file diff. */
-  .diff-line-num a::before {
-    color: var(--lighter);
   }
   /* Gutter border. */
   .code.white pre.code,
