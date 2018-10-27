@@ -494,13 +494,12 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  /* Frequently visited. */
-  [class*="frequent-items"] .section-header {
-    color: var(--light) !important;
-  }
-  [class*="frequent-items"] .section-empty,
-  [class*="frequent-items"] [class*="namespace"]  {
-    color: var(--lighter) !important;
+  // * Frequently visited.
+  [class*="frequent-items"] {
+    .section-header { color: $light !important; }
+    .section-empty, [class*="namespace"]  {
+      color: $lighter !important;
+    }
   }
   /* On event. */
   .dropdown-input-field:focus,
