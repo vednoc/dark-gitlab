@@ -1426,6 +1426,11 @@
   .toggle-sidebar-button svg {
     fill: var(--accent) !important;
   }
+  // Issue counter.
+  .sidebar-top-level-items {
+    .badge.badge-pill { colors: $light, 0, $darker; }
+    .active .badge.badge-pill, li:hover .badge.badge-pill { colors: $light, 0, $dark; }
+  }
 
   // * Collapse button.
   .nav-sidebar .toggle-sidebar-button {
