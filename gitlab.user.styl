@@ -1297,37 +1297,36 @@
 
   // * Timeline content.
   .timeline-entry {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: transparent;
+    colors: $light, $darker, $t;
     // Entry borders.
-    .timeline-entry-inner {
-      border-color: var(--darker) !important;
-    }
+    .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
-    &:target, &.target {
-      border-color: var(--darker) !important;
-      background-color: var(--darker);
-    }
+    &:target, &.target { colors: 0, $darker, $darker; }
     // Fix button background.
-    .note-action-button {
-      background-color: transparent;
-    }
+    .note-action-button { colors: 0, 0, $t; }
+    // Background.
   }
 
+  // * Note.
+  .note {
+    // Profile links.
+    .note-headline-light { colors: $accent, 0, 0; }
+  }
   /* Text color. */
-  .note-headline-light,
   .discussion-headline-light,
   .note-headline-meta .system-note-separator {
     color: var(--light);
   }
-  /* Text color. */
-  ul.notes>li .note-body .note-text blockquote p, ul.notes>li .note-body .note-text .blockquote p {
-    color: var(--light) !important;
-  }
-  .notes a,
-  .notes a:hover {
-    color: var(--accent) !important;
+  // * Notes.
+  // #notes {
+  //   radius: $radius;
+  //   border: 1px solid;
+  //   colors: 0, $darker, 0;
+  // }
+  .notes {
+    // Text color.
+    .note-body blockquote p, .note-body .blockquote p { colors: $red, 0, 0; }
+    a, a:hover { color: var(--accent) !important; }
   }
 
   // * Issues :: New note.
