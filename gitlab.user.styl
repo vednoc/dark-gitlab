@@ -2420,8 +2420,10 @@
   .discussion-form {
     background-color: transparent !important;
   }
+  // TODO merge with other discussion styles.
   .discussion-body .discussion-reply-holder,
   .diff-file .discussion-reply-holder {
+    border-bottom: 1px solid $darker;
     background-color: var(--dark);
   }
   /* Comments disabled. */
@@ -2462,22 +2464,22 @@
   }
 
 
-  /* Merge Requests :: Diff. */
-  .diff-file .notes_holder .notes_line {
-    color: var(--light) !important;
-    border-color: var(--dark) !important;
-    border-right-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  .diff-file .notes_holder .notes_content {
-    color: var(--light) !important;
-    border-color: var(--dark) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Discussion. */
-  .diff-file .notes_holder .notes_content .notes {
-    border-top: 1px solid var(--darker);
-    background-color: var(--dark) !important;
+  // * Merge Requests :: Discussions in file diff.
+  .diff-file .notes_holder {
+    colors: $red, $green, $blue;
+    // TODO might not need this line anymore.
+    .notes_line {
+      colors: $light, $dark, $dark;
+      border-right-color: $darker !important;
+    }
+    .notes_content {
+      colors: $light, $dark, $dark;
+      // Discussion.
+      .notes {
+        border-top: 1px solid;
+        colors: 0, $darker, $dark;
+      }
+    }
   }
   /* Click to expand button. */
   .btn.click-to-expand {
