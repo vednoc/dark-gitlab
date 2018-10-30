@@ -796,6 +796,27 @@
     colors: 0, $darker, $dark;
   }
 
+  // * Navigation.
+  .nav-links {
+    border-bottom: none;
+    // Links.
+    li {
+      a { colors: $lighter, 0, 0; }
+      // On focus.
+      > a:focus { colors: $light, $darker, 0; }
+      // Active tabs.
+      &.active > a, &:hover > a:not(.btn-missing) { colors: $light, $accent, 0; }
+      // Reset for "add x" buttons.
+      .btn-missing {
+        border-style: solid !important;
+        colors: $lighter, $darker, $darker;
+        &:hover, &:focus { colors: $light, $darker, 0; }
+      }
+      // Badges.
+      a .badge.badge-pill { colors: $lighter, 0, $darker; }
+    }
+  }
+
   /* Nav section. TODO: Fix the fixed layout version. */
   .container-fluid > .top-area {
     margin-top: 10px;
@@ -806,21 +827,8 @@
   }
   /* Wrapper. */
   .top-area,
-  .nav-links,
   .wiki-page-header {
     border-bottom-color: var(--darker);
-  }
-  .nav-links li a,
-  .nav-links li a .badge.badge-pill {
-    color: var(--light) !important;
-  }
-  // TODO fix btn-missing properly and refactor this section.
-  .top-area .nav-links li:hover a,
-  .nav-block .nav-links li:hover a,
-  .nav-links li.active a,
-  .nav-links li.active a .badge.badge-pill {
-    color: var(--lighter) !important;
-    border-bottom-color: var(--accent) !important;
   }
 
 
@@ -1340,8 +1348,7 @@
   }
   /* Toolbar colors. */
   .edited-text,
-  .comment-toolbar,
-  .nav-links {
+  .comment-toolbar {
     color: var(--light);
     border-color: var(--darker) !important;
   }
@@ -1510,8 +1517,6 @@
     .arrow::before { border-right-color: $darker !important; }
     .arrow::after { border-right-color: $dark !important; }
   }
-  // Missing buttons.
-  .btn-missing { colors: $light, $darker, $darker; }
   // Separator.
   .project-stats { colors: 0, $darker, 0; }
   // Language bar.
