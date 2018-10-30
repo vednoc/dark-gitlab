@@ -2507,24 +2507,28 @@
     .file-row:hover, .file-row:active { colors: 0, 0, $darker; }
   }
 
-  /* Merge Requests :: New MR. */
-  .mr-source-target {
-    min-height: auto;
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* Description container. */
-  .mr-section-container {
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* Borders. */
-  .mr-state-widget .media-section,
-  .mr-state-widget .mr-widget-heading,
-  .mr-state-widget .mr-widget-section,
-  .mr-state-widget .mr-widget-footer {
-    border-color: var(--darker);
-    background-color: var(--dark);
+  // * Merge Requests :: New MR.
+  .mr-state-widget {
+    .mr-source-target {
+      padding: 12px 8px;
+      min-height: auto;
+      colors: 0, $darker, $dark;
+    }
+    // Description container.
+    .mr-section-container {
+      colors: 0, $darker, $dark;
+      .mr-widget-section {
+        padding: 12px 8px;
+        colors: 0, $darker, 0;
+      }
+    }
+    // Borders.
+    .media-section,
+    .mr-widget-heading,
+    .mr-widget-footer {
+      padding: 12px 8px;
+      colors: 0, $darker, $dark;
+    }
   }
   .mr-widget-heading:not(.deploy-heading)::before {
     border-left: 1px solid var(--darker);
