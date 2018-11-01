@@ -2743,44 +2743,28 @@
     &:hover, &:focus { colors: $accent, 0, 0; }
   }
 
-
-  /* Docs :: Landing. */
-  .landing .landing-header-top {
-    border-color: var(--shadow) !important;
-    background-color: var(--darker) !important;
+  // * Docs :: Landing page.
+  .landing {
+    .landing-header-top { colors: 0, $darker, $darker; }
+    // Search.
+    .input-container input {
+      colors: $light, 0, $darker;
+      &:focus { box-shadow: 0 4px 16px -4px $shadow; }
+    }
+    // Cards.
+    .main-topics li {
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+      box-shadow: 0 4px 16px -4px $shadow !important;
+    }
+    // Header/footer.
+    .landing-header, .footer {
+      colors: $light, 0, $dark;
+      // Created/cookies/edit.
+      .source-link { colors: $light, 0, $darker; }
+      .source-link a { text-decoration: underline !important; }
+    }
   }
-  /* Search. */
-  .landing .input-container input {
-    color: var(--light) !important;
-    background-color: var(--dark) !important;
-  }
-  /* On event. */
-  .landing .input-container input:focus {
-    box-shadow: 0 4px 16px -4px var(--shadow);
-  }
-  /* Cards. */
-  .main-topics li {
-    border: 1px solid var(--darker) !important;
-    background-color: var(--dark) !important;
-    box-shadow: 0 4px 16px -6px var(--shadow) !important;
-  }
-  /* Header/footer. */
-  .landing .landing-header,
-  .landing .footer {
-    color: var(--light) !important;
-    background-color: var(--darker) !important;
-  }
-  /* Links. */
-  .landing .footer a:hover,
-  .landing .footer .source-link a {
-    color: var(--accent) !important;
-    text-decoration: underline !important;
-  }
-  .landing .footer .source-link {
-    border-top: 1px solid var(--shadow);
-    background-color: var(--darker);
-  }
-
 
   /* Docs :: Search results. */
   .algolia-autocomplete [class*="dataset"],
