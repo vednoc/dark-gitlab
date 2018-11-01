@@ -2579,18 +2579,11 @@
     color: var(--lighter) !important;
     background-color: var(--dark) !important;
   }
-  /* Add a diff note. */
+  // Add a comment to this line.
   .line_holder .add-diff-note {
-    height: 18px;
-    width: 18px;
-    margin-left: -44px !important;
-    padding: 0;
-    border: 0;
-    color: var(--light);
-    background-color: var(--darker);
-  }
-  .line_holder .add-diff-note:hover {
-    background-color: var(--dark);
+    padding: 0 0 1px 1px;
+    colors: $light, $darker, $dark;
+    &:hover { colors: 0, 0, $darker; }
   }
   /* Highlight the entire line. */
   .line_holder [class*="side"]:hover,
