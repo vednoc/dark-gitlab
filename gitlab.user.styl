@@ -1504,7 +1504,12 @@
     .arrow::after { border-right-color: $dark !important; }
   }
   // Separator.
-  .project-stats { colors: 0, $darker, 0; }
+  .project-stats {
+    border-bottom: none;
+    colors: 0, $darker, 0;
+    // ? Reset background-color on project page.
+    .progress { colors: 0, 0, $t; }
+  }
   // Language bar.
   .repository-languages-bar {
     background-color: transparent;
@@ -2258,8 +2263,6 @@
     // Filled progress.
     .bg-success { colors: $light, 0, $green; }
   }
-  // ? Reset background-color on project page.
-  .project-stats .progress { colors: 0, 0, $t; }
 
   // Details.
   .issuable-row {
