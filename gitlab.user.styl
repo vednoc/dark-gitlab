@@ -937,17 +937,18 @@
   .projects-list {
     margin: 10px 0;
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    box-shadow: inset 0 0 0 1px $darker;
+    background-color: $dark;
     // Items.
     > li {
       padding: 5px;
       transition: 0.15s ease-in-out;
-      border-bottom-color: var(--darker);
+      border-bottom-color: $darker;
       // On event.
-      &:hover {
-        background-color: var(--darker);
-      }
+      &:hover { background-color: $darker; }
+      // ? Round corners on first and last child.
+      &:first-child { radius: $radius $radius 0 0; }
+      &:last-child { radius: 0 0 $radius $radius; }
     }
   }
 
