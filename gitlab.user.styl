@@ -2535,44 +2535,45 @@
   }
 
 
-  /* File Diff :: Expanded view. */
-  .diff-expanded > [class*="side"],
-  .diff-expanded .diff-line-num,
-  .diff-expanded .line_content {
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+  // * File Diff :: Expanded view.
+  .diff-expanded {
+    > [class*="side"], .diff-line-num, .line_content {
+      colors: 0, $darker, $dark;
+    }
   }
   /* Fix borders on expanded sections. */
   .diff-expanded + .line_holder .diff-line-num,
   .diff-expanded + .line_holder .line_content {
-    border-top-color: var(--darker) !important;
+    border-top-color: $darker !important;
   }
-  /* Added lines. */
-  .line_holder .diff-line-num.new,
-  .line_holder .line_content.new {
-    border-color: var(--shadow) !important;
-    background-color: rgba(149, 200, 99, 0.3) !important;
-  }
+  // Added lines.
   .line_holder .line_content.new .idiff,
   .idiff.addition {
     padding: 0 2px;
     background-color: rgba(149, 200, 99, 0.3) !important;
   }
-  /* Removed lines. */
-  .line_holder .diff-line-num.old,
-  .line_holder .line_content.old {
-    border-color: var(--shadow) !important;
-    background-color: rgba(200, 49, 49, 0.3) !important;
+  .line_holder {
+    // Added lines.
+    .diff-line-num.new,
+    .line_content.new {
+      border-color: $shadow !important;
+      background-color: rgba(149, 200, 99, 0.3) !important;
+    }
+    // Removed lines.
+    .diff-line-num.old,
+    .line_content.old {
+      border-color: var(--shadow) !important;
+      background-color: rgba(200, 49, 49, 0.3) !important;
+    }
   }
   .line_holder .line_content.old .idiff,
   .idiff.deletion {
     padding: 0 2px;
     background-color: rgba(200, 49, 49, 0.3) !important;
   }
-  /* Matching lines. */
+  // Matching lines.
   .line_holder .line_content.match {
-    color: var(--lighter) !important;
-    background-color: var(--dark) !important;
+    colors: $lighter, 0, $dark;
   }
   // Add a comment to this line.
   .line_holder .add-diff-note {
