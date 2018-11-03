@@ -3200,6 +3200,15 @@
         &:nth-child(3) { border-left: 1px solid $darker !important; }
       }
     }
+    // ? Gutter colors in diff viewer.
+    .line_holder .diff-line-num.old {
+      border-color: $shadow !important;
+      background-color: rgba(200, 49, 49, 0.3) !important;
+    }
+    .line_holder .diff-line-num.new {
+      border-color: $shadow !important;
+      background-color: rgba(149, 200, 99, 0.3) !important;
+    }
   }
   /* Gutter border. */
   .code.white pre.code,
