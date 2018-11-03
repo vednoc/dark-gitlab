@@ -2553,6 +2553,12 @@
     background-color: rgba(149, 200, 99, 0.3) !important;
   }
   .line_holder {
+    // Add right border to gutters.
+    .diff-line-num {
+      border-right: 1px solid $darker !important;
+      // ? Makes the a tag in gutters lighter color while it's loading.
+      .diff-line-num a { colors: $lighter, 0, 0; }
+    }
     // Added lines.
     .diff-line-num.new,
     .line_content.new {
