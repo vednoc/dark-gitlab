@@ -2534,6 +2534,13 @@
     background-color: var(--dark);
   }
 
+  // * File Diff : Rounded corners.
+  .diff {
+    // ? Hack for rounded corners w/o hiding overflow.
+    &-file, &-content, &-viewer, &-wrap-lines { radius: $radius !important; }
+    // ? Rounded corners for the file title.
+    &-file .file-title-flex-parent { radius: $radius $radius 0 0 !important; }
+  }
 
   // * File Diff :: Expanded view.
   .diff-expanded {
