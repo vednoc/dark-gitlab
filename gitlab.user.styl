@@ -1510,7 +1510,23 @@
     .arrow::before { border-right-color: $darker !important; }
     .arrow::after { border-right-color: $dark !important; }
   }
-  // Separator.
+  // * Remove unnecessary whitespace.
+  .project-home-panel {
+    padding: 0;
+    // Badges.
+    .prepend-top-default { margin: 10px 0 10px 0 !important; }
+    // Buttons under badges.
+    .project-repo-buttons {
+      // Reset margins on all items.
+      > div { margin: 0; }
+      // Apply margins on the child elements.
+      // ? Inline is needed for specificity.
+      > div > div, > div > .inline { margin: 0 8px 8px 0 !important; }
+      // Right margin for buttons.
+      .project-action-button { margin: 0 !important; }
+    }
+  }
+  // * Separator.
   .project-stats {
     border-bottom: none;
     colors: 0, $darker, 0;
