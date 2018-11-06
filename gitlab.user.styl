@@ -972,20 +972,18 @@
     colors: 0, 0, $shadow;
   }
 
-  /* Project details. */
-  .project-details .text-plain,
+  // * Project details.
+  .project-details {
+    .text-plain {
+      color: $light;
+      &:hover { color: $lighter; }
+    }
+  }
   .project-stats .nav .stat-link {
-    color: var(--light);
+    color: $light;
+    &:hover { color: $lighter; }
   }
-  .project-details .text-plain:hover,
-  .project-stats .nav .stat-link:hover {
-    color: var(--lighter);
-  }
-  .user-access-role {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--darker);
-  }
+  .user-access-role { colors: $light, $dark, $darker; }
   /* Empty project. */
   .project-empty-note-panel {
     border-color: var(--darker);
