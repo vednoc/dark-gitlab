@@ -835,26 +835,17 @@
   // * Settings :: Billing.
   .billing-plans {
     [class*="card"] {
-      background-color: var(--dark) !important;
+      background-color: $dark !important;
       // Header.
-      .card-header {
-        background-color: var(--accent) !important;
-      }
-      // Body.
-      .card-body {
-        colors: 0, $accent, 0;
-      }
+      .card-header { colors: 0, 0, $accent; }
+      // Borders.
+      &.current .card-body { colors: 0, $accent, 0; }
+      &:not(.current) .card-body { colors: 0, $dark, 0; }
       /* Items. */
-      .feature-list li {
-        background-color: var(--darker) !important;
-      }
+      .feature-list li { background-color: $darker !important; }
       // Pricing.
-      .price-per-month {
-        color: var(--accent) !important;
-      }
-      .price-per-year {
-        color: var(--green) !important;
-      }
+      .price-per-month { color: $accent !important; }
+      .price-per-year { color: $green !important; }
     }
   }
 
