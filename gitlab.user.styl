@@ -860,33 +860,26 @@
 
   // * Purchases.
   // ? https://customers.gitlab.com/customers/sign_up
-  .white-card {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
-    .title {
-      border-bottom-color: var(--darker);
-    }
-    label {
-      color: var(--lighter);
-    }
+  .sign-in .white-card {
+    color: $light;
+    border-color: $darker;
+    background-color: $dark;
+    .title { colors: 0, $darker, $darker; }
+    label { color: $lighter; }
     select, option, input {
-      color: var(--lighter) !important;
-      background-color: var(--darker) !important;
+      colors: $lighter, 0, $darker;
       box-shadow: none;
     }
     // Select one.
     .chosen-container {
       // Results.
       .chosen-drop {
-        border-color: var(--darker) !important;
-        background-color: var(--darker) !important;
+        colors: 0, $darker, $darker;
         box-shadow: none !important;
         .chosen-results {
-          color: var(--light) !important;
+          colors: $light, 0, 0;
           .highlighted {
-            color: var(--light);
-            background-color: var(--accent);
+            colors: $light, 0, $accent;
             background-image: none;
           }
         }
@@ -895,22 +888,18 @@
       .chosen-single {
         min-height: 34px;
         line-height: 34px;
-        color: var(--light) !important;
-        border-color: var(--darker) !important;
-        background-color: var(--darker) !important;
+        colors: $light, $darker, $darker;
         background-image: none !important;
         box-shadow: none !important;
         // Caret position.
-        b {
-          background-position: 0px 6px !important;
-        }
+        b { background-position: 0px 6px !important; }
       }
     }
     // Register button.
-    .btn-gitlab:hover,
-    .btn-gitlab:focus,
-    .btn-gitlab:active {
-      colors: $light, $accent, $accent;
+    .btn-gitlab {
+      colors: 0, $darker, 0;
+      transition: all 0.2s ease-in-out !important;
+      &:hover, &:focus, &:active { colors: $light, $accent, $accent; }
     }
   }
 
