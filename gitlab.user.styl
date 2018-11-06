@@ -910,9 +910,7 @@
     .btn-gitlab:hover,
     .btn-gitlab:focus,
     .btn-gitlab:active {
-      color: var(--light) !important;
-      border-color: var(--accent) !important;
-      background-color: var(--accent) !important;
+      colors: $light, $accent, $accent;
     }
   }
 
@@ -926,11 +924,7 @@
 
   /* SSH Keys. */
   // pre,
-  code.key-fingerprint {
-    background-color: var(--darker) !important;
-    border-color: var(--darker) !important;
-    color: var(--lighter) !important;
-  }
+  code.key-fingerprint { colors: $lighter, $darker, $darker; }
 
 
   // * Projects list.
@@ -984,15 +978,10 @@
     &:hover { color: $lighter; }
   }
   .user-access-role { colors: $light, $dark, $darker; }
-  /* Empty project. */
-  .project-empty-note-panel {
-    border-color: var(--darker);
-  }
-  .git-empty pre.bg-light {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
+
+  // * Project :: Empty project.
+  .project-empty-note-panel { border-color: $darker; }
+  .git-empty pre.bg-light { colors: $light, $darker, $dark; }
 
   // * Project :: Commits.
   #commits-list {
@@ -1023,9 +1012,7 @@
     radius: $radius;
     border: 1px solid;
     colors: 0, $darker, $dark;
-    li {
-      colors: 0, $darker, 0;
-    }
+    li { colors: 0, $darker, 0; }
   }
   // Graph color.
   .divergence-graph {
@@ -1038,18 +1025,14 @@
   .branch-commit,
   .content-list li [class*="item"],
   .content-list li [class*="graph"] [class*="count"] {
-    color: var(--light) !important;
+    color: $light !important;
   }
   .content-list li {
     colors: 0, $darker, 0;
+    a { color: $accent !important; }
   }
-  .content-list li a {
-    color: var(--accent) !important;
-  }
-  .branch-commit .commit-sha,
-  .branch-commit .gfm-commit,
-  .branch-commit .gfm-commit_range {
-    color: var(--accent) !important;
+  .branch-commit {
+    .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
   }
 
   // * Project :: Contributors.
