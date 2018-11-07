@@ -185,6 +185,9 @@
   .text-white {
     color: $light !important;
   }
+  .text-tertiary {
+    color: $lighter;
+  }
   .badge {
     &.unverified {
       border-color: var(--lighter) !important;
@@ -513,7 +516,7 @@
   .dropdown-divider,
   .dropdown-menu .divider,
   .dropdown-menu [class*="dropdown-sidebar"] {
-    border-color: var(--darker);
+    border-color: $shadow;
   }
   /* Items. */
   .dropdown-menu li a,
@@ -1997,6 +2000,12 @@
         margin-left: 10px;
       }
     }
+  }
+
+  // * Dashboard :: Operations.
+  .tokenized-input-wrapper {
+    &.focus { box-shadow: 0 0 4px 0px $accent !important; }
+    .tokenized-input { colors: $light, 0, $t; }
   }
 
   // * Dashboard :: Top navigation.
