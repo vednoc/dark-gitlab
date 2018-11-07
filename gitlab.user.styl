@@ -1311,7 +1311,11 @@
   // }
   .notes {
     // Text color.
-    .note-body blockquote p, .note-body .blockquote p { colors: $red, 0, 0; }
+    // ? Be super-specific because they're using !important on upstream. :p
+    > li .note-body div.note-text blockquote p,
+    > li .note-body div.note-text .blockquote p {
+      colors: $light, 0, 0;
+    }
     a, a:hover { color: var(--accent) !important; }
   }
 
