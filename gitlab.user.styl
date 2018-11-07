@@ -1319,6 +1319,15 @@
     &.is-focused { box-shadow: 0 0 0px 2px $shadow !important; }
     // Input area.
     .markdown-area { colors: $light, $darker, $dark; }
+    // Navigation.
+    // ? New design; find old styles and bring them here for backwards compatability.
+    .nav-links:not(.quick-links) {
+      colors: 0, $darker, 0;
+      li:not(.md-header-toolbar) {
+        button { colors: $lighter, 0, 0; }
+        &.active button { colors: $light, $accent, 0; }
+      }
+    }
   }
   /* Toolbar colors. */
   .edited-text,
