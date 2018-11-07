@@ -3394,6 +3394,35 @@
     &s-container a:hover { color: $accent !important; }
   }
 
+  // * Jobs :: Browse artifacts.
+  [data-page="projects:artifacts:browse"] {
+    .tree-table {
+      radius: $radius;
+      box-shadow: 0 0 0 1px $darker;
+      thead {
+        tr, tr > th { border-top: none; }
+        th:first-child { radius: $radius 0 0 0; }
+        th:last-child { radius: 0 $radius 0 0; }
+      }
+      tbody {
+        tr:last-child {
+          td:first-child { radius: 0 0 0 $radius; }
+          td:last-child { radius: 0 0 $radius 0; }
+        }
+      }
+      // Remove borders.
+      tr {
+        border: none !important;
+        td {
+          border: none !important;
+          border-top: 1px solid $darker !important;
+        }
+      }
+      // Item text color.
+      .tree-item a { colors: $light, 0, 0; }
+    }
+  }
+
   // * Skeleton.
   // ? Changes color of loading elements.
   .animation-container [class^="skeleton-line-"] {
