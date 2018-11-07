@@ -3378,6 +3378,22 @@
     }
   }
 
+  // * Jobs :: Show output.
+  .build {
+    // Breadcrumbs.
+    &-header .header-content {
+      margin: 4px 0;
+      color: $lighter;
+      a { color: $light;
+        &:hover { color: $accent; }
+      }
+    }
+    // Job details.
+    &-light-text { color: $lighter; }
+    // Job on hover.
+    &s-container a:hover { color: $accent !important; }
+  }
+
   // * Skeleton.
   // ? Changes color of loading elements.
   .animation-container [class^="skeleton-line-"] {
