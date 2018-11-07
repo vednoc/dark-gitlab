@@ -2978,12 +2978,13 @@
   }
   /* Build header. */
   .build-page .top-bar {
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    colors: $lighter, $darker, $dark;
+    // ? Fix terminal controls header, bug on upstream.
+    &.sidebar-expanded { margin-right: 0 !important; }
   }
   /* Build log. */
   .build-page .build-trace {
+    radius: 0 0 $radius $radius;
     color: var(--light);
     border: 1px solid var(--darker);
     border-top-color: transparent;
