@@ -1491,6 +1491,8 @@
     padding: 0;
     // Badges.
     .prepend-top-default { margin: 10px 0 10px 0 !important; }
+    // Project description.
+    .project-home-desc, .project-description > div > p { margin: 0 0 10px 0 !important; }
     // Buttons under badges.
     .project-repo-buttons {
       // Reset margins on all items.
@@ -1602,6 +1604,8 @@
       box-shadow: 0 0 0 1px $darker; // ? Escape empty space between borders.
     }
     .blob-viewer > .file-content { radius: 0 0 $radius $radius; }
+    // ? File title in artifacts.
+    .file-title-flex-parent { radius: $radius $radius 0 0; }
   }
   // Header.
   .tree-holder .file-title a:not(.btn) {
