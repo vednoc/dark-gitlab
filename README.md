@@ -3,7 +3,7 @@
 A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by [vednoc](https://gitlab.com/vednoc) and [@RaitaroH](https://gitlab.com/RaitaroH). 
 
 <p align="center">
-  <img alt="banner" src="./images/banner.png">
+  <img alt="banner" src="./images/banner.png" width="600">
 </p>
 
 # ToC
@@ -36,7 +36,9 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * [x] Convert to [BetterComments](https://github.com/aaron-bond/better-comments):
   * [ ] Full coverage.
 * [x] Cover most of the GitLab website.
-* [x] Have a *decent* compatability with older versions and self-hosted instances.
+* [x] Have a *decent* compatability with a few older versions for self-hosted instances. Might get dropped depending on the number of breaking changes.
+* [ ] Add a version with USo preprocessor so xStyle and extensions that support UserCSS can install this theme.
+  * [ ] Automate the process; not a high priority.
 
 
 # Features
@@ -45,6 +47,7 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * **Customizable background**: Whether you like the default background or you want a custom image, color or nothing at all, you're able to do whatever you want from within the popup.
 * **Custom regexp**: Support for public self-hosted GitLab instances. You can easily add your own by editing the `@-moz-document regexp(...)` locally (**Note**: that prevents the auto-update feature, unfortunately, but you can always force an update).
 * **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
+* **Custom rounded corners value**: Set your prefered border-radius for main elements (excluding buttons); not available everywhere atm.
 * **Old-design project header**: If you prefer to have the elements in the center, now you can have it back.
 * **Complete theme**: for the entire UI; still very much WIP and it'll only get better with time.
 * Anything else you'd like to have? Feel free to make a suggestion.
