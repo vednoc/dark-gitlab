@@ -1816,24 +1816,26 @@
         }
       }
       // Force calendar to stay full opacity.
-      .contrib-calendar:hover {
-        opacity: 1 !important;
-      }
+      .contrib-calendar:hover { opacity: 1 !important; }
+      // ? Fixes border separator with !important rule on it.
+      .border-bottom { colors: 0, $darker, 0; }
     }
     // Event items.
     // TODO possible refactor with styles beneath.
     .event-item {
       border-color: $darker;
       .event-title {
-        color: $light;
-        a {
-          color: $accent;
-        }
+        color: $lighter;
+        a { color: $accent; }
       }
+      // ? New design in recent contributions.
+      .event-user-info {
+        colors: $lighter, 0, 0;
+        .author_name a { colors: $light, 0, 0; }
+      }
+      .commit-sha { colors: $light, 0, 0; }
       // Body text color.
-      .event-body {
-        colors: $light, 0, 0;
-      }
+      .event-body { colors: $light, 0, 0; }
     }
   }
 
