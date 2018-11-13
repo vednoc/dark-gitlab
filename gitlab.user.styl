@@ -1786,10 +1786,8 @@
       &:hover { background-color: $darker; }
       // Text color.
       a { color: $accent; }
-      .event-title {
-        color: $light;
-        .author_name a, strong a { color: $accent; }
-      }
+      .event-title { color: $light; }
+      .author_name a, strong a { color: $accent; }
       // Remove left padding on small resolution.
       @media (max-width: 575px) { padding-left: 8px; }
       // Avatar position.
@@ -2011,6 +2009,7 @@
   .tokenized-input-wrapper {
     &.focus { box-shadow: 0 0 4px 0px $accent !important; }
     .tokenized-input { colors: $light, 0, $t; }
+    .input-token, .tokenized-input-token-remove { colors: 0, 0, $darker; }
   }
 
   // * Dashboard :: Top navigation.
