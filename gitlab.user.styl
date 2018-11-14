@@ -1319,6 +1319,27 @@
     a, a:hover { color: var(--accent) !important; }
   }
 
+  // * Issues :: Conversation notes.
+  .issue-details {
+    .issuable-discussion .notes.timeline>.timeline-entry:not(.system-note) {
+      border-radius: $radius;
+      background-color: $dark !important;
+    }
+    .main-notes-list::before {
+      border-left: 1px solid $darker;
+    }
+    .notes .system-note .timeline-icon {
+      border: 1px solid $darker;
+      background-color: $dark;
+    }
+    .detail-page-description > script + div {
+      padding: 8px;
+      border-radius: $radius;
+      border: 1px solid $darker;
+      background-color: $dark;
+    }
+  }
+
   // * Issues :: New note.
   .common-note-form .md-area {
     radius: $radius;
