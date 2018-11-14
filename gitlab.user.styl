@@ -1321,17 +1321,19 @@
 
   // * Issues :: Conversation notes.
   .issue-details {
-    .issuable-discussion .notes.timeline>.timeline-entry:not(.system-note) {
+    // ? Note background, avoid system notes and forms.
+    .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
       border-radius: $radius;
       background-color: $dark !important;
     }
-    .main-notes-list::before {
-      border-left: 1px solid $darker;
-    }
+    // The line connector.
+    .main-notes-list::before { border-left: 1px solid $darker; }
+    // Icon.
     .notes .system-note .timeline-icon {
       border: 1px solid $darker;
       background-color: $dark;
     }
+    // ? Issue description.
     .detail-page-description > script + div {
       padding: 8px;
       border-radius: $radius;
