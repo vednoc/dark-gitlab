@@ -470,6 +470,8 @@
     &-sub-nav > li.active > *, &-nav > li.active > a { colors: $light, 0, $dark; }
     // Change the background for active dropdowns.
     .dropdown.show > button { colors: 0, 0, $dark; }
+    // Navbar separator on mobile devices.
+    &-toggler { border-left-color: $dark !important; }
   }
 
   /* Dropdowns. */
@@ -789,6 +791,10 @@
     &-list a { colors: $lighter, 0, 0; }
     // Highlighted link.
     &-sub-title a { colors: $light, 0, 0; }
+    // Separator on mobile devices.
+    @media (max-width: 576px) {
+      .toggle-mobile-nav + .breadcrumbs-links { colors: $lighter, $darker, 0; }
+    }
   }
   .breadcrumb {
     .breadcrumb-item a {
