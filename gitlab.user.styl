@@ -3020,6 +3020,22 @@
     background-color: var(--darker);
   }
 
+  // * IDE :: Commit section.
+  .ide-view {
+    // Borders.
+    .ide-commit-list-container.is-first,
+    .multi-file-commit-panel-header { colors: 0, $darker, 0; }
+    // Remove background on buttons.
+    .ide-staged-action-btn { colors: 0, 0, $t; }
+    // Commit message.
+    .ide-commit-message-field {
+      colors: $lighter, 0, $t;
+      textarea { colors: $light, 0, 0; }
+    }
+    // Background after you push a commit.
+    .multi-file-commit-panel-success-message { colors: 0, 0, $dark; }
+  }
+
   // * IDE :: Right sidebar.
   .ide-view .multi-file-commit-panel {
     border-color: var(--darker);
