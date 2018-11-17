@@ -207,6 +207,11 @@
   .text-danger {
     color: var(--red) !important;
   }
+  .warning_message {
+    radius: 0 $radius $radius 0;
+    border-left-color: $accent;
+    colors: $light, 0, $darker;
+  }
 
   // * Button reset.
   .btn {
@@ -262,11 +267,11 @@
     }
     // Close buttons.
     &-close,
-    &-close-color,
-    &-cancel {
+    &-close-color {
       colors: var(--white), $red, $red;
       box-shadow: var(--box-shadow) !important;
     }
+    &-cancel { colors: var(--white), $darker, $darker; }
     // Remove buttons.
     &-danger,
     &-remove,
