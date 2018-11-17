@@ -2982,6 +2982,8 @@
     // Icons.
     .ide-tree-header button {
       color: var(--icon);
+      transition: all 0.2s ease-in-out;
+      &[aria-expanded="true"] { colors: 0, 0, $darker; }
     }
   }
 
@@ -2990,19 +2992,15 @@
     border-bottom-color: var(--darker);
     // Branch popup.
     .ide-nav-form {
+      // Separator.
+      .tab-links { colors: 0, $dark, 0; }
       // Inactive tab.
-      .nav-links li a:not(.active) {
-        colors: 0, 0, $darker;
-      }
-      .border-bottom {
-        border-color: $dark !important;
-      }
+      .nav-links li a:not(.active) { colors: 0, 0, $darker; }
+      .border-bottom { border-color: $dark !important; }
       // Search container.
       .filtered-search-wrapper {
         colors: 0, $darker, $dark;
-        input {
-          background-color: $t !important;
-        }
+        input { colors: 0, 0, $t; }
       }
       // Project metadata.
       .ide-merge-request-project-path {
