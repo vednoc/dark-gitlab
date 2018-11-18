@@ -61,7 +61,8 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 ### Install this theme:  
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=for-the-badge)](https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl)
   >Installs directly from this repository.  
-  >This is only available using Stylus (see the [documentation](https://github.com/openstyles/stylus/wiki/Usercss)). :tada:
+  >This is only available using Stylus (see the [documentation](https://github.com/openstyles/stylus/wiki/Usercss)). :tada:  
+  >**NOTE:** The theme is also available on [userstyles.org](https://userstyles.org/styles/164877) only so we can attract more users. It's updated manually every so often and has only basic custom settings; we highly encourage you to install the theme from this repository and not from USo in any given circumstance.
 
 ### GitLab settings:
 The theme works best with the default settings and it's not extensively tested with GitLab's default presets. Go to settings -> preferences and select indigo for the navigation theme and white for the syntax highlighting.
