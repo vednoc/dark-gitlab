@@ -203,7 +203,8 @@
     color: var(--light) !important;
   }
   .cgray,
-  .committed_ago {
+  .committed_ago,
+  .hint {
     color: var(--lighter) !important;
   }
   .text-secondary {
@@ -622,8 +623,9 @@
     color: var(--light) !important;
   }
   /* On event. */
-  .select2-results .select2-highlighted {
-    color: var(--lighter);
+  .select2-results .select2-highlighted,
+  .select2-default {
+    color: var(--lighter) !important;
   }
   .select2-results .select2-highlighted .select2-result-label {
     background-color: var(--darker);
@@ -723,11 +725,9 @@
   }
 
 
-  /* User Settings :: Everything. */
+  // * User Settings :: Everything.
   .settings-message {
-    color: var(--light) !important;
-    border-color: var(--accent) !important;
-    background-color: var(--dark) !important;
+    colors: $light, $darker, $dark;
   }
   /* Social icons. */
   .provider-btn-group {
@@ -1297,6 +1297,8 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
+  // TODO move to the global styles.
+  .badge.badge-gray, .label.badge-gray { colors: 0, 0, $darker; }
 
 
   // * Timeline content.
@@ -1587,6 +1589,9 @@
       radius: 0 0 $radius $radius;
       colors: 0, $darker, $dark;
     }
+    // Protected tag card.
+    .protected-tags-list > .card-header { colors: $light, $darker, $darker; }
+    // Tables.
     table {
       border-collapse: separate !important;
       colors: 0, $t, 0;
@@ -1597,6 +1602,15 @@
       thead tr th:last-child { border-radius: 0 $radius 0 0 !important; }
       tbody tr td:last-child { border-radius: 0 0 $radius 0 !important; }
       tbody tr td:first-child { border-radius: 0 0 0 $radius !important; }
+    }
+  }
+  // ? Service Desk -> Forward...
+  #js-service-desk .card-header {
+    radius: $radius;
+    colors: $orange, $darker, $darker;
+    h3 {
+      margin: 0.75rem 0;
+      font-size: 1.0rem;
     }
   }
 
