@@ -59,6 +59,7 @@
     --t         : transparent !important;
     --width     : max_width;
     --radius    : b_radius;
+    --code-font : code_font;
     --background: bg_image
   }
 
@@ -1912,7 +1913,7 @@
         color: var(--accent);
       }
       .commit-sha {
-        font-family: code_font;
+        font-family: var(--code-font);
       }
     }
   }
@@ -2205,7 +2206,7 @@
     }
     .card-body {
       pre {
-        font-family: code_font;
+        font-family: var(--code-font);
         radius: $radius;
         colors: $light, $darker, $dark;
       }
@@ -3697,9 +3698,9 @@
   // * Code font.
   .gfm-commit, .diff-file table,
   code, .code, pre.code code,
-  [class*="monospace"],
+  [class*="monospace"], .ref-name,
   #editor, .monaco-editor * {
-    font-family: code_font !important;
+    font-family: var(--code-font) !important;
   }
 
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
