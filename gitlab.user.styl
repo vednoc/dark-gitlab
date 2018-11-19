@@ -60,6 +60,10 @@
     --width     : max_width;
     --radius    : b_radius;
     --code-font : code_font;
+    --bg-invert : bg_invert;
+    --bg-filter : bg_filter;
+    --bg-size   : bg_size;
+    --bg-repeat : bg_repeat;
     --background: bg_image
   }
 
@@ -3195,7 +3199,7 @@
       colors: 0, 0, $darker;
       box-shadow: $box;
       .button, .label {
-        filter: invert(bg_invert);
+        filter: invert(var(--bg-invert));
       }
     }
     // Accessibility.
@@ -3577,7 +3581,7 @@
     fill: black !important;
     // ? bg_invert must be enabled/disabled in Dark-GitLab.
     // ? Doesn't work with ThemeSwitcher (yet, but it might in a future update).
-    filter: invert(bg_invert - 0.2) hue-rotate(180deg);
+    filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
   }
   // * CI icons.
   .ci-status {
@@ -3684,9 +3688,9 @@
     right: 0;
     bottom: 0;
     background-position: center;
-    background-repeat: bg_repeat;
-    background-size: bg_size;
-    filter: invert(bg_invert) bg_filter;
+    background-repeat: var(--bg-repeat);
+    background-size: var(--bg-size);
+    filter: invert(var(--bg-invert)) var(--bg-filter);
   }
   // ! Use literal css because stylus has its own url() function.
   @css {
