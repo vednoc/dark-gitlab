@@ -343,6 +343,9 @@
   [class*="author-link"] {
     color: var(--accent) !important;
   }
+  .nav-links:not(.quick-link) {
+    border-bottom-color: $t;
+  }
 
   /* Sign in page. */
   body,
@@ -2710,6 +2713,27 @@
   // Reactions.
   .row-content-block.content-component-block {
     background-color: transparent;
+  }
+  // ? Sub-navigation for different sections.
+  .snippet-scope-menu {
+    padding: 0 8px !important;
+    margin-top: 10px !important;
+    radius: $radius;
+    border: 1px solid;
+    colors: 0, $darker, $dark;
+  }
+  // Snippets list.
+  .snippets-list-holder {
+    margin-top: 10px;
+    border: 1px solid;
+    radius: $radius;
+    colors: 0, $darker, $dark;
+    li {
+      transition: all 0.2s ease-in-out;
+      &:hover { colors: 0, 0, $darker; }
+      &:first-child { radius: $radius $radius 0 0; }
+      &:last-child { radius: 0 0 $radius $radius; }
+    }
   }
 
 
