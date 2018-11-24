@@ -3141,9 +3141,7 @@
   .multi-file-edit-pane {
    colors: 0, $darker, $dark;
    // Tabs.
-   .ide-mode-tabs {
-     colors: 0, $darker, $darker;
-   }
+   .ide-mode-tabs { colors: 0, $darker, $darker; }
   }
   /* Tabs. */
   .multi-file-tabs {
@@ -3153,9 +3151,7 @@
     li {
       transition: 0.2s ease-in-out;
       colors: $lighter, $darker, $t;
-      &.active, &:hover {
-        colors: $accent, $darker, $darker;
-      }
+      &.active, &:hover { colors: $accent, $darker, $darker; }
     }
   }
   // Commit header.
@@ -3182,9 +3178,7 @@
   .monaco-editor {
     colors: $light, 0, $dark;
     // Background.
-    &-background {
-      colors: $light, 0, $dark;
-    }
+    &-background { colors: $light, 0, $dark; }
     // TODO figure out what this was. XD
     .scroll-decoration {
       box-shadow: inset 0 6px 6px -6px $dark !important;
@@ -3192,57 +3186,37 @@
     // Gutter.
     .margin {
       colors: 0, $dark, $dark;
-      .line-numbers {
-        colors: $lighter, 0, 0;
-      }
+      .line-numbers { colors: $lighter, 0, 0; }
     }
     // Current line.
-    [class*="current-line"]  {
-      colors: 0, $darker, $darker;
-    }
+    [class*="current-line"]  { colors: 0, $darker, $darker; }
     // Cursor.
-    .cursor {
-      // width: 8px !important;
-      colors: $light, $accent, $accent;
-    }
+    .cursor { colors: $light, $accent, $accent; }
     // Indent guide.
-    .lines-content .cigr,
-    .lines-content .cigra {
-      box-shadow: inset 1px 0 0 0 $accent !important;
-    }
+    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 0 0 $accent !important; }
     // Command palette.
     .monaco-quick-open-widget {
       colors: $light, $darker, $dark;
       box-shadow: $box !important;
       // Focused.
       .monaco-tree-row {
-        &:hover, &.focused {
-          colors: $accent, 0, $darker;
-        }
+        &:hover, &.focused { colors: $accent, 0, $darker; }
       }
     }
     // Inspect tokens.
-    .tokens-inspect-widget {
-      colors: $light, $darker, $dark;
-    }
+    .tokens-inspect-widget { colors: $light, $darker, $dark; }
     // Input.
     .monaco-inputbox {
       colors: $light, $darker, $dark;
-      input {
-        colors: $light, 0, $dark;
-      }
+      input { colors: $light, 0, $dark; }
     }
     // Resize.
-    .monaco-sash {
-      colors: 0, 0, $accent;
-    }
+    .monaco-sash { colors: 0, 0, $accent; }
     // Find palette.
     .find-widget {
       colors: 0, 0, $darker;
       box-shadow: $box;
-      .button, .label {
-        filter: invert(var(--bg-invert));
-      }
+      .button, .label { filter: invert(var(--bg-invert)); }
     }
     // Accessibility.
     .accessibilityHelpWidget {
@@ -3255,43 +3229,27 @@
       box-shadow: 0 2px 8px $shadow;
     }
     // Hover popup.
-    .monaco-editor-hover {
-      colors: 0, $shadow, $darker;
-    }
+    .monaco-editor-hover { colors: 0, $shadow, $darker; }
     // Selection.
-    .cslr.selected-text {
-      background-color: $darker;
-    }
+    .cslr.selected-text { background-color: $darker; }
     // Matching.
-    .selectionHighlight {
-      background-color: $darker !important;
-    }
+    .selectionHighlight { background-color: $darker !important; }
     // Suggestion.
     .tree {
       colors: $light, $darker, $darker;
       box-shadow: $box;
-      .focused {
-        colors: $accent, 0, $dark;
-      }
+      .focused { colors: $accent, 0, $dark; }
     }
   }
   /* Diff view. */
-  .diffOverviewRuler {
-    background-color: var(--dark);
-  }
+  .diffOverviewRuler { background-color: var(--dark); }
   /* Git. */
-  .dirty-diff-added {
-    background-color: var(--green);
-  }
-  .dirty-diff-modified {
-    background-color: var(--blue);
-  }
+  .dirty-diff-added { background-color: var(--green); }
+  .dirty-diff-modified { background-color: var(--blue); }
   // ? Dropdown for file finder.
   .ide-view .dropdown-menu {
     max-height: 500px;
-    li button.is-focused {
-      colors: 0, 0, $dark;
-    }
+    li button.is-focused { colors: 0, 0, $dark; }
   }
 
   // * IDE :: Monaco syntax highlighting.
