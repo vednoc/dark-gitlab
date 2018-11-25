@@ -2981,18 +2981,12 @@
       colors: $light, 0, 0;
       // Left sidebar title.
       .context-header > a,
-      .ide-review-sub-header {
-        colors: $light, 0, 0;
-      }
+      .ide-review-sub-header { colors: $light, 0, 0; }
     }
     // Status bar.
-    .ide-activity-bar, .ide-status-bar {
-      colors: 0, $darker, $dark;
-    }
+    .ide-activity-bar, .ide-status-bar { colors: 0, $darker, $dark; }
     // Resize.
-    .drag-handle {
-      colors: 0, 0, $dark;
-    }
+    .drag-handle { colors: 0, 0, $dark; }
   }
   // File templates.
   #ide .ide-file-templates { colors: 0, $darker, $dark; }
@@ -3005,9 +2999,7 @@
       colors: $accent, $darker, $darker;
       box-shadow: inset 3px 0 var(--accent) !important;
     }
-    &::after {
-      colors: 0, 0, $dark;
-    }
+    &::after { colors: 0, 0, $dark; }
   }
 
   // * IDE :: File explorer.
@@ -3018,21 +3010,15 @@
       // File in the tree.
       .file-row {
         transition: 0.2s ease-in-out;
-        &.is-active, &:hover, &:active {
-          colors: 0, 0, $darker;
-        }
+        &.is-active, &:hover, &:active { colors: 0, 0, $darker; }
         // File options.
-        .ide-entry-dropdown-toggle {
-          colors: $light, 0, $dark;
-        }
+        .ide-entry-dropdown-toggle { colors: $light, 0, $dark; }
       }
     }
     // Commit.
     .multi-file-commit-form {
       colors: 0, $darker, $dark;
-      > .commit-form-compact {
-        border-top-color: var(--darker);
-      }
+      > .commit-form-compact { border-top-color: $darker; }
     }
     // Icons.
     .ide-tree-header button {
@@ -3058,14 +3044,10 @@
         input { colors: 0, 0, $t; }
       }
       // Project metadata.
-      .ide-merge-request-project-path {
-        color: $lighter;
-      }
+      .ide-merge-request-project-path { color: $lighter; }
     }
     // Branch on hover.
-    button:hover {
-      colors: $light, 0, $darker;
-    }
+    button:hover { colors: $light, 0, $darker; }
   }
   /* Selected. */
   .ide-file-list .file:hover,
@@ -3120,9 +3102,7 @@
   }
   /* Build sidebar. */
   .build-sidebar .builds-container {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    colors: $light, $darker, $dark;
   }
   .right-sidebar.build-sidebar .link-commit {
     color: var(--accent);
@@ -3132,9 +3112,8 @@
   }
   /* Red alert. */
   .flash-container .flash-alert {
-    color: var(--light) !important;
-    border: 1px solid var(--red) !important;
-    background-color: var(--dark) !important;
+    border: 1px solid !important;
+    colors: $light, $red, $dark;
   }
 
   // * IDE :: Edit area.
