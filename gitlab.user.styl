@@ -1309,6 +1309,7 @@
   // * Timeline content.
   .timeline-entry {
     colors: $light, $darker, $t;
+    &.outlined { colors: 0, 0, $dark; }
     // Entry borders.
     .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
@@ -1323,6 +1324,7 @@
     // Profile links.
     .note-headline-light { colors: $accent, 0, 0; }
   }
+  .discussion-header { colors: 0, $darker, 0; }
   /* Text color. */
   .discussion-headline-light,
   .note-headline-meta .system-note-separator {
@@ -1351,8 +1353,6 @@
       border-radius: $radius;
       background-color: $dark !important;
     }
-    // The line connector.
-    .main-notes-list::before { border-left: 1px solid $darker; }
     // Icon.
     .notes .system-note .timeline-icon {
       border: 1px solid $darker;
@@ -1366,6 +1366,8 @@
       background-color: $dark;
     }
   }
+  // The line connector.
+  .main-notes-list::before { border-left: 1px solid $darker; }
 
   // * Issues :: New note.
   .common-note-form .md-area {
@@ -2737,6 +2739,12 @@
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
     }
+  }
+  // Reset styles in reaction area.
+  [data-page*="snippets:show"] .row-content-block {
+    padding: 8px 0 0 0 !important;
+    margin: 0 !important;
+    border: none !important;
   }
 
 
