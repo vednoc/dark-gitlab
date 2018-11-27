@@ -364,30 +364,26 @@
   .login-page {
     // Header.
     .new-session-tabs {
-      border-color: var(--darker);
-      box-shadow: 0 0 0 1px var(--darker);
+      border-color: $darker;
+      box-shadow: 0 0 0 1px $darker;
       li {
-        color: var(--light) !important;
-        border-color: var(--darker) !important;
-        background-color: var(--darker) !important;
-        a.active,
-        a:hover {
-          color: var(--lighter) !important;
-          border-color: var(--accent) !important;
-          background-color: var(--darker) !important;
-        }
+        colors: $lighter, $darker, $darker;
+        a.active, a:hover { colors: $light, $accent, $darker; }
       }
     }
-    // Body.
-    .login-box,
+    // Credentials.
+    .login-box {
+      radius: 0 0 $radius $radius;
+      box-shadow: 0 0 0 1px $darker;
+      background-color: $dark;
+      .form-control { colors: 0, 0, $darker; }
+    }
+    // Sign in with.
     .omniauth-container {
       radius: $radius;
-      box-shadow: 0 0 0 1px var(--darker);
-      background-color: var(--dark);
-      .form-control,
-      .omniauth-btn {
-        background-color: var(--darker) !important;
-      }
+      colors: 0, 0, $dark;
+      box-shadow: 0 0 0 1px $darker;
+      .omniauth-btn { colors: 0, 0, $darker; }
     }
   }
 
