@@ -48,6 +48,7 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * **Custom regexp**: Support for public self-hosted GitLab instances. You can easily add your own by editing the `@-moz-document regexp(...)` locally (**Note**: that prevents the auto-update feature, unfortunately, but you can always force an update).
 * **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
 * **Custom rounded corners value**: Set your prefered border-radius for main elements (excluding buttons); not available everywhere atm.
+* **Custom avatar radius**: Set your prefered border-radius for avatars.
 * **Old-design project header**: If you prefer to have the elements in the center, now you can have it back.
 * **Complete theme**: for the entire UI; still very much WIP and it'll only get better with time.
 * Anything else you'd like to have? Feel free to make a suggestion.

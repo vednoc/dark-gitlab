@@ -14,6 +14,7 @@
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var text     b_radius  "Custom border radius" 4px
+@var text     a_radius  "Custom avatar radius" 50%
 @var checkbox navbar_c  "Theme navbar color" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
@@ -60,6 +61,7 @@
     --t         : transparent !important;
     --width     : max_width;
     --radius    : b_radius;
+    --avatar    : a_radius;
     --code-font : code_font;
     --bg-invert : bg_invert;
     --bg-filter : bg_filter;
@@ -961,6 +963,7 @@
   .avatar-container,
   .breadcrumbs-links .avatar-tile,
   .header-user-avatar {
+    radius: var(--avatar) !important;
     border: 1px solid $t !important;
     background-color: transparent !important;
   }
