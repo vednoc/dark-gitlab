@@ -2481,9 +2481,21 @@
   .discussion-form {
     background-color: transparent !important;
   }
+  // ? Discussion within diff section.
+  .diffs {
+    .notes {
+      border-top: none !important;
+      &::before { border-left: 1px solid $darker !important; }
+    }
+    .note.timeline-entry {
+      colors: 0, 0, $dark;
+    }
+  }
   // TODO merge with other discussion styles.
   .discussion-body .discussion-reply-holder,
   .diff-file .discussion-reply-holder {
+    radius: 0 !important;
+    border-top-color: $darker;
     border-bottom: 1px solid $darker;
     background-color: var(--dark);
   }
