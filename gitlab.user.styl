@@ -350,16 +350,12 @@
     border-bottom-color: $t;
   }
 
-  /* Sign in page. */
-  body,
-  body.navless {
+  // Sign in page.
+  body, body.navless {
     color: var(--light) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Navbar. */
-  .navbar-empty {
-    border-bottom-color: var(--darker);
-    background-color: var(--darker);
+    background-color: var(--t) !important;
+    // Navbar.
+    .navbar-empty { colors: 0, $darker, $darker; }
   }
 
   // * Sign in/register page.
@@ -3665,7 +3661,7 @@
   }
 
   // * Custom app background.
-  body::after {
+  body::before {
     position: fixed;
     z-index: -1;
     content: "";
@@ -3680,7 +3676,7 @@
   }
   // ! Use literal css because stylus has its own url() function.
   @css {
-    body::after {
+    body::before {
       background: var(--background);
     }
   }
@@ -3696,6 +3692,7 @@
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
   html {
     overflow-x: hidden;
+    background-color: var(--dark);
   }
 }
 
