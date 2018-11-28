@@ -2548,6 +2548,11 @@
         border-top: 1px solid;
         colors: 0, $darker, $dark;
       }
+      // Add left/top/bottom border to right parallel view.
+      &.parallel.new {
+        border: 1px solid $darker !important;
+        border-right: none !important;
+      }
     }
   }
   /* Click to expand button. */
@@ -2667,6 +2672,11 @@
     .line_content.old {
       border-color: var(--shadow) !important;
       background-color: rgba(200, 49, 49, 0.3) !important;
+    }
+    // Show/hide comments.
+    .diff-notes-collapse {
+      colors: 0,  $darker, $dark;
+      &:hover { colors: 0, 0, $darker; }
     }
   }
   .line_holder .line_content.old .idiff,
