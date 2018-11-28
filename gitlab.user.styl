@@ -1586,7 +1586,7 @@
 
   // * Project :: Settings.
   .settings {
-    border-bottom-color: var(--darker);
+    border-bottom-color: $darker;
     .sub-section {
       radius: $radius;
       colors: 0, $darker, $dark;
@@ -1633,32 +1633,24 @@
     margin-bottom: 0;
     radius: $radius;
     colors: $light, $darker, $dark;
-    a { color: var(--lighter); }
+    a { color: $lighter; }
   }
 
   /* Commit button. */
   .commit-sha-group .label,
   .commit-sha-group .btn {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
+    color: $light;
+    border-color: $darker;
+    background-color: $dark;
   }
   /* Fix background in upload files. */
-  .commit-message-container {
-    background: none;
-  }
+  .commit-message-container { background: none; }
   /* Dropzone! */
-  .blob-upload-dropzone-previews {
-    border-color: var(--darker);
-  }
+  .blob-upload-dropzone-previews { border-color: $darker; }
 
   // * Project :: Badges.
-  .project-badge {
-    transition: 0.2s opacity ease-in-out;
-  }
-  [src*="for-the-badge"] {
-    radius: $radius;
-  }
+  .project-badge { transition: 0.2s opacity ease-in-out; }
+  [src*="for-the-badge"] { radius: $radius; }
   span.badge {
     // Apply everywhere except on color-label elements.
     &:not(.color-label) { colors: var(--white), 0, 0; }
@@ -1684,18 +1676,15 @@
     .file-title-flex-parent { radius: $radius $radius 0 0; }
   }
   // Header.
-  .tree-holder .file-title a:not(.btn) {
-    color: $light;
-  }
+  .tree-holder .file-title a:not(.btn) { color: $light; }
   /* Readme preview. */
   .file-holder .file-title-flex-parent,
   .file-holder .file-content {
-    border-color: var(--darker);
-    background: var(--dark);
+    border-color: $darker;
+    background: $dark;
   }
   // File search header.
-  .tree-holder .tree-table .selected td {
-    colors: $light, $darker, $dark;
+  .tree-holder .tree-table .selected td { colors: $light, $darker, $dark; }
   }
 
   // * Wiki.
@@ -1728,13 +1717,13 @@
   // * Project :: Files.
   .table-holder {
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    background-color: $dark;
     // Remove unnecessary borders.
     .tree-table tr {
       border-color: transparent !important;
       td {
-        border-color: var(--darker) !important;
+        border-color: $darker !important;
         transition: 0.2s ease;
       }
     }
@@ -1743,7 +1732,7 @@
       .tree-time-ago,
       .tree-commit-link,
       &-file-name i, &-file-name a {
-        color: var(--light) !important;
+        color: $light !important;
       }
     }
   }
@@ -1759,8 +1748,8 @@
 
   /* Profile cover. */
   .cover-block {
-    border-color: var(--darker);
-    background: var(--dark);
+    border-color: $darker;
+    background: $dark;
   }
   /* Fix master/history/find file/web ide section when low-resolution. */
   @media (max-width: 740px) {
@@ -1788,13 +1777,9 @@
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
     // Prevent SVG from fading.
-    svg:hover {
-      opacity: 1 !important;
-    }
+    svg:hover { opacity: 1 !important; }
     // Text color.
-    svg text {
-      fill: var(--light);
-    }
+    svg text { fill: var(--light); }
   }
   // Reset navigation.
   .user-profile .scrolling-tabs-container {
