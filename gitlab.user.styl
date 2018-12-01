@@ -300,6 +300,10 @@
     &-blank, &-clipboard {
       colors: 0, 0, $t;
     }
+    // Comment on a note.
+    &-text-field {
+      colors: $lighter, $darker, $darker;
+    }
     // Disabled buttons.
     &.disabled, &.disabled:hover,
     &[disabled], &[disabled]:hover {
@@ -1231,7 +1235,8 @@
     [class*="file-title"]  {
       padding: 8px;
       transition: 0.2s background ease-in-out;
-      &:hover { colors: 0, 0, $shadow; }
+      colors: 0, $darker, 0;
+      &:hover { colors: 0, 0, $darker; }
     }
     // Collapsed file content.
     .diff-content {
@@ -2529,10 +2534,14 @@
         border-top: 1px solid;
         colors: 0, $darker, $dark;
       }
-      // Add left/top/bottom border to right parallel view.
+      // Add missing borders to parallel views.
       &.parallel.new {
         border: 1px solid $darker !important;
         border-right: none !important;
+      }
+      &.parallel.old {
+        border-top: 1px solid $darker !important;
+        border-bottom: 1px solid $darker !important;
       }
     }
   }
