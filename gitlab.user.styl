@@ -1736,10 +1736,9 @@
   }
 
 
-  /* Profile cover. */
+  // * User profile.
   .cover-block {
-    border-color: $darker;
-    background: $dark;
+    colors: 0, $darker, $dark;
   }
   /* Fix master/history/find file/web ide section when low-resolution. */
   @media (max-width: 740px) {
@@ -1747,29 +1746,26 @@
       flex-direction: column;
     }
   }
-  /* Scrolling tabs. */
+  // ? Scrolling tabs.
+  // body:not([data-page$="users:show"])
   .scrolling-tabs-container {
     margin: 10px 0;
     padding: 0 10px;
     /* overflow: hidden; */
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    background-color: $dark;
+    .fade-right { background: linear-gradient(to left, $dark 45%, $t); }
+    .fade-left { background: linear-gradient(to right, $dark 45%, $t); }
   }
-  .scrolling-tabs-container .fade-right {
-    background: linear-gradient(to left, var(--dark) 45%, transparent);
-  }
-  .scrolling-tabs-container .fade-left {
-    background: linear-gradient(to right, var(--dark) 45%, transparent);
-  }
-  /* Profile activity. */
+
+  // * User profile :: Activity.
   #activity > .row-content-block {
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    colors: 0, $darker, $dark;
     // Prevent SVG from fading.
     svg:hover { opacity: 1 !important; }
     // Text color.
-    svg text { fill: var(--light); }
+    svg text { fill: $light; }
   }
   // Reset navigation.
   .user-profile .scrolling-tabs-container {
