@@ -1124,37 +1124,35 @@
   // ! Blame @RaitaroH for this one.
   .close {
     transition: 200ms ease-in-out;
-    text-shadow: (0 1px 0 var(--shadow));
-    color: var(--icon);
-    &:hover, &:focus {
-      color: var(--accent);
-    }
+    text-shadow: (0 1px 0 $shadow);
+    color: $icon;
+    &:hover, &:focus { color: $accent; }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
-      text-shadow: 0 1px 0 var(--shadow);
+      text-shadow: 0 1px 0 $shadow;
       transform: translateY(-5px);
-      color: var(--icon) !important;
+      color: $icon !important;
     }
   }
 
   /* Branch info border color. */
   .commit-box,
   .info-well .well-segment:not(:last-of-type) {
-    border-color: var(--darker);
+    border-color: $darker;
   }
   /* Commit description. */
   .commit-description,
   .commit-row-description {
-    color: var(--light) !important;
-    border-left-color: var(--accent) !important;
+    color: $light !important;
+    border-left-color: $accent !important;
   }
   /* Link. */
   .commit .gfm {
-    color: var(--accent) !important;
+    color: $accent !important;
   }
   /* Deleted branch. */
   .info-well .limit-box {
-    background-color: var(--red) !important;
+    background-color: $red !important;
   }
   ul.content-list > li,
   .info-well > .well-segment {
@@ -1194,8 +1192,8 @@
     margin-top: 10px;
     padding: 12px 8px;
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    background-color: $dark;
   }
 
   // * Commits :: Diff summary.
@@ -1293,13 +1291,13 @@
   /* Text color. */
   .branch-info > span,
   .file-title-flex-parent a {
-    color: var(--light) !important;
+    color: $light !important;
   }
   /* Badge. */
   .info-well .badge.badge-gray {
-    color: var(--light);
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    color: $light;
+    border: 1px solid $darker;
+    background-color: $dark;
   }
   // TODO move to the global styles.
   .badge.badge-gray, .label.badge-gray { colors: 0, 0, $darker; }
@@ -1342,7 +1340,7 @@
     > li .note-body div.note-text .blockquote p {
       colors: $light, 0, 0;
     }
-    a, a:hover { color: var(--accent) !important; }
+    a, a:hover { color: $accent !important; }
   }
 
   // * Issues :: Conversation notes.
@@ -1388,8 +1386,8 @@
   /* Toolbar colors. */
   .edited-text,
   .comment-toolbar {
-    color: var(--light);
-    border-color: var(--darker) !important;
+    color: $light;
+    border-color: $darker !important;
   }
 
   // * Markdown selectors.
@@ -1412,9 +1410,7 @@
     }
   }
   /* Attach a file. */
-  .markdown-selector {
-    color: var(--accent);
-  }
+  .markdown-selector { color: $accent; }
   /* Fullscreen (zen) mode. */
   .zen-backdrop.fullscreen {
     colors: 0, 0, $darker;
@@ -1485,17 +1481,12 @@
 
   /* Dropdown. */
   .is-showing-fly-out .sidebar-sub-level-items {
-    box-shadow: 2px 1px 3px var(--shadow) !important;
+    box-shadow: 2px 1px 3px $shadow !important;
     radius: 0 $radius $radius 0 !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    colors: 0, $darker, $dark;
   }
   /* Toggle button. */
-  .close-nav-button {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark) !important;
-  }
+  .close-nav-button { colors: $light, $darker, $dark; }
 
 
   // * Right sidebar.
