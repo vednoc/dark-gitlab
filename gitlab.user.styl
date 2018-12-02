@@ -4638,4 +4638,17 @@
     colors: $accent, $shadow, $darker;
     box-shadow: $box !important;
   }
+
+  // * Left sidebar.
+  .global-nav {
+    colors: 0, 0, $dark;
+    a.active { colors: $lighter, $accent, $darker; }
+    &-block-top a { color: $light; text-shadow: none; }
+    &-link {
+      color: $lighter;
+      box-shadow: none !important;
+      transition: all 0.15s ease-in-out;
+      &:hover, &:focus {  colors: $light, 0, $darker; }
+    }
+  }
 }
