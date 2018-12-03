@@ -4644,8 +4644,28 @@
   h1 {
     border-color: $accent !important;
   }
-  .main img {
-    box-shadow: none !important;
+  .main {
+    border: none;
+    img { box-shadow: none !important; }
+    .comments {
+      margin: 0 auto -45px auto;
+      radius: $radius;
+      colors: 0, 0, $darker;
+      .nav-tabs {
+        border-color: $dark;
+        li a { colors: $lighter, $dark, $darker; }
+        li.active a {
+          border-bottom: none !important;
+          colors: $light, $accent, $t;
+        }
+      }
+      // Buttons.
+      .comments-filter a.comments-holder {
+        colors: 0, $dark, $dark;
+        box-shadow: none !important;
+      }
+      .tab-content .row { border-bottom-color: $dark; }
+    }
   }
   .anchor {
     filter: invert(1);
