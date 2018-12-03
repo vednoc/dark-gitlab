@@ -2707,26 +2707,18 @@
   .line_holder [class*="noteable"]:hover,
   .line_holder .diff-line-num.is-over,
   .line_holder .diff-line-num.hll:not(.empty-cell).is-over {
-    border-color: var(--shadow) !important;
-    background-color: var(--darker) !important;
+    colors: 0, $shadow, $darker;
   }
   /* Text colors. */
-  .diff-stats-summary-toggler {
-    color: var(--blue) !important;
-  }
-  #diff-stats .cgreen {
-    color: var(--green);
-  }
-  #diff-stats .cred {
-    color: var(--red);
-  }
+  .diff-stats-summary-toggler { color: $blue !important; }
+  #diff-stats .cgreen { color: $green; }
+  #diff-stats .cred { color: $red; }
 
 
   // * Snippets
   .blob-content pre.code,
   .notes pre.code {
-    color: var(--light) !important;
-    background-color: var(--dark) !important;
+    colors: $light, 0, $dark;
   }
   // Edit button.
   .detail-page-header a,
@@ -2735,16 +2727,11 @@
   }
   // Toggle discussion.
   .note-action-button {
-    color: var(--light);
-    &:focus,
-    &:hover {
-      color: var(--lighter);
-    }
+    color: $light;
+    &:focus, &:hover { color: $lighter; }
   }
   // Reactions.
-  .row-content-block.content-component-block {
-    background-color: transparent;
-  }
+  .row-content-block.content-component-block { background-color: $t; }
   // ? Sub-navigation for different sections.
   .snippet-scope-menu {
     padding: 0 8px !important;
@@ -2810,12 +2797,8 @@
       }
     }
   }
-  .text-info {
-    color: var(--red) !important;
-  }
-  .template-selectors-menu {
-    border-left-color: var(--darker);
-  }
+  .text-info { color: $red !important; }
+  .template-selectors-menu { border-left-color: $darker; }
 
   // * Ace editor.
   .ace-tm {
@@ -2946,14 +2929,12 @@
 
   /* Docs :: Page. */
   [itemtype*="http://schema.org/WebPage"] .header {
-    border-color: var(--shadow) !important;
-    background-color: var(--darker) !important;
-  }
-  /* Search button. */
-  .header .docsearch {
-    radius: $radius !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
+    colors: 0, $shadow, $darker;
+    // Search button.
+    .docsearch {
+      radius: $radius !important;
+      colors: 0, $darker, $dark;
+    }
   }
 
   // * Main content.
