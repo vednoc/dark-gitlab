@@ -1139,6 +1139,22 @@
     }
   }
 
+  // * Project :: Blame.
+  .file-holder {
+    .file-fork-suggestion { colors: 0, $darker, $dark; }
+    .table-responsive { radius: 0 !important; }
+    .file-blame-legend { colors: 0, $darker, $dark; }
+    .file-content.blame {
+      tr { border-bottom-color: $darker; }
+      td.blame-commit { colors: 0, 0, $dark; }
+      td.line-numbers { border-left-color: $darker; }
+      td.line-numbers + td.lines > pre.code {
+        radius: $radius;
+        colors: $lighter, 0, $darker;
+      }
+    }
+  }
+
   /* Branch info border color. */
   .commit-box,
   .info-well .well-segment:not(:last-of-type) {
