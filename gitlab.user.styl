@@ -1807,11 +1807,6 @@
     rect[fill^="rgb(82"] { opacity: 0.75; }
     rect[fill^="rgb(37"] { opacity: 1; }
   }
-  /* Nav. */
-  .nav-links li a.active {
-    color: var(--lighter) !important;
-    border-color: var(--accent) !important;
-  }
 
   /* Most recent activity. */
   #activity .event-item {
@@ -2463,10 +2458,9 @@
   .nav-tabs .nav-link.active {
     background-color: transparent !important;
   }
-  /* Active tab. */
-  .nav-links .active a,
-  .nav-links li a.active {
-    border-bottom-color: var(--accent);
+  // * Navigation :: Links.
+  .nav-links {
+    li a.active, .active a { colors: $light, $accent, 0; }
   }
   /* Resolved. */
   .line-resolve-all {
