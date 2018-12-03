@@ -2585,11 +2585,18 @@
     }
     // Description container.
     .mr-section-container {
+      radius: $radius;
       colors: 0, $darker, $dark;
       .mr-widget-section {
         padding: 12px 8px;
         colors: 0, $darker, 0;
       }
+      // Remove extra padding.
+      .media-section > .media { padding: 0px !important; }
+      .mr-widget-footer .mr-widget-help { padding: 0 4px; }
+      // Rounded corners.
+      > section:first-child { radius: $radius $radius 0 0; }
+      > div:last-child { radius: 0 0 $radius $radius; }
     }
     // Borders.
     .media-section,
