@@ -2609,28 +2609,24 @@
   .mr-widget-heading:not(.deploy-heading)::before {
     border-left: 1px solid var(--darker);
   }
-  /* Text color. */
-  .mr-state-widget,
-  .mr-state-widget .ci-widget,
-  .mr-state-widget .label-branch,
-  .mr-state-widget .diverged-commits-count,
-  .mr-state-widget .mr-widget-body .spacing,
-  .mr-state-widget .mr-widget-body .bold {
-    color: var(--light);
-  }
-  .ci-widget-container .coverage {
-    color: var(--lighter);
+  // Text color.
+  .mr-state-widget {
+    colors: $light, 0, 0;
+    .bold { colors: $light, 0, 0; }
+    .font-weight-bold, .code-text, .coverage, .diverged-commits-count {
+      colors: $lighter, 0, 0;
+      a { font-weight: bold; color: $light; }
+    }
   }
   // Icon color.
-  .mr-source-target .git-merge-icon-container {
-    color: var(--light);
-    border-color: var(--darker);
-  }
+  .git-merge-icon-container { colors: $light, $darker, $darker; }
 
   /* Merge Requests :: Diff. */
   .mr-version-controls {
-    color: var(--light);
-    background-color: var(--dark);
+    border: 1px solid;
+    radius: $radius;
+    colors: $light, $darker, $dark;
+    > div { border-bottom: none; }
   }
 
   // * File Diff : Rounded corners.
