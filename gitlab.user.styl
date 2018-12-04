@@ -1309,6 +1309,11 @@
       colors: 0, $darker, 0;
     }
   }
+  // Show/hide replies.
+  .replies-toggle {
+    colors: $lighter, $darker, $dark;
+    &:hover span { colors: $light, 0, 0; }
+  }
   /* Text color. */
   .branch-info > span,
   .file-title-flex-parent a {
@@ -2495,6 +2500,11 @@
     border-top-color: $darker;
     border-bottom: 1px solid $darker;
     background-color: var(--dark);
+  }
+  // ? If reply is the last child, apply rounded corners and hide bottom color.
+  .discussion-notes > .discussion-reply-holder:last-child {
+    radius: 0 0 $radius $radius !important;
+    colors: 0, $t, 0;
   }
   // Comments disabled.
   .disabled-comment {
