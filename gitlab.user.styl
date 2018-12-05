@@ -350,12 +350,15 @@
 
   /* Global styles. */
   [class*="committer-link"],
-  [class*="author-link"] {
-    color: var(--accent) !important;
+  [class*="author-link"],
+  .author_name a {
+    color: $accent !important;
   }
   .nav-links:not(.quick-link) {
     border-bottom-color: $t;
   }
+  // ? Check #13 for more info.
+  .deployment-info, .js-deploy-time { colors: $light, 0, 0; }
 
   // Sign in page.
   body, body.navless {
