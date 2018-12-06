@@ -1359,7 +1359,7 @@
   // * Note.
   .note {
     // Profile links.
-    .note-headline-light { colors: $accent, 0, 0; }
+    .note-headline-light { colors: $lighter, 0, 0; }
   }
   .discussion-header { colors: 0, $darker, 0; }
   /* Text color. */
@@ -1384,14 +1384,14 @@
   }
 
   // * Issues :: Conversation notes.
-  #notes {
+  [id^="notes"] {
     // ? Note background, avoid system notes and forms.
     .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
       border-radius: $radius;
       background-color: $dark !important;
     }
     // Icon.
-    .notes .system-note .timeline-icon {
+    .system-note .timeline-icon {
       border: 1px solid $darker;
       background-color: $dark;
     }
