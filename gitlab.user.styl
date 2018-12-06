@@ -1550,6 +1550,20 @@
     }
   }
 
+  // * Project :: Wiki.
+  [data-page*="wikis:show"] #content-body {
+    // Wiki sidebar.
+    .right-sidebar.wiki-sidebar {
+      a { color: $light; }
+      a:hover { color: $accent; }
+      .active > a { color: $accent; }
+    }
+    // Text colors.
+    .wiki-last-edit-by {
+      colors: $lighter, 0, 0;
+      > strong { colors: $light, 0, 0; }
+    }
+  }
 
   // * Project :: Project/group home panel.
   .project-home-panel,
