@@ -3767,6 +3767,17 @@
 // ! @RaitaroH takes the full responsibility for this section. (=
 
 @-moz-document regexp("https?://about.gitlab.com(/.*)") {
+  .blog.article {
+    .body { colors: 0, 0, $dark; }
+    .signup, .comments { colors: 0, 0, $t; }
+  }
+  .sticky-banner {
+    colors: 0, 0, $darker;
+    box-shadow: 0 0 8px 0 $shadow;
+  }
+  .gray-section {
+    colors: $lighter, $darker, $dark;
+  }
   .navbar .navbar-right ul li {
     a, .search-icon {
       colors: $light, $shadow, 0;
