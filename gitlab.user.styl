@@ -402,50 +402,26 @@
 
   // * Cookies.
   #CybotCookiebotDialog {
-    color: var(--light);
-    background-color: var(--darker);
-    box-shadow: 0 0 4px 0 var(--shadow);
+    colors: $light, 0, $darker;
+    box-shadow: 0 0 4px 0 $shadow;
     // Buttons.
-    [id*="ButtonsSelectPane"] {
-      border-color: var(--dark);
-      background-color: var(--dark);
-    }
+    [id*="ButtonsSelectPane"] { colors: 0, $dark, $dark; }
     // Show/hide details button.
     [id*="DetailsWrapper"] {
-      color: var(--accent);
-      border-color: var(--dark);
-      background-color: var(--accent);
-      a {
-        color: var(--light);
-      }
+      colors: $accent, $dark, $accent;
+      a { color: $light; }
     }
     // Show details.
     [id*="DialogDetail"] {
       border-width: 1px;
-      color: var(--light) !important;
-      border-color: var(--dark);
-      background-color: var(--darker);
-      [id*="BodyContentTabs"] {
-        border-color: var(--red);
-      }
+      colors: $light, $dark, $darker;
+      [id*="BodyContentTabs"] { border-color: $red; }
       a {
-        color: var(--accent);
-        border-color: var(--dark) !important;
-        &:hover,
-        &[class*="Selected"] {
-          background-color: var(--dark) !important;
-        }
+        colors: $accent, $dark, 0;
+        &:hover, &[class*="Selected"] { colors: 0, 0, $dark; }
       }
-      thead th {
-        color: var(--light) !important;
-        border-color: var(--dark) !important;
-        background-color: var(--dark) !important;
-      }
-      tbody td {
-        color: var(--light) !important;
-        border-color: var(--dark) !important;
-        background-color: transparent;
-      }
+      thead th { colors: $light, $dark, $dark; }
+      tbody td { colors: $light, $dark, $t; }
     }
   }
 
