@@ -685,15 +685,12 @@
   }
   /* Form control. */
   .form-control {
-    transition: border-color 200ms ease-in-out !important;
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* On event. */
-  .form-control:focus {
-    border-color: var(--blue) !important;
-    box-shadow: 0 0 2px 1px var(--shadow);
+    colors: $lighter, $darker, $dark;
+    // transition: border-color 200ms ease-in-out !important;
+    &:focus {
+      colors: 0, $blue, 0;
+      box-shadow: 0 0 2px 1px $shadow;
+    }
   }
 
   // * Tables.
@@ -704,9 +701,7 @@
     // Remove extra margin.
     > .table {
       margin-bottom: 0px;
-      tr:hover > td {
-        colors: 0, 0, $darker;
-      }
+      tr:hover > td { colors: 0, 0, $darker; }
     }
     // Imported projects.
     .table-success,
@@ -733,26 +728,15 @@
     background-color: var(--darker);
   }
   /* Path. */
-  .input-group-text {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
-  }
+  .input-group-text { colors: $light, $darker, $darker; }
   /* Linked emails. */
-  .account-well {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
+  .account-well { colors: $light, $darker, $dark; }
   /* List items. */
-  ul.bordered-list > li {
-    border-bottom-color: var(--darker);
-  }
+  ul.bordered-list > li { border-bottom-color: $darker; }
   /* Active sessions. */
   .card .list-group-item {
-    color: var(--light) !important;
-    border: 1px solid var(--darker) !important;
-    background-color: var(--dark) !important;
+    border: 1px solid !important;
+    colors: $light, $darker, $dark;
   }
   /* Pipeline quota table. */
   .pipeline-quota,
