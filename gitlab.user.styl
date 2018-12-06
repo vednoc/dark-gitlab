@@ -186,18 +186,16 @@
     fill: var(--icon) !important;
   }
 
-  /* Bootstrap reset. */
-  .bg-white {
-    background-color: var(--dark) !important;
+  // * Bootstrap reset.
+  .bg {
+    &-white { colors: 0, 0, $dark; }
+    &-info { colors: 0, 0, $darker; }
   }
-  .bg-info {
-    background-color: var(--darker) !important;
-  }
-  .text-white {
-    color: $light !important;
-  }
-  .text-tertiary {
-    color: $lighter;
+  .text {
+    &-white { colors: $light, 0, 0; }
+    &-tertiary { colors: $lighter, 0, 0; }
+    &-secondary { colors: $light, 0, 0; }
+    &-danger { colors: $red, 0, 0; }
   }
   .badge {
     &.unverified {
@@ -212,12 +210,6 @@
   .committed_ago,
   .hint {
     color: var(--lighter) !important;
-  }
-  .text-secondary {
-    color: var(--light) !important;
-  }
-  .text-danger {
-    color: var(--red) !important;
   }
   .warning_message {
     radius: 0 $radius $radius 0;
