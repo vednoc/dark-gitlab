@@ -194,6 +194,12 @@
       border-color: var(--lighter) !important;
     }
   }
+  // TODO move to dashboard or somewhere else.
+  .badge-pill {
+    &.issues-count { colors: var(--white), 0, $green; }
+    &.merge-requests-count { colors: var(--white), 0, $orange; }
+    &.todos-count { colors: var(--white), 0, $blue; }
+  }
   .badge-pill,
   .shortcut-mappings .key {
     color: var(--light) !important;
