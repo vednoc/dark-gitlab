@@ -115,12 +115,10 @@
 
   ::-webkit-scrollbar {
     width: 12px;
-    &-track {
-      background: var(--dark);
-    }
+    &-track { background: $dark; }
     &-thumb {
-      border: 2px solid var(--dark);
-      background: var(--darker);
+      border: 2px solid $dark;
+      background: $darker;
     }
   }
   // Input placeholder.
@@ -136,17 +134,12 @@
   }
   a {
     transition: 200ms ease-in-out;
-    // text-decoration: none !important;
-    color: var(--accent);
-    &:hover,
-    &:focus {
-      color: var(--accent);
-    }
+    color: $accent;
+    &:hover, &:focus { color: $accent; }
   }
   hr {
     border-top: none;
-    border-color: var(--shadow);
-    background-color: var(--shadow);
+    colors: 0, $shadow, $shadow;
   }
   img.transparent,
   img.lazy {
@@ -171,11 +164,10 @@
 
   // * Icons!
   .fa, svg {
-    color: var(--icon) !important;
-    fill: var(--icon) !important;
-    &:hover {
-      opacity: 0.8 !important;
-    }
+    color: $icon !important;
+    fill: $icon !important;
+    // TODO Remove?
+    &:hover { opacity: 0.8 !important; }
   }
   // * Fix icons that need extra path selector.
   // ? Calendar, add reaction, commit icon.
@@ -183,7 +175,7 @@
   .nav-controls .has-tooltip svg > path,
   .award-control-icon svg path,
   .commit-icon path {
-    fill: var(--icon) !important;
+    fill: $icon !important;
   }
 
   // * Bootstrap reset.
@@ -242,17 +234,12 @@
     &:active, &.active {
       colors: $accent, $darker, $dark;
       // Active icons!
-      > i, > .fa {
-        color: inherit !important;
-      }
+      // TODO Remove?
+      > i, > .fa { color: inherit !important; }
     }
     // Remove blue outline.
-    &:focus, &.focus {
-      box-shadow: none;
-    }
-    &-link {
-      color: $accent !important;
-    }
+    &:focus, &.focus { box-shadow: 0 0 2px 0px $accent; }
+    &-link { colors: $accent, 0, 0; }
   }
   // Colored buttons.
   .btn {
@@ -337,18 +324,10 @@
 
   // Issue/Merge status.
   .status-box {
-    &-mr-merged {
-      colors: $light, 0, $blue;
-    }
-    &-mr-closed {
-      colors: $light, 0, $red;
-    }
-    &-open {
-      colors: $light, 0, $green;
-    }
-    &-issue-closed {
-      colors: $light, 0, $blue;
-    }
+    &-mr-merged { colors: $light, 0, $blue; }
+    &-mr-closed { colors: $light, 0, $red; }
+    &-open { colors: $light, 0, $green; }
+    &-issue-closed { colors: $light, 0, $blue; }
   }
 
   /* Global styles. */
@@ -365,8 +344,7 @@
 
   // Sign in page.
   body, body.navless {
-    color: var(--light) !important;
-    background-color: var(--t) !important;
+    colors: $light, 0, $t;
     // Navbar.
     .navbar-empty { colors: 0, $darker, $darker; }
   }
