@@ -251,6 +251,7 @@
   .btn {
     // Green buttons.
     &-success,
+    &-success.dropdown-toggle,
     &-register,
     &.comment-btn,
     &-new,
@@ -275,7 +276,8 @@
     }
     // Close buttons.
     &-close,
-    &-close-color {
+    &-close-color,
+    &-close-color.dropdown-toggle {
       colors: var(--white), $red, $red;
       box-shadow: var(--box-shadow) !important;
     }
