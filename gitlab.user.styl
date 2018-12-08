@@ -873,8 +873,8 @@
     background-color: $dark;
     // Items.
     > li {
-      padding: 5px;
-      transition: 0.15s ease-in-out;
+      padding: 8px;
+      transition: all 0.15s ease-in-out;
       border-bottom-color: $darker;
       // On event.
       &:hover { background-color: $darker; }
@@ -1705,6 +1705,22 @@
   .cover-block {
     colors: 0, $darker, $dark;
   }
+  // Groups section.
+  [data-page="users:show"] #groups {
+    .content-list {
+      margin-top: 10px;
+      border: 1px solid;
+      radius: $radius;
+      colors: 0, $darker, $dark;
+      li {
+        transitions: all 0.15s ease-in-out;
+        &:hover { colors: 0, 0, $darker; }
+      }
+      .group-row .stats { color: $lighter; }
+    }
+  }
+  // Text dividers.
+  .middle-dot-divider::after { color: $lighter; }
   /* Fix master/history/find file/web ide section when low-resolution. */
   @media (max-width: 740px) {
     .nav-block {
@@ -1763,6 +1779,7 @@
   .content-list li {
     color: var(--light) !important;
   }
+  .nothing-here-block { padding: 0px; }
   /* Emphasized text color. */
   .cover-block .cover-title {
     color: var(--lighter) !important;
