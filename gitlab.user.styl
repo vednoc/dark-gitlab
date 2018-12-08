@@ -122,9 +122,7 @@
     }
   }
   // Input placeholder.
-  input::placeholder {
-    color: $lighter !important;
-  }
+  input::placeholder,
   ::-webkit-input-placeholder {
     color: $lighter !important;
   }
@@ -347,6 +345,11 @@
   .nav-links:not(.quick-link) {
     border-bottom-color: $t;
   }
+  // ? Move to a better place.
+  .option-title { colors: $light, 0, 0; }
+  .option-description, .option-disabled-reason {
+    colors: $lighter, 0, 0;
+  }
   // ? Check #13 for more info.
   .deployment-info, .js-deploy-time { colors: $light, 0, 0; }
 
@@ -440,8 +443,6 @@
       colors: $lighter, $dark, $dark;
       #search { colors: $lighter, 0, 0; }
     }
-    // Input placeholder.
-    input::placeholder { colors: $light, 0, 0; }
     // Colors for buttons and links.
     a, button {
       transition: background 0.2s ease-in-out;
