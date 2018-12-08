@@ -615,53 +615,24 @@
   }
 
 
-  /* New project. */
+  // * Dashboard :: New project.
   .gitlab-tabs {
-    overflow: hidden;
     radius: $radius $radius 0 0;
-    border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
+    colors: 0, $darker, $darker;
+    .nav-link.active, .nav-link:hover { radius: 0; }
+    li:not(:last-child) { border-right-color: $darker; }
+    li a.active, li a:hover { colors: $lighter, $accent, $dark; }
   }
-  .gitlab-tabs li:not(:last-child) {
-    border-right-color: var(--darker);
-  }
-  .gitlab-tabs .nav-link.active,
-  .gitlab-tabs .nav-link:hover {
-    radius: 0;
-  }
-  /* On event. */
-  .gitlab-tabs li a.active,
-  .gitlab-tabs li a:hover {
-    color: var(--lighter) !important;
-    border-color: var(--accent) !important;
-    background-color: var(--dark) !important;
-  }
-
-  /* Tab content. */
+  // Tab content.
   .gitlab-tab-content {
     radius: 0 0 $radius $radius;
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* Inputs. */
-  .input-group .input-group-btn {
-    background: transparent !important;
-  }
-  .gitlab-tab-content [class*="input-group"] {
-    color: var(--lighter) !important;
-    border-color: var(--darker) !important;
-    background-color: transparent !important;
-  }
-  .gitlab-tab-content .template-option {
-    border-color: var(--darker) !important;
-  }
-  /* Text colors. */
-  .gitlab-tab-content label,
-  .option-title {
-    color: var(--lighter) !important;
-  }
-  .option-description {
-    color: var(--light) !important;
+    colors: 0, $darker, $dark;
+    // Inputs.
+    [class*="input-group"] {
+      radius: $radius;
+      colors: $lighter, $darker, $darker;
+    }
+    .template-option { colors: 0, $darker, 0; }
   }
   .account-btn-link,
   .profile-settings-sidebar a,
