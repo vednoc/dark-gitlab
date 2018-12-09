@@ -1485,6 +1485,8 @@
   .project-home-panel,
   .group-home-panel {
     colors: 0, $darker, 0;
+    // Shorten description.
+    .project-description { max-width: 60em; }
     // Text color.
     .text-secondary, .count { colors: $light, 0, 0; }
     // Buttons.
@@ -3538,9 +3540,9 @@
         text-align: center;
       }
     }
-    .project-stats .nav {
-      justify-content: center;
-    }
+    .project-stats .nav { justify-content: center; }
+    // Center the description.
+    .project-description { margin: 0 auto; }
   }
 
   // Switch to our version of GitLab logo.
