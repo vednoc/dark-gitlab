@@ -188,9 +188,10 @@
     &-danger { colors: $red, 0, 0; }
   }
   .badge {
-    &.unverified {
-      border-color: var(--lighter) !important;
-    }
+    &.unverified { colors: 0, $lighter, 0; }
+    &-success { colors: $light, 0, $green; }
+    &-primary { colors: $light, 0, $blue; }
+    &-pill { colors: $light, 0, 0; }
   }
   // TODO move to dashboard or somewhere else.
   .badge-pill {
@@ -198,7 +199,6 @@
     &.merge-requests-count { colors: var(--white), 0, $orange; }
     &.todos-count { colors: var(--white), 0, $blue; }
   }
-  .badge-pill,
   .shortcut-mappings .key {
     color: var(--light) !important;
   }
@@ -3294,15 +3294,6 @@
   .pipelines .ci-table .pipeline-id,
   .ci-table .branch-commit .commit-sha {
     color: var(--light);
-  }
-  /* Badges */
-  .badge-success {
-    color: var(--light);
-    background-color: var(--green);
-  }
-  .badge-primary {
-    color: var(--light);
-    background-color: var(--blue);
   }
 
   // * Project CI/CD :: Pipeline details.
