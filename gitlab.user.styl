@@ -2081,29 +2081,20 @@
     }
   }
 
-  // * Search or filter results.
+  // * Issues :: Search or filter results.
   .filtered-search-box {
-    border-color: var(--darker);
-    background-color: transparent;
+    &.focus { box-shadow: 0 0 4px 0 $darker; }
+    colors: 0, $darker, $dark;
     // Search field.
-    .form-control {
-      color: var(--light) !important;
-      border-color: transparent !important;
-    }
+    .form-control { colors: $light, $t, 0; }
     // Search field words.
-    .name {
-      color: var(--light);
-    }
-    /* Search field button. */
-    .clear-search {
-      background-color: var(--dark);
-    }
+    .name { color: $light; }
+    // Search field button.
+    .clear-search { colors: 0, 0, $dark; }
     // Search tokens (labels).
     .filtered-search-token > .name,
     .selectable > div {
-      radius: $radius;
-      color: var(--light);
-      background-color: var(--darker) !important;
+      colors: $light, $red, $darker;
     }
   }
 
