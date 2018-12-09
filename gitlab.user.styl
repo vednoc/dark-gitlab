@@ -1987,10 +1987,11 @@
     // Fix RSS icon.
     .controls { margin: 20px 10px 0 10px; }
     // List.
+    // ! Might need extra tweaking somewhere.
     .content_list {
       radius: $radius;
-      border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, 0, $dark;
+      box-shadow: inset 0 0 0 1px $darker;
     }
     // Items.
     .event-item {
@@ -2035,6 +2036,8 @@
         &:first-child { border-radius: $radius $radius 0 0; }
         &:last-child { border-radius: 0 0 $radius $radius; }
       }
+      // Remove right padding on issues/merge requests page.
+      .issuable-info-container { padding-right: 0; }
     }
   }
 
