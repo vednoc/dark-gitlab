@@ -3607,13 +3607,8 @@
     background-position: center;
     background-repeat: var(--bg-repeat);
     background-size: var(--bg-size);
+    background: var(--background);
     filter: invert(var(--bg-invert)) var(--bg-filter);
-  }
-  // ! Use literal css because stylus has its own url() function.
-  @css {
-    body::before {
-      background: var(--background);
-    }
   }
 
   // * Code font.
