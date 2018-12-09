@@ -188,7 +188,10 @@
     &-danger { colors: $red, 0, 0; }
   }
   .badge {
-    &.unverified { colors: 0, $lighter, 0; }
+    &.unverified {
+      colors: $lighter, $lighter, 0;
+      &:hover { colors: $accent, 0, $t; }
+    }
     &-success { colors: $light, 0, $green; }
     &-primary { colors: $light, 0, $blue; }
     &-pill { colors: $light, 0, 0; }
@@ -974,7 +977,8 @@
   }
   .content-list li {
     colors: 0, $darker, 0;
-    a { color: $accent !important; }
+    // TODO Find a better way to style this selector.
+    a:not(.btn-warning) { color: $accent !important; }
   }
   .branch-commit {
     .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
