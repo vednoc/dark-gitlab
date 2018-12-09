@@ -3427,6 +3427,8 @@
       colors: 0, $darker, $dark;
       a.active { colors: $light, 0, 0; }
     }
+    // Mini dropdown items on hover.
+    .show .mini-pipeline-graph-dropdown-item:hover { colors: 0, 0, $dark; }
   }
 
   // * Skeleton.
@@ -3499,21 +3501,21 @@
   // * CI icons.
   .ci-status {
     &.ci-success, &-icon-success, &-icon-passed {
-      colors: $green, $green, 0;
+      colors: $green, $green, $t;
     }
     &.ci-running {
-      colors: $blue, $blue, 0;
+      colors: $blue, $blue, $t;
     }
     &-icon-pending, &-icon-success_with_warnings {
-      colors: $orange, $orange, 0;
+      colors: $orange, $orange, $t;
     }
     &.ci-failed {
-      colors: $red, $red, 0;
+      colors: $red, $red, $t;
     }
     &.ci-created, &.ci-skipped,
     &.ci-canceled, &.ci-disabled,
     &.ci-manual, &-icon-skipped {
-      colors: $lighter, $shadow, 0;
+      colors: $lighter, $shadow, $t;
     }
   }
   // * CI icons on hover.
