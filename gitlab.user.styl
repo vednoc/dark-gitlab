@@ -317,8 +317,14 @@
       transform: translateY(0px);
     }
   }
-  // Button groups.
-  .input-group-prepend, .input-group-append { colors: 0, 0, $t; }
+  // ? Button groups.
+  .input-group-btn, .input-group-prepend, .input-group-append { colors: 0, 0, $t; }
+  // ? Reaction buttons.
+  .award-control {
+    &.is-active, &.user-authored { colors: $light, $darker, $dark; }
+    // Reacted to.
+    &.active { colors: $light, $blue, $dark; }
+  }
 
   // * Project notifications.
   // TODO move to appropriate section.
@@ -2114,20 +2120,6 @@
   // Relative issues.
   .issue-count-badge {
     colors: 0, $darker, 0;
-  }
-  // Buttons.
-  .award-control {
-    &.is-active, &.user-authored {
-      color: var(--light) !important;
-      border-color: var(--darker) !important;
-      background-color: var(--dark) !important;
-    }
-    // Reacted to.
-    &.active {
-    color: var(--light);
-    border-color: var(--blue);
-    background-color: var(--dark);
-    }
   }
 
   /* Created branch button. */
