@@ -2212,6 +2212,11 @@
     // Assignee background.
     .board-card-assignee:hover a { colors: 0, 0, $t; }
   }
+  // ? When you move boards themselves.
+  .board > .board-inner {
+    colors: 0, $darker, $dark;
+    .board-title { border-bottom-color: $darker; }
+  }
 
 
   // * Issues :: Labels.
