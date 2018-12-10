@@ -321,7 +321,10 @@
     }
   }
   // ? Button groups.
-  .input-group-btn, .input-group-prepend, .input-group-append { colors: 0, 0, $t; }
+  .input-group-btn, .input-group-prepend, .input-group-append {
+    colors: 0, 0, $t;
+    .btn:focus { colors: 0, 0, $darker; }
+  }
   // ? Reaction buttons.
   .award-control {
     &.is-active, &.user-authored { colors: $light, $darker, $dark; }
@@ -1063,9 +1066,9 @@
   // ! Blame @RaitaroH for this one.
   .close {
     transition: 200ms ease-in-out;
-    text-shadow: (0 1px 0 $shadow);
+    text-shadow: 0 1px 0 $shadow;
     color: $icon;
-    &:hover, &:focus { color: $accent; }
+    &:hover, &:focus { color: $accent !important; }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
       text-shadow: 0 1px 0 $shadow;
