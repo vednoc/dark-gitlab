@@ -1929,13 +1929,13 @@
     margin-top: 10px !important;
     padding: 8px;
     radius: $radius;
-    border: 1px solid var(--darker);
-    color: var(--light);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    color: $light;
+    background-color: $dark;
   }
   /* Sub-header found in compare branches. */
   .sub-header-block {
-    border-color: var(--darker);
+    border-color: $darker;
     background-color: transparent;
   }
   /* There isn't anything to compare. */
@@ -2076,18 +2076,17 @@
   .issues-holder {
     margin-top: 10px;
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    background-color: $dark;
     // Email a new issue to this project.
     .issuable-footer {
       padding: 10px;
-      border-top: 1px solid var(--darker);
+      border-top: 1px solid $darker;
     }
     li {
       transition: background 0.15s ease-in-out;
-      &:hover {
-        background-color: var(--darker);
-      }
+      &:first-child { radius: $radius $radius 0 0; }
+      &:hover { background-color: $darker; }
     }
   }
 
