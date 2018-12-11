@@ -188,10 +188,8 @@
     &-danger { colors: $red, 0, 0; }
   }
   .badge {
-    &.unverified {
-      colors: $lighter, $lighter, 0;
-      &:hover { colors: $accent, 0, $t; }
-    }
+    &.unverified { colors: $lighter, $lighter, $dark; }
+    &.verified { colors: $green, $green, $dark; }
     &-success { colors: $light, 0, $green; }
     &-primary { colors: $light, 0, $blue; }
     &-pill { colors: $light, 0, 0; }
@@ -863,14 +861,6 @@
       transition: all 0.2s ease-in-out !important;
       &:hover, &:focus, &:active { colors: $light, $accent, $accent; }
     }
-  }
-
-  /* Emails. */
-  .email-badge .badge-verification-status.verified:hover:not(span),
-  .email-badge .badge-verification-status.verified:not(span) {
-    background-color: var(--green) !important;
-    border-color: var(--green) !important;
-    color: var(--lighter) !important;
   }
 
   /* SSH Keys. */
