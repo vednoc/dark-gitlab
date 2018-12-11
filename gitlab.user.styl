@@ -1143,6 +1143,9 @@
     .arrow::before { border-top-color: $darker !important; }
     .arrow::after { border-top-color: $dark !important; }
     .gpg-popover-user-link { colors: $light, 0, 0; }
+    // Milestones.
+    .milestone-popover-body { colors: 0, 0, $t; }
+    .milestone-popover-footer { colors: 0, $darker, 0; }
   }
 
   /* Recently pushed branches. */
@@ -2119,8 +2122,10 @@
     background-color: var(--dark);
   }
   // Edited.
-  .detail-page-description small {
-    color: var(--lighter);
+  // ? Contains styles for milestone elements; find a better place.
+  .detail-page-description {
+    .title, &.milestone-detail { colors: $light, $darker, 0; }
+    small { color: $lighter; }
   }
   // Relative issues.
   .issue-count-badge {
@@ -2253,6 +2258,7 @@
 
   // * Issues :: Milestones.
   .milestones {
+    padding: 0;
     colors: 0, 0, $t;
     // Items.
     .milestone, .status-box {
@@ -2264,6 +2270,7 @@
       .milestone-progress a { colors: $accent, 0, 0; }
     }
   }
+  .milestone-banner-link { padding: 2px !important; }
 
   // Progress bar background.
   .progress {
