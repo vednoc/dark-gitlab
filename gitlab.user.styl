@@ -3650,6 +3650,12 @@
     overflow-x: hidden;
     background-color: var(--dark);
   }
+
+  // ! What.
+  // ? Fixes weird pseudoelements.
+  .diff-file .file-title {
+    &::before, &-flex-parent::before { display: none !important; }
+  }
 }
 
 @-moz-document regexp("https?://design.gitlab.com(/.*)") {
