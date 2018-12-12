@@ -2542,6 +2542,15 @@
       padding: 12px 8px;
       colors: 0, $darker, $dark;
     }
+    // ? Fixes approved merge request element.
+    // TODO Rewrite this entire section at some point.
+    .mr-widget-content {
+      padding: 0 !important;
+      .js-mr-approvals { padding: 0 0 0 8px !important; }
+    }
+    .mr-widget-workflow::before { border-left-color: $darker; }
+    // Branch name.
+    .label-branch { color: $red, 0, 0; }
   }
   .mr-widget-heading:not(.deploy-heading)::before {
     border-left: 1px solid var(--darker);
