@@ -301,6 +301,11 @@
     &-text-field {
       colors: $lighter, $darker, $darker;
     }
+    // Reset for "add x" buttons.
+    &-missing {
+      border-style: solid !important;
+      colors: $light, $darker, $dark;
+    }
     // Disabled buttons.
     &.disabled, &.disabled:hover,
     &[disabled], &[disabled]:hover {
@@ -775,12 +780,6 @@
       > a:focus { colors: $light, $darker, 0; }
       // Active tabs.
       &.active > a, &:hover > a:not(.btn-missing) { colors: $light, $accent, 0; }
-      // Reset for "add x" buttons.
-      .btn-missing {
-        border-style: solid !important;
-        colors: $lighter, $darker, $darker;
-        &:hover, &:focus { colors: $light, $darker, 0; }
-      }
       // Badges.
       a .badge.badge-pill { colors: $lighter, 0, $darker; }
     }
@@ -3526,6 +3525,8 @@
     // ? Doesn't work with ThemeSwitcher (yet, but it might in a future update).
     filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
   }
+  // }
+    box-shadow: inset 0 0 0 1.5px $accent, inset 0 0 0 5px $dark, inset 0 0 0 8px $accent;
   // * CI icons.
   .ci-status {
     &.ci-success, &-icon-success, &-icon-passed {
