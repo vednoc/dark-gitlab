@@ -360,6 +360,7 @@
   .nav-links:not(.quick-link) {
     border-bottom-color: $t;
   }
+  .label-bold { color: $light; }
   // ? Move to a better place.
   .option-title { colors: $light, 0, 0; }
   .option-description, .option-disabled-reason {
@@ -1484,6 +1485,7 @@
   // * Project :: Project/group home panel.
   .project-home-panel,
   .group-home-panel {
+    margin-top: 8px;
     colors: 0, $darker, 0;
     // Shorten description.
     .project-description { max-width: 60em; }
@@ -1503,6 +1505,12 @@
         transform: translate(0) !important;
         background: 0 !important;
       }
+    }
+    // ? New design, December 2018.
+    .add-license-link { colors: $lighter, 0, 0; }
+    .project-stat-value { colors: $light, 0, 0; }
+    .project-repo-buttons {
+      .count-badge, .btn-xs { height: 36px !important; }
     }
   }
 
@@ -1526,7 +1534,7 @@
       > div { margin: 0; }
       // Apply margins on the child elements.
       // ? Inline is needed for specificity.
-      > div > div, > div > .inline { margin: 0 8px 8px 0 !important; }
+      > div > div:not(:last-child), > div > .inline { margin: 0 8px 8px 0 !important; }
       // Right margin for buttons.
       .project-action-button { margin: 0 !important; }
     }
