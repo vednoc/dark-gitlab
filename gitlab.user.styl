@@ -744,6 +744,16 @@
     color: var(--light) !important;
   }
 
+  // * Alerts.
+  .alert-wrapper {
+    display: flex;
+    flex-direction: column;
+    // Move breadcrumbs to the last spot.
+    > nav { order: 999; }
+    // Move flash container to the top.
+    .flash-notice { margin-bottom: 0px !important; }
+  }
+
   // * Bootstrap breadcrumbs.
   .breadcrumbs {
     colors: $light, 0, 0;
