@@ -522,6 +522,8 @@
       color: $lighter !important;
     }
   }
+  // ? Prevent active/open dropdown from having wrong background-color.
+  .dropdown-menu.frequent-items-dropdown-menu.show { colors: 0, 0, $darker; }
   /* On event. */
   .dropdown-input-field:focus,
   .default-dropdown-input:focus {
