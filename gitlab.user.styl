@@ -22,6 +22,7 @@
 @var text     bg_filter "Background filters" opacity(0.05)
 @var text     bg_size   "Background size" 15px
 @var text     bg_repeat "Background repeat" repeat
+@var text     bg_pos    "Background position" center
 
 @var color dark    "Dark color."    #2e2e2e
 @var color darker  "Darker color."  #212121
@@ -68,6 +69,7 @@
     --bg-filter : bg_filter;
     --bg-size   : bg_size;
     --bg-repeat : bg_repeat;
+    --bg-pos    : bg_pos;
     --background: bg_image
   }
 
@@ -3645,10 +3647,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-position: center;
+    background-position: var(--bg-pos);
     background-repeat: var(--bg-repeat);
     background-size: var(--bg-size);
-    background: var(--background);
+    background-image: var(--background);
     filter: invert(var(--bg-invert)) var(--bg-filter);
   }
 
