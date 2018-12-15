@@ -750,8 +750,17 @@
     flex-direction: column;
     // Move breadcrumbs to the last spot.
     > nav { order: 999; }
-    // Move flash container to the top.
-    .flash-notice { margin-bottom: 0px !important; }
+    // Colors and resets for alerts.
+    .flash-notice {
+      margin-bottom: 0px !important;
+      border: none !important;
+      colors: $light, 0, $blue;
+    }
+    .alert-warning {
+      border: none !important;
+      colors: $light, 0, $orange;
+    }
+    .alert-link { colors: $lighter, 0, 0; }
   }
 
   // * Bootstrap breadcrumbs.
