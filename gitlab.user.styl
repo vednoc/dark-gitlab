@@ -2156,11 +2156,20 @@
   // ? Contains styles for milestone elements; find a better place.
   .detail-page-description {
     .title, &.milestone-detail { colors: $light, $darker, 0; }
-    small { color: $lighter; }
+    .edited-text, .edited-text * { colors: $lighter, 0, 0; }
   }
-  // Relative issues.
-  .issue-count-badge {
-    colors: 0, $darker, 0;
+
+  // * Issues :: Related issues.
+  .related-issues-block {
+    // Number of issues.
+    .issue-count-badge { colors: 0, $dark, 0; }
+    // Issue metadata.
+    .item-body {
+      // Link to the issue.
+      a.sortable-link { colors: $light, 0, 0; }
+      // Milestone/weight/etc.
+      .item-weight span, .path-id-text { colors: $lighter, 0, 0; }
+    }
   }
 
   /* Created branch button. */
