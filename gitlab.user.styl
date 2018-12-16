@@ -301,7 +301,7 @@
     }
     // Blank buttons.
     &-blank, &-clipboard {
-      colors: 0, 0, $t;
+      colors: $lighter, 0, $t;
     }
     // Comment on a note.
     &-text-field {
@@ -1540,6 +1540,7 @@
     // ? New design, December 2018.
     .add-license-link { colors: $lighter, 0, 0; }
     .project-stat-value { colors: $light, 0, 0; }
+    .project-stats .stat-text { colors: $lighter, 0, 0; }
     .project-repo-buttons {
       .count-badge, .btn-xs { height: 34px !important; }
     }
@@ -1690,14 +1691,15 @@
   .tree-holder .tree-table .selected td { colors: $light, $darker, $dark; }
 
   // * Wiki.
-  .wiki {
+  .wiki:not(.use-csslab) {
     color: $light;
     a { color: $accent !important; }
     h1, h2 { colors: $lighter, $darker, 0; }
     > p > code { border: 1px solid $darker !important; }
     blockquote, .blockquote {
       colors: $light, $accent, $darker;
-      p { colors: $light, 0, 0; }
+      // Second rule solves blockquote weirdness in issues.
+      p, * > p { colors: $light, 0, 0; }
     }
     pre { radius: $radius; }
     pre, code { colors: $lighter, $darker, $dark; }
@@ -1978,6 +1980,7 @@
     transition: 200ms ease-in-out;
   }
   /* Text color. */
+  .milestone-title,
   .issuable-milestone,
   .issuable-info,
   .task-status,
@@ -2177,6 +2180,8 @@
   .note-text pre {
     radius: $radius !important;
   }
+  // ? Fixes missing bottom border for code.
+  .notes .note-text > p:last-child { padding-bottom: 1px !important; }
 
   // * Cards.
   .card, .card-slim {
