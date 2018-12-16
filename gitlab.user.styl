@@ -981,11 +981,14 @@
 
   // * Project :: Branches.
   .all-branches {
-    margin-top: 10px !important;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    li { colors: 0, $darker, 0; }
+    .btn.btn-default { colors: $light, 0, 0; }
+    .btn.btn-remove { colors: var(--white), $red, $red; }
+    .branch-commit .commit-row-message { colors: $light, 0, 0; }
+    // Select next sibling and reset the colors.
+    & + .card-footer.text-center {
+      colors: $light, 0, $t;
+      a { colors: $lighter, 0, 0; }
+    }
   }
   // Graph color.
   .divergence-graph {
