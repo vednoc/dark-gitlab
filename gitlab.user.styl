@@ -2366,7 +2366,11 @@
   // TODO unfinished.
   .burndown-chart {
     background-color: $darker;
-    text { fill: $red; }
+    text { fill: $light; }
+    .axis {
+      &-label text { colors: $red, 0, 0; }
+      &-label line, line, path { stroke: $lighter; }
+    }
     // ? Legend!
     .legend {
       rect { stroke: $lighter; }
@@ -2376,6 +2380,12 @@
       stroke: $accent;
       fill: none !important;
     }
+  }
+  // Repository charts.
+  .repo-charts {
+    // Brings back the language color.
+    .fa { color: inherit !important; }
+    canvas { colors: 0, 0, $dark; }
   }
 
   // * Calendar.
