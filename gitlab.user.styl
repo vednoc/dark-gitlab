@@ -1980,7 +1980,6 @@
     transition: 200ms ease-in-out;
   }
   /* Text color. */
-  .milestone-title,
   .issuable-milestone,
   .issuable-info,
   .task-status,
@@ -2309,10 +2308,18 @@
       // Text color.
       .milestone-range { colors: $light, 0, 0; }
       // Links.
-      .milestone-progress a { colors: $accent, 0, 0; }
+      .milestone-progress {
+        .light, a { colors: $lighter, 0, 0; }
+      }
+      // Title and reopen button.
+      strong a, .btn-reopen { colors: $light, 0, 0; }
     }
   }
-  .milestone-banner-link { padding: 2px !important; }
+  .milestone {
+    // Color in relatable issues.
+    &-title { colors: $lighter, 0, 0; }
+    &-banner-link { padding: 2px !important; }
+  }
 
   // Progress bar background.
   .progress {
