@@ -377,6 +377,14 @@
   }
   // ? Check #13 for more info.
   .deployment-info, .js-deploy-time { colors: $light, 0, 0; }
+  // * Grid styles.
+  .flex-grid {
+    .grid-row { colors: 0, $darker, 0; }
+    .grid-cell {
+      colors: 0, $darker, 0;
+      .property-label { colors: $lighter, 0, 0; }
+    }
+  }
 
   // Sign in page.
   body, body.navless {
@@ -761,6 +769,10 @@
       colors: $light, 0, $orange;
     }
     .alert-link { colors: $lighter, 0, 0; }
+  }
+  // Customers page, possible refactor.
+  .alert-danger {
+    colors: $light, $red, $red;
   }
 
   // * Bootstrap breadcrumbs.
