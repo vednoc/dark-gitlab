@@ -1897,7 +1897,7 @@
     // Sections.
     [class*="col"] > [class*="block"] {
       padding: 8px 16px;
-      margin-top: 2rem;
+      margin-top: 16px;
       border: 1px solid;
       radius: $radius;
       colors: 0, $darker, $dark;
@@ -1906,9 +1906,8 @@
         padding: 0;
         colors: 0, $darker, 0;
         // Hide border in "activity" section.
-        &:first-child {
-          colors: 0, $t, 0;
-        }
+        // ? Only present in older versions of GitLab.
+        &:first-child { colors: 0, $t, 0; }
       }
       // Force calendar to stay full opacity.
       .contrib-calendar:hover { opacity: 1 !important; }
