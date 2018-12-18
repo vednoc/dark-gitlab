@@ -926,7 +926,8 @@
 
 
   // * Projects list.
-  .projects-list {
+  // TODO move groups to appropriate place. Possible refactor.
+  .projects-list, #groups .content-list {
     margin: 10px 0;
     radius: $radius;
     box-shadow: inset 0 0 0 1px $darker;
@@ -1873,8 +1874,8 @@
   // ? https://gitlab.com/vednoc/dark-gitlab/activity
   .project-activity {
     radius: $radius;
-    border: 1px solid $darker;
     background-color: $dark;
+    box-shadow: inset 0 0 0 1px $darker;
     // Item.
     .event-item {
       padding: 8px 8px 8px 60px;
@@ -1898,9 +1899,9 @@
     [class*="col"] > [class*="block"] {
       padding: 8px 16px;
       margin-top: 16px;
-      border: 1px solid;
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, 0, $dark;
+      box-shadow: inset 0 0 0 1px $darker;
       // Remove padding for titles.
       > [class*="block"] {
         padding: 0;
@@ -1937,8 +1938,8 @@
   // TODO possible refactor with project::activity.
   .user-profile .content_list {
     radius: $radius;
-    border: 1px solid $darker;
     background-color: $dark;
+    box-shadow: inset 0 0 0 1px $darker;
     .event-item {
       padding: 8px 8px 8px 60px;
       border-color: $darker;
