@@ -539,9 +539,9 @@
   // * Frequently visited.
   [class*="frequent-items"] {
     .section-header { color: $light !important; }
-    .section-empty, [class*="namespace"]  {
-      color: $lighter !important;
-    }
+    .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
+    // Sidebar.
+    [class*="dropdown-sidebar"] { colors: 0, $shadow, 0; }
   }
   // ? Prevent active/open dropdown from having wrong background-color.
   .dropdown-menu.frequent-items-dropdown-menu.show { colors: 0, 0, $darker; }
@@ -551,14 +551,8 @@
     border-color: var(--blue);
     box-shadow: 0 0 1px 3px var(--shadow);
   }
-  /* Separator. */
-  .divider,
-  .dropdown-divider,
-  .dropdown-menu .divider,
-  .dropdown-menu [class*="dropdown-sidebar"] {
-    border-color: $shadow;
-    background-color: $t;
-  }
+  // Separator.
+  [class*="divider"] { colors: 0, $shadow, $t; }
   /* Items. */
   .dropdown-menu li a,
   .dropdown-menu li button,
