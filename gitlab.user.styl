@@ -44,6 +44,7 @@
 
 @-moz-document regexp("https?://(.*)?(gitlab\.(?!io).*|gitgud.io|salsa.debian.org|framagit.org|source.joinmastodon.org|repo.getmonero.org|your.custom.domain)(/.*)?") {
   :root {
+    --note      : "DarkGitlab v0.20.0";
     --dark      : dark;
     --darker    : darker;
     --light     : light;
@@ -489,7 +490,14 @@
     // Navbar separator on mobile devices.
     &-toggler { border-left-color: $dark !important; }
     // Active dropdowns.
-    .dropdown.show > a { colors: $light, 0, $dark; }
+    // ? Shows theme version in the user dropdown.
+    .header-user li:last-child::before {
+      content: var(--note);
+      display: block;
+      padding: 4px 12px 8px;
+      border-bottom: 1px solid $shadow;
+      color: $light;
+    }
   }
 
   /* Dropdowns. */
