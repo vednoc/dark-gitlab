@@ -2072,10 +2072,21 @@
   }
 
   // * Dashboard :: Operations.
-  .tokenized-input-wrapper {
-    &.focus { box-shadow: 0 0 4px 0px $accent !important; }
-    .tokenized-input { colors: $light, 0, $t; }
-    .input-token, .tokenized-input-token-remove { colors: 0, 0, $darker; }
+  .operations-dashboard {
+    // Remove extra padding.
+    > nav, > div { padding: 0 !important; }
+    // Add projects.
+    .tokenized-input-wrapper {
+      radius: $radius;
+      &.focus { box-shadow: 0 0 1px 1px $accent !important; }
+      .tokenized-input { colors: $light, 0, $t; }
+      .input-token, .tokenized-input-token-remove { colors: 0, 0, $darker; }
+    }
+    // Cards.
+    .card {
+      radius: $radius;
+      .card-header { radius: $radius $radius 0 0; }
+    }
   }
 
   // * Dashboard :: Top navigation.
