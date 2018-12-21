@@ -357,16 +357,15 @@
     &-issue-closed { colors: $light, 0, $blue; }
   }
 
-  /* Global styles. */
+  // * Global styles.
   [class*="committer-link"],
   [class*="author-link"],
   .author_name a {
     color: $accent !important;
   }
-  .nav-links:not(.quick-link) {
-    border-bottom-color: $t;
-  }
+  .nav-links:not(.quick-link) { border-bottom-color: $t; }
   .label-bold { color: $light; }
+  // ? Inverts checkboxes since we can't style them as they are currently.
   if checkbox {
     input[type="checkbox"] { filter: invert(var(--bg-invert)) !important; }
   }
@@ -385,7 +384,7 @@
       .property-label { colors: $lighter, 0, 0; }
     }
   }
-  // ? Promotion background.
+  // ? Promotion background on i.e. project/audit_events page.
   .promotion-backdrop { colors: 0, 0, $t; }
 
   // Sign in page.
