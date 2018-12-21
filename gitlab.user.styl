@@ -3665,6 +3665,16 @@
 
   // * Centers project header elements; old design lookalike.
   if p_header {
+    // Necessary in v11.6 (I think).
+    .project-home-panel .project-header {
+      > div { max-width: 100%; }
+      > .project-repo-buttons { justify-content: center !important; }
+    }
+    .project-home-panel .project-badges {
+      flex-direction: row !important;
+      justify-content: center;
+    }
+    // Up until v11.5 (I think).
     .project-home-panel > div {
       display: flex;
       flex-direction: column;
