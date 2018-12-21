@@ -774,9 +774,12 @@
     }
     // Red alert.
     .flash-alert { colors: $light, $red, $red; }
+    // Orange alert.
     .alert-warning {
       border: none !important;
       colors: $light, 0, $orange;
+      // ? Fixes unnecessary limited container issue.
+      > .container-limited { padding: 0; max-width: 100%; }
     }
     .alert-link { colors: $lighter, 0, 0; }
   }
