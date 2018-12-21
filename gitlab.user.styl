@@ -3573,7 +3573,6 @@
     background-image: linear-gradient(to right, var(--darker) 0%, var(--dark) 100%);
   }
 
-
   // * Group header.
   .explore-groups {
     border-color: var(--darker);
@@ -3599,11 +3598,8 @@
       border-color: var(--lighter) !important;
       background: var(--lighter) !important;
     }
-    .group-row .stats {
-      color: var(--light);
-    }
+    .group-row .stats { color: var(--light); }
   }
-
 
   // * Invert image icons.
   // TODO adjust if it causes weird things.
@@ -3633,18 +3629,10 @@
   }
   // * CI icons.
   .ci-status {
-    &.ci-success, &-icon-success, &-icon-passed {
-      colors: $green, $green, $t;
-    }
-    &.ci-running {
-      colors: $blue, $blue, $t;
-    }
-    &-icon-pending, &-icon-success_with_warnings {
-      colors: $orange, $orange, $t;
-    }
-    &.ci-failed {
-      colors: $red, $red, $t;
-    }
+    &.ci-success, &-icon-success, &-icon-passed { colors: $green, $green, $t; }
+    &.ci-running { colors: $blue, $blue, $t; }
+    &-icon-pending, &-icon-success_with_warnings { colors: $orange, $orange, $t; }
+    &.ci-failed { colors: $red, $red, $t; }
     &.ci-created, &.ci-skipped,
     &.ci-canceled, &.ci-disabled,
     &.ci-manual, &-icon-skipped {
@@ -3654,13 +3642,9 @@
   // * CI icons on hover.
   .stage-container {
     // Connectors.
-    &::after {
-      colors: 0, $darker, 0;
-    }
+    &::after { colors: 0, $darker, 0; }
     // Icon background.
-    .mini-pipeline-graph-dropdown-toggle {
-      colors: 0, 0, $darker;
-    }
+    .mini-pipeline-graph-dropdown-toggle { colors: 0, 0, $darker; }
   }
 
   // * Centers project header elements; old design lookalike.
