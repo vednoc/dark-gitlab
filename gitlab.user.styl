@@ -3179,10 +3179,13 @@
   }
   /* Build header. */
   .build-page .top-bar {
+    radius: $radius $radius 0 0;
     colors: $lighter, $darker, $dark;
     // ? Fix terminal controls header, bug on upstream.
     &.sidebar-expanded { margin-right: 0 !important; }
   }
+  // ? Hotfix for the header.
+  .build-page > header > .build-header.top-area { margin-bottom: 10px; }
   /* Build log. */
   .build-page .build-trace {
     radius: 0 0 $radius $radius;
@@ -3190,9 +3193,14 @@
     border: 1px solid var(--darker);
     border-top-color: transparent;
     background-color: var(--dark);
+    > code {
+      colors: $lighter, 0, 0;
+      .term-fg-l-green { colors: $green, 0, 0; }
+      .term-fg-red { colors: $red, 0, 0; }
+    }
   }
   .build-page .environment-information {
-    border-color: var(--darker);
+    colors: 0, $darker, $dark;
   }
   /* Build sidebar. */
   .build-sidebar .builds-container {
