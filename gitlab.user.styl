@@ -386,6 +386,19 @@
   }
   // ? Promotion background on i.e. project/audit_events page.
   .promotion-backdrop { colors: 0, 0, $t; }
+  // ? Custom GitLab tables on i.e. project/settings/badges page.
+  .gl-responsive-table-row-layout {
+    colors: 0, $darker, 0;
+    // Items border.
+    .table-section:not(:first-child) { colors: 0, $darker, 0; }
+    // Text badges.
+    .badge.badge-pill { colors: $light, 0, $darker; }
+    // Footer.
+    .table-button-footer {
+      colors: 0, $darker, $t;
+      @media screen and (max-width: 767px) { colors: 0, 0, $darker; }
+    }
+  }
 
   // Sign in page.
   body, body.navless {
