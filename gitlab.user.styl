@@ -3566,7 +3566,7 @@
   }
 
   // * Jobs :: Navigation.
-  [data-page="projects:commit:pipelines"], [data-page="projects:pipelines:show"] {
+  [data-page="projects:commit:pipelines"], [data-page^="projects:pipelines"] {
     .nav-links:not(.quick-links) {
       margin-top: 10px;
       padding: 0 10px;
@@ -3575,8 +3575,18 @@
       colors: 0, $darker, $dark;
       a.active { colors: $light, 0, 0; }
     }
-    // Mini dropdown items on hover.
-    .show .mini-pipeline-graph-dropdown-item:hover { colors: 0, 0, $dark; }
+    // * Pipeline stages dropdown.
+    .show .mini-pipeline-graph-dropdown {
+      // Dropdown indicator.
+      &-menu::after { colors: 0, $accent, 0; }
+      // Items on hover/active states.
+      &-item {
+        colors: $lighter, 0, 0;
+        &:hover, &:active { colors: $light, 0, $dark; }
+      }
+      // ? Fix very thin font being barely visible.
+      &-item .ci-status-text { font-weight: normal !important; }
+    }
   }
 
   // * Skeleton.
