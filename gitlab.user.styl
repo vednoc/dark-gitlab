@@ -3567,7 +3567,8 @@
 
   // * Jobs :: Navigation.
   [data-page="projects:commit:pipelines"], [data-page^="projects:pipelines"] {
-    .nav-links:not(.quick-links) {
+    // ? Only apply to nav-links that have .nav-tabs class.
+    .nav-tabs.nav-links:not(.quick-links) {
       margin-top: 10px;
       padding: 0 10px;
       border: 1px solid;
