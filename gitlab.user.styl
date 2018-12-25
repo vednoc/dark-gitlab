@@ -2447,6 +2447,19 @@
     .fa { color: inherit !important; }
     canvas { colors: 0, 0, $dark; }
   }
+  // ? Found in: .../repo/pipelines/charts
+  [data-page="projects:pipelines:charts"] {
+    .legend {
+      &-success .fa { color: inherit !important; }
+      &-all { colors: $lighter, 0, 0; }
+      &-all > i { color: inherit !important; }
+    }
+    canvas {
+      radius: $radius;
+      colors: 0, 0, $dark;
+      box-shadow: inset 0 0 0 1px $darker;
+    }
+  }
 
   // * Calendar.
   .pika-single {
