@@ -1626,8 +1626,10 @@
   .progress.repository-languages-bar {
     background-color: $t !important;
     .progress-bar {
-      margin: 0 4px 0 0;
       radius: 8px;
+      // Apply right margin to all but the last child.
+      &:not(:last-child) { margin: 0 4px 0 0 !important; }
+      // Crystal language color.
       &[style$="#776791"] { background: #000000 !important; }
     }
   }
