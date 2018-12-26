@@ -3692,6 +3692,19 @@
     &.ci-manual, &-icon-skipped {
       colors: $lighter, $shadow, $t;
     }
+    // ? Pipeline icons in: project/merge_requests/*
+    &-icon-success.add-border svg {
+      fill: $green !important;
+      colors: 0, $green, 0;
+    }
+    &-icon-running.add-border svg {
+      fill: $blue !important;
+      colors: 0, $blue, 0;
+    }
+    &-icon-failed.add-border svg {
+      fill: $red !important;
+      colors: 0, $red, 0;
+    }
   }
   // * CI icons on hover.
   .stage-container {
