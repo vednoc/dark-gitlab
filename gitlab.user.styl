@@ -2691,13 +2691,15 @@
     // TODO Rewrite this entire section at some point.
     .mr-widget-content {
       padding: 0 !important;
-      .js-mr-approvals { padding: 0 0 0 8px !important; }
+      .js-mr-approvals { padding: 0 !important; }
     }
     .mr-widget-workflow::before { border-left-color: $darker; }
     // Branch name.
     .label-branch { color: $red, 0, 0; }
   }
+  .mr-widget-workflow::before,
   .mr-widget-heading:not(.deploy-heading)::before {
+    left: 24px !important;
     border-left: 1px solid var(--darker);
   }
   // Text color.
