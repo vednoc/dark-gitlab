@@ -3699,6 +3699,7 @@
   .created-icon, .opened-icon,
   [class*="ci-status"] svg.s24,
   [class*="ci-status"]:not(#stageDropdown) svg.s16,
+  a[class*="ci-status"] svg, // ? Found on: .../-/jobs
   svg.ic-upload {
     // ? bg_invert must be enabled/disabled in Dark-GitLab.
     // ? Doesn't work with ThemeSwitcher (yet, but it might in a future update).
@@ -3734,6 +3735,12 @@
       svg { fill: $icon !important; colors: 0, $icon, 0; }
     }
   }
+
+  // "Weird" behaving success with warnings status.
+  a.ci-success_with_warnings { colors: $orange, $orange, $t; }
+  // "Weird" behaving warning on pipelines page.
+  .ic-status_warning_borderless { fill: $orange !important; }
+
   // * CI icons on hover.
   .stage-container {
     // Connectors.
