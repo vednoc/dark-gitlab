@@ -2414,9 +2414,15 @@
   }
 
   // * Promotional.
-  .user-callout.promotion-callout .bordered-box {
-    border-color: var(--darker);
-    background-color: var(--dark);
+  .user-callout  {
+    // Reset extra margins on the side.
+    margin: 20px 0 0 !important;
+    &.promotion-callout .bordered-box { colors: 0, $darker, $dark; }
+    // ? Found in: .../repo/pipeline_schedules
+    .bordered-box.content-block {
+      padding: 8px !important;
+      colors: 0, $darker, $dark;
+    }
   }
   .banner-non-empty-state {
     padding: 5px 0 0 0;
