@@ -1597,6 +1597,12 @@
       .count-badge, .btn-xs { height: 34px !important; }
     }
   }
+  // "Auto DevOps enabled" and possibly other buttons.
+  .project-buttons .stat-text {
+    colors: $light, $darker, $dark;
+    transition: transform 0.2s ease-in-out;
+    &:hover { transform: translateY(-2px); }
+  }
 
   // * Arrows.
   // ? Old GitLab design.
