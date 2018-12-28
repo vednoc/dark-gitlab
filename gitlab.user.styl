@@ -788,6 +788,14 @@
     }
     // Red alert.
     .flash-alert { colors: $light, $red, $red; }
+    // Green alert.
+    .flash-success {
+      colors: $light, $green, $green;
+      a {
+        color: $light;
+        text-decoration: underline;
+      }
+    }
     // Orange alert.
     .alert-warning {
       border: none !important;
@@ -3619,6 +3627,12 @@
       colors: 0, $darker, $dark;
       a.active { colors: $light, 0, 0; }
     }
+  }
+
+  // * CI/CD :: Schedules.
+  [data-page^="projects:pipeline_schedules"] {
+    .ref-name, .next-run-cell { colors: $light, 0, 0; }
+    .pipeline-schedule-table-row a { colors: $light, 0, 0; }
   }
 
   // * Skeleton.
