@@ -3828,7 +3828,8 @@
   }
 
   // * Custom app background.
-  body::before {
+  // ? `:not(.dark) is used to prevent disqus iframe conflicts.
+  body:not(.dark)::before {
     position: fixed;
     z-index: -1;
     content: "";
@@ -3906,8 +3907,41 @@
 @-moz-document regexp("https?://about.gitlab.com(/.*)") {
   .blog.article {
     .body { colors: 0, 0, $dark; }
-    .signup, .comments { colors: 0, 0, $t; }
+    // Anchors.
+    .content {
+      h1, h2, h3, h4, h5, h6, ul li, a {
+        // colors: $accent, 0, 0;
+        a, code { colors: $accent, 0, 0; }
+      }
+      p a, p a > a { colors: $accent, 0, 0; }
+    }
+    .btn.btn-red { colors: $light, $red, $darker; }
+    .twitter-block .panel-body { colors: $lighter, 0, $darker; }
+    // Availability of the features.
+    .badge:not(.available) { colors: $light, $darker, $darker; }
+    // Previous/next buttons.
+    .pull-left a, .pull-right a { colors: $light, $darker, $dark; }
+    // Signup section.
+    .signup {
+      max-width: 100%;
+      colors: 0, 0, $darker;
+      > .panel {
+        margin: 0 auto;
+        max-width: 900px;
+      }
+    }
+    // Disqus section.
+    .comments {
+      radius: $radius;
+      border: 1px solid;
+      colors: 0, $darker, $dark;
+    }
   }
+  // Header anchor.
+  .header-link > i.fa-link { colors: $lighter, 0, 0; }
+  // Divider between new features.
+  [class$="-column"]:last-child { colors: 0, $darker, 0; }
+  // Navbar.
   .sticky-banner {
     colors: 0, 0, $darker;
     box-shadow: 0 0 8px 0 $shadow;
