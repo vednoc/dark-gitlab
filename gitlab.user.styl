@@ -3533,7 +3533,7 @@
     // Triangle.
     .cross-project-triangle {
       margin-top: 1px;
-      border-left-color: var(--darker);
+      border-left-color: $darker;
     }
     // Linked pipeline?
     // ? https://gitlab.com/gitlab-org/gitlab-ce/pipelines/31973329
@@ -3542,24 +3542,21 @@
         border-width: 2px !important;
         radius: 10px !important;
         colors: $light, $darker, $dark;
-        &:hover {
-          colors: 0, 0, $darker;
-        }
+        // ? Reset it because it's a button.
+        transform: none !important;
+        &:hover { colors: 0, 0, $darker; }
       }
-      &::before {
-        margin-top: 2px;
-      }
+      // Connector line.
+      &::before { margin-top: 2px; }
     }
     // Actions.
     .ci-action-icon-container {
       margin: 1px 1px 0 0;
       colors: 0, $darker, $dark;
     }
-    /* Connectors. */
-    .stage-column .curve::before,
-    .stage-column .curve::after,
-    .build::before, .build::after {
-      border-color: var(--darker) !important;
+    // Connectors.
+    .build, .stage-column .curve {
+      &::before, &::after { colors: 0, $darker, 0; }
     }
   }
 
