@@ -3520,16 +3520,15 @@
   .pipeline-graph {
     margin-top: 10px;
     radius: $radius;
-    border: 1px solid;
-    colors: $light, $darker, $dark;
+    colors: $light, 0, $dark;
+    box-shadow: inset 0 0 0 1px $darker;
     // Pipeline node.
     .build .build-content {
       border-width: 2px !important;
-      colors: $light, $darker, $dark;
+      colors: $lighter, $darker, $dark;
+      transition: 0.2s ease;
       // On event.
-      &:hover {
-        colors: $light, $darker, $darker;
-      }
+      &:hover { colors: $light, $darker, $darker; }
     }
     // Triangle.
     .cross-project-triangle {
