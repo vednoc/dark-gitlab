@@ -1210,11 +1210,25 @@
   // * Popover.
   .popover {
     colors: 0, $darker, $dark;
-    box-shadow: $box;
+    box-shadow: 0 4px 8px 0 $shadow;
     &-header { colors: 0, $darker, $darker; }
     &-body { colors: $light, 0, 0; }
-    .arrow::before { border-top-color: $darker !important; }
-    .arrow::after { border-top-color: $dark !important; }
+    &[class*="-top"] {
+      .arrow::before { border-top-color: $darker !important; }
+      .arrow::after { border-top-color: $dark !important; }
+    }
+    &[class*="-bottom"] {
+      .arrow::before { border-bottom-color: $darker !important; }
+      .arrow::after { border-bottom-color: $dark !important; }
+    }
+    &[class*="-left"] {
+      .arrow::before { border-left-color: $darker !important; }
+      .arrow::after { border-left-color: $dark !important; }
+    }
+    &[class*="-right"] {
+      .arrow::before { border-right-color: $darker !important; }
+      .arrow::after { border-right-color: $dark !important; }
+    }
     .gpg-popover-user-link { colors: $light, 0, 0; }
     // Milestones.
     .milestone-popover-body { colors: 0, 0, $t; }
