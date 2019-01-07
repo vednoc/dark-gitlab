@@ -1185,21 +1185,22 @@
   .info-well .limit-box {
     background-color: $red !important;
   }
-  ul.content-list > li,
-  .info-well > .well-segment {
-    padding: 8px;
+
+  // * Project :: Commits.
+  ul.content-list > li { padding: 8px; }
+  // Individual commit.
+  [id*="commit"] {
+    // Center avatar.
+    a > img {
+      margin-top: 3px;
+      margin-left: 3px;
+    }
+    // Commit sha.
+    > .commit-detail { align-items: center; }
   }
-  /* Center avatar. */
-  [id*="commit"] a > img,
-  .info-well > .well-segment a > img {
-    margin-top: 3px;
-    margin-left: 3px;
-  }
-  /* Adjust sha. */
-  .commit > .commit-detail,
-  .info-well > .well-segment .commit-detail {
-    align-items: center;
-  }
+
+  // * Latest commit.
+  .info-well > .well-segment { padding: 6px 8px; }
 
   // * GPG button.
   .gpg-status-box {
