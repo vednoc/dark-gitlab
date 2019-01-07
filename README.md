@@ -14,12 +14,13 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
 * [ ] Add a contribution guide.
 * [ ] Add a changelog.
 * [x] Write a concise readme.
-* [ ] Add issue and merge request templates.
+* [x] Add issue and merge request templates.
 * [x] Convert to [Stylus-lang](https://stylus-lang.org):
   * [x] Make a use of vars, mixins, nesting, etc.
-  * [ ] Refactor existing CSS.
+  * [x] Refactor existing CSS.
   * [ ] Full coverage.
 * [x] Convert to [BetterComments](https://github.com/aaron-bond/better-comments):
+  * [x] Use it with refactored CSS.
   * [ ] Full coverage.
 * [x] Cover most of the GitLab website.
 * [x] Have a *decent* compatability with a few older versions for self-hosted instances. Might get dropped depending on the number of breaking changes.
