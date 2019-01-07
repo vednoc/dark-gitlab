@@ -6,20 +6,6 @@ A customizable Stylus theme for Gitlab and self-hosted GitLab instances made by 
   <img alt="banner" src="./images/banner.png" width="600">
 </p>
 
-# ToC
-- [dark-gitlab](#dark-gitlab)
-- [ToC](#toc)
-- [Roadmap to v1.0.0](#roadmap-to-v100)
-- [Features](#features)
-- [Install and setup](#install-and-setup)
-    - [Using a browser extension:](#using-a-browser-extension)
-    - [Install this theme:](#install-this-theme)
-    - [GitLab settings:](#gitlab-settings)
-    - [Further customization:](#further-customization)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-
-
 # Roadmap to v1.0.0
 
 * [X] Make a better logo.
