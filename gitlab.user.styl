@@ -248,6 +248,8 @@
     // Remove blue outline.
     &:focus, &.focus { box-shadow: 0 0 2px 0px $accent; }
     &-link { colors: $accent, 0, 0; }
+    // Expand button.
+    &.click-to-expand { padding: 3px; }
   }
   // Colored buttons.
   .btn {
@@ -731,17 +733,11 @@
   .settings-message {
     colors: $light, $darker, $dark;
   }
-  /* Social icons. */
-  .provider-btn-group {
-    border-color: var(--darker);
-    background: var(--darker) !important;
-  }
-  .provider-btn-image {
-    border-color: var(--darker);
-  }
+  // Social icons.
   .provider-btn {
-    color: var(--accent) !important;
-    background-color: var(--darker);
+    colors: $lighter, 0, $dark;
+    &-group { colors: 0, $darker, $dark; }
+    &-image { colors: 0, $darker, 0; }
   }
   /* Path. */
   .input-group-text { colors: $light, $darker, $darker; }
@@ -2684,10 +2680,6 @@
         border-bottom: 1px solid $darker !important;
       }
     }
-  }
-  /* Click to expand button. */
-  .btn.click-to-expand {
-    padding: 3px;
   }
 
   // * Merge Requests :: Files.
