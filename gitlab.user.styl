@@ -1593,6 +1593,34 @@
     }
   }
 
+  // * Project :: Wiki -> Mermaid.
+  .mermaid {
+    max-width: var(--width) !important;
+    padding-bottom: 10px;
+    radius: $radius;
+    colors: 0, 0, $dark;
+    &:hover { opacity: 1 !important; }
+    // Boxes.
+    rect.actor {
+      fill: $darker !important;
+      stroke: $darker !important;
+    }
+    text.actor { fill: $light !important; }
+    // Connectors.
+    .actor-line { stroke: $darker !important; }
+    // Notes.
+    .note {
+      fill: $darker !important;
+      stroke: $accent !important;
+    }
+    .noteText, .noteText tspan { fill: $lighter !important; }
+    // Lines.
+    .message {
+      &Text { fill: $lighter !important; }
+      &Line0 { stroke: $darker !important; }
+    }
+  }
+
   // * Project :: Project/group home panel.
   .project-home-panel,
   .group-home-panel {
