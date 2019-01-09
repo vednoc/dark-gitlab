@@ -3271,16 +3271,18 @@
   // * Build sidebar.
   .build-sidebar {
     .link-commit { colors: $accent, 0, 0; }
-    // Pipelines.
-    .builds-container {
-      colors: $light, $darker, $dark;
-      .build-job {
-        transition: 0.2s ease;
-        a { colors: $light, 0, 0; }
-        &:hover { colors: 0, 0, $darker; }
-        // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
-        &.retried { colors: 0, 0, $t; }
-       }
+  }
+
+  // * Pipelines :: Builds.
+  // TODO Buggy, info: https://gitlab.com/vednoc/dark-gitlab/issues/22
+  .builds-container {
+    colors: $light, $darker, $dark;
+    .build-job {
+      transition: 0.2s ease;
+      a { colors: $light, 0, 0; }
+      &:hover { colors: 0, 0, $darker; }
+      // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
+      &.retried { colors: 0, 0, $t; }
     }
   }
 
