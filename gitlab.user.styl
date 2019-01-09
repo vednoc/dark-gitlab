@@ -2664,18 +2664,14 @@
   .notes .system-note .system-note-commit-list-toggler {
     color: var(--accent) !important;
   }
-  /* Table. */
-  .notes .note-body .note-text table,
+  // Table.
   .notes .note-body .note-text table {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-  }
-  .notes .note-body .note-text table tr th {
-    border: 1px solid var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  .notes .note-body .note-text table tr td {
-    border-color: var(--darker) !important;
+    colors: $light, $darker, 0;
+    tr th {
+      border: 1px solid !important;
+      colors: 0, $darker, $dark;
+    }
+    tr td { colors: 0, $darker, 0; }
   }
   /* Commit list. */
   .notes .system-note .note-body .note-text:not(.hide-shade)::after {
