@@ -2541,10 +2541,7 @@
     td {
       colors: 0, $darker, 0;
       .pika-day { colors: $light, 0, $dark; }
-      // Active.
-      .pika-day:hover,
-      &.is-today .pika-day,
-      &.is-selected .pika-day { colors: $lighter, 0, $darker; }
+      .pika-day:hover, &[class^="is-"] .pika-day { colors: $accent, 0, $darker; }
     }
   }
 
