@@ -961,6 +961,22 @@
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
     }
+    // ? List items from 11.8 update?
+    .project-row {
+      padding: 8px;
+      // TODO Turn this into a global and/or custom setting?
+      .avatar-container.s64 {
+        min-width: 48px !important;
+        min-height: 48px !important;
+        height: 48px !important;
+        width: 48px !important;
+      }
+      // Quick stats..
+      .stars, .forks, .updated-note {
+        colors: $lighter, 0, 0;
+        time { color: $lighter; }
+      }
+    }
   }
 
   /* Avatar background. */
