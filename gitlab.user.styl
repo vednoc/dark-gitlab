@@ -1963,9 +1963,20 @@
     }
   }
 
+  // ? Most recent activity.
   #activity .event-item {
-    color: var(--light);
-    border-bottom-color: var(--darker);
+    colors: $lighter, $darker, 0;
+    // Rounded corners.
+    &:hover:first-child { radius: $radius $radius 0 0; }
+    &:hover:last-child { radius: 0 0 $radius $radius; }
+    // Text color.
+    .event-type {
+      colors: $lighter, 0, 0;
+      ~ .event-scope { colors: $lighter, 0, 0; }
+      // ~ span a { colors: $light, 0, 0; }
+    }
+    &-timestamp time { colors: $lighter, 0, 0; }
+    .commit { colors: $light, 0, 0; }
   }
   /* Text color. */
   .cover-block .cover-desc,
