@@ -1954,7 +1954,15 @@
     rect[fill^="rgb(37"] { opacity: 1; }
   }
 
-  /* Most recent activity. */
+  // ? Compact projects-list.
+  .compact.projects-list {
+    box-shadow: none !important;
+    .project-row {
+      padding: 8px;
+      &:hover { radius: $radius; }
+    }
+  }
+
   #activity .event-item {
     color: var(--light);
     border-bottom-color: var(--darker);
