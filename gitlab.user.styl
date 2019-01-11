@@ -3839,13 +3839,13 @@
   // "Weird" behaving warning on pipelines page.
   .ic-status_warning_borderless { fill: $orange !important; }
 
-  // * CI icons on hover.
-  .stage-container {
-    // Connectors.
-    &::after { colors: 0, $darker, 0; }
-    // Icon background.
-    .mini-pipeline-graph-dropdown-toggle { colors: 0, 0, $darker; }
+  // CI stage connectors.
+  .stage-container::after {
+    top: 11px !important;
+    border-bottom: 1px solid $icon !important;
   }
+  // Icon background.
+  .mini-pipeline-graph-dropdown-toggle { colors: 0, 0, $darker; }
 
   // * Centers project header elements; old design lookalike.
   if p_header {
