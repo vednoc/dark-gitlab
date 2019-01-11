@@ -1019,6 +1019,15 @@
   .project-empty-note-panel { border-color: $darker; }
   .git-empty pre.bg-light { colors: $light, $darker, $dark; }
 
+  // * Project :: New fork.
+  .fork-thumbnail-container {
+    .fork-thumbnail {
+      colors: 0, $darker, $dark;
+      transition: 0.2s ease;
+      &:hover { colors: 0, $dark, $darker; }
+    }
+  }
+
   // * Project :: Commits.
   #commits-list {
     .commit-list {
