@@ -981,26 +981,21 @@
     }
   }
 
-  /* Avatar background. */
+  // * Avatars.
   .avatar,
   .avatar-circle,
   .avatar-container,
-  .breadcrumbs-links .avatar-tile,
-  .header-user-avatar {
+  .header-user-avatar,
+  .breadcrumbs-links .avatar-tile, {
     radius: var(--avatar) !important;
-    border: 1px solid $t !important;
-    background-color: transparent !important;
+    colors: $lighter, $t, $t;
   }
-  .avatar-container,
-  .identicon {
-    color: var(--light);
-  }
+  // TODO Prolly not needed anymore.
+  .identicon { color: $lighter; }
   // ? Drop some shadow; use transparent avatars for best results.
   img.avatar { filter: drop-shadow(1px 1px 2px $shadow); }
   // ? Replace default background for project avatars and fix the height.
-  .avatar:not(img) {
-    colors: 0, 0, $shadow;
-  }
+  .avatar:not(img) { colors: 0, 0, $shadow; }
 
   // * Project details.
   .project-details {
