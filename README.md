@@ -46,11 +46,11 @@ This is why you should consider using dark-gitlab!
 To go further you'll need a CSS injector extension for your browser. We highly recommend [Stylus](https://github.com/openstyles/stylus) since it's simply the best one out there.
 
 ### Get Stylus:
-Get the extension for [Firefox][1], [Chrome][2] and [Opera][3].
+Get the extension for [Firefox][Firefox], [Chrome][Chrome] and [Opera][Opera].
 
-[1]: (https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
-[2]: (https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
-[3]: (https://addons.opera.com/en-gb/extensions/details/stylus/)
+[Firefox]: (https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
+[Chrome]: (https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+[Opera]: (https://addons.opera.com/en-gb/extensions/details/stylus/)
 
 ### Install this theme:
 [![Install directly with Stylus][badge]][style]
