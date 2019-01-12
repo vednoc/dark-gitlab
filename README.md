@@ -48,9 +48,9 @@ To go further you'll need a CSS injector extension for your browser. We highly r
 ### Get Stylus:
 Get the extension for [Firefox][amo], [Chrome][cws] and [Opera][aoe].
 
-[amo]: (https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
-[cws]: (https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
-[aoe]: (https://addons.opera.com/en-gb/extensions/details/stylus/)
+[amo]: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+[cws]: https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+[aoe]: https://addons.opera.com/en-gb/extensions/details/stylus/
 
 ### Install this theme:
 [![Install directly with Stylus][badge]][style]
