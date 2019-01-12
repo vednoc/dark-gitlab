@@ -1725,6 +1725,8 @@
     background-color: $t !important;
     .progress-bar {
       radius: 8px;
+      // ? Fixes buggy bar in `.../vednoc/better-comments` repo.
+      flex-grow: 1;
       // Apply right margin to all but the last child.
       &:not(:last-child) { margin: 0 4px 0 0 !important; }
       // Crystal language color.
