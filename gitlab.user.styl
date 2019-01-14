@@ -4016,6 +4016,24 @@
 // ! @RaitaroH takes the full responsibility for this section. (=
 
 @-moz-document regexp("https?://about.gitlab.com(/.*)") {
+  // * Index page for about sub-domain.
+  .sdlc-table {
+    radius: $radius !important;
+    colors: 0, 0, $dark;
+    box-shadow: 0 0 0 1px $darker !important;
+    .sdlc-column:not(:last-child) {
+      border-right-color: $darker !important;
+    }
+    .stage-container, .solutions-container {
+      border-bottom-color: $darker !important;
+    }
+    .devops-tool-logo-container {
+      radius: 0 0 $radius $radius;
+      colors: 0, 0, $dark;
+    }
+  }
+  a.feature-more { colors: $accent, 0, 0; }
+  // * Articles.
   .blog.article {
     .body { colors: 0, 0, $dark; }
     // Anchors.
