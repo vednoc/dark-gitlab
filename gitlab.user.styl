@@ -4016,6 +4016,15 @@
 // ! @RaitaroH takes the full responsibility for this section. (=
 
 @-moz-document regexp("https?://about.gitlab.com(/.*)") {
+  // * Global image reset.
+  img, .video_container {
+    opacity: 0.5 !important;
+    transition: 0.3s ease;
+    &:hover {
+      opacity: 1 !important;
+      transition-delay: 0.3s;
+    }
+  }
   // * Index page for about sub-domain.
   .sdlc-table {
     radius: $radius !important;
