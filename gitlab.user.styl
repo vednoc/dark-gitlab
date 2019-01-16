@@ -2861,6 +2861,8 @@
     &-file .line_holder:last-child > .right-side { radius: 0 0 $radius 0; }
     // ? Rounded corner in the gutters in side-by-side view.
     &-file .line_holder:last-child > .old_line { radius: 0 0 0 $radius; }
+    // ? Merge request diffs in the change view.
+    &-viewer .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
   }
 
   // * File Diff :: Expanded view.
