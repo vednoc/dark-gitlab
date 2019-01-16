@@ -860,6 +860,8 @@
       &.active > a, &:hover > a:not(.btn-missing) { colors: $light, $accent, 0; }
       // Badges.
       a .badge.badge-pill { colors: $lighter, 0, $darker; }
+      // Make sure the button stays green.
+      a.btn.btn-success { colors: var(--white), $green, $green; }
     }
   }
 
@@ -1017,6 +1019,15 @@
   .project-show-wiki .landing {
     radius: $radius;
     colors: $red, $darker, $dark;
+  }
+  // ? Remove margin-top from buttons nav buttons.
+  .project-empty-note-panel + .project-buttons {
+    .btn { margin-top: 0px; }
+    // Prevent buttons clipping on hover.
+    .scrolling-tabs {
+      margin-top: 0;
+      padding-top: 8px;
+    }
   }
 
   // * Project :: New fork.
