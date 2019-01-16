@@ -2786,8 +2786,10 @@
     // Description container.
     .mr-section-container {
       radius: $radius;
+      border: 1px solid;
       colors: 0, $darker, $dark;
       .mr-widget-section {
+        border-top: none;
         padding: 12px 8px;
         colors: 0, $darker, 0;
       }
@@ -2805,6 +2807,8 @@
       padding: 12px 8px;
       colors: 0, $darker, $dark;
     }
+    // Rounded corners.
+    .mr-source-target, .mr-widget-heading { radius: $radius; }
     .mr-widget-extension { colors: 0, $darker, $dark; }
     // ? Fixes approved merge request element.
     // TODO Rewrite this entire section at some point.
