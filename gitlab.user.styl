@@ -1130,7 +1130,7 @@
   .content-list li {
     colors: 0, $darker, 0;
     // TODO Find a better way to style this selector.
-    a:not(.btn-warning) { color: $accent !important; }
+    a:not(.btn-warning):not(.btn-danger) { color: $accent !important; }
   }
   .branch-commit {
     .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
