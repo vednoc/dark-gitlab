@@ -1196,8 +1196,14 @@
 
 
   // * Modal.
-  .modal {
-    .modal-content { colors: 0, 0, $dark; }
+  .modal, .modal-doorkeepr-auth {
+    .modal-content {
+      border: none;
+      colors: 0, 0, $dark;
+      box-shadow: 0 0 0 1px $darker !important;
+      // Auth header.
+      .modal-header { colors: 0, $darker, 0; }
+    }
     .modal-header { colors: 0, $darker, $dark; }
     .modal-body {
       radius: 0 0 $radius $radius;
@@ -1207,6 +1213,12 @@
       // ? Board scope.
       .title { colors: $lighter, 0, 0; }
       .block + .block { border-top-color: $darker; }
+      // Actions in auth.
+      .form-actions {
+        radius: 0 0 $radius $radius;
+        border: none !important;
+        border-top: 1px solid $darker !important;
+      }
     }
     .modal-footer { colors: 0, $darker, 0; }
   }
