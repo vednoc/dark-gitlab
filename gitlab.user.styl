@@ -2367,6 +2367,19 @@
     color: var(--light);
     border-color: var(--darker);
   }
+  // Emojis in epics.
+  .epic-page-container {
+    // Remove extra padding.
+    .issuable-details {
+      padding: 0;
+      colors: 0, $t, 0;
+    }
+    // Emojis.
+    + .emoji-block {
+      padding: 2px 0 10px;
+      colors: 0, $darker, 0;
+    }
+  }
   // Time tracking.
   .time_tracker .time-tracking-help-state {
     border-color: var(--darker);
@@ -3906,6 +3919,9 @@
       svg { fill: $icon !important; colors: 0, $icon, 0; }
     }
   }
+  // Icons in epics.
+  .issue-token-state-icon-open { fill: $green !important; }
+  .issue-token-state-icon-closed { fill: $blue !important; }
 
   // "Weird" behaving success with warnings status.
   a.ci-success_with_warnings { colors: $orange, $orange, $t; }
