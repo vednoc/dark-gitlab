@@ -647,6 +647,22 @@
     }
   }
 
+  // Dropdown with tabs.
+  .dropdown-menu.dropdown-menu-tabs.show {
+    max-height: 400px !important;
+    .dropdown-footer { colors: 0, $dark, 0; }
+  }
+  // Tabs.
+  .dropdown-tabs-list {
+    colors: 0, 0, $dark;
+    box-shadow: none !important;
+    .dropdown-tab-item {
+      colors: 0, $dark, 0;
+      a { colors: 0, 0, $dark; }
+      a.active { colors: 0, $accent, $darker; }
+    }
+  }
+
   /* A brand new dropdown? */
   .select2-drop,
   .select2-drop.select2-drop-above {
