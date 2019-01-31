@@ -3662,13 +3662,17 @@
 
   // * Project :: Code syntax highlighting.
   .code.white {
-    .n, .gh { color: $light; }
+    .n, .gh, .s2 { color: $light; }
     .c, .cp, .c1 { color: $lighter; }
     .m, .nv, .na { color: $cyan; }
     .nb, .nc { color: $blue; }
     .ss, .s1, .se, .gu { color: $magenta; }
-    .s, .s2, .sx, .sb, .sh, .nf { color: $red; }
+    .s, .sx, .sb, .sh, .nf { color: $red; }
     .nt, .si { color: $violet; }
+    .err {
+      colors: 0, 0, $t;
+      box-shadow: inset 0 -2px 0 0 $red;
+    }
   }
 
 
