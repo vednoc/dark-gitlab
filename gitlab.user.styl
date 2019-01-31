@@ -2490,8 +2490,18 @@
     &.is-focused {
       colors: 0, 0, $dark;
     }
-    // Reset top nav.
-    .row-content-block { margin: 0 16px; }
+    // Reset search bar.
+    .row-content-block {
+      margin: 0 16px;
+      padding: 0 !important;
+      border: none !important;
+      colors: 0, 0, $t;
+      // Fix search box.
+      .filtered-search-box {
+        max-height: 35px;
+        radius: 3px;
+      }
+    }
     // Board colors.
     .board-inner {
       colors: 0, $darker, $dark;
@@ -2504,6 +2514,9 @@
       .board-title-sub-text {
         colors: $lighter, 0, 0;
       }
+    }
+    .issue-count-badge {
+      colors: 0, $darker, 0;
     }
   }
 
