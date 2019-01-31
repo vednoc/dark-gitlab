@@ -3309,12 +3309,12 @@
     }
   }
 
-
-
-
-  /* Custom width for fluid layout; enables us to emulate the fixed width layout without altering many elements. */
-  .layout-page .container-fluid:not(.container-limited) {
-    max-width: var(--width) !important;
+  // * Custom width for fluid layout.
+  // ? Emulates fixed width layout without editing many hard-coded selectors.
+  .layout-page .container-fluid {
+    &:not(.container-limited):not(.js-focus-mode-board) {
+      max-width: var(--width) !important;
+    }
   }
 
   /* Fix bugged left sidebar. */
