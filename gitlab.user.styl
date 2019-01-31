@@ -2630,7 +2630,7 @@
   .repo-charts {
     // Brings back the language color.
     .fa { color: inherit !important; }
-    canvas { colors: 0, 0, $dark; }
+    canvas:not(#languages-chart) { colors: 0, 0, $dark; }
   }
   // ? Found in: .../repo/pipelines/charts
   [data-page="projects:pipelines:charts"] {
