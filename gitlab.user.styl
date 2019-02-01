@@ -4353,6 +4353,19 @@
     .plan-name, .all-features { colors: $light, $darker, 0; }
   }
 
+  // QnA.
+  .faq {
+    margin-bottom: -80px;
+    colors: 0, $darker, $dark;
+    .faq-item {
+      .faq-inner-item { colors: $lighter, $darker, 0; }
+      &.is-open .faq-inner-item {
+        colors: $light, $darker, 0;
+        .faq-answer p { colors: 0, 0, $darker; }
+      }
+    }
+  }
+
   // Sign up
   .mktoForm input[type="text"], .mktoForm input[type="url"], .mktoForm input[type="email"],.mktoForm input[type="tel"],
   .mktoForm input[type="number"], .mktoForm input[type="date"], .mktoForm select.mktoField, .mktoForm textarea.mktoField {
