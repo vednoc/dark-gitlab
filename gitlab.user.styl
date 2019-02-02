@@ -5127,6 +5127,24 @@
     color: $accent !important;
   }
 
+  // * Navigation.
+  .header {
+    // Search bar.
+    #search-form {
+      colors: $lighter, 0, 0;
+      input {
+        padding: 2px 11px 2px 28px !important;
+        line-height: 30px;
+      }
+    }
+    // Docs versions.
+    .btn-versions { colors: $lighter, $t, $t; }
+    .versions-tooltip { colors: $light, 0, $dark; }
+    // Main navigation.
+    .nav-item a { colors: $light, 0, 0; }
+    .nav-item:hover a { colors: $accent, 0, 0; }
+  }
+
   // Search
   // TODO vednoc: find that bloody orange box-shadow
   .landing .input-container img {
