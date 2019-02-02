@@ -3287,10 +3287,6 @@
     background-color: transparent !important;
     box-shadow: none !important;
     // TOC.
-    .doc-nav > ul {
-      margin-right: 10px;
-      colors: 0, 0, $dark;
-    }
     // Remove sidebar.
     *::-webkit-scrollbar { display: none !important; }
     // Alerts.
@@ -5240,6 +5236,23 @@
       transition: all 0.15s ease-in-out;
       &:visited { colors: $lighter, 0, 0; }
       &:hover, &:focus { colors: $light, 0, $darker; }
+    }
+  }
+
+  // * Right sidebar.
+  .doc-nav {
+    right: 8px;
+    height: calc(100vh + 20px);
+    colors: $lighter, 0, $darker;
+    // Wrapper.
+    #markdown-toc {
+      margin: 0px;
+      h4, li { padding-left: 8px; }
+      a {
+        text-decoration: none;
+        colors: $lighter, 0, 0;
+        &:hover { colors: $accent, 0, 0; }
+      }
     }
   }
 }
