@@ -5147,12 +5147,17 @@
 
   // * Navigation.
   .header {
+    colors: 0, $darker, $darker;
     // Search bar.
     #search-form {
       colors: $lighter, 0, 0;
+      // Found on docs/.../archives page.
+      .docsearch { colors: $lighter, 0, $dark; }
       input {
         padding: 2px 11px 2px 28px !important;
         line-height: 30px;
+        radius: $radius;
+        colors: 0, $dark, 0;
       }
     }
     // Docs versions.
