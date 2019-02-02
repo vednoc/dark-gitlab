@@ -3227,6 +3227,7 @@
   }
 
   // * Docs :: Landing page.
+  // TODO: Merge with styles found in `docs` regex.
   .landing {
     .landing-header-top { colors: 0, $darker, $darker; }
     // Search.
@@ -3245,7 +3246,6 @@
       colors: $light, 0, $dark;
       // Created/cookies/edit.
       .source-link { colors: $light, 0, $darker; }
-      .source-link a { text-decoration: underline !important; }
     }
   }
 
@@ -5130,8 +5130,19 @@
   .landing .scrolling-header {
     box-shadow: $box;
   }
-  .landing .header-link:hover p {
-    color: $accent !important;
+
+  // * Landing page.
+  .landing {
+    // Navigation.
+    .header-link {
+      text-decoration: none !important;
+      &:hover p { colors: $accent, 0, 0; }
+    }
+    // Search container.
+    .landing-header {
+      colors: 0, 0, $dark;
+      .input-container img { filter: invert(var(--bg-invert)); }
+    }
   }
 
   // * Navigation.
@@ -5150,12 +5161,6 @@
     // Main navigation.
     .nav-item a { colors: $light, 0, 0; }
     .nav-item:hover a { colors: $accent, 0, 0; }
-  }
-
-  // Search
-  // TODO vednoc: find that bloody orange box-shadow
-  .landing .input-container img {
-    filter: invert(1);
   }
 
   // Cards
