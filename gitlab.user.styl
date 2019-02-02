@@ -5178,19 +5178,14 @@
   // Footer
   .footer {
     background-color: $darker;
-    a:hover {
-      .fa{
-        color: $accent !important;
-      }
+    // Colorize icons.
+    a:hover .fa { colors: $accent, 0, 0; }
+    // "Created with" section.
+    .source-link {
+      colors: $lighter, $darker, $dark;
+      a { colors: $accent, 0, 0; }
     }
   }
-  .source-link {
-    colors: $lighter, $darker, $dark;
-    a {
-      color: $accent !important;
-    }
-  }
-
 
   // Logo
   if dark_logo {
