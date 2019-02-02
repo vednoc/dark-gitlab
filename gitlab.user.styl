@@ -5282,10 +5282,19 @@
     }
   }
 
-  // * Syntax highlighting.
+  // * Code blocks.
   pre.highlight {
     radius: $radius !important;
+    // Roundify corners.
     code { radius: inherit; }
+    // Copy to clipboard.
+    .clip-btn {
+      top: 1px; right: 1px;
+      radius: 0 $radius 0 0;
+      colors: $lighter, 0, $dark;
+      .fa-clipboard::before { color: $lighter; }
+    }
+    // Syntax highlighting.
     code, .na, .c { colors: $lighter, 0, 0; }
     .n, .p, .nb { colors: $light, 0, 0; }
     .pi { colors: $red, 0, 0; }
