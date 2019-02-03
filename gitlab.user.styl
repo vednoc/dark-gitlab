@@ -157,6 +157,10 @@
   // Fix emojis being cropped.
   gl-emoji {
     line-height: 1.20em;
+    // ? An attempt to fix emoji positioning on *fox-based browsers.
+    @supports (-moz-user-select: none) {
+      vertical-align: bottom !important;
+    }
   }
   // Time element.
   time {
