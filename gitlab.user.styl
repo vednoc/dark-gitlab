@@ -5141,8 +5141,11 @@
     // Search container.
     .landing-header {
       colors: 0, 0, $dark;
+      box-shadow: 0 1px 0 0 $darker, 0 2px 8px 0 $shadow;
       .input-container img { filter: invert(var(--bg-invert)); }
     }
+    // Most popular topics.
+    .topic h4 { colors: 0, $darker, 0; }
   }
 
   // * Navigation.
@@ -5172,17 +5175,11 @@
   .main-topics li .wrapper h2 {
     border-color: $darker !important;
   }
-  .landing .topics-container .topic:hover {
-    opacity: 1 !important;
-    h4, p {
-      color: $accent !important;
-
-    }
-  }
 
   // Footer
   .footer {
     background-color: $darker;
+    box-shadow: 0 -1px 0 0 $darker, 0 -2px 8px 0 $shadow;
     // Colorize icons.
     a:hover .fa { colors: $accent, 0, 0; }
     // "Created with" section.
