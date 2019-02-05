@@ -780,8 +780,12 @@
     &-group { colors: 0, $darker, $dark; }
     &-image { colors: 0, $darker, 0; }
   }
-  /* Path. */
-  .input-group-text { colors: $light, $darker, $darker; }
+  // Path.
+  .input-group-text {
+    colors: $light, $darker, 0;
+    // Fix #29.
+    &:not(.label-color-preview) { colors: 0, 0, $darker; }
+  }
   /* Linked emails. */
   .account-well { colors: $light, $darker, $dark; }
   /* List items. */
