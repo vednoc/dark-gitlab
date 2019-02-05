@@ -458,7 +458,7 @@
   }
   // Epics start/due dates.
   .block .value {
-    span { colors: $light, 0, 0; }
+    span:not(.color-label) { colors: $light, 0, 0; }
     abbr { colors: $lighter, 0, 0; }
   }
 
@@ -1882,6 +1882,8 @@
   .project-badge { transition: 0.2s opacity ease-in-out; }
   [src*="for-the-badge"] { radius: $radius; }
   span.badge {
+    // Remove unnecessary underline.
+    &.color-label { text-decoration: none !important; }
     // Apply everywhere except on color-label elements.
     &:not(.color-label) { colors: var(--white), 0, 0; }
     // Apply everywhere except on badge-pill elements.
