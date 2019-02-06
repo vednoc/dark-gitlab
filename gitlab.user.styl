@@ -2281,7 +2281,14 @@
   // * List.
   .activities {
     // Fix RSS icon.
-    .controls { margin: 20px 10px 0 10px; }
+    // TODO: Remove when fixed on upstream.
+    .controls {
+      margin: 20px 10px 0 10px;
+      z-index: 9;
+      position: absolute;
+      top: 0; right: 8px;
+      @media screen and (max-width: 640px) { display: none !important; }
+    }
     // List.
     // ! Might need extra tweaking somewhere.
     .content_list {
