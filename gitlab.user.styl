@@ -1179,7 +1179,7 @@
   .content-list li {
     colors: 0, $darker, 0;
     // TODO Find a better way to style this selector.
-    a:not(.btn-warning):not(.btn-danger) { color: $accent !important; }
+    a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: $accent !important; }
   }
   .branch-commit {
     .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
@@ -2380,7 +2380,7 @@
       padding: 10px;
       border-top: 1px solid $darker;
     }
-    li {
+    li:not(.page-item) {
       transition: background 0.15s ease-in-out;
       &:first-child { radius: $radius $radius 0 0; }
       &:hover { background-color: $darker; }
@@ -2718,22 +2718,25 @@
   }
 
   // * Pagination.
-  .page-item {
-    .page-link {
-      colors: $light, $darker, $dark;
-    }
-    // Selected.
-    &.active .page-link,
-    .page-link:hover {
-      colors: $light, $accent, $accent;
-    }
-    // Disabled.
-    &.disabled .page-link {
-      colors: $lighter, $darker, $darker;
-      opacity: 0.6;
+  .pagination {
+    // Rounded corners.
+    > li:first-child a { radius: $radius 0 0 $radius !important; }
+    > li:last-child a { radius: 0 $radius $radius 0 !important; }
+    // Links.
+    .page-item {
+      // Defaults.
+      .page-link { colors: $lighter, $darker, $dark; }
+      // Disabled.
+      &.disabled .page-link {
+        colors: $lighter, 0, 0;
+        filter: opacity(0.75) !important;
+      }
+      // Selected.
+      &.active, &:hover:not(.disabled) {
+        .page-link { colors: $light, 0, $darker; }
+      }
     }
   }
-
 
   // * Merge Requests :: List.
   .merge-requests-holder {
