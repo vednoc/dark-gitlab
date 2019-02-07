@@ -865,7 +865,7 @@
       padding: 0 10px;
       margin-top: 10px;
       radius: $radius;
-      border: 1px solid;
+      border: 1px solid !important;
       colors: 0, $darker, $dark;
     }
     &-list a { colors: $lighter, 0, 0; }
@@ -874,6 +874,11 @@
     // Separator on mobile devices.
     @media (max-width: 576px) {
       .toggle-mobile-nav + .breadcrumbs-links { colors: $lighter, $darker, 0; }
+    }
+    // ? Reset epics-roadmap page.
+    &.group-epics-roadmap {
+      border-bottom: none !important;
+      max-width: 100% !important;
     }
   }
   .breadcrumb {
