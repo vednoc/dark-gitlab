@@ -978,6 +978,17 @@
     radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
+    // * Groups :: Search form.
+    &.group-nav-container .group-search {
+      padding: 8px 0;
+      margin-bottom: -10px;
+      border: none;
+      + .scrolling-tabs-container {
+        padding: 0px !important;
+        margin: 0px !important;
+        border: none !important;
+      }
+    }
   }
   /* Wrapper. */
   .top-area,
