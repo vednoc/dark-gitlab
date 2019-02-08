@@ -3943,12 +3943,9 @@
       border-color: var(--mred);
       background-color: var(--darker);
     }
-    // Activity?
-    .group-row::before,
-    .group-list-tree::before {
-      border-color: var(--lighter) !important;
-      background: var(--lighter) !important;
-    }
+    // List tree visualization.
+    .group-row::before, .group-list-tree::before { colors: 0, $lighter, 0; }
+    .group-row:last-child::before { colors: 0, 0, $dark; }
     .group-row .stats { color: var(--light); }
   }
 
