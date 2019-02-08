@@ -110,6 +110,12 @@
     }
   }
 
+  // * Inlined SVGs.
+  isvg(x, y) {
+    if x is a 'call' { fill: x !important; }
+    if y is a 'call' { stroke: y !important; }
+  }
+
   // * Border radius mixin.
   radius() {
     -webkit-border-radius: arguments;
@@ -1781,25 +1787,20 @@
     padding-bottom: 10px;
     radius: $radius;
     colors: 0, 0, $dark;
+    box-shadow: inset 0 0 0 1px $darker;
     &:hover { opacity: 1 !important; }
     // Boxes.
-    rect.actor {
-      fill: $darker !important;
-      stroke: $darker !important;
-    }
-    text.actor { fill: $light !important; }
+    rect.actor { isvg: $darker, $darker; }
+    text.actor { isvg: $light, 0; }
     // Connectors.
-    .actor-line { stroke: $darker !important; }
+    .actor-line { isvg: 0, $darker; }
     // Notes.
-    .note {
-      fill: $darker !important;
-      stroke: $accent !important;
-    }
-    .noteText, .noteText tspan { fill: $lighter !important; }
+    .note { isvg: $darker, $accent; }
+    .noteText, .noteText tspan { isvg: $lighter, 0; }
     // Lines.
     .message {
-      &Text { fill: $lighter !important; }
-      &Line0 { stroke: $darker !important; }
+      &Text { isvg: $lighter, 0; }
+      &Line0 { isvg: 0, $darker; }
     }
   }
 
