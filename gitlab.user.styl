@@ -905,6 +905,39 @@
     }
   }
 
+  // * Epics :: Roadmap.
+  .roadmap-container {
+    colors: 0, 0, $dark;
+    // Timeline header.
+    .timeline-header-blank {
+      colors: $lighter, $darker, $dark;
+      &::before { colors: 0, $darker, 0; }
+      &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
+    }
+    // Timeline items.
+    .timeline-header-item {
+      colors: 0, $darker, $dark;
+      .item-label { colors: $light, $darker, 0; }
+      .item-sublabel .sublabel-value { colors: $lighter, 0, 0; }
+      .item-sublabel .label-bold { colors: $light, 0, 0; }
+    }
+    // Background cells.
+    .epics-list-section {
+      colors: 0, 0, $darker;
+      // Left sidebar cells.
+      .epic-details-cell {
+        colors: 0, $darker, $dark;
+        &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
+        .epic-url { colors: $light, 0, 0; }
+        .epic-timeframe { colors: $lighter, 0, 0; }
+      }
+      .epics-list-item {
+        &:hover .epic-timeline-cell { colors: 0, $darker, $dark; }
+        .epic-timeline-cell { colors: $light, $dark, 0; }
+      }
+    }
+  }
+
   // * Dashboard :: Page title.
   .page-title-holder {
     border: none;
