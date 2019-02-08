@@ -983,6 +983,7 @@
       padding: 8px 0;
       margin-bottom: -10px;
       border: none;
+      .group-filter-form { margin-right: 0px; }
       + .scrolling-tabs-container {
         padding: 0px !important;
         margin: 0px !important;
@@ -3993,13 +3994,12 @@
   }
   // * Group body.
   .group-list-tree {
+    margin-top: 10px !important;
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid;
+    colors: 0, $darker, $dark;
     // Make some spacing.
-    > .group-row.is-open > ul {
-      margin: 10px 0 10px 30px;
-    }
+    > .group-row.is-open > ul { margin: 10px 10px 10px 30px; }
     // On event.
     .group-row-contents:hover {
       border-color: var(--mred);
@@ -4007,8 +4007,14 @@
     }
     // List tree visualization.
     .group-row::before, .group-list-tree::before { colors: 0, $lighter, 0; }
-    .group-row:last-child::before { colors: 0, 0, $dark; }
+    .group-row:last-child::before {
+      bottom: -10px !important;
+      colors: 0, 0, $dark;
+    }
     .group-row .stats { color: var(--light); }
+    // Rounded corners.
+    li:first-child > div { radius: $radius $radius 0 0; }
+    li:last-child:not(.is-open) > div { radius: 0 0 $radius $radius; }
   }
 
   // * Invert image icons.
