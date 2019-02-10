@@ -1178,10 +1178,32 @@
         a { colors: $light, 0, 0; }
       }
     }
+    // Header.
     .commit-header {
+      display: inline-flex;
       radius: $radius;
       border: 1px solid;
       colors: 0, $darker, $dark;
+      .day { padding-right: 1ch; }
+      // Have some whitespace between days.
+      &:not(:first-child) { margin-top: 10px; }
+      // Separate every first commit from the header.
+      + .commits-row { margin-top: 10px; }
+    }
+    // List.
+    .commits-row {
+      position: relative;
+      margin-bottom: 8px;
+      radius: $radius;
+      colors: 0, 0, $dark;
+      box-shadow: inset 0 0 0 1px $darker;
+      &::before {
+        content: "";
+        height: 10px;
+        position: absolute;
+        top: -10px; left: 28px;
+        border-left: 1px solid $darker;
+      }
     }
   }
   .commit {
