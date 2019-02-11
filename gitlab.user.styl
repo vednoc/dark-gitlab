@@ -1284,6 +1284,25 @@
     .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
   }
 
+  // * Project :: Tags.
+  .tags > ul {
+    margin-top: 10px;
+    radius: $radius;
+    colors: 0, 0, $dark;
+    box-shadow: inset 0 0 0 1px $darker;
+    li.flex-row {
+      padding: 10px;
+      transition: 0.2s ease;
+      &:hover { colors: 0, 0, $darker; }
+      .branch-commit {
+        &, .js-timeago, .commit-row-message {
+          colors: $lighter, 0, 0;
+        }
+      }
+      .item-title.ref-name { colors: $light, 0, 0; }
+    }
+  }
+
   // * Project :: Contributors.
   [id*="contributors"] {
     // Prevent the hover.
