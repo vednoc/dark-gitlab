@@ -211,7 +211,7 @@
   }
   // TODO move to dashboard or somewhere else.
   .badge-pill {
-    &.badge { colors: $red, 0, $dark; }
+    &.badge { border: 1px solid; colors: $lighter, $darker, $dark; }
     &.issues-count { colors: var(--white), 0, $green; }
     &.merge-requests-count { colors: var(--white), 0, $orange; }
     &.todos-count { colors: var(--white), 0, $blue; }
@@ -1871,6 +1871,13 @@
         transform: translate(0) !important;
         background: 0 !important;
       }
+    }
+    // Project tags.
+    .home-panel-topic-list {
+      colors: 0, $darker, 0;
+      // Fix line height.
+      .text-nowrap { line-height: 22px !important; }
+      svg.icon { margin-top: 4px !important; }
     }
     // ? New design, December 2018.
     .add-license-link { colors: $lighter, 0, 0; }
