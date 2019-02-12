@@ -1694,7 +1694,11 @@
     a { colors: $accent, 0, 0; }
     h1, h2 { colors: 0, $darker, 0; }
     hr, pre { colors: 0, $darker, 0; }
-    blockquote { colors: 0, $accent, $darker; }
+    blockquote {
+      padding-left: 16px !important;
+      border-left: none !important;
+      box-shadow: inset 4px 0 0 0 $darker !important;
+    }
     blockquote[dir="auto"] p { color: $lighter !important; }
     table {
       radius: $radius;
@@ -2051,9 +2055,10 @@
     h1, h2 { colors: $lighter, $darker, 0; }
     > p > code { border: 1px solid $darker !important; }
     blockquote, .blockquote {
-      colors: $light, $accent, $darker;
+      border-left-width: 4px;
+      colors: $light, $accent, 0;
       // Second rule solves blockquote weirdness in issues.
-      p, * > p { colors: $light, 0, 0; }
+      p, * > p { colors: $lighter, 0, 0; }
     }
     pre { radius: $radius; }
     pre, code { colors: $lighter, $darker, $dark; }
