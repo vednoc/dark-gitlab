@@ -4170,7 +4170,6 @@
     // Necessary in v11.6 (I think).
     .project-home-panel .project-header {
       > div { max-width: 100%; }
-      > .project-repo-buttons { justify-content: center !important; }
     }
     .project-home-panel .project-badges {
       flex-direction: row !important;
@@ -4180,6 +4179,7 @@
     .project-home-panel > div {
       display: flex;
       flex-direction: column;
+      margin-bottom: 0px;
       > div {
         justify-content: center;
         text-align: center;
@@ -4187,8 +4187,16 @@
     }
     .project-stats .nav { justify-content: center; }
     // Center the description.
-    .project-description { margin: 0 auto; }
-  }
+    .project-description,
+    .home-panel-title-row,
+    .project-repo-buttons {
+      margin: 0 auto;
+    }
+    // Separate buttons from the header and the description.
+    .project-repo-buttons {
+      margin-top: 10px;
+      justify-content: center !important;
+    }
 
   // Switch to our version of GitLab logo.
   if dark_logo {
