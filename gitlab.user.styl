@@ -1144,7 +1144,12 @@
   .user-access-role { colors: $light, $dark, $darker; }
 
   // * Project :: Empty project.
-  .project-empty-note-panel { border-color: $darker; }
+  .project-empty-note-panel {
+    border-color: $darker;
+    // Remove unnecessary margins.
+    hr { margin: 0px; }
+    .prepend-top-20:last-child { margin-top: 0px; }
+  }
   .git-empty pre.bg-light { colors: $light, $darker, $dark; }
   // Empty wiki homepage.
   .project-show-wiki .landing {
