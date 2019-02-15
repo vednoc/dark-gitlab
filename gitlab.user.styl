@@ -724,6 +724,15 @@
     }
   }
 
+  // * Search page -> Remove content block below the sub-nav.
+  [data-project=""] {
+    .scrolling-tabs-container + .row-content-block {
+      padding: 0 !important;
+      border: none !important;
+      box-shadow: inset 0 0 0 1px $darker;
+    }
+  }
+
   // * Dashboard :: New project.
   .gitlab-tabs {
     radius: $radius $radius 0 0;
