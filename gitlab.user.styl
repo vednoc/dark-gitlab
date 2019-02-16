@@ -2896,8 +2896,14 @@
   // * Pagination.
   .pagination {
     // Rounded corners.
-    > li:first-child a { radius: $radius 0 0 $radius !important; }
-    > li:last-child a { radius: 0 $radius $radius 0 !important; }
+    > .page-item:first-child a {
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+    }
+    > .page-item:last-child a {
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+    }
     // Links.
     .page-item {
       // Defaults.
