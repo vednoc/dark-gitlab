@@ -3096,8 +3096,8 @@
       border: 1px solid;
       colors: 0, $darker, $dark;
       .mr-widget-section {
-        border-top: none;
         padding: 12px 8px;
+        radius: 0 !important;
         colors: 0, $darker, 0;
       }
       // Remove extra padding.
@@ -3127,7 +3127,15 @@
       padding: 0 !important;
       .js-mr-approvals { padding: 0 !important; }
     }
-    .mr-widget-workflow::before { border-left-color: $darker; }
+    .mr-widget-workflow {
+      // Connector.
+      &::before { border-left-color: $darker; }
+      // Remove the double-border forming on first child.
+      > .mr-widget-border-top:first-child,
+      > .mr-widget-section:first-child { border-top: none; }
+      // Remove excess padding.
+      .mr-widget-body { padding: 0px; }
+    }
     // Branch name.
     .label-branch { color: $red, 0, 0; }
     // Found on: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3023
