@@ -556,6 +556,14 @@
     }
   }
 
+  // * Navbar -> Projects/Groups.
+  .frequent-items-dropdown-menu {
+    radius: $radius;
+    .section-header { colors: $light, 0, 0; }
+    .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
+    [class*="dropdown-sidebar"] { colors: 0, $dark, 0; }
+  }
+
   /* Dropdowns. */
   .dropdown-menu,
   .dropdown-menu-nav {
@@ -587,15 +595,6 @@
   .default-dropdown-input {
     colors: $light, $darker, $dark;
   }
-  // * Frequently visited.
-  [class*="frequent-items"] {
-    .section-header { color: $light !important; }
-    .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
-    // Sidebar.
-    [class*="dropdown-sidebar"] { colors: 0, $shadow, 0; }
-  }
-  // ? Prevent active/open dropdown from having wrong background-color.
-  .dropdown-menu.frequent-items-dropdown-menu.show { colors: 0, 0, $darker; }
   /* On event. */
   .dropdown-input-field:focus,
   .default-dropdown-input:focus {
