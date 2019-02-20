@@ -3163,6 +3163,11 @@
     border: 1px solid;
     radius: $radius;
     colors: $light, $darker, $dark;
+    // Reset the width when file tree is open. @upstream
+    &.is-fileTreeOpen {
+      margin: 0 !important;
+      width: 100% !important;
+    }
     > div { border-bottom: none; }
   }
 
