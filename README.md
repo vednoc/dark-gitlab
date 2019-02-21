@@ -15,7 +15,7 @@ The userstyle looks and works great right now (and has been for quite some time!
 - [ ] Add a changelog.
 - [x] Write a concise readme.
 - [x] Add issue and merge request templates.
-- [x] Convert to [Stylus-lang](https://stylus-lang.org):
+- [x] Convert to [Stylus-lang](http://stylus-lang.com):
   - [x] Make a use of vars, mixins, nesting, etc.
   - [x] Refactor existing CSS.
   - [ ] Full coverage.
