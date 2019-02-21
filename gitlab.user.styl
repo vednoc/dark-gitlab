@@ -2755,11 +2755,11 @@
 
   // * Issues :: Labels.
   .labels-container {
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
+    padding: 0px;
+    colors: 0, 0, $t;
     // List.
     .manage-labels-list > li:not(.empty-message):not(.is-not-draggable) {
+      margin-bottom: 10px;
       radius: $radius;
       colors: 0, $darker, $dark;
       transition: background 0.2s ease-in-out;
@@ -2772,6 +2772,12 @@
     .label-badge-blue, .badge-info {
       border: 1px solid;
       colors: $light, $blue, $dark;
+    }
+    // Fix subscribe button.
+    .dropdown > button.label-subscribe-button {
+      padding: 3px;
+      margin-top: -3px;
+      font-weight: normal;
     }
   }
 
