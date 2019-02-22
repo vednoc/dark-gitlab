@@ -1635,6 +1635,12 @@
     .note-headline-light { colors: $lighter, 0, 0; }
   }
   .discussion-header { colors: 0, $darker, 0; }
+  // ? Fix for discussion's rounded corners in MR.
+  // TODO: Explore merging this with `.card, .card-slim` selectors.
+  .discussion-wrapper {
+    radius: $radius;
+    [class$="notes"] .replies-toggle:last-child { radius: 0 0 $radius $radius; }
+  }
   /* Text color. */
   .discussion-headline-light,
   .note-headline-meta .system-note-separator {
