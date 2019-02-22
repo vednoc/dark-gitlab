@@ -2943,7 +2943,7 @@
     radius: $radius;
     border: 1px solid var(--darker);
     background-color: var(--dark);
-    li {
+    li:not(.page-item) {
       transition: background 0.15s ease-in-out;
       &:hover { background-color: var(--darker); }
       // Approvals.
@@ -2952,6 +2952,12 @@
         svg { fill: $green !important; }
       }
     }
+    // Fix whitespace.
+    .gl-pagination {
+      padding: 10px;
+      margin-top: 0px !important;
+      border-top: 1px solid $darker;
+      .pagination { margin: 0px; }
     }
     // Email a new MR.
     .issuable-footer {
