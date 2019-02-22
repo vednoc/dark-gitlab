@@ -2945,9 +2945,13 @@
     background-color: var(--dark);
     li {
       transition: background 0.15s ease-in-out;
-      &:hover {
-        background-color: var(--darker);
+      &:hover { background-color: var(--darker); }
+      // Approvals.
+      .text-success {
+        colors: $green, 0, 0;
+        svg { fill: $green !important; }
       }
+    }
     }
     // Email a new MR.
     .issuable-footer {
