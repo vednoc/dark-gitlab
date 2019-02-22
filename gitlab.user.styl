@@ -2375,6 +2375,11 @@
   .sub-header-block {
     border-color: $darker;
     background-color: transparent;
+    // Commits list.
+    + .card {
+      border-radius: $radius !important;
+      ul > li:last-child { radius: 0 0 $radius $radius; }
+    }
   }
   // Sticky file name.
   .diff-file .is-compare { top: 88px !important; }
