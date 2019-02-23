@@ -658,6 +658,19 @@
     &-content-faded-mask::after {
       background: none;
     }
+    // Button groups.
+    .btn-group {
+      button {
+        colors: 0, $dark, $darker;
+        &:hover { transform: none !important; }
+        &:hover, &.active { colors: 0, 0, $dark; }
+        &:first-child { border-radius: $radius 0 0 $radius; }
+        &:last-child { border-radius: 0 $radius $radius 0; }
+      }
+    }
+    .bold { colors: $lighter, 0, 0; }
+    label { colors: $light, 0, 0; }
+  }
   .dropdown-menu {
     // ? Diff -> File finder.
     .diff-changed-file {
