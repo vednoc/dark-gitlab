@@ -4723,7 +4723,7 @@
   }
 
   // Search
-  .search-box {
+  .search-box, .search-box-large input {
     colors: $lighter, $darker, $dark;
   }
   .search-input {
@@ -4781,7 +4781,11 @@
     }
   }
   .source-link {
-    background-color: $dark !important;
+    colors: $light, 0, $dark;
+    .external-source-link {
+      colors: $lighter, $lighter, 0;
+      &:hover { colors: $accent, $t, 0; }
+    }
   }
 
   // Logo
