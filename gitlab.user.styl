@@ -520,7 +520,7 @@
     }
     // Navbar links and buttons.
     a, button {
-      transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out !important;
       colors: $lighter, 0, 0;
       &:hover, &:focus { colors: $light, 0, $dark; }
     }
@@ -537,12 +537,13 @@
       button.btn:hover { transform: none !important; }
     }
     // ? Shows theme version in the user dropdown.
-    .header-user li:last-child::before {
+    .header-user li:first-child::before {
       content: var(--note);
       display: block;
-      padding: 4px 12px 8px;
-      border-bottom: 1px solid $shadow;
-      color: $light;
+      padding: 8px 12px;
+      margin: -16px -12px 8px -12px;
+      border-bottom: 1px solid;
+      colors: $light, $shadow, 0;
     }
   }
 
