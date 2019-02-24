@@ -649,10 +649,10 @@
   }
 
   // * Dropdown.
-  // TODO unfinished.
   .dropdown {
-    // Fix the double scrollbar.
-    &.show .dropdown-menu {
+    // Fix the double scrollbar and height.
+    // TODO: Temporary solution.
+    &.show .dropdown-menu:not(.frequent-items-dropdown-menu) {
       max-height: 340px !important;
     }
     // On event.
