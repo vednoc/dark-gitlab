@@ -4216,9 +4216,11 @@
   [class*="ci-status"]:not(#stageDropdown) svg.s16,
   a[class*="ci-status"] svg, // ? Found on: .../-/jobs
   svg.ic-upload {
-    // ? bg_invert must be enabled/disabled in Dark-GitLab.
-    // ? Doesn't work with ThemeSwitcher (yet, but it might in a future update).
-    filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
+    // ? Inverts icons and their colors only if `Background inversion` is
+    // ? enabled in the style settings. Does not work with ThemeSwitcher.
+    if (bg_invert == 1) {
+      filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
+    }
   }
   // * CI icons.
   .ci-status {
