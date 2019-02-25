@@ -566,11 +566,6 @@
 
   // * Dropdown.
   .dropdown {
-    // Fix the double scrollbar and height.
-    // TODO: Temporary solution.
-    &.show .dropdown-menu:not(.frequent-items-dropdown-menu) {
-      max-height: 340px !important;
-    }
     // On event.
     &-item {
       transition: background 0.15s ease-in-out;
@@ -609,6 +604,8 @@
   .dropdown-menu {
     colors: 0, $darker, $dark;
     box-shadow: 0 4px 8px 0 $shadow;
+    // ? Height reset.
+    &-selectable.show { max-height: unset !important; }
     // ? Toggle.
     &-toggle:not(#search) {
       colors: $lighter, $darker, $dark;
