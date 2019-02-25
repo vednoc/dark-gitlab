@@ -561,7 +561,7 @@
     radius: $radius;
     .section-header { colors: $light, 0, 0; }
     .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
-    [class*="dropdown-sidebar"] { colors: 0, $dark, 0; }
+    [class*="dropdown-sidebar"] { colors: 0, $darker, 0; }
   }
 
   // * Dropdown.
@@ -602,19 +602,22 @@
     }
   }
   .dropdown-menu {
+    radius: $radius;
     colors: 0, $darker, $dark;
     box-shadow: 0 4px 8px 0 $shadow;
     // ? Height reset.
     &-selectable.show { max-height: unset !important; }
     // ? Toggle.
     &-toggle:not(#search) {
+      radius: $radius;
       colors: $lighter, $darker, $dark;
       .dropdown-toggle-text { colors: $lighter, 0, 0; }
     }
     // ? Header/Title.
-    .dropdown-header, .dropdown-title { colors: $lighter, $darker, 0; }
+    .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
     // ? Input / Search.
     .dropdown-input-field, .default-dropdown-input {
+      radius: $radius;
       colors: $light, $darker, $dark;
       &:focus { box-shadow: 0 0 2px 0px $accent; }
     }
