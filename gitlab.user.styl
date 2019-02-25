@@ -643,6 +643,14 @@
         }
       }
     }
+    // ? Project -> Notifications.
+    &-large {
+      li a {
+        transition: 0.1s ease;
+        .dropdown-menu-inner-title { colors: $light, 0, 0; }
+        .dropdown-menu-inner-content { colors: $lighter, 0, 0; }
+      }
+    }
     // ? Loader.
     [class*="-loading"] {
       colors: 0, 0, $dark;
