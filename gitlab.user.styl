@@ -661,6 +661,15 @@
         .dropdown-menu-inner-content { colors: $lighter, 0, 0; }
       }
     }
+    // ? Footer.
+    .dropdown-footer {
+      colors: 0, $darker, 0;
+      li:hover a { colors: $lighter, 0, $t; }
+      li a {
+        transition: 0.1s ease;
+        &:hover { colors: $light, 0, $darker; }
+      }
+    }
     // ? Loader.
     [class*="-loading"] {
       colors: 0, 0, $dark;
