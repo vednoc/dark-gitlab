@@ -621,6 +621,18 @@
     // ? Body/Content.
     .dropdown-info-note { colors: $light, 0, 0; }
     [class*="divider"] { colors: 0, $darker, $t; }
+    // ? MR -> "Created date" dropdown.
+    &-sort {
+      li {
+        // ? Reset due to markup being single `li` with a ton of `a` elements.
+        &:hover a { colors: $lighter, 0, $t; }
+        a {
+          transition: 0.1s ease;
+          &:hover { colors: $light, 0, $darker; }
+          &.is-active { colors: $accent, 0, 0; }
+        }
+      }
+    }
     // ? MR -> Download button.
     &-right:not(&-sort) {
       li {
