@@ -621,6 +621,16 @@
     // ? Body/Content.
     .dropdown-info-note { colors: $light, 0, 0; }
     [class*="divider"] { colors: 0, $darker, $t; }
+    li {
+      // ? Reset avatar padding.
+      .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
+      // ? Base styles.
+      &:hover a, &:hover button { colors: $light, 0, $darker; }
+      a {
+        colors: $lighter, 0, 0;
+        transition: 200ms ease-in-out;
+      }
+    }
     // ? MR -> "Created date" dropdown.
     &-sort {
       li {
