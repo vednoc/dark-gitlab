@@ -708,6 +708,18 @@
       radius: $radius !important;
       colors: $lighter, $darker, $dark;
     }
+    &-arrow {
+      padding-left: 12px;
+      colors: 0, 0, $darker;
+    }
+    // Results.
+    &-results &-result-label {
+      transition: 0.1s ease;
+      colors: $lighter, 0, 0;
+    }
+    &-results &-highlighted &-result-label {
+      colors: $light, 0, $darker;
+    }
   }
 
   /* Flashing on input. */
@@ -721,24 +733,8 @@
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
-  /* Text color. */
-  .select2-drop .select2-result-label {
-    color: var(--light) !important;
-  }
-  /* On event. */
-  .select2-results .select2-highlighted,
   .select2-default {
     color: var(--lighter) !important;
-  }
-  .select2-results .select2-highlighted .select2-result-label {
-    background-color: var(--darker);
-  }
-  .select2-results .select2-highlighted .select2-result-label:hover {
-	  background-color: var(--shadow) !important;
-  }
-  .select2-arrow {
-    padding-left: 10px;
-    background-color: var(--dark) !important;
   }
 
   // * Search page -> Issues/MR/Milestones.
