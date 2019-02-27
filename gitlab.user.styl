@@ -696,20 +696,25 @@
     }
   }
 
-  /* A brand new dropdown? */
-  .select2-drop,
-  .select2-drop.select2-drop-above {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--darker);
+  // * Dropdown -> The select2 component.
+  .select2 {
+    // Dropdown.
+    &-drop {
+      radius: $radius;
+      colors: 0, $darker, $dark;
+    }
+    // Input/select.
+    &-drop input, &-choice {
+      radius: $radius !important;
+      colors: $lighter, $darker, $dark;
+    }
   }
+
   /* Flashing on input. */
   .select2-container-multi .select2-choices .select2-search-field input.select2-active {
     background: var(--dark) !important;
   }
   /* Input/select elements. */
-  .select2-choice,
-  .select2-drop input,
   .select2-container-multi .select2-choices,
   .select2-search-choice {
     color: var(--light) !important;
