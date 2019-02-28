@@ -413,6 +413,15 @@
       @media screen and (max-width: 767px) { colors: 0, 0, $darker; }
     }
   }
+  // ? Pipelines: Fix table corners and item borders.
+  .gl-responsive-table-row {
+    &:not(:last-child):not(:first-child) {
+      border-bottom: none !important;
+      border-top: 1px solid $darker;
+    }
+    &:first-child { radius: $radius $radius 0 0; }
+    &:last-child { radius: 0 0 $radius $radius; }
+  }
   // ? 404 page.
   img[alt="404"] + .container {
     margin-bottom: 1em;
