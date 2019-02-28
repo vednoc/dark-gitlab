@@ -698,43 +698,41 @@
 
   // * Dropdown -> The select2 component.
   .select2 {
-    // Dropdown.
+    // Menu.
     &-drop {
       radius: $radius;
       colors: 0, $darker, $dark;
     }
+    // Menu arrow.
+    &-arrow {
+      padding-left: 12px;
+      colors: 0, 0, $t;
+      &::after { colors: $lighter, 0, 0; }
+    }
     // Input/select.
-    &-drop input, &-choice {
+    &-drop input, &-choice, &-search-choices, &-default {
       radius: $radius !important;
       colors: $lighter, $darker, $dark;
     }
-    &-arrow {
-      padding-left: 12px;
-      colors: 0, 0, $darker;
+    &-container-multi &-choices {
+      radius: $radius;
+      colors: $lighter, $darker, $dark;
+      input:focus { colors: $light, 0, 0; }
+    }
+    // ? Fix for flashing input.
+    &-container-multi &-choices &-search-field input&-active {
+      background: none !important;
     }
     // Results.
     &-results &-result-label {
       transition: 0.1s ease;
       colors: $lighter, 0, 0;
+      .group-name { color: $light; }
+      .group-path { color: $lighter; }
     }
     &-results &-highlighted &-result-label {
       colors: $light, 0, $darker;
     }
-  }
-
-  /* Flashing on input. */
-  .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-    background: var(--dark) !important;
-  }
-  /* Input/select elements. */
-  .select2-container-multi .select2-choices,
-  .select2-search-choice {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  .select2-default {
-    color: var(--lighter) !important;
   }
 
   // * Search page -> Issues/MR/Milestones.
