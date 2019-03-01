@@ -613,6 +613,7 @@
       radius: $radius;
       colors: $lighter, $darker, $dark;
       .dropdown-toggle-text { colors: $lighter, 0, 0; }
+      &[class*="filtered-search-history"] { radius: 0 !important; }
     }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
@@ -635,6 +636,8 @@
         transition: 200ms ease-in-out;
       }
     }
+    // ? Reset animation for filter-dropdown items.
+    .filter-dropdown-item > .btn { transform: none; }
     // ? MR -> "Created date" dropdown.
     &-sort {
       li {
