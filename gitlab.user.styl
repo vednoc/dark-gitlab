@@ -556,106 +556,16 @@
     }
   }
 
-  /* Dropdowns. */
-  .dropdown-menu,
-  .dropdown-menu-nav {
-    box-shadow: var(--box-shadow) !important;
-    border-color: var(--darker);
-    background-color: var(--darker);
-  }
-  /* Loading. */
-  [class*="dropdown-loading"] {
-    background-color: var(--dark);
-  }
-  .fa-spinner:before {
-    color: var(--light);
-  }
-  /* Title. */
-  .dropdown-title {
-    color: var(--lighter);
-    border-bottom-color: var(--darker);
-  }
-  /* Dropdown toggle. */
-  .dropdown-toggle,
-  .dropdown-menu-toggle {
-    color: var(--light);
-    border-color: var(--darker) !important;
-    background-color: var(--dark);
-  }
-  /* Dropdown search. */
-  .dropdown-input-field,
-  .default-dropdown-input {
-    colors: $light, $darker, $dark;
-  }
-  // * Frequently visited.
-  [class*="frequent-items"] {
-    .section-header { color: $light !important; }
+  // * Navbar -> Projects/Groups.
+  .frequent-items-dropdown-menu {
+    radius: $radius;
+    .section-header { colors: $light, 0, 0; }
     .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
-    // Sidebar.
-    [class*="dropdown-sidebar"] { colors: 0, $shadow, 0; }
-  }
-  // ? Prevent active/open dropdown from having wrong background-color.
-  .dropdown-menu.frequent-items-dropdown-menu.show { colors: 0, 0, $darker; }
-  /* On event. */
-  .dropdown-input-field:focus,
-  .default-dropdown-input:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 1px 3px var(--shadow);
-  }
-  // Separator.
-  [class*="divider"] { colors: 0, $shadow, $t; }
-  /* Items. */
-  .dropdown-menu li a,
-  .dropdown-menu li button,
-  .dropdown-menu li .menu-item,
-  .dropdown-menu .current-user,
-  .navbar-sub-nav {
-    color: var(--light) !important;
-  }
-  .dropdown-header,
-  .dropdown-bold-header {
-	color: var(--lighter) !important;
-  }
-  /* On event. */
-  .dropdown-menu li button:hover,
-  .dropdown-menu li a:not(.disable-hover):hover,
-  .dropdown-menu li a:focus,
-  .dropdown-menu li a.is-focused,
-  .dropdown-menu .droplab-item-selected > .menu-item,
-  .dropdown-menu > li:hover > .menu-item {
-    color: var(--light);
-    background-color: var(--shadow) !important;
-  }
-  .dropdown.show > a > *, .dropdown.show > button > *, .show > button, .show > button > *, .show > #notifications-button,
-  .show > #clone-dropdown > *,
-  #nav-projects-dropdown > button[aria-expanded="true"], #nav-groups-dropdown > button[aria-expanded="true"] {
-	transition: none !important;
-    transition-delay: none !important;
-	color: var(--accent) !important;
-	fill: var(--accent) !important;
-  }
-  /* Text color. */
-  .dropdown-menu-inner-content,
-  .dropdown-toggle-text.is-default {
-    color: var(--light);
-  }
-  .dropdown-menu-inner-title,
-  .dropdown-menu .form-group label {
-    color: var(--lighter);
-  }
-  /* Icon colors. */
-  .nav a svg,
-  .nav .dropdown.show a:hover svg {
-    fill: var(--icon) !important;
+    [class*="dropdown-sidebar"] { colors: 0, $darker, 0; }
   }
 
   // * Dropdown.
-  // TODO unfinished.
   .dropdown {
-    // Fix the double scrollbar.
-    &.show .dropdown-menu {
-      max-height: 340px !important;
-    }
     // On event.
     &-item {
       transition: background 0.15s ease-in-out;
@@ -691,6 +601,84 @@
       &.is-focused, &.is-focused:hover { colors: 0, 0, $dark; }
     }
   }
+  .dropdown-menu {
+    radius: $radius;
+    colors: 0, $darker, $dark;
+    box-shadow: 0 4px 8px 0 $shadow;
+    // ? Height reset.
+    &-selectable.show { max-height: unset !important; }
+    // ? Toggle.
+    &-toggle:not(#search) {
+      radius: $radius;
+      colors: $lighter, $darker, $dark;
+      .dropdown-toggle-text { colors: $lighter, 0, 0; }
+    }
+    // ? Header/Title.
+    .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
+    // ? Input / Search.
+    .dropdown-input-field, .default-dropdown-input {
+      radius: $radius;
+      colors: $light, $darker, $dark;
+      &:focus { box-shadow: 0 0 2px 0px $accent; }
+    }
+    // ? Body/Content.
+    .dropdown-info-note { colors: $light, 0, 0; }
+    [class*="divider"] { colors: 0, $darker, $t; }
+    li {
+      // ? Reset avatar padding.
+      .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
+      // ? Base styles.
+      &:hover a, &:hover button { colors: $light, 0, $darker; }
+      a, button {
+        colors: $lighter, 0, 0;
+        transition: 200ms ease-in-out;
+      }
+    }
+    // ? MR -> "Created date" dropdown.
+    &-sort {
+      li {
+        // ? Reset due to markup being single `li` with a ton of `a` elements.
+        &:hover a { colors: $lighter, 0, $t; }
+        a {
+          transition: 0.1s ease;
+          &:hover { colors: $light, 0, $darker; }
+          &.is-active { colors: $accent, 0, 0; }
+        }
+      }
+    }
+    // ? MR -> Download button.
+    &-right:not(&-sort) {
+      li {
+        a, button {
+          transition: 0.1s ease;
+          colors: $lighter, 0, 0;
+          &:hover { colors: $light, 0, $darker; }
+        }
+      }
+    }
+    // ? Project -> Notifications.
+    &-large {
+      li a {
+        transition: 0.1s ease;
+        .dropdown-menu-inner-title { colors: $light, 0, 0; }
+        .dropdown-menu-inner-content { colors: $lighter, 0, 0; }
+      }
+    }
+    // ? Footer.
+    .dropdown-footer {
+      colors: 0, $darker, 0;
+      li:hover a { colors: $lighter, 0, $t; }
+      li a {
+        transition: 0.1s ease;
+        &:hover { colors: $light, 0, $darker; }
+      }
+    }
+    // ? Loader.
+    [class*="-loading"] {
+      colors: 0, 0, $dark;
+      .fa-spinner:before { color: $lighter; }
+    }
+  }
 
   // Dropdown with tabs.
   .dropdown-menu.dropdown-menu-tabs.show {
@@ -708,44 +696,43 @@
     }
   }
 
-  /* A brand new dropdown? */
-  .select2-drop,
-  .select2-drop.select2-drop-above {
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--darker);
-  }
-  /* Flashing on input. */
-  .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-    background: var(--dark) !important;
-  }
-  /* Input/select elements. */
-  .select2-choice,
-  .select2-drop input,
-  .select2-container-multi .select2-choices,
-  .select2-search-choice {
-    color: var(--light) !important;
-    border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  /* Text color. */
-  .select2-drop .select2-result-label {
-    color: var(--light) !important;
-  }
-  /* On event. */
-  .select2-results .select2-highlighted,
-  .select2-default {
-    color: var(--lighter) !important;
-  }
-  .select2-results .select2-highlighted .select2-result-label {
-    background-color: var(--darker);
-  }
-  .select2-results .select2-highlighted .select2-result-label:hover {
-	  background-color: var(--shadow) !important;
-  }
-  .select2-arrow {
-    padding-left: 10px;
-    background-color: var(--dark) !important;
+  // * Dropdown -> The select2 component.
+  .select2 {
+    // Menu.
+    &-drop {
+      radius: $radius;
+      colors: 0, $darker, $dark;
+    }
+    // Menu arrow.
+    &-arrow {
+      padding-left: 12px;
+      colors: 0, 0, $t;
+      &::after { colors: $lighter, 0, 0; }
+    }
+    // Input/select.
+    &-drop input, &-choice, &-search-choices, &-default {
+      radius: $radius !important;
+      colors: $lighter, $darker, $dark;
+    }
+    &-container-multi &-choices {
+      radius: $radius;
+      colors: $lighter, $darker, $dark;
+      input:focus { colors: $light, 0, 0; }
+    }
+    // ? Fix for flashing input.
+    &-container-multi &-choices &-search-field input&-active {
+      background: none !important;
+    }
+    // Results.
+    &-results &-result-label {
+      transition: 0.1s ease;
+      colors: $lighter, 0, 0;
+      .group-name { color: $light; }
+      .group-path { color: $lighter; }
+    }
+    &-results &-highlighted &-result-label {
+      colors: $light, 0, $darker;
+    }
   }
 
   // * Search page -> Issues/MR/Milestones.
@@ -3900,7 +3887,7 @@
   // ? Dropdown for file finder.
   .ide-view .dropdown-menu {
     max-height: 500px;
-    li button.is-focused { colors: 0, 0, $dark; }
+    li button.is-focused, a.active { colors: 0, 0, $dark; }
   }
 
   // * IDE :: Monaco syntax highlighting.
@@ -4031,7 +4018,7 @@
     // Items on hover/active states.
     &-item {
       colors: $lighter, 0, 0;
-      &:hover, &:active { colors: $light, 0, $dark; }
+      &:hover, &:active { colors: $light, 0, $darker; }
     }
     // ? Fix very thin font being barely visible.
     &-item .ci-status-text { font-weight: normal !important; }
