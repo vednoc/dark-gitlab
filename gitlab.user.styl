@@ -629,7 +629,7 @@
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
       &:hover a, &:hover button { colors: $light, 0, $darker; }
-      a {
+      a, button {
         colors: $lighter, 0, 0;
         transition: 200ms ease-in-out;
       }
@@ -3887,7 +3887,7 @@
   // ? Dropdown for file finder.
   .ide-view .dropdown-menu {
     max-height: 500px;
-    li button.is-focused { colors: 0, 0, $dark; }
+    li button.is-focused, a.active { colors: 0, 0, $dark; }
   }
 
   // * IDE :: Monaco syntax highlighting.
@@ -4018,7 +4018,7 @@
     // Items on hover/active states.
     &-item {
       colors: $lighter, 0, 0;
-      &:hover, &:active { colors: $light, 0, $dark; }
+      &:hover, &:active { colors: $light, 0, $darker; }
     }
     // ? Fix very thin font being barely visible.
     &-item .ci-status-text { font-weight: normal !important; }
