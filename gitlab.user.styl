@@ -580,10 +580,11 @@
     }
     // Button groups.
     .btn-group {
-      button {
-        colors: 0, $dark, $darker;
+      > button, > a {
+        colors: 0, $darker, $dark;
+        transition: 0.2s ease !important;
         &:hover { transform: none !important; }
-        &:hover, &.active { colors: 0, 0, $dark; }
+        &:hover, &.active { colors: 0, 0, $darker; }
         &:first-child { border-radius: $radius 0 0 $radius; }
         &:last-child { border-radius: 0 $radius $radius 0; }
       }
