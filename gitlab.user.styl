@@ -1383,9 +1383,7 @@
     overflow: hidden;
     radius: $radius;
     border-color: $darker;
-    .controls {
-      colors: 0, $darker, $darker;
-    }
+    .controls { colors: 0, $darker, $dark; }
     // Graph background.
     .network-graph {
       fill: var(--light);
@@ -1395,13 +1393,16 @@
       }
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
-        stroke: var(--shadow);
-        fill: var(--darker);
+        fill-opacity: 1 !important;
+        stroke: $t;
+        fill: $darker;
+      }
+      [d^="M185"], [d^="M195"] {
+        fill-opacity: 1 !important;
+        fill: $darker;
       }
       // Text color.
-      > svg text {
-        fill: var(--light);
-      }
+      > svg text { fill: $light; }
       // Sidebar.
       > svg rect[width*="40"], > svg rect[width*="30"] {
         stroke-width: 0;
