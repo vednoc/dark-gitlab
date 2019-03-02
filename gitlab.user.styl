@@ -178,13 +178,10 @@
     color: $icon !important;
     fill: $icon !important;
   }
-  // * Fix icons that need extra path selector.
+  // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
-  // TODO add missing icons here.
-  .nav-controls .has-tooltip svg > path,
-  .award-control-icon svg path,
-  .commit-icon path {
-    fill: $icon !important;
+  .nav-controls .has-tooltip svg, .award-control-icon svg, .commit-icon {
+    path { fill: $icon !important; }
   }
 
   // * Bootstrap reset.
