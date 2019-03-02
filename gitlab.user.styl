@@ -1360,9 +1360,6 @@
 
   // * Project :: Contributors.
   [id*="contributors"] {
-    // Prevent the hover.
-    &:hover svg { opacity: 1 !important; }
-    // Svg styles.
     .person .spark, .tint-box {
       radius: $radius;
       colors: $light, 0, $dark;
@@ -1388,9 +1385,6 @@
     .network-graph {
       fill: var(--light);
       background-color: var(--dark);
-      &:hover > svg {
-        opacity: 1 !important;
-      }
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
         fill-opacity: 1 !important;
@@ -1905,7 +1899,6 @@
     radius: $radius;
     colors: 0, 0, $dark;
     box-shadow: inset 0 0 0 1px $darker;
-    &:hover { opacity: 1 !important; }
     // Boxes.
     rect.actor { isvg: $darker, $darker; }
     text.actor { isvg: $light, 0; }
@@ -2224,8 +2217,6 @@
   // * User profile :: Activity.
   #activity > .row-content-block {
     colors: 0, $darker, $dark;
-    // Prevent SVG from fading.
-    svg:hover { opacity: 1 !important; }
     // Text color.
     svg text { fill: $light; }
   }
@@ -2329,8 +2320,6 @@
         // ? Only present in older versions of GitLab.
         &:first-child { colors: 0, $t, 0; }
       }
-      // Force calendar to stay full opacity.
-      .contrib-calendar:hover { opacity: 1 !important; }
       // ? Fixes border separator with !important rule on it.
       .border-bottom { colors: 0, $darker, 0; }
     }
