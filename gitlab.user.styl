@@ -1365,7 +1365,8 @@
     // Svg styles.
     .person .spark, .tint-box {
       radius: $radius;
-      colors: $light, 0, $darker;
+      colors: $light, 0, $dark;
+      box-shadow: 0 0 0 1px $darker;
       .axis {
         .domain, line { stroke: $lighter; }
         text { fill: $light; }
