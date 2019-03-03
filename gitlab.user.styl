@@ -565,6 +565,8 @@
     &-toggle {
       radius: $radius;
       colors: $lighter, $darker, $dark;
+      // ? Add missing top margin to the dropdown on group page. @upstream
+      + ul.show { margin-top: 10px !important; }
     }
     // On event.
     &-item {
@@ -614,6 +616,8 @@
       colors: $lighter, $darker, $dark;
       .dropdown-toggle-text { colors: $lighter, 0, 0; }
       &[class*="filtered-search-history"] { radius: 0 !important; }
+      // ? Add missing top margin to the dropdown on group page. @upstream
+      + ul.show { margin-top: 10px !important; }
     }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
