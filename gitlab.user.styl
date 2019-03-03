@@ -4171,6 +4171,14 @@
     background-image: linear-gradient(to right, var(--darker) 0%, var(--dark) 100%);
   }
 
+  // * Groups.
+  .group-nav-container {
+    > .scrolling-tabs-container:first-child {
+      margin: 0 !important;
+      border: none !important;
+      + .nav-controls { padding: 8px 0 !important; }
+    }
+  }
   // * Group header.
   .explore-groups {
     border-color: var(--darker);
