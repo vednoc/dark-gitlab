@@ -5629,3 +5629,94 @@
     .o { colors: $cyan, 0, 0; }
   }
 }
+
+@-moz-document domain("status.gitlab.com") {
+  // * Header.
+  #statusio_header {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // ? Make the header image smaller.
+    #statuspage_header_image {
+      float: left;
+      width: 100%;
+      max-width: 400px;
+      &::before, &::after { clear: both; }
+    }
+  }
+
+  // * Status bar.
+  [style*="background:#C44031"] { colors: 0, 0, $red; }
+  [style*="background:#27AE60"] { colors: 0, 0, $green; }
+  [style*="background:#00AAF0"] { colors: 0, 0, $blue; }
+  [style*="background:#FFA837"] { colors: 0, 0, $yellow; }
+
+  // * About section.
+  .section_border_1 {
+    colors: 0, $darker, $dark;
+    a { colors: $accent, 0, 0; }
+    // Icons and text elements nested within them.
+    .fa {
+      span { colors: $light, 0, 0; }
+      &-check { colors: $green, 0, 0; }
+    }
+  }
+
+  // * Table.
+  .status_td { colors: $lighter, $darker, $dark; }
+
+  // * History timeline.
+  #statusio_history .history-filter-text, .back-text { colors: $lighter, 0, 0; }
+  #statusio_history_timeline .timelineContainer {
+    colors: 0, $darker, 0;
+    .incident_time { colors: $light, 0, 0; }
+    .timelineMajor h2 {
+      background-image: none !important;
+      &::after {
+        content: "";
+        position: absolute;
+        margin-top: 20px;
+        left: 16px;
+        width: 24px;
+        height: 2px;
+        colors: 0, 0, $darker;
+      }
+    }
+    .timelineMinor dt {
+      background: none;
+      .open, .closed { colors: $lighter, 0, 0; }
+      &::before {
+        content: "";
+        position: absolute;
+        margin-top: 20px;
+        left: 0px;
+        width: 12px;
+        height: 2px;
+        colors: 0, 0, $darker;
+      }
+    }
+    hr { colors: 0, 0, $darker; }
+  }
+
+  // * Labels.
+  .label-success { colors: $light, 0, $green; }
+  .label-info { colors: $light, 0, $blue; }
+
+  // * Rounded corners.
+  .make_round {
+    radius: $radius;
+    &.make_round_bottom_only { radius: 0 0 $radius $radius; }
+    &.panel-heading { radius: $radius $radius 0 0; }
+  }
+  .component {
+    &_first { radius: $radius $radius 0 0; }
+    &_last { radius: 0 0 $radius $radius; }
+  }
+
+  // * Footer.
+  #bottom_menu {
+    a { colors: $accent, 0, 0; }
+    strong a { text-decoration: underline; }
+  }
+}
