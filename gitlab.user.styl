@@ -632,8 +632,8 @@
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button { colors: $light, 0, $darker; }
-      a, button {
+      &:hover a, &:hover button:not(.btn) { colors: $light, 0, $darker; }
+      a, button:not(.btn) {
         colors: $lighter, 0, 0;
         transition: 200ms ease-in-out;
       }
@@ -655,11 +655,12 @@
     // ? MR -> Download button.
     &-right:not(&-sort) {
       li {
-        a, button {
+        a, button:not(.btn), .menu-item {
           transition: 0.1s ease;
           colors: $lighter, 0, 0;
           &:hover { colors: $light, 0, $darker; }
         }
+        .form-group label { colors: $light, 0, 0; }
       }
     }
     // ? Project -> Notifications.
