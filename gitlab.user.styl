@@ -563,7 +563,6 @@
   .dropdown {
     // ? Toggle.
     &-toggle {
-      radius: $radius;
       colors: $lighter, $darker, $dark;
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
@@ -612,7 +611,6 @@
     &-selectable.show { max-height: unset !important; }
     // ? Toggle.
     &-toggle:not(#search) {
-      radius: $radius;
       colors: $lighter, $darker, $dark;
       .dropdown-toggle-text { colors: $lighter, 0, 0; }
       &[class*="filtered-search-history"] { radius: 0 !important; }
