@@ -1338,18 +1338,19 @@
     a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: $accent !important; }
   }
   // ? Active/Stale/All pages.
-  // TODO: Needs refactoring and restructuring.
-  [data-page="projects:branches:index"] .top-area.adjust + .all-branches {
-    margin-top: 10px;
-    radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: inset 0 0 0 1px $darker;
-    li {
-      padding: 8px;
-      transition: 0.1s ease;
-      &:hover { colors: 0, 0, $darker; }
-      &:first-child { radius: $radius $radius 0 0; }
-      &:last-child { radius: 0 0 $radius $radius; }
+  [data-page="projects:branches:index"] {
+    .row-content-block + .all-branches,
+    .top-area.adjust + .all-branches {
+      margin-top: 10px !important;
+      radius: $radius;
+      colors: 0, 0, $dark;
+      box-shadow: inset 0 0 0 1px $darker;
+      li {
+        transition: 0.1s ease;
+        &:hover { colors: 0, 0, $darker; }
+        &:first-child { radius: $radius $radius 0 0; }
+        &:last-child { radius: 0 0 $radius $radius; }
+      }
     }
   }
 
