@@ -1304,6 +1304,19 @@
 
   // * Project :: Branches.
   .all-branches {
+    > .branch-item {
+      padding: 8px;
+      colors: 0, $darker, 0;
+      .branch-title a { colors: $light, 0, 0; }
+      .branch-commit {
+        colors: $lighter, 0, 0;
+        .commit-sha {
+          font-size: 100%; // ! Why smaller font? @upstream
+          colors: $accent, 0, 0;
+        }
+        time, .commit-row-message { colors: $lighter, 0, 0; }
+      }
+    }
     .btn.btn-default { colors: $light, 0, 0; }
     .btn.btn-remove { colors: var(--white), $red, $red; }
     .branch-commit .commit-row-message { colors: $light, 0, 0; }
@@ -1315,24 +1328,14 @@
   }
   // Graph color.
   .divergence-graph {
-    .graph-separator, .graph-side [class*="bar"] {
-      colors: 0, 0, $accent;
-    }
-  }
-  /* Text color. */
-  .commit-row-message,
-  .branch-commit,
-  .content-list li [class*="item"],
-  .content-list li [class*="graph"] [class*="count"] {
-    color: $light !important;
+    .graph-side [class*="bar"] { colors: 0, 0, $lighter; }
+    .graph-separator { colors: 0, 0, $lighter; }
+    [class*="count"] { colors: $light, 0, 0; }
   }
   .content-list li {
     colors: 0, $darker, 0;
     // TODO Find a better way to style this selector.
     a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: $accent !important; }
-  }
-  .branch-commit {
-    .commit-sha, .gfm-commit, .gfm-commit_range { color: $accent !important; }
   }
   // ? Active/Stale/All pages.
   // TODO: Needs refactoring and restructuring.
