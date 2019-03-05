@@ -632,7 +632,10 @@
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button:not(.btn) { colors: $light, 0, $darker; }
+      &:hover a, &:hover button:not(.btn-success) {
+        transform: none;
+        colors: $light, 0, $darker;
+      }
       a, button:not(.btn) {
         colors: $lighter, 0, 0;
         transition: 200ms ease-in-out;
