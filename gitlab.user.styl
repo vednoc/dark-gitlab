@@ -658,6 +658,8 @@
     // ? MR -> Download button.
     &-right:not(&-sort) {
       li {
+        // ? Reset due to markup being single `li` with a ton of `a` elements.
+        &:hover a { colors: $lighter, 0, $t; }
         a, button:not(.btn), .menu-item {
           transition: 0.1s ease;
           colors: $lighter, 0, 0;
