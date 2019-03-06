@@ -3366,10 +3366,16 @@
     colors: 0, $darker, $dark;
     li {
       transition: all 0.2s ease-in-out;
-      &:hover { colors: 0, 0, $darker; }
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
-      &.snippet-row { padding: 8px !important; }
+      &.snippet-row {
+        padding: 8px !important;
+        &:hover { colors: 0, 0, $darker; }
+        // Text colors.
+        .snippet-info {
+          &, time, .js-user-link { colors: $lighter, 0, 0; }
+        }
+      }
     }
   }
   // Reset styles in reaction area.
