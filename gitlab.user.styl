@@ -595,16 +595,6 @@
     label { colors: $light, 0, 0; }
   }
   .dropdown-menu {
-    // ? Diff -> File finder.
-    .diff-changed-file {
-      [class*="path"] { colors: $lighter, 0, 0; }
-      .cgreen { colors: $green, 0, 0; }
-      .cred { colors: $red, 0, 0; }
-      &:focus { colors: 0, 0, $shadow; }
-      &.is-focused, &.is-focused:hover { colors: 0, 0, $dark; }
-    }
-  }
-  .dropdown-menu {
     radius: $radius;
     colors: 0, $darker, $dark;
     box-shadow: 0 4px 8px 0 $shadow;
@@ -683,6 +673,14 @@
         button { colors: $lighter, 0, 0; }
         .is-active { colors: $light, 0, 0; }
       }
+    }
+    // ? Diff -> File finder.
+    .diff-changed-file {
+      [class*="path"] { colors: $lighter, 0, 0; }
+      .cgreen { colors: $green, 0, 0; }
+      .cred { colors: $red, 0, 0; }
+      &:focus { colors: 0, 0, $shadow; }
+      &.is-focused, &.is-focused:hover { colors: 0, 0, $dark; }
     }
     // ? Footer.
     .dropdown-footer {
