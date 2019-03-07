@@ -540,8 +540,9 @@
     // Active dropdowns.
     .dropdown.show {
       > a { colors: $light, 0, $dark; }
+      a:active { colors: 0, 0, $darker; }
       // ? Reset button hover state in dropdowns.
-      button.btn:hover { transform: none !important; }
+      button.btn:hover, .btn:focus { transform: none !important; }
     }
     // ? Shows theme version in the user dropdown.
     .header-user li:first-child::before {
