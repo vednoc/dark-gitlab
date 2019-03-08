@@ -1189,7 +1189,11 @@
   // ? Drop some shadow; use transparent avatars for best results.
   img.avatar { filter: drop-shadow(1px 1px 2px $shadow); }
   // ? Replace default background for project avatars and fix the height.
-  .avatar:not(img) { colors: 0, 0, $shadow; }
+  .avatar:not(img) {
+    colors: 0, 0, $darker;
+    transition: 0.15s ease-in-out !important;
+  }
+  li:hover .avatar:not(img) { colors: 0, 0, $dark; }
 
   // * Project details.
   .project-details {
