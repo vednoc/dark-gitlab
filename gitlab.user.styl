@@ -541,6 +541,12 @@
       // ? Reset button hover state in dropdowns.
       button.btn:hover, .btn:focus { transform: none !important; }
     }
+    // ? Avatars -> Reset.
+    .header-user-avatar {
+      radius: var(--avatar) !important;
+      border: none !important;
+      colors: $lighter, 0, $t;
+    }
     // ? Shows theme version in the user dropdown.
     .header-user li:first-child::before {
       content: var(--note);
@@ -1169,13 +1175,12 @@
   }
 
   // * Avatars.
-  .avatar,
-  .avatar-circle,
-  .avatar-container,
-  .header-user-avatar,
-  .breadcrumbs-links .avatar-tile, {
-    radius: var(--avatar) !important;
-    colors: $lighter, $t, $t;
+  .avatar {
+    &, &-circle, &-container, &-tile {
+      radius: var(--avatar) !important;
+      border: none !important;
+      colors: $lighter, 0, $t;
+    }
   }
   // TODO Prolly not needed anymore.
   .identicon { color: $lighter; }
