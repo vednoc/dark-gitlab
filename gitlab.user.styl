@@ -599,6 +599,15 @@
     }
     .bold { colors: $lighter, 0, 0; }
     label { colors: $light, 0, 0; }
+    // ? Issue boards -> Switch board.
+    &-extended-height {
+      a {
+        transition: 0.1s ease;
+        colors: $lighter, 0, 0;
+        &:hover, &:active { colors: $light, 0, $darker; }
+        &.is-active { colors: $accent, 0, 0; }
+      }
+    }
   }
   .dropdown-menu {
     radius: $radius;
