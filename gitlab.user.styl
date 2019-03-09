@@ -1003,6 +1003,16 @@
       .epics-list-item {
         &:hover .epic-timeline-cell { colors: 0, $darker, $dark; }
         .epic-timeline-cell { colors: $light, $dark, 0; }
+        // ? Bars.
+        .timeline-bar {
+          colors: 0, 0, $blue;
+          &.start-date-undefined { background: linear-gradient(
+            to right, #55555510 0%, #55555530 50%, $blue 100%
+          ) !important; }
+          &.end-date-undefined { background: linear-gradient(
+            to right, $blue 0%, #55555530 50%, #55555510 100%
+          ) !important; }
+        }
       }
     }
   }
