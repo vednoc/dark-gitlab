@@ -1193,7 +1193,12 @@
     colors: 0, 0, $darker;
     transition: 0.15s ease-in-out !important;
   }
-  li:hover .avatar:not(img) { colors: 0, 0, $dark; }
+  // ? Hover event for content list and group list.
+  li:not(.group-row), .group-row-contents {
+    &:hover .avatar:not(img) {
+      colors: 0, 0, $dark;
+    }
+  }
 
   // * Project details.
   .project-details {
