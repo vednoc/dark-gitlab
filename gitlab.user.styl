@@ -604,8 +604,14 @@
       a {
         transition: 0.1s ease;
         colors: $lighter, 0, 0;
-        &:hover, &:active { colors: $light, 0, $darker; }
+        &:hover, &:active, &:focus { colors: $light, 0, $darker; }
         &.is-active { colors: $accent, 0, 0; }
+      }
+      // ? Boards -> Create new board.
+      .dropdown-divider ~ .dropdown-item {
+        colors: $lighter, 0, 0;
+        transition: 0.15s ease;
+        &:hover, &:active, &:focus { colors: $light, 0, $darker; }
       }
     }
   }
