@@ -695,6 +695,19 @@
         .is-active { colors: $light, 0, 0; }
       }
     }
+    // ? Issue boards -> Add list.
+    &-tabs {
+      // max-height: 400px !important;
+      .dropdown-tabs-list {
+        colors: 0, 0, $dark;
+        box-shadow: 0 1px 0 0 $darker !important;
+        .dropdown-tab-item {
+          colors: 0, $darker, 0;
+          a { colors: $light, 0, $dark; }
+          a.active { colors: $lighter, $accent, $dark; }
+        }
+      }
+    }
     // ? Diff -> File finder.
     .diff-changed-file {
       [class*="path"] { colors: $lighter, 0, 0; }
@@ -716,22 +729,6 @@
     [class*="-loading"] {
       colors: 0, 0, $dark;
       .fa-spinner:before { color: $lighter; }
-    }
-  }
-
-  // Dropdown with tabs.
-  .dropdown-menu.dropdown-menu-tabs.show {
-    max-height: 400px !important;
-    .dropdown-footer { colors: 0, $dark, 0; }
-  }
-  // Tabs.
-  .dropdown-tabs-list {
-    colors: 0, 0, $dark;
-    box-shadow: none !important;
-    .dropdown-tab-item {
-      colors: 0, $dark, 0;
-      a { colors: 0, 0, $dark; }
-      a.active { colors: 0, $accent, $darker; }
     }
   }
 
