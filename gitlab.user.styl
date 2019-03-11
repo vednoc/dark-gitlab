@@ -2383,8 +2383,13 @@
       // Add padding.
       .user-calendar { padding: 16px !important; }
       .prepend-top-16 > .border-bottom { padding: 0 16px !important; }
+      // ? Add some padding to empty blocks.
+      .overview-content-list { padding-bottom: 1px; }
       // ? Fixes border separator with !important rule on it.
       .border-bottom { colors: 0, $darker, 0; }
+      // ? Content list items.
+      .event-item { padding: 16px 16px 16px 56px !important; }
+      .event-item .system-note-image { left: 16px; }
     }
     // Event items.
     // TODO possible refactor with styles beneath.
