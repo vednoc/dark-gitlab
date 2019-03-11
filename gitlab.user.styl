@@ -2300,10 +2300,12 @@
 
   // ? Compact projects-list.
   .compact.projects-list {
+    margin: 0 !important;
+    colors: 0, 0, $t;
     box-shadow: none !important;
     .project-row {
       padding: 8px;
-      &:hover { radius: $radius; }
+      &:first-child { radius: 0 !important; }
     }
   }
 
@@ -2366,7 +2368,6 @@
   .user-profile {
     // Sections.
     [class*="col"] > [class*="block"] {
-      padding: 8px 16px;
       margin-top: 16px;
       radius: $radius;
       colors: 0, 0, $dark;
@@ -2379,6 +2380,9 @@
         // ? Only present in older versions of GitLab.
         &:first-child { colors: 0, $t, 0; }
       }
+      // Add padding.
+      .user-calendar { padding: 16px !important; }
+      .prepend-top-16 > .border-bottom { padding: 0 16px !important; }
       // ? Fixes border separator with !important rule on it.
       .border-bottom { colors: 0, $darker, 0; }
     }
