@@ -3045,9 +3045,8 @@
         filter: opacity(0.75) !important;
       }
       // Selected.
-      &.active, &:hover:not(.disabled) {
-        .page-link { colors: $light, 0, $darker; }
-      }
+      &.active .page-link { colors: $accent, 0, $darker; }
+      &:hover:not(.disabled):not(.active) .page-link { colors: $accent, 0, 0; }
     }
   }
 
