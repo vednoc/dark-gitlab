@@ -2510,12 +2510,19 @@
     border-color: var(--darker);
     background-color: var(--dark);
   }
-  // New issues.
+  // ? New issues.
   .issue.today {
-    background-color: $t;
-    colors: 0, 0, 0;
-    box-shadow: inset 4px 0 0 0px $accent;
+    colors: 0, 0, $t;
+    box-shadow: none;
+    &::before {
+      content: "";
+      border-left: 4px solid $accent;
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+    }
   }
+  // ? Rounded corners for first list item.
+  .issuable-list > li:first-child::before { radius: $radius 0 0 0; }
   // Items on hover.
   .card > ul > li {
     &:hover, &.done-reversible {
