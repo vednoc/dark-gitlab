@@ -2139,9 +2139,9 @@
     &:not(.color-label) { colors: var(--white), 0, 0; }
     // Apply everywhere except on badge-pill elements.
     &:not(.badge-pill) {
-      opacity: 0.6;
-      transition: 0.2s opacity ease-in-out;
-      &:hover { opacity: 1; }
+      transition: 0.15s opacity ease;
+      box-shadow: inset 0 0 0 1rem #33333370;
+      &:hover { box-shadow: none; }
     }
   }
 
