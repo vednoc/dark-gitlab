@@ -2076,8 +2076,17 @@
       colors: 0, $darker, $dark;
     }
     .bs-callout-info {
-      colors: $lighter, $darker, $dark;
-      border-left-color: $accent !important;
+      position: relative;
+      border: none;
+      colors: $lighter, $dark, $dark;
+      box-shadow: 0 0 0 1px inset $darker;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0px; left: 0; bottom: 0px;
+        radius: $radius 0 0 $radius;
+        border-left: $radius solid $blue;
+      }
     }
     .project-visibility-setting {
       radius: $radius $radius 0 0;
