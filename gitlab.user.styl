@@ -927,6 +927,12 @@
       > .container-limited { padding: 0; max-width: 100%; }
     }
     .alert-link { colors: $white, 0, 0; }
+    // ? Broadcasts found on `git.synz.io`.
+    .broadcast-message {
+      &[style*="background-color: #004275"] { colors: $white, 0, $blue; }
+      &[style*="background-color: #00bd7f"] { colors: $white, 0, $green; }
+      &[style*="background-color: #f4f4f4"] { colors: $light, 0, $darker; }
+    }
   }
   // Green alerts.
   .alert-success {
