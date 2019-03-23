@@ -2068,6 +2068,9 @@
   // * Project :: Settings.
   .settings {
     border-bottom-color: $darker;
+    // ? Fix border colors.
+    + .settings { colors: 0, $darker, 0; }
+    // ? Standalone sections i.e. under Advanced.
     .sub-section {
       radius: $radius;
       colors: 0, $darker, $dark;
