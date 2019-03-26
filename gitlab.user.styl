@@ -2158,11 +2158,15 @@
     &.color-label { text-decoration: none !important; }
     // Apply everywhere except on color-label elements.
     &:not(.color-label) { colors: var(--white), 0, 0; }
-    // Apply everywhere except on badge-pill elements.
-    &:not(.badge-pill) {
-      transition: 0.15s opacity ease;
+    // Hack for darkening background color.
+    &:not(.badge-pill):not(.available) {
+      // transition: 0.15s ease;
       box-shadow: inset 0 0 0 1rem #33333370;
       &:hover { box-shadow: none; }
+      &[style*="color: #333333"] {
+        color: #000000 !important;
+        box-shadow: inset 0 0 0 1rem #33333325;
+      }
     }
   }
 
