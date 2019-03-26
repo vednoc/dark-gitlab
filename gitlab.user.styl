@@ -5830,3 +5830,20 @@
     strong a { text-decoration: underline; }
   }
 }
+
+@-moz-document domain("next.gitlab.com") {
+  .white-box {
+    radius: $radius;
+    border: 1px solid;
+    colors: $light, $darker, $dark;
+    a { colors: $accent, 0, 0; }
+    .text-switch { colors: $lighter, 0, 0; }
+    .switch .cmn-toggle-round {
+      + label { colors: 0, 0, $darker; }
+      + label::after { colors: 0, 0, $darker; }
+      + label::before { colors: 0, 0, $dark; }
+      &:checked + label::before { colors: 0, 0, $blue; }
+    }
+  }
+  .footer a { colors: $light, 0, 0; }
+}
