@@ -374,6 +374,9 @@
   }
   .nav-links:not(.quick-link) { border-bottom-color: $t; }
   .label-bold { color: $light; }
+  .cred { color: $red; }
+  .cblue { color: $blue; }
+  .cgreen { color: $green; }
   // ? Inverts checkboxes since we can't style them as they are currently.
   if checkbox {
     input[type="checkbox"] { filter: invert(var(--bg-invert)) !important; }
@@ -3418,9 +3421,6 @@
   }
   /* Text colors. */
   .diff-stats-summary-toggler { color: $blue !important; }
-  #diff-stats .cgreen { color: $green; }
-  #diff-stats .cred { color: $red; }
-
 
   // * Snippets
   .project-snippets {
