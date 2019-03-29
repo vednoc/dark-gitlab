@@ -2337,40 +2337,37 @@
     }
   }
 
-  // * Project :: Files.
+  // * Project -> File table.
   .table-holder {
     radius: $radius;
-    border: 1px solid $darker;
+    border: none !important;
     background-color: $dark;
-    // Remove unnecessary borders.
+    box-shadow: 0 0 0 1px inset $darker;
+    // ? File holder.
     .tree-table tr {
-      border-color: transparent !important;
-      td {
-        border-color: $darker !important;
-        transition: 0.2s ease;
+      // ? Remove weird borders on file-holder.
+      &, th { border: none !important; }
+      // Cell background colors.
+      th { colors: 0, 0, $darker; }
+      td { transition: 0.15s ease; }
+      // ? Table cells.
+      &.tree-item {
+        // Text colors.
+        .tree-time-ago, .tree-commit-link, .tree-item-file-name > * {
+          transition: 0.15s ease;
+          colors: $lighter, 0, 0;
+        }
+        // On event.
+        &:hover, &.selected {
+          > td { colors: 0, 0, $darker; }
+          .tree-time-ago, .tree-commit-link, .tree-item-file-name > * {
+            colors: $light, 0, 0;
+          }
+        }
       }
-      &.selected td { colors: 0, $darker, $darker; }
-      // Top border for file table.
-      th { border-top-color: $darker; }
     }
     // ? Fixes `pre` element on project/pages/domains page.
-    table tbody pre { colors: $lighter, $darker, $dark; }
-    // Text color.
-    .tree-item {
-      .tree-time-ago,
-      .tree-commit-link,
-      &-file-name i, &-file-name a {
-        color: $light !important;
-      }
-    }
-  }
-  // File/table headers.
-  // TODO refactor.
-  table.table tr th,
-  .file-holder .file-title,
-  .tree-holder .tree-table tr:hover:not(.tree-truncated-warning) td {
-    border-color: var(--darker);
-    background-color: var(--darker);
+    tbody pre { colors: $lighter, $darker, $dark; }
   }
 
 
