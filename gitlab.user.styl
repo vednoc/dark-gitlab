@@ -159,8 +159,53 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  table td {
-    background-color: var(--dark);
+  // ? Found on: https://gitlab.com/help
+  *:not(.use-csslab) table[data-sourcepos][dir] {
+    colors: 0, 0, $t;
+    > thead {
+      display: flex;
+      > tr {
+        width: 100%;
+        display: flex;
+        > th:first-child {
+          flex: 1 1 360px;
+          radius: $radius 0 0 0;
+          @media screen and (max-width: 700px) { flex: 1 1 240px; }
+        }
+        > th:last-child {
+          flex: 1 1 100%;
+          radius: 0 $radius 0 0;
+        }
+      }
+    }
+    > tbody {
+      display: flex;
+      flex-direction: column;
+      > tr {
+        display: flex;
+        // Remove default border and set cell background color.
+        > td {
+          border: none !important;
+          colors: 0, 0, $dark;
+          a[href] { colors: $light, 0, 0; }
+          &:first-child {
+            flex: 1 1 360px;
+            border-left: 1px solid $darker !important;
+            border-bottom: 1px solid $darker !important;
+            @media screen and (max-width: 700px) { flex: 1 1 240px; }
+          }
+          &:last-child {
+            flex: 1 1 100%;
+            border-left: 1px solid $darker !important;
+            border-right: 1px solid $darker !important;
+            border-bottom: 1px solid $darker !important;
+          }
+        }
+        // Roundify corners.
+        &:last-child > td:first-child { radius: 0 0 0 $radius; }
+        &:last-child > td:last-child { radius: 0 0 $radius 0; }
+      }
+    }
   }
   // Fix emojis being cropped.
   gl-emoji {
