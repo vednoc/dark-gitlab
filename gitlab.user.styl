@@ -1870,6 +1870,12 @@
       colors: $light, 0, 0;
       &:hover, &:focus { colors: 0, 0, $darker; }
     }
+    // ? Fix overflow and height on Firefox.
+    .nav-sidebar-inner-scroll {
+      height: calc(100% - 44px);
+      overflow-x: hidden !important;
+      > ul.sidebar-top-level-items { margin-bottom: 0; }
+    }
   }
 
   // * Sidebar sub-menu.
