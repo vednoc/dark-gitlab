@@ -43,7 +43,7 @@
 
 ==/UserStyle== */
 
-@-moz-document regexp("https?://(.*)?(gitlab\.(?!io).*|gitgud.io|salsa.debian.org|framagit.org|source.joinmastodon.org|repo.getmonero.org|git.gnu.io|git.synz.io|your.custom.domain)/.*") {
+@-moz-document regexp("^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|custom.domain)).*|gitgud.io|salsa.debian.org|framagit.org|source.joinmastodon.org|repo.getmonero.org|git.gnu.io|git.synz.io|your.custom.domain)(/.*)?$") {
   :root {
     --note      : "Dark-GitLab v0.28.0";
     --dark      : dark;
