@@ -804,6 +804,26 @@
     }
   }
 
+  // * Dashboard -> Welcome page.
+  .section-welcome {
+    padding: 0 !important;
+    .container {
+      max-width: var(--width) !important;
+      // Fix odd spacing.
+      .blank-state-row { justify-content: space-between; }
+      // Cards.
+      .blank-state-link {
+        radius: $radius;
+        colors: 0, 0, $dark;
+        &:hover { colors: $light, 0, $darker; }
+        .blank-state {
+          radius: $radius;
+          colors: 0, $darker, 0;
+        }
+      }
+    }
+  }
+
   // * Dashboard :: New project.
   .gitlab-tabs {
     radius: $radius $radius 0 0;
