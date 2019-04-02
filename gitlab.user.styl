@@ -3008,10 +3008,16 @@
   }
 
   // * Promotional.
-  .user-callout  {
+  .user-callout {
     // Reset extra margins on the side.
     margin: 20px 0 0 !important;
-    &.promotion-callout .bordered-box { colors: 0, $darker, $dark; }
+    &.promotion-callout {
+      .bordered-box {
+        padding: 8px !important;
+        radius: $radius;
+        colors: 0, $darker, $dark;
+      }
+    }
     // ? Found in: .../repo/pipeline_schedules
     .bordered-box.content-block {
       padding: 8px !important;
