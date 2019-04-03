@@ -2844,6 +2844,14 @@
         colors: $light, $darker, $dark;
       }
     }
+    // ? Project -> Releases.
+    &.linked-card {
+      .dropdown > .btn-link { colors: $light, $t, 0; }
+      &::after {
+        border: none;
+        border-left: 1px solid $darker;
+      }
+    }
   }
 
   // * Emoji picker.
