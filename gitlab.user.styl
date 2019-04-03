@@ -927,29 +927,24 @@
     flex-direction: column;
     // Move breadcrumbs to the last spot.
     > nav { order: 999; }
-    // Colors and resets for alerts.
-    .flash-notice {
+    // Alert main reset.
+    [class*="flash-"] {
       margin-bottom: 0px !important;
-      border: none !important;
-      colors: $white, 0, $blue;
-    }
-    // Red alert.
-    .flash-alert { colors: $white, $red, $red; }
-    // Green alert.
-    .flash-success {
-      colors: $white, $green, $green;
+      // ? Fixes unnecessary limited container issue.
+      > .container-limited {
+        padding: 0;
+        max-width: 100%;
+      }
       a {
         color: $white;
         text-decoration: underline;
       }
     }
-    // Orange alert.
-    .alert-warning {
-      border: none !important;
-      colors: $white, 0, $orange;
-      // ? Fixes unnecessary limited container issue.
-      > .container-limited { padding: 0; max-width: 100%; }
-    }
+    // Alert colors.
+    .flash-notice { colors: $white, $blue, $blue; }
+    .flash-alert { colors: $white, $red, $red; }
+    .flash-success { colors: $white, $green, $green; }
+    .alert-warning { colors: $white, $orange, $orange; }
     .alert-link { colors: $white, 0, 0; }
     // ? Broadcasts found on `git.synz.io`.
     .broadcast-message {
