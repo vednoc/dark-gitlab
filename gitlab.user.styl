@@ -1948,21 +1948,22 @@
         box-shadow: none !important;
       }
     }
+    // ? Collapse button.
+    .toggle-sidebar-button {
+      height: 44px;
+      width: 100%;
+      transition: 0.15s ease !important;
+      colors: 0, $darker, $dark;
+      .collapse-text {
+        transition: 0.15s ease;
+        colors: $lighter, 0, 0;
+      }
+      &:hover {
+        colors: 0, 0, $darker;
+        .collapse-text { colors: $light, 0, 0; }
+      }
+    }
   }
-
-  // * Collapse button.
-  .nav-sidebar .toggle-sidebar-button {
-    height: 44px;
-    width: 100%;
-    transition: 0.2s ease-in-out !important;
-    colors: $light, $darker, $dark;
-    &:hover { colors: 0, 0, $darker; }
-    // Text color.
-    .collapse-text { colors: $light, 0, 0; }
-  }
-
-
-
 
   // * Right sidebar.
   .right-sidebar {
