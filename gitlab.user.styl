@@ -1980,16 +1980,23 @@
       > a, > button { colors: $lighter, 0, 0; }
     }
     // Button background.
-    .js-move-issue:hover,
-    &.right-sidebar-collapsed .block:hover {
-      colors: 0, 0, $darker;
+    .js-move-issue:hover { colors: 0, 0, $darker; }
+    // Adjust sidebar width.
+    &.right-sidebar-collapsed {
+      width: 50px;
+      .block {
+        width: 50px;
+        transition: 0.15s ease;
+        &:hover { colors: 0, 0, $darker; }
+      }
+      .gutter-toggle { height: 55px; }
     }
     // Expanded state should take more available space.
     &.right-sidebar-expanded .issuable-sidebar {
-      padding: 0 8px;
+      padding: 0 16px;
       .block {
         width: 100%;
-        max-width: 272px;
+        max-width: 264px;
       }
     }
   }
