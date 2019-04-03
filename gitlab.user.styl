@@ -1780,6 +1780,12 @@
       colors: $light, 0, 0;
     }
     a, a:hover { color: $accent !important; }
+    // ? MR -> Notes -> Suggestions.
+    .md-suggestion-header {
+      radius: $radius $radius 0 0;
+      colors: $light, $darker, $dark;
+      + table.code { radius: 0 0 $radius $radius; }
+    }
   }
 
   // * Issues :: Conversation notes.
@@ -3383,7 +3389,8 @@
     // ? Rounded corner on the last line in side-by-side view.
     &-file .line_holder:last-child > .right-side { radius: 0 0 $radius 0; }
     // ? Rounded corner in the gutters in side-by-side view.
-    &-file .line_holder:last-child > .old_line { radius: 0 0 0 $radius; }
+    &-file .line_holder:last-child > td:first-child { radius: 0 0 0 $radius; }
+    &-file .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
     // ? Merge request diffs in the change view.
     &-viewer .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
   }
