@@ -2664,6 +2664,8 @@
       font-family: var(--code-font);
       colors: $lighter, $darker, $dark;
     }
+    // ? Found in: ...project/pipeline_schedules
+    + .card { margin-top: 10px; }
   }
 
   // * Dashboard :: Issues/MR page.
@@ -2821,14 +2823,15 @@
 
   // * Cards.
   .card, .card-slim {
+    radius: $radius;
     // overflow: hidden;
     colors: 0, $darker, $dark;
-    .card-header,
-    .card-footer {
+    .card-header, .card-footer {
       font-weight: 600 !important;
       colors: 0, $darker, $darker;
     }
     .card-body {
+      padding: 8px;
       pre {
         font-family: var(--code-font);
         radius: $radius;
