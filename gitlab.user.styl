@@ -1984,6 +1984,14 @@
     &.right-sidebar-collapsed .block:hover {
       colors: 0, 0, $darker;
     }
+    // Expanded state should take more available space.
+    &.right-sidebar-expanded .issuable-sidebar {
+      padding: 0 8px;
+      .block {
+        width: 100%;
+        max-width: 272px;
+      }
+    }
   }
 
   // * Project :: Wiki.
