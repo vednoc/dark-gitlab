@@ -1882,7 +1882,8 @@
   // * Left sidebar.
   .nav-sidebar {
     colors: 0, 0, $dark;
-    box-shadow: 1px 0px 0px 0px $darker;
+    box-shadow: 1px 0 0 0 $darker;
+    .divider { colors: 0, $darker, 0; }
     // Hide scrollbar.
     ::-webkit-scrollbar { display: none !important; }
     // Links.
@@ -1896,39 +1897,57 @@
       overflow-x: hidden !important;
       > ul.sidebar-top-level-items { margin-bottom: 0; }
     }
-  }
-
-  // * Sidebar sub-menu.
-  .nav-sidebar .sidebar-top-level-items li {
-    // Active links.
-    // ? Specify the :not(...) in order to prevent first link being active.
-    &.active:not(.fly-out-top-item) {
-      box-shadow: inset 4px 0 0 $darker !important;
-      background-color: $dark !important;
-      > a { colors: $accent, $dark, $darker; }
-      // Icon color.
-      svg { fill: $accent !important; }
+    // ? Styles for submenus.
+    .nav-sidebar-inner-scroll > ul.sidebar-top-level-items {
+      // Active submenu.
+      > li.active:not(.fly-out-top-item) {
+        colors: 0, 0, $t;
+        box-shadow: 4px 0 0 0 inset $darker, 1px 0 0 1px inset $darker;
+        // Group name.
+        > a {
+          margin-left: 0;
+          transition: 0.15s ease;
+          colors: $accent, 0, 0;
+        }
+        // Active list items.
+        .sidebar-sub-level-items li:not(.fly-out-top-item) {
+          transition: 0.15s ease;
+          &.active, &:hover {
+            colors: $lighter, 0, $darker;
+            box-shadow: 4px 0 0 0 inset $accent;
+            // Remove unnecessary background.
+            a { colors: $light, 0, $t; }
+          }
+        }
+      }
+      // Fly-out menu.
+      > li:not(.fly-out-top-item).is-showing-fly-out .sidebar-sub-level-items {
+        radius: 0 $radius $radius 0;
+        colors: 0, $darker, $dark;
+        box-shadow: 2px 2px 2px 0 $shadow;
+      }
+      > li.is-over > a { colors: 0, 0, $darker; }
+      // Badges.
+      .badge.badge-pill { colors: $lighter, $darker, $dark; }
+      > li:hover, > li.active {
+        .badge.badge-pill { colors: $light, $dark, $darker; }
+      }
+      // Remove unnecessary margin on items.
+      a {
+        margin-right: 0;
+        transition: 0.15s ease;
+      }
     }
-    // Non-active items.
-    a {
-      margin-right: 0;
-      transition: background 0.1s ease-in-out;
+    // ? Resets for collapsed sidebar.
+    &.sidebar-collapsed-desktop {
+      ul.sidebar-top-level-items > li.active:not(.fly-out-top-item) {
+        colors: 0, 0, $darker;
+        box-shadow: 4px 0 0 0 inset $accent !important;
+      }
+      ul.sidebar-sub-level-items > li:not(.fly-out-top-item) {
+        box-shadow: none !important;
+      }
     }
-    .divider { background: $shadow !important; }
-  }
-
-  // * Active tab.
-  .nav-sidebar .sidebar-sub-level-items {
-    // Active tab.
-    .active:not(.fly-out-top-item) a {
-      box-shadow: inset 4px 0 0 0 var(--accent) !important;
-      background-color: $darker !important;
-    }
-  }
-  // Issue counter.
-  .sidebar-top-level-items {
-    .badge.badge-pill { colors: $light, 0, $darker; }
-    .active .badge.badge-pill, li:hover .badge.badge-pill { colors: $light, 0, $dark; }
   }
 
   // * Collapse button.
@@ -1942,14 +1961,7 @@
     .collapse-text { colors: $light, 0, 0; }
   }
 
-  /* Dropdown. */
-  .is-showing-fly-out .sidebar-sub-level-items {
-    box-shadow: 2px 1px 3px $shadow !important;
-    radius: 0 $radius $radius 0 !important;
-    colors: 0, $darker, $dark;
-  }
-  /* Toggle button. */
-  .close-nav-button { colors: $light, $darker, $dark; }
+
 
 
   // * Right sidebar.
