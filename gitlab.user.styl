@@ -3770,7 +3770,17 @@
     // Remove sidebar.
     *::-webkit-scrollbar { display: none !important; }
     // Alerts.
-    blockquote { colors: 0, $blue, $dark; }
+    blockquote {
+      position: relative;
+      colors: 0, $t, $dark;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        radius: $radius 0 0 $radius;
+        border-left: 4px solid $blue;
+      }
+    }
     .alert-warning { colors: 0, $red, $dark; }
     .alert.alert-success { colors: 0, $violet, $violet; }
     // Reset *introduced in...* blockquotes.
