@@ -596,8 +596,23 @@
         &:last-child { border-radius: 0 $radius $radius 0; }
       }
     }
+    a:active { colors: $light, 0, $darker; }
     .bold { colors: $lighter, 0, 0; }
     label { colors: $light, 0, 0; }
+    // ? Navbar -> Search menu.
+    &-select {
+      li {
+        &.separator { colors: 0, 0, $darker; }
+        &.dropdown-header { colors: $lighter, 0, 0; }
+        a {
+          span b { colors: $accent, 0, 0; }
+          &:hover { colors: $light, 0, $darker; }
+          // ! Weird behavior in searching from projects. @upstream
+          &.is-active { colors: $light, 0, 0; }
+          &.is-focused { colors: $accent, 0, $darker; }
+        }
+      }
+    }
     // ? Issue boards -> Switch board.
     &-extended-height {
       a {
