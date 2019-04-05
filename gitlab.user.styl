@@ -159,7 +159,29 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  // ? Found on: https://gitlab.com/help
+  // * Table -> Base styles for all `table` elements.
+  table:not([class]) {
+    radius: $radius;
+    border-style: hidden;
+    border-collapse: collapse;
+    box-shadow: 0 0 0 1px inset $darker;
+    thead {
+      th { colors: $light, $darker, $t; }
+      tr:first-child {
+        colors: 0, 0, $darker;
+        > th:first-child { border-top-left-radius: $radius; }
+        > th:last-child { border-top-right-radius: $radius; }
+      }
+    }
+    tbody {
+      td { colors: $light, $darker, $dark; }
+      tr:last-child {
+        // Bottom corners look a bit off on Firefox.
+        td:first-child { border-bottom-left-radius: $radius; }
+        td:last-child { border-bottom-right-radius: $radius; }
+      }
+    }
+  }
   *:not(.use-csslab) table[data-sourcepos][dir] {
     colors: 0, 0, $t;
     > thead {
