@@ -1910,13 +1910,6 @@
       box-shadow: inset 4px 0 0 0 $darker !important;
     }
     blockquote[dir="auto"] p { color: $lighter !important; }
-    table {
-      radius: $radius;
-      color: $lighter;
-      tbody { background-color: $t; }
-      tr th { colors: $light, $darker, $darker; }
-      tr td { colors: 0, $darker, 0; }
-    }
     img:not(.emoji) {
       border: none;
       radius: $radius;
@@ -2221,18 +2214,6 @@
     }
     // Protected tag card.
     .protected-tags-list > .card-header { colors: $light, $darker, $darker; }
-    // Tables.
-    table {
-      border-collapse: separate !important;
-      colors: 0, $t, 0;
-      // Remove double-borders.
-      tbody tr td:not(:last-child) { border-right: none !important; }
-      // Overengineered round corners. xd
-      thead tr th:first-child { border-radius: $radius 0 0 0 !important; }
-      thead tr th:last-child { border-radius: 0 $radius 0 0 !important; }
-      tbody tr td:last-child { border-radius: 0 0 $radius 0 !important; }
-      tbody tr td:first-child { border-radius: 0 0 0 $radius !important; }
-    }
   }
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
@@ -2329,11 +2310,6 @@
     kbd {
       colors: $accent, $dark, $shadow;
       box-shadow: none;
-    }
-    table {
-      colors: $light, 0, $dark;
-      tr th { colors: $light, $darker, $darker; }
-      th, tr td { border-color: $darker; }
     }
   }
 
@@ -3315,15 +3291,6 @@
   }
   .notes .system-note .system-note-commit-list-toggler {
     color: var(--accent) !important;
-  }
-  // Table.
-  .notes .note-body .note-text table {
-    colors: $light, $darker, 0;
-    tr th {
-      border: 1px solid !important;
-      colors: 0, $darker, $dark;
-    }
-    tr td { colors: 0, $darker, 0; }
   }
   /* Commit list. */
   .notes .system-note .note-body .note-text:not(.hide-shade)::after {
