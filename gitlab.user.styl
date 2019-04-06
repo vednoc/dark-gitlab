@@ -3421,8 +3421,9 @@
     > div { border-bottom: none; }
   }
 
-  // * File Diff : Rounded corners.
+  // * File Diff :: Various resets.
   .diff {
+    &-file.file-holder { margin-top: 16px; }
     // ? Hack for rounded corners w/o hiding overflow.
     &-file, &-content, &-viewer, &-wrap-lines { radius: $radius !important; }
     // ? Rounded corners for the file title.
