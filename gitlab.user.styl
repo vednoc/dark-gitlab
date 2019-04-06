@@ -2260,8 +2260,6 @@
     border-color: $darker;
     background: $dark;
   }
-  // File search header.
-  .tree-holder .tree-table .selected td { colors: $light, $darker, $dark; }
 
   // * Wiki.
   .wiki:not(.use-csslab) {
@@ -2306,6 +2304,7 @@
         border-color: $darker !important;
         transition: 0.2s ease;
       }
+      &.selected td { colors: 0, $darker, $darker; }
       // Top border for file table.
       th { border-top-color: $darker; }
     }
