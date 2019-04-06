@@ -4437,32 +4437,49 @@
   }
   // * Group header.
   .explore-groups {
-    border-color: var(--darker);
-    background-color: var(--dark);
+    radius: $radius;
+    colors: 0, $darker, $dark;
   }
   // * Group body.
-  .group-list-tree {
+  .groups-list-tree-container > ul.group-list-tree {
     margin-top: 10px !important;
     radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Make some spacing.
-    > .group-row.is-open > ul { margin: 10px 10px 10px 30px; }
+    colors: 0, 0, $dark;
+    box-shadow: 0 0 0 1px inset $darker;
     // On event.
-    .group-row-contents:hover {
-      border-color: var(--mred);
-      background-color: var(--darker);
+    > .group-row {
+      // Rounded corners.
+      &:first-child > div { radius: $radius $radius 0 0; }
+      &:last-child > div { radius: 0 0 $radius $radius; }
+      // &.has-children .group-list-tree { margin-left: 42px !important; }
     }
-    // List tree visualization.
-    .group-row::before, .group-list-tree::before { colors: 0, $lighter, 0; }
-    .group-row:last-child::before {
-      bottom: -10px !important;
-      colors: 0, 0, $dark;
+    .group-row {
+      // Keep fake border even when sub-group is open.
+      &.is-open > div { box-shadow: 0 -1px 0 0 inset $darker; }
+      // Horizontal line.
+      &::before { colors: 0, $darker, 0; }
+      // Vertical line.
+      .group-list-tree::before {
+        top: 0px;
+        colors: 0, $darker, 0;
+      }
+      // Fix last item background.
+      &:last-child::before { colors: 0, 0, $t; }
+      // Content.
+      &-contents {
+        transition: 0.15s ease;
+        &:hover { colors: 0, 0, $darker; }
+        // Text colors and width.
+        .stats {
+          colors: $lighter, 0, 0;
+          .stat-value {
+            min-width: 1.5rem;
+            text-align: left;
+          }
+        }
+        &.has-more-items { padding: 10px; }
+      }
     }
-    .group-row .stats { color: var(--light); }
-    // Rounded corners.
-    li:first-child > div { radius: $radius $radius 0 0; }
-    li:last-child:not(.is-open) > div { radius: 0 0 $radius $radius; }
   }
 
   // * Invert image icons.
