@@ -1741,13 +1741,6 @@
   // * Diff file.
   .diff-file {
     radius: $radius;
-    // Header.
-    [class*="file-title"]  {
-      padding: 8px;
-      transition: 0.2s background ease-in-out;
-      colors: 0, $darker, 0;
-      &:hover { colors: 0, 0, $darker; }
-    }
     // Collapsed file content.
     .diff-content {
       colors: $light, 0, $dark;
@@ -1809,8 +1802,7 @@
     &:hover span { colors: $light, 0, 0; }
   }
   /* Text color. */
-  .branch-info > span,
-  .file-title-flex-parent a {
+  .branch-info > span {
     color: $light !important;
   }
   /* Badge. */
@@ -2303,24 +2295,25 @@
 
    // * Project :: Readme.
   .file-holder {
-    radius: $radius !important;
+    radius: $radius;
     colors: 0, $darker, $dark;
-    // Corners for child elements.
+    // ? Header.
     .file-title {
-      radius: $radius $radius 0 0;
-      box-shadow: 0 0 0 1px $darker; // ? Escape empty space between borders.
+      // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
+      border-top: 1px solid;
+      &, &-flex-parent {
+        padding: 8px 13px;
+        radius: $radius $radius 0 0;
+        colors: 0, $darker, $dark;
+        a:not([class*="btn-"]) { color: $light; }
+      }
     }
-    .blob-viewer > .file-content { radius: 0 0 $radius $radius; }
-    // ? File title in artifacts.
-    .file-title-flex-parent { radius: $radius $radius 0 0; }
-  }
-  // Header.
-  .tree-holder .file-title a:not(.btn) { color: $light; }
-  /* Readme preview. */
-  .file-holder .file-title-flex-parent,
-  .file-holder .file-content {
-    border-color: $darker;
-    background: $dark;
+    // ? Body.
+    .blob-viewer {
+      .file-content {
+        colors: 0, 0, $t;
+      }
+    }
   }
 
   // * Wiki.
@@ -3470,8 +3463,6 @@
     &-file.file-holder { margin-top: 16px; }
     // ? Hack for rounded corners w/o hiding overflow.
     &-file, &-content, &-viewer, &-wrap-lines { radius: $radius !important; }
-    // ? Rounded corners for the file title.
-    &-file .file-title-flex-parent { radius: $radius $radius 0 0 !important; }
     // ? Rounded corner on the last line in side-by-side view.
     &-file .line_holder:last-child > .right-side { radius: 0 0 $radius 0; }
     // ? Rounded corner in the gutters in side-by-side view.
