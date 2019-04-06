@@ -189,12 +189,10 @@
       > tr {
         width: 100%;
         display: flex;
-        > th { colors: $lighter, 0, 0; }
-        > th:first-child {
-          flex: 1 1 360px;
-          @media screen and (max-width: 700px) { flex: 1 1 240px; }
+        > th {
+          flex: 1 1 100%;
+          colors: $lighter, 0, 0;
         }
-        > th:last-child { flex: 1 1 100%; }
       }
     }
     > tbody {
@@ -204,18 +202,20 @@
         display: flex;
         // Remove default border and set cell background color.
         > td {
+          flex: 1 1 100%;
           border: none !important;
           a[href] { colors: $light, 0, 0; }
           &:first-child {
-            flex: 1 1 360px;
             border-left: 1px solid $darker !important;
             border-bottom: 1px solid $darker !important;
-            @media screen and (max-width: 700px) { flex: 1 1 240px; }
           }
           &:last-child {
-            flex: 1 1 100%;
             border: 1px solid $darker !important;
             border-top: none !important;
+          }
+          &:not(:last-child):not(:first-child) {
+            border-left: 1px solid $darker !important;
+            border-bottom: 1px solid $darker !important;
           }
         }
       }
