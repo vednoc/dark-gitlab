@@ -2305,15 +2305,12 @@
         padding: 8px 13px;
         radius: $radius $radius 0 0;
         colors: 0, $darker, $dark;
+        // TODO: Fix lock/edit buttons in files.
         a:not([class*="btn-"]) { color: $light; }
       }
     }
     // ? Body.
-    .blob-viewer {
-      .file-content {
-        colors: 0, 0, $t;
-      }
-    }
+    .file-content { colors: 0, 0, $t; }
   }
 
   // * Wiki.
@@ -2353,7 +2350,7 @@
       // ? Remove weird borders on file-holder.
       &, th { border: none !important; }
       // Cell background colors.
-      th { colors: 0, 0, $darker; }
+      th { colors: $light, 0, $darker; }
       td { transition: 0.15s ease; }
       // ? Table cells.
       &.tree-item {
@@ -3633,10 +3630,11 @@
       margin-bottom: 10px;
       padding: 0 8px;
       radius: $radius;
+      border: 1px solid;
       colors: 0, $darker, $dark;
     }
     // Branch name.
-    .editor-ref { colors: 0, $darker, $darker; }
+    .editor-ref { colors: 0, $darker, $t; }
     // Commit or disband.
     .form-actions {
       padding: 12px 8px;
