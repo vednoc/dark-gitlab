@@ -1739,10 +1739,10 @@
   }
 
   // * Diff file.
-  .diff-file {
+  .diff {
     radius: $radius;
     // Collapsed file content.
-    .diff-content {
+    &-file .diff-content {
       radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
       .btn-link { colors: 0, $t, 0; }
@@ -3103,7 +3103,7 @@
   // * Promotional.
   .user-callout {
     // Reset extra margins on the side.
-    margin: 20px 0 0 !important;
+    margin: 20px 0 10px !important;
     &.promotion-callout {
       .bordered-box {
         padding: 8px !important;
@@ -3340,15 +3340,6 @@
         border-top: 1px solid;
         colors: 0, $darker, $dark;
       }
-      // Add missing borders to parallel views.
-      &.parallel.new {
-        border: 1px solid $darker !important;
-        border-right: none !important;
-      }
-      &.parallel.old {
-        border-top: 1px solid $darker !important;
-        border-bottom: 1px solid $darker !important;
-      }
     }
   }
 
@@ -3457,41 +3448,7 @@
   }
 
   // * File Diff :: Expanded view.
-  .diff-expanded {
-    > [class*="side"], .diff-line-num, .line_content {
-      colors: 0, $darker, $dark;
-    }
-  }
-  /* Fix borders on expanded sections. */
-  .diff-expanded + .line_holder .diff-line-num,
-  .diff-expanded + .line_holder .line_content {
-    border-top-color: $darker !important;
-  }
-  // Added lines.
-  .line_holder .line_content.new .idiff,
-  .idiff.addition {
-    padding: 0 2px;
-    background-color: rgba(149, 200, 99, 0.3) !important;
-  }
   .line_holder {
-    // Add right border to gutters.
-    .diff-line-num {
-      border-right: 1px solid $darker !important;
-      // ? Makes the a tag in gutters lighter color while it's loading.
-      .diff-line-num a { colors: $lighter, 0, 0; }
-    }
-    // Added lines.
-    .diff-line-num.new,
-    .line_content.new {
-      border-color: $shadow !important;
-      background-color: rgba(149, 200, 99, 0.3) !important;
-    }
-    // Removed lines.
-    .diff-line-num.old,
-    .line_content.old {
-      border-color: var(--shadow) !important;
-      background-color: rgba(200, 49, 49, 0.3) !important;
-    }
     // Show/hide comments.
     .diff-notes-collapse {
       colors: 0,  $darker, $dark;
@@ -3499,11 +3456,6 @@
     }
     // No new line.
     .new-nonewline { colors: $lighter, 0, $t; }
-  }
-  .line_holder .line_content.old .idiff,
-  .idiff.deletion {
-    padding: 0 2px;
-    background-color: rgba(200, 49, 49, 0.3) !important;
   }
   // Matching lines.
   .line_holder .line_content.match {
@@ -3533,7 +3485,6 @@
       .btn { padding: 8px 7px 2px 8px; }
     }
   }
-  .blob-content pre.code,
   .notes pre.code {
     colors: $light, 0, $dark;
   }
@@ -4174,7 +4125,7 @@
       // Rounded corners.
       &:last-child > td {
         &:first-child, &:first-child::after { radius: 0 0 0 $radius; }
-        &:first-child, &:last-child::after { radius: 0 0 $radius 0; }
+        &:last-child, &:last-child::after { radius: 0 0 $radius 0; }
       }
     }
   }
