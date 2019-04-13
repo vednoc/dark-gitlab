@@ -1743,6 +1743,7 @@
     radius: $radius;
     // Collapsed file content.
     .diff-content {
+      radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
       .btn-link { colors: 0, $t, 0; }
     }
@@ -3455,20 +3456,6 @@
     > div { border-bottom: none; }
   }
 
-  // * File Diff :: Various resets.
-  .diff {
-    &-file.file-holder { margin-top: 16px; }
-    // ? Hack for rounded corners w/o hiding overflow.
-    &-file, &-content, &-viewer, &-wrap-lines { radius: $radius !important; }
-    // ? Rounded corner on the last line in side-by-side view.
-    &-file .line_holder:last-child > .right-side { radius: 0 0 $radius 0; }
-    // ? Rounded corner in the gutters in side-by-side view.
-    &-file .line_holder:last-child > td:first-child { radius: 0 0 0 $radius; }
-    &-file .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
-    // ? Merge request diffs in the change view.
-    &-viewer .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
-  }
-
   // * File Diff :: Expanded view.
   .diff-expanded {
     > [class*="side"], .diff-line-num, .line_content {
@@ -4138,7 +4125,6 @@
     .mtk11 { color: $orange; }
   }
 
-
   // * Project :: Code view.
   .code {
     colors: $light, 0, $t;
@@ -4184,6 +4170,11 @@
         }
         &.old::after { colors: 0, 0, $red; }
         &.new::after { colors: 0, 0, $green; }
+      }
+      // Rounded corners.
+      &:last-child > td {
+        &:first-child, &:first-child::after { radius: 0 0 0 $radius; }
+        &:first-child, &:last-child::after { radius: 0 0 $radius 0; }
       }
     }
   }
