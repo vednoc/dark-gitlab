@@ -4140,52 +4140,20 @@
 
 
   // * Project :: Code view.
-  .code.white {
-    color: $light;
-    background-color: $dark;
-    .line_holder .line_content {
-      color: $light;
-      background: $t;
-      &.new::before, &.old::before { colors: $lighter, 0, 0; }
+  .code {
+    colors: $light, 0, $t;
+    // Remove weird border around code wrapper.
+    code { border: none; }
+    // Highlighted line.
+    pre .hll { colors: 0, 0, $darker; }
+    // Gutter border.
+    pre.code, .diff-line-num { colors: 0, $darker, 0; }
+    // Gutters in file view/diff.
+    .line-numbers, .diff-line-num {
+      &, a { colors: $lighter, 0, $t; }
+      // ? Add left border to right section in parralel diff view.
+      &:nth-child(3) { border-left: 1px solid $red !darker; }
     }
-    // * Gutters.
-    .line-numbers {
-      colors: $light, 0, $t;
-      // Inner gutter.
-      .diff-line-num { colors: $lighter, 0, $t; }
-    }
-    .line_holder {
-      // Gutters in file diff.
-      .diff-line-num {
-        colors: $lighter, $darker, $shadow;
-        // Text color.
-        a::before { color: $lighter; }
-        // ? Hacky solution to add left border to parallel view in file diff.
-        &:nth-child(3) { border-left: 1px solid $darker !important; }
-      }
-    }
-    // ? Gutter colors in diff viewer.
-    .line_holder .diff-line-num.old {
-      border-color: $shadow !important;
-      background-color: rgba(200, 49, 49, 0.3) !important;
-    }
-    .line_holder .diff-line-num.new {
-      border-color: $shadow !important;
-      background-color: rgba(149, 200, 99, 0.3) !important;
-    }
-  }
-  /* Gutter border. */
-  .code.white pre.code,
-  .code.white .diff-line-num {
-    border-color: var(--darker);
-  }
-  /* Highlighted line. */
-  .code.white pre .hll {
-    background-color: var(--darker) !important;
-  }
-  /* Reset code element in code section. */
-  .code code {
-    border: 0 !important;
   }
 
   // * Project :: Code syntax highlighting.
