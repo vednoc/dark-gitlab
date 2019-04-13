@@ -3562,13 +3562,13 @@
     .member a.member-group-link { colors: $light, 0, 0; }
   }
 
-  // * File editor.
-  // TODO unfinished.
+  // * Editor -> Wrapper.
   .file-editor {
+    .file-holder { radius: $radius; }
     // Fix flashing white background.
     > #editor {
-      radius: 0 0 $radius $radius;
-      colors: 0, 0, $dark;
+      radius: 0 / $radius;
+      colors: 0, 0, $t;
     }
     // Header.
     .nav-links {
@@ -3582,25 +3582,17 @@
     .editor-ref { colors: 0, $darker, $t; }
     // Commit or disband.
     .form-actions {
-      padding: 12px 8px;
+      padding: 8px;
       radius: $radius;
       border: 1px solid $darker;
     }
   }
-  // * Rounded corners for preview mode. c(:
-  // ? Overengineered; don't waste time figuring it out. :p
-  .file-holder.file-holder-bottom-radius {
-    radius: $radius;
-    .file-editor #preview {
-      .file-holder.diff-file, .diff-content, .wiki {
-        margin: 0;
-        border: none !important;
-        radius: 0 0 $radius $radius !important;
-      }
-    }
+
+  // * Editor -> Template selection.
+  .template-selectors-menu {
+    colors: 0, $darker, 0;
+    .text-info { colors: $light, 0, 0; }
   }
-  .text-info { color: $red !important; }
-  .template-selectors-menu { border-left-color: $darker; }
 
   // * Ace editor.
   .ace-tm {
