@@ -4154,6 +4154,38 @@
       // ? Add left border to right section in parralel diff view.
       &:nth-child(3) { border-left: 1px solid $red !darker; }
     }
+    // ? Code wrapper.
+    .line_holder {
+      // Lines for added/removed sections.
+      .line_content {
+        z-index: 1;
+        colors: $light, 0, $t;
+        &.new::before, &.old::before { colors: $lighter, 0, 0; }
+        &.old::after, &.new::after {
+          content: "";
+          z-index: -1;
+          opacity: 0.25;
+          top: 0; right: 0; bottom: 0; left: 0;
+          position: absolute;
+        }
+        &.old::after { colors: 0, 0, $red; }
+        &.new::after { colors: 0, 0, $green; }
+      }
+      // Gutters for added/removed sections.
+      .diff-line-num.old, .diff-line-num.new {
+        z-index: 1;
+        colors: 0, $darker, $t;
+        &.old::after, &.new::after {
+          content: "";
+          z-index: -1;
+          opacity: 0.25;
+          top: 0; right: 0; bottom: 0; left: 0;
+          position: absolute;
+        }
+        &.old::after { colors: 0, 0, $red; }
+        &.new::after { colors: 0, 0, $green; }
+      }
+    }
   }
 
   // * Project :: Code syntax highlighting.
