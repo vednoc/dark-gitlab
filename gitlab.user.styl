@@ -1737,7 +1737,6 @@
       }
     }
   }
-
   // * Diff file.
   .diff {
     radius: $radius;
@@ -1746,7 +1745,21 @@
       radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
       .btn-link { colors: 0, $t, 0; }
+      // Gems/Packages/etc.
+      .code .line a { color: $accent; }
+      // Added lines.
+      .new .idiff, .idiff.addition {
+        padding: 0 2px;
+        background-color: #55ff5520 !important;
+      }
+      // Removed lines.
+      .old .idiff, .idiff.deletion {
+        padding: 0 2px;
+        background-color: #ff555520 !important;
+      }
     }
+    // ? Fix borders on expanded sections.
+    &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
   }
 
   // Image background.
