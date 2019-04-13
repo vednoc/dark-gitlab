@@ -1759,33 +1759,27 @@
   }
 
   // * Diff :: Image.
-  // ? vednoc/dark-gitlab/commit/x (image)
   .diff-file {
-    // Background image.
-    .image {
-      colors: 0, 0, $dark;
-      // Image frame.
-      .frame {
-        colors: 0, 0, $darker;
-        // Broken image.
-        img {
-          background: none;
-          colors: $light, $dark, 0;
-        }
-      }
+    .image { colors: 0, 0, $t; }
+    .frame {
+      colors: 0, 0, $darker;
       // Added/removed images.
-      .frame {
-        &.deleted { colors: 0, $red, 0; }
-        &.added { colors: 0, $green, 0; }
+      &.deleted { colors: 0, $red, 0; }
+      &.added { colors: 0, $green, 0; }
+      // Broken image.
+      img {
+        background: none !important;
+        colors: $light, $t, 0;
       }
     }
-    // Modes.
     .view-modes {
-      colors: 0, 0, $dark;
+      colors: 0, 0, $t;
       ul li {
         colors: $light, $darker, 0;
         &.active { colors: $accent, 0, 0; }
       }
+      // ? Remove empty element's border.
+      + .note-container { border-top: none; }
     }
   }
   // * Add note.
