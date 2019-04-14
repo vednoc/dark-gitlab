@@ -3564,10 +3564,11 @@
 
   // * Editor -> Wrapper.
   .file-editor {
+    // Rounded corners; might remove later.
     .file-holder { radius: $radius; }
     // Fix flashing white background.
     > #editor {
-      radius: 0 / $radius;
+      radius: 0 0 $radius $radius;
       colors: 0, 0, $t;
     }
     // Header.
@@ -3599,8 +3600,10 @@
     colors: $light, 0, $dark;
     // Gutter.
     .ace_gutter {
+      radius: 0 0 0 $radius;
       colors: $lighter, 0, $shadow;
       .ace_gutter-cell { colors: 0, 0, $t; }
+      + .ace_scroller { radius: 0 0 $radius 0; }
     }
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
