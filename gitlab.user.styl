@@ -3601,14 +3601,19 @@
     // Gutter.
     .ace_gutter {
       radius: 0 0 0 $radius;
-      colors: $lighter, 0, $shadow;
+      colors: $lighter, 0, $dark;
+      box-shadow: 1px 0 0 0 $darker;
       .ace_gutter-cell { colors: 0, 0, $t; }
       + .ace_scroller { radius: 0 0 $radius 0; }
     }
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
-    .ace_selected-word, .ace_selection { colors: 0, $accent, $accent; }
+    .ace_selected-word, .ace_selection { colors: 0, $accent, $darker; }
     .ace_cursor { colors: $accent, 0, 0; }
+    .ace_indent-guide {
+      background: none;
+      box-shadow: 1px 0 0 0 $lighter !important;
+    }
     // Wrap line.
     .ace_print-margin { colors: 0, 0, $darker; }
     // Search/replace popout.
