@@ -3644,6 +3644,18 @@
     .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px $dark; }
   }
 
+  // * Ace editor -> Syntax highlighting.
+  .ace {
+    &_line { colors: $lighter, 0, 0; }
+    &_support&_function { colors: $darker, 0, 0; }
+    &_support&_type { colors: $lighter, 0, 0; }
+    &_meta&_tag { colors: $blue, 0, 0; }
+    &_string, &_comment { colors: $green, 0, 0; }
+    &_heading, &_storage, &_keyword { colors: $blue, 0, 0; }
+    &_list { colors: $magenta, 0, 0; }
+    &_variable { colors: $green, 0, 0; }
+    &_constant, &_numeric { colors: $light, 0, 0; }
+  }
 
   // * About page :: Applications.
   // ? https://about.gitlab.com/applications
