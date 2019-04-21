@@ -4147,6 +4147,23 @@
         &:last-child, &:last-child::after { radius: 0 0 $radius 0; }
       }
     }
+    // ? Notes -> Suggested changes.
+    .gd, .gi {
+      z-index: 0;
+      position: relative;
+      colors: $light, 0, $t;
+      // Fake element.
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        opacity: 0.25;
+        z-index: -1;
+      }
+    }
+    // Removed/added.
+    .gd::before { colors: 0, 0, $red; }
+    .gi::before { colors: 0, 0, $green; }
   }
 
   // * Project :: Code syntax highlighting.
