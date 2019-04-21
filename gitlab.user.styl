@@ -2376,14 +2376,14 @@
       // ? Table cells.
       &.tree-item {
         // Text colors.
-        .tree-time-ago, .tree-commit-link, .tree-item-file-name > * {
+        .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
           transition: 0.15s ease;
           colors: $lighter, 0, 0;
         }
         // On event.
         &:hover, &.selected {
           > td { colors: 0, 0, $darker; }
-          .tree-time-ago, .tree-commit-link, .tree-item-file-name > * {
+          .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
             colors: $light, 0, 0;
           }
         }
