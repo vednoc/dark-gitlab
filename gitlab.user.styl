@@ -159,8 +159,102 @@
     border: 1px solid var(--darker);
     background-color: var(--dark);
   }
-  table td {
-    background-color: var(--dark);
+  // * Table -> Base styles for all `table` elements.
+  table:not([class]) {
+    radius: $radius;
+    border-style: hidden;
+    border-collapse: collapse;
+    box-shadow: 0 0 0 1px inset $darker;
+    thead {
+      th { colors: $light, $darker, $t; }
+      tr:first-child {
+        colors: 0, 0, $darker;
+        > th:first-child { border-top-left-radius: $radius; }
+        > th:last-child { border-top-right-radius: $radius; }
+      }
+    }
+    tbody {
+      td { colors: $light, $darker, $dark; }
+      tr:last-child {
+        // Bottom corners look a bit off on Firefox.
+        td:first-child { border-bottom-left-radius: $radius; }
+        td:last-child { border-bottom-right-radius: $radius; }
+      }
+    }
+  }
+  // * Table -> Found on: https://gitlab.com/help
+  *:not(.use-csslab) table[data-sourcepos][dir] {
+    > thead {
+      display: flex;
+      > tr {
+        width: 100%;
+        display: flex;
+        > th {
+          flex: 1 1 100%;
+          colors: $lighter, 0, 0;
+        }
+      }
+    }
+    > tbody {
+      display: flex;
+      flex-direction: column;
+      colors: 0, 0, $dark;
+      > tr {
+        display: flex;
+        // Remove default border and set cell background color.
+        > td {
+          flex: 1 1 100%;
+          border: none !important;
+          a[href] { &, > code { colors: $accent, 0, 0; }}
+          &:first-child {
+            border-left: 1px solid $darker !important;
+            border-bottom: 1px solid $darker !important;
+          }
+          &:last-child {
+            border: 1px solid $darker !important;
+            border-top: none !important;
+          }
+          &:not(:last-child):not(:first-child) {
+            border-left: 1px solid $darker !important;
+            border-bottom: 1px solid $darker !important;
+          }
+        }
+      }
+    }
+  }
+  // Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
+  table[frame="void"] {
+    colors: $lighter, 0, 0;
+    box-shadow: none;
+    > tbody {
+      colors: 0, 0, $dark;
+      tr th {
+        border-bottom-width: 1px !important;
+        colors: $light, $darker, $darker;
+      }
+    }
+  }
+  // * Table -> Project settings page.
+  .border-bottom {
+    border-bottom: none !important;
+    > .table {
+      border-collapse: collapse;
+      box-shadow: 0 0 0 1px $darker;
+      thead th {
+        padding: 8px !important;
+        colors: $light, $darker, $darker;
+        &:first-child { border-top-left-radius: $radius; }
+        &:last-child { border-top-right-radius: $radius; }
+      }
+      tbody {
+        td {
+          padding: 8px !important;
+          colors: $light, $darker, $dark;
+        }
+        tr:last-child > td:first-child { border-bottom-left-radius: $radius; }
+        tr:last-child > td:last-child { border-bottom-right-radius: $radius; }
+      }
+    }
   }
   // Fix emojis being cropped.
   gl-emoji {
@@ -1656,22 +1750,29 @@
       }
     }
   }
-
   // * Diff file.
-  .diff-file {
+  .diff {
     radius: $radius;
-    // Header.
-    [class*="file-title"]  {
-      padding: 8px;
-      transition: 0.2s background ease-in-out;
-      colors: 0, $darker, 0;
-      &:hover { colors: 0, 0, $darker; }
-    }
     // Collapsed file content.
-    .diff-content {
+    &-file .diff-content {
+      radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
       .btn-link { colors: 0, $t, 0; }
+      // Gems/Packages/etc.
+      .code .line a { color: $accent; }
+      // Added lines.
+      .new .idiff, .idiff.addition {
+        padding: 0 2px;
+        background-color: #55ff5520 !important;
+      }
+      // Removed lines.
+      .old .idiff, .idiff.deletion {
+        padding: 0 2px;
+        background-color: #ff555520 !important;
+      }
     }
+    // ? Fix borders on expanded sections.
+    &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
   }
 
   // Image background.
@@ -1684,33 +1785,27 @@
   }
 
   // * Diff :: Image.
-  // ? vednoc/dark-gitlab/commit/x (image)
   .diff-file {
-    // Background image.
-    .image {
-      colors: 0, 0, $dark;
-      // Image frame.
-      .frame {
-        colors: 0, 0, $darker;
-        // Broken image.
-        img {
-          background: none;
-          colors: $light, $dark, 0;
-        }
-      }
+    .image { colors: 0, 0, $t; }
+    .frame {
+      colors: 0, 0, $darker;
       // Added/removed images.
-      .frame {
-        &.deleted { colors: 0, $red, 0; }
-        &.added { colors: 0, $green, 0; }
+      &.deleted { colors: 0, $red, 0; }
+      &.added { colors: 0, $green, 0; }
+      // Broken image.
+      img {
+        background: none !important;
+        colors: $light, $t, 0;
       }
     }
-    // Modes.
     .view-modes {
-      colors: 0, 0, $dark;
+      colors: 0, 0, $t;
       ul li {
         colors: $light, $darker, 0;
         &.active { colors: $accent, 0, 0; }
       }
+      // ? Remove empty element's border.
+      + .note-container { border-top: none; }
     }
   }
   // * Add note.
@@ -1728,8 +1823,7 @@
     &:hover span { colors: $light, 0, 0; }
   }
   /* Text color. */
-  .branch-info > span,
-  .file-title-flex-parent a {
+  .branch-info > span {
     color: $light !important;
   }
   /* Badge. */
@@ -1865,13 +1959,6 @@
       box-shadow: inset 4px 0 0 0 $darker !important;
     }
     blockquote[dir="auto"] p { color: $lighter !important; }
-    table {
-      radius: $radius;
-      color: $lighter;
-      tbody { background-color: $t; }
-      tr th { colors: $light, $darker, $darker; }
-      tr td { colors: 0, $darker, 0; }
-    }
     img:not(.emoji) {
       border: none;
       radius: $radius;
@@ -2176,18 +2263,6 @@
     }
     // Protected tag card.
     .protected-tags-list > .card-header { colors: $light, $darker, $darker; }
-    // Tables.
-    table {
-      border-collapse: separate !important;
-      colors: 0, $t, 0;
-      // Remove double-borders.
-      tbody tr td:not(:last-child) { border-right: none !important; }
-      // Overengineered round corners. xd
-      thead tr th:first-child { border-radius: $radius 0 0 0 !important; }
-      thead tr th:last-child { border-radius: 0 $radius 0 0 !important; }
-      tbody tr td:last-child { border-radius: 0 0 $radius 0 !important; }
-      tbody tr td:first-child { border-radius: 0 0 0 $radius !important; }
-    }
   }
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
@@ -2241,24 +2316,22 @@
 
    // * Project :: Readme.
   .file-holder {
-    radius: $radius !important;
+    radius: $radius;
     colors: 0, $darker, $dark;
-    // Corners for child elements.
+    // ? Header.
     .file-title {
-      radius: $radius $radius 0 0;
-      box-shadow: 0 0 0 1px $darker; // ? Escape empty space between borders.
+      // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
+      border-top: 1px solid;
+      &, &-flex-parent {
+        padding: 8px 13px;
+        radius: $radius $radius 0 0;
+        colors: 0, $darker, $dark;
+        // TODO: Fix lock/edit buttons in files.
+        a:not([class*="btn-"]) { color: $light; }
+      }
     }
-    .blob-viewer > .file-content { radius: 0 0 $radius $radius; }
-    // ? File title in artifacts.
-    .file-title-flex-parent { radius: $radius $radius 0 0; }
-  }
-  // Header.
-  .tree-holder .file-title a:not(.btn) { color: $light; }
-  /* Readme preview. */
-  .file-holder .file-title-flex-parent,
-  .file-holder .file-content {
-    border-color: $darker;
-    background: $dark;
+    // ? Body.
+    .file-content { colors: 0, 0, $t; }
   }
 
   // * Wiki.
@@ -2285,47 +2358,39 @@
       colors: $accent, $dark, $shadow;
       box-shadow: none;
     }
-    table {
-      colors: $light, 0, $dark;
-      tr th { colors: $light, $darker, $darker; }
-      th, tr td { border-color: $darker; }
-    }
   }
 
-  // * Project :: Files.
+  // * Project -> File table.
   .table-holder {
     radius: $radius;
-    border: 1px solid $darker;
+    border: none !important;
     background-color: $dark;
-    // Remove unnecessary borders.
+    box-shadow: 0 0 0 1px inset $darker;
+    // ? File holder.
     .tree-table tr {
-      border-color: transparent !important;
-      td {
-        border-color: $darker !important;
-        transition: 0.2s ease;
+      // ? Remove weird borders on file-holder.
+      &, th { border: none !important; }
+      // Cell background colors.
+      th { colors: $light, 0, $darker; }
+      td { transition: 0.15s ease; }
+      // ? Table cells.
+      &.tree-item {
+        // Text colors.
+        .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
+          transition: 0.15s ease;
+          colors: $lighter, 0, 0;
+        }
+        // On event.
+        &:hover, &.selected {
+          > td { colors: 0, 0, $darker; }
+          .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
+            colors: $light, 0, 0;
+          }
+        }
       }
-      &.selected td { colors: 0, $darker, $darker; }
-      // Top border for file table.
-      th { border-top-color: $darker; }
     }
     // ? Fixes `pre` element on project/pages/domains page.
-    table tbody pre { colors: $lighter, $darker, $dark; }
-    // Text color.
-    .tree-item {
-      .tree-time-ago,
-      .tree-commit-link,
-      &-file-name i, &-file-name a {
-        color: $light !important;
-      }
-    }
-  }
-  // File/table headers.
-  // TODO refactor.
-  table.table tr th,
-  .file-holder .file-title,
-  .tree-holder .tree-table tr:hover:not(.tree-truncated-warning) td {
-    border-color: var(--darker);
-    background-color: var(--darker);
+    tbody pre { colors: $lighter, $darker, $dark; }
   }
 
 
@@ -3058,7 +3123,7 @@
   // * Promotional.
   .user-callout {
     // Reset extra margins on the side.
-    margin: 20px 0 0 !important;
+    margin: 20px 0 10px !important;
     &.promotion-callout {
       .bordered-box {
         padding: 8px !important;
@@ -3274,15 +3339,6 @@
   .notes .system-note .system-note-commit-list-toggler {
     color: var(--accent) !important;
   }
-  // Table.
-  .notes .note-body .note-text table {
-    colors: $light, $darker, 0;
-    tr th {
-      border: 1px solid !important;
-      colors: 0, $darker, $dark;
-    }
-    tr td { colors: 0, $darker, 0; }
-  }
   /* Commit list. */
   .notes .system-note .note-body .note-text:not(.hide-shade)::after {
     background: linear-gradient(transparent -100px, var(--dark) 100%) !important;
@@ -3303,15 +3359,6 @@
       .notes {
         border-top: 1px solid;
         colors: 0, $darker, $dark;
-      }
-      // Add missing borders to parallel views.
-      &.parallel.new {
-        border: 1px solid $darker !important;
-        border-right: none !important;
-      }
-      &.parallel.old {
-        border-top: 1px solid $darker !important;
-        border-bottom: 1px solid $darker !important;
       }
     }
   }
@@ -3420,58 +3467,8 @@
     > div { border-bottom: none; }
   }
 
-  // * File Diff :: Various resets.
-  .diff {
-    &-file.file-holder { margin-top: 16px; }
-    // ? Hack for rounded corners w/o hiding overflow.
-    &-file, &-content, &-viewer, &-wrap-lines { radius: $radius !important; }
-    // ? Rounded corners for the file title.
-    &-file .file-title-flex-parent { radius: $radius $radius 0 0 !important; }
-    // ? Rounded corner on the last line in side-by-side view.
-    &-file .line_holder:last-child > .right-side { radius: 0 0 $radius 0; }
-    // ? Rounded corner in the gutters in side-by-side view.
-    &-file .line_holder:last-child > td:first-child { radius: 0 0 0 $radius; }
-    &-file .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
-    // ? Merge request diffs in the change view.
-    &-viewer .line_holder:last-child > td:last-child { radius: 0 0 $radius 0; }
-  }
-
   // * File Diff :: Expanded view.
-  .diff-expanded {
-    > [class*="side"], .diff-line-num, .line_content {
-      colors: 0, $darker, $dark;
-    }
-  }
-  /* Fix borders on expanded sections. */
-  .diff-expanded + .line_holder .diff-line-num,
-  .diff-expanded + .line_holder .line_content {
-    border-top-color: $darker !important;
-  }
-  // Added lines.
-  .line_holder .line_content.new .idiff,
-  .idiff.addition {
-    padding: 0 2px;
-    background-color: rgba(149, 200, 99, 0.3) !important;
-  }
   .line_holder {
-    // Add right border to gutters.
-    .diff-line-num {
-      border-right: 1px solid $darker !important;
-      // ? Makes the a tag in gutters lighter color while it's loading.
-      .diff-line-num a { colors: $lighter, 0, 0; }
-    }
-    // Added lines.
-    .diff-line-num.new,
-    .line_content.new {
-      border-color: $shadow !important;
-      background-color: rgba(149, 200, 99, 0.3) !important;
-    }
-    // Removed lines.
-    .diff-line-num.old,
-    .line_content.old {
-      border-color: var(--shadow) !important;
-      background-color: rgba(200, 49, 49, 0.3) !important;
-    }
     // Show/hide comments.
     .diff-notes-collapse {
       colors: 0,  $darker, $dark;
@@ -3479,11 +3476,6 @@
     }
     // No new line.
     .new-nonewline { colors: $lighter, 0, $t; }
-  }
-  .line_holder .line_content.old .idiff,
-  .idiff.deletion {
-    padding: 0 2px;
-    background-color: rgba(200, 49, 49, 0.3) !important;
   }
   // Matching lines.
   .line_holder .line_content.match {
@@ -3513,7 +3505,6 @@
       .btn { padding: 8px 7px 2px 8px; }
     }
   }
-  .blob-content pre.code,
   .notes pre.code {
     colors: $light, 0, $dark;
   }
@@ -3584,57 +3575,58 @@
     .member a.member-group-link { colors: $light, 0, 0; }
   }
 
-  // * File editor.
-  // TODO unfinished.
+  // * Editor -> Wrapper.
   .file-editor {
+    // Rounded corners; might remove later.
+    .file-holder { radius: $radius; }
     // Fix flashing white background.
     > #editor {
       radius: 0 0 $radius $radius;
-      colors: 0, 0, $dark;
+      colors: 0, 0, $t;
     }
     // Header.
     .nav-links {
       margin-bottom: 10px;
       padding: 0 8px;
       radius: $radius;
+      border: 1px solid;
       colors: 0, $darker, $dark;
     }
     // Branch name.
-    .editor-ref { colors: 0, $darker, $darker; }
+    .editor-ref { colors: 0, $darker, $t; }
     // Commit or disband.
     .form-actions {
-      padding: 12px 8px;
+      padding: 8px;
       radius: $radius;
       border: 1px solid $darker;
     }
   }
-  // * Rounded corners for preview mode. c(:
-  // ? Overengineered; don't waste time figuring it out. :p
-  .file-holder.file-holder-bottom-radius {
-    radius: $radius;
-    .file-editor #preview {
-      .file-holder.diff-file, .diff-content, .wiki {
-        margin: 0;
-        border: none !important;
-        radius: 0 0 $radius $radius !important;
-      }
-    }
+
+  // * Editor -> Template selection.
+  .template-selectors-menu {
+    colors: 0, $darker, 0;
+    .text-info { colors: $light, 0, 0; }
   }
-  .text-info { color: $red !important; }
-  .template-selectors-menu { border-left-color: $darker; }
 
   // * Ace editor.
   .ace-tm {
     colors: $light, 0, $dark;
     // Gutter.
     .ace_gutter {
-      colors: $lighter, 0, $shadow;
+      radius: 0 0 0 $radius;
+      colors: $lighter, 0, $dark;
+      box-shadow: 1px 0 0 0 $darker;
       .ace_gutter-cell { colors: 0, 0, $t; }
+      + .ace_scroller { radius: 0 0 $radius 0; }
     }
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
-    .ace_selected-word, .ace_selection { colors: 0, $accent, $accent; }
+    .ace_selected-word, .ace_selection { colors: 0, $accent, $darker; }
     .ace_cursor { colors: $accent, 0, 0; }
+    .ace_indent-guide {
+      background: none;
+      box-shadow: 1px 0 0 0 $lighter !important;
+    }
     // Wrap line.
     .ace_print-margin { colors: 0, 0, $darker; }
     // Search/replace popout.
@@ -3665,6 +3657,18 @@
     .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px $dark; }
   }
 
+  // * Ace editor -> Syntax highlighting.
+  .ace {
+    &_line { colors: $lighter, 0, 0; }
+    &_support&_function { colors: $darker, 0, 0; }
+    &_support&_type { colors: $lighter, 0, 0; }
+    &_meta&_tag { colors: $blue, 0, 0; }
+    &_string, &_comment { colors: $green, 0, 0; }
+    &_heading, &_storage, &_keyword { colors: $blue, 0, 0; }
+    &_list { colors: $magenta, 0, 0; }
+    &_variable { colors: $green, 0, 0; }
+    &_constant, &_numeric { colors: $light, 0, 0; }
+  }
 
   // * About page :: Applications.
   // ? https://about.gitlab.com/applications
@@ -4104,54 +4108,75 @@
     .mtk11 { color: $orange; }
   }
 
-
   // * Project :: Code view.
-  .code.white {
-    color: $light;
-    background-color: $dark;
-    .line_holder .line_content {
-      color: $light;
-      background: $t;
-      &.new::before, &.old::before { colors: $lighter, 0, 0; }
+  .code {
+    colors: $light, 0, $t;
+    // Remove weird border around code wrapper.
+    code { border: none; }
+    // Highlighted line.
+    pre .hll { colors: 0, 0, $darker; }
+    // Gutter border.
+    pre.code, .diff-line-num { colors: 0, $darker, 0; }
+    // Gutters in file view/diff.
+    .line-numbers, .diff-line-num {
+      &, a { colors: $lighter, 0, $t; }
+      // ? Add left border to right section in parralel diff view.
+      &:nth-child(3) { border-left: 1px solid $red !darker; }
     }
-    // * Gutters.
-    .line-numbers {
-      colors: $light, 0, $t;
-      // Inner gutter.
-      .diff-line-num { colors: $lighter, 0, $t; }
-    }
+    // ? Code wrapper.
     .line_holder {
-      // Gutters in file diff.
-      .diff-line-num {
-        colors: $lighter, $darker, $shadow;
-        // Text color.
-        a::before { color: $lighter; }
-        // ? Hacky solution to add left border to parallel view in file diff.
-        &:nth-child(3) { border-left: 1px solid $darker !important; }
+      // Lines for added/removed sections.
+      .line_content {
+        z-index: 1;
+        colors: $light, 0, $t;
+        &.new::before, &.old::before { colors: $lighter, 0, 0; }
+        &.old::after, &.new::after {
+          content: "";
+          z-index: -1;
+          opacity: 0.25;
+          top: 0; right: 0; bottom: 0; left: 0;
+          position: absolute;
+        }
+        &.old::after { colors: 0, 0, $red; }
+        &.new::after { colors: 0, 0, $green; }
+      }
+      // Gutters for added/removed sections.
+      .diff-line-num.old, .diff-line-num.new {
+        z-index: 1;
+        colors: 0, $darker, $t;
+        &.old::after, &.new::after {
+          content: "";
+          z-index: -1;
+          opacity: 0.25;
+          top: 0; right: 0; bottom: 0; left: 0;
+          position: absolute;
+        }
+        &.old::after { colors: 0, 0, $red; }
+        &.new::after { colors: 0, 0, $green; }
+      }
+      // Rounded corners.
+      &:last-child > td {
+        &:first-child, &:first-child::after { radius: 0 0 0 $radius; }
+        &:last-child, &:last-child::after { radius: 0 0 $radius 0; }
       }
     }
-    // ? Gutter colors in diff viewer.
-    .line_holder .diff-line-num.old {
-      border-color: $shadow !important;
-      background-color: rgba(200, 49, 49, 0.3) !important;
+    // ? Notes -> Suggested changes.
+    .gd, .gi {
+      z-index: 0;
+      position: relative;
+      colors: $light, 0, $t;
+      // Fake element.
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        opacity: 0.25;
+        z-index: -1;
+      }
     }
-    .line_holder .diff-line-num.new {
-      border-color: $shadow !important;
-      background-color: rgba(149, 200, 99, 0.3) !important;
-    }
-  }
-  /* Gutter border. */
-  .code.white pre.code,
-  .code.white .diff-line-num {
-    border-color: var(--darker);
-  }
-  /* Highlighted line. */
-  .code.white pre .hll {
-    background-color: var(--darker) !important;
-  }
-  /* Reset code element in code section. */
-  .code code {
-    border: 0 !important;
+    // Removed/added.
+    .gd::before { colors: 0, 0, $red; }
+    .gi::before { colors: 0, 0, $green; }
   }
 
   // * Project :: Code syntax highlighting.
@@ -4392,32 +4417,49 @@
   }
   // * Group header.
   .explore-groups {
-    border-color: var(--darker);
-    background-color: var(--dark);
+    radius: $radius;
+    colors: 0, $darker, $dark;
   }
   // * Group body.
-  .group-list-tree {
+  .groups-list-tree-container > ul.group-list-tree {
     margin-top: 10px !important;
     radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Make some spacing.
-    > .group-row.is-open > ul { margin: 10px 10px 10px 30px; }
+    colors: 0, 0, $dark;
+    box-shadow: 0 0 0 1px inset $darker;
     // On event.
-    .group-row-contents:hover {
-      border-color: var(--mred);
-      background-color: var(--darker);
+    > .group-row {
+      // Rounded corners.
+      &:first-child > div { radius: $radius $radius 0 0; }
+      &:last-child > div { radius: 0 0 $radius $radius; }
+      // &.has-children .group-list-tree { margin-left: 42px !important; }
     }
-    // List tree visualization.
-    .group-row::before, .group-list-tree::before { colors: 0, $lighter, 0; }
-    .group-row:last-child::before {
-      bottom: -10px !important;
-      colors: 0, 0, $dark;
+    .group-row {
+      // Keep fake border even when sub-group is open.
+      &.is-open > div { box-shadow: 0 -1px 0 0 inset $darker; }
+      // Horizontal line.
+      &::before { colors: 0, $darker, 0; }
+      // Vertical line.
+      .group-list-tree::before {
+        top: 0px;
+        colors: 0, $darker, 0;
+      }
+      // Fix last item background.
+      &:last-child::before { colors: 0, 0, $t; }
+      // Content.
+      &-contents {
+        transition: 0.15s ease;
+        &:hover { colors: 0, 0, $darker; }
+        // Text colors and width.
+        .stats {
+          colors: $lighter, 0, 0;
+          .stat-value {
+            min-width: 1.5rem;
+            text-align: left;
+          }
+        }
+        &.has-more-items { padding: 10px; }
+      }
     }
-    .group-row .stats { color: var(--light); }
-    // Rounded corners.
-    li:first-child > div { radius: $radius $radius 0 0; }
-    li:last-child:not(.is-open) > div { radius: 0 0 $radius $radius; }
   }
 
   // * Invert image icons.
