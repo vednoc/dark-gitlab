@@ -258,10 +258,10 @@
   }
   // Fix emojis being cropped.
   gl-emoji {
-    line-height: 1.20em;
+    font-size: 1.25em;
     // ? An attempt to fix emoji positioning on *fox-based browsers.
     @supports (-moz-user-select: none) {
-      vertical-align: bottom !important;
+      vertical-align: text-top !important;
     }
   }
   .user-status-emoji { display: inline-flex; }
