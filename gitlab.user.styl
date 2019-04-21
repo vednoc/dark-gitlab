@@ -222,6 +222,18 @@
       }
     }
   }
+  // Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
+  table[frame="void"] {
+    colors: $lighter, 0, 0;
+    box-shadow: none;
+    > tbody {
+      colors: 0, 0, $dark;
+      tr th {
+        border-bottom-width: 1px !important;
+        colors: $light, $darker, $darker;
+      }
+    }
+  }
   // * Table -> Project settings page.
   .border-bottom {
     border-bottom: none !important;
