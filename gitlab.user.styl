@@ -198,13 +198,14 @@
     > tbody {
       display: flex;
       flex-direction: column;
+      colors: 0, 0, $dark;
       > tr {
         display: flex;
         // Remove default border and set cell background color.
         > td {
           flex: 1 1 100%;
           border: none !important;
-          a[href] { colors: $light, 0, 0; }
+          a[href] { &, > code { colors: $accent, 0, 0; }}
           &:first-child {
             border-left: 1px solid $darker !important;
             border-bottom: 1px solid $darker !important;
