@@ -2171,7 +2171,6 @@
     // Text color.
     .text-secondary, .count { colors: $light, 0, 0; }
     // Buttons.
-    .btn, input { colors: 0, $darker, $dark; }
     .count-badge-count { colors: 0, $darker, $dark; }
     .count-badge-button { colors: $light, $darker, $darker; }
     // Remove button backgrounds.
@@ -2348,7 +2347,7 @@
       &, &-flex-parent {
         padding: 8px 13px;
         radius: $radius $radius 0 0;
-        colors: 0, $darker, $dark;
+        colors: 0, $darker, $darker;
         // TODO: Fix lock/edit buttons in files.
         a:not([class*="btn-"]) { color: $light; }
       }
