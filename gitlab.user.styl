@@ -969,12 +969,21 @@
   // * Tables.
   .table-responsive {
     radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Remove extra margin.
+    colors: 0, 0, $dark;
+    box-shadow: 0 0 0 1px inset $darker;
     > .table {
+      // Remove extra margin.
       margin-bottom: 0px;
-      tr:hover > td { colors: 0, 0, $darker; }
+      thead {
+        th { colors: $light, $darker, $darker; }
+      }
+      tbody {
+        tr td {
+          transition: 0.15s ease;
+          colors: $lighter, 0, 0;
+        }
+        tr:hover > td { colors: $light, 0, $darker; }
+      }
     }
     // Imported projects.
     .table-success,
