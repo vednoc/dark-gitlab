@@ -1891,6 +1891,9 @@
       colors: $light, $darker, $dark;
       + table.code { radius: 0 0 $radius $radius; }
     }
+    // Added/removed/changed things in discussions.
+    .idiff.addition { background-color: #55ff5520 !important; }
+    .idiff.deletion { background-color: #ff555520 !important; }
   }
 
   // * Issues :: Conversation notes.
@@ -1968,6 +1971,8 @@
       radius: $radius;
       colors: 0, $darker, $dark;
     }
+    // Table -> Regular tables.
+    &:not(.use-csslab) table:not(.code) tbody { colors: 0, 0, $darker; }
   }
   /* Attach a file. */
   .markdown-selector { color: $accent; }
