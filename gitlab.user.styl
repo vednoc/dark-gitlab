@@ -966,25 +966,30 @@
     }
   }
 
-  // * Tables.
-  .table-responsive {
+  // * Table -> Old-ish table components.
+  .table-responsive, table.table {
     radius: $radius;
     colors: 0, 0, $dark;
     box-shadow: 0 0 0 1px inset $darker;
-    > .table {
-      // Remove extra margin.
-      margin-bottom: 0px;
-      thead {
-        th { colors: $light, $darker, $darker; }
+    thead tr {
+      th {
+        border-top: none;
+        colors: $light, 0, $darker;
       }
-      tbody {
-        tr td {
-          transition: 0.15s ease;
-          colors: $lighter, 0, 0;
-        }
-        tr:hover > td { colors: $light, 0, $darker; }
-      }
+      > th:first-child { radius: $radius 0 0 0; }
+      > th:last-child { radius: 0 $radius 0 0; }
     }
+    tbody tr {
+      td {
+        transition: 0.15s ease;
+        colors: $lighter, 0, 0;
+      }
+      &:last-child > td:first-child { radius: 0 0 0 $radius; }
+      &:last-child > td:last-child { radius: 0 0 $radius 0; }
+      &:hover > td { colors: $light, 0, $darker; }
+    }
+    // Remove extra margin.
+    > .table { margin-bottom: 0px; }
     // Imported projects.
     .table-success,
     .table-success > td {
