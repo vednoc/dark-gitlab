@@ -1536,7 +1536,6 @@
     li.flex-row {
       padding: 10px;
       transition: 0.2s ease;
-      &:hover { colors: 0, 0, $darker; }
       .branch-commit {
         &, .js-timeago, .commit-row-message {
           colors: $lighter, 0, 0;
@@ -1544,6 +1543,11 @@
       }
       .item-title.ref-name { colors: $light, 0, 0; }
     }
+  }
+  // * Project :: Tags -> Details.
+  .multi-line .branch-commit {
+    .commit-row-message { colors: $lighter, 0, 0; }
+    .commit-sha { colors: $accent, 0, 0; }
   }
 
   // * Project :: Contributors.
@@ -2940,6 +2944,7 @@
     }
     // ? Project -> Releases.
     &.linked-card {
+      .badge.badge-pill { colors: $light, 0, 0; }
       .dropdown > .btn-link { colors: $light, $t, 0; }
       &::after {
         border: none;
