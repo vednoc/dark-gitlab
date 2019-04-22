@@ -73,7 +73,8 @@
     --bg-size   : bg_size;
     --bg-repeat : bg_repeat;
     --bg-pos    : bg_pos;
-    --background: bg_image
+    --background: bg_image;
+    scrollbar-color: var(--darker) var(--dark);
   }
 
   // * Use stylus-lang variables with CSS variables.
@@ -127,7 +128,6 @@
   }
 
   // Scrollbars.
-  * { scrollbar-color: $darker $dark; }
   ::-webkit-scrollbar {
     width: 12px;
     &-track { background: $dark; }
