@@ -4453,6 +4453,8 @@
         top: 0px;
         colors: 0, $darker, 0;
       }
+      // Remove top-border from the first item.
+      &:first-child { border-top: none !important; }
       // Fix last item background.
       &:last-child::before { colors: 0, 0, $t; }
       // Content.
