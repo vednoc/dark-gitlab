@@ -2165,17 +2165,13 @@
   }
 
   // * Project :: Project/group home panel.
-  .project-home-panel,
-  .group-home-panel {
+  .project-home-panel, .group-home-panel {
     margin-top: 8px;
-    colors: 0, $darker, 0;
+    colors: 0, $t, 0;
     // Shorten description.
     .project-description { max-width: 60em; }
     // Text color.
-    .text-secondary, .count { colors: $light, 0, 0; }
-    // Buttons.
-    .count-badge-count { colors: 0, $darker, $dark; }
-    .count-badge-button { colors: $light, $darker, $darker; }
+    .text-secondary, .count { colors: $lighter, 0, 0; }
     // Remove button backgrounds.
     .js-read-more-trigger { colors: $accent, 0, $t; }
     // Metadata text color.
@@ -2193,13 +2189,17 @@
       // Fix line height.
       .text-nowrap { line-height: 22px !important; }
       svg.icon { margin-top: 4px !important; }
+      .badge:hover { colors: $light, 0, $darker; }
     }
     // ? New design, December 2018.
     .add-license-link { colors: $lighter, 0, 0; }
     .project-stat-value { colors: $light, 0, 0; }
     .project-stats .stat-text { colors: $lighter, 0, 0; }
     .project-repo-buttons {
-      .count-badge, .btn-xs { height: 34px !important; }
+      .count-badge, .btn-xs { height: 34px; }
+      // Buttons.
+      .count-badge-count { colors: 0, $darker, $dark; }
+      .count-badge-button { colors: $light, $darker, $darker; }
     }
   }
   // "Auto DevOps enabled" and possibly other buttons.
