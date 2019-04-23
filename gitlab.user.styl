@@ -2455,9 +2455,13 @@
   // Profile -> Shared styles.
   .user-profile {
     // User info cover.
-    .cover-block { colors: 0, $darker, $dark; }
+    .cover-block {
+      colors: 0, $darker, $dark;
+      .cover-title { colors: $light, 0, 0; }
+      .cover-desc { colors: $lighter, 0, 0; }
+    }
     // ? Calendar in activity. @obsolete
-    #activity > .row-content-block { colors: 0, $darker, $red; }
+    #activity > .row-content-block { colors: 0, $darker, $dark; }
     // Reset scrolling nav.
     .scrolling-tabs-container {
       margin: 0 !important;
@@ -2495,17 +2499,12 @@
   }
 
   /* Text color. */
-  .cover-block .cover-desc,
   .nothing-here-block,
   .calendar-hint,
   .content-list li {
     color: var(--light) !important;
   }
   .nothing-here-block { padding: 0px; }
-  /* Emphasized text color. */
-  .cover-block .cover-title {
-    color: var(--lighter) !important;
-  }
 
   // * Project -> Activity.
   .project-activity {
