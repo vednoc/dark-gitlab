@@ -2418,11 +2418,6 @@
     tbody pre { colors: $lighter, $darker, $dark; }
   }
 
-
-  // * User profile.
-  .cover-block {
-    colors: 0, $darker, $dark;
-  }
   // Groups section.
   [data-page="users:show"] #groups {
     .content-list {
@@ -2446,7 +2441,7 @@
   }
   // ? Scrolling tabs.
   // body:not([data-page$="users:show"])
-  .scrolling-tabs-container {
+  :not(.user-profile) .scrolling-tabs-container {
     margin: 10px 0;
     padding: 0 10px;
     /* overflow: hidden; */
@@ -2457,18 +2452,24 @@
     .fade-left { background: linear-gradient(to right, $dark 45%, $t); }
   }
 
-  // * User profile :: Activity.
-  #activity > .row-content-block {
-    colors: 0, $darker, $dark;
-    // Text color.
-    svg text { fill: $light; }
-  }
-  // Reset navigation.
-  .user-profile .scrolling-tabs-container {
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
+  // Profile -> Shared styles.
+  .user-profile {
+    // User info cover.
+    .cover-block { colors: 0, $darker, $dark; }
+    // ? Calendar in activity. @obsolete
+    #activity > .row-content-block { colors: 0, $darker, $red; }
+    // Reset scrolling nav.
+    .scrolling-tabs-container {
+      margin: 0 !important;
+      border: none !important;
+    }
+    // * Content list items.
+    .content_list {
+      radius: $radius;
+      background-color: $dark;
+      box-shadow: inset 0 0 0 1px $darker;
+      .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
+    }
   }
   // * Contributions.
   // ? Use accent color for contributions.
@@ -2573,14 +2574,6 @@
       &:last-child { radius: 0 0 $radius $radius; }
       &:hover { colors: 0, 0, $darker; }
     }
-  }
-
-  // * Profile :: Activity
-  .user-profile .content_list {
-    radius: $radius;
-    background-color: $dark;
-    box-shadow: inset 0 0 0 1px $darker;
-    .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
   }
 
   // * Project :: Cycle Analytics.
