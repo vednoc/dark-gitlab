@@ -2474,6 +2474,14 @@
       box-shadow: inset 0 0 0 1px $darker;
       .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
     }
+    // ? Overview -> Adjust whitewspace between panes.
+    .row {
+      @media (min-width: 980px) {
+        .col-12 .append-bottom-default { margin-bottom: 0; }
+        .col-lg-6:first-child { padding-right: 3px; }
+        .col-lg-6:last-child { padding-left: 3px; }
+      }
+    }
   }
 
   // * Profile -> Contribution calendar.
