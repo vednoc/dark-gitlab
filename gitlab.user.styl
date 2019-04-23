@@ -2493,21 +2493,6 @@
     }
   }
 
-  // ? Most recent activity.
-  #activity .event-item {
-    colors: $lighter, $darker, 0;
-    // Rounded corners.
-    &:hover:first-child { radius: $radius $radius 0 0; }
-    &:hover:last-child { radius: 0 0 $radius $radius; }
-    // Text color.
-    .event-type {
-      colors: $lighter, 0, 0;
-      ~ .event-scope { colors: $lighter, 0, 0; }
-      // ~ span a { colors: $light, 0, 0; }
-    }
-    &-timestamp time { colors: $lighter, 0, 0; }
-    .commit { colors: $light, 0, 0; }
-  }
   /* Text color. */
   .cover-block .cover-desc,
   .nothing-here-block,
@@ -2521,8 +2506,7 @@
     color: var(--lighter) !important;
   }
 
-  // * Project :: Activity.
-  // ? https://gitlab.com/vednoc/dark-gitlab/activity
+  // * Project -> Activity.
   .project-activity {
     radius: $radius;
     background-color: $dark;
@@ -2547,46 +2531,47 @@
   // * Profile :: Overview.
   .user-profile {
     // Sections.
-    [class*="col"] > [class*="block"] {
+    [class*="col"] > [class*="-block"] {
       margin-top: 16px;
       radius: $radius;
       colors: 0, 0, $dark;
       box-shadow: inset 0 0 0 1px $darker;
       // Remove padding for titles.
-      > [class*="block"] {
+      > [class*="-block"] {
         padding: 0;
-        colors: 0, $darker, 0;
-        // Hide border in "activity" section.
-        // ? Only present in older versions of GitLab.
+        colors: 0, $red, $t;
+        // Hide border in "activity" section. @obsolete
         &:first-child { colors: 0, $t, 0; }
+        // Add padding.
+        &.user-calendar { padding: 8px !important; }
       }
-      // Add padding.
-      .user-calendar { padding: 16px !important; }
-      .prepend-top-16 > .border-bottom { padding: 0 16px !important; }
+      .border-bottom {
+        padding: 0 8px !important;
+        border-bottom: 1px solid $darker !important;
+      }
       // ? Add some padding to empty blocks.
       .overview-content-list { padding-bottom: 1px; }
-      // ? Fixes border separator with !important rule on it.
-      .border-bottom { colors: 0, $darker, 0; }
-      // ? Content list items.
-      .event-item { padding: 16px 16px 16px 56px !important; }
-      .event-item .system-note-image { left: 16px; }
     }
-    // Event items.
-    // TODO possible refactor with styles beneath.
+    // ? Content list items.
     .event-item {
-      border-color: $darker;
+      colors: 0, $darker, 0;
+      transition: 0.15s ease;
+      padding: 8px 8px 8px 48px !important;
+      .system-note-image { left: 12px; }
       .event-title {
-        color: $lighter;
-        a { color: $accent; }
+        color: $light;
+        // Branch/repo.
+        a { color: $light; }
       }
-      // ? New design in recent contributions.
-      .event-user-info {
-        colors: $lighter, 0, 0;
-        .author_name a { colors: $light, 0, 0; }
+      .author_name a { colors: $light, 0, 0; }
+      .username { colors: $lighter, 0, 0; }
+      .event-body {
+        .commit-row-title .commit-sha { colors: $light, 0, 0; }
+        &, .md p, .commit-row-title { colors: $light, 0, 0; }
       }
-      .commit-sha { colors: $light, 0, 0; }
-      // Body text color.
-      .event-body { colors: $light, 0, 0; }
+      &:first-child { radius: $radius $radius 0 0; }
+      &:last-child { radius: 0 0 $radius $radius; }
+      &:hover { colors: 0, 0, $darker; }
     }
   }
 
