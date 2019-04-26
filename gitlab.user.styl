@@ -468,9 +468,9 @@
   }
   .nav-links:not(.quick-link) { colors: 0, $darker, 0; }
   .label-bold { color: $light; }
-  .cred { color: $red; }
-  .cblue { color: $blue; }
-  .cgreen { color: $green; }
+  .cred { color: $red; fill: $red !important; }
+  .cblue { color: $blue; fill: $blue !important; }
+  .cgreen { color: $green; fill: $green !important; }
   // ? Inverts checkboxes since we can't style them as they are currently.
   if checkbox {
     input[type="checkbox"] { filter: invert(var(--bg-invert)) !important; }
@@ -820,12 +820,15 @@
       }
     }
     // ? Diff -> File finder.
-    .diff-changed-file {
-      [class*="path"] { colors: $lighter, 0, 0; }
-      .cgreen { colors: $green, 0, 0; }
-      .cred { colors: $red, 0, 0; }
-      &:focus { colors: 0, 0, $shadow; }
-      &.is-focused, &.is-focused:hover { colors: 0, 0, $dark; }
+    &.diff-file-changes {
+      min-width: 500px !important;
+      .diff-changed-file {
+        [class*="path"] { colors: $lighter, 0, 0; }
+        &.is-focused, &:focus {
+          colors: 0, 0, $darker;
+          [class*="file-name"] { colors: $light, 0, 0; }
+        }
+      }
     }
     // ? Footer.
     .dropdown-footer {
