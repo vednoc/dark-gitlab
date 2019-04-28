@@ -2507,7 +2507,8 @@
     box-shadow: none !important;
     .project-row {
       padding: 8px;
-      &:first-child { radius: 0 !important; }
+      &:first-child { radius: 0; }
+      &:last-child { radius: 0 0 $radius $radius; }
     }
   }
 
@@ -2560,7 +2561,11 @@
       }
       .border-bottom {
         padding: 0 8px !important;
-        border-bottom: 1px solid $darker !important;
+        // ? Select next sibling; it'll always be the content list.
+        + div {
+          padding-bottom: 0;
+          box-shadow: 0 -1px 0 0 $darker;
+        }
       }
       // ? Add some padding to empty blocks.
       .overview-content-list { padding-bottom: 1px; }
