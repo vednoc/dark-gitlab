@@ -12,7 +12,8 @@
 @var text     b_radius  "Custom border radius" 4px
 @var text     a_radius  "Custom avatar radius" 50%
 @var text     max_width "Custom width for fluid layout" 100%
-@var text     code_font "Custom code font" ""custom_font", "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
+@var text     code_font "Custom code font" "'custom_font', "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
+@var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Theme navbar color" 1
@@ -68,6 +69,7 @@
     --radius    : b_radius;
     --avatar    : a_radius;
     --code-font : code_font;
+    --emoji-font: emoji_font;
     --bg-invert : bg_invert;
     --bg-filter : bg_filter;
     --bg-size   : bg_size;
@@ -260,6 +262,7 @@
   // Fix emojis being cropped.
   gl-emoji {
     font-size: 1.25em;
+    font-family: var(--emoji-font) !important;
     // ? An attempt to fix emoji positioning on *fox-based browsers.
     @supports (-moz-user-select: none) {
       vertical-align: text-top !important;
