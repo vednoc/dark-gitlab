@@ -1867,7 +1867,11 @@
     // Entry borders.
     .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
-    &:target, &.target { colors: 0, $blue, 0; }
+    &:target, &.target {
+      radius: $radius $radius 0 0;
+      colors: 0 0 $darker;
+      box-shadow: 0 0 0 1px $darker;
+    }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
   }
