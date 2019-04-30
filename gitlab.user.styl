@@ -2354,8 +2354,8 @@
         padding: 8px 13px;
         radius: $radius $radius 0 0;
         colors: 0, $darker, $darker;
-        // TODO: Fix lock/edit buttons in files.
-        a:not([class*="btn-"]) { color: $light; }
+        // Buttons w/o `button-default` class.
+        a { color: $lighter; }
       }
     }
     // ? Body.
