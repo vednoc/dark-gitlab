@@ -443,59 +443,43 @@
       }
     }
     &-link { colors: $accent 0 0; }
-  }
-  // Colored buttons.
-  .btn {
     // Green buttons.
-    &-success,
-    &-success.dropdown-toggle,
-    &-register,
-    &.comment-btn,
-    &-new,
-    &-create,
-    &-save,
-    .comment-btn,
-    .commit-btn {
-      colors: $white, $green, $green;
-      box-shadow: var(--box-shadow) !important;
+    &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
+    &.comment-btn, .comment-btn, .commit-btn {
+      colors: $white $green $green;
+      &:hover { opacity: 0.75; }
     }
-    &-create.comment-btn {
-      colors: $green, $green, $dark;
-    }
+    // TODO: Find where this button is located.
+    &-create.comment-btn { colors: $green $green $dark; }
     // Blue buttons.
-    &-info,
-    &-primary,
-    &-register {
-      colors: $white, $blue, $blue;
-      box-shadow: var(--box-shadow) !important;
+    &-info, &-primary, &-register {
+      colors: $white $blue $blue;
+      &:hover { opacity: 0.75; }
     }
     // Orange buttons.
     &-warning {
-      colors: $white, $orange, $orange;
-      box-shadow: var(--box-shadow) !important;
+      colors: $white $orange $orange;
+      &:hover { opacity: 0.75; }
     }
     // Close buttons.
-    &-close, &-close-color { colors: $red, $red, $dark; }
-    &-close-color.dropdown-toggle {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
+    &-close, &-close-color {
+      colors: $red $red $dark;
+      &:hover { colors: $white 0 $red; }
     }
-    &-cancel, &-retry {
-      colors: $light, $darker, $dark;
+    &-close-color.dropdown-toggle {
+      colors: $white $red $red;
+      &:hover { opacity: 0.75; }
     }
     // Remove buttons.
-    &-danger, &-remove, &-red {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
-    }
-    // Inverted buttons.
-    &-inverted.btn-remove {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
+    &-danger, &-remove, &-red, &-inverted.btn-remove {
+      colors: $white $red $red;
+      &:hover { opacity: 0.75; }
     }
     // Blank buttons.
-    &-blank { colors: $lighter, 0, $t; }
-    &-clipboard { colors: $lighter, $darker, $dark; }
+    &-cancel, &-retry, &-clipboard {
+      colors: $lighter $darker $dark;
+    }
+    &-blank { colors: $lighter 0 $t; }
     // Comment on a note.
     &-text-field {
       colors: $lighter, $darker, $darker;
