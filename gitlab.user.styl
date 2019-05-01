@@ -467,8 +467,9 @@
       &:hover { colors: $white 0 $red; }
     }
     &-close-color.dropdown-toggle {
-      colors: $white $red $red;
-      &:hover { opacity: 0.75; }
+      colors: $red $red $dark;
+      .fa { color: inherit !important; }
+      &:hover { colors: $white 0 $red; }
     }
     // Remove buttons.
     &-danger, &-remove, &-red, &-inverted.btn-remove {
@@ -478,25 +479,29 @@
     // Blank buttons.
     &-cancel, &-retry, &-clipboard {
       colors: $lighter $darker $dark;
+      &:hover { colors: $light 0 $darker; }
     }
     &-blank { colors: $lighter 0 $t; }
     // Comment on a note.
     &-text-field {
       colors: $lighter, $darker, $darker;
     }
-    // Reset for "add x" buttons.
-    &-missing { colors: $light, $darker, $dark; }
+    // Colors for buttons with dashed borders.
+    &-missing {
+      colors: $lighter $darker $dark;
+      &:hover { colors: $light 0 $darker; }
+    }
     // Disabled buttons.
-    &.disabled, &.disabled:hover,
-    &[disabled], &[disabled]:hover {
-      opacity: 0.6 !important;
-      colors: $lighter, $darker, $darker;
-      box-shadow: var(--box-shadow) !important;
+    &.disabled, &[disabled] {
+      &, &:hover {
+        opacity: 0.6 !important;
+        colors: $lighter $darker $dark;
+      }
     }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
-    colors: 0, 0, $t;
+    colors: 0 0 $t;
     .btn:focus { colors: 0, 0, $darker; }
   }
   // ? Reaction buttons.
