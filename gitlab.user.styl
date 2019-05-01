@@ -493,15 +493,6 @@
       colors: $lighter, $darker, $darker;
       box-shadow: var(--box-shadow) !important;
     }
-    // On event.
-    &:hover:not([disabled="disabled"]),
-    &:focus:not([disabled="disabled"]) {
-      transform: translateY(-2px);
-    }
-    // Disable hover state for disabled elements.
-    &.disabled:hover {
-      transform: translateY(0px);
-    }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
