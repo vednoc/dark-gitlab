@@ -430,26 +430,19 @@
 
   // * Button reset.
   .btn {
-    transition: transform 0.2s ease-in-out !important;
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
-    &:hover, &:focus, &.focus, &.btn-default {
-      color: var(--light);
-      border-color: var(--darker);
-      background-color: var(--dark);
+    // ? Base selectors.
+    &, .btn-default {
+      transition: 0.15s ease;
+      color: $lighter;
+      border-color: $darker;
+      background-color: $dark;
+      &:hover, &:focus, &.focus {
+        color: $light;
+        border-color: $darker;
+        background-color: $darker;
+      }
     }
-    &:active, &.active {
-      colors: $accent, $darker, $dark;
-      // Active icons!
-      // TODO Remove?
-      > i, > .fa { color: inherit !important; }
-    }
-    // Remove blue outline.
-    &:focus, &.focus { box-shadow: 0 0 2px 0px $accent; }
-    &-link { colors: $accent, 0, 0; }
-    // Expand button.
-    &.click-to-expand { padding: 3px; }
+    &-link { colors: $accent 0 0; }
   }
   // Colored buttons.
   .btn {
