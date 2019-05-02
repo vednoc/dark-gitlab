@@ -994,6 +994,8 @@
       &:last-child > td:last-child { radius: 0 0 $radius 0; }
       &:hover > td { colors: $light, 0, $darker; }
     }
+    // Highlighted odd rows.
+    &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 $shadow; }
     // Remove extra margin.
     > .table { margin-bottom: 0px; }
     // Imported projects.
