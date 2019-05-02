@@ -942,9 +942,11 @@
   .gitlab-tabs {
     radius: $radius $radius 0 0;
     colors: 0, $darker, $darker;
-    .nav-link.active, .nav-link:hover { radius: 0; }
-    li:not(:last-child) { border-right-color: $darker; }
-    li a.active, li a:hover { colors: $lighter, $accent, $dark; }
+    li.nav-item {
+      &:not(:last-child) { border-right: none; }
+      &.active a.nav-link { colors: $light $accent $dark; }
+      &:hover a.nav-link { colors: $accent $darker $darker; }
+    }
   }
   // Tab content.
   .gitlab-tab-content {
