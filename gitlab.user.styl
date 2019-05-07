@@ -4266,10 +4266,10 @@
   .dropdown.show .mini-pipeline-graph-dropdown {
     // Dropdown indicator.
     &-menu::after { colors: 0, $accent, 0; }
-    // Items on hover/active states.
+    // Items and various states.
     &-item {
       colors: $lighter, 0, 0;
-      &:hover, &:active { colors: $light, 0, $darker; }
+      &:hover, &:active, &:focus { colors: $light 0 $darker; }
     }
     // ? Fix very thin font being barely visible.
     &-item .ci-status-text { font-weight: normal !important; }
