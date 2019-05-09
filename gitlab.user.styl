@@ -1745,15 +1745,6 @@
     .milestone-popover-footer { colors: 0, $darker, 0; }
   }
 
-  /* Recently pushed branches. */
-  .container-fluid > .row-content-block.white {
-    margin-top: 10px;
-    padding: 12px 8px;
-    radius: $radius;
-    border: 1px solid $darker;
-    background-color: $dark;
-  }
-
   // * Commits :: Diff summary.
   .diff-files-changed {
     radius: $radius;
@@ -2640,14 +2631,18 @@
     }
   }
 
-  /* Dashboard. */
+  // * Dashboard -> Sub-nav block.
   .row-content-block {
     margin-top: 10px !important;
     padding: 8px;
     radius: $radius;
     border: 1px solid $darker;
-    color: $light;
-    background-color: $dark;
+    colors: $lighter 0 $dark;
+    // Recently pushed to...
+    &.white {
+      border: 1px solid $darker;
+      background-color: $dark;
+    }
   }
   /* Sub-header found in compare branches. */
   .sub-header-block {
