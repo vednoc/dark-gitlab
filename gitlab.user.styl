@@ -14,6 +14,7 @@
 @var text     max_width "Custom width for fluid layout" 100%
 @var text     code_font "Custom code font" "'custom_font', "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
 @var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+@var text     faded_img "Fade images in md/wiki/blog" "1"
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Theme navbar color" 1
@@ -1996,6 +1997,9 @@
       border: none;
       radius: $radius;
       colors: 0, $darker, $dark;
+      transition: 0.15s ease;
+      opacity: faded_img;
+      &:hover { opacity: 1; }
     }
     ul ul, ol ol, ul ol, ol ul {
       margin-bottom: 0 !important;
@@ -4726,12 +4730,9 @@
 @-moz-document regexp("https?://about.gitlab.com(/.*)") {
   // * Global image reset.
   img, .video_container {
-    opacity: 0.5 !important;
-    transition: 0.3s ease;
-    &:hover {
-      opacity: 1 !important;
-      transition-delay: 0.3s;
-    }
+    opacity: faded_img !important;
+    transition: 0.15s ease;
+    &:hover { opacity: 1 !important; }
   }
 
   // * Index page for about sub-domain.
@@ -4762,6 +4763,7 @@
 
   // * Articles.
   .blog.article {
+    .overlay { background: linear-gradient(0deg, $dark, $t 100%); }
     .body { colors: 0, 0, $dark; }
     // Anchors.
     .content {
