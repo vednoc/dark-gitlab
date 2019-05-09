@@ -4488,6 +4488,29 @@
     }
   }
 
+  // * Groups -> Contribution Analytics.
+  .svg-graph-container {
+    padding: 16px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    radius: $radius;
+    colors: 0 0 $dark;
+    box-shadow: 0 0 0 1px inset $darker;
+    overflow-y: hidden; // Hide whitespace.
+    svg {
+      margin-top: -75px;
+      text { isvg: $lighter false }
+      path, line { svg: false $lighter }
+      rect {
+        fill: url(none) !important;
+        &.bar-rect { isvg: $darker $blue }
+        &[fill="#fff" i] { isvg: $dark false }
+      }
+    }
+  }
+
   // * Invert image icons.
   // TODO adjust if it causes weird things.
   img[src*="/assets/icon"] {
