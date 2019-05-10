@@ -17,7 +17,7 @@
 @var text     faded_img "Fade images in md/wiki/blog" "1"
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
-@var checkbox navbar_c  "Theme navbar color" 1
+@var checkbox navbar_c  "Navbar: Theme navbar color" 1
 @var checkbox navbar_n  "Navbar: Show 'next' badge" 1
 @var checkbox checkbox  "Checkbox inversion" 1
 @var checkbox bg_invert "Background inversion" 1
@@ -615,8 +615,8 @@
   .navbar {
     colors: 0, $darker, 0;
     box-shadow: 0 2px 8px -2px $shadow !important;
-    // ? UserCSS: Theme navbar color.
-    if navbar_c { colors: 0, 0, $darker; }
+    // ? Feature -> Theme navbar color.
+    if ( navbar_c == 1 ) { colors: 0 0 $darker; }
     // ? Feature -> Show 'next' badge.
     if ( navbar_n != 1 ) { .js-canary-badge { display: none; }}
     // Logo text color.
