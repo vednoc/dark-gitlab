@@ -2884,18 +2884,22 @@
     color: var(--light);
     border-color: var(--darker);
   }
-  // Emojis in epics.
+  // * Epics -> Wrapper.
   .epic-page-container {
     // Remove extra padding.
     .issuable-details {
       padding: 0;
       colors: 0, $t, 0;
+      // Remove margin.
+      .card-slim { margin-bottom: 0px; }
     }
-    // Emojis.
-    + .emoji-block {
-      padding: 2px 0 10px;
-      colors: 0, $darker, 0;
-    }
+    // Reactions wrapper.
+    + .content-block { colors: 0 $t 0; }
+  }
+  // * Epics -> Tab holders.
+  .epic-tabs-holder {
+    colors: 0 $t $t;
+    .scrolling-tabs-container { margin: 0 0 14px 0; }
   }
   // Time tracking.
   .time_tracker .time-tracking-help-state {
