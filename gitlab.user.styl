@@ -1638,21 +1638,24 @@
   }
 
 
-  // * Modal.
+  // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
     .modal-content {
       border: none;
       colors: 0, 0, $dark;
       box-shadow: 0 0 0 1px $darker !important;
-      // Auth header.
-      .modal-header { colors: 0, $darker, 0; }
+      .modal-header { colors: 0 $darker $dark }
     }
-    .modal-header { colors: 0, $darker, $dark; }
     .modal-body {
       radius: 0 0 $radius $radius;
       colors: 0, 0, $dark;
-      .export-modal-subheader { colors: 0, $darker, 0; }
-      // Font color.
+      [class*="-subheader"] { colors: 0 $darker 0 }
+      // ? Shortcuts modal.
+      .shortcut-mappings {
+        th { colors: $light 0 0 }
+        td { colors: $lighter 0 0 }
+        kbd { colors: $light 0 $darker }
+      }
       // ? Board scope.
       .title { colors: $lighter, 0, 0; }
       .block + .block { border-top-color: $darker; }
@@ -1666,18 +1669,15 @@
     .modal-footer { colors: 0, $darker, 0; }
   }
 
-  // * Close buttons.
-  // ! Blame @RaitaroH for this one.
+  // * Global -> Close buttons.
   .close {
-    transition: 200ms ease-in-out;
+    transition: 0.15s ease;
     text-shadow: 0 1px 0 $shadow;
-    color: $icon;
-    &:hover, &:focus { color: $accent !important; }
+    &, &:hover, &:focus { colors: $lighter 0 0 }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
       text-shadow: 0 1px 0 $shadow;
       transform: translateY(-5px);
-      color: $icon !important;
     }
   }
 
