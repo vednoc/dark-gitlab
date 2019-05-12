@@ -4233,13 +4233,13 @@
 
 
   // * Project CI/CD :: Pipelines.
-  // TODO polish mini pipelines.
   .table-holder {
     margin: 10px 0 0 0;
     .ci-table {
+      margin-bottom: 0;
       // Pipelines.
       > [class*="row"] {
-        padding: 8px 10px;
+        padding: 2px 4px 2px 8px;
         border-color: var(--darker);
       }
       // Header.
@@ -4256,15 +4256,10 @@
           background-color: var(--darker) !important;
         }
       }
-      // Mini pipelines.
-      .mini-pipeline-graph-dropdown-toggle {
-        border-color: var(--darker);
-        background-color: var(--darker);
-        box-shadow: var(--box-shadow);
-      }
-      .stage-container:not(:last-child)::after {
-        border-color: var(--darker);
-      }
+      // CI stage connectors.
+      .stage-container::after { border-bottom: 1px solid $lighter }
+      // Whitespace.
+      tr td { padding: 4px 8px }
     }
   }
   /* Pipeline commit. */
@@ -4330,6 +4325,7 @@
     .build, .stage-column .curve {
       &::before, &::after { colors: 0, $darker, 0; }
     }
+    .ci-build-txt, .ci-status-text { font-weight: normal; }
   }
 
   // * Pipelines :: Failed Jobs.
