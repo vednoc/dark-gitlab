@@ -232,7 +232,7 @@
       }
     }
   }
-  // Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
+  // * Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
   table[frame="void"] {
     colors: $lighter, 0, 0;
     box-shadow: none;
@@ -266,7 +266,8 @@
       }
     }
   }
-  // Fix emojis being cropped.
+
+  // * Emojis -> Fix emojis being cropped.
   gl-emoji {
     font-size: 1.25em;
     font-family: var(--emoji-font) !important;
@@ -322,7 +323,6 @@
   // Text colors.
   .warning-title { colors: $orange, 0, 0; }
   .danger-title { colors: $red, 0, 0; }
-  .shortcut-mappings .key { colors: $light, 0, 0; }
   .cgray,
   .committed_ago,
   .hint {
@@ -2545,7 +2545,7 @@
   .content-list li {
     color: var(--light) !important;
   }
-  .nothing-here-block { padding: 0px; }
+  .nothing-here-block { padding: 8px; }
 
   // * Project -> Activity.
   .project-activity {
@@ -3170,6 +3170,7 @@
     // ? Found in: .../repo/pipeline_schedules
     .bordered-box.content-block {
       padding: 8px !important;
+      radius: $radius;
       colors: 0, $darker, $dark;
     }
   }
@@ -5879,6 +5880,7 @@
   // * Code blocks.
   pre.highlight {
     radius: $radius !important;
+    box-shadow: 0 2px 4px -1px $shadow;
     // Roundify corners.
     code { radius: inherit; }
     // Copy to clipboard.
