@@ -142,8 +142,23 @@
   ::-webkit-input-placeholder { color: $lighter !important; }
 
   body {
+    colors: $light 0 $t;
     // Fixes content shift when modal is open.
     &.modal-open { padding-right: 0px !important; }
+    // Empty navbar.
+    &.navless {
+      colors: $light 0 $t;
+      height: calc(100% - 41px);
+      .navbar-empty { colors: 0 $darker $dark }
+    }
+    // Footer.
+    .footer-fixed {
+      colors: 0 $darker $dark;
+      + .footer-container {
+        max-width: 100%;
+        colors: 0 0 $dark;
+      }
+    }
   }
 
   h1, h2, h3, h4, h5, h6, p {
@@ -534,13 +549,6 @@
     colors: 0, $darker, 0;
   }
 
-  // Sign in page.
-  body, body.navless {
-    colors: $light, 0, $t;
-    // Navbar.
-    .navbar-empty { colors: 0, $darker, $darker; }
-  }
-
   // * Sign in/register page.
   .login-page {
     // Header.
@@ -583,17 +591,6 @@
     abbr { colors: $lighter, 0, 0; }
   }
 
-  /* Footer. */
-  hr.footer-fixed {
-    border-top-color: var(--darker);
-    background: none !important;
-  }
-  .footer-container {
-    background: none !important;
-  }
-  .footer-container a {
-    color: var(--accent);
-  }
 
   // * Cookies.
   #CybotCookiebotDialog {
