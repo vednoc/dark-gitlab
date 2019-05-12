@@ -174,17 +174,20 @@
     radius: $radius;
     border-style: hidden;
     border-collapse: collapse;
+    colors: 0 0 $dark;
     box-shadow: 0 0 0 1px inset $darker;
     thead {
-      th { colors: $light, $darker, $t; }
+      colors: 0 0 $t;
+      th { colors: $light $darker $darker }
       tr:first-child {
-        colors: 0, 0, $darker;
+        colors: 0 0 $t;
         > th:first-child { border-top-left-radius: $radius; }
         > th:last-child { border-top-right-radius: $radius; }
       }
     }
     tbody {
-      td { colors: $light, $darker, $dark; }
+      colors: 0 $darker $t; // Fixes large top border in docs.
+      td { colors: $light $darker $t }
       tr:last-child {
         // Bottom corners look a bit off on Firefox.
         td:first-child { border-bottom-left-radius: $radius; }
@@ -201,7 +204,7 @@
         display: flex;
         > th {
           flex: 1 1 100%;
-          colors: $lighter, 0, 0;
+          colors: $light 0 0;
         }
       }
     }
@@ -2013,8 +2016,6 @@
     ul ul, ol ol, ul ol, ol ul {
       margin-bottom: 0 !important;
     }
-    // Table -> Regular tables.
-    &:not(.use-csslab) table:not(.code) tbody { colors: 0, 0, $darker; }
   }
   /* Attach a file. */
   .markdown-selector { color: $accent; }
@@ -3829,9 +3830,6 @@
       box-shadow: inset 0 0 0 1px $darker;
       > p { margin: 0; }
     }
-    // Table related.
-    table td, table th { colors: 0, $darker, 0; }
-    table thead { colors: 0, 0, $darker; }
     // Border colors.
     h2, h3, h4, h5, h6, .edit-on, .comments { colors: 0, $darker, 0; }
     // Text colors.
