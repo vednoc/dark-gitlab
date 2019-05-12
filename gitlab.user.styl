@@ -1914,6 +1914,7 @@
   //   colors: 0, $darker, 0;
   // }
   .notes {
+    colors: 0 0 $t;
     // Text color.
     // ? Be super-specific because they're using !important on upstream. :p
     > li .note-body div.note-text blockquote p,
@@ -3386,12 +3387,13 @@
 
   // * Merge Requests :: Discussions in file diff.
   .diff-file .notes_holder {
-    colors: $red, $green, $blue;
-    // TODO might not need this line anymore.
+    // ! Might not need this line anymore.
     .notes_line {
       colors: $light, $dark, $dark;
       border-right-color: $darker !important;
     }
+    // Top border at the start of discussion.
+    .notes-content { colors: 0 $darker 0 }
     .notes_content {
       colors: $light, $dark, $dark;
       // Discussion.
