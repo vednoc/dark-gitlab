@@ -4270,17 +4270,37 @@
     color: var(--light);
   }
 
-  // * Pipeline :: Stage dropdown.
-  .dropdown.show .mini-pipeline-graph-dropdown {
-    // Dropdown indicator.
-    &-menu::after { colors: 0, $accent, 0; }
-    // Items and various states.
-    &-item {
-      colors: $lighter, 0, 0;
-      &:hover, &:active, &:focus { colors: $light 0 $darker; }
+  // * Pipelines -> Mini-pipelines.
+  .mini-pipeline-graph-dropdown-toggle {
+    colors: 0 0 $darker;
+    &:focus { box-shadow: 0 0 4px 1px $blue !important }
+    // * Pipelines -> Stages. Old info in #22.
+    + .mini-pipeline-graph-dropdown-menu {
+      // Indicator.
+      &::after { colors: 0 $accent 0 }
+      // Reset for items.
+      li {
+        &:hover a { colors: $lighter 0 $t }
+        a:hover, a:focus { colors: $light 0 $darker }
+        // Pipelines where you have permissions.
+        .ci-job-component {
+          transition: 0.15s ease;
+          &:hover { colors: 0 0 $darker }
+          .mini-pipeline-graph-dropdown-item {
+            colors: 0 0 $t;
+            .ci-status-text { colors: $lighter 0 0 }
+            &:hover .ci-status-text { colors: $light 0 0 }
+          }
+          // Retry button.
+          .ci-action-icon-container {
+            colors: 0 $dark $darker;
+            &:hover { colors: 0 $accent $darker }
+          }
+        }
+      }
+      // ? Fix text weight.
+      .ci-build-text, .ci-status-text { font-weight: normal !important }
     }
-    // ? Fix very thin font being barely visible.
-    &-item .ci-status-text { font-weight: normal !important; }
   }
 
   // * Project CI/CD :: Pipeline details.
@@ -4598,23 +4618,6 @@
   a.ci-success_with_warnings { colors: $orange, $orange, $t; }
   // "Weird" behaving warning on pipelines page.
   .ic-status_warning_borderless { fill: $orange !important; }
-
-  // CI stage connectors.
-  .stage-container::after {
-    top: 11px !important;
-    border-bottom: 1px solid $icon !important;
-  }
-  // Icon background.
-  .mini-pipeline-graph-dropdown-toggle { colors: 0, 0, $darker; }
-  // ? Mini-pipeline events. More info in issue #22.
-  .mini-pipeline-graph-dropdown-menu {
-    li:hover [class*="dropdown-item"] { colors: 0, 0, $dark; }
-    .ci-action-icon-container {
-      transform: none !important;
-      colors: 0, $dark, $darker;
-      &:hover { colors: 0, $accent, $dark; }
-    }
-  }
 
   // * Centers project header elements; old design lookalike.
   if p_header {
