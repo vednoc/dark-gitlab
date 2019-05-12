@@ -1154,10 +1154,13 @@
 
   // * Epics :: Roadmap.
   .roadmap-container {
-    colors: 0, 0, $dark;
+    radius: $radius;
+    colors: 0 0 $dark;
+    box-shadow: 0 0 0 1px inset $darker;
     // Timeline header.
     .timeline-header-blank {
       colors: $lighter, $darker, $dark;
+      box-shadow: -1px 0 0 0 inset $darker;
       &::before { colors: 0, $darker, 0; }
       &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
     }
@@ -1174,6 +1177,7 @@
       // Left sidebar cells.
       .epic-details-cell {
         colors: 0, $darker, $dark;
+        box-shadow: -1px 0 0 0 inset $darker;
         &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
         .epic-url { colors: $light, 0, 0; }
         .epic-timeframe { colors: $lighter, 0, 0; }
