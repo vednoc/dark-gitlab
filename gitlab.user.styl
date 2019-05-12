@@ -4256,8 +4256,6 @@
           background-color: var(--darker) !important;
         }
       }
-      // CI stage connectors.
-      .stage-container::after { border-bottom: 1px solid $lighter }
       // Whitespace.
       tr td { padding: 4px 8px }
     }
@@ -4269,6 +4267,8 @@
   .ci-table .branch-commit .commit-sha {
     color: var(--light);
   }
+  // Pipeline stage connectors.
+  .stage-container::after { border-bottom: 1px solid $lighter !important }
 
   // * Pipelines -> Mini-pipelines.
   .mini-pipeline-graph-dropdown-toggle {
