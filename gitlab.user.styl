@@ -15,6 +15,7 @@
 @var text     code_font "Custom code font" "'custom_font', "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
 @var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
 @var text     faded_img "Fade images in md/wiki/blog" "1"
+@var checkbox gl_icons  "GitLab Icons: Fix icon alignment" 0
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Navbar: Theme navbar color" 1
@@ -4693,6 +4694,18 @@
   [class*="monospace"], .ref-name,
   #editor, .monaco-editor * {
     font-family: var(--code-font) !important;
+  }
+
+  // * Feature -> Fix alignment of icons from GitLab icons extension.
+  if ( gl_icons == 1 ) {
+    .tree-item-file-name {
+      > span, > .fa {
+        width: 18px;
+        display: inline-flex;
+        justify-content: center;
+        margin-right: 2px !important;
+      }
+    }
   }
 
   /* Prevent horizontal scrollbar from showing up when the viewport is overflowed. */
