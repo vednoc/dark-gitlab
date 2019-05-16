@@ -1994,9 +1994,16 @@
     a { colors: $accent, 0, 0; }
     h1, h2 { colors: 0, $darker, 0; }
     hr { colors: 0 $darker 0; }
-    pre.code {
-      radius: $radius;
-      colors: 0 $darker $dark;
+    pre {
+      &:not([class]) {
+        radius: $radius;
+        colors: $light $darker $dark;
+        code { colors: 0 $t $t }
+      }
+      &.code {
+        radius: $radius;
+        colors: 0 $darker $dark;
+      }
     }
     p > code {
       border: 1px solid !important;
