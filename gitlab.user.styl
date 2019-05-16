@@ -2958,9 +2958,12 @@
   }
   // Current user (you).
   .gfm.current-user {
-    colors: $light, $accent, $accent;
+    text-decoration: none;
+    colors: $white $accent $accent;
     &:hover {
-      color: $light !important;
+      // TODO: Resolve a conflict with `.notes a` in next refactor.
+      colors: $white 0 0;
+      opacity: 0.8;
     }
   }
   // Notes.
