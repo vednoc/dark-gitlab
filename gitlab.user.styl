@@ -1263,20 +1263,25 @@
   }
 
 
-  // * Settings :: Billing.
+  // * Settings -> Billings.
   .billing-plans {
     [class*="card"] {
-      background-color: $dark !important;
-      // Header.
-      .card-header { colors: 0, 0, $accent; }
-      // Borders.
-      &.current .card-body { colors: 0, $accent, 0; }
-      &:not(.current) .card-body { colors: 0, $dark, 0; }
-      /* Items. */
-      .feature-list li { background-color: $darker !important; }
-      // Pricing.
-      .price-per-month { color: $accent !important; }
-      .price-per-year { color: $green !important; }
+      colors: 0 0 $dark;
+      .card-header {
+        radius: $radius $radius 0 0;
+        colors: $white 0 $accent;
+      }
+      .card-body {
+        radius: 0 0 $radius $radius;
+        // Items.
+        .feature-list li { colors: 0 0 $t }
+        // Pricing.
+        .price-per-month { colors: $accent 0 0 }
+        .price-per-year { colors: $green 0 0 }
+        // Borders.
+        ../.current .card-body { colors: 0 $accent 0 }
+        ../:not(.current) .card-body { colors: 0 $darker 0 }
+      }
     }
   }
 
