@@ -2548,6 +2548,13 @@
         .col-lg-6:last-child { padding-left: 3px; }
       }
     }
+    // ? Fix loader height.
+    .overview-content-list > .loading  {
+      &, > .loading {
+        margin: 0 auto !important;
+        height: 50px;
+      }
+    }
   }
 
   // * Profile -> Contribution calendar.
