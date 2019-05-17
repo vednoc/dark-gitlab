@@ -1706,6 +1706,22 @@
     .blame-commit {
       position: relative;
       border-left: none !important;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+      }
+    }
+    // ? Custom colors!
+    for i in 0..9 {
+      .legend-box-{i},
+      .blame-commit-age-{i}::before {
+        colors: 0 0 $green;
+        opacity: s(("0.%s99"), i);
+      }
     }
   }
 
