@@ -2018,8 +2018,8 @@
       padding-left: 16px !important;
       border-left: none !important;
       box-shadow: inset 4px 0 0 0 $darker !important;
+      &[dir="auto"] p { colors: $lighter 0 0 }
     }
-    blockquote[dir="auto"] p { color: $lighter !important; }
     img:not(.emoji) {
       border: none;
       radius: $radius;
@@ -2028,9 +2028,7 @@
       opacity: faded_img;
       &:hover { opacity: 1; }
     }
-    ul ul, ol ol, ul ol, ol ul {
-      margin-bottom: 0 !important;
-    }
+    ul, ol { ul, ol { margin-bottom: 0 !important }}
   }
   /* Attach a file. */
   .markdown-selector { color: $accent; }
