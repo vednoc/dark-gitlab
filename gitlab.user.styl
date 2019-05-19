@@ -160,31 +160,24 @@
         colors: 0 0 $dark;
       }
     }
+    // ? Browser defaults.
+    time { color: $light }
+    h1, h2, h3, h4, h5, h6, p { colors: $light 0 0 }
+    ul, ol { color: $light }
+    a {
+      transition: 0.15s ease;
+      color: $accent;
+      &:hover, &:focus { color: $accent }
+    }
+    hr { colors: 0 $darker $t }
+    img { &.transparent, &.lazy { colors: 0 $darker $t }}
+    code {
+      color: $light;
+      border: 1px solid $darker;
+      background-color: $dark;
+    }
   }
 
-  h1, h2, h3, h4, h5, h6, p {
-    color: var(--light) !important;
-  }
-  ul, ol { color: $light; }
-  a {
-    transition: 200ms ease-in-out;
-    color: $accent;
-    &:hover, &:focus { color: $accent; }
-  }
-  hr {
-    margin: 16px 0;
-    colors: 0, $darker, $t;
-  }
-  img.transparent,
-  img.lazy {
-    border: 1px solid var(--dark) !important;
-    background: transparent !important;
-  }
-  code {
-    color: $blue;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-  }
   // * Table -> Base styles for all `table` elements.
   table:not([class]) {
     radius: $radius;
@@ -296,8 +289,6 @@
     }
   }
   .user-status-emoji { display: inline-flex; }
-  // Time element.
-  time { color: $light; }
   // ? Remove underline from `label-link` selectors.
   .label-link { text-decoration: none !important; }
 
