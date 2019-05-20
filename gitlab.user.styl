@@ -4807,11 +4807,25 @@
   .baseline--typography:after { background-image: linear-gradient($darker 1px, $t 0); }
 }
 
-// * Code for about page on GitLab.
-// ? Might be split into a separate userstyle if it gets quite large.
-// ! @RaitaroH takes the full responsibility for this section. (=
-
-@-moz-document regexp("https?://about.gitlab.com(/.*)") {
+@-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
+  // * Landing page.
+  .hero-container {
+    background: none;
+    border-bottom: 1px solid;
+    colors: $lighter $darker $dark;
+    &::before {
+      opacity: 0.6;
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background-image: linear-gradient(160deg, $yellow -50%, $accent 200%);
+    }
+    img {
+      opacity: 1 !important;
+      &.hero-bg { filter: opacity(1) grayscale(100%) !important }
+      &.hero-thumb { filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg) !important}
+    }
+  }
   // * Global image reset.
   img, .video_container {
     opacity: faded_img !important;
@@ -5070,6 +5084,22 @@
   }
   .newsletter-form .mktoForm .mktoLogicalField label {
     color: $light !important;
+  }
+
+  // Page -> Case studies.
+  .case-study-page {
+    .customer-info-section-wrapper { colors: 0 $darker 0 }
+    .customer-case-section-wrapper { colors: 0 0 $dark }
+  }
+
+  // Page -> Jobs.
+  .jobs-content-row {
+    colors: 0 0 $dark;
+    // OpenStreetMap reset.
+    + div .teleport-thing {
+      margin-top: 20px;
+      iframe { radius: $radius }
+    }
   }
 
   // Front page
