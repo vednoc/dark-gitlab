@@ -4891,78 +4891,96 @@
   .gray-section {
     colors: $lighter, $darker, $dark;
   }
-  .navbar .navbar-right ul li {
-    a, .search-icon {
-      colors: $light, $shadow, 0;
-      &:hover, &:focus {
-        colors: $accent, $shadow, $dark;
-      }
+  .blog-category-nav ul li {
+    colors: $lighter 0 0;
+    &::after { colors: 0 0 $accent }
+    &:hover { colors: $accent 0 0 }
+  }
+
+  // * Navbar.
+  .navbar {
+    a.navbar-brand { colors: 0 0 $t }
+    // Transparentize header.
+    &.navbar-header-transparent {
+      colors: 0 0 $t;
+      box-shadow: none !important;
     }
-    .dropdown {
-      colors: $light, $darker, $darker;
-      a {
-        color: $light !important;
-        &:hover {
-          color: $accent !important;
+    // Search.
+    .search-box {
+      background: none !important;
+      colors: $light 0 $dark;
+      box-shadow: 0 -1px 0 0 inset $darker;
+      &-large, .search-input { colors: $light $t $t }
+    }
+    .sign-up, .search-icon {
+      radius: $radius;
+      colors: 0 0 $t;
+      &:hover { colors: $accent 0 $dark }
+    }
+    .icon-bar { colors: 0 0 $lighter }
+    // Mobile.
+    .mobile-menu {
+      colors: 0 0 $dark;
+      li .dropdown a {
+        radius: $radius;
+        &:hover { colors: 0 0 $darker }
+      }
+      li .main-nav-link { colors: $accent 0 0 }
+      ul .sign-up-container {
+        colors: 0 0 $dark;
+        li .sign-up {
+          radius: $radius;
+          colors: $lighter 0 $darker;
+          &:hover { colors: $light 0 0; }
         }
       }
     }
-  }
-  .blog-category-nav ul li {
-    color: $lighter !important;
-    &:after {
-      background-color: $accent !important;
-    }
-    &:hover {
-      color: $accent !important;
-    }
-  }
-  .navbar .sign-up, .navbar .search-icon {
-    color: $lighter !important;
-    &:hover {
-      color: $accent !important;
-    }
-  }
-  .navbar .mobile-icons .mobile-icon .icon-bar {
-    background: $lighter !important;
-    &:hover {
-      background: $accent !important;
-    }
-  }
-  .navbar .mobile-menu {
-    background: $dark !important;
-    li .dropdown a {
-      color: $lighter !important;
-      &:hover {
-        color: $accent !important;
+    // Dropdowns and items.
+    .navbar-right ul li {
+      a, .search-icon i {
+        radius: $radius;
+        colors: $light 0 0;
+        &:hover:not(.fa), &:focus { colors: $accent 0 $dark }
       }
-    }
-    li .main-nav-link {
-      color: $accent !important;
-    }
-    ul .sign-up-container {
-      background: $darker !important;
-      li .sign-up {
-        background: $dark !important;
+      .dropdown {
+        radius: $radius;
+        border: 1px solid;
+        colors: $lighter $darker $dark;
+        a {
+          radius: $radius;
+          colors: $lighter 0 0;
+          &:hover { colors: $accent 0 $darker }
+        }
       }
+      // Active page indicator.
+      &.menu-item-active::after { colors: 0 0 $accent }
     }
   }
 
   // Announcements.
   .announcement-container {
-    colors: $lighter, 0, $dark;
+    radius: $radius;
+    colors: $lighter 0 $dark;
     box-shadow: inset 0 0 0 1px $darker;
-    // &:hover { colors: 0, 0, $darker; }
+    img { filter: grayscale(100%) }
   }
 
   // ? https://about.gitlab.com/releases
-  .simple-header {
+  .simple-header, .blank-header {
     z-index: 1;
-    &::after {
-      background-image: linear-gradient(60deg, $orange 0%, $violet 100%);
+    &, &::after {
+      background-image: linear-gradient(60deg, $orange -100%, $violet 200%);
       background-color: $dark;
     }
     h1 { text-shadow: 2.5px 2.5px 0 $shadow; }
+    // Prevent custom opacity on these images.
+    img {
+      pointer-events: none;
+      &.hero-image-small {
+        opacity: 1 !important;
+        filter: drop-shadow(0 4px 4px $shadow);
+      }
+    }
   }
   // Main content.
   .md-page {
@@ -5038,10 +5056,11 @@
     }
   }
 
-  // Sign up
-  .mktoForm input[type="text"], .mktoForm input[type="url"], .mktoForm input[type="email"],.mktoForm input[type="tel"],
-  .mktoForm input[type="number"], .mktoForm input[type="date"], .mktoForm select.mktoField, .mktoForm textarea.mktoField {
-    colors: $light, $shadow, $dark;
+  // Sign up.
+  .mktoForm {
+    input[type], select.mktoField, textarea.mktoField {
+      colors: $light $darker $dark;
+    }
   }
   .newsletter-form .mktoButton {
     colors: $light, $shadow, $dark;
@@ -5063,22 +5082,33 @@
     }
   }
 
-  // Card
+  // Cards.
   .gke-layer .gke-layer-body, .gke-layer .k8s-layer-media,
   .testimonials-container .testimonials-row .testimonial, .forrester-graphic-title,
-  .feature {
-    colors: $light, $shadow, $darker;
-    box-shadow: $box;
+  .feature, .integrated-teams {
+    border: 1px solid;
+    radius: $radius !important;
+    colors: $light $darker $dark;
+    box-shadow: 0 2px 4px 0 $shadow;
   }
+  .k8s-layer-media { margin-left: 16px }
   .u-subtle-bg {
     background-color: $dark;
   }
   .flex-tile-list > .tile {
     colors: $light, $darker, $darker;
   }
-  .cta-btn.accent, .cta-btn.accent:hover {
-    colors: $lighter, $shadow, $accent;
-    box-shadow: $box;
+  .cta-btn {
+    transition: 0.15s ease;
+    radius: $radius;
+    &.orange {
+      colors: $white $orange $orange;
+      &:hover { opacity: 0.8 }
+    }
+    &.accent {
+      colors: $white $accent $accent;
+      &:hover { opacity: 0.8 }
+    }
   }
   .panel, .panel-info > .panel-heading {
     colors: $light, $darker, $darker;
@@ -5115,12 +5145,6 @@
   }
 
   // Search
-  .search-box, .search-box-large input {
-    colors: $lighter, $darker, $dark;
-  }
-  .search-input {
-    color: $lighter !important;
-  }
   .st-ui-injected-overlay-container {
     colors: $lighter, $darker, $dark;
     .st-ui-header, .st-ui-footer {
@@ -5165,46 +5189,32 @@
     }
   }
 
-  // Footer
+  // Footer.
   .footer {
-    background-color: $darker !important;
-    a:hover {
-      color: $accent !important;
-    }
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid;
+    colors: 0 $darker $dark;
   }
+
+  // Footer -> Sources.
   .source-link {
-    colors: $light, 0, $dark;
+    border-top: 1px solid;
+    colors: $lighter $darker $dark;
     .external-source-link {
-      colors: $lighter, $lighter, 0;
-      &:hover { colors: $accent, $t, 0; }
+      colors: $lighter $lighter 0;
+      &:hover { colors: $accent $t 0 }
     }
   }
 
-  // Logo
+  // * Feature -> Custom logo.
   if dark_logo {
-    .wordmark {
-      fill: $light !important;
-    }
-
-    path.logo-dark-orange-shape:nth-child(5), path.logo-light-orange-shape:nth-child(4),
-    .footer-logo path.logo-dark-orange-shape:nth-child(4), .footer-logo path.logo-light-orange-shape:nth-child(3) {
-      dark-logo: $t, 0, 0, 0, 0;
-    }
-    path.logo-light-orange-shape:nth-child(7),
-    .footer-logo path.logo-svg-shape:nth-child(1) {
-      dark-logo: 0, $t, 0, 0, 0;
-    }
-    path.logo-dark-orange-shape:nth-child(2), path.logo-svg-shape:nth-child(8),
-    .footer-logo path.logo-dark-orange-shape:nth-child(7), .footer-logo path.logo-light-orange-shape:nth-child(6) {
-      dark-logo: 0, 0, $t, 0, 0;
-    }
-    path.logo-orange-shape:nth-child(3),
-    .footer-logo path.logo-orange-shape:nth-child(2) {
-      dark-logo: 0, 0, 0, $t, 0;
-    }
-    path.logo-orange-shape:nth-child(6),
-    .footer-logo path.logo-orange-shape:nth-child(5) {
-      dark-logo: 0, 0, 0, 0, $t;
+    svg.nav-logo {
+      filter: drop-shadow(0 2px 4px $shadow);
+      path:nth-child(1) { isvg: $light 0 }
+      path:nth-child(2), path:nth-child(5), path:nth-child(8) { isvg: $dark 0 }
+      path:nth-child(7), path:nth-child(4) { isvg: $dark 0 }
+      path:nth-child(3), path:nth-child(6) { isvg: $accent 0 }
     }
   }
 }
