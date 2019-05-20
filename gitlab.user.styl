@@ -5209,579 +5209,358 @@
   }
 }
 
-// * Code for forum on GitLab.
-// ? Might be split into a separate userstyle if it gets quite large.
-// ! @RaitaroH takes the full responsibility for this section. (=
-@-moz-document regexp("https?://forum.gitlab.com(/.*)") {
+// ? Not extensively tested, mainly a refactor of old working code.
+@-moz-document regexp("^https?://forum.gitlab.com(/.*)$") {
+  // Top bar.
   nav#bar {
-    background: $darker !important;
-    li a:hover {
-      color: $accent !important;
+    colors: 0 0 $darker;
+    li a {
+      colors: $lighter 0 0;
+      &:hover { colors: $light 0 0 }
     }
   }
+
+  // Navigation and menu.
   .d-header {
-    colors: 0, $shadow, $darker;
-    box-shadow: $box;
-    .icon:hover, .icon:focus,
-     &-icons .active .icon, &-icons .active .icon::after {
-       colors: 0, $shadow, $dark;
-     }
-    .d-header-icons .d-icon:hover {
-      color: var(--accent) !important;
-    }
-  }
-  // Logo
-  if dark_logo {
-    .d-header .title{
-      background: url("https://gitlab.com/vednoc/dark-gitlab/raw/forum/images/forum_navbar.png") no-repeat !important;
-      background-size: 141px 50px !important;
-      margin-top: -5px !important;
-      #site-logo {
-        opacity: 0;
-        margin-top: 0 !important;
+    colors: 0 $darker $dark;
+    .icon { &:hover { colors: 0 $darker $darker }}
+    .active { > a { &, &::after { colors: 0 $darker $dark }}}
+    .menu-panel {
+      radius: $radius;
+      colors: 0 $darker $dark;
+      box-shadow: 0 2px 4px -1px $shadow;
+      // Burger
+      ul a {
+        colors: $light 0 0;
+        &:hover, &:focus { colors: 0 $t $darker }
       }
     }
   }
 
-  // Burger
-  .menu-panel ul.menu-links li a:hover, .menu-panel ul.menu-links li a:focus, .menu-panel ul li.heading a:hover, .menu-panel ul li.heading a:focus {
-    colors: 0, $shadow, $dark;
-  }
-
-  // Search
-  .menu-panel {
-    colors: 0, $shadow, $darker;
-    box-shadow: $box !important;
-  }
-  input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
-  input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"],
-  input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    colors: $lighter, $shadow, $shadow;
-  }
-  input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus,
-  input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus,
-  input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus {
-    box-shadow: none !important;
-    border-color: $accent !important;
-  }
-  // Advanced search
-  .search-container .search-advanced-sidebar .search-advanced-title,
-  .search-container .search-advanced-sidebar .search-advanced-filters {
-    background: $darker !important;
-  }
-   div.ac-wrap, .select-kit.combo-box .select-kit-header, .select-kit.multi-select .multi-select-header {
-    colors: 0, $shadow, $dark
-    &.is-focused { // TODO vednoc, tagged focused isn't styled
+  input[type] {
+    colors: $lighter $darker $dark;
+    &:focus {
+      colors: $light $accent 0;
       box-shadow: none !important;
-      border-color: $accent !important;
-    }
-  }
-  // > dropdowns
-  .select-kit.combo-box .select-kit-filter,
-  .select-kit.combo-box .select-kit-row {
-    colors: 0, $shadow, $dark;
-  }
-  .select-kit .select-kit-row.is-highlighted {
-    background-color: $darker !important;
-  }
-  .badge-wrapper.bar span.badge-category,
-  .select-kit.combo-box.category-chooser .select-kit-row .topic-count {
-    color: $lighter !important;
-  }
-
-
-  // Topic filter
-  .list-controls .combo-box .combo-box-header,
-  .nav-pills > li > a {
-    colors: $lighter, $shadow, $darker;
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
-  .select-kit.dropdown-select-box.period-chooser .period-chooser-header h2.selected-name {
-    .top-date-string {
-      color: $lighter !important;
-    }
-    .date-section {
-      color: $accent !important;
-    }
-  }
-  // Filter dropdown by date
-  .select-kit .select-kit-collection {
-    background-color: $darker !important;
-  }
-  .select-kit .select-kit-row.is-selected.is-highlighted, .select-kit .select-kit-row.is-selected,
-  .select-kit .select-kit-row:hover /*li hover*/ {
-    background-color: $dark !important;
-  }
-  .select-kit.dropdown-select-box {
-    .select-kit-body {
-      border-color: $shadow !important;
-      box-shadow: $box !important;
-    }
-    // Date
-    &.period-chooser .period-chooser-row .date-section {
-      color: $accent !important;
-    }
-    // Info
-    &.period-chooser .period-chooser-row .top-date-string {
-      color: $lighter !important;
     }
   }
 
-  // Topic list
-  .topic-list th {
-    color: $lighter !important;
-  }
-  .topic-list {
-    .topic-excerpt {
-      color: $light !important;
+  // Advanced search.
+  .search-container {
+    .search-advanced-title { colors: 0 0 $darker }
+    .search-advanced-filters {
+      colors: 0 0 $dark;
+      box-shadow: 0 0 0 1px inset $darker;
     }
-    .main-link a.title {
-      color: $accent !important;
-      &:visited {
-        color: $lighter !important;
-      }
-    }
-    .sortable:hover {
-      background-color: $darker !important;
-    }
-    tr, tbody {
-      border-color: $darker !important;
-    }
-    tr:hover > td {
-      background-color: $darker !important;
-    }
-  }
-  // Topic numbers
-  .topic-list .num {
-    color: $light !important;
-  }
-  // Heatmap for topic number
-  .heatmap-high, .heatmap-high a {
-    color: $red !important;
-  }
-  .heatmap-med, .heatmap-med a {
-    color: $orange !important;
-  }
-  .heatmap-low, .heatmap-low a {
-    color: $yellow !important;
-  }
-  // Last visit
-  .topic-list .topic-list-item-separator td {
-    border-color: $accent !important;
-    span {
-      colors: $accent, $shadow, $darker;
-    }
-  }
-  // Tags
-  .discourse-tag.simple, .discourse-tag.simple:visited, .discourse-tag.simple:hover {
-    color: $lighter !important;
-  }
-
-  // Topic bodies
-  #topic-title h1 a, .topic-link {
-    color: $accent !important;
-  }
-  .topic-body, .topic-avatar, .topic-status-info {
-    border-color: $darker !important;
-  }
-  .post-links-container {
-    .post-links {
-      border-color: $darker !important;
-    }
-    ul li a[href] {
-      color: $light !important;
-    }
-  }
-  // Topic animation
-  .topic-body {
-    animation: 0s !important;
-    &.highlighted {
-      animation: 0s !important;
-    }
-  }
-  // Pinned topics
-  .names span a {
-    color: $lighter !important;
-  }
-  .small-action {
-    border-color: $darker !important;
-    .small-action-desc {
-      color: $light !important;
-    }
-  }
-  // Mods
-  .moderator .clearfix > .topic-meta-data > .names span.user-title, .moderator .nav-pills > .topic-meta-data > .names span.user-title,
-  .moderator .container > .topic-meta-data > .names span.user-title, .moderator .wrap > .topic-meta-data > .names span.user-title,
-  /*post*/ .moderator .regular > .cooked {
-    colors: $accent, 0, $darker;
-  }
-  .alert.alert-info {
-    colors: $lighter, 0, $darker;
-  }
-  // @ mentions
-  a.mention, a.mention-group {
-    colors: $accent, 0, $darker;
-  }
-  // code
-  .topic-post {
-    p > code, li > code, pre > code, blockquote {
-      colors: $lighter, $darker, $darker;
-    }
-  }
-  .quote-button {
-    colors: $lighter, $shadow, 0;
-    background-color: black !important;
-    box-shadow: $box !important;
-    &:hover, &:hover > .fa {
-      color: $accent !important;
-    }
-  }
-  aside.quote .title {
-    colors: $light, $accent, $darker;
-  }
-
-  // Badges
-  // in topics
-  .badge-notification {
-    colors: $accent, 0, $darker;
-  }
-  // in badges page and user pages
-  .badge-card {
-    colors: 0, $shadow, $darker;
-    .badge-contents .badge-info {
-      background: $t !important;
-      border: none !important;
-      color: $lighter !important;
-      h3 {
-        color: $accent !important;
-      }
-    }
-  }
-  .badge-card .badge-contents .badge-icon {
-     &.badge-type-gold .fa {
-       color: $yellow !important;
-     }
-     &.badge-type-silver .fa {
-       color: $light !important;
-     }
-     &.badge-type-bronze .fa {
-       color: $orange !important;
-     }
-  }
-
-  // Like and share buttons
-  nav.post-controls {
-    *:hover {
-      background-color: transparent !important;
-      & > .fa {
-        color: $accent !important;
-      }
-    }
-    // TODO vednoc: is this code wrong? on hover it should make the count blue
-    .like-button {
-      .like-count {
-        color: $light !important;
-      }
-      &:hover {
-        .like-count {
-          color: $accent !important;
-          &.d-hover {
-            color: $accent !important;
-          }
+    // Posted by.
+    .ac-wrap {
+      colors: 0 $darker $dark;
+      .ac-user {
+        colors: 0 $dark $dark;
+        box-shadow: 0 0 0 1px $darker;
+        li { colors: 0 $darker 0 }
+        a {
+          colors: $lighter 0 0;
+          &:hover, &.selected { colors: 0 0 $darker }
+          .username { colors: $light 0 0 }
         }
       }
     }
   }
-  #share-link {
-    background: $darker;
-    div > a:hover > .fa {
-      color: $accent !important;
+
+  // Dropdowns.
+  .select-kit {
+    .is-focused {
+      colors: 0 $accent 0;
+      box-shadow: none !important;
     }
-  }
-  // Reply
-  nav.post-controls button.create {
-    color: $light !important;
-    &:hover {
-      color: $accent !important;
+    .is-highlighted { colors: $light 0 $darker }
+    .combo-box-header { colors: $light $darker $dark }
+    &-collection { box-shadow: 0 0 0 1px $darker }
+    &.multi-select { colors: 0 $darker $dark }
+    &-header { colors: $lighter $darker $t }
+    &-filter { colors: 0 $darker $dark }
+    &-body {
+      box-shadow: 0 2px 4px 0 $shadow;
+      ../-collection { colors: 0 0 $dark }
+      span, .topic-count { colors: $lighter 0 0 }
+    }
+    .period-chooser {
+      .top-date-string { colors: $lighter 0 0 }
+      .date-section { colors: $accent 0 0 }
     }
   }
 
-  // Topic map
-  .topic-map {
-    colors: 0, $shadow, $darker;
-    section {
-      border-color: $shadow !important;
-    }
-    .buttons .btn, .link-summary .btn {
-      colors: 0, $shadow, $darker;
-    }
-    .map .number, .map i, span.domain {
-      color: $light !important;
-    }
-    td {
-      background-color: $t !important;
-    }
-
-  }
-  // Timeline
-  .timeline-container .topic-timeline {
-    .timeline-handle {
-      background-color: $lighter !important;
-    }
-    .timeline-scrollarea {
-      border-color: $lighter !important;
-    }
-    .timeline-replies {
-      color: $lighter !important;
-    }
-    .timeline-ago, .start-date, .now-date {
-      color: $light !important;
-    }
-  }
-  .timeline-container.timeline-fullscreen,
-  #topic-progress, #topic-progress .bg {
-    colors: $lighter, $shadow, $darker;
-    box-shadow: $box;
-    .topic-timeline .username, .topic-timeline .title a {
-      color: $accent !important;
-    }
+  // Shortcuts.
+  #keyboard-shortcuts-help ul b {
+    border-bottom: 1px solid;
+    colors: $light $darker $dark;
+    box-shadow: 0 2px 4px 0 $shadow;
   }
 
-  // New topic modal / comment modal
-  .open .grippie {
-    background: $accent !important;
+  // Breadcrumbs.
+  .nav-pills {
+    a { colors: $lighter $t $dark }
+    .active a { colors: $accent 0 0 }
   }
-  #reply-control {
-    colors: $light, $shadow, $darker;
-    box-shadow: $box !important;
-    .reply-to .composer-action-title .action-title,
-    #draft-status, #file-uploading {
-      color: $light !important;
+
+  // Post badges.
+  .badge-wrapper.bar span.badge-category { colors: $lighter 0 0 }
+
+  // Topic list.
+  .topic-list {
+    .num, .badge-posts[href] { colors: $lighter 0 0 }
+    .sortable:hover { colors: $accent 0 $t }
+    .topic-excerpt { colors: $lighter 0 0 }
+    .main-link a.title {
+      colors: $light 0 0;
+      &:visited { colors: $accent 0 0 }
     }
-    .save-or-cancel .cancel {
-      color: $lighter !important;
+    // Tables.
+    tr {
+      colors: 0 $darker 0;
+      th { colors: $lighter 0 0 }
+      &:hover > td { colors: 0 0 $darker }
+    }
+    tbody { colors: 0 $darker 0 }
+  }
+  // Number of views.
+  .heatmap {
+    &-high { &, span { colors: $red 0 0 }}
+    &-med { &, span { colors: $orange 0 0 }}
+    &-low { &, span { colors: $yellow 0 0 }}
+  }
+  // Last visit.
+  .topic-list .topic-list-item-separator td {
+    colors: 0 $accent 0;
+    span { colors: $accent $shadow $darker }
+  }
+  // Tags.
+  .discourse-tag.simple {
+    &, &:hover { colors: $lighter 0 0 }
+    &:visited { colors: $accent 0 0 }
+  }
+
+  // Main content.
+  #main {
+    .title-wrapper h1 a, .topic-link { colors: $light 0 0 }
+    .topic-body, .topic-avatar, .topic-status-info { colors: 0 $darker 0 }
+    .onebox { colors: 0 $darker 0 }
+    .post-links-container {
+      .post-links { colors: 0 $darker 0 }
+      ul li a[href] { colors: $light 0 0}
+    }
+  }
+
+  // Remove animation.
+  .topic-body {
+    &, &.highlighted { animation: 0s !important; }
+  }
+  // Pinned topics
+  .names span a { colors: $lighter 0 0 }
+  .small-action {
+    colors: 0 $darker 0;
+    .small-action-desc { colors: $light 0 0 }
+  }
+  // Mods.
+  .moderator {
+    .names span.user-title, .regular > .cooked { colors: $accent 0 $darker }
+  }
+  .alert.alert-info { colors: $lighter 0 $darker }
+  // Mentions.
+  a.mention, a.mention-group { colors: $accent 0 $darker }
+
+  // Code blocks.
+  .topic-post {
+    * > code, blockquote { colors: $lighter $darker $darker }
+  }
+  .quote-button {
+    colors: $lighter $darker $light;
+    box-shadow: 0 2px 4px 0 !important;
+  }
+  aside.quote .title { colors: $light $accent $darker }
+
+  // Badges.
+  .badge-notification { colors: $accent 0 $darker }
+  .badge-card {
+    colors: 0 $darker $dark;
+    .badge-contents .badge-info {
+      border: none !important;
+      colors: $lighter 0 $t;
+      h3 { colors: $accent 0 0 }
+    }
+    .badge-contents .badge-icon {
+      &.badge-type-gold .fa { colors: $yellow 0 0 }
+      &.badge-type-silver .fa { colors: $light 0 0 }
+      &.badge-type-bronze .fa { colors: $orange 0 0 }
+    }
+  }
+
+  // Like and share buttons.
+  nav.post-controls {
+    *:hover { colors: 0 0 $t }
+    .like-button {
+      .like-count { colors: $light 0 0 }
       &:hover {
-        color: $red !important;
+        .like-count { colors: $accent 0 0 }
+        .d-hover { colors: $accent 0 0 }
       }
     }
   }
-  .select-kit.dropdown-select-box.composer-actions .select-kit-header {
-    &:hover, &:focus {
-      colors: $icon, $t, $dark;
+  #share-link { colors: 0 0 $darker }
+  // Reply.
+  nav.post-controls button.create {
+    colors: $light 0 0;
+    &:hover { colors: $accent 0 0 }
+  }
+
+  // Topic map.
+  .topic-map {
+    colors: 0 $shadow $darker;
+    section { colors: 0 $shadow 0 }
+    .buttons .btn, .link-summary .btn { colors: 0 $shadow $darker }
+    .map .number, .map i, span.domain { colors: $light 0 0 }
+    td { colors: 0 0 $t }
+  }
+
+  // Timeline.
+  .timeline-container .topic-timeline {
+    .timeline-handle { colors: 0 0 $lighter }
+    .timeline-scrollarea { colors: 0 $lighter 0 }
+    .timeline-replies { colors: $lighter 0 0 }
+    .timeline-ago, .start-date, .now-date { colors: $light 0 0 }
+  }
+  #topic-progress-wrapper {
+    .timeline-fullscreen, #topic-progress, .bg { colors: $lighter $t $t }
+    .topic-timeline { .username, .title a { colors: $accent 0 0 }}
+  }
+
+  // New topic modal/comment modal.
+  .open .grippie { colors: 0 0 $accent }
+  #reply-control {
+    colors: $light $darker $dark;
+    box-shadow: none !important;
+    .reply-to .action-title, #draft-status, #file-uploading {
+      colors: $light 0 0
     }
-    .d-icon {
-      border-color: $t;
+    .save-or-cancel .cancel {
+      colors: $lighter 0 0
+      &:hover { colors: $red 0 0 }
     }
   }
   .select-kit.dropdown-select-box {
-    .select-kit-body {
-      colors: $light, $shadow, $darker;
-      box-shadow: $box;
-    }
+    .select-kit-body { colors: $light $darker $dark }
     &.toolbar-popup-menu-options .select-kit-row {
-      colors: $lighter, 0, $dark;
-      &:hover .name {
-        color: $accent !important;
-      }
-     }
-    &.toolbar-popup-menu-options .select-kit-row .name, &.toolbar-popup-menu-options .select-kit-row .d-icon {
-      color: $light !important;
+      colors: $lighter 0 $dark;
+      &:hover .name { colors: $accent 0 0 }
+      .name, .d-icon { colors: $light 0 0 }
     }
-    .select-kit-row .texts .name {
-      color: $accent !important;
-    }
-    .select-kit-row .texts .desc {
-      color: $light !important;
-    }
+    .select-kit-row .texts .name { colors: $accent 0 0 }
+    .select-kit-row .texts .desc { colors: $light 0 0 }
   }
-  .composer-popup {
-    colors: $lighter, $shadow, $dark;
-  }
+  .composer-popup { colors: $lighter $darker $dark }
 
-  // User pages
-  .user-content {
-    background-color: $dark !important;
-  }
+  // User pages.
+  .user-content { colors: 0 0 $dark }
   .user-main .about {
-    .details, &.collapsed-info .details {
-      colors: 0, $shadow, $darker;
-    }
-    &.collapsed-info .controls ul a, & .controls a {
-      colors: $light, 0, $darker;
-    }
+    .details, &.collapsed-info .details { colors: 0 $darker $dark }
+    &.collapsed-info .controls ul a, & .controls a { colors: $light 0 $darker }
     .secondary {
-      colors: 0, $shadow, $darker;
-      dt {
-        color: $light !important;
-      }
-      dd {
-        color: $lighter !important;
-      }
+      colors: 0 $darker $dark;
+      dt { colors: $light 0 0 }
+      dd { colors: $lighter 0 0 }
     }
   }
-  .stats-section .value {
-    color: $light !important;
+  .stats-section .value { colors: $light 0 0 }
+  .user-main .d-icon-heart { colors: $red 0 0 }
+  // Top borders.
+  .top-sub-section li { colors: 0 $darker 0 }
+  // Other usernames.
+  .user-info .user-detail .username a { colors: $lighter 0 0 }
+  .user-info .user-detail .name { colors: $light 0 0 }
+  // Text colors.
+  .links-section .domain { colors: $light 0 0 }
+  .top-sub-section .topic-info { colors: $light 0 0 }
+  // User activity.
+  .user-stream {
+    .item, .user-stream-item { colors: 0 $shadow $darker }
+    .time, .delete-info { colors: $light 0 0 }
   }
-  .user-main .d-icon-heart {
-    color: $red !important;
-  }
-  // Top borders
-  .top-sub-section li {
-    border-color: $darker !important;
-  }
-  // Other user names
-  .user-info .user-detail .username a {
-    color: $lighter !important;
-  }
-  .user-info .user-detail .name {
-    color: $light !important;
-  }
-  // Top links
-  .links-section .domain {
-    color: $light !important;
-  }
-  // date
-  .top-sub-section .topic-info {
-    color: $light !important;
-  }
-  // User activity
-  .user-stream .item, .user-stream .user-stream-item {
-    colors: 0, $shadow, $darker;
-  }
-  .user-stream .time, .user-stream .delete-info {
-    color: $light !important;
-  }
-  .user-navigation .nav-stacked a, .form-vertical .controls > .btn[href] {
-    color: $lighter !important;
-  }
-  // Logged user settings
+  .user-navigation .nav-stacked a, .controls > .btn[href] { colors: $lighter 0 0 }
+  // Logged user settings.
   .user-preferences {
-    .static {
-       color: $lighter !important;
-    }
-    .instructions {
-      color: $light !important;
-    }
+    .static { colors: $lighter 0 0 }
+    .instructions { colors: $light 0 0 }
   }
 
-  // About
+  // About.
   .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
-    border-color: $shadow !important;
-    & .d-editor-preview {
-      background-color: $dark !important;
-    }
-    & textarea {
-      color: $light !important;
-    }
+    colors: 0 $shadow 0;
+    & .d-editor-preview { colors: 0 0 $dark }
+    & textarea { colors: $light 0 0 }
   }
   .d-editor {
-    &-spacer {
-      background-color: $shadow !important;
-    }
-    &-button-bar {
-      border-color: $shadow !important;
-    }
+    &-spacer, &-button-bar { colors: 0 0 $shadow }
     &-textarea-wrapper {
-      colors: $light, $shadow, $darker;
+      colors: $light $darker $darker;
+      textarea { colors: $light $darker $dark }
     }
-    // insert link
-    & .d-editor-modal {
-      colors: $light, $shadow, $dark;
-    }
-    &-textarea-wrapper textarea {
-      colors: $light, $shadow, $dark;
-    }
+    // Insert link.
+    & .d-editor-modal { colors: $light $darker $dark }
   }
-  // emoji
+
+  // Emojis.
   .emoji-picker {
-    colors: $light, $shadow, $darker;
-    box-shadow: $box;
-    .categories-column {
-      colors: 0, $shadow, $darker;
-    }
+    colors: $light $darker $dark;
+    box-shadow: 0 2px 4px 0 $shadow;
+    .categories-column { colors: 0 $darker $dark }
     .filter {
-      border-color: $shadow !important;
+      colors: 0 $darker 0;
       .clear-filter .fa, .d-icon-search .fa {
-        color: $icon !important;
-      }
-      .clear-filter:hover .fa, .d-icon-search:hover {
-        color: $accent !important;
+        colors: $lighter 0 0;
+        &:hover { colors: $light 0 0 }
       }
     }
-    .section-header .title {
-      color: $lighter !important;
-    }
-    .section-group button.emoji:hover, .results button.emoji:hover {
-      background-color: $dark !important;
-    }
-    .footer {
-      border-color: $shadow !important;
-    }
+    .section-header .title { colors: $lighter 0 0 }
+    button.emoji:hover { colors: 0 0 $dark }
+    .footer { colors: 0 $darker 0 }
   }
-  // upload image
-  .uploaded-image-preview {
-    background-color: $darker !important;
-  }
-  .upload-selector .radios .inputs input[type="file"] {
-    color: $light !important;
-  }
-  // modals
+
+  // Upload image.
+  .uploaded-image-preview { color: 0 0 $darker }
+  .upload-selector .radios .inputs input[type="file"] { colors: $light 0 0 }
+
+  // Modals.
   .modal {
+    &-header { colors: $light $darker 0 }
     &-inner-container {
-      colors: $light, $shadow, $dark;
-      box-shadow: $box !important;
+      colors: $light $darker $dark;
+      box-shadow: 0 2px 4px 0 $shadow !important;
     }
-    .modal-body label {
-      color: $lighter !important;
+    .modal-body label { colors: $lighter 0 0 }
+    // History.
+    &.history-modal {
+      #revision-details, tbody { colors: 0 $shadow 0 }
+      .diff-ins { colors: $lighter 0 $green }
     }
   }
 
-  // Notifications
+  // Notifications.
   .user-menu .notifications li {
-    colors: $light, $shadow, $darker;
-    $:hover, &:focus {
-      background-color: $dark !important;
-    }
-    span {
-      color: $accent !important;
-    }
+    colors: $light $darker $dark;
+    &:hover, &:focus { colors: 0 0 $darker }
+    span { colors: $accent 0 0 }
   }
   div.menu-links-header a {
     color: $lighter;
-    &:hover, &:focus {
-      colors: $accent, 0, $dark;
-      .fa {
-        color: $accent !important;
-      }
-    }
+    &:hover, &:focus { colors: $accent 0 $dark }
   }
 
-  // Login
-  // done
-  #simple-container {
-    background-color: $darker;
-  }
-  .login-modal #login-buttons:not(.hidden), .create-account #login-buttons:not(.hidden) {
-    border-color: $shadow !important;
-  }
-  button#login-link, button#new-account-link {
-    color: $lighter !important;
-  }
-  #login-form a {
-    color: $light !important;
-  }
-
-  // History
-  .modal.history-modal {
-    #revision-details, tbody {
-      border-color: $shadow !important;
-    }
-    .diff-ins {
-      colors: $lighter, 0, $green;
-    }
-  }
+  // Login/register.
+  #simple-container { colors: 0 0 $darker }
+  #login-buttons:not(.hidden) { colors: 0 $darker 0 }
+  button#login-link, button#new-account-link { colors: $lighter 0 0 }
+  #login-form a { colors: $light 0 0 }
 }
 
 // * Code for docs page on GitLab.
