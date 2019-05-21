@@ -3575,23 +3575,19 @@
     }
     // No new line.
     .new-nonewline { colors: $lighter, 0, $t; }
-  }
-  // Matching lines.
-  .line_holder .line_content.match {
-    colors: $lighter, 0, $dark;
-  }
-  // Add a comment to this line.
-  .line_holder .add-diff-note {
-    padding: 0 0 1px 1px;
-    colors: $light, $darker, $dark;
-    &:hover { colors: 0, 0, $darker; }
-  }
-  /* Highlight the entire line. */
-  .line_holder [class*="side"]:hover,
-  .line_holder [class*="noteable"]:hover,
-  .line_holder .diff-line-num.is-over,
-  .line_holder .diff-line-num.hll:not(.empty-cell).is-over {
-    colors: 0, $shadow, $darker;
+    // Unfold lines.
+    td.unfold, td.line_content.match {
+      font-style: italic;
+      colors: $lighter 0 $t;
+    }
+    // Comment bubble.
+    .add-diff-note {
+      padding: 0 0 1px 1px;
+      colors: $light $darker $dark;
+      &:hover { colors: 0 0 $darker }
+    }
+    // Highlight the hovered line.
+    &:not(.parallel):hover, &.parallel td.is-over { colors: 0 0 $darker }
   }
   /* Text colors. */
   .diff-stats-summary-toggler { color: $blue !important; }
