@@ -303,24 +303,25 @@
     path { fill: $icon !important; }
   }
 
-  // * Bootstrap reset.
+  // * Global -> Bootstrap reset.
   .bg {
-    &-white { colors: 0, 0, $dark; }
-    &-info { colors: 0, 0, $darker; }
+    &-white { colors: 0 0 $dark }
+    &-info { colors: 0 0 $darker }
+    &-secondary { colors: 0 0 $dark }
   }
   .text {
-    &-white { colors: $light, 0, 0; }
-    &-tertiary { colors: $lighter, 0, 0; }
-    &-secondary { colors: $light, 0, 0; }
-    &-danger { colors: $red, 0, 0; }
+    &-white { colors: $light 0 0 }
+    &-tertiary { colors: $lighter 0 0 }
+    &-secondary { colors: $light 0 0 }
+    &-danger { colors: $red 0 0 }
   }
   .badge {
-    &.unverified { colors: $lighter, $lighter, $dark; }
-    &.verified { colors: $green, $green, $dark; }
-    &-success { colors: $light, 0, $green; }
-    &-primary { colors: $light, 0, $blue; }
-    &-info { colors: $light, 0, $blue; }
-    &-pill { colors: $light, 0, 0; }
+    &.unverified { colors: $lighter $lighter $dark }
+    &.verified { colors: $green $green $dark }
+    &-success { colors: $light 0 $green }
+    &-primary { colors: $light 0 $blue }
+    &-info { colors: $light 0 $blue }
+    &-pill { colors: $light 0 0 }
   }
   // TODO move to dashboard or somewhere else.
   .badge-pill {
