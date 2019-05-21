@@ -746,6 +746,7 @@
     }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
+    .dropdown-bold-header { colors: $light 0 0 }
     // ? Input / Search.
     .dropdown-input-field, .default-dropdown-input {
       radius: $radius;
@@ -1707,6 +1708,7 @@
         width: 4px;
       }
     }
+    tr:last-child > td::before { radius: 0 0 0 $radius }
     // ? Custom colors!
     for i in 0..9 {
       .legend-box-{i},
@@ -3601,9 +3603,6 @@
       line-height: 30px;
       .btn { padding: 8px 7px 2px 8px; }
     }
-  }
-  .notes pre.code {
-    colors: $light, 0, $dark;
   }
   // Edit button.
   .detail-page-header a,
