@@ -1899,11 +1899,7 @@
     // Entry borders.
     .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
-    &:target, &.target {
-      radius: $radius $radius 0 0;
-      colors: 0 0 $darker;
-      box-shadow: 0 0 0 1px $darker;
-    }
+    &:target, &.target { colors: 0 $blue 0 }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
   }
@@ -1983,7 +1979,10 @@
   .common-note-form .md-area {
     radius: $radius;
     colors: 0, $darker, $dark;
-    &.is-focused { box-shadow: 0 0 0px 2px $shadow !important; }
+    &.is-focused {
+      colors: 0 $accent 0;
+      box-shadow: none !important;
+    }
     // Input area.
     .markdown-area { colors: $light, $darker, $dark; }
     // Use code font for input area.
@@ -3450,8 +3449,9 @@
       colors: $light, $dark, $dark;
       border-right-color: $darker !important;
     }
-    // Top border at the start of discussion.
-    .notes-content { colors: 0 $darker 0 }
+    // Note border/background colors.
+    .notes-content { colors: 0 $darker $t }
+    // Different notes_content.
     .notes_content {
       colors: $light, $dark, $dark;
       // Discussion.
@@ -3570,7 +3570,7 @@
   .line_holder {
     // Show/hide comments.
     .diff-notes-collapse {
-      colors: 0,  $darker, $dark;
+      colors: 0, $darker, $dark;
       &:hover { colors: 0, 0, $darker; }
     }
     // No new line.
