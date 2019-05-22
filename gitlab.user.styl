@@ -942,20 +942,30 @@
     }
   }
 
-  // * Dashboard :: New project.
+  // * Dashboard -> New project.
   .gitlab-tabs {
     radius: $radius $radius 0 0;
-    colors: 0, $darker, $darker;
+    colors: 0 $darker $dark;
     li.nav-item {
-      &:not(:last-child) { border-right: none; }
-      &.active a.nav-link { colors: $light $accent $dark; }
-      &:hover a.nav-link { colors: $accent $darker $darker; }
+      a {
+        radius: 0;
+        ../:first-child a { radius: $radius 0 0 0 }
+        ../:last-child a { radius: 0 $radius 0 0 }
+      }
+      &:not(:last-child) { colors: 0 $darker 0 }
+      &.active a.nav-link { colors: $light $accent $dark }
+      &:hover a.nav-link { colors: $accent $darker $darker }
     }
   }
   // Tab content.
   .gitlab-tab-content {
     radius: 0 0 $radius $radius;
-    colors: 0, $darker, $dark;
+    colors: 0 $darker $dark;
+    // 'Create from template' area.
+    .card-slim {
+      padding: 8px !important;
+      margin: 0 16px 8px !important;
+    }
     // Inputs.
     [class*="input-group"] {
       radius: $radius;
