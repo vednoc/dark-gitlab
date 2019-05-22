@@ -1004,7 +1004,7 @@
     tbody tr {
       td {
         transition: 0.15s ease;
-        colors: $lighter, 0, 0;
+        colors: $lighter $darker 0;
       }
       &:last-child > td:first-child { radius: 0 0 0 $radius; }
       &:last-child > td:last-child { radius: 0 0 $radius 0; }
@@ -1038,32 +1038,34 @@
     // Fix #29.
     &:not(.label-color-preview) { colors: 0, 0, $darker; }
   }
-  /* Linked emails. */
-  .account-well { colors: $light, $darker, $dark; }
-  /* List items. */
-  ul.bordered-list > li { border-bottom-color: $darker; }
-  /* Active sessions. */
-  .card .list-group-item {
-    border: 1px solid !important;
-    colors: $light, $darker, $dark;
+  // * Settings -> Emails.
+  .account-well {
+    radius: $radius;
+    colors: $lighter $darker $dark;
+   }
+  // * Settings -> Billings page.
+  ul.bordered-list > li { border-bottom-color: $red }
+  // * Settings -> Active sessions.
+  .card .list-group {
+    radius: $radius;
+    colors: $lighter 0 $dark;
+    box-shadow: 0 0 0 1px inset $darker;
+    &-item { colors: $lighter $darker $t }
   }
-  /* Pipeline quota table. */
-  .pipeline-quota,
-  .table tr td {
-    border-color: var(--darker) !important;
+  // * Settings -> Pipeline quota.
+  .pipeline-quota {
+    padding: 0px !important;
+    colors: 0 $darker 0;
   }
-  .pipeline-quota .progress {
-    box-shadow: 0 0 0 1px var(--shadow);
-    background-color: var(--darker);
+  // * Global -> Progress bar.
+  .progress {
+    colors: 0 0 $darker;
+    // Filled progress.
+    .bg-success { colors: $light 0 $green }
   }
-  /* Text color. */
-  .text-muted,
-  .description {
-    color: var(--light) !important;
-  }
-  .profile-settings-content a {
-    color: var(--accent);
-  }
+  // TODO: Move.
+  .text-muted, .description { colors: $lighter 0 0 }
+  .profile-settings-content a { color: $accent }
 
   // * Alerts.
   .alert-wrapper {
@@ -3198,13 +3200,6 @@
     // Color in relatable issues.
     &-title { colors: $lighter, 0, 0; }
     &-banner-link { padding: 2px !important; }
-  }
-
-  // Progress bar background.
-  .progress {
-    colors: 0, 0, $darker;
-    // Filled progress.
-    .bg-success { colors: $light, 0, $green; }
   }
 
   // Details.
