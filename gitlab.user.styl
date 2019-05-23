@@ -2750,6 +2750,7 @@
   .issue.today {
     colors: 0, 0, $t;
     box-shadow: none;
+    &:hover { colors: 0 0 $darker }
     &::before {
       content: "";
       border-left: 4px solid $accent;
@@ -2924,6 +2925,7 @@
     &.focus { &, &:hover { colors: 0 $blue 0; box-shadow: none; }}
     // Fix corners.
     [class*="history-dropdown-toggle-button"] { radius: $radius 0 0 $radius }
+    &-input-container .filtered-search { radius: 0 $radius $radius 0 }
     .btn-link { colors: $lighter 0 0 }
     // Search field.
     .form-control { colors: $light, $t, 0; }
