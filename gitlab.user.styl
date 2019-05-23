@@ -708,9 +708,9 @@
         a {
           span b { colors: $accent, 0, 0; }
           &:hover { colors: $light, 0, $darker; }
-          // ! Weird behavior in searching from projects. @upstream
-          &.is-active { colors: $light, 0, 0; }
-          &.is-focused { colors: $accent, 0, $darker; }
+          &.is-focused { colors: $light 0 $darker }
+          // ? Multiple `active` elements.
+          &.is-active { colors: $lighter 0 0 }
         }
       }
     }
@@ -767,9 +767,10 @@
         colors: $light, 0, $darker;
       }
       a, button:not(.btn) {
-        colors: $lighter, 0, 0;
-        transition: 200ms ease-in-out;
+        colors: $lighter 0 0;
+        transition: 0.15s ease;
       }
+      .is-focused, a:focus, a:active { colors: $light 0 $darker }
     }
     // ? Reset animation for filter-dropdown items.
     .filter-dropdown-item > .btn { transform: none; }
@@ -781,7 +782,7 @@
         a {
           transition: 0.1s ease;
           &:hover { colors: $light, 0, $darker; }
-          &.is-active { colors: $accent, 0, 0; }
+          &.is-active { colors: $light 0 0 }
         }
       }
     }
