@@ -740,7 +740,6 @@
     &-toggle:not(#search) {
       colors: $lighter, $darker, $dark;
       .dropdown-toggle-text { colors: $lighter, 0, 0; }
-      &[class*="filtered-search-history"] { radius: 0 !important; }
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
     }
@@ -2920,8 +2919,12 @@
 
   // * Issues :: Search or filter results.
   .filtered-search-box {
-    &.focus { box-shadow: 0 0 4px 0 $darker; }
+    radius: $radius;
     colors: 0, $darker, $dark;
+    &.focus { &, &:hover { colors: 0 $blue 0; box-shadow: none; }}
+    // Fix corners.
+    [class*="history-dropdown-toggle-button"] { radius: $radius 0 0 $radius }
+    .btn-link { colors: $lighter 0 0 }
     // Search field.
     .form-control { colors: $light, $t, 0; }
     // Search field words.
