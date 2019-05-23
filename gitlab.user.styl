@@ -1143,6 +1143,10 @@
 
   // * Epics :: Resets!
   [data-page*="groups:roadmap:"]  {
+    .epics-filters {
+      border: 1px solid $darker;
+      colors: 0 0 $dark;
+    }
     .row-content-block {
       margin-top: 0px !important;
       padding: 8px !important;
@@ -2694,10 +2698,10 @@
   // * Dashboard -> Sub-nav block.
   .row-content-block {
     margin-top: 10px !important;
-    padding: 8px;
+    padding: 0px;
     radius: $radius;
-    border: 1px solid $darker;
-    colors: $lighter 0 $dark;
+    border: 0px solid $darker;
+    colors: $lighter 0 $t;
     // Recently pushed to...
     &.white {
       border: 1px solid $darker;
