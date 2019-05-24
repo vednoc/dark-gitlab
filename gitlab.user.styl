@@ -2692,18 +2692,33 @@
     // Colors.
     .stage-nav {
       .stage-nav-item {
+        position: relative;
         colors: $light, $darker, $dark;
-        &.active {
-          colors: 0, $dark, $dark;
-          box-shadow: inset 2px 0 0 0 $accent;
+        // Indicator.
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; bottom: 0;
+          width: 4px;
+          ../:last-child::before { radius: 0 0 0 $radius }
         }
+        // Hover event.
+        &:hover:not(.active), &.active {
+          colors: 0 $darker $dark;
+          box-shadow: none;
+          &::before { colors: 0 0 $accent }
+        }
+        // Hide double borders.
+        &, &.active, &:hover:not(.active) { border-top-color: $t !important }
         // Median.
         .stage-empty, .not-available { color: $lighter; }
+        &:last-child { radius: 0 0 0 $radius !important }
       }
     }
     // Related issues.
     .stage-event-item {
       colors: $lighter, $darker, 0;
+      .total-time { &, span { colors: $lighter 0 0 }}
       .issue-link, .issue-date, .build-date { colors: $lighter, 0, 0; }
       .item-title a { colors: $light, 0, 0; }
     }
