@@ -1665,9 +1665,19 @@
 
   // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
+    background-color: $t;
+    // Custom backface.
+    &::before {
+      content: "";
+      opacity: 0.7;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      colors: 0 0 $dark;
+    }
     .modal-content {
       border: none;
-      colors: 0, 0, $dark;
+      radius: $radius;
+      colors: 0 0 $darker;
       box-shadow: 0 0 0 1px $darker !important;
       .modal-header { colors: 0 $darker $dark }
     }
