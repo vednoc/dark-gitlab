@@ -1674,6 +1674,11 @@
     .modal-body {
       radius: 0 0 $radius $radius;
       colors: 0, 0, $dark;
+      // ? MR -> Merge with CLI instructions.
+      pre {
+        radius: $radius;
+        colors: $lighter $darker $dark;
+      }
       [class*="-subheader"] { colors: 0 $darker 0 }
       // ? Shortcuts modal.
       .shortcut-mappings {
