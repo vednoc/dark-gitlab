@@ -2733,14 +2733,19 @@
     }
   }
   // Sticky file name.
-  .diff-file .is-compare { top: 88px !important; }
-  /* There isn't anything to compare. */
-  .card.bg-light {
-    border: 1px solid var(--darker) !important;
-    background-color: var(--dark) !important;
-  }
-  [class*="card"] > ul > li {
-    transition: 200ms ease-in-out;
+  .diff-file .is-compare { top: calc(91px - var(--radius)) !important }
+  // * Project -> Compare.
+  [class*="card"] {
+    // Nothing to compare.
+    &.bg-light {
+      colors: 0 0 $dark;
+      box-shadow: 0 0 0 1px inset $darker;
+    }
+    // Reset whitespace.
+    > .content-list > li {
+      padding: 6px 8px 6px 6px;
+      transition: 0.15s ease;
+    }
   }
   /* Text color. */
   .issuable-milestone,
