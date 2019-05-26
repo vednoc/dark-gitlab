@@ -2731,10 +2731,17 @@
     radius: $radius;
     border: 0px solid $darker;
     colors: $lighter 0 $t;
-    // Recently pushed to...
+    // Same as down below; probably outdated.
     &.white {
       border: 1px solid $darker;
       background-color: $dark;
+    }
+    time { color: $lighter }
+    // * Global -> *You pushed to...*
+    > .event-last-push {
+      padding: 8px;
+      radius: $radius;
+      colors: 0 0 $dark;
     }
   }
   /* Sub-header found in compare branches. */
