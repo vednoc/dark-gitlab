@@ -1044,7 +1044,7 @@
     colors: $lighter $darker $dark;
    }
   // * Settings -> Billings page.
-  ul.bordered-list > li { border-bottom-color: $red }
+  ul.bordered-list { &, li { colors: 0 $darker 0 }}
   // * Settings -> Active sessions.
   .card .list-group {
     radius: $radius;
@@ -2648,8 +2648,6 @@
         colors: 0, $red, $t;
         // Hide border in "activity" section. @obsolete
         &:first-child { colors: 0, $t, 0; }
-        // Add padding.
-        &.user-calendar { padding: 8px !important; }
       }
       .border-bottom {
         padding: 0 8px !important;
@@ -2682,6 +2680,14 @@
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
       &:hover { colors: 0, 0, $darker; }
+    }
+    // Contributions for the selected day.
+    .user-calendar {
+      padding: 8px !important;
+      &-activities {
+        .bordered-list li { padding: 8px }
+        h4 { padding: 8px }
+      }
     }
   }
 
