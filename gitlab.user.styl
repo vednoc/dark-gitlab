@@ -344,11 +344,47 @@
     border-left-color: $accent;
     colors: $light, 0, $darker;
   }
-  // Alerts.
+
+  // * Global -> Alerts.
   .bs-callout {
     radius: $radius;
-    colors: $light, $darker, $dark;
-    &.gcp-signup-offer { border-left-color: $blue !important; }
+    position: relative;
+    colors: $light $darker $dark;
+    &.gcp-signup-offer { border-left-color: $blue !important }
+    &.help-callout, &.shared-runners-description {
+      border-left: none;
+      box-shadow: 0 0 0 1px inset $darker;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        radius: $radius 0 0 $radius;
+        border-left: $radius solid $darker;
+      }
+    }
+    &&-info {
+      border: none;
+      box-shadow: 0 0 0 1px inset $blue;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        radius: $radius 0 0 $radius;
+        border-left: $radius solid $blue;
+      }
+    }
+    &&-warning {
+      border: none;
+      box-shadow: 0 0 0 1px inset $orange;
+      a { colors: $accent 0 0 }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        radius: $radius 0 0 $radius;
+        border-left: $radius solid $orange;
+      }
+    }
   }
   // .../settings/ci_cd
   .card-footer > pre {
@@ -2347,19 +2383,6 @@
     .sub-section {
       radius: $radius;
       colors: 0, $darker, $dark;
-    }
-    .bs-callout-info {
-      position: relative;
-      border: none;
-      colors: $lighter, $dark, $dark;
-      box-shadow: 0 0 0 1px inset $darker;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0px; left: 0; bottom: 0px;
-        radius: $radius 0 0 $radius;
-        border-left: $radius solid $blue;
-      }
     }
     .project-visibility-setting {
       radius: $radius $radius 0 0;
