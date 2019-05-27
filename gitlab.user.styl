@@ -2880,6 +2880,13 @@
       radius: $radius;
       .card-header { radius: $radius $radius 0 0; }
     }
+    // * Skeleton.
+    .dashboard-cards {
+      .bg-light { colors: 0 0 $darker }
+      .dashboard-card-skeleton-info::after {
+        background-image: linear-gradient(to right, $t 0%, $dark 50%, $t 100%)
+      }
+    }
   }
 
   // * Dashboard :: Top navigation.
@@ -4568,12 +4575,11 @@
   }
 
   // * Skeleton.
-  // ? Changes color of loading elements.
   .animation-container [class^="skeleton-line-"] {
-    background-color: var(--darker);
-  }
-  .animation-container [class^="skeleton-line-"]::after {
-    background-image: linear-gradient(to right, var(--darker) 0%, var(--dark) 100%);
+    background-color: $darker;
+    &::after {
+      background-image: linear-gradient(to right, $darker 0%, $dark 100%)
+    }
   }
 
   // * Groups.
