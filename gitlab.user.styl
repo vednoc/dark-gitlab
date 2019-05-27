@@ -386,11 +386,6 @@
       }
     }
   }
-  // .../settings/ci_cd
-  .card-footer > pre {
-    radius: $radius;
-    colors: $light, $darker, $dark;
-  }
 
   // * Button reset.
   .btn {
@@ -3094,24 +3089,30 @@
   // ? Fixes missing bottom border for code.
   .notes .note-text > p:last-child { padding-bottom: 1px !important; }
 
-  // * Cards.
+  // * Global -> Cards.
   .card, .card-slim {
     radius: $radius;
-    // overflow: hidden;
-    colors: 0, $darker, $dark;
-    .card-header, .card-footer {
-      font-weight: 600 !important;
-      colors: 0, $darker, $darker;
+    colors: 0 $darker $dark;
+    box-shadow: 0 0 0 1px inset $darker;
+    .card-header {
+      radius: $radius $radius 0 0;
+      colors: $light $darker $darker;
     }
     .card-body {
       padding: 8px;
-      radius: 0 0 $radius $radius;
-      box-shadow: 0 0 0 1px inset $darker;
+      colors: 0 0 $t;
       .text-plain { colors: $lighter 0 0 }
+    }
+    .card-footer {
+      padding: 8px;
+      radius: 0 0 $radius $radius;
+      colors: 0 $darker $t;
+    }
+    .card-body, .card-footer {
       pre {
         font-family: var(--code-font);
         radius: $radius;
-        colors: $light, $darker, $dark;
+        colors: $lighter $darker $dark;
       }
     }
     // ? Project -> Releases.
