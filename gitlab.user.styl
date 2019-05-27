@@ -293,9 +293,10 @@
   .label-link { text-decoration: none !important; }
 
   // * Icons!
-  .fa, svg {
-    color: $icon !important;
-    fill: $icon !important;
+  svg { isvg: $icon 0 }
+  .fa {
+    colors: $icon 0 0;
+    &[class*="online"] { colors: $green 0 0 }
   }
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
@@ -1053,9 +1054,14 @@
   }
 
 
-  // * User Settings :: Everything.
+  // * Settings -> Messages.
   .settings-message {
-    colors: $light, $darker, $dark;
+    radius: $radius;
+    colors: $light $darker $dark;
+  }
+  // ! Explore replacing `border` with `box-shadow` in the future.
+  .triggers-container, .coverage-report, .pipeline-status, .builds-feature {
+    .card { border: none !important }
   }
   // Social icons.
   .provider-btn {
