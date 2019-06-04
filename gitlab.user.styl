@@ -3041,9 +3041,11 @@
     .scrolling-tabs-container { margin: 0 0 14px 0; }
   }
   // Time tracking.
-  .time_tracker .time-tracking-help-state {
-    border-color: var(--darker);
-    background-color: var(--dark);
+  .time_tracker {
+    .progress .bg-primary { colors: 0 0 $blue }
+    .compare-label { colors: $lighter 0 0 }
+    .compare-value { colors: $light 0 0 }
+    .time-tracking-help-state { colors: 0 $darker $dark }
   }
   // Edited.
   // ? Contains styles for milestone elements; find a better place.
