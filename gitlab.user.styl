@@ -4720,6 +4720,13 @@
     filter: opacity(0.9) invert(0.9) hue-rotate(180deg) !important;
   }
 
+  // ! Trick for #44. @upstream
+  img[src$="acc9ec5b5.svg"] {
+    margin: -6px -16px 0 0;
+    clip-path: circle(34px);
+    background: white;
+  }
+
   // * Invert `shadow-root (closed)` SVG icons.
   // TODO remove if/when fixed on upstream.
   .created-icon, .opened-icon,
