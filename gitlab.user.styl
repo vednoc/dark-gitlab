@@ -3712,10 +3712,12 @@
   // Icon color.
   .git-merge-icon-container { colors: $light, $darker, $darker; }
 
-  /* Merge Requests :: Diff. */
+  // * MR -> Changes.
   .mr-version-controls {
-    border: 1px solid;
+    margin: 0;
+    width: 100%;
     radius: $radius;
+    border: 1px solid !important;
     colors: $light, $darker, $dark;
     // Reset the width when file tree is open. @upstream
     &.is-fileTreeOpen {
