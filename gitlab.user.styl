@@ -2000,7 +2000,10 @@
     // Entry borders.
     .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
-    &:target, &.target { colors: 0 $blue 0 }
+    &:target, &.target {
+      border: 1px solid;
+      colors: 0 $blue 0;
+    }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
   }
@@ -3150,7 +3153,7 @@
   .card, .card-slim {
     radius: $radius;
     colors: 0 $darker $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    &:not(.discussion-wrapper) { box-shadow: 0 0 0 1px inset $darker }
     .card-header {
       radius: $radius $radius 0 0;
       colors: $light $darker $darker;
