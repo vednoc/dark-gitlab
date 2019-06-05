@@ -20,7 +20,6 @@
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Navbar: Theme navbar color" 1
 @var checkbox navbar_n  "Navbar: Show 'next' badge" 1
-@var checkbox checkbox  "Checkbox inversion" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05)
@@ -175,6 +174,44 @@
       color: $light;
       border: 1px solid $darker;
       background-color: $dark;
+    }
+
+    // Checkbox/radio inputs.
+    input[type="checkbox"], input[type="radio"] {
+      &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        border: 1px solid !important;
+        colors: $light $darker $darker;
+      }
+      &:hover { box-shadow: 0 0 2px 1px $lighter !important }
+    }
+    input[type="radio"] {
+      border-radius: 100% !important;
+      &:checked { colors: 0 $shadow $accent }
+    }
+    input[type="checkbox"] {
+      &:checked { colors: 0 $shadow $accent }
+      &:indeterminate { colors: 0 $shadow $red }
+    }
+  }
+
+  // Custom icons for checkbox/radio inputs.
+  @css {
+    input[type="radio"]:checked {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
+      background-size: cover !important;
+    }
+    input[type="checkbox"]:checked {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
+      background-size: cover !important;
+    }
+    input[type="checkbox"]:indeterminate {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') !important;
+      background-size: cover !important;
     }
   }
 
@@ -525,10 +562,6 @@
   .cred { color: $red; fill: $red !important; }
   .cblue { color: $blue; fill: $blue !important; }
   .cgreen { color: $green; fill: $green !important; }
-  // ? Inverts checkboxes since we can't style them as they are currently.
-  if checkbox {
-    input[type="checkbox"] { filter: invert(var(--bg-invert)) !important; }
-  }
   // ? Move to a better place.
   .option-title { colors: $light, 0, 0; }
   .option-description, .option-disabled-reason {
