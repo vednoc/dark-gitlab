@@ -2215,6 +2215,20 @@
     colors: 0, $darker, $dark;
     // Separators.
     .block, .gutter-toggle { colors: 0, $darker, 0; }
+    // Buttons.
+    .btn-link {
+      line-height: 16px;
+      text-transform: capitalize;
+      border: none !important;
+      colors: 0 $t $t;
+      &:hover { transform: none !important }
+      &[class*="-date-"] { margin-top: -2px }
+      &[class*="-remove"] { colors: $red 0 0 }
+    }
+    abbr.value-type-dynamic {
+      colors: $lighter 0 0;
+      text-decoration: underline;
+    }
     // Progress in milestones.
     .progress { colors: 0, 0, $darker; }
     // Text color.
