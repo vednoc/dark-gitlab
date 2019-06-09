@@ -442,6 +442,10 @@
         background-color: $darker;
       }
     }
+    &:active, &.active {
+      colors: $white $accent $accent;
+      svg { fill: $white !important }
+    }
     &-link { colors: $accent 0 0; }
     // Green buttons.
     &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
