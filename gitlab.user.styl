@@ -3153,7 +3153,9 @@
   .card, .card-slim {
     radius: $radius;
     colors: 0 $darker $dark;
-    &:not(.discussion-wrapper) { box-shadow: 0 0 0 1px inset $darker }
+    &:not(.discussion-wrapper):not(.card-new-merge-request):not(.linked-card) {
+      box-shadow: 0 0 0 1px inset $darker;
+    }
     .card-header {
       radius: $radius $radius 0 0;
       colors: $light $darker $darker;
