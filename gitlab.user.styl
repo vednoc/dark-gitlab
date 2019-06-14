@@ -446,7 +446,10 @@
       colors: $white $accent $accent;
       svg { fill: $white !important }
     }
-    &-link { colors: $accent 0 0; }
+    &-link {
+      colors: $lighter $t 0;
+      &:hover { colors: 0 0 $t }
+    }
     // Green buttons.
     &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
     &.comment-btn, .comment-btn, .commit-btn {
@@ -2232,12 +2235,10 @@
     colors: 0, $darker, $dark;
     // Separators.
     .block, .gutter-toggle { colors: 0, $darker, 0; }
-    // Buttons.
+    // ! Fix buttons for #52. @upstream
     .btn-link {
       line-height: 16px;
       text-transform: capitalize;
-      border: none !important;
-      colors: 0 $t $t;
       &:hover { transform: none !important }
       &[class*="-date-"] { margin-top: -2px }
       &[class*="-remove"] { colors: $red 0 0 }
