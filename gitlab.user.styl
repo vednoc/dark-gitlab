@@ -12,6 +12,7 @@
 @var text     b_radius  "Custom border radius" 4px
 @var text     a_radius  "Custom avatar radius" 50%
 @var text     max_width "Custom width for fluid layout" 100%
+@var text     ui_font   "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'"
 @var text     code_font "Custom code font" "'custom_font', "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
 @var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
 @var text     faded_img "Fade images in md/wiki/blog" "1"
@@ -70,6 +71,7 @@
     --width     : max_width;
     --radius    : b_radius;
     --avatar    : a_radius;
+    --ui-font   : ui_font;
     --code-font : code_font;
     --emoji-font: emoji_font;
     --bg-invert : bg_invert;
@@ -143,6 +145,7 @@
 
   body {
     colors: $light 0 $t;
+    font-family: var(--ui-font);
     // Fixes content shift when modal is open.
     &.modal-open { padding-right: 0px !important; }
     // Empty navbar.
