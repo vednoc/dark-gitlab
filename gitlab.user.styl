@@ -838,6 +838,7 @@
         transition: 0.15s ease;
       }
       .is-focused, a:focus, a:active { colors: $light 0 $darker }
+      &.droplab-item-active .btn { colors: $light 0 $darker }
     }
     // ? Reset animation for filter-dropdown items.
     .filter-dropdown-item > .btn { transform: none; }
@@ -3068,9 +3069,6 @@
     .selectable > div {
       colors: $light, $red, $darker;
     }
-    // * Issue Filter Dropdown Highlighting w/ arrow keys
-    button.btn.btn-link { colors: 0, 0, $dark; }
-    .droplab-item-active button.btn.btn-link { colors: 0, 0, $darker; }
   }
 
   // * Issues :: Details.
