@@ -3634,17 +3634,29 @@
 
   // * Merge Requests :: Files.
   .diff-tree-list {
-    margin-right: 8px;
-    padding: 8px;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Remove padding on the right side.
-    > div { padding: 0; }
-    // File border color.
-    .tree-list-scroll { colors: 0, $darker, 0; }
-    // Files.
-    .file-row:hover, .file-row:active { colors: 0, 0, $darker; }
+    .drag-handle:hover { colors: 0 0 $darker }
+    .tree-list-holder {
+      // Search.
+      .tree-list-search input {
+        radius: $radius;
+        colors: $light 0 0;
+      }
+      // Files.
+      .tree-list-scroll {
+        padding: 8px;
+        overflow: auto;
+        radius: $radius;
+        border: 1px solid;
+        colors: 0 $darker $dark;
+        .file-row {
+          &:hover, &:active { colors: 0 0 $darker }
+        }
+      }
+      // Icons.
+      .file-addition { &, &-solid { fill: $green !important }}
+      .file-modified { &, &-solid { fill: $blue !important }}
+      .file-deletion { &, &-solid { fill: $red !important }}
+    }
   }
 
   // * Merge Requests :: New MR.
