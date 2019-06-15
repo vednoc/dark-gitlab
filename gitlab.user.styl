@@ -3663,7 +3663,7 @@
   // TODO Refactor needed to simplify styles.
   .mr-state-widget {
     .mr-source-target {
-      padding: 12px 8px;
+      padding: 8px;
       min-height: auto;
       colors: 0, $darker, $dark;
     }
@@ -3673,13 +3673,22 @@
       border: 1px solid;
       colors: 0, $darker, $dark;
       .mr-widget-section {
-        padding: 12px 8px;
+        // padding: 12px 8px;
         radius: 0 !important;
         colors: 0, $darker, 0;
+        // MR you can merge.
+        > div > .media { padding: 8px }
+        .border-top { colors: 0 $darker 0 }
+        // MR you can't merge.
+        > .mr-widget-body { padding: 8px }
+        > .mr-widget-info { padding: 0 8px }
       }
       // Remove extra padding.
       .media-section > .media { padding: 0px !important; }
-      .mr-widget-footer .mr-widget-help { padding: 0 4px; }
+      .mr-widget-footer .mr-widget-help {
+        padding: 0 4px;
+        colors: $lighter 0 0;
+      }
       // Align the CI icon.
       .media > .space-children { margin-left: 4px !important; }
       // Rounded corners.
@@ -3690,7 +3699,7 @@
     .media-section,
     .mr-widget-heading,
     .mr-widget-footer {
-      padding: 12px 8px;
+      padding: 8px;
       colors: 0, $darker, $dark;
     }
     // Rounded corners.
@@ -3710,8 +3719,6 @@
       // Remove the double-border forming on first child.
       > .mr-widget-border-top:first-child,
       > .mr-widget-section:first-child { border-top: none; }
-      // Remove excess padding.
-      .mr-widget-body { padding: 0px; }
     }
     // Branch name.
     .label-branch { color: $red, 0, 0; }
