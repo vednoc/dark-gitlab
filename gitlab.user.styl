@@ -4841,9 +4841,9 @@
       colors: $blue, $blue, $t;
       svg { fill: $blue !important; colors: 0, $blue, 0; }
     }
-    &-icon-pending, &-icon-warning, &-icon-success_with_warnings {
+    &-icon-pending, &-icon-warning, &.ci-success-with-warnings {
       colors: $orange, $orange, $t;
-      > svg { fill: $orange !important; colors: 0, $orange, 0; }
+      svg { fill: $orange !important; colors: 0, $orange, 0; }
     }
     &.ci-failed, &-icon-failed {
       colors: $red, $red, $t;
@@ -4872,8 +4872,6 @@
   .deleted-icon svg { fill: $yellow !important; }
   .imported-icon svg { fill: $violet !important; }
 
-  // "Weird" behaving success with warnings status.
-  a.ci-success_with_warnings { colors: $orange, $orange, $t; }
   // "Weird" behaving warning on pipelines page.
   .ic-status_warning_borderless { fill: $orange !important; }
 
