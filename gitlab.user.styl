@@ -3049,6 +3049,19 @@
     }
   }
 
+  // * Issues -> Similar issues list.
+  .issue-form .list-unstyled {
+    padding: 8px;
+    radius: $radius;
+    colors: 0 0 $dark;
+    box-shadow: 0 0 0 1px inset $darker;
+    .suggestion {
+      colors: $accent 0 0;
+      &-state-open { isvg: $green 0 }
+      &-state-closed { isvg: $red 0 }
+    }
+  }
+
   // * Issues :: Search or filter results.
   .filtered-search-box {
     radius: $radius;
