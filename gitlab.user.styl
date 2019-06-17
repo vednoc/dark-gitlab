@@ -442,9 +442,9 @@
         background-color: $darker;
       }
     }
-    &:active, &.active {
-      colors: $white $accent $accent;
-      svg { fill: $white !important }
+    &.active {
+      colors: $light $darker $darker;
+      svg { fill: $light !important }
     }
     &-link {
       colors: $lighter $t 0;
@@ -684,8 +684,7 @@
       > li.active, .dropdown.show {
         > a, > button { colors: $light, 0, $dark; }
       }
-      // ? Reset button hover state in dropdowns.
-      button.btn:hover, .btn:focus { transform: none !important; }
+      .btn:focus { colors: 0 0 $darker }
     }
     // Navbar separator on mobile devices.
     &-toggler { border-left-color: $dark !important; }
@@ -739,7 +738,6 @@
       > button, > a {
         colors: 0, $darker, $dark;
         transition: 0.2s ease !important;
-        &:hover { transform: none !important; }
         &:hover, &.active { colors: 0, 0, $darker; }
         &:first-child { border-radius: $radius 0 0 $radius; }
         &:last-child { border-radius: 0 $radius $radius 0; }
@@ -809,10 +807,7 @@
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button:not(.btn-success) {
-        transform: none;
-        colors: $light, 0, $darker;
-      }
+      &:hover a, &:hover button:not(.btn-success) { colors: $light 0 $darker }
       a, button:not(.btn) {
         colors: $lighter 0 0;
         transition: 0.15s ease;
@@ -820,8 +815,6 @@
       .is-focused, a:focus, a:active { colors: $light 0 $darker }
       &.droplab-item-active .btn { colors: $light 0 $darker }
     }
-    // ? Reset animation for filter-dropdown items.
-    .filter-dropdown-item > .btn { transform: none; }
     // ? MR -> "Created date" dropdown.
     &-sort {
       li {
@@ -840,7 +833,7 @@
         // ? Reset due to markup being single `li` with a ton of `a` elements.
         &:hover a { colors: $lighter, 0, $t; }
         a, button:not(.btn), .menu-item {
-          transition: 0.1s ease;
+          transition: 0.15s ease;
           colors: $lighter, 0, 0;
           &:hover { colors: $light, 0, $darker; }
         }
@@ -1603,8 +1596,7 @@
         time, .commit-row-message { colors: $lighter, 0, 0; }
       }
     }
-    .btn.btn-default { colors: $light, 0, 0; }
-    .btn.btn-remove { colors: var(--white), $red, $red; }
+    .btn.btn-remove { colors: $white $red $red }
     .branch-commit .commit-row-message { colors: $light, 0, 0; }
     // Select next sibling and reset the colors.
     & + .card-footer.text-center {
@@ -1898,7 +1890,8 @@
     &-file .diff-content {
       radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
-      .btn-link { colors: 0, $t, 0; }
+      box-shadow: 0 -1px 0 0 $darker;
+      .btn-link { colors: $accent 0 0 }
       // Gems/Packages/etc.
       .code .line a { color: $accent; }
       // Added lines.
@@ -2239,7 +2232,6 @@
     .btn-link {
       line-height: 16px;
       text-transform: capitalize;
-      &:hover { transform: none !important }
       &[class*="-date-"] { margin-top: -2px }
       &[class*="-remove"] { colors: $red 0 0 }
     }
@@ -2250,7 +2242,7 @@
     // Progress in milestones.
     .progress { colors: 0, 0, $darker; }
     // Text color.
-    a:not(.btn):hover, .btn-link:not(.btn):hover { colors: $accent, 0, 0; }
+    a:not(.btn):hover { colors: $accent 0 0 }
     .no-value, .sidebar-collapsed-icon { colors: $light, 0, 0; }
     .title {
       colors: $lighter, 0, 0;
@@ -2330,10 +2322,7 @@
     .project-metadata * {
       colors: $lighter, 0, 0;
       // Reset license button.
-      &.project-license .btn {
-        transform: translate(0) !important;
-        background: 0 !important;
-      }
+      &.project-license .btn { background: $red !important }
     }
     // Project tags.
     .home-panel-topic-list {
@@ -2358,7 +2347,6 @@
   .project-buttons .stat-text {
     colors: $light, $darker, $dark;
     transition: transform 0.2s ease-in-out;
-    &:hover { transform: translateY(-2px); }
   }
 
   // * Arrows.
@@ -3181,7 +3169,6 @@
     // ? Project -> Releases.
     &.linked-card {
       .badge.badge-pill { colors: $light, 0, 0; }
-      .dropdown > .btn-link { colors: $light, $t, 0; }
       &::after {
         border: none;
         border-left: 1px solid $darker;
@@ -4575,8 +4562,6 @@
         border-width: 2px !important;
         radius: 10px !important;
         colors: $light, $darker, $dark;
-        // ? Reset it because it's a button.
-        transform: none !important;
         &:hover { colors: 0, 0, $darker; }
       }
       // Connector line.
