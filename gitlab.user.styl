@@ -3054,7 +3054,10 @@
     // Search field words.
     .name { color: $light; }
     // Search field button.
-    .clear-search { colors: 0, 0, $dark; }
+    .clear-search {
+      radius: $radius;
+      colors: 0 0 $dark
+    }
     // Search tokens (labels).
     .filtered-search-token > .name,
     .selectable > div {
