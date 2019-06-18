@@ -1711,25 +1711,25 @@
 
   // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
-    background-color: $t;
-    // Custom backface.
-    &::before {
-      content: "";
+    colors: 0 0 $t;
+    &-backdrop.show {
       opacity: 0.7;
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
       colors: 0 0 $dark;
     }
     .modal-content {
       border: none;
       radius: $radius;
-      colors: 0 0 $darker;
-      box-shadow: 0 0 0 1px $darker !important;
-      .modal-header { colors: 0 $darker $dark }
+      colors: 0 0 $dark;
+      box-shadow: 0 0 0 1px inset $darker !important;
+      // Rounded corners for the last element.
+      > :last-child { radius: 0 0 $radius $radius }
+    }
+    .modal-header {
+      radius: $radius $radius 0 0;
+      colors: 0 $darker $t;
     }
     .modal-body {
-      radius: 0 0 $radius $radius;
-      colors: 0, 0, $dark;
+      colors: 0 0 $t;
       // ? MR -> Merge with CLI instructions.
       pre {
         radius: $radius;
@@ -1752,7 +1752,7 @@
         border-top: 1px solid $darker !important;
       }
     }
-    .modal-footer { colors: 0, $darker, 0; }
+    .modal-footer { colors: 0 $darker $t }
   }
 
   // * Global -> Close buttons.
