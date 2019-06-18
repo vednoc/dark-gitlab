@@ -430,105 +430,85 @@
 
   // * Button reset.
   .btn {
-    transition: transform 0.2s ease-in-out !important;
-    color: var(--light);
-    border-color: var(--darker);
-    background-color: var(--dark);
-    &:hover, &:focus, &.focus, &.btn-default {
-      color: var(--light);
-      border-color: var(--darker);
-      background-color: var(--dark);
+    // ? Base selectors.
+    &, .btn-default {
+      transition: 0.15s ease;
+      color: $lighter;
+      border-color: $darker;
+      background-color: $dark;
+      &:hover, &:focus, &.focus {
+        color: $light;
+        border-color: $darker;
+        background-color: $darker;
+      }
     }
-    &:active, &.active {
-      colors: $accent, $darker, $dark;
-      // Active icons!
-      // TODO Remove?
-      > i, > .fa { color: inherit !important; }
+    &.active {
+      colors: $light $darker $darker;
+      svg { fill: $light !important }
     }
-    // Remove blue outline.
-    &:focus, &.focus { box-shadow: 0 0 2px 0px $accent; }
-    &-link { colors: $accent, 0, 0; }
-    // Expand button.
-    &.click-to-expand { padding: 3px; }
-  }
-  // Colored buttons.
-  .btn {
+    &-link {
+      colors: $lighter $t 0;
+      &:hover { colors: 0 0 $t }
+    }
     // Green buttons.
-    &-success,
-    &-success.dropdown-toggle,
-    &-register,
-    &.comment-btn,
-    &-new,
-    &-create,
-    &-save,
-    .comment-btn,
-    .commit-btn {
-      colors: $white, $green, $green;
-      box-shadow: var(--box-shadow) !important;
+    &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
+    &.comment-btn, .comment-btn, .commit-btn {
+      colors: $white $green $green;
+      &:hover { opacity: 0.75; }
     }
-    &-create.comment-btn {
-      colors: $green, $green, $dark;
-    }
+    // TODO: Find where this button is located.
+    &-create.comment-btn { colors: $green $green $dark; }
     // Blue buttons.
-    &-info,
-    &-primary,
-    &-register {
-      colors: $white, $blue, $blue;
-      box-shadow: var(--box-shadow) !important;
+    &-info, &-primary, &-register {
+      colors: $white $blue $blue;
+      &:hover { opacity: 0.75; }
     }
     // Orange buttons.
     &-warning {
-      colors: $white, $orange, $orange;
-      box-shadow: var(--box-shadow) !important;
+      colors: $white $orange $orange;
+      &:hover { opacity: 0.75; }
     }
     // Close buttons.
-    &-close, &-close-color { colors: $red, $red, $dark; }
-    &-close-color.dropdown-toggle {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
+    &-close, &-close-color {
+      colors: $red $red $dark;
+      &:hover { colors: $white 0 $red; }
     }
-    &-cancel, &-retry {
-      colors: $light, $darker, $dark;
+    &-close-color.dropdown-toggle {
+      colors: $red $red $dark;
+      .fa { color: inherit !important; }
+      &:hover { colors: $white 0 $red; }
     }
     // Remove buttons.
-    &-danger, &-remove, &-red {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
-    }
-    // Inverted buttons.
-    &-inverted.btn-remove {
-      colors: $white, $red, $red;
-      box-shadow: var(--box-shadow) !important;
+    &-danger, &-remove, &-red, &-inverted.btn-remove {
+      colors: $white $red $red;
+      &:hover { opacity: 0.75; }
     }
     // Blank buttons.
-    &-blank { colors: $lighter, 0, $t; }
-    &-clipboard { colors: $lighter, $darker, $dark; }
+    &-cancel, &-retry, &-clipboard {
+      colors: $lighter $darker $dark;
+      &:hover { colors: $light 0 $darker; }
+    }
+    &-blank { colors: $lighter 0 $t; }
     // Comment on a note.
     &-text-field {
       colors: $lighter, $darker, $darker;
     }
-    // Reset for "add x" buttons.
-    &-missing { colors: $light, $darker, $dark; }
+    // Colors for buttons with dashed borders.
+    &-missing {
+      colors: $lighter $darker $dark;
+      &:hover { colors: $light 0 $darker; }
+    }
     // Disabled buttons.
-    &.disabled, &.disabled:hover,
-    &[disabled], &[disabled]:hover {
-      opacity: 0.6 !important;
-      colors: $lighter, $darker, $darker;
-      box-shadow: var(--box-shadow) !important;
-    }
-    // On event.
-    &:hover:not([disabled="disabled"]),
-    &:focus:not([disabled="disabled"]) {
-      transform: translateY(-2px);
-    }
-    // Disable hover state for disabled elements.
-    &.disabled:hover {
-      transform: translateY(0px);
+    &.disabled, &[disabled] {
+      &, &:hover {
+        opacity: 0.6 !important;
+        colors: $lighter $darker $dark;
+      }
     }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
-    colors: 0, 0, $t;
+    colors: 0 0 $t;
     .btn:focus { colors: 0, 0, $darker; }
   }
   // ? Reaction buttons.
@@ -704,8 +684,7 @@
       > li.active, .dropdown.show {
         > a, > button { colors: $light, 0, $dark; }
       }
-      // ? Reset button hover state in dropdowns.
-      button.btn:hover, .btn:focus { transform: none !important; }
+      .btn:focus { colors: 0 0 $darker }
     }
     // Navbar separator on mobile devices.
     &-toggler { border-left-color: $dark !important; }
@@ -759,7 +738,6 @@
       > button, > a {
         colors: 0, $darker, $dark;
         transition: 0.2s ease !important;
-        &:hover { transform: none !important; }
         &:hover, &.active { colors: 0, 0, $darker; }
         &:first-child { border-radius: $radius 0 0 $radius; }
         &:last-child { border-radius: 0 $radius $radius 0; }
@@ -829,10 +807,7 @@
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button:not(.btn-success) {
-        transform: none;
-        colors: $light, 0, $darker;
-      }
+      &:hover a, &:hover button:not(.btn-success) { colors: $light 0 $darker }
       a, button:not(.btn) {
         colors: $lighter 0 0;
         transition: 0.15s ease;
@@ -840,8 +815,6 @@
       .is-focused, a:focus, a:active { colors: $light 0 $darker }
       &.droplab-item-active .btn { colors: $light 0 $darker }
     }
-    // ? Reset animation for filter-dropdown items.
-    .filter-dropdown-item > .btn { transform: none; }
     // ? MR -> "Created date" dropdown.
     &-sort {
       li {
@@ -860,7 +833,7 @@
         // ? Reset due to markup being single `li` with a ton of `a` elements.
         &:hover a { colors: $lighter, 0, $t; }
         a, button:not(.btn), .menu-item {
-          transition: 0.1s ease;
+          transition: 0.15s ease;
           colors: $lighter, 0, 0;
           &:hover { colors: $light, 0, $darker; }
         }
@@ -1623,8 +1596,7 @@
         time, .commit-row-message { colors: $lighter, 0, 0; }
       }
     }
-    .btn.btn-default { colors: $light, 0, 0; }
-    .btn.btn-remove { colors: var(--white), $red, $red; }
+    .btn.btn-remove { colors: $white $red $red }
     .branch-commit .commit-row-message { colors: $light, 0, 0; }
     // Select next sibling and reset the colors.
     & + .card-footer.text-center {
@@ -1918,7 +1890,8 @@
     &-file .diff-content {
       radius: 0 0 $radius $radius;
       colors: $light, 0, $dark;
-      .btn-link { colors: 0, $t, 0; }
+      box-shadow: 0 -1px 0 0 $darker;
+      .btn-link { colors: $accent 0 0 }
       // Gems/Packages/etc.
       .code .line a { color: $accent; }
       // Added lines.
@@ -2255,13 +2228,10 @@
     colors: 0, $darker, $dark;
     // Separators.
     .block, .gutter-toggle { colors: 0, $darker, 0; }
-    // Buttons.
+    // ! Fix buttons for #52. @upstream
     .btn-link {
       line-height: 16px;
       text-transform: capitalize;
-      border: none !important;
-      colors: 0 $t $t;
-      &:hover { transform: none !important }
       &[class*="-date-"] { margin-top: -2px }
       &[class*="-remove"] { colors: $red 0 0 }
     }
@@ -2272,7 +2242,7 @@
     // Progress in milestones.
     .progress { colors: 0, 0, $darker; }
     // Text color.
-    a:not(.btn):hover, .btn-link:not(.btn):hover { colors: $accent, 0, 0; }
+    a:not(.btn):hover { colors: $accent 0 0 }
     .no-value, .sidebar-collapsed-icon { colors: $light, 0, 0; }
     .title {
       colors: $lighter, 0, 0;
@@ -2352,10 +2322,7 @@
     .project-metadata * {
       colors: $lighter, 0, 0;
       // Reset license button.
-      &.project-license .btn {
-        transform: translate(0) !important;
-        background: 0 !important;
-      }
+      &.project-license .btn { background: $red !important }
     }
     // Project tags.
     .home-panel-topic-list {
@@ -2380,7 +2347,6 @@
   .project-buttons .stat-text {
     colors: $light, $darker, $dark;
     transition: transform 0.2s ease-in-out;
-    &:hover { transform: translateY(-2px); }
   }
 
   // * Arrows.
@@ -3076,7 +3042,10 @@
     // Search field words.
     .name { color: $light; }
     // Search field button.
-    .clear-search { colors: 0, 0, $dark; }
+    .clear-search {
+      radius: $radius;
+      colors: 0 0 $dark
+    }
     // Search tokens (labels).
     .filtered-search-token > .name,
     .selectable > div {
@@ -3200,7 +3169,6 @@
     // ? Project -> Releases.
     &.linked-card {
       .badge.badge-pill { colors: $light, 0, 0; }
-      .dropdown > .btn-link { colors: $light, $t, 0; }
       &::after {
         border: none;
         border-left: 1px solid $darker;
@@ -4594,8 +4562,6 @@
         border-width: 2px !important;
         radius: 10px !important;
         colors: $light, $darker, $dark;
-        // ? Reset it because it's a button.
-        transform: none !important;
         &:hover { colors: 0, 0, $darker; }
       }
       // Connector line.
