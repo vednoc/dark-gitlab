@@ -719,7 +719,7 @@
     &-toggle, &-menu-toggle:not(.search-input) {
       transition: 0.15s ease;
       colors: $lighter $darker $dark;
-      &:hover { colors: 0 0 $darker }
+      &:not([class*="btn-"]) { colors: 0 0 $darker }
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
       // ? Active state for toggles.
