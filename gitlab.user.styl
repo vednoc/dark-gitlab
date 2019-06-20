@@ -592,6 +592,12 @@
     margin-bottom: 1em;
     colors: 0, $darker, 0;
   }
+  // ? Forms.
+  .form-control {
+    colors: $lighter $darker $dark;
+    &:focus { colors: $light $blue 0 }
+    &:disabled, &[readonly] { colors: $lighter $darker 0 }
+  }
 
   // * Sign in/register page.
   .login-page {
@@ -1023,15 +1029,6 @@
   .profile-settings-sidebar a,
   .settings-sidebar a {
     color: var(--accent);
-  }
-  /* Form control. */
-  .form-control {
-    colors: $lighter, $darker, $dark;
-    // transition: border-color 200ms ease-in-out !important;
-    &:focus {
-      colors: 0, $blue, 0;
-      box-shadow: 0 0 2px 1px $shadow;
-    }
   }
 
   // * Table -> Old-ish table components.
