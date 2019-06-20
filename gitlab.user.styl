@@ -2590,11 +2590,13 @@
     .fade-left { background: linear-gradient(to right, $dark 45%, $t); }
   }
 
-  // Profile -> Shared styles.
+  // * Profile -> Core styles.
   .user-profile {
     // User info cover.
     .cover-block {
-      colors: 0, $darker, $dark;
+      border: none;
+      colors: 0 0 $dark;
+      box-shadow: 0 -1px 0 0 inset $darker;
       .cover-title { colors: $light, 0, 0; }
       .cover-desc { colors: $lighter, 0, 0; }
     }
@@ -2602,8 +2604,10 @@
     #activity > .row-content-block { colors: 0, $darker, $dark; }
     // Reset scrolling nav.
     .scrolling-tabs-container {
-      margin: 0 !important;
-      border: none !important;
+      margin: 0;
+      border: none;
+      colors: 0 0 $t;
+      li[class] > a[href] { border-bottom-width: 1px }
     }
     // * Content list items.
     .content_list {
