@@ -363,13 +363,17 @@
     &-primary { colors: $light 0 $blue }
     &-info { colors: $light 0 $blue }
     &-pill { colors: $light 0 0 }
-  }
-  // TODO move to dashboard or somewhere else.
-  .badge-pill {
-    &.badge { border: 1px solid; colors: $lighter, $darker, $dark; }
-    &.issues-count { colors: var(--white), 0, $green; }
-    &.merge-requests-count { colors: var(--white), 0, $orange; }
-    &.todos-count { colors: var(--white), 0, $blue; }
+    &.badge-pill {
+      // Prevent conflicts.
+      & {
+        box-shadow: 0 0 0 1px inset $darker;
+        colors: $lighter $darker $dark;
+      }
+      // Dashboard -> Activities.
+      &.issues-count { colors: $white 0 $green }
+      &.merge-requests-count { colors: $white 0 $orange }
+      &.todos-count { colors: $white 0 $blue }
+    }
   }
   // Text colors.
   .warning-title { colors: $orange, 0, 0; }
