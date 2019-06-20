@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         GitLab Dark by Mew
-@namespace    gitlab.com/vednoc/gitlab-dark
+@namespace    gitlab.com/vednoc/dark-gitlab
 @version      0.37.0
 @description  Dark theme for GitLab.
 @author       vednoc
@@ -13,10 +13,10 @@
 @var text     a_radius  "Custom avatar radius" 50%
 @var text     max_width "Custom width for fluid layout" 100%
 @var text     ui_font   "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'"
-@var text     code_font "Custom code font" "'custom_font', "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace"
+@var text     mono_font "Custom mono font" "'custom_font', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace"
 @var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
 @var text     faded_img "Fade images in md/wiki/blog" "1"
-@var checkbox gl_icons  "GitLab Icons: Fix icon alignment" 0
+@var checkbox gl_icons  "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header  "Center project header elements" 0
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Navbar: Theme navbar color" 1
@@ -72,7 +72,7 @@
     --radius    : b_radius;
     --avatar    : a_radius;
     --ui-font   : ui_font;
-    --code-font : code_font;
+    --mono-font : mono_font;
     --emoji-font: emoji_font;
     --bg-invert : bg_invert;
     --bg-filter : bg_filter;
@@ -2073,7 +2073,7 @@
     // Input area.
     .markdown-area { colors: $light, $darker, $dark; }
     // Use code font for input area.
-    .note-textarea { font-family: var(--code-font); }
+    .note-textarea { font-family: var(--mono-font); }
     // When you use commands.
     .referenced-commands { colors: 0, 0, $darker; }
     // Navigation.
@@ -2948,7 +2948,7 @@
     // Found on: .../gitlab-org/gitlab-ce/tags/any-tag
     pre.wrap {
       radius: $radius;
-      font-family: var(--code-font);
+      font-family: var(--mono-font);
       colors: $lighter, $darker, $dark;
     }
     // ? Found in: ...project/pipeline_schedules
@@ -3166,7 +3166,7 @@
     }
     .card-body, .card-footer {
       pre {
-        font-family: var(--code-font);
+        font-family: var(--mono-font);
         radius: $radius;
         colors: $lighter $darker $dark;
       }
@@ -4862,7 +4862,7 @@
   .ic-status_warning_borderless { fill: $orange !important; }
 
   // * Centers project header elements; old design lookalike.
-  if p_header {
+  if ( p_header == 1 ) {
     // Necessary in v11.6 (I think).
     .project-home-panel .project-header {
       > div { max-width: 100%; }
@@ -4929,7 +4929,7 @@
   [class*="monospace"], .ref-name,
   .diff-line-num, .diff-line-num a,
   #editor, .monaco-editor * {
-    font-family: var(--code-font) !important;
+    font-family: var(--mono-font) !important;
   }
 
   // * Feature -> Fix alignment of icons from GitLab icons extension.
