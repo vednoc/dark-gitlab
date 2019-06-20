@@ -4812,7 +4812,7 @@
   svg.ic-upload {
     // ? Inverts icons and their colors only if `Background inversion` is
     // ? enabled in the style settings. Does not work with ThemeSwitcher.
-    if (bg_invert == 1) {
+    if ( bg_invert == 1 ) {
       filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
     }
   }
@@ -4896,7 +4896,7 @@
   }
 
   // Switch to our version of GitLab logo.
-  if dark_logo {
+  if ( dark_logo == 1 ) {
     .tanuki-logo {
       filter: brightness(095%) drop-shadow(0px 1px 1px $shadow) !important;
       .tanuki { &-right-eye, &-left-eye { isvg: $accent $t; }}
@@ -5423,7 +5423,7 @@
   }
 
   // * Feature -> Custom logo.
-  if dark_logo {
+  if ( dark_logo == 1 ) {
     svg.nav-logo {
       filter: drop-shadow(0 2px 4px $shadow);
       path:nth-child(1) { isvg: $light 0 }
@@ -5857,7 +5857,7 @@
   }
 
   // Logo
-  if dark_logo {
+  if ( dark_logo == 1 ) {
     .landing .landing-header-top .logo, .header img {
       height: 0 !important;
       width: 0 !important;
