@@ -366,7 +366,6 @@
   }
   // TODO move to dashboard or somewhere else.
   .badge-pill {
-    &.js-canary-badge.green-badge { colors: $light 0 0 }
     &.badge { border: 1px solid; colors: $lighter, $darker, $dark; }
     &.issues-count { colors: var(--white), 0, $green; }
     &.merge-requests-count { colors: var(--white), 0, $orange; }
@@ -666,6 +665,7 @@
     if ( navbar_c == 1 ) { colors: 0 0 $darker; }
     // ? Feature -> Show 'next' badge.
     if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
+    .canary-badge .badge.badge-pill { colors: $white $green $green }
     // Logo text color.
     .logo-text svg, svg.nav-logo .wordmark { fill: $light !important; }
     // Search.
