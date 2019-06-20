@@ -23,7 +23,7 @@
 @var checkbox navbar_n  "Navbar: Show 'next' badge" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
-@var text     bg_filter "Background filters" opacity(0.05)
+@var text     bg_filter "Background filters" opacity(0.05) invert(var(--bg-invert))
 @var text     bg_size   "Background size" 15px
 @var text     bg_repeat "Background repeat" repeat
 @var text     bg_pos    "Background position" center
@@ -4907,7 +4907,7 @@
   }
 
   // * Custom app background.
-  // ? `:not(.dark) is used to prevent disqus iframe conflicts.
+  // ? `:not(.dark)` is used to prevent disqus iframe conflicts.
   body:not(.dark)::before {
     position: fixed;
     z-index: -1;
@@ -4919,8 +4919,8 @@
     background-position: var(--bg-pos);
     background-repeat: var(--bg-repeat);
     background-size: var(--bg-size);
-    background-image: var(--background);
-    filter: invert(var(--bg-invert)) var(--bg-filter);
+    background: var(--background);
+    filter: var(--bg-filter);
   }
 
   // * Code font.
