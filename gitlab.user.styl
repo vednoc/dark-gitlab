@@ -1123,6 +1123,12 @@
     // Alert main reset.
     [class*="flash-"] {
       margin-bottom: 0px !important;
+      // ? Align notice with main content.
+      .flash-notice > div {
+        max-width: var(--width);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
       // ? Fixes unnecessary limited container issue.
       > .container-limited {
         padding: 0;
