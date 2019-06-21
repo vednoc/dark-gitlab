@@ -2310,7 +2310,7 @@
     // Shorten description.
     .project-description { max-width: 60em; }
     // Text color.
-    .text-secondary, .count, .star-count { colors: $lighter 0 0; }
+    .text-secondary { colors: $lighter 0 0; }
     // Remove button backgrounds.
     .js-read-more-trigger { colors: $accent, 0, $t; }
     // Metadata text color.
@@ -2327,21 +2327,41 @@
       svg.icon { margin-top: 4px !important; }
       .badge:hover { colors: $light, 0, $darker; }
     }
-    // ? New design, December 2018.
-    .add-license-link { colors: $lighter, 0, 0; }
-    .project-stat-value { colors: $light, 0, 0; }
-    .project-stats .stat-text { colors: $lighter, 0, 0; }
+    // ? Repo stats.
+    .project-stats {
+      .add-license-link, .stat-link { colors: $lighter 0 0 }
+      .project-stat-value { colors: $light 0 0 }
+    }
+    // ? Repo buttons.
     .project-repo-buttons {
       .count-badge, .btn-xs { height: 34px; }
-      // Buttons.
-      .count-badge-count { colors: 0, $darker, $dark; }
-      .count-badge-button { colors: $light, $darker, $darker; }
+      .count-badge {
+        .star-count, .count { colors: $light 0 0 }
+        &-count { colors: 0 $darker $dark }
+        &-button {
+          font-size: 14px;
+          colors: $light $darker $darker;
+          &:hover { colors: 0 0 $dark }
+        }
+      }
+      .clone-dropdown-btn {
+        font-size: 14px;
+        colors: $white $green $green;
+        svg { isvg: $white 0 }
+      }
     }
   }
-  // "Auto DevOps enabled" and possibly other buttons.
-  .project-buttons .stat-text {
-    colors: $light, $darker, $dark;
-    transition: transform 0.2s ease-in-out;
+  // ? Default buttons.
+  .project-buttons {
+    margin: 0;
+    .nav {
+      .btn { margin-top: 10px }
+      // "Auto DevOps enabled" and possibly other buttons.
+      .stat-text {
+        margin-top: 10px;
+        colors: $lighter $darker $dark;
+      }
+    }
   }
 
   // * Arrows.
