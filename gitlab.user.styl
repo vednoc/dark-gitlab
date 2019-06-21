@@ -2112,10 +2112,7 @@
         colors: 0 $darker $dark;
       }
     }
-    p > code {
-      border: 1px solid !important;
-      colors: $light, $darker, 0;
-    }
+    p >, a >, :not(pre) > { code { colors: $light $darker $darker }}
     blockquote {
       padding-left: 16px !important;
       border-left: none !important;
