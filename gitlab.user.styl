@@ -1755,9 +1755,10 @@
       .block + .block { border-top-color: $darker; }
       // Actions in auth.
       .form-actions {
-        radius: 0 0 $radius $radius;
+        radius: 0;
+        colors: 0 0 $t;
         border: none !important;
-        border-top: 1px solid $darker !important;
+        box-shadow: 0 -1px $darker;
       }
     }
     .modal-footer { colors: 0 $darker $t }
@@ -3173,6 +3174,8 @@
       padding: 8px;
       colors: 0 0 $t;
       .text-plain { colors: $lighter 0 0 }
+      // Reset actions on `user/project/pages` page.
+      .form-actions { margin: 0 !important }
     }
     .card-footer {
       padding: 8px;
