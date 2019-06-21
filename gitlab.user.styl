@@ -324,6 +324,10 @@
   // * Icons!
   svg {
     isvg: $lighter;
+    // Diff icons.
+    &.ic-file-addition { &, &-solid { isvg: $green }}
+    &.ic-file-modified { &, &-solid { isvg: $blue }}
+    &.ic-file-deletion { &, &-solid { isvg: $red }}
   }
   .fa {
     colors: $lighter 0 0;
@@ -3659,10 +3663,6 @@
           &:hover, &:active { colors: 0 0 $darker }
         }
       }
-      // Icons.
-      .file-addition { &, &-solid { fill: $green !important }}
-      .file-modified { &, &-solid { fill: $blue !important }}
-      .file-deletion { &, &-solid { fill: $red !important }}
     }
   }
 
