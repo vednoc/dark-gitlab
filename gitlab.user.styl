@@ -106,32 +106,21 @@
   $box     = var(--box-shadow);
 
   // * Color mixin.
-  // ? All colors -> colors: $light, $darker, $dark;
-  // ? Only background-color -> colors: 0, 0, $dark;
+  // ? All colors -> `colors: $light $darker $dark;`
+  // ? Only background-color -> `colors: 0 0 $dark;`
   colors(x, y, z) {
-    if x is a 'call' {
-      color: x !important;
-    }
-    if y is a 'call' {
-      border-color: y !important;
-    }
-    if z is a 'call' {
-      background-color: z !important;
-    }
+    if x is a 'call' { color: x !important }
+    if y is a 'call' { border-color: y !important }
+    if z is a 'call' { background-color: z !important }
   }
-
   // * Inlined SVGs.
-  isvg(x, y) {
+  // ? Only fill -> `isvg: $accent 0;`
+  isvg(x, y = 0) {
     if x is a 'call' { fill: x !important; }
     if y is a 'call' { stroke: y !important; }
   }
-
   // * Border radius mixin.
-  radius() {
-    -webkit-border-radius: arguments;
-    -moz-border-radius: arguments;
-    border-radius: arguments;
-  }
+  radius() { border-radius: arguments }
 
   // Scrollbars.
   ::-webkit-scrollbar {
