@@ -322,9 +322,11 @@
   .label-link { text-decoration: none !important; }
 
   // * Icons!
-  svg { isvg: $icon 0 }
+  svg {
+    isvg: $lighter;
+  }
   .fa {
-    colors: $icon 0 0;
+    colors: $lighter 0 0;
     &[class*="online"] { colors: $green 0 0 }
   }
   // * Icons -> Global icons that don't work without `path`.
