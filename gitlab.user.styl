@@ -1536,13 +1536,18 @@
   }
   .commit {
     colors: 0, $darker, 0;
+    & &-content {
+      div.committer {
+        colors: $lighter 0 0;
+        time { color: inherit }
+        // FIX: Specificity.
+        a[href]^[0]-author-link:not(#e) { color: inherit !important }
+      }
+    }
     a {
       colors: $light, 0, 0;
       // Center avatar.
-      img {
-        margin-top: 3px;
-        margin-left: 3px;
-      }
+      img { margin: 2px 0 0 2px }
     }
     // Link.
     .gfm { colors: $accent, 0, 0; }
@@ -1550,7 +1555,6 @@
     > .commit-detail { align-items: center; }
     // Commit description.
     [class*="-description"] {
-      padding-left: 16px;
       border-width: 4px;
       colors: $lighter, $darker, 0;
     }
