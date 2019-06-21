@@ -1278,6 +1278,8 @@
   // * Navigation.
   .nav-links {
     border-bottom: none;
+    // Remove border in milestones.
+    &.nav-tabs { border-bottom: none !important }
     // Links.
     li {
       a { colors: $lighter, 0, 0; }
@@ -3166,9 +3168,6 @@
   .card, .card-slim {
     radius: $radius;
     colors: 0 $darker $dark;
-    &:not(.discussion-wrapper):not(.card-new-merge-request):not(.linked-card) {
-      box-shadow: 0 0 0 1px inset $darker;
-    }
     .card-header {
       radius: $radius $radius 0 0;
       colors: $light $darker $darker;
@@ -3369,6 +3368,14 @@
     // Color in relatable issues.
     &-title { colors: $lighter, 0, 0; }
     &-banner-link { padding: 2px !important; }
+    // Reset for boards.
+    &-content {
+      .card-header {
+        colors: 0 $t $t;
+        + .content-list { box-shadow: 0 1px inset $darker }
+      }
+      li:last-child { radius: 0 0 $radius $radius }
+    }
   }
 
   // Details.
@@ -3413,6 +3420,13 @@
     border: 1px solid;
     radius: $radius;
     colors: 0, $darker, $dark;
+    &.append-bottom-20 { margin-bottom: 10px }
+  }
+  // Milestones -> Burndown chart hint.
+  .content-block.burndown-hint {
+    radius: $radius;
+    colors: 0 $darker $dark;
+    svg path[fill='#fff'] { isvg: $t }
   }
   // GitLab-Gold promotion.
   .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0; }
