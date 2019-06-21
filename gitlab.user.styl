@@ -664,10 +664,10 @@
 
   // * Navbar.
   .navbar {
-    colors: 0, $darker, 0;
-    box-shadow: 0 2px 8px -2px $shadow !important;
+    colors: 0 $darker 0;
+    box-shadow: 0 2px 4px 0 $shadow !important;
     // ? Feature -> Theme navbar color.
-    if ( navbar_c == 1 ) { colors: 0 0 $darker; }
+    if ( navbar_c == 1 ) { colors: 0 0 $dark }
     // ? Feature -> Show 'next' badge.
     if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
     .canary-badge .badge.badge-pill { colors: $white $green $green }
@@ -675,19 +675,23 @@
     .logo-text svg, svg.nav-logo .wordmark { fill: $light !important; }
     // Search.
     .search form {
-      colors: $lighter, $dark, $dark;
-      #search { colors: $lighter, 0, 0; }
+      padding: 3px 0 2px 0;
+      height: unset;
+      radius: $radius;
+      colors: $lighter $darker $darker;
+      #search { colors: $lighter 0 0 }
     }
     // Navbar links and buttons.
     a, button {
-      transition: all 0.2s ease-in-out !important;
-      colors: $lighter, 0, 0;
-      &:hover, &:focus { colors: $light, 0, $dark; }
+      transition: 0.15s ease;
+      colors: $lighter 0 0;
+      &:hover, &:focus { colors: $light 0 $darker }
     }
     // Active tab/button/menu.
     &-sub-nav, &-nav {
       > li.active, .dropdown.show {
-        > a, > button { colors: $light, 0, $dark; }
+        > a, > button { colors: $light 0 $darker }
+        svg { isvg: $light }
       }
       .btn:focus { colors: 0 0 $darker }
     }
