@@ -4863,34 +4863,46 @@
       filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
     }
   }
-  // * CI icons.
+
+  // * Icons -> CI status icons.
   .ci-status {
-    // ? Pipeline coverage.
-    &.ci-success, &-icon-success, &-icon-passed {
-      colors: $green, $green, $t;
-      svg { fill: $green !important; colors: 0, $green, 0; }
+    colors: 0 0 $dark;
+    &[class*="ci-"]:hover { colors: 0 0 $darker }
+    // Replace icon's main fill color.
+    ../ symbol[id^="status_"] { path[fill='#FFF' i] { isvg: $dark }}
+    // Colors!
+    &.ci-success,
+    &-icon-success, &-icon-passed {
+      colors: $green $green 0;
+      svg { isvg: $green }
     }
-    &.ci-running, &-icon-running {
-      colors: $blue, $blue, $t;
-      svg { fill: $blue !important; colors: 0, $blue, 0; }
+    &.ci-running,
+    &-icon-running {
+      colors: $blue $blue 0;
+      svg { isvg: $blue }
     }
-    &-icon-pending, &-icon-warning, &.ci-success-with-warnings {
-      colors: $orange, $orange, $t;
-      svg { fill: $orange !important; colors: 0, $orange, 0; }
+    &.ci-success-with-warnings,
+    &-icon-pending, &-icon-warning, &-icon-success-with-warnings {
+      colors: $orange $orange 0;
+      svg { isvg: $orange }
     }
-    &.ci-failed, &-icon-failed {
-      colors: $red, $red, $t;
-      svg { fill: $red !important; colors: 0, $red, 0; }
+    &.ci-failed,
+    &-icon-failed {
+      colors: $red $red 0;
+      svg { isvg: $red }
     }
-    &.ci-created, &.ci-skipped,
-    &.ci-canceled, &.ci-disabled,
-    &.ci-manual {
-      colors: $lighter, $darker, $t;
-      svg { fill: $icon !important; colors: 0, $icon, 0; }
+    &.ci-created, &.ci-skipped, &.ci-canceled, &.ci-disabled, &.ci-manual {
+      colors: $lighter $lighter 0;
     }
-    &-icon-skipped, &-icon-created {
-      colors: 0, $icon, 0;
-      svg { fill: $icon !important; colors: 0, $icon, 0; }
+    ^[0]-icon {
+      &-skipped, &-created, &-canceled {
+        colors: 0 $lighter 0;
+        svg { isvg: $lighter }
+      }
+      &-canceled, &-scheduled, &-disabled, &-not-found, &-manual {
+        colors: 0 $lighter 0;
+        svg { isvg: $lighter }
+      }
     }
   }
   // Icons in epics.
@@ -4904,9 +4916,6 @@
   .accepted-icon svg { fill: $cyan !important; }
   .deleted-icon svg { fill: $yellow !important; }
   .imported-icon svg { fill: $violet !important; }
-
-  // "Weird" behaving warning on pipelines page.
-  .ic-status_warning_borderless { fill: $orange !important; }
 
   // * Centers project header elements; old design lookalike.
   if ( p_header == 1 ) {
