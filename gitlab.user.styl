@@ -802,12 +802,16 @@
     &, &-nav { max-height: 352px !important }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
-    .dropdown-bold-header { colors: $light 0 0 }
+    .dropdown-bold-header, &-inner-title { colors: $light 0 0 }
+    &-inner-content { colors: $lighter 0 0 }
     // ? Input / Search.
     .dropdown-input-field, .default-dropdown-input {
       radius: $radius;
       colors: $light, $darker, $dark;
-      &:focus { box-shadow: 0 0 2px 0px $accent; }
+      &:focus {
+        colors: 0 $accent 0;
+        box-shadow: 0 2px 4px 0 $shadow;
+      }
     }
     // ? Body/Content.
     .dropdown-info-note { colors: $light, 0, 0; }
@@ -857,11 +861,7 @@
     }
     // ? Project -> Notifications.
     &-large {
-      li a {
-        transition: 0.1s ease;
-        .dropdown-menu-inner-title { colors: $light, 0, 0; }
-        .dropdown-menu-inner-content { colors: $lighter, 0, 0; }
-      }
+      li a { transition: 0.15s ease }
     }
     // ? Snippets -> Embed menu.
     &-selectable {
