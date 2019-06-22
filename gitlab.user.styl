@@ -799,6 +799,7 @@
     box-shadow: 0 4px 8px 0 $shadow;
     // ? Height reset.
     &-selectable.show { max-height: unset !important; }
+    &, &-nav { max-height: 352px !important }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
     .dropdown-bold-header { colors: $light 0 0 }
@@ -811,8 +812,12 @@
     // ? Body/Content.
     .dropdown-info-note { colors: $light, 0, 0; }
     [class*="divider"] { colors: 0, $darker, $t; }
-    // ? Search projects on `/-/operations` page.
-    .dropdown-item:not(.disable-hover):hover { colors: 0, 0, $darker; }
+    .dropdown-item {
+      colors: $lighter 0 0;
+      &:focus, &:active { colors: 0 0 $darker }
+      // ? Search projects on `/-/operations` page.
+      &:not(.disable-hover):hover { colors: 0 0 $darker }
+    }
     li {
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
