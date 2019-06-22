@@ -1825,12 +1825,19 @@
     .file-title a:not(.btn) { colors: $lighter, 0, 0; }
   }
 
-  // * Latest commit.
+  // * Project -> Last commit.
   .info-well {
+    radius: $radius;
+    colors: $light $darker $dark;
     > .well-segment {
-      padding: 6px 8px;
+      padding: 8px;
+      colors: $lighter 0 0;
       // https://gitlab.com/vednoc/dark-gitlab/commit/9caacd40
-      &:not(:last-of-type) { colors: 0, $darker, 0; }
+      &:not(:last-of-type) { colors: 0 $darker 0 }
+      a {
+        color: $light;
+        img { margin: 1px 8px 0 0 }
+      }
     }
     // Deleted branch.
     // ! Might not be necessary anymore.
@@ -2450,14 +2457,6 @@
       margin: 0.75rem 0;
       font-size: 1.0rem;
     }
-  }
-
-  /* Latest commit message.. */
-  .info-well {
-    margin-bottom: 0;
-    radius: $radius;
-    colors: $light, $darker, $dark;
-    a { color: $lighter; }
   }
 
   /* Commit button. */
