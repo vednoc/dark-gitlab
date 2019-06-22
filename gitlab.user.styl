@@ -2949,6 +2949,7 @@
     // Cards.
     .card {
       radius: $radius;
+      box-shadow: 0 0 0 1px inset $darker;
       .card-header { radius: $radius $radius 0 0; }
     }
     // * Skeleton.
@@ -2956,6 +2957,14 @@
       .bg-light { colors: 0 0 $darker }
       .dashboard-card-skeleton-info::after {
         background-image: linear-gradient(to right, $t 0%, $dark 50%, $t 100%)
+      }
+    }
+    // Modals -> Add projects.
+    #add-projects-modal .project-list-item {
+      colors: 0 0 $t;
+      &:hover {
+        colors: $light 0 $darker;
+        .identicon { colors: 0 0 $dark }
       }
     }
   }
