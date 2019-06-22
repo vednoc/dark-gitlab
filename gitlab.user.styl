@@ -2554,9 +2554,10 @@
     box-shadow: 0 0 0 1px inset $darker;
     // ? File holder.
     .tree-table tr {
+      td { transition: 0.15s ease !important }
       // ? Hide borders on file-holder.
-      &, th { colors: 0 $t 0 }
-      td { transition: 0.15s ease }
+      ../ .tree-table thead tr { border: none }
+      &:last-of-type { colors: 0 $t 0 }
       // ? Table cells.
       &.tree-item {
         // Git submodules.
