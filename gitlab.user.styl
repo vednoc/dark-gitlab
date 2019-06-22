@@ -33,7 +33,6 @@
 @var color darker  "Darker color."  #212121
 @var color light   "Light color."   #d1d1d1
 @var color lighter "Lighter color." #e9e9e9
-@var color icon    "Icon color."    #e1e1e1
 @var color accent  "Accent color."  #7289da
 @var color yellow  "Yellow color."  #f0c674
 @var color orange  "Orange color."  #de935f
@@ -56,7 +55,6 @@
     --light     : light;
     --lighter   : lighter;
     --accent    : accent;
-    --icon      : icon;
     --shadow    : shadow;
     --box-shadow: 0 2px 3px 0 var(--shadow);
     --yellow    : yellow;
@@ -91,7 +89,6 @@
   $light   = var(--light);
   $lighter = var(--lighter);
   $accent  = var(--accent);
-  $icon    = var(--icon);
   $shadow  = var(--shadow);
   $yellow  = var(--yellow);
   $orange  = var(--orange);
@@ -337,7 +334,7 @@
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
   .nav-controls .has-tooltip svg, .award-control-icon svg, .commit-icon {
-    path { fill: $icon !important; }
+    path { fill: $lighter !important; }
   }
 
   // * Global -> Bootstrap reset.
@@ -3974,7 +3971,7 @@
       .ace_button {
         padding: 5px;
         border-radius: 3px;
-        colors: $icon, $t, $dark;
+        colors: $lighter $t $dark;
         &:hover, &.checked { colors: $accent, 0, $t; }
       }
     }
@@ -4203,7 +4200,7 @@
     }
     // Icons.
     .ide-tree-header button {
-      color: var(--icon);
+      color: $lighter;
       transition: all 0.2s ease-in-out;
       &[aria-expanded="true"] { colors: 0, 0, $darker; }
     }
