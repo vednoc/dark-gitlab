@@ -725,16 +725,16 @@
   // * Dropdown.
   .dropdown {
     // ? Toggles.
-    &-toggle, &-menu-toggle:not(.search-input) {
+    &-toggle, &-menu-toggle {
       transition: 0.15s ease;
-      colors: $lighter $darker $dark;
-      &:not([class*="btn-"]) { colors: 0 0 $darker }
+      &:not(.search-input) { colors: $lighter $darker $dark }
+      &:hover:not([class*="btn-"]) { colors: $light 0 $darker }
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
       // ? Active state for toggles.
       ^[0].show & {
-        colors: 0 0 $darker;
-        ^[-1] .dropdown-toggle-text { colors: $light 0 0 }
+        colors: $light 0 $darker;
+        ^[2] ^[0]-toggle-text { colors: $light 0 0 }
       }
     }
     // On event.
