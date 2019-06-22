@@ -369,6 +369,7 @@
       &.merge-requests-count { colors: $white 0 $orange }
       &.todos-count { colors: $white 0 $blue }
     }
+    &-gray { colors: $light $darker $darker }
   }
   // Text colors.
   .warning-title { colors: $orange, 0, 0; }
@@ -1973,15 +1974,6 @@
   .branch-info > span {
     color: $light !important;
   }
-  /* Badge. */
-  .info-well .badge.badge-gray {
-    color: $light;
-    border: 1px solid $darker;
-    background-color: $dark;
-  }
-  // TODO move to the global styles.
-  .badge.badge-gray, .label.badge-gray { colors: 0, 0, $darker; }
-
 
   // * Timeline content.
   .timeline-entry {
