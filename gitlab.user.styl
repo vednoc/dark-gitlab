@@ -452,6 +452,7 @@
     &.comment-btn, .comment-btn, .commit-btn {
       colors: $white $green $green;
       &:hover { opacity: 0.75; }
+      .fa { color: inherit !important }
     }
     // TODO: Find where this button is located.
     &-create.comment-btn { colors: $green $green $dark; }
@@ -679,7 +680,7 @@
     .logo-text svg, svg.nav-logo .wordmark { fill: $light !important; }
     // Search.
     .search form {
-      padding: 3px 0 2px 0;
+      padding: 4px 2px 3px;
       height: unset;
       radius: $radius;
       colors: $lighter $darker $darker;
@@ -797,6 +798,8 @@
         &:hover, &:active, &:focus { colors: $light, 0, $darker; }
       }
     }
+    // ? Project -> Insights.
+    &.js-insights-dropdown { padding-left: 0 }
   }
   .dropdown-menu {
     radius: $radius;
