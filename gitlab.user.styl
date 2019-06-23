@@ -2328,10 +2328,7 @@
 
   // * Project :: Project/group home panel.
   .project-home-panel, .group-home-panel {
-    margin-top: 8px;
-    colors: 0, $t, 0;
-    // Shorten description.
-    .project-description { max-width: 60em; }
+    colors: 0 $t 0;
     // Text color.
     .text-secondary { colors: $lighter 0 0; }
     // Remove button backgrounds.
@@ -2340,7 +2337,7 @@
     .project-metadata * {
       colors: $lighter, 0, 0;
       // Reset license button.
-      &.project-license .btn { background: $red !important }
+      &.project-license .btn { colors: 0 0 $t }
     }
     // Project tags.
     .home-panel-topic-list {
@@ -2396,7 +2393,6 @@
   }
   // * Remove unnecessary whitespace.
   .project-home-panel {
-    padding: 0;
     // Badges.
     .prepend-top-default { margin: 10px 0 10px 0 !important; }
     // Project description.
