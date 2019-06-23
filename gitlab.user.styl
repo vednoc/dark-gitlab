@@ -530,6 +530,11 @@
     &-open { colors: $white, 0, $green; }
     &-issue-closed { colors: $white, 0, $blue; }
   }
+  // Confidential icon.
+  .issuable-warning-icon {
+    colors: 0 0 $darker;
+    svg.icon { isvg: $orange }
+  }
 
   // * Global styles.
   [class*="committer-link"],
@@ -2000,6 +2005,15 @@
     }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
+    // Alerts -> Command alerts.
+    .flash-container .flash-notice { colors: $white 0 $blue }
+    // Confidential issue warning.
+    .new-note .issuable-note-warning {
+      padding: 6px 8px 4px;
+      colors: $orange $darker $dark;
+      svg.icon { isvg: $orange }
+      + .md-area { radius: 0 }
+    }
   }
 
   // * Note.
