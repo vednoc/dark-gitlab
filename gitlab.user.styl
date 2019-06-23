@@ -2036,20 +2036,9 @@
     time { color: $lighter; }
   }
   // * Notes.
-  // #notes {
-  //   radius: $radius;
-  //   border: 1px solid;
-  //   colors: 0, $darker, 0;
-  // }
   .notes {
     colors: 0 0 $t;
-    // Text color.
-    // ? Be super-specific because they're using !important on upstream. :p
-    > li .note-body div.note-text blockquote p,
-    > li .note-body div.note-text .blockquote p {
-      colors: $light, 0, 0;
-    }
-    a, a:hover { color: $accent !important; }
+    a, a:hover { colors: $accent 0 0 }
     // ? MR -> Notes -> Suggestions.
     .md-suggestion-header {
       radius: $radius $radius 0 0;
@@ -2137,10 +2126,8 @@
     }
     p >, a >, :not(pre) > { code { colors: $light $darker $darker }}
     blockquote {
-      padding-left: 16px !important;
-      border-left: none !important;
-      box-shadow: inset 4px 0 0 0 $darker !important;
-      &[dir="auto"] p { colors: $lighter 0 0 }
+      border-left: 4px solid $darker !important;
+      &[dir] p { colors: $lighter 0 0 }
     }
     img:not(.emoji) {
       border: none;
