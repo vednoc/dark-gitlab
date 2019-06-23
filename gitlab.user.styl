@@ -3219,22 +3219,25 @@
     }
   }
 
-  // * Emoji picker.
+  // * Emoji menu.
   .emoji-menu {
     radius: $radius;
     colors: 0 $darker $dark;
     box-shadow: 0 4px 8px 0 $shadow;
   }
-  // * Emoji autocomplete.
+
+  // * Auto-complete menu.
   .atwho-view {
     radius: $radius;
     colors: $lighter $darker $dark;
     box-shadow: 0 2px 4px 0 $shadow;
     .atwho-view-ul {
       li {
-        colors: $lighter 0 0;
+        colors: $light 0 0;
         // Matching text.
-        strong { colors: $light 0 0 }
+        strong { colors: $accent 0 0 }
+        // Light text.
+        small, .params { colors: $lighter 0 0 }
         // Selected.
         &:hover, &.cur { colors: $light 0 $darker }
       }
