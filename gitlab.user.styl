@@ -1986,9 +1986,10 @@
     }
   }
   // Show/hide replies.
-  .replies-toggle {
+  .notes .replies-toggle {
     colors: $lighter, $darker, $dark;
-    &:hover span { colors: $light, 0, 0; }
+    &:not(.expanded) { border-bottom: 0 }
+    &:hover span { colors: $light 0 0 }
   }
   /* Text color. */
   .branch-info > span {
@@ -3625,18 +3626,12 @@
       colors: 0, 0, $dark;
     }
   }
-  // TODO merge with other discussion styles.
-  .discussion-body .discussion-reply-holder,
-  .diff-file .discussion-reply-holder {
-    radius: 0 !important;
-    border-top-color: $darker;
-    border-bottom: 1px solid $darker;
-    background-color: var(--dark);
-  }
-  // ? If reply is the last child, apply rounded corners and hide bottom color.
-  .discussion-notes > .discussion-reply-holder:last-child {
-    radius: 0 0 $radius $radius !important;
-    colors: 0, $t, 0;
+  // * Notes -> Reply section.
+  .discussion-body, .diff-file {
+    .discussion-reply-holder {
+      colors: 0 $darker $t;
+      &:last-child { radius: 0 0 $radius $radius !important; }
+    }
   }
   // Comments disabled.
   .disabled-comment {
