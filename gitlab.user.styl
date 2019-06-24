@@ -5121,10 +5121,15 @@
       }
       p a, p a > a { colors: $accent, 0, 0; }
     }
-    .btn.btn-red { colors: $light, $red, $darker; }
+    .btn {
+      &-red { colors: $light $red $darker }
+      &-default { colors: $light $darker 0 }
+    }
     .twitter-block .panel-body { colors: $lighter, 0, $darker; }
     // Availability of the features.
-    .badge:not(.available) { colors: $light, $darker, $darker; }
+    .badge:not(.available) { colors: $light $darker $dark }
+    .top-row .badge.available { colors: $white $red $red }
+    .bottom-row .badge.available { colors: $white $orange $orange }
     // Previous/next buttons.
     .pull-left a, .pull-right a { colors: $light, $darker, $dark; }
     // Signup section.
