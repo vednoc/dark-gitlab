@@ -21,7 +21,7 @@
 @var checkbox dark_logo "Switch to our darker logo" 0
 @var checkbox navbar_c  "Navbar: Theme navbar color" 1
 @var checkbox navbar_n  "Navbar: Show 'next' badge" 1
-@var checkbox invert_ic "Icons: Invert in browsers without shadow dom support" 0
+@var checkbox invert_ic "Icons: Invert in Chromium-based browsers" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05) invert(var(--bg-invert))
@@ -4850,14 +4850,16 @@
   }
 
   // * Feature -> Invert icons in Shadow DOM.
-  if ( invert_ic == 1 ) {
-    .created-icon, .opened-icon,
-    .ci-status-icon > svg,
-    [class*="ci-status"] svg.s24,
-    [class*="ci-status"]:not(#stageDropdown) svg.s16,
-    a[class*="ci-status"] svg, svg.ic-upload {
-      // ? Does not work with ThemeSwitcher.
-      filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
+  @supports not (-moz-user-select: none) {
+    if ( invert_ic == 1 ) {
+      .created-icon, .opened-icon,
+      .ci-status-icon > svg,
+      [class*="ci-status"] svg.s24,
+      [class*="ci-status"]:not(#stageDropdown) svg.s16,
+      a[class*="ci-status"] svg, svg.ic-upload {
+        // ? Does not work with ThemeSwitcher.
+        filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
+      }
     }
   }
 
