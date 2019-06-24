@@ -848,6 +848,7 @@
         colors: $lighter 0 0;
         transition: 0.15s ease;
       }
+      .btn-default { colors: $lighter 0 0 }
       .is-focused, a:focus, a:active { colors: $light 0 $darker }
       &.droplab-item-active .btn { colors: $light 0 $darker }
     }
@@ -3354,29 +3355,29 @@
     padding: 0px;
     colors: 0, 0, $t;
     // List.
-    .manage-labels-list > li:not(.empty-message):not(.is-not-draggable) {
-      margin-bottom: 10px;
-      radius: $radius;
-      colors: 0, $darker, $dark;
-      transition: background 0.2s ease-in-out;
-      &:hover { colors: 0, $darker, $darker; }
+    .manage-labels-list > li:not(.empty-message) {
+      &:not(.no-border) {
+        border: 1px solid $darker !important;
+        box-shadow: none !important;
+      }
+      &:not(.is-not-draggable) {
+        margin-bottom: 8px;
+        radius: $radius;
+        colors: 0 $darker $dark;
+      }
     }
-    .label-badge-gray {
-      border: 1px solid;
-      colors: $light, $darker, $dark;
-    }
-    .label-badge-blue, .badge-info {
-      border: 1px solid;
-      colors: $light, $blue, $dark;
-    }
-    // Fix subscribe button.
-    .dropdown > button.label-subscribe-button {
-      padding: 3px;
-      margin-top: -3px;
-      font-weight: normal;
+    .label {
+      // Badges.
+      &-badge-gray { colors: $light $darker $darker }
+      &-badge-blue { colors: $white $blue $blue }
+      &-subscribe-button[data-toggle] {
+        width: auto;
+        padding: 3px 8px ;
+        margin-top: -3px;
+        font-weight: normal;
+      }
     }
   }
-
 
   // * Issues :: Milestones.
   .milestones {
