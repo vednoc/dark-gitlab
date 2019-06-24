@@ -425,6 +425,15 @@
     }
   }
 
+  // * Global -> Scoped labels.
+  .scoped-label {
+    .fa-question-circle {
+      colors: 0 0 $t;
+      &[style*="color: #FFFFFF"]  { color: #ffffff !important }
+      &[style*="color: #333333"]  { color: #000000 !important }
+    }
+  }
+
   // * Button reset.
   .btn {
     // ? Base selectors.
