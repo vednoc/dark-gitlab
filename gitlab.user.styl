@@ -2097,6 +2097,7 @@
 
   // * Issues :: New note.
   .common-note-form .md-area {
+    padding: 8px;
     radius: $radius;
     colors: 0, $darker, $dark;
     &.is-focused {
@@ -3652,15 +3653,16 @@
     .discussion-reply-holder {
       colors: 0 $darker $t;
       &:last-child { radius: 0 0 $radius $radius !important; }
+      + .new-note { colors: 0 $darker 0 }
     }
   }
   // Comments disabled.
   .disabled-comment {
     margin-top: 10px;
-    padding: 16px 0;
+    padding: 8px 0;
     radius: $radius;
     colors: $light, $darker, $dark;
-    a { color: $accent; }
+    a[href] { color: $accent }
     [class*="warning"] { colors: $orange, $t, $t; }
   }
   /* Text color. */
@@ -4116,6 +4118,7 @@
     .article-metadata { colors: $light, 0, 0; }
     .highlight.plaintext code { colors: $light, 0, 0; }
     code {
+      radius: 3px;
       border: 1px solid;
       colors: $accent, $darker, $dark;
     }
