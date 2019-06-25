@@ -3844,6 +3844,8 @@
     }
     // Highlight the hovered line.
     &:not(.parallel):hover, &.parallel td.is-over { colors: 0 0 $darker }
+    // Divider for right pane in side-by-side mode.
+    &.parallel > td:nth-child(3) { box-shadow: -1px 0 $darker }
   }
   /* Text colors. */
   .diff-stats-summary-toggler { color: $blue !important; }
