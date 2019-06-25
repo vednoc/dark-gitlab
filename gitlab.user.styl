@@ -2131,6 +2131,16 @@
     colors: $light, $dark, 0;
     a { colors: $accent, 0, 0; }
     h1, h2 { colors: 0, $darker, 0; }
+    // Hack for anchors reported in #61.
+    for i in 1..6 {
+      h{i} > a.anchor[href] {
+        left: 0px;
+        margin: 0 0 0 -10px;
+        position: relative;
+        font-size: 1rem;
+        &::after { content: "#" }
+      }
+    }
     hr { colors: 0 $darker 0; }
     pre {
       &:not([class]) {
