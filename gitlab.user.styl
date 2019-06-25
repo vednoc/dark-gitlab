@@ -2027,9 +2027,11 @@
     // Confidential issue warning.
     .new-note .issuable-note-warning {
       padding: 6px 8px 4px;
+      radius: $radius $radius 0 0;
       colors: $orange $darker $dark;
       svg.icon { isvg: $orange }
-      + .md-area { radius: 0 }
+      // Reset corners in confidential issues.
+      + .md-area { radius: 0 0 $radius $radius }
     }
   }
 
