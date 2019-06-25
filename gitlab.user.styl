@@ -6029,6 +6029,63 @@
     }
   }
 
+  // * Search results page.
+  // ? https://docs.gitlab.com/search/?q=test&idx=gitlab&p=1
+  .instantsearch-input {
+    .ais-search-box {
+      colors: 0 0 $t;
+      &--input {
+        radius: $radius;
+        colors: $light $darker $dark;
+        box-shadow: 0 2px 4px 0 $shadow;
+        &:focus { colors: 0 $accent 0 }
+      }
+      &--magnifier { pointer-events: none }
+    }
+    .search-results {
+      .ais-stats {
+        &, .stats {
+          opacity: 1;
+          colors: $lighter 0 0;
+        }
+      }
+      .ais-header {
+        colors: 0 $darker 0;
+        + .ais-body {
+          label { colors: $light 0 0 }
+          label > span { colors: $light 0 $darker }
+        }
+      }
+      // Results.
+      .hit {
+        &-content {
+          padding: 8px;
+          font-size: 1rem;
+          colors: 0 $t 0;
+          box-shadow: none;
+          em { colors: $accent 0 $t }
+        }
+        &-text { colors: $lighter 0 0 }
+        &-tag {
+          radius: 0 0 3px 3px;
+          colors: $light $t $t;
+        }
+      }
+      .ais-infinite-hits {
+        radius: $radius;
+        colors: 0 0 $dark;
+        box-shadow: inset 0 0 0 1px $darker;
+        &__empty { padding: 8px }
+        &--item:not(:first-child) { box-shadow: 0 -1px $darker }
+        &--showmore > button {
+          radius: $radius;
+          border: 1px solid;
+          colors: $lighter $darker $dark;
+        }
+      }
+    }
+  }
+
   // * Code blocks.
   pre.highlight {
     radius: $radius !important;
