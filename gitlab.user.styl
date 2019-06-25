@@ -22,6 +22,7 @@
 @var checkbox navbar_c  "Navbar: Theme navbar color" 1
 @var checkbox navbar_n  "Navbar: Show 'next' badge" 1
 @var checkbox invert_ic "Icons: Invert in Chromium-based browsers" 1
+@var checkbox enable_sb "Enable custom scrollbars" 1
 @var checkbox bg_invert "Background inversion" 1
 @var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
 @var text     bg_filter "Background filters" opacity(0.05) invert(var(--bg-invert))
@@ -79,7 +80,6 @@
     --bg-repeat : bg_repeat;
     --bg-pos    : bg_pos;
     --background: bg_image;
-    scrollbar-color: var(--darker) var(--dark);
   }
 
   // * Use stylus-lang variables with CSS variables.
@@ -120,11 +120,14 @@
   // * Border radius mixin.
   radius() { border-radius: arguments }
 
-  // Scrollbars.
-  ::-webkit-scrollbar {
-    width: 12px;
-    &-track { background: $dark; }
-    &-thumb { background: $darker; }
+  // * Scrollbars.
+  if ( enable_sb == 1 ) {
+    html { scrollbar-color: $darker $dark }
+    ::-webkit-scrollbar {
+      width: 12px;
+      &-track { background: $dark; }
+      &-thumb { background: $darker; }
+    }
   }
   // Input placeholder.
   ::placeholder { color: $lighter !important; }
