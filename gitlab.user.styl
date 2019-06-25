@@ -1628,10 +1628,7 @@
       .branch-title a { colors: $light, 0, 0; }
       .branch-commit {
         colors: $lighter, 0, 0;
-        .commit-sha {
-          font-size: 100%; // ! Why smaller font? @upstream
-          colors: $accent, 0, 0;
-        }
+        .commit-sha { colors: $light 0 0 }
         time, .commit-row-message { colors: $lighter, 0, 0; }
       }
     }
@@ -4977,11 +4974,16 @@
   }
 
   // * Code font.
-  .gfm-commit, .diff-file table,
+  .diff-file table,
   code, .code, pre.code code,
   [class*="monospace"], .ref-name,
   .diff-line-num, .diff-line-num a,
   #editor, .monaco-editor * {
+    font-family: var(--mono-font) !important;
+  }
+  // Resets for code areas.
+  .commit-sha, .gfm-commit, .gfm-commit_range, .ref-name {
+    font-size: 100%;
     font-family: var(--mono-font) !important;
   }
 
