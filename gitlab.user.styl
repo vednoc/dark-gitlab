@@ -6093,10 +6093,15 @@
 
   // * Code blocks.
   pre.highlight {
-    radius: $radius !important;
-    box-shadow: 0 2px 4px -1px $shadow;
-    // Roundify corners.
-    code { radius: inherit; }
+    radius: $radius;
+    colors: 0 $darker $t;
+    box-shadow: 0 2px 4px 0 $shadow;
+    code {
+      white-space: pre-wrap;
+      word-break: break-all;
+      radius: inherit;
+      colors: 0 $t 0;
+    }
     // Copy to clipboard.
     .clip-btn {
       top: 1px; right: 1px;
