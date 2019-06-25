@@ -4055,29 +4055,6 @@
     &:hover, &:focus { colors: $accent, 0, 0; }
   }
 
-  // * Docs :: Landing page.
-  // TODO: Merge with styles found in `docs` regex.
-  .landing {
-    .landing-header-top { colors: 0, $darker, $darker; }
-    // Search.
-    .input-container input {
-      colors: $light, 0, $darker;
-      &:focus { box-shadow: 0 4px 16px -4px $shadow; }
-    }
-    // Cards.
-    .main-topics li {
-      border: 1px solid;
-      colors: 0, $darker, $dark;
-      box-shadow: 0 4px 16px -4px $shadow !important;
-    }
-    // Header/footer.
-    .landing-header, .footer {
-      colors: $light, 0, $dark;
-      // Created/cookies/edit.
-      .source-link { colors: $light, 0, $darker; }
-    }
-  }
-
   // * Docs :: Search results.
   .algolia-autocomplete {
     [class*="dataset"] { colors: $light, $darker, $dark;
@@ -5873,28 +5850,40 @@
   #login-form a { colors: $light 0 0 }
 }
 
-// * Code for docs page on GitLab.
-// ? Might be split into a separate userstyle if it gets quite large.
-// ! @RaitaroH takes the full responsibility for this section. (=
-
 @-moz-document regexp("https?://docs.gitlab.com(/.*)") {
-  // Navbar
-  .landing .scrolling-header {
-    box-shadow: $box;
-  }
-
   // * Landing page.
   .landing {
-    // Navigation.
-    .header-link {
-      text-decoration: none !important;
-      &:hover p { colors: $accent, 0, 0; }
-    }
     // Search container.
     .landing-header {
-      colors: 0, 0, $dark;
+      colors: $light 0 $dark;
       box-shadow: 0 1px 0 0 $darker, 0 2px 8px 0 $shadow;
-      .input-container img { filter: invert(var(--bg-invert)); }
+      // Navbar.
+      &-top {
+        colors: 0 $darker $dark;
+        box-shadow: 0 1px 0 0 $darker, 0 2px 4px 0 $shadow;
+        // Items.
+        .header-link {
+          transition: 0.15s ease;
+          text-decoration: none !important;
+          &:hover p { colors: $accent, 0, 0; }
+        }
+      }
+      // Search.
+      .input-container {
+        img { filter: invert(var(--bg-invert)) }
+        input {
+          radius: $radius;
+          colors: $light 0 $darker;
+          &:focus { box-shadow: 0 4px 16px -4px $shadow; }
+        }
+      }
+    }
+    // Cards.
+    .main-topics li {
+      radius: $radius;
+      border: 1px solid;
+      colors: 0 $darker $dark;
+      box-shadow: 0 4px 16px -4px $shadow !important;
     }
     // Most popular topics.
     .topic h4 { colors: 0, $darker, 0; }
@@ -5930,12 +5919,13 @@
 
   // Footer
   .footer {
-    background-color: $darker;
-    box-shadow: 0 -1px 0 0 $darker, 0 -2px 8px 0 $shadow;
+    colors: 0 0 $dark;
+    box-shadow: 0 -1px 0 0 $darker, 0 -2px 4px 0 $shadow;
     // Colorize icons.
     a:hover .fa { colors: $accent, 0, 0; }
     // "Created with" section.
     .source-link {
+      border-top: 1px solid;
       colors: $lighter, $darker, $dark;
       a { colors: $accent, 0, 0; }
     }
