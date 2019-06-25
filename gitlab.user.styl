@@ -5963,24 +5963,29 @@
     * > a { colors: $accent, 0, 0; }
     // Help and feedback section.
     .comments {
-      margin: 0 auto -45px auto;
+      margin: 16px auto -16px auto;
       radius: $radius;
-      colors: 0, 0, $darker;
+      border: 1px solid;
+      colors: 0 $darker $dark;
       .nav-tabs {
-        border-color: $dark;
         margin: 0;
-        li a { colors: $lighter, $dark, $t; }
-        li.active a {
-          border-bottom: none !important;
-          colors: $light, $accent, $t;
+        border-color: $darker;
+        li a {
+          border-bottom: none;
+          radius: $radius $radius 0 0;
+          colors: $lighter $darker $t;
+          &.active { colors: $light $darker $darker }
         }
       }
       // Buttons.
       .comments-filter a.comments-holder {
-        colors: 0, $dark, $dark;
+        colors: 0 $darker $dark;
         box-shadow: none !important;
       }
-      .tab-content .row { border-bottom-color: $dark; }
+      .tab-content .row {
+        margin-top: 16px;
+        colors: 0 $darker 0;
+      }
     }
   }
   .anchor {
