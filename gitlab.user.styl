@@ -5994,30 +5994,37 @@
   // * Left sidebar.
   .global-nav {
     colors: 0, 0, $dark;
+    box-shadow: 1px 0 $darker;
     a.active { colors: $lighter, $accent, $darker; }
     &-block-top a { color: $light; text-shadow: none; }
     &-link {
       color: $lighter;
       box-shadow: none !important;
       transition: all 0.15s ease-in-out;
-      &:visited { colors: $lighter, 0, 0; }
+      &:visited { colors: $violet 0 0 }
       &:hover, &:focus { colors: $light, 0, $darker; }
+    }
+    .nav-link {
+      transition: 0.15s ease;
+      &:hover {
+        colors: 0 0 $darker;
+        box-shadow: none;
+      }
     }
   }
 
   // * Right sidebar.
   .doc-nav {
-    right: 8px;
+    right: -12px;
     height: calc(100vh + 20px);
-    colors: $lighter, 0, $darker;
+    colors: $lighter 0 $t;
     // Wrapper.
     #markdown-toc {
-      margin: 0px;
-      h4, li { padding-left: 8px; }
       a {
         text-decoration: none;
-        colors: $lighter, 0, 0;
-        &:hover { colors: $accent, 0, 0; }
+        colors: $lighter 0 0;
+        &:hover { colors: $light 0 0 }
+        &.active { colors: $accent 0 0 }
       }
     }
   }
