@@ -610,6 +610,16 @@
     &:focus { colors: $light $blue 0 }
     &:disabled, &[readonly] { colors: $lighter $darker 0 }
   }
+  // ? Spinner in pipelines.
+  .spinner {
+    margin-bottom: -4px;
+    border-color: $darker;
+    border-top-color: $accent;
+    &&-md {
+      width: 24px;
+      height: @width;
+    }
+  }
 
   // * Sign in/register page.
   .login-page {
@@ -4898,6 +4908,13 @@
         svg { isvg: $lighter }
       }
     }
+  }
+  // * Icons -> Borderless CI status icons.
+  .ic-status {
+    &_warning_borderless { colors: 0 $orange 0 }
+    &_success_borderless { colors: 0 $green 0 }
+    &_running_borderless { colors: 0 $blue 0 }
+    &_failed_borderless { colors: 0 $red 0 }
   }
   // Icons in epics.
   .issue-token-state-icon-open { fill: $green !important; }
