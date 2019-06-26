@@ -2607,7 +2607,7 @@
       radius: $radius;
       colors: 0, 0, $dark;
       li {
-        transitions: all 0.15s ease-in-out;
+        transition: 0.15s ease;
         &:hover { colors: 0, 0, $darker; }
       }
       .group-row .stats { color: $lighter; }
@@ -4810,9 +4810,9 @@
     svg {
       margin-top: -75px;
       text { isvg: $lighter false }
-      path, line { svg: false $lighter }
+      path, line { isvg: false $lighter }
       rect {
-        fill: url(none) !important;
+        fill: $t !important;
         &.bar-rect { isvg: $darker $blue }
         &[fill="#fff" i] { isvg: $dark false }
       }
