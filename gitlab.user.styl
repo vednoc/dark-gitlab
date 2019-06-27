@@ -826,7 +826,13 @@
       }
     }
     // ? Project -> Insights.
-    &.js-insights-dropdown { padding-left: 0 }
+    &.js-insights-dropdown {
+      padding-left: 0;
+      button.dropdown-toggle {
+        box-shadow: none !important;
+        &:focus, ../.show .dropdown-toggle { colors: $light $darker $darker }
+      }
+    }
   }
   .dropdown-menu {
     radius: $radius;
