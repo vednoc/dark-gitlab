@@ -1966,15 +1966,6 @@
     &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
   }
 
-  // Image background.
-  // TODO refactor with other file-holder related elements.
-  .diff-content .file-container,
-  .file-holder .file-content.image_file,
-  .file_holder .file-content.video,
-  .file-holder .file-content.blob-no-preview {
-    background-color: $dark;
-  }
-
   // * Diff :: Image.
   .diff-file {
     .image { colors: 0, 0, $t; }
@@ -2550,7 +2541,10 @@
       }
     }
     // ? Body.
-    .file-content { colors: 0, 0, $t; }
+    .file-content {
+      colors: 0 0 $t;
+      &.blob-no-preview h4 { text-shadow: none }
+    }
   }
 
   // * Wiki.
