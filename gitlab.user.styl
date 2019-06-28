@@ -2658,7 +2658,8 @@
       colors: 0 0 $dark;
       box-shadow: 0 -1px 0 0 inset $darker;
       .cover-title { colors: $light, 0, 0; }
-      .cover-desc { colors: $lighter, 0, 0; }
+      .cover-desc, .middle-dot-divider { colors: $lighter, 0, 0; }
+      .cover-status { padding: 8px 0 4px }
     }
     // ? Calendar in activity. @obsolete
     #activity > .row-content-block { colors: 0, $darker, $dark; }
@@ -2793,7 +2794,7 @@
       padding: 8px !important;
       &-activities {
         .bordered-list li { padding: 8px }
-        h4 { padding: 8px }
+        h4 { &, & + p { padding: 8px }}
       }
     }
   }
