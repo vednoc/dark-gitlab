@@ -458,6 +458,11 @@
       colors: $light $darker $darker;
       svg { fill: $light !important }
     }
+    &-secondary {
+      &:not(:disabled):not(.disabled) {
+        &:active, &.active { colors: $light $darker $darker }
+      }
+    }
     &-link {
       colors: $lighter $t 0;
       &:hover { colors: 0 0 $t }
