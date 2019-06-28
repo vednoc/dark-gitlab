@@ -4645,6 +4645,23 @@
     .ci-build-txt, .ci-status-text { font-weight: normal; }
   }
 
+  // * Pipelines -> Mini pipelines in notes.
+  // ? https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/30080
+  .linked-pipeline-mini-list {
+    .arrow-icon { margin-top: 2px }
+    .linked-pipeline-mini-item {
+      margin-top: 5px !important;
+      > svg { margin: 1px 0 0 1px }
+      // Fix size and on-hover event.
+      &[class*="ci-status-icon-"] {
+        width: 24px;
+        height: @width;
+        colors: 0 0 $darker;
+        ../:hover > svg { margin: 0 }
+      }
+    }
+  }
+
   // * Pipelines :: Failed Jobs.
   .build-failures {
     .table {
