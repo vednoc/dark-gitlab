@@ -2488,8 +2488,25 @@
       radius: 0 0 $radius $radius;
       colors: 0, $darker, $dark;
     }
-    // Protected tag card.
-    .protected-tags-list > .card-header { colors: $light, $darker, $darker; }
+    // Protected branches/tags/envs.
+    &-content {
+      [class^="protected-"] {
+        radius: $radius;
+        border: 1px solid $darker;
+        > .card-header {
+          radius: $radius $radius 0 0;
+          colors: $light $darker $darker;
+         }
+        > .settings-message { radius: 0 0 $radius $radius }
+        .table-bordered {
+          margin: 0;
+          border: none;
+          radius: $radius;
+          box-shadow: none;
+          th, td { border: none }
+        }
+      }
+    }
   }
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
