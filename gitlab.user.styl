@@ -1892,6 +1892,15 @@
       colors: 0, 0, $t;
       box-shadow: inset 0 0 0 1px $red;
     }
+    // Diff -> Nav on commit details page.
+    + .nav-links {
+      padding: 0 8px;
+      margin-top: -6px;
+      radius: $radius;
+      border: 1px solid;
+      colors: 0 0 $dark;
+      a { border-bottom-width: 1px !important }
+    }
   }
 
   // * GPG button.
@@ -2053,6 +2062,8 @@
 
   // * Note.
   .note {
+    // Notes on commits.
+    &:not(.system-note) { colors: 0 0 $dark }
     // Profile links.
     .note-headline-light { colors: $lighter, 0, 0; }
   }
