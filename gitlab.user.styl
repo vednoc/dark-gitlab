@@ -560,6 +560,7 @@
   // * Global styles.
   [class*="committer-link"],
   [class*="author-link"],
+  .ref-name,
   .js-user-link,
   .author_name a {
     color: $accent !important;
@@ -3508,6 +3509,11 @@
     colors: 0, $darker, $dark;
     &.append-bottom-20 { margin-bottom: 10px }
   }
+  // ? Callout in .../project/environments
+  .canary-deployment-callout {
+    border-top: 1px solid $darker;
+    border-bottom: none;
+  }
   // Milestones -> Burndown chart hint.
   .content-block.burndown-hint {
     radius: $radius;
@@ -4562,7 +4568,7 @@
       margin-bottom: 0;
       // Pipelines.
       > [class*="row"] {
-        padding: 2px 4px 2px 8px;
+        padding: 8px;
         border-color: var(--darker);
       }
       // Header.
