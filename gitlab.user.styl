@@ -502,11 +502,16 @@
       &:hover { opacity: 0.75; }
     }
     // Blank buttons.
-    &-cancel, &-retry, &-clipboard {
+    &-cancel, &-retry {
       colors: $lighter $darker $dark;
       &:hover { colors: $light 0 $darker; }
     }
     &-blank { colors: $lighter 0 $t; }
+    &-clipboard {
+      colors: $lighter $darker $t;
+      &:hover { colors: $light 0 0;
+      &:hover svg { isvg: $light }
+    }
     // Comment on a note.
     &-text-field {
       colors: $lighter, $darker, $darker;
