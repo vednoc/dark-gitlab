@@ -1626,6 +1626,8 @@
     // Commit description.
     [class*="-description"] {
       border-width: 4px;
+      font-size: inherit;
+      font-family: var(--ui-font);
       colors: $lighter, $darker, 0;
     }
   }
@@ -3852,7 +3854,11 @@
       > .mr-widget-section:first-child { border-top: none; }
     }
     // Branch name.
-    .label-branch { color: $red, 0, 0; }
+    .label-branch {
+      font-size: inherit;
+      font-weight: inherit;
+      font-family: var(--ui-font);
+    }
     // Found on: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3023
     .ci-widget { colors: $lighter, 0, 0; }
   }
@@ -5077,7 +5083,7 @@
   // Resets for code areas.
   .commit-sha, .gfm-commit, .gfm-commit_range, .ref-name {
     font-size: 100%;
-    font-family: var(--mono-font) !important;
+    font-family: var(--ui-font) !important;
   }
 
   // * Feature -> Fix alignment of icons from GitLab icons extension.
