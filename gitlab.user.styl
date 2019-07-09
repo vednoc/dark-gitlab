@@ -2805,9 +2805,12 @@
         // Hide border in "activity" section. @obsolete
         &:first-child { colors: 0, $t, 0; }
       }
-      .border-bottom { padding: 0 8px }
-      // ? Add some padding to empty blocks.
-      .overview-content-list { padding-bottom: 1px; }
+      .border-bottom {
+        padding: 0 8px;
+        colors: 0 $t 0;
+        // New top border for lists.
+        + div { box-shadow: 0 -1px $darker }
+      }
     }
     // ? Content list items.
     .event-item {
