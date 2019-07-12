@@ -3685,6 +3685,11 @@
   .line-resolve-all {
     border-color: var(--darker);
     background-color: var(--dark);
+    // Icons.
+    .line-resolve-btn {
+      &.is-active svg { isvg: $green }
+      &.is-disabled svg { isvg: $lighter }
+    }
   }
 
 
