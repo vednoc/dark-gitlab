@@ -1882,7 +1882,7 @@
     .file-blame-legend { colors: 0, $darker, $dark; }
     .file-content.blame tr { border-bottom-color: $darker; }
     // ? Search file names; official GitLab solution.
-    .file-title a:not(.btn) { colors: $lighter, 0, 0; }
+    .file-title a:not(.btn) { colors: $light 0 0 }
   }
 
   // * Project -> Last commit.
@@ -2585,11 +2585,10 @@
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
       border-top: 1px solid;
       &, &-flex-parent {
-        padding: 8px 13px;
         radius: $radius $radius 0 0;
-        colors: 0, $darker, $darker;
+        colors: 0 $darker $dark;
         // Buttons w/o `button-default` class.
-        a { color: $lighter; }
+        a { color: unset; }
         // Diff -> Renamed file names. #43
         .idiff {
           &.addition { background-color: #55ff5520 !important; }
