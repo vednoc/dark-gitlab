@@ -2579,6 +2579,7 @@
         colors: 0 $darker $dark;
         // Buttons w/o `button-default` class.
         a { color: unset }
+        .btn { color: $lighter }
         // Diff -> Renamed file names. #43
         .idiff {
           &.addition { colors: $green 0 $t }
@@ -2805,7 +2806,7 @@
         padding: 0 8px;
         colors: 0 $t 0;
         // New top border for lists.
-        + div { box-shadow: 0 -1px $darker }
+        + div { box-shadow: inset 0 1px $darker }
       }
     }
     // ? Content list items.
@@ -4635,7 +4636,7 @@
 
   // * Pipelines -> Mini-pipelines.
   .mini-pipeline-graph-dropdown-toggle {
-    colors: 0 0 $darker;
+    colors: 0 0 $dark;
     &:focus { box-shadow: 0 0 4px 1px $blue !important }
     // * Pipelines -> Stages. Old info in #22.
     + .mini-pipeline-graph-dropdown-menu {
@@ -4973,7 +4974,7 @@
       colors: $blue $blue 0;
       svg { isvg: $blue }
     }
-    &.ci-success-with-warnings,
+    &.ci-success-with-warnings, &-icon-failed-with-warnings,
     &-icon-pending, &-icon-warning, &-icon-success-with-warnings {
       colors: $orange $orange 0;
       svg { isvg: $orange }
