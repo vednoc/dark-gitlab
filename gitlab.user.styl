@@ -1214,6 +1214,13 @@
       &[style*="background-color: #f4f4f4"] { colors: $light, 0, $darker; }
     }
   }
+  // Found in IDE when page doesn't load properly.
+  .flash-container {
+    .flash-alert {
+      colors: $white 0 $red;
+      .flash-action { colors: $white 0 0 }
+    }
+  }
   // Green alerts.
   .alert-success {
     colors: $white, $green, $green;
