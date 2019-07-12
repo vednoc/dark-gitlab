@@ -2588,11 +2588,11 @@
         radius: $radius $radius 0 0;
         colors: 0 $darker $dark;
         // Buttons w/o `button-default` class.
-        a { color: unset; }
+        a { color: unset }
         // Diff -> Renamed file names. #43
         .idiff {
-          &.addition { background-color: #55ff5520 !important; }
-          &.deletion { background-color: #ff555520 !important; }
+          &.addition { colors: $green 0 $t }
+          &.deletion { colors: $red 0 $t }
         }
       }
     }
