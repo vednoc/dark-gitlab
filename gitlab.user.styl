@@ -1951,31 +1951,21 @@
     .milestone-popover-footer { colors: 0, $darker, 0; }
   }
 
-  // * Commits :: Diff summary.
+  // * Commits -> Diff summary.
   .diff-files-changed {
     radius: $radius;
-    padding: 2px;
+    padding: 8px;
     margin: 10px 0;
     border: 1px solid;
     colors: 0, $darker, $dark;
     // Wrapper.
     > .files-changed-inner {
-      display: flex;
-      flex-flow: row-reverse wrap;
-      // Center buttons vertically.
+      // Hide buttons on small resolution.
       .inline-parallel-buttons {
-        float: none;
-        padding: 3px 5px 5px 5px;
-        // Hide buttons on small resolution.
         @media (max-width: 885px) { display: none !important; }
       }
-      // ? "Showing x changed..."
-      // TODO: Remove if/when they fix it.
-      .commit-stat-summary {
-        margin: auto auto auto 0;
-        padding: 0 8px;
-        colors: 0, 0, $t;
-      }
+      // ? Git stats.
+      .commit-stat-summary { colors: 0 0 $t }
     }
   }
   // * Diff file.
