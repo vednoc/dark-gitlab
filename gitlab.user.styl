@@ -4540,7 +4540,9 @@
       // Gutters for added/removed sections.
       .diff-line-num.old, .diff-line-num.new {
         z-index: 1;
-        colors: 0, $darker, 0;
+        border-right: none;
+        padding-right: 11px;
+        box-shadow: inset -1px 0 $darker;
         &.old::after, &.new::after {
           content: "";
           z-index: -1;
