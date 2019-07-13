@@ -3332,7 +3332,9 @@
     padding: 8px !important;
     height: calc(100vh - 134px);
     .board {
+      transition: 0.15s ease;
       padding: 0 4px !important;
+      &-title-caret:hover { colors: 0 0 $darker }
       // Whitespace for the last card.
       .board-card:last-child { margin-bottom: 8px !important }
       &-inner.rounded { radius: $radius !important }
