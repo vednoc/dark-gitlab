@@ -2795,12 +2795,13 @@
       box-shadow: 0 0 0 1px inset $darker;
       // ? Reset font size for blocks. @upstream
       h4 { font-size: 1rem !important }
-      // ! Obsolete in newer versions.
+      // ! @obsolete
       > [class*="-block"] {
-        padding: 0;
-        colors: 0, $red, $t;
-        // Hide border in "activity" section. @obsolete
-        &:first-child { colors: 0, $t, 0; }
+        padding: 0.1px;
+        h4, h5 { padding: 0 8px }
+        + .prepend-top-10 { padding: 0 8px }
+        // Hide "activity" border.
+        &:first-child { colors: 0 $t 0 }
       }
       .border-bottom {
         padding: 0 8px;
