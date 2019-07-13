@@ -1255,9 +1255,8 @@
     }
   }
   .breadcrumb {
-    .breadcrumb-item a {
-      colors: $lighter, 0, 0;
-    }
+    .breadcrumb-item a { colors: $lighter 0 0 }
+    &.repo-breadcrumb > li + li::before { colors: $lighter 0 0 }
   }
 
   // * Epics :: Resets!
