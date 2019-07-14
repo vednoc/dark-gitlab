@@ -5541,6 +5541,35 @@
     colors: $lighter, $shadow, $darker;
   }
 
+  // * Handbook search.
+  .st-ui {
+    &-autocomplete, &-slide-autocomplete {
+      > div[class] {
+        radius: $radius !important;
+        colors: $light $darker $dark;
+        box-shadow: 0 2px 4px 0 $shadow;
+      }
+    }
+    &-result[href] {
+      border-color: $darker !important;
+      &:hover { colors: $light $darker $darker }
+      .st-ui-type-heading {
+        colors: $accent 0 0;
+        em {
+          colors: $white 0 $accent;
+          box-shadow: inset 0 -1px $accent;
+        }
+      }
+      .st-ui-type-detail, .st-ui-type-detail-bold {
+        colors: $lighter 0 0;
+        em {
+          colors: $accent 0 $t;
+          box-shadow: inset 0 -1px $accent;
+        }
+      }
+    }
+  }
+
   // Search
   .st-ui-injected-overlay-container {
     colors: $lighter, $darker, $dark;
@@ -5550,15 +5579,6 @@
         color: $lighter !important;
       }
     }
-  }
-  a.st-ui-result {
-    border-color: $darker !important;
-    &:hover .st-ui-type-detail, &:hover .st-ui-type-detail-bold {
-      color: $light !important;
-    }
-  }
-  .st-install-Z4n7msKyctXXfJs66EKx .st-ui-result em {
-    colors: $accent, $darker, $darker;
   }
   a.st-ui-close-button {
     filter: invert(1);
