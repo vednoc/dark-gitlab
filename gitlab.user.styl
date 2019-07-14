@@ -6362,6 +6362,10 @@
 }
 
 @-moz-document domain("next.gitlab.com") {
+  body {
+    background: none !important;
+    .wrapper > img.bg { opacity: 0 }
+  }
   .white-box {
     radius: $radius;
     border: 1px solid;
