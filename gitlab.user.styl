@@ -452,10 +452,21 @@
         color: $light;
         border-color: $darker;
         background-color: $darker;
+        box-shadow: none !important;
+      }
+    }
+    // TODO: Needs testing.
+    &:not(:disabled):not(.disabled) {
+      &:hover, &:focus, &:active {
+        color: $light;
+        border-color: $darker;
+        background-color: $darker;
+        box-shadow: none;
       }
     }
     &.active {
       colors: $light $darker $darker;
+      box-shadow: none !important;
       svg { fill: $light !important }
     }
     &-secondary {
@@ -527,6 +538,7 @@
         opacity: 0.6 !important;
         colors: $lighter $darker $dark;
       }
+      i[class] { colors: $lighter 0 0 }
     }
   }
   // ? Button groups.
@@ -2908,6 +2920,8 @@
       padding: 8px;
       radius: $radius;
       colors: 0 0 $dark;
+      // Smol button is no-no.
+      .btn { padding: 8px }
     }
   }
   /* Sub-header found in compare branches. */
