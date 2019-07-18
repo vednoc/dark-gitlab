@@ -114,9 +114,9 @@
   // All colors: `c: $light $darker $dark;`
   // Only border-color: `c: 0 $darker;`
   c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-      if x is a 'call' {            color: xi is 0 ? x : x !important }
-      if y is a 'call' {     border-color: yi is 0 ? y : y !important }
-      if z is a 'call' { background-color: zi is 0 ? z : z !important }
+      if x is a 'call' or x is a 'rgba' {            color: xi is 0 ? x : x !important }
+      if y is a 'call' or y is a 'rgba' {     border-color: yi is 0 ? y : y !important }
+      if z is a 'call' or z is a 'rgba' { background-color: zi is 0 ? z : z !important }
   }
   // * Inlined SVGs.
   // ? Only fill -> `isvg: $accent 0;`
