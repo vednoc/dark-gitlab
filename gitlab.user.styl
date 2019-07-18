@@ -2145,37 +2145,50 @@
     colors: 0, $darker, 0;
   }
 
-  // * Issues :: New note.
+  // * Global -> Markdown input area.
   .common-note-form .md-area {
-    padding: 8px;
+    padding: 0;
     radius: $radius;
     colors: 0, $darker, $dark;
     &.is-focused {
       colors: 0 $accent 0;
       box-shadow: none !important;
     }
-    // Input area.
-    .markdown-area { colors: $light, $darker, $dark; }
-    // Use code font for input area.
-    .note-textarea { font-family: var(--mono-font); }
-    // When you use commands.
-    .referenced-commands { colors: 0, 0, $darker; }
-    // Navigation.
-    // ? New design; find old styles and bring them here for backwards compatability.
-    .nav-links:not(.quick-links) {
-      colors: 0, $darker, 0;
-      li:not(.md-header-toolbar) {
-        button { colors: $lighter, 0, 0; }
-        &.active button { colors: $light, $accent, 0; }
+    // Header.
+    .md-header {
+      &-tab {
+        button[class] {
+          border-width: 1px !important;
+          c: $lighter $darker;
+          &:hover { c: $light $accent }
+          ../.active button { c: $light $accent }
+        }
+      }
+      > ul.nav-links {
+        radius: 0;
+        margin: 0;
+        padding: 8px 0 0 0 !important;
+        border-bottom: none;
+        c: 0 $darker $t;
+        box-shadow: inset 0 -1px $darker;
       }
     }
+    // Input area.
+    .markdown-area {
+      padding: 8px;
+      font-family: var(--mono-font);
+      c: $light $darker $t;
+    }
+    .md-preview-holder { padding: 8px }
+    // When you use commands.
+    .referenced-commands { colors: 0, 0, $darker; }
+    .comment-toolbar {
+      padding: 8px;
+      c: $lighter $darker 0;
+    }
   }
-  /* Toolbar colors. */
-  .edited-text,
-  .comment-toolbar {
-    color: $light;
-    border-color: $darker !important;
-  }
+  // Edited text color.
+  .edited-text { color: $light }
 
   // * Markdown selectors.
   .md {
