@@ -2733,13 +2733,6 @@
     }
     // ? Calendar in activity. @obsolete
     #activity > .row-content-block { colors: 0, $darker, $dark; }
-    // Reset scrolling nav.
-    .scrolling-tabs-container {
-      margin: 0;
-      border: none;
-      colors: 0 0 $t;
-      li[class] > a[href] { border-bottom-width: 1px }
-    }
     // * Content list items.
     .content_list {
       radius: $radius;
@@ -3090,25 +3083,6 @@
         .identicon { colors: 0 0 $dark }
       }
     }
-  }
-
-  // * Dashboard :: Top navigation.
-  .top-area:not(.cover-block) {
-    margin-top: 10px;
-    padding: 0 8px;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Remove overflow so the button animation can be seen properly.
-    .project-item-select-holder.btn-group { overflow: visible; }
-    // Found on: .../gitlab-org/gitlab-ce/tags/any-tag
-    pre.wrap {
-      radius: $radius;
-      font-family: var(--mono-font);
-      colors: $lighter, $darker, $dark;
-    }
-    // ? Found in: ...project/pipeline_schedules
-    + .card { margin-top: 10px; }
   }
 
   // * Dashboard :: Issues/MR page.
@@ -3712,13 +3686,6 @@
   .limit-container-width .epic-tabs-container .inner-page-scroll-tabs {
     background-color: $dark;
   }
-  .nav-tabs .nav-link.active {
-    background-color: transparent !important;
-  }
-  // * Navigation :: Links.
-  .nav-links {
-    li a.active, .active a { colors: $light, $accent, 0; }
-  }
   /* Resolved. */
   .line-resolve-all {
     border-color: var(--darker);
@@ -3988,14 +3955,6 @@
   }
   // Reactions.
   .row-content-block.content-component-block { background-color: $t; }
-  // ? Sub-navigation for different sections.
-  .snippet-scope-menu {
-    padding: 0 8px !important;
-    margin-top: 10px !important;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-  }
   // Snippets list.
   .snippets-list-holder {
     margin-top: 10px;
@@ -4843,19 +4802,6 @@
       }
       // Item text color.
       .tree-item a { colors: $light, 0, 0; }
-    }
-  }
-
-  // * Jobs :: Navigation.
-  [data-page="projects:commit:pipelines"], [data-page^="projects:pipelines"] {
-    // ? Only apply to nav-links that have .nav-tabs class.
-    .nav-tabs.nav-links:not(.quick-links) {
-      margin-top: 10px;
-      padding: 0 10px;
-      border: 1px solid;
-      radius: $radius;
-      colors: 0, $darker, $dark;
-      a.active { colors: $light, 0, 0; }
     }
   }
 
