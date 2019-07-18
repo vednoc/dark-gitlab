@@ -103,13 +103,20 @@
   $t       = var(--t);
   $box     = var(--box-shadow);
 
-  // * Color mixin.
+  // * Color mixin; use the new one.
   // ? All colors -> `colors: $light $darker $dark;`
   // ? Only background-color -> `colors: 0 0 $dark;`
   colors(x, y, z) {
     if x is a 'call' { color: x !important }
     if y is a 'call' { border-color: y !important }
     if z is a 'call' { background-color: z !important }
+  }
+  // All colors: `c: $light $darker $dark;`
+  // Only border-color: `c: 0 $darker;`
+  c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+      if x is a 'call' {            color: xi is 0 ? x : x !important }
+      if y is a 'call' {     border-color: yi is 0 ? y : y !important }
+      if z is a 'call' { background-color: zi is 0 ? z : z !important }
   }
   // * Inlined SVGs.
   // ? Only fill -> `isvg: $accent 0;`
