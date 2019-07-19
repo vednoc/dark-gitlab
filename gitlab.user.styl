@@ -1041,9 +1041,15 @@
     }
     // Issues/MR/Milestones.
     .search-results {
+      margin-top: 16px;
       radius: $radius;
-      colors: 0, 0, $dark;
-      // box-shadow: inset 0 0 0 1px $red;
+      colors: 0 0 $dark;
+      box-shadow: $inner;
+      // Bug on .../search/users tab. @upstream
+      > .content-list {
+        > li { padding: 8px }
+        &:not(:last-child) { box-shadow: 0 1px $darker }
+      }
       .search-result-row {
         padding: 8px;
         margin-bottom: 0;
@@ -3189,11 +3195,9 @@
   }
 
   // * Issues :: Details.
-  .detail-page-header,
-  .issuable-details .content-block {
-    color: var(--light);
-    border-color: var(--darker);
-  }
+  .detail-page-header { c: $light $darker }
+  .issuable-details .content-block { c: $light $t }
+
   // * Epics -> Wrapper.
   .epic-page-container {
     // Remove extra padding.
@@ -3659,9 +3663,8 @@
     }
   }
 
-  // * Merge Requests :: Details.
-  .merge-request-tabs-holder {
-    margin: 10px 0;
+  // * Merge Requests -> Details.
+  .merge-request-tabs-holder, .epic-tabs-container {
     radius: $radius;
     border: 1px solid;
     colors: 0 $darker $dark;
@@ -3672,19 +3675,12 @@
       c: 0 0 $t;
       box-shadow: none;
     }
+    > div > div:last-child { margin: 0 8px }
   }
   // First contribution.
   .fa-certificate {
     colors: $accent, 0, 0;
     + strong { colors: $light, 0, 0; }
-  }
-  /* Nav background. */
-  .limit-container-width .merge-request-tabs-container .inner-page-scroll-tabs {
-    background-color: transparent;
-  }
-  /* Scrolling Tab Container */
-  .limit-container-width .epic-tabs-container .inner-page-scroll-tabs {
-    background-color: $dark;
   }
   /* Resolved. */
   .line-resolve-all {
