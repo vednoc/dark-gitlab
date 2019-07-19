@@ -581,7 +581,7 @@
     svg.icon { isvg: $orange }
   }
 
-  // * Global styles.
+  // * Global -> Random styles.
   [class*="committer-link"],
   [class*="author-link"],
   .ci-table .ref-name,
@@ -595,9 +595,9 @@
   .cblue { color: $blue; fill: $blue !important; }
   .cgreen { color: $green; fill: $green !important; }
   // ? Move to a better place.
-  .option-title { colors: $light, 0, 0; }
-  .option-description, .option-disabled-reason {
-    colors: $lighter, 0, 0;
+  .option {
+    &-title { c: $light }
+    &-description, &-disabled-reason { c: $lighter }
   }
   // ? Check #13 for more info.
   .deployment-info, .js-deploy-time { colors: $light, 0, 0; }
