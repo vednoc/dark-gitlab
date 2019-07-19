@@ -102,6 +102,8 @@
   $radius  = var(--radius);
   $t       = var(--t);
   $box     = var(--box-shadow);
+  $outer   = 0 0 0 1px $darker;
+  $inner   = inset 0 0 0 1px $darker;
 
   // * Color mixin; use the new one.
   // ? All colors -> `colors: $light $darker $dark;`
@@ -1025,13 +1027,17 @@
 
   // * Dashboard -> Search page hacks.
   [data-project=""] {
-    // Remove bottom border from navigation.
-    .scrolling-tabs-container .nav-links { border-bottom: none; }
-    // Remove content block below the sub-nav.
-    .scrolling-tabs-container + .row-content-block {
-      padding: 0 !important;
-      border: none !important;
-      box-shadow: inset 0 0 0 1px $darker;
+    .top-area {
+      margin-top: 8px;
+      radius: $radius;
+      c: 0 0 $dark;
+      box-shadow: $inner;
+      .nav-links {
+        margin: 0;
+        radius: 0;
+        c: 0 0 $t;
+        box-shadow: none;
+      }
     }
     // Issues/MR/Milestones.
     .search-results {
@@ -1498,7 +1504,7 @@
   // * Projects list.
   // TODO move groups to appropriate place. Possible refactor.
   .projects-list, #groups .content-list {
-    margin: 10px 0;
+    margin: 8px 0;
     radius: $radius;
     box-shadow: inset 0 0 0 1px $darker;
     background-color: $dark;
