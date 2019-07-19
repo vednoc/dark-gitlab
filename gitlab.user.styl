@@ -1355,59 +1355,71 @@
     .project-item-select-holder { overflow: unset; }
   }
 
-  // * Dashboard :: Project navigation.
-  .nav-block .nav-links {
-    padding: 0 8px;
+  // Dashboard -> Navigation.
+  .top-area, .wiki-page-header { border-bottom: none }
+  .pipelines-container .top-area {
+    margin-top: 8px;
     radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
+    c: 0 0 $dark;
+    box-shadow: $inner;
   }
-
-  // * Navigation.
-  .nav-links {
+  #content-body > div[class] > .top-area:not(.cover-block) {
+    margin-top: 8px;
+    radius: $radius;
+    c: 0 0 $dark;
+    box-shadow: $inner;
+    > .nav.nav-tabs:not(#sc) {
+      margin-top: 0;
+      c: 0 $t $t;
+      box-shadow: none;
+    }
+    // ../project/pipeline_schedules
+    + .card { margin-top: 8px }
+  }
+  .nav.nav-tabs {
+    padding: 0 !important;
+    margin-top: 8px;
+    radius: $radius;
     border-bottom: none;
-    // Remove border in milestones.
-    &.js-milestone-tabs { border-bottom: none !important }
-    // Links.
-    li {
-      a { colors: $lighter, 0, 0; }
-      // On focus.
-      > a:focus { colors: $light, $darker, 0; }
-      // Active tabs.
-      &.active > a, &:hover > a:not(.btn-missing) { colors: $light, $accent, 0; }
-      // Badges.
-      a .badge.badge-pill { colors: $lighter, 0, $darker; }
-      // Make sure the button stays green.
-      a.btn.btn-success { colors: var(--white), $green, $green; }
+    box-shadow: $inner;
+    c: 0 0 $dark;
+    .cover-block ^[0] {
+      radius: 0;
+      c: 0 0 $t;
+      box-shadow: none;
     }
   }
-
-  /* Nav section. TODO: Fix the fixed layout version. */
-  .container-fluid > .top-area {
-    margin-top: 10px;
-    padding: 0 10px;
-    radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-    // * Groups :: Search form.
-    &.group-nav-container .group-search {
-      padding: 8px 0;
-      margin-bottom: -10px;
-      border: none;
-      .group-filter-form { margin-right: 0px; }
-      + .scrolling-tabs-container {
-        padding: 0px !important;
-        margin: 0px !important;
-        border: none !important;
+  .nav-links {
+    li {
+      &:first-child { margin-left: 8px }
+      &:last-child { margin-right: 8px }
+      a {
+        border-bottom-width: 1px !important;
+        c: $lighter;
+        ../:hover > a { c: $light $darker }
+        ../.active, ../:active {
+          > a { c: $light $accent }
+          .badge.badge-pill { c: $light }
+        }
+        &.active { c: $light $accent $t }
+        .badge.badge-pill { c: $lighter 0 $darker }
       }
     }
+    // Whitespace on the right side.
+    + .nav-controls {
+      > *:last-child { margin-right: 6px !important }
+    }
   }
-  /* Wrapper. */
-  .top-area,
-  .wiki-page-header {
-    border-bottom-color: var(--darker);
-    // Remove unnecessary height.
-    > .nav-text { line-height: unset; }
+
+  .scrolling-tabs-container {
+    .fade-right {
+      background: linear-gradient(to left, $dark 45%, $t);
+      box-shadow: inset -1px 0 $dark;
+    }
+    .fade-left {
+      background: linear-gradient(to right, $dark 45%, $t);
+      box-shadow: inset 1px 0 $dark;
+    }
   }
 
 
