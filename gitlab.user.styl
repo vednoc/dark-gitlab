@@ -1426,11 +1426,11 @@
   .scrolling-tabs-container {
     .fade-right {
       background: linear-gradient(to left, $dark 45%, $t);
-      box-shadow: inset -1px 0 $dark;
+      border-right: 1px solid $darker;
     }
     .fade-left {
       background: linear-gradient(to right, $dark 45%, $t);
-      box-shadow: inset 1px 0 $dark;
+      border-left: 1px solid $darker;
     }
   }
 
@@ -2737,6 +2737,7 @@
     .cover-block {
       colors: 0 0 $dark;
       box-shadow: inset 0 -1px 0 0 $darker;
+      [class*="fade-"] { border: none }
       .cover {
         &-title, &-desc { c: $light }
         &-status { padding: 8px 0 4px }
