@@ -2042,15 +2042,19 @@
       }
     }
   }
+  // * Diff -> Reset file-title when scrolling.
+  .sticky-placeholder ~ .files {
+    .diff-file .file-title-flex-parent {
+      radius: 0;
+    }
+  }
   // * Diff -> Add note.
   .note-container {
     border: none;
     c: 0 $darker $t;
     box-shadow: 0 -1px $darker;
     // Reply background.
-    .new-note, .discussion-notes {
-      colors: 0, $darker, 0;
-    }
+    .new-note, .discussion-notes { c: 0 $t }
   }
   // Show/hide replies.
   .notes .replies-toggle {
