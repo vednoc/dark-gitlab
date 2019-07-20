@@ -2017,34 +2017,36 @@
     &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
   }
 
-  // * Diff :: Image.
+  // * Diff -> Image.
   .diff-file {
-    .image { colors: 0, 0, $t; }
+    .image { c: 0 0 $t }
     .frame {
-      colors: 0, 0, $darker;
+      c: 0 0 $darker;
       // Added/removed images.
-      &.deleted { colors: 0, $red, 0; }
-      &.added { colors: 0, $green, 0; }
+      &.deleted { c: 0 $red }
+      &.added { c: 0 $green }
       // Broken image.
       img {
         background: none !important;
-        colors: $light, $t, 0;
+        c: $light $t 0;
       }
     }
     .view-modes {
-      colors: 0, 0, $t;
-      ul li {
-        colors: $light, $darker, 0;
-        &.active { colors: $accent, 0, 0; }
+      c: 0 0 $t;
+      ul li[class] {
+        c: $lighter $darker;
+        text-decoration: none;
+        transition: 0.15s ease;
+        &:hover { c: $light }
+        &.active { c: $accent }
       }
-      // ? Remove empty element's border.
-      + .note-container { border-top: none; }
     }
   }
-  // * Add note.
-  // TODO move to a more appropriate place.
+  // * Diff -> Add note.
   .note-container {
-    colors: 0, $darker, $dark;
+    border: none;
+    c: 0 $darker $t;
+    box-shadow: 0 -1px $darker;
     // Reply background.
     .new-note, .discussion-notes {
       colors: 0, $darker, 0;
