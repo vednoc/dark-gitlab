@@ -501,6 +501,7 @@
       colors: $white $blue $blue;
       &:hover { opacity: 0.75; }
     }
+    &-primary&-inverted { c: $accent $accent $dark }
     // Orange buttons.
     &-warning {
       colors: $white $orange $orange;
@@ -576,6 +577,8 @@
     &-mr-closed { colors: $white, 0, $red; }
     &-open { colors: $white, 0, $green; }
     &-issue-closed { colors: $white, 0, $blue; }
+    &-expired { c: $white 0 $orange }
+    &-closed { c: $white 0 $red }
   }
   // Confidential icon.
   .issuable-warning-icon {
@@ -3497,7 +3500,7 @@
     radius: 0;
     c: 0 0 $t;
     // Items.
-    .milestone, .status-box {
+    .milestone {
       padding: 8px;
       radius: $radius;
       c: $light 0 $dark;
@@ -3515,7 +3518,6 @@
   .milestone {
     padding: 8px;
     .label-badge {
-      border: 1px solid;
       c: $lighter $darker $dark;
       &-gray { c: $light 0 $darker }
     }
