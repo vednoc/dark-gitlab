@@ -3615,15 +3615,21 @@
 
   // * Calendar.
   .pika-single {
-    colors: $light, $darker, $dark;
+    radius: $radius;
+    c: $light $darker $dark;
     // Header.
-    .pika-label { colors: $lighter, 0, $t; }
+    .pika-label { c: $lighter 0 $t }
     // Cells.
+    th { c: $light $darker }
     td {
-      colors: 0, $darker, 0;
-      .pika-day { colors: $light, 0, $dark; }
-      .pika-day:hover, &[class^="is-"] .pika-day { colors: $accent, 0, $darker; }
+      c: 0 $darker 0;
+      .pika-day {
+        c: $light 0 $dark;
+        &:hover, ../[class^="is-"] .pika-day { c: $accent 0 $darker }
+      }
     }
+    // Shadow.
+    &.is-bound { box-shadow: 0 2px 4px 0 $shadow }
   }
 
   // * Pagination.
