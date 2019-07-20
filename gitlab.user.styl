@@ -1381,6 +1381,7 @@
     c: 0 0 $dark;
     box-shadow: $inner;
     > .nav.nav-tabs:not(#sc) {
+      a { padding: 10px 8px }
       margin-top: 0;
       c: 0 $t $t;
       box-shadow: none;
@@ -1405,7 +1406,8 @@
     li {
       &:first-child { margin-left: 8px }
       &:last-child { margin-right: 8px }
-      a {
+      a[class], a[href] {
+        line-height: 32px;
         border-bottom-width: 1px !important;
         c: $lighter;
         ../:hover > a { c: $light $darker }
@@ -1414,12 +1416,17 @@
           .badge.badge-pill { c: $light }
         }
         &.active { c: $light $accent $t }
-        .badge.badge-pill { c: $lighter 0 $darker }
       }
+      .badge.badge-pill { c: $lighter 0 $darker }
     }
     // Whitespace on the right side.
     + .nav-controls {
-      > *:last-child { margin-right: 6px !important }
+      padding: 8px;
+      > form {
+        margin-right: 7px;
+        > input { height: 35px }
+      }
+      > *:last-child { margin-right: 0px }
     }
   }
 
@@ -3666,9 +3673,10 @@
 
   // * Merge Requests -> Details.
   .merge-request-tabs-holder, .epic-tabs-container {
+    border: none;
     radius: $radius;
-    border: 1px solid;
-    colors: 0 $darker $dark;
+    colors: 0 0 $dark;
+    box-shadow: $inner;
     // Resets.
     .nav-links {
       margin: 0;
