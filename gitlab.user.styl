@@ -3242,10 +3242,13 @@
     .edited-text, .edited-text * { colors: $lighter, 0, 0; }
   }
 
-  // * Issues :: Related issues.
+  // * Issues -> Related issues.
   .related-issues-block {
-    // Number of issues.
-    .issue-count-badge { colors: 0, $dark, 0; }
+    margin-top: 16px;
+    .card-slim {
+      border: 1px solid $darker;
+      .card-header { c: 0 0 $t }
+    }
     // Issue metadata.
     .item-body {
       // Link to the issue.
@@ -3258,7 +3261,9 @@
     .issue-token-reference, .issue-token-remove-button { colors: $light, 0, $darker; }
   }
   // Related merge requests.
-  .mr-count-badge { colors: 0, $dark, 0; }
+  #merge-requests > .card-header { c: 0 0 $dark }
+  // Badges.
+  .issue-count-badge, .mr-count-badge { c: 0 $darker }
   .related-items-list {
     .path-id-text, .item-path-id { colors: $light, 0, 0; }
     .open { fill: $green !important; }
