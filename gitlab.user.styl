@@ -1389,6 +1389,10 @@
     // ../project/pipeline_schedules
     + .card { margin-top: 8px }
   }
+  .top-area.group-nav-container {
+    > .scrolling-tabs-container .nav a { padding: 10px 8px }
+    > .nav-controls > div:last-child { padding-right: 8px }
+  }
   .nav.nav-tabs {
     padding: 0 !important;
     margin-top: 8px;
@@ -4826,15 +4830,7 @@
 
   // * Groups.
   .group-nav-container {
-    > .scrolling-tabs-container:first-child {
-      margin: 0 !important;
-      border: none !important;
-      + .nav-controls { padding: 8px 0 !important; }
-    }
-    // No results.
-    + .tab-content {
-      .has-no-search-results { colors: $lighter, 0, 0; }
-    }
+    + .tab-content .has-no-search-results { c: $lighter }
   }
   // * Group header.
   .explore-groups {
