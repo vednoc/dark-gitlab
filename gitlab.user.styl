@@ -3489,14 +3489,17 @@
     }
   }
 
-  // * Issues :: Milestones.
+  // * Issues -> Milestones.
   .milestones {
     padding: 0;
-    colors: 0, 0, $t;
+    radius: 0;
+    c: 0 0 $t;
     // Items.
     .milestone, .status-box {
-      border: 1px solid !important;
-      colors: $light, $darker, $dark;
+      padding: 8px;
+      radius: $radius;
+      c: $light 0 $dark;
+      box-shadow: $inner;
       // Text color.
       .milestone-range { colors: $light, 0, 0; }
       // Links.
@@ -3508,7 +3511,12 @@
     }
   }
   .milestone {
-    .label-badge { border: 1px solid; colors: $lighter, $darker, $darker; }
+    padding: 8px;
+    .label-badge {
+      border: 1px solid;
+      c: $lighter $darker $dark;
+      &-gray { c: $light 0 $darker }
+    }
     // Color in relatable issues.
     &-title { colors: $lighter, 0, 0; }
     &-banner-link { padding: 2px !important; }
@@ -3528,17 +3536,13 @@
     .issuable-number { colors: $lighter, 0, 0; }
   }
 
-  /* Create milestone footer. */
-  .form-actions,
-  hr {
-    border-top-color: var(--darker);
-    background-color: var(--dark);
-  }
+  // Forms.
   .form-actions {
     padding: 8px;
-    border-radius: 4px;
-    border: 1px solid;
-    colors: 0, $darker, 0;
+    border: none;
+    radius: $radius;
+    c: 0 0 $dark;
+    box-shadow: $inner;
   }
 
   // * Promotional.
