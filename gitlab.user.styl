@@ -2007,16 +2007,10 @@
       .btn-link { colors: $accent 0 0 }
       // Gems/Packages/etc.
       .code .line a { color: $accent; }
-      // Added lines.
-      .new .idiff, .idiff.addition {
-        padding: 0 2px;
-        background-color: #55ff5520 !important;
-      }
-      // Removed lines.
-      .old .idiff, .idiff.deletion {
-        padding: 0 2px;
-        background-color: #ff555520 !important;
-      }
+      // Inline diffs.
+      .idiff { c: $light }
+      .new .idiff, .idiff.addition { c: 0 0 $green }
+      .old .idiff, .idiff.deletion { c: 0 0 $red }
     }
     // ? Fix borders on expanded sections.
     &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
