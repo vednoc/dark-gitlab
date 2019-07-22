@@ -1960,30 +1960,56 @@
 
   // * Popover.
   .popover {
+    font-family: var(--ui-font);
     colors: 0, $darker, $dark;
     box-shadow: 0 4px 8px 0 $shadow;
     &-header { colors: 0, $darker, $darker; }
-    &-body { colors: $light, 0, 0; }
+    &-body {
+      c: $light 0 0;
+      ../.blue { c: 0 0 $blue }
+    }
+    // Blue popouts?
+    .arrow {
+      color: $dark;
+      ../.blue .arrow { c: $blue }
+    }
     &[class*="-top"] {
       .arrow::before { border-top-color: $darker !important; }
-      .arrow::after { border-top-color: $dark !important; }
+      .arrow::after { border-top-color: inherit !important; }
     }
     &[class*="-bottom"] {
       .arrow::before { border-bottom-color: $darker !important; }
-      .arrow::after { border-bottom-color: $dark !important; }
+      .arrow::after { border-bottom-color: inherit !important; }
     }
     &[class*="-left"] {
       .arrow::before { border-left-color: $darker !important; }
-      .arrow::after { border-left-color: $dark !important; }
+      .arrow::after { border-left-color: inherit !important; }
     }
     &[class*="-right"] {
       .arrow::before { border-right-color: $darker !important; }
-      .arrow::after { border-right-color: $dark !important; }
+      .arrow::after { border-right-color: inherit !important; }
     }
     .gpg-popover-user-link { colors: $light, 0, 0; }
     // Milestones.
     .milestone-popover-body { colors: 0, 0, $t; }
     .milestone-popover-footer { colors: 0, $darker, 0; }
+  }
+
+  // Popover -> Tour.
+  .onboarding-helper-container {
+    c: 0 0 $darker;
+    box-shadow: 0 4px 8px 0 $shadow;
+    .avatar {
+      radius: 50% !important;
+      c: 0 0 $dark;
+      box-shadow: inset 0 0 0 2px $darker;
+    }
+    .progress { c: 0 0 $dark }
+    .bg-info { c: 0 0 $blue }
+    .qa-toggle-btn {
+      c: 0 0 $t;
+      &:hover svg { isvg: $light }
+    }
   }
 
   // * Commits -> Diff summary.
