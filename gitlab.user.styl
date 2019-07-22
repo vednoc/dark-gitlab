@@ -2603,11 +2603,15 @@
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
       border-top: 1px solid;
       &, &-flex-parent {
+        padding: 8px;
         radius: $radius $radius 0 0;
         colors: 0 $darker $dark;
         // Buttons w/o `button-default` class.
         a { color: unset }
-        .btn { color: $lighter }
+        .btn {
+          padding: 2px 10px;
+          c: $lighter;
+        }
         // Diff -> Renamed file names. #43
         .idiff {
           &.addition { colors: $green 0 $t }
