@@ -1607,7 +1607,7 @@
     .commit-list {
       .commit {
         padding: 8px;
-        a { colors: $light, 0, 0; }
+        a:not(.gpg-status-box) { colors: $light, 0, 0; }
       }
     }
     // Header.
@@ -1946,9 +1946,16 @@
   }
 
   // * GPG button.
-  .gpg-status-box {
-    &.valid { colors: $green, $green, $dark; }
-    &.invalid, &.invalid:focus { colors: $light, $darker, $dark; }
+  // TODO: Remove #sc after refactoring content lists.
+  .gpg-status-box:not(#sc) {
+    &.valid {
+      c: $green $green $dark;
+      &:hover { c: $white 0 $green }
+    }
+    &.invalid, &.invalid:focus {
+      c: $lighter $darker $dark;
+      &:hover { c: 0 0 $darker }
+    }
   }
 
   // * Popover.
