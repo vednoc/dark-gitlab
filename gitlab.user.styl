@@ -223,25 +223,34 @@
   // * Table -> Base styles for all `table` elements.
   table:not([class]) {
     radius: $radius;
-    border-style: hidden;
-    border-collapse: collapse;
+    display: table !important;
+    border-style: hidden !important;
+    border-collapse: collapse !important;
     colors: 0 0 $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    box-shadow: inset 0 0 0 1px $darker;
     thead {
       colors: 0 0 $t;
       th { colors: $light $darker $darker }
       tr:first-child {
-        colors: 0 0 $t;
+        th { border: none !important }
         > th:first-child { border-top-left-radius: $radius; }
         > th:last-child { border-top-right-radius: $radius; }
       }
     }
     tbody {
       colors: 0 $darker $t; // Fixes large top border in docs.
-      td { colors: $light $darker $t }
+      td {
+        word-break: break-all;
+        colors: $light $darker $t;
+      }
+      // AsciiDoc tables.
+      tr > th {
+        border: none !important;
+        c: $light 0 $darker;
+      }
       tr:last-child {
         // Bottom corners look a bit off on Firefox.
-        td:first-child { border-bottom-left-radius: $radius; }
+        th, td { &:first-child { border-bottom-left-radius: $radius; }}
         td:last-child { border-bottom-right-radius: $radius; }
       }
     }
