@@ -1666,12 +1666,17 @@
     }
   }
 
-  // Show commit message.
+  // Commits -> Show commit message.
   .text-expander {
-    colors: $light, $darker, $dark;
-    transition: 0.2s ease-in-out;
-    &.open, &:hover { colors: 0, $accent, $darker; }
-    &:focus { outline: none; }
+    c: 0 $darker $dark;
+    transition: 0.15s ease;
+    &:hover { c: 0 0 $darker }
+    &.open {
+      c: 0 $accent $accent;
+      box-shadow: none;
+      svg { isvg: $white }
+    }
+    &:focus { outline: none }
   }
 
   // * Project :: Commit details page.
