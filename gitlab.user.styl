@@ -4169,8 +4169,11 @@
     }
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
-    .ace_selected-word, .ace_selection { colors: 0, $accent, $darker; }
-    .ace_cursor { colors: $accent, 0, 0; }
+    .ace_selected-word, .ace_selection {
+      c: 0 0 $blue;
+      opacity: 0.6;
+    }
+    .ace_cursor { c: $accent }
     .ace_indent-guide {
       background: none;
       box-shadow: 1px 0 0 0 $lighter !important;
