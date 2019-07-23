@@ -2159,9 +2159,10 @@
       + table.code { radius: 0 0 $radius $radius; }
     }
     .md-suggestion-diff { c: 0 $darker }
+    span > code:not([class]) { c: 0 0 $darker }
     // Added/removed/changed things in discussions.
-    .idiff.addition { background-color: #55ff5520 !important; }
-    .idiff.deletion { background-color: #ff555520 !important; }
+    .idiff.addition { c: $light 0 $green }
+    .idiff.deletion { c: $light 0 $red }
   }
 
   // * Issues :: Conversation notes.
