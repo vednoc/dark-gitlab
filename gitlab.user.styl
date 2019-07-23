@@ -2250,14 +2250,17 @@
         colors: 0 $darker $dark;
       }
     }
+    caption { c: $lighter }
+    mark { c: $white 0 $accent }
     p >, a >, :not(pre) > { code { colors: $light $darker $darker }}
-    blockquote {
-      border-left: 4px solid $darker !important;
-      &[dir] p { colors: $lighter 0 0 }
+    blockquote:not(#sc) {
+      c: $lighter $darker;
+      border-left: 4px solid;
+      &[dir] p, > div p { c: $lighter }
     }
     img:not(.emoji) {
       border: none;
-      colors: 0, $darker, $dark;
+      c: $accent $darker $dark;
       transition: 0.15s ease;
       opacity: faded_img;
       &:hover { opacity: 1; }
