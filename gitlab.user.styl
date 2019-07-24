@@ -3411,13 +3411,14 @@
     }
   }
 
-  // * Borders -> Wrapper resets.
+  // * Boards -> Wrapper resets.
   .boards-list {
-    padding: 8px !important;
+    padding: 10px 16px !important;
     height: calc(100vh - 134px);
     .board {
       transition: 0.15s ease;
-      padding: 0 4px !important;
+      padding: 0 !important;
+      &:not(:first-child) { padding-left: 8px !important }
       &-title-caret:hover { colors: 0 0 $darker }
       // Whitespace for the last card.
       .board-card:last-child { margin-bottom: 8px !important }
@@ -3441,14 +3442,8 @@
     // Reset search bar.
     .row-content-block {
       margin: 0 16px;
-      padding: 0 !important;
-      border: none !important;
-      colors: 0, 0, $t;
       // Fix search box.
-      .filtered-search-box {
-        max-height: 35px;
-        radius: 3px;
-      }
+      .filtered-search-box { radius: 3px }
     }
     // Board colors.
     .board-inner {
@@ -3478,13 +3473,12 @@
   // * Boards -> Cards.
   // ? They turn into a tooltip once dragged so we must style them here.
   .board-card {
-    transition: background 0.2s ease-in-out;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    box-shadow: 0px 1px 2px 0px $shadow;
+    c: 0 $darker $dark;
+    box-shadow: 0px 1px 2px 0 $shadow;
+    transition: 0.15s ease;
     &:hover {
-      colors: 0, $darker, $darker;
-      box-shadow: 0px 2px 3px 2px $shadow;
+      c: 0 $accent 0;
+      box-shadow: 0px 2px 4px 0 $shadow;
     }
     // Text color.
     .board-card-title a { color: $light; }
