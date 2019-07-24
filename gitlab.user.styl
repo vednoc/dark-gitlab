@@ -1045,7 +1045,23 @@
     &-more-results { colors: 0, 0, $t; }
   }
 
-  // * Dashboard -> Search page hacks.
+  // * Global -> Search.
+  [data-page^="search:"] {
+    .search-holder {
+      // Hide unnecessary text.
+      .form-text.text-muted { font-size: 0 }
+    }
+    .search {
+      &-result-row {
+        padding: 8px 16px 16px;
+        radius: $radius;
+        c: 0 $t $dark;
+        box-shadow: $inner;
+      }
+    }
+  }
+
+  // * Dashboard -> Activities page hacks.
   [data-project=""] {
     // Remove bottom border from navigation.
     .scrolling-tabs-container .nav-links { border-bottom: none; }
