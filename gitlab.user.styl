@@ -175,10 +175,11 @@
       colors: 0 $darker $t;
     }
     img { &.transparent, &.lazy { colors: 0 $darker $t }}
-    code {
-      color: $light;
-      border: 1px solid $darker;
-      background-color: $dark;
+    code { c: $light $darker $dark 0 0 0 }
+    pre {
+      radius: $radius;
+      font-family: var(--mono-font);
+      c: $light $darker $dark 0 0 0;
     }
 
     // Checkbox/radio inputs.
@@ -365,6 +366,7 @@
   .bg {
     &-white { colors: 0 0 $dark }
     &-info { colors: 0 0 $darker }
+    &-light { c: 0 0 $dark }
     &-secondary { colors: 0 0 $dark }
   }
   .text {
