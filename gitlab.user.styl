@@ -1580,35 +1580,14 @@
   }
   .user-access-role { colors: $light, $dark, $darker; }
 
-  // * Project :: Empty project.
-  .project-empty-note-panel {
-    border-color: $darker;
-    // Remove unnecessary margins.
-    hr { margin: 0px; }
-    .prepend-top-20:last-child { margin-top: 0px; }
-  }
-  .git-empty pre.bg-light { colors: $light, $darker, $dark; }
-  // Empty wiki homepage.
-  .project-show-wiki .landing {
-    radius: $radius;
-    colors: $red, $darker, $dark;
-  }
-  // ? Remove margin-top from buttons nav buttons.
-  .project-empty-note-panel + .project-buttons {
-    .btn { margin-top: 0px; }
-    // Prevent buttons clipping on hover.
-    .scrolling-tabs {
-      margin-top: 0;
-      padding-top: 8px;
-    }
-  }
-
-  // * Project :: New fork.
+  // * Project -> New fork.
   .fork-thumbnail-container {
     .fork-thumbnail {
-      colors: 0, $darker, $dark;
-      transition: 0.2s ease;
-      &:hover { colors: 0, $dark, $darker; }
+      radius: $radius;
+      c: 0 $darker $dark;
+      transition: 0.15s ease;
+      &:hover { c: 0 $accent 0 }
+      a > div { margin: 0 auto }
     }
   }
 
