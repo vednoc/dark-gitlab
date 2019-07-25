@@ -1067,12 +1067,36 @@
       // Hide unnecessary text.
       .form-text.text-muted { font-size: 0 }
     }
+    // Commits.
+    .results > .content-list {
+      radius: $radius;
+      c: 0 0 $dark;
+      box-shadow: $inner;
+      li[class] { padding: 8px }
+    }
+    // Other sub-menus.
     .search {
       &-result-row {
-        padding: 8px 16px 16px;
+        margin: 0 0 8px 0;
+        padding: 2px 12px 8px;
         radius: $radius;
-        c: 0 $t $dark;
+        border: none;
+        c: 0 0 $dark;
         box-shadow: $inner;
+        .term > p:last-child { margin-bottom: 0 }
+      }
+      &-results {
+        // @upstream
+        .blob-result { margin: 0 0 8px 0 }
+        ul {
+          &.content-list {
+            margin-bottom: 8px;
+            radius: $radius;
+            colors: 0 0 $dark;
+            box-shadow: $inner;
+          }
+          li { padding: 8px }
+        }
       }
     }
   }
@@ -1086,22 +1110,6 @@
       padding: 0 !important;
       border: none !important;
       box-shadow: inset 0 0 0 1px $darker;
-    }
-    // Issues/MR/Milestones.
-    .search-results {
-      radius: $radius;
-      colors: 0, 0, $dark;
-      // box-shadow: inset 0 0 0 1px $red;
-      .search-result-row {
-        padding: 8px;
-        margin-bottom: 0;
-        colors: 0, $darker, 0;
-        &:first-child { radius: $radius $radius 0 0; }
-        &:last-child { radius: 0 0 $radius $radius; }
-        h4 { margin-top: 0px; }
-        code { colors: $lighter, 0, 0; }
-        pre.code { colors: 0, $darker, 0; }
-      }
     }
   }
 
