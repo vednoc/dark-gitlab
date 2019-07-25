@@ -1045,6 +1045,22 @@
     &-more-results { colors: 0, 0, $t; }
   }
 
+  // Global -> GFM links.
+  .gfm {
+    c: $light 0 $darker;
+    &&-issue, &&-merge_request { c: $accent 0 $t }
+    &&-commit, &&-milestone { c: $accent 0 $t }
+    &&-label { c: 0 0 $t }
+    &.current-user {
+      c: $white 0 $accent;
+      &:hover {
+        text-decoration: none;
+        colors: $white 0 0;
+        opacity: 0.8;
+      }
+    }
+  }
+
   // * Global -> Search.
   [data-page^="search:"] {
     .search-holder {
@@ -1660,8 +1676,6 @@
       // Center avatar.
       img { margin: 2px 0 0 2px }
     }
-    // Link.
-    .gfm { colors: $accent, 0, 0; }
     // Commit sha.
     > .commit-detail { align-items: center; }
     // Commit description.
@@ -3342,22 +3356,6 @@
   // Epic Related Issues
   .sortable-container { background-color: $darker; }
 
-  /* Created branch button. */
-  .issuable-details p > code,
-  a.gfm-project_member {
-    border: 1px solid;
-    colors: $light, $darker, $dark;
-  }
-  // Current user (you).
-  .gfm.current-user {
-    text-decoration: none;
-    colors: $white $accent $accent;
-    &:hover {
-      // TODO: Resolve a conflict with `.notes a` in next refactor.
-      colors: $white 0 0;
-      opacity: 0.8;
-    }
-  }
   // Notes.
   .note-text pre {
     radius: $radius !important;
