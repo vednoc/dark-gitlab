@@ -3967,11 +3967,12 @@
       > .mr-widget-section:first-child { border-top: none; }
     }
     // Branch name.
-    .label-branch {
+    .label-branch, .pipeline-number {
       color: $light;
       font-size: inherit;
       font-weight: inherit;
       font-family: var(--ui-font);
+      &.label-truncate > a { line-height: 1.2 }
     }
     // Found on: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3023
     .ci-widget { colors: $lighter, 0, 0; }
@@ -3987,7 +3988,10 @@
     .bold { colors: $light, 0, 0; }
     .font-weight-bold, .code-text, .coverage, .diverged-commits-count {
       colors: $lighter, 0, 0;
-      a { font-weight: bold; color: $light; }
+      a {
+        font-weight: bold;
+        color: inherit;
+      }
     }
   }
   // Icon color.
