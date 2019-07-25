@@ -5203,10 +5203,23 @@
     font-family: var(--mono-font) !important;
   }
   // Resets for code areas.
-  .commit-sha, .gfm-commit, .gfm-commit_range, .ref-name {
-    font-size: 100%;
+  .commit-sha, .gfm-commit, .gfm-commit_range, .ref-name,
+  .git-revision-dropdown a {
+    font-size: 100% !important;
     font-family: var(--ui-font) !important;
   }
+  //   .monospace,
+  // .commit-sha,
+  // .gfm-commit,
+  // .gfm-commit_range,
+  // .ref-name,
+  // .git-revision-dropdown .dropdown-content ul li a,
+  // .mr-state-widget .label-branch,
+  // .pipeline-number,
+  // .file-editor .file-title,
+  // .git-clone-holder .form-control,
+  // .git-clone-holder .search form,
+  // .search .git-clone-holder form
 
   // * Feature -> Fix alignment of icons from GitLab icons extension.
   if ( gl_icons == 1 ) {
