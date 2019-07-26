@@ -662,7 +662,10 @@
   // ? Forms.
   .form-control {
     colors: $lighter $darker $dark;
-    &:focus { colors: $light $blue 0 }
+    &:focus, &.focus {
+      c: $light $blue;
+      box-shadow: none;
+    }
     &:disabled, &[readonly] { colors: $lighter $darker 0 }
   }
   // ? Spinner in pipelines.
