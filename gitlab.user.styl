@@ -2558,8 +2558,17 @@
   }
   // * Remove unnecessary whitespace.
   .project-home-panel {
+    // Separate title from repo buttons.
+    .home-panel-title-row { margin-bottom: 8px }
     // Badges.
-    .prepend-top-default { margin: 10px 0 10px 0 !important; }
+    .project-badges {
+      margin: 8px 0;
+      a[class] {
+        margin: 0;
+        display: inline-flex;
+        &:not(:last-child) { margin-right: 6px }
+      }
+    }
     // Project description.
     .project-home-desc, .project-description > div > p { margin: 0 0 10px 0 !important; }
     // Buttons under badges.
