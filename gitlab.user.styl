@@ -3287,10 +3287,17 @@
       colors: 0 0 $dark
     }
     // Search tokens (labels).
-    .filtered-search-token > .name,
-    .selectable > div {
-      colors: $light, $red, $darker;
+    .selectable {
+      margin-right: 8px;
+      radius: 2px;
+      box-shadow: $inner;
+      .name { c: $lighter 0 $t }
+      .value-container {
+        margin-right: 0;
+        c: $light 0 $darker;
+      }
     }
+    .filtered-search-token > .name { c: $light 0 $darker }
   }
 
   // * Issues :: Details.
@@ -3346,7 +3353,13 @@
     }
     // Search Box
     input { colors: $light, 0, $dark; }
-    .issue-token-reference, .issue-token-remove-button { colors: $light, 0, $darker; }
+    // Tokens.
+    .issue-token {
+      radius: 2px;
+      box-shadow: $inner;
+      &-reference { c: $light 0 $darker }
+      &-remove-button { c: 0 0 $t }
+    }
   }
   // Related merge requests.
   #merge-requests > .card-header { c: 0 0 $dark }
