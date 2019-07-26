@@ -665,6 +665,7 @@
     &:focus, &.focus {
       c: $light $blue;
       box-shadow: none;
+      &:hover { box-shadow: none }
     }
     &:disabled, &[readonly] { colors: $lighter $darker 0 }
   }
@@ -838,6 +839,8 @@
     &-content-faded-mask::after {
       background: none;
     }
+    // Color boxes.
+    &-label-box { border-color: inherit !important }
     // Button groups.
     .btn-group {
       > button, > a {
@@ -1258,7 +1261,6 @@
       .flash-notice > div {
         max-width: var(--width);
         margin: 0 auto;
-        padding: 0 20px;
       }
       // ? Fixes unnecessary limited container issue.
       > .container-limited {
@@ -5225,18 +5227,6 @@
     font-size: 100% !important;
     font-family: var(--ui-font) !important;
   }
-  //   .monospace,
-  // .commit-sha,
-  // .gfm-commit,
-  // .gfm-commit_range,
-  // .ref-name,
-  // .git-revision-dropdown .dropdown-content ul li a,
-  // .mr-state-widget .label-branch,
-  // .pipeline-number,
-  // .file-editor .file-title,
-  // .git-clone-holder .form-control,
-  // .git-clone-holder .search form,
-  // .search .git-clone-holder form
 
   // * Feature -> Fix alignment of icons from GitLab icons extension.
   if ( gl_icons == 1 ) {
