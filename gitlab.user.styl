@@ -781,8 +781,11 @@
       }
       .btn:focus { colors: 0 0 $darker }
     }
-    // Navbar separator on mobile devices.
-    &-toggler { border-left-color: $dark !important; }
+    // Separator.
+    &-toggler {
+      margin: 4px -7px 4px 0 !important;
+      border-left-color: $darker !important;
+    }
     // ? Avatars -> Reset.
     .header-user-avatar {
       radius: var(--avatar) !important;
