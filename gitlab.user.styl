@@ -1320,10 +1320,8 @@
     &-list a { colors: $lighter, 0, 0; }
     // Highlighted link.
     &-sub-title a { colors: $light, 0, 0; }
-    // Separator on mobile devices.
-    @media (max-width: 576px) {
-      .toggle-mobile-nav + .breadcrumbs-links { colors: $lighter, $darker, 0; }
-    }
+    // Separator.
+    &-links { c: $lighter $darker 0 }
     // ? Reset epics-roadmap page.
     &.group-epics-roadmap {
       border-bottom: none !important;
@@ -2337,7 +2335,7 @@
     }
     // ? Fix overflow and height on Firefox.
     .nav-sidebar-inner-scroll {
-      height: calc(100% - 44px);
+      height: calc(100% - 48px);
       overflow-x: hidden !important;
       > ul.sidebar-top-level-items { margin-bottom: 0; }
     }
@@ -2393,8 +2391,8 @@
       }
     }
     // ? Collapse button.
+    .close-nav-button,
     .toggle-sidebar-button {
-      height: 44px;
       width: 100%;
       transition: 0.15s ease !important;
       colors: 0, $darker, $dark;
@@ -2794,12 +2792,6 @@
   }
   // Text dividers.
   .middle-dot-divider::after { color: $lighter; }
-  /* Fix master/history/find file/web ide section when low-resolution. */
-  @media (max-width: 740px) {
-    .nav-block {
-      flex-direction: column;
-    }
-  }
   // ? Scrolling tabs.
   // body:not([data-page$="users:show"])
   :not(.user-profile) .scrolling-tabs-container {
