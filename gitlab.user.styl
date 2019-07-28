@@ -1368,7 +1368,6 @@
   }
 
   // Dashboard -> Navigation.
-  .top-area, .wiki-page-header { border-bottom: none }
   .pipelines-container .top-area {
     margin-top: 8px;
     radius: $radius;
@@ -1392,6 +1391,10 @@
   .top-area.group-nav-container {
     > .scrolling-tabs-container .nav a { padding: 10px 8px }
     > .nav-controls > div:last-child { padding-right: 8px }
+  }
+  // Remove bottom border.
+  .top-area, .wiki-page-header {
+    &, .nav-links.mobile-separator { border-bottom: none }
   }
   .nav.nav-tabs {
     padding: 0 !important;
