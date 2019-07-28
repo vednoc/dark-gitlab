@@ -3225,11 +3225,6 @@
     // Reactions wrapper.
     + .content-block { colors: 0 $t 0; }
   }
-  // * Epics -> Tab holders.
-  .epic-tabs-holder {
-    colors: 0 $t $t;
-    .scrolling-tabs-container { margin: 0 0 14px 0; }
-  }
   // Time tracking.
   .time_tracker {
     .progress .bg-primary { colors: 0 0 $blue }
@@ -3679,7 +3674,8 @@
   }
 
   // * Merge Requests -> Details.
-  .merge-request-tabs-holder, .epic-tabs-container {
+  .merge-request-tabs-holder, .epic-tabs-holder {
+    margin: 0 0 10px;
     border: none;
     radius: $radius;
     colors: 0 0 $dark;
