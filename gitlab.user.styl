@@ -11,7 +11,7 @@
 
 @var text     b_radius  "Custom border radius" 4px
 @var text     a_radius  "Custom avatar radius" 50%
-@var text     max_width "Custom width for fluid layout" 100%
+@var text     max_width "Custom width for fluid/fixed layout" 100%
 @var text     ui_font   "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'"
 @var text     mono_font "Custom mono font" "'custom_font', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace"
 @var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
@@ -4316,11 +4316,41 @@
     }
   }
 
-  // * Custom width for fluid layout.
-  // ? Emulates fixed width layout without editing many hard-coded selectors.
-  .layout-page .container-fluid {
-    &:not(.container-limited):not(.js-focus-mode-board) {
-      max-width: var(--width) !important;
+  // Feature -> Custom width for fluid/fixed layout.
+  .layout-page {
+    // Fluid layout.
+    .container-fluid {
+      &:not(.container-limited):not(.js-focus-mode-board) {
+        max-width: var(--width) !important;
+      }
+    }
+    // WIP: Fixed layout.
+    .container-limited:not(#sc) {
+      max-width: var(--width);
+      .user-callout-copy { max-width: unset }
+    }
+    .limit-container-width {
+      .emoji-list-container,
+      .merge-request-tabs-container,
+      .epic-tabs-container,
+      .issuable-details,
+      .detail-page-header,
+      .page-content-header,
+      .commit-box,
+      .info-well,
+      .commit-ci-menu,
+      .files-changed-inner,
+      .limited-width-notes,
+      .limited-header-width,
+      .issuable-details .detail-page-description,
+      .issuable-details .mr-source-target,
+      .issuable-details .mr-state-widget,
+      .issuable-details .merge-manually,
+      .file-content {
+        max-width: unset !important;
+        // outline-offset: -1px;
+        // outline: 1px solid $yellow;
+      }
     }
   }
 
