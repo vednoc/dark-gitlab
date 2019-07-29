@@ -116,9 +116,9 @@
   // All colors: `c: $light $darker $dark;`
   // Only border-color: `c: 0 $darker;`
   c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-      if x is a 'call' {            color: xi is 0 ? x : x !important }
-      if y is a 'call' {     border-color: yi is 0 ? y : y !important }
-      if z is a 'call' { background-color: zi is 0 ? z : z !important }
+      if x is a 'call' or x is a 'rgba' {            color: xi is 0 ? x : x !important }
+      if y is a 'call' or y is a 'rgba' {     border-color: yi is 0 ? y : y !important }
+      if z is a 'call' or z is a 'rgba' { background-color: zi is 0 ? z : z !important }
   }
   // * Inlined SVGs.
   // ? Only fill -> `isvg: $accent 0;`
@@ -605,7 +605,6 @@
   .author_name a {
     color: $accent !important;
   }
-  .nav-links:not(.quick-link) { colors: 0, $darker, 0; }
   .label-bold { color: $light; }
   .cred { color: $red; fill: $red !important; }
   .cblue { color: $blue; fill: $blue !important; }
@@ -1070,42 +1069,40 @@
     }
   }
 
-  // * Global -> Search.
-  [data-page^="search:"] {
-    .search-holder {
-      // Hide unnecessary text.
-      .form-text.text-muted { font-size: 0 }
-    }
-    // Commits.
-    .results > .content-list {
+  // * Dashboard -> Search page hacks.
+  [data-project=""] {
+    .top-area:not(.cover-block) {
+      margin-top: 8px;
       radius: $radius;
       c: 0 0 $dark;
       box-shadow: $inner;
-      li[class] { padding: 8px }
-    }
-    // Other sub-menus.
-    .search {
-      &-result-row {
-        margin: 0 0 8px 0;
-        padding: 2px 12px 8px;
-        radius: $radius;
-        border: none;
-        c: 0 0 $dark;
-        box-shadow: $inner;
-        .term > p:last-child { margin-bottom: 0 }
+      .nav-links {
+        margin: 0;
+        radius: 0;
+        c: 0 0 $t;
+        box-shadow: none;
       }
-      &-results {
-        // @upstream
-        .blob-result { margin: 0 0 8px 0 }
-        ul {
-          &.content-list {
-            margin-bottom: 8px;
-            radius: $radius;
-            colors: 0 0 $dark;
-            box-shadow: $inner;
-          }
-          li { padding: 8px }
-        }
+    }
+    // Issues/MR/Milestones.
+    .search-results {
+      margin-top: 16px;
+      radius: $radius;
+      colors: 0 0 $dark;
+      box-shadow: $inner;
+      // Bug on .../search/users tab. @upstream
+      > .content-list {
+        > li { padding: 8px }
+        &:not(:last-child) { box-shadow: 0 1px $darker }
+      }
+      .search-result-row {
+        padding: 8px;
+        margin-bottom: 0;
+        colors: 0, $darker, 0;
+        &:first-child { radius: $radius $radius 0 0; }
+        &:last-child { radius: 0 0 $radius $radius; }
+        h4 { margin-top: 0px; }
+        code { colors: $lighter, 0, 0; }
+        pre.code { colors: 0, $darker, 0; }
       }
     }
   }
@@ -1411,59 +1408,85 @@
     .project-item-select-holder { overflow: unset; }
   }
 
-  // * Dashboard :: Project navigation.
-  .nav-block .nav-links {
-    padding: 0 8px;
+  // Dashboard -> Navigation.
+  .pipelines-container .top-area {
+    margin-top: 8px;
     radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
+    c: 0 0 $dark;
+    box-shadow: $inner;
   }
-
-  // * Navigation.
-  .nav-links {
+  #content-body > div[class] > .top-area:not(.cover-block) {
+    margin-top: 8px;
+    radius: $radius;
+    c: 0 0 $dark;
+    box-shadow: $inner;
+    > .nav.nav-tabs:not(#sc) {
+      a { padding: 10px 8px }
+      margin-top: 0;
+      c: 0 $t $t;
+      box-shadow: none;
+    }
+    // ../project/pipeline_schedules
+    + .card { margin-top: 8px }
+  }
+  .top-area.group-nav-container {
+    > .scrolling-tabs-container .nav a { padding: 10px 8px }
+    > .nav-controls > div:last-child { padding-right: 8px }
+  }
+  // Remove bottom border.
+  .top-area, .wiki-page-header {
+    &, .nav-links.mobile-separator { border-bottom: none }
+  }
+  .nav.nav-tabs {
+    padding: 0 !important;
+    margin-top: 8px;
+    radius: $radius;
     border-bottom: none;
-    // Remove border in milestones.
-    &.js-milestone-tabs { border-bottom: none !important }
-    // Links.
+    box-shadow: $inner;
+    c: 0 0 $dark;
+    .cover-block ^[0] {
+      radius: 0;
+      c: 0 0 $t;
+      box-shadow: none;
+    }
+  }
+  .nav-links {
     li {
-      a { colors: $lighter, 0, 0; }
-      // On focus.
-      > a:focus { colors: $light, $darker, 0; }
-      // Active tabs.
-      &.active > a, &:hover > a:not(.btn-missing) { colors: $light, $accent, 0; }
-      // Badges.
-      a .badge.badge-pill { colors: $lighter, 0, $darker; }
-      // Make sure the button stays green.
-      a.btn.btn-success { colors: var(--white), $green, $green; }
+      &:first-child { margin-left: 8px }
+      &:last-child { margin-right: 8px }
+      a[class], a[href] {
+        line-height: 32px;
+        border-bottom-width: 1px !important;
+        c: $lighter;
+        ../:hover > a { c: $light $darker }
+        ../.active, ../:active {
+          > a { c: $light $accent }
+          .badge.badge-pill { c: $light }
+        }
+        &.active { c: $light $accent $t }
+      }
+      .badge.badge-pill { c: $lighter 0 $darker }
+    }
+    // Whitespace on the right side.
+    + .nav-controls {
+      padding: 8px;
+      > form {
+        margin-right: 7px;
+        > input { height: 35px }
+      }
+      > *:last-child { margin-right: 0px }
     }
   }
 
-  /* Nav section. TODO: Fix the fixed layout version. */
-  .container-fluid > .top-area {
-    margin-top: 10px;
-    padding: 0 10px;
-    radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
-    // * Groups :: Search form.
-    &.group-nav-container .group-search {
-      padding: 8px 0;
-      margin-bottom: -10px;
-      border: none;
-      .group-filter-form { margin-right: 0px; }
-      + .scrolling-tabs-container {
-        padding: 0px !important;
-        margin: 0px !important;
-        border: none !important;
-      }
+  .scrolling-tabs-container {
+    .fade-right {
+      background: linear-gradient(to left, $dark 45%, $t);
+      border-right: 1px solid $darker;
     }
-  }
-  /* Wrapper. */
-  .top-area,
-  .wiki-page-header {
-    border-bottom-color: var(--darker);
-    // Remove unnecessary height.
-    > .nav-text { line-height: unset; }
+    .fade-left {
+      background: linear-gradient(to right, $dark 45%, $t);
+      border-left: 1px solid $darker;
+    }
   }
 
 
@@ -1542,7 +1565,7 @@
   // * Projects list.
   // TODO move groups to appropriate place. Possible refactor.
   .projects-list, #groups .content-list {
-    margin: 10px 0;
+    margin: 8px 0;
     radius: $radius;
     box-shadow: inset 0 0 0 1px $darker;
     background-color: $dark;
@@ -2227,37 +2250,50 @@
     colors: 0, $darker, 0;
   }
 
-  // * Issues :: New note.
+  // * Global -> Markdown input area.
   .common-note-form .md-area {
-    padding: 8px;
+    padding: 0;
     radius: $radius;
     colors: 0, $darker, $dark;
     &.is-focused {
       colors: 0 $accent 0;
       box-shadow: none !important;
     }
-    // Input area.
-    .markdown-area { colors: $light, $darker, $dark; }
-    // Use code font for input area.
-    .note-textarea { font-family: var(--mono-font); }
-    // When you use commands.
-    .referenced-commands { colors: 0, 0, $darker; }
-    // Navigation.
-    // ? New design; find old styles and bring them here for backwards compatability.
-    .nav-links:not(.quick-links) {
-      colors: 0, $darker, 0;
-      li:not(.md-header-toolbar) {
-        button { colors: $lighter, 0, 0; }
-        &.active button { colors: $light, $accent, 0; }
+    // Header.
+    .md-header {
+      &-tab {
+        button[class] {
+          border-width: 1px !important;
+          c: $lighter $darker;
+          &:hover { c: $light $accent }
+          ../.active button { c: $light $accent }
+        }
+      }
+      > ul.nav-links {
+        radius: 0;
+        margin: 0;
+        padding: 8px 0 0 0 !important;
+        border-bottom: none;
+        c: 0 $darker $t;
+        box-shadow: inset 0 -1px $darker;
       }
     }
+    // Input area.
+    .markdown-area {
+      padding: 8px;
+      font-family: var(--mono-font);
+      c: $light $darker $t;
+    }
+    .md-preview-holder { padding: 8px }
+    // When you use commands.
+    .referenced-commands { colors: 0, 0, $darker; }
+    .comment-toolbar {
+      padding: 8px;
+      c: $lighter $darker 0;
+    }
   }
-  /* Toolbar colors. */
-  .edited-text,
-  .comment-toolbar {
-    color: $light;
-    border-color: $darker !important;
-  }
+  // Edited text color.
+  .edited-text { color: $light }
 
   // * Markdown selectors.
   .md {
@@ -2792,39 +2828,27 @@
   }
   // Text dividers.
   .middle-dot-divider::after { color: $lighter; }
-  // ? Scrolling tabs.
-  // body:not([data-page$="users:show"])
-  :not(.user-profile) .scrolling-tabs-container {
-    margin: 10px 0;
-    padding: 0 10px;
-    /* overflow: hidden; */
-    radius: $radius;
-    border: 1px solid $darker;
-    background-color: $dark;
-    .fade-right { background: linear-gradient(to left, $dark 45%, $t); }
-    .fade-left { background: linear-gradient(to right, $dark 45%, $t); }
+  /* Fix master/history/find file/web ide section when low-resolution. */
+  @media (max-width: 740px) {
+    .nav-block {
+      flex-direction: column;
+    }
   }
 
   // * Profile -> Core styles.
   .user-profile {
     // User info cover.
     .cover-block {
-      border: none;
       colors: 0 0 $dark;
-      box-shadow: 0 -1px 0 0 inset $darker;
-      .cover-title { colors: $light, 0, 0; }
-      .cover-desc, .middle-dot-divider { colors: $lighter, 0, 0; }
-      .cover-status { padding: 8px 0 4px }
+      box-shadow: inset 0 -1px 0 0 $darker;
+      [class*="fade-"] { border: none }
+      .cover {
+        &-title, &-desc { c: $light }
+        &-status { padding: 8px 0 4px }
+      }
     }
     // ? Calendar in activity. @obsolete
     #activity > .row-content-block { colors: 0, $darker, $dark; }
-    // Reset scrolling nav.
-    .scrolling-tabs-container {
-      margin: 0;
-      border: none;
-      colors: 0 0 $t;
-      li[class] > a[href] { border-bottom-width: 1px }
-    }
     // * Content list items.
     .content_list {
       radius: $radius;
@@ -3098,27 +3122,22 @@
   }
 
 
-  // * Dashboard :: Activity.
-  .nav-block.activities {
-    border-bottom: none;
-    // ? Solves the conflicting styles.
-    .scrolling-tabs-container {
-      padding: 0;
-      border: none;
-      border-bottom: 1px solid var(--darker);
-      .fade-right { right: 1px; }
-    }
-  }
-  // * List.
+  // * Dashboard -> Activity.
   .activities {
+    // Navigation tweaks.
+    &.nav-block {
+      position: relative;
+      margin-bottom: 8px;
+      border-bottom: none;
+      > div[class] { @media (max-width: 740px) { width: 100% }}
+    }
     // Fix RSS icon.
-    // TODO: Remove when fixed on upstream.
     .controls {
-      margin: 20px 10px 0 10px;
+      margin: 14px 0 0 0;
       z-index: 9;
       position: absolute;
       top: 0; right: 8px;
-      @media screen and (max-width: 640px) { display: none !important; }
+      @media (max-width: 740px) { display: none !important; }
     }
     // List.
     // ! Might need extra tweaking somewhere.
@@ -3175,25 +3194,6 @@
         .identicon { colors: 0 0 $dark }
       }
     }
-  }
-
-  // * Dashboard :: Top navigation.
-  .top-area:not(.cover-block) {
-    margin-top: 10px;
-    padding: 0 8px;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-    // Remove overflow so the button animation can be seen properly.
-    .project-item-select-holder.btn-group { overflow: visible; }
-    // Found on: .../gitlab-org/gitlab-ce/tags/any-tag
-    pre.wrap {
-      radius: $radius;
-      font-family: var(--mono-font);
-      colors: $lighter, $darker, $dark;
-    }
-    // ? Found in: ...project/pipeline_schedules
-    + .card { margin-top: 10px; }
   }
 
   // * Dashboard :: Issues/MR page.
@@ -3307,11 +3307,9 @@
   }
 
   // * Issues :: Details.
-  .detail-page-header,
-  .issuable-details .content-block {
-    color: var(--light);
-    border-color: var(--darker);
-  }
+  .detail-page-header { c: $light $darker }
+  .issuable-details .content-block { c: $light $t }
+
   // * Epics -> Wrapper.
   .epic-page-container {
     // Remove extra padding.
@@ -3323,11 +3321,6 @@
     }
     // Reactions wrapper.
     + .content-block { colors: 0 $t 0; }
-  }
-  // * Epics -> Tab holders.
-  .epic-tabs-holder {
-    colors: 0 $t $t;
-    .scrolling-tabs-container { margin: 0 0 14px 0; }
   }
   // Time tracking.
   .time_tracker {
@@ -3776,39 +3769,26 @@
     }
   }
 
-  // * Merge Requests :: Details.
-  .merge-request-tabs-holder {
-    margin: 10px 0;
-    padding: 0 8px;
-    border: 1px solid;
+  // * Merge Requests -> Details.
+  .merge-request-tabs-holder, .epic-tabs-holder {
+    margin: 0 0 10px;
+    border: none;
     radius: $radius;
-    colors: 0, $darker, $dark;
-    .scrolling-tabs-container {
+    colors: 0 0 $dark;
+    box-shadow: $inner;
+    // Resets.
+    .nav-links {
       margin: 0;
-      padding: 0;
       radius: 0;
-      border: 0;
+      c: 0 0 $t;
+      box-shadow: none;
     }
+    > div > div:last-child { margin: 0 8px }
   }
   // First contribution.
   .fa-certificate {
     colors: $accent, 0, 0;
     + strong { colors: $light, 0, 0; }
-  }
-  /* Nav background. */
-  .limit-container-width .merge-request-tabs-container .inner-page-scroll-tabs {
-    background-color: transparent;
-  }
-  /* Scrolling Tab Container */
-  .limit-container-width .epic-tabs-container .inner-page-scroll-tabs {
-    background-color: $dark;
-  }
-  .nav-tabs .nav-link.active {
-    background-color: transparent !important;
-  }
-  // * Navigation :: Links.
-  .nav-links {
-    li a.active, .active a { colors: $light, $accent, 0; }
   }
   /* Resolved. */
   .line-resolve-all {
@@ -4083,14 +4063,6 @@
   }
   // Reactions.
   .row-content-block.content-component-block { background-color: $t; }
-  // ? Sub-navigation for different sections.
-  .snippet-scope-menu {
-    padding: 0 8px !important;
-    margin-top: 10px !important;
-    radius: $radius;
-    border: 1px solid;
-    colors: 0, $darker, $dark;
-  }
   // Snippets list.
   .snippets-list-holder {
     margin-top: 10px;
@@ -4945,19 +4917,6 @@
     }
   }
 
-  // * Jobs :: Navigation.
-  [data-page="projects:commit:pipelines"], [data-page^="projects:pipelines"] {
-    // ? Only apply to nav-links that have .nav-tabs class.
-    .nav-tabs.nav-links:not(.quick-links) {
-      margin-top: 10px;
-      padding: 0 10px;
-      border: 1px solid;
-      radius: $radius;
-      colors: 0, $darker, $dark;
-      a.active { colors: $light, 0, 0; }
-    }
-  }
-
   // * CI/CD :: Schedules.
   [data-page^="projects:pipeline_schedules"] {
     .ref-name, .next-run-cell { colors: $light, 0, 0; }
@@ -4974,15 +4933,7 @@
 
   // * Groups.
   .group-nav-container {
-    > .scrolling-tabs-container:first-child {
-      margin: 0 !important;
-      border: none !important;
-      + .nav-controls { padding: 8px 0 !important; }
-    }
-    // No results.
-    + .tab-content {
-      .has-no-search-results { colors: $lighter, 0, 0; }
-    }
+    + .tab-content .has-no-search-results { c: $lighter }
   }
   // * Group header.
   .explore-groups {
