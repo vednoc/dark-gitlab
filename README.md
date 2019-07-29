@@ -1,36 +1,19 @@
-# dark-gitlab [![Install directly with Stylus][badge]][style]
-Customizable [Stylus][stylus] userstyle for Gitlab and self-hosted GitLab instances.
+[![Install directly with Stylus][badge]][style]
 
-## Roadmap to v1.0.0
-The userstyle looks and works great right now (and has been for quite some time!) but I just want to get everything refactored before publishing the v1.0.0 release.
+Dark-GitLab is opinionated, dark and light, very customizable [Stylus][stylus] userstyle for Gitlab and self-hosted GitLab instances.
 
-- [x] Make a better logo.
-- [x] Add a banner.
-- [ ] Add a license.
-- [ ] Add a contribution guide.
-- [ ] Add a changelog.
-- [x] Write a concise readme.
-- [x] Add issue and merge request templates.
-- [x] Convert to [Stylus-lang](http://stylus-lang.com):
-  - [x] Make a use of vars, mixins, nesting, etc.
-  - [x] Refactor existing CSS.
-  - [ ] Full coverage.
-- [x] Convert to [BetterComments](https://github.com/aaron-bond/better-comments):
-  - [x] Use it with refactored CSS.
-  - [ ] Full coverage.
-- [x] Cover most of the GitLab website.
-- [x] Have a _decent_ compatability with a couple of older versions for self-hosted instances.
-- ~~[ ] Add a version with USo preprocessor so xStyle and extensions that support UserCSS can install this userstyle.~~
-  - ~~[ ] Automate the process; not a high priority.~~
+For roadmap see %1.
 
 ## Features
 This is why you should consider using Dark-GitLab!
 
 - **Custom colors**: All color variables are easily customizable through Stylus popup menu. Both light and dark color-schemes are fully supported.
 - **Custom background**: Gives you the full control of the background image.
-- **Custom regex**: OOTB support for known public self-hosted GitLab instances. Easily add your own by editing the `@-moz-document regexp(...)` locally.
-  - :warning: **Note**: Unfortunately, editing userstyle locally prevents auto-updating, but you can always force an update to get the newest version and re-do the regex.
+- **Custom regex**: OOTB support for known public self-hosted GitLab instances.
+  - Add your own by editing the `@-moz-document regexp(...)` locally.
+  - :warning: **Note**: Editing locally prevents auto-updating, but you can always force an update to get the newest version and re-do the regex.
 - **Custom image opacity**: Lower the opacity of images until you hover over them.
+- **Custom UI font**: Use your favorite font for the entire UI except code/emoji sections.
 - **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
 - **Custom emoji font**: Use your favorite font for emojis, i.e. emojione, twemoji, etc.
 - **Custom rounded corners value**: Set your prefered border-radius for main elements (excluding buttons).
