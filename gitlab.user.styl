@@ -396,17 +396,16 @@
     &-gray { colors: $light $darker $darker }
   }
   // Text colors.
-  .warning-title { colors: $orange, 0, 0; }
-  .danger-title { colors: $red, 0, 0; }
-  .cgray,
-  .committed_ago,
-  .hint {
-    color: var(--lighter) !important;
-  }
+  .danger-title { c: $red }
+  .warning-title { c: $orange }
+  .cgray, .committed_ago, .hint, .help-block { c: $lighter }
+  .light, .description-block, .task-list-item { c: $light }
+  .account-btn-link, [class*="settings-sidebar"] a { c: $accent 0 0 0 }
+  // Warnings.
   .warning_message {
     radius: 0 $radius $radius 0;
     border-left-color: $accent;
-    colors: $light, 0, $darker;
+    c: $light 0 $darker;
   }
 
   // * Global -> Alerts.
@@ -706,15 +705,6 @@
     }
   }
 
-  /* Misc text color. */
-  .light,
-  .description-block,
-  .task-list-item {
-    color: var(--light) !important;
-  }
-  .help-block {
-    colors: $lighter, 0, 0;
-  }
   // Epics start/due dates.
   .block .value {
     span:not(.color-label) { colors: $light, 0, 0; }
@@ -1163,11 +1153,6 @@
       colors: $lighter, $darker, $darker;
     }
     .template-option { colors: 0, $darker, 0; }
-  }
-  .account-btn-link,
-  .profile-settings-sidebar a,
-  .settings-sidebar a {
-    color: var(--accent);
   }
 
   // * Table -> Old-ish table components.
