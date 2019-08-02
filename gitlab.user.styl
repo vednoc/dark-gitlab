@@ -1130,16 +1130,22 @@
   // * Dashboard -> New project.
   .gitlab-tabs {
     radius: $radius $radius 0 0;
-    colors: 0 $darker $dark;
+    c: 0 $darker;
+    &.nav.nav-tabs.nav-links {
+      radius: $radius $radius 0 0;
+      border-bottom: 1px solid;
+      box-shadow: none;
+      > .nav-item { margin: 0 }
+    }
     li.nav-item {
+      c: 0 $darker;
       a {
         radius: 0;
         ../:first-child a { radius: $radius 0 0 0 }
         ../:last-child a { radius: 0 $radius 0 0 }
+        ../.active a.nav-link { c: $light $accent }
+        ../:hover a.nav-link { c: $light $t }
       }
-      &:not(:last-child) { colors: 0 $darker 0 }
-      &.active a.nav-link { colors: $light $accent $dark }
-      &:hover a.nav-link { colors: $accent $darker $darker }
     }
   }
   // Tab content.
