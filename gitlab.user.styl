@@ -1518,51 +1518,6 @@
     }
   }
 
-  // * Purchases.
-  // ? https://customers.gitlab.com/customers/sign_up
-  .sign-in .white-card {
-    color: $light;
-    border-color: $darker;
-    background-color: $dark;
-    .title { colors: 0, $darker, $darker; }
-    label { color: $lighter; }
-    select, option, input {
-      colors: $lighter, 0, $darker;
-      box-shadow: none;
-    }
-    // Select one.
-    .chosen-container {
-      // Results.
-      .chosen-drop {
-        colors: 0, $darker, $darker;
-        box-shadow: none !important;
-        .chosen-results {
-          colors: $light, 0, 0;
-          .highlighted {
-            colors: $light, 0, $accent;
-            background-image: none;
-          }
-        }
-      }
-      // Input element.
-      .chosen-single {
-        min-height: 34px;
-        line-height: 34px;
-        colors: $light, $darker, $darker;
-        background-image: none !important;
-        box-shadow: none !important;
-        // Caret position.
-        b { background-position: 0px 6px !important; }
-      }
-    }
-    // Register button.
-    .btn-gitlab {
-      colors: 0, $darker, 0;
-      transition: all 0.2s ease-in-out !important;
-      &:hover, &:focus, &:active { colors: $light, $accent, $accent; }
-    }
-  }
-
   /* SSH Keys. */
   // pre,
   code.key-fingerprint { colors: $lighter, $darker, $darker; }
@@ -5237,6 +5192,84 @@
     &::before, &-flex-parent::before { display: none !important; }
   }
 }
+
+@-moz-document regexp("https?://customers.gitlab.com(/.*)") {
+  h1, h2 { font-weight: normal }
+  .times { c: $lighter }
+  .list {
+    &-title {
+      c: $white 0 $blue;
+      h3 { color: inherit !important }
+      &.secondary { c: 0 0 $violet }
+    }
+    &-info {
+      radius: 0 0 3px 3px;
+      c: 0 $darker $dark;
+    }
+  }
+  .btn {
+    &:hover { opacity: 0.8 }
+    &-gitlab.secondary { c: $white $violet $violet }
+    &-gitlab.primary {
+      c: $white $darker $blue;
+      transition: 0.15s ease;
+    }
+  }
+  .pricing-category-ruler {
+    .ruler { c: 0 0 $violet }
+    .label { c: $violet }
+    &.com {
+      .ruler { c: 0 0 $blue }
+      .label { c: $blue }
+    }
+  }
+  .buy-ci-minutes {
+    radius: $radius;
+    c: $light $darker $dark;
+  }
+  .white-card {
+    radius: $radius;
+    c: $lighter $darker $dark;
+    .title { c: 0 $darker $darker }
+    label { c: $lighter 0 0 0 }
+    select, option, input {
+      c: $lighter 0 $darker;
+      box-shadow: none;
+    }
+    .description { margin-top: 32px }
+    // Left column.
+    .subscription-total {
+      c: 0 $darker;
+      .total-amount { c: $blue }
+    }
+    // Right column.
+    .chosen-container {
+      // Results.
+      .chosen-drop {
+        c: 0 $darker $darker;
+        box-shadow: none !important;
+        .chosen-results {
+          c: $light;
+          .highlighted {
+            c: $light 0 $accent;
+            background-image: none;
+          }
+        }
+      }
+      // Input element.
+      .chosen-single {
+        min-height: 34px;
+        line-height: 34px;
+        c: $light $darker $darker;
+        background-image: none !important;
+        box-shadow: none !important;
+        // Caret position.
+        b { background-position: 0px 6px !important; }
+      }
+    }
+  }
+}
+
 
 @-moz-document regexp("https?://design.gitlab.com(/.*)") {
   // Loading bar.
