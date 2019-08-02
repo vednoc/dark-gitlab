@@ -1901,14 +1901,11 @@
     colors: $light $darker $dark;
     > .well-segment {
       padding: 8px;
-      colors: $lighter 0 0;
-      // https://gitlab.com/vednoc/dark-gitlab/commit/9caacd40
-      &:not(:last-of-type) { colors: 0 $darker 0 }
+      colors: $lighter $darker 0;
       a {
         color: $accent;
         img { margin: 1px 8px 0 0 }
       }
-      // &.branch-info svg { }
     }
     // Deleted branch.
     .limit-box {
@@ -1924,16 +1921,6 @@
     .branch-link { margin-bottom: 0 }
     .branches .fork-svg { margin: 3px 2px -3px 0 }
     .vertical-align-middle { vertical-align: middle }
-    // Diff -> Nav on commit details page.
-    + .nav-links {
-      padding: 0 8px;
-      margin-top: -6px;
-      border: none;
-      radius: $radius;
-      colors: 0 0 $dark;
-      box-shadow: inset 0 0 0 1px $darker;
-      a { border-bottom-width: 1px !important }
-    }
   }
 
   // * GPG button.
