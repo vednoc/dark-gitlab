@@ -1858,9 +1858,12 @@
 
   // * Project -> Blame.
   [data-page*="projects:blame"] {
+    .file-blame-legend { c: 0 $darker $dark }
     .blame table {
       radius: none;
       box-shadow: none;
+      tr { c: 0 $darker }
+      tr:last-child > td::before { radius: 0 0 0 4px }
     }
     .blame-commit {
       position: relative;
@@ -1874,7 +1877,6 @@
         width: 4px;
       }
     }
-    tr:last-child > td::before { radius: 0 0 0 $radius }
     // ? Custom colors!
     for i in 0..9 {
       .legend-box-{i},
@@ -1889,9 +1891,6 @@
   .file-holder {
     .file-fork-suggestion { colors: 0, $darker, $dark; }
     .table-responsive { radius: 0 !important; }
-    .file-blame-legend { colors: 0, $darker, $dark; }
-    .file-content.blame tr { border-bottom-color: $darker; }
-    // ? Search file names; official GitLab solution.
     .file-title a:not(.btn) { colors: $light 0 0 }
   }
 
