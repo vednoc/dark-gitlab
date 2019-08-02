@@ -1754,59 +1754,48 @@
     .commit-sha { colors: $accent, 0, 0; }
   }
 
-  // * Project :: Contributors.
+  // * Project -> Contributors.
   [id*="contributors"] {
     .person .spark, .tint-box {
       radius: $radius;
-      colors: $light, 0, $dark;
-      box-shadow: 0 0 0 1px $darker;
+      c: $light 0 $dark;
+      box-shadow: $inner;
       .axis {
         .domain, line { stroke: $lighter; }
         text { fill: $light; }
       }
       // Graph colors.
-      .area { fill: $green !important; }
-      .area-contributor { fill: $orange !important; }
+      .area { isvg: $green }
+      .area-contributor { isvg: $orange }
     }
   }
 
-  // * Project :: Graph.
+  // * Project -> Graph.
   .project-network {
-    margin-top: 10px;
     overflow: hidden;
     radius: $radius;
-    border-color: $darker;
-    .controls { colors: 0, $darker, $dark; }
+    c: 0 $darker;
+    .controls { c: 0 $darker $darker }
     // Graph background.
     .network-graph {
-      fill: var(--light);
-      background-color: var(--dark);
+      isvg: $red;
+      c: 0 0 $dark;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
         fill-opacity: 1 !important;
-        stroke: $t;
-        fill: $darker;
+        isvg: $darker $t;
       }
-      [d^="M185"], [d^="M195"] {
-        fill-opacity: 1 !important;
-        fill: $darker;
-      }
+      [d^="M165"], [d^="M185"], [d^="M195"] { fill: $darker }
       // Text color.
       > svg text { fill: $light; }
       // Sidebar.
       > svg rect[width*="40"], > svg rect[width*="30"] {
         stroke-width: 0;
-        stroke: var(--darker);
-        fill: var(--darker);
+        stroke: $darker;
+        fill: $darker;
       }
     }
   }
-  // ? Fix conflicting styles in the navigation.
-  [data-page="projects:network:show"] .row-content-block {
-    padding: 0;
-    border: 0;
-  }
-
 
   // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
