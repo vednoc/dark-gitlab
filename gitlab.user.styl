@@ -1610,26 +1610,23 @@
 
   // * Avatars.
   .avatar {
+    c: $lighter;
     &, &-circle, &-container, &-tile {
       radius: var(--avatar) !important;
       border: none !important;
-      colors: $lighter, 0, $t;
+      c: $lighter $t $t;
+    }
+    &:not(img) {
+      c: 0 0 $dark;
+      box-shadow: $inner;
+      transition: 0.15s ease !important;
     }
   }
-  // TODO Prolly not needed anymore.
-  .identicon { color: $lighter; }
   // ? Drop some shadow; use transparent avatars for best results.
   img.avatar { filter: drop-shadow(1px 1px 2px $shadow); }
-  // ? Replace default background for project avatars and fix the height.
-  .avatar:not(img) {
-    colors: 0, 0, $darker;
-    transition: 0.15s ease-in-out !important;
-  }
   // ? Hover event for content list and group list.
   li:not(.group-row), .group-row-contents {
-    &:hover .avatar:not(img) {
-      colors: 0, 0, $dark;
-    }
+    &:hover .avatar:not(img) { c: 0 0 $dark }
   }
 
   // * Project details.
@@ -1643,7 +1640,7 @@
     color: $light;
     &:hover { color: $lighter; }
   }
-  .user-access-role { colors: $light, $dark, $darker; }
+  .user-access-role { c: $light $darker $dark }
 
   // * Project -> New fork.
   .fork-thumbnail-container {
