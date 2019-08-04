@@ -84,11 +84,11 @@
 
   // * Use stylus-lang variables with CSS variables.
 
-  $dark    = var(--dark);
-  $darker  = var(--darker);
-  $light   = var(--light);
-  $lighter = var(--lighter);
-  $accent  = var(--accent);
+  bg    = var(--dark);
+  bd  = var(--darker);
+  fg   = var(--light);
+  cm = var(--lighter);
+  ac  = var(--accent);
   $shadow  = var(--shadow);
   $yellow  = var(--yellow);
   $orange  = var(--orange);
@@ -102,26 +102,35 @@
   $radius  = var(--radius);
   $t       = var(--t);
   $box     = var(--box-shadow);
-  $outer   = 0 0 0 1px $darker;
-  $inner   = inset 0 0 0 1px $darker;
+  $outer   = 0 0 0 1px bd;
+  $inner   = inset 0 0 0 1px bd;
+
+  fg = fg;
+  cm = cm;
+  bg = bg;
+  hl = #323232;
+  bd = bd;
+  ac = ac;
+  fg = fg;
+
 
   // * Color mixin; use the new one.
-  // ? All colors -> `colors: $light $darker $dark;`
-  // ? Only background-color -> `colors: 0 0 $dark;`
+  // ? All colors -> `colors: fg bd bg;`
+  // ? Only background-color -> `colors: 0 0 bg;`
   colors(x, y, z) {
     if x is a 'call' { color: x !important }
     if y is a 'call' { border-color: y !important }
     if z is a 'call' { background-color: z !important }
   }
-  // All colors: `c: $light $darker $dark;`
-  // Only border-color: `c: 0 $darker;`
+  // All colors: `c: fg bd bg;`
+  // Only border-color: `c: 0 bd;`
   c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
       if x is a 'call' or x is a 'rgba' {            color: xi is 0 ? x : x !important }
       if y is a 'call' or y is a 'rgba' {     border-color: yi is 0 ? y : y !important }
       if z is a 'call' or z is a 'rgba' { background-color: zi is 0 ? z : z !important }
   }
   // * Inlined SVGs.
-  // ? Only fill -> `isvg: $accent 0;`
+  // ? Only fill -> `isvg: ac 0;`
   isvg(x, y = 0) {
     if x is a 'call' { fill: x !important; }
     if y is a 'call' { stroke: y !important; }
@@ -131,55 +140,55 @@
 
   // * Scrollbars.
   if ( enable_sb == 1 ) {
-    html { scrollbar-color: $darker $dark }
+    html { scrollbar-color: bd bg }
     ::-webkit-scrollbar {
       width: 12px;
-      &-track { background: $dark; }
-      &-thumb { background: $darker; }
+      &-track { background: bg; }
+      &-thumb { background: bd; }
     }
   }
   // Input placeholder.
-  ::placeholder { color: $lighter !important; }
-  ::-webkit-input-placeholder { color: $lighter !important; }
+  ::placeholder { color: cm !important; }
+  ::-webkit-input-placeholder { color: cm !important; }
 
   body {
-    colors: $light 0 $t;
+    colors: fg 0 $t;
     font-family: var(--ui-font);
     // Fixes content shift when modal is open.
     &.modal-open { padding-right: 0px !important; }
     // Empty navbar.
     &.navless {
-      colors: $light 0 $t;
+      colors: fg 0 $t;
       height: calc(100% - 41px);
-      .navbar-empty { colors: 0 $darker $dark }
+      .navbar-empty { colors: 0 bd bg }
     }
     // Footer.
     .footer-fixed {
-      colors: 0 $darker $dark;
+      colors: 0 bd bg;
       + .footer-container {
         max-width: 100%;
-        colors: 0 0 $dark;
+        colors: 0 0 bg;
       }
     }
     // ? Browser defaults.
-    time { color: $light }
-    h1, h2, h3, h4, h5, h6, p { colors: $light 0 0 }
-    ul, ol { color: $light }
+    time { color: fg }
+    h1, h2, h3, h4, h5, h6, p { colors: fg 0 0 }
+    ul, ol { color: fg }
     a {
       transition: 0.15s ease;
-      color: $accent;
-      &:hover, &:focus { color: $accent }
+      color: ac;
+      &:hover, &:focus { color: ac }
     }
     hr {
       margin: 16px auto;
-      colors: 0 $darker $t;
+      colors: 0 bd $t;
     }
-    img { &.transparent, &.lazy { colors: 0 $darker $t }}
-    code { c: $light $darker $dark 0 0 0 }
+    img { &.transparent, &.lazy { colors: 0 bd $t }}
+    code { c: fg bd bg 0 0 0 }
     pre {
       radius: $radius;
       font-family: var(--mono-font);
-      c: $light $darker $dark 0 0 0;
+      c: fg bd bg 0 0 0;
     }
 
     // Checkbox/radio inputs.
@@ -191,16 +200,16 @@
         height: 1em !important;
         width: 1em !important;
         border: 1px solid !important;
-        colors: $light $darker $darker;
+        colors: fg bd bd;
       }
-      &:hover { box-shadow: 0 0 2px 1px $lighter !important }
+      &:hover { box-shadow: 0 0 2px 1px cm !important }
     }
     input[type="radio"] {
       border-radius: 100% !important;
-      &:checked { colors: 0 $shadow $accent }
+      &:checked { colors: 0 $shadow ac }
     }
     input[type="checkbox"] {
-      &:checked { colors: 0 $shadow $accent }
+      &:checked { colors: 0 $shadow ac }
       &:indeterminate { colors: 0 $shadow $red }
     }
   }
@@ -227,11 +236,11 @@
     display: table !important;
     border-style: hidden !important;
     border-collapse: collapse !important;
-    colors: 0 0 $dark;
-    box-shadow: inset 0 0 0 1px $darker;
+    colors: 0 0 bg;
+    box-shadow: inset 0 0 0 1px bd;
     thead {
       colors: 0 0 $t;
-      th { colors: $light $darker $darker }
+      th { colors: fg bd bd }
       tr:first-child {
         th { border: none !important }
         > th:first-child { border-top-left-radius: $radius; }
@@ -239,15 +248,15 @@
       }
     }
     tbody {
-      colors: 0 $darker $t; // Fixes large top border in docs.
+      colors: 0 bd $t; // Fixes large top border in docs.
       td {
         word-break: break-all;
-        colors: $light $darker $t;
+        colors: fg bd $t;
       }
       // AsciiDoc tables.
       tr > th {
         border: none !important;
-        c: $light 0 $darker;
+        c: fg 0 bd;
       }
       tr:last-child {
         // Bottom corners look a bit off on Firefox.
@@ -265,32 +274,32 @@
         display: flex;
         > th {
           flex: 1 1 100%;
-          colors: $light 0 0;
+          colors: fg 0 0;
         }
       }
     }
     > tbody {
       display: flex;
       flex-direction: column;
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
       > tr {
         display: flex;
         // Remove default border and set cell background color.
         > td {
           flex: 1 1 100%;
           border: none !important;
-          a[href] { &, > code { colors: $accent, 0, 0; }}
+          a[href] { &, > code { colors: ac, 0, 0; }}
           &:first-child {
-            border-left: 1px solid $darker !important;
-            border-bottom: 1px solid $darker !important;
+            border-left: 1px solid bd !important;
+            border-bottom: 1px solid bd !important;
           }
           &:last-child {
-            border: 1px solid $darker !important;
+            border: 1px solid bd !important;
             border-top: none !important;
           }
           &:not(:last-child):not(:first-child) {
-            border-left: 1px solid $darker !important;
-            border-bottom: 1px solid $darker !important;
+            border-left: 1px solid bd !important;
+            border-bottom: 1px solid bd !important;
           }
         }
       }
@@ -298,32 +307,32 @@
   }
   // * Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
   table[frame="void"] {
-    colors: $lighter, 0, 0;
+    colors: cm, 0, 0;
     box-shadow: none;
     > tbody {
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
       tr th {
         border-bottom-width: 1px !important;
-        colors: $light, $darker, $darker;
+        colors: fg, bd, bd;
       }
     }
   }
   // * Table -> Project settings page.
   .border-bottom {
-    colors: 0 $darker 0;
+    colors: 0 bd 0;
     > .table {
       border-collapse: collapse;
-      box-shadow: 0 0 0 1px $darker;
+      box-shadow: 0 0 0 1px bd;
       thead th {
         padding: 8px !important;
-        colors: $light, $darker, $darker;
+        colors: fg, bd, bd;
         &:first-child { border-top-left-radius: $radius; }
         &:last-child { border-top-right-radius: $radius; }
       }
       tbody {
         td {
           padding: 8px !important;
-          colors: $light, $darker, $dark;
+          colors: fg, bd, bg;
         }
         tr:last-child > td:first-child { border-bottom-left-radius: $radius; }
         tr:last-child > td:last-child { border-bottom-right-radius: $radius; }
@@ -346,83 +355,83 @@
 
   // * Icons!
   svg {
-    isvg: $lighter;
+    isvg: cm;
     // Diff icons.
     &.ic-file-addition { &, &-solid { isvg: $green }}
     &.ic-file-modified { &, &-solid { isvg: $blue }}
     &.ic-file-deletion { &, &-solid { isvg: $red }}
   }
   .fa {
-    colors: $lighter 0 0;
+    colors: cm 0 0;
     &[class*="online"] { colors: $green 0 0 }
   }
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
   .nav-controls .has-tooltip svg, .award-control-icon svg, .commit-icon {
-    path { fill: $lighter !important; }
+    path { fill: cm !important; }
   }
 
   // * Global -> Bootstrap reset.
   .bg {
-    &-white { colors: 0 0 $dark }
-    &-info { colors: 0 0 $darker }
-    &-light { c: 0 0 $dark }
-    &-secondary { colors: 0 0 $dark }
+    &-white { colors: 0 0 bg }
+    &-info { colors: 0 0 bd }
+    &-light { c: 0 0 bg }
+    &-secondary { colors: 0 0 bg }
   }
   .text {
-    &-white { colors: $light 0 0 }
-    &-tertiary { colors: $lighter 0 0 }
-    &-secondary { colors: $light 0 0 }
+    &-white { colors: fg 0 0 }
+    &-tertiary { colors: cm 0 0 }
+    &-secondary { colors: fg 0 0 }
     &-danger { colors: $red 0 0 }
   }
   .badge {
-    &.unverified { colors: $lighter $lighter $dark }
-    &.verified { colors: $green $green $dark }
-    &-success { colors: $light 0 $green }
-    &-primary { colors: $light 0 $blue }
-    &-info { colors: $light 0 $blue }
-    &-pill { colors: $light 0 0 }
+    &.unverified { colors: cm cm bg }
+    &.verified { colors: $green $green bg }
+    &-success { colors: fg 0 $green }
+    &-primary { colors: fg 0 $blue }
+    &-info { colors: fg 0 $blue }
+    &-pill { colors: fg 0 0 }
     &.badge-pill {
       // Prevent conflicts.
       & {
-        box-shadow: 0 0 0 1px inset $darker;
-        colors: $lighter $darker $dark;
+        box-shadow: 0 0 0 1px inset bd;
+        colors: cm bd bg;
       }
       // Dashboard -> Activities.
       &.issues-count { colors: $white 0 $green }
       &.merge-requests-count { colors: $white 0 $orange }
       &.todos-count { colors: $white 0 $blue }
     }
-    &-gray { colors: $light $darker $darker }
+    &-gray { colors: fg bd bd }
   }
   // Text colors.
   .danger-title { c: $red }
   .warning-title { c: $orange }
-  .cgray, .committed_ago, .hint, .help-block { c: $lighter }
-  .light, .description-block, .task-list-item { c: $light }
-  .account-btn-link, [class*="settings-sidebar"] a { c: $accent 0 0 0 }
+  .cgray, .committed_ago, .hint, .help-block { c: cm }
+  .light, .description-block, .task-list-item { c: fg }
+  .account-btn-link, [class*="settings-sidebar"] a { c: ac 0 0 0 }
   // Warnings.
   .warning_message {
     radius: 0 $radius $radius 0;
-    border-left-color: $accent;
-    c: $light 0 $darker;
+    border-left-color: ac;
+    c: fg 0 bd;
   }
 
   // * Global -> Alerts.
   .bs-callout {
     radius: 4px;
     position: relative;
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     &.gcp-signup-offer { border-left-color: $blue !important }
     &.help-callout, &.shared-runners-description {
       border-left: none;
-      box-shadow: 0 0 0 1px inset $darker;
+      box-shadow: 0 0 0 1px inset bd;
       &::before {
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
         radius: 4px 0 0 4px;
-        border-left: 4px solid $darker;
+        border-left: 4px solid bd;
       }
     }
     &&-info {
@@ -439,7 +448,7 @@
     &&-warning {
       border: none;
       box-shadow: 0 0 0 1px inset $orange;
-      a { colors: $accent 0 0 }
+      a { colors: ac 0 0 }
       &::before {
         content: "";
         position: absolute;
@@ -464,37 +473,37 @@
     // ? Base selectors.
     &, .btn-default {
       transition: 0.15s ease;
-      color: $lighter;
-      border-color: $darker;
-      background-color: $dark;
+      color: cm;
+      border-color: bd;
+      background-color: bg;
       &:hover, &:focus, &.focus {
-        color: $light;
-        border-color: $darker;
-        background-color: $darker;
+        color: fg;
+        border-color: bd;
+        background-color: bd;
         box-shadow: none !important;
       }
     }
     // TODO: Needs testing.
     &:not(:disabled):not(.disabled) {
       &:hover, &:focus, &:active {
-        color: $light;
-        border-color: $darker;
-        background-color: $darker;
+        color: fg;
+        border-color: bd;
+        background-color: bd;
         box-shadow: none;
       }
     }
     &.active {
-      colors: $light $darker $darker;
+      colors: fg bd bd;
       box-shadow: none !important;
-      svg { fill: $light !important }
+      svg { fill: fg !important }
     }
     &-secondary {
       &:not(:disabled):not(.disabled) {
-        &:active, &.active { colors: $light $darker $darker }
+        &:active, &.active { colors: fg bd bd }
       }
     }
     &-link {
-      c: $lighter $t $t;
+      c: cm $t $t;
       &:hover { c: 0 0 $t }
     }
     // Green buttons.
@@ -505,13 +514,13 @@
       .fa { color: inherit !important }
     }
     // TODO: Find where this button is located.
-    &-create.comment-btn { colors: $green $green $dark; }
+    &-create.comment-btn { colors: $green $green bg; }
     // Blue buttons.
     &-info, &-primary, &-register {
       colors: $white $blue $blue;
       &:hover { opacity: 0.75; }
     }
-    &-primary&-inverted { c: $accent $accent $dark }
+    &-primary&-inverted { c: ac ac bg }
     // Orange buttons.
     &-warning {
       colors: $white $orange $orange;
@@ -519,11 +528,11 @@
     }
     // Close buttons.
     &-close, &-close-color {
-      colors: $red $red $dark;
+      colors: $red $red bg;
       &:hover { colors: $white 0 $red; }
     }
     &-close-color.dropdown-toggle {
-      colors: $red $red $dark;
+      colors: $red $red bg;
       .fa { color: inherit !important; }
       &:hover { colors: $white 0 $red; }
     }
@@ -534,51 +543,51 @@
     }
     // Blank buttons.
     &-cancel, &-retry {
-      colors: $lighter $darker $dark;
-      &:hover { colors: $light 0 $darker; }
+      colors: cm bd bg;
+      &:hover { colors: fg 0 bd; }
     }
-    &-blank { colors: $lighter 0 $t; }
+    &-blank { colors: cm 0 $t; }
     &-clipboard {
-      colors: $lighter $darker $t;
-      &:hover { colors: $light 0 0 }
-      &:hover svg { isvg: $light }
+      colors: cm bd $t;
+      &:hover { colors: fg 0 0 }
+      &:hover svg { isvg: fg }
     }
     // Comment on a note.
     &-text-field {
-      colors: $lighter, $darker, $darker;
+      colors: cm, bd, bd;
     }
     // Colors for buttons with dashed borders.
     &-missing {
-      colors: $lighter $darker $dark;
-      &:hover { colors: $light 0 $darker; }
+      colors: cm bd bg;
+      &:hover { colors: fg 0 bd; }
     }
     // Disabled buttons.
     &.disabled, &[disabled] {
       &, &:hover {
         opacity: 0.6 !important;
-        colors: $lighter $darker $dark;
+        colors: cm bd bg;
       }
-      i[class] { colors: $lighter 0 0 }
+      i[class] { colors: cm 0 0 }
     }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
     colors: 0 0 $t;
-    .btn:focus { colors: 0, 0, $darker; }
+    .btn:focus { colors: 0, 0, bd; }
   }
   // ? Reaction buttons.
   .award-control {
-    &.is-active, &.user-authored { colors: $light, $darker, $dark; }
+    &.is-active, &.user-authored { colors: fg, bd, bg; }
     // Reacted to.
-    &.active { colors: $light, $blue, $dark; }
+    &.active { colors: fg, $blue, bg; }
   }
 
   // * Project notifications.
   // TODO move to appropriate section.
   .project-feature-toggle {
-    colors: 0, 0, $darker;
-    &.is-checked { colors: 0, 0, $accent; }
-    .toggle-icon { colors: 0, 0, $dark; }
+    colors: 0, 0, bd;
+    &.is-checked { colors: 0, 0, ac; }
+    .toggle-icon { colors: 0, 0, bg; }
   }
 
   // Issue/Merge status.
@@ -592,7 +601,7 @@
   }
   // Confidential icon.
   .issuable-warning-icon {
-    colors: 0 0 $darker;
+    colors: 0 0 bd;
     svg.icon { isvg: $orange }
   }
 
@@ -602,52 +611,52 @@
   .ci-table .ref-name,
   .js-user-link,
   .author_name a {
-    color: $accent !important;
+    color: ac !important;
   }
-  .label-bold { color: $light; }
+  .label-bold { color: fg; }
   .cred { color: $red; fill: $red !important; }
   .cblue { color: $blue; fill: $blue !important; }
   .cgreen { color: $green; fill: $green !important; }
   .diff-file-changed-icon { &:not(.cgreen):not(.cred) { isvg: $blue }}
   // ? Move to a better place.
   .option {
-    &-title { c: $light }
-    &-description, &-disabled-reason { c: $lighter }
+    &-title { c: fg }
+    &-description, &-disabled-reason { c: cm }
   }
   .bordered-box {
     radius: $radius;
-    c: 0 $darker;
+    c: 0 bd;
   }
   // ? Check #13 for more info.
-  .deployment-info, .js-deploy-time { colors: $light, 0, 0; }
+  .deployment-info, .js-deploy-time { colors: fg, 0, 0; }
   // * Grid styles.
   .flex-grid {
-    .grid-row { colors: 0, $darker, 0; }
+    .grid-row { colors: 0, bd, 0; }
     .grid-cell {
-      colors: 0, $darker, 0;
-      .property-label { colors: $lighter, 0, 0; }
+      colors: 0, bd, 0;
+      .property-label { colors: cm, 0, 0; }
     }
   }
   // ? Promotion background on i.e. project/audit_events page.
   .promotion-backdrop { colors: 0, 0, $t; }
   // ? Custom GitLab tables on i.e. project/settings/badges page.
   .gl-responsive-table-row-layout {
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     // Items border.
-    .table-section:not(:first-child) { colors: 0, $darker, 0; }
+    .table-section:not(:first-child) { colors: 0, bd, 0; }
     // Text badges.
-    .badge.badge-pill { colors: $light, 0, $darker; }
+    .badge.badge-pill { colors: fg, 0, bd; }
     // Footer.
     .table-button-footer {
-      colors: 0, $darker, $t;
-      @media screen and (max-width: 767px) { colors: 0, 0, $darker; }
+      colors: 0, bd, $t;
+      @media screen and (max-width: 767px) { colors: 0, 0, bd; }
     }
   }
   // ? Pipelines: Fix table corners and item borders.
   .gl-responsive-table-row {
     &:not(:last-child):not(:first-child) {
       border-bottom: none !important;
-      border-top: 1px solid $darker;
+      border-top: 1px solid bd;
     }
     &:first-child { radius: $radius $radius 0 0; }
     &:last-child { radius: 0 0 $radius $radius; }
@@ -655,23 +664,23 @@
   // ? 404 page.
   img[alt="404"] + .container {
     margin-bottom: 1em;
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
   }
   // ? Forms.
   .form-control {
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
     &:focus, &.focus {
-      c: $light $blue;
+      c: fg $blue;
       box-shadow: none;
       &:hover { box-shadow: none }
     }
-    &:disabled, &[readonly] { colors: $lighter $darker 0 }
+    &:disabled, &[readonly] { colors: cm bd 0 }
   }
   // ? Spinner in pipelines.
   .spinner {
     margin-bottom: -4px;
-    border-color: $darker;
-    border-top-color: $accent;
+    border-color: bd;
+    border-top-color: ac;
     &&-md {
       width: 24px;
       height: @width;
@@ -682,104 +691,104 @@
   .login-page {
     // Header.
     .new-session-tabs {
-      border-color: $darker;
-      box-shadow: 0 0 0 1px $darker;
+      border-color: bd;
+      box-shadow: 0 0 0 1px bd;
       li {
-        colors: $lighter, $darker, $darker;
-        a.active, a:hover { colors: $light, $accent, $darker; }
+        colors: cm, bd, bd;
+        a.active, a:hover { colors: fg, ac, bd; }
       }
     }
     // Credentials.
     .login-box {
       radius: 0 0 $radius $radius;
-      box-shadow: 0 0 0 1px $darker;
-      background-color: $dark;
-      .form-control { colors: 0, 0, $darker; }
+      box-shadow: 0 0 0 1px bd;
+      background-color: bg;
+      .form-control { colors: 0, 0, bd; }
     }
     // Sign in with.
     .omniauth-container {
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: 0 0 0 1px $darker;
-      .omniauth-btn { colors: 0, 0, $darker; }
+      colors: 0, 0, bg;
+      box-shadow: 0 0 0 1px bd;
+      .omniauth-btn { colors: 0, 0, bd; }
     }
   }
 
   // Epics start/due dates.
   .block .value {
-    span:not(.color-label) { colors: $light, 0, 0; }
-    abbr { colors: $lighter, 0, 0; }
+    span:not(.color-label) { colors: fg, 0, 0; }
+    abbr { colors: cm, 0, 0; }
   }
 
 
   // * Cookies.
   #CybotCookiebotDialog {
-    colors: $light, 0, $darker;
+    colors: fg, 0, bd;
     box-shadow: 0 0 4px 0 $shadow;
     // Buttons.
-    [id*="ButtonsSelectPane"] { colors: 0, $dark, $dark; }
+    [id*="ButtonsSelectPane"] { colors: 0, bg, bg; }
     // Show/hide details button.
     [id*="DetailsWrapper"] {
-      colors: $accent, $dark, $accent;
-      a { color: $light; }
+      colors: ac, bg, ac;
+      a { color: fg; }
     }
     // Show details.
     [id*="DialogDetail"] {
       border-width: 1px;
-      colors: $light, $dark, $darker;
+      colors: fg, bg, bd;
       [id*="BodyContentTabs"] { border-color: $red; }
       a {
-        colors: $accent, $dark, 0;
-        &:hover, &[class*="Selected"] { colors: 0, 0, $dark; }
+        colors: ac, bg, 0;
+        &:hover, &[class*="Selected"] { colors: 0, 0, bg; }
       }
-      thead th { colors: $light, $dark, $dark; }
-      tbody td { colors: $light, $dark, $t; }
+      thead th { colors: fg, bg, bg; }
+      tbody td { colors: fg, bg, $t; }
     }
   }
 
   // * Navbar.
   .navbar {
-    colors: 0 $darker 0;
+    colors: 0 bd 0;
     box-shadow: 0 2px 4px 0 $shadow !important;
     // ? Feature -> Theme navbar color.
-    if ( navbar_c == 1 ) { colors: 0 0 $dark }
+    if ( navbar_c == 1 ) { colors: 0 0 bg }
     // ? Feature -> Show 'next' badge.
     if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
     .canary-badge .badge.badge-pill { colors: $white $green $green }
     // Logo text color.
-    .logo-text svg, svg.nav-logo .wordmark { fill: $light !important; }
+    .logo-text svg, svg.nav-logo .wordmark { fill: fg !important; }
     // Search.
     .search form {
       padding: 4px 2px 3px;
       height: unset;
       radius: $radius;
-      colors: $lighter $darker $darker;
-      #search { colors: $lighter 0 0 }
+      colors: cm bd bd;
+      #search { colors: cm 0 0 }
     }
     // Navbar links and buttons.
     a, button {
       transition: 0.15s ease;
-      colors: $lighter 0 0;
-      &:hover, &:focus { colors: $light 0 $darker }
+      colors: cm 0 0;
+      &:hover, &:focus { colors: fg 0 bd }
     }
     // Active tab/button/menu.
     &-sub-nav, &-nav {
       > li.active, .dropdown.show {
-        > a, > button { colors: $light 0 $darker }
-        svg { isvg: $light }
+        > a, > button { colors: fg 0 bd }
+        svg { isvg: fg }
       }
-      .btn:focus { colors: 0 0 $darker }
+      .btn:focus { colors: 0 0 bd }
     }
     // Separator.
     &-toggler {
       margin: 4px -7px 4px 0 !important;
-      border-left-color: $darker !important;
+      border-left-color: bd !important;
     }
     // ? Avatars -> Reset.
     .header-user-avatar {
       radius: var(--avatar) !important;
       border: none !important;
-      colors: $lighter, 0, $t;
+      colors: cm, 0, $t;
     }
     // ? Shows theme version in the user dropdown.
     .header-user li:first-child::before {
@@ -787,17 +796,17 @@
       display: block;
       padding: 8px 12px;
       margin: -16px -12px 8px -12px;
-      border-bottom: 1px solid $darker;
-      color: $light;
+      border-bottom: 1px solid bd;
+      color: fg;
     }
   }
 
   // * Navbar -> Projects/Groups.
   .frequent-items-dropdown-menu {
     radius: $radius;
-    .section-header { colors: $light, 0, 0; }
-    .section-empty, [class*="namespace"] { colors: $lighter, 0, 0;}
-    [class*="dropdown-sidebar"] { colors: 0, $darker, 0; }
+    .section-header { colors: fg, 0, 0; }
+    .section-empty, [class*="namespace"] { colors: cm, 0, 0;}
+    [class*="dropdown-sidebar"] { colors: 0, bd, 0; }
   }
 
   // * Dropdown.
@@ -806,23 +815,23 @@
     &-toggle, &-menu-toggle {
       transition: 0.15s ease;
       &:not(.search-input):not([class*="btn-"]) {
-        colors: $lighter $darker $dark;
-        &:hover { colors: $light 0 $darker }
+        colors: cm bd bg;
+        &:hover { colors: fg 0 bd }
       }
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
       // ? Active state for toggles.
       ^[0].show & {
-        colors: $light $darker $darker;
-        ^[2] ^[0]-toggle-text { colors: $light 0 0 }
+        colors: fg bd bd;
+        ^[2] ^[0]-toggle-text { colors: fg 0 0 }
       }
     }
     // Dashboard -> Dropdowns in activities.
-    &-toggle-text.is-default { colors: $lighter 0 0 }
+    &-toggle-text.is-default { colors: cm 0 0 }
     // On event.
     &-item {
       transition: 0.15s ease;
-      &:hover, &:focus { c: $light 0 $dark 0 0 0 }
+      &:hover, &:focus { c: fg 0 bg 0 0 0 }
     }
     // Shadow.
     &-content-faded-mask::after {
@@ -833,27 +842,27 @@
     // Button groups.
     .btn-group {
       > button, > a {
-        colors: 0, $darker, $dark;
+        colors: 0, bd, bg;
         transition: 0.2s ease !important;
-        &:hover, &.active { colors: 0, 0, $darker; }
+        &:hover, &.active { colors: 0, 0, bd; }
         &:first-child { border-radius: $radius 0 0 $radius; }
         &:last-child { border-radius: 0 $radius $radius 0; }
       }
     }
-    a:active { colors: $light, 0, $darker; }
-    .bold { colors: $lighter, 0, 0; }
-    label { colors: $light, 0, 0; }
+    a:active { colors: fg, 0, bd; }
+    .bold { colors: cm, 0, 0; }
+    label { colors: fg, 0, 0; }
     // ? Navbar -> Search menu.
     &-select {
       li {
-        &.separator { colors: 0, 0, $darker; }
-        &.dropdown-header { colors: $lighter, 0, 0; }
+        &.separator { colors: 0, 0, bd; }
+        &.dropdown-header { colors: cm, 0, 0; }
         a {
-          span b { colors: $accent, 0, 0; }
-          &:hover { colors: $light, 0, $darker; }
-          &.is-focused { colors: $light 0 $darker }
+          span b { colors: ac, 0, 0; }
+          &:hover { colors: fg, 0, bd; }
+          &.is-focused { colors: fg 0 bd }
           // ? Multiple `active` elements.
-          &.is-active { colors: $lighter 0 0 }
+          &.is-active { colors: cm 0 0 }
         }
       }
     }
@@ -861,15 +870,15 @@
     &-extended-height {
       a {
         transition: 0.1s ease;
-        colors: $lighter, 0, 0;
-        &:hover, &:active, &:focus { colors: $light, 0, $darker; }
-        &.is-active { colors: $accent, 0, 0; }
+        colors: cm, 0, 0;
+        &:hover, &:active, &:focus { colors: fg, 0, bd; }
+        &.is-active { colors: ac, 0, 0; }
       }
       // ? Boards -> Create new board.
       .dropdown-divider ~ .dropdown-item {
-        colors: $lighter, 0, 0;
+        colors: cm, 0, 0;
         transition: 0.15s ease;
-        &:hover, &:active, &:focus { colors: $light, 0, $darker; }
+        &:hover, &:active, &:focus { colors: fg, 0, bd; }
       }
     }
     // ? Project -> Insights.
@@ -877,61 +886,61 @@
       padding-left: 0;
       button.dropdown-toggle {
         box-shadow: none !important;
-        &:focus, ../.show .dropdown-toggle { colors: $light $darker $darker }
+        &:focus, ../.show .dropdown-toggle { colors: fg bd bd }
       }
     }
   }
   .dropdown-menu {
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     box-shadow: 0 4px 8px 0 $shadow;
     // ? Height reset.
     &-selectable.show { max-height: unset !important; }
     &, &-nav { max-height: 352px !important }
     // ? Header/Title.
-    .dropdown-header, .dropdown-title { colors: $light, $darker, 0; }
-    .dropdown-bold-header, &-inner-title { colors: $light 0 0 }
-    &-inner-content { colors: $lighter 0 0 }
+    .dropdown-header, .dropdown-title { colors: fg, bd, 0; }
+    .dropdown-bold-header, &-inner-title { colors: fg 0 0 }
+    &-inner-content { colors: cm 0 0 }
     // ? Input / Search.
     .dropdown-input-field, .default-dropdown-input {
       radius: $radius;
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
       &:focus {
-        colors: 0 $accent 0;
+        colors: 0 ac 0;
         box-shadow: 0 2px 4px 0 $shadow;
       }
     }
     // ? Body/Content.
-    .dropdown-info-note { colors: $light, 0, 0; }
-    [class*="divider"] { colors: 0, $darker, $t; }
+    .dropdown-info-note { colors: fg, 0, 0; }
+    [class*="divider"] { colors: 0, bd, $t; }
     .dropdown-item {
-      colors: $lighter 0 0;
-      &:focus, &:active { colors: 0 0 $darker }
+      colors: cm 0 0;
+      &:focus, &:active { colors: 0 0 bd }
       // ? Search projects on `/-/operations` page.
-      &:not(.disable-hover):hover { colors: 0 0 $darker }
+      &:not(.disable-hover):hover { colors: 0 0 bd }
     }
     li {
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button:not(.btn-success) { colors: $light 0 $darker }
+      &:hover a, &:hover button:not(.btn-success) { colors: fg 0 bd }
       a, button:not(.btn) {
-        colors: $lighter 0 0;
+        colors: cm 0 0;
         transition: 0.15s ease;
       }
-      .btn-default { colors: $lighter 0 0 }
-      .is-focused, a:focus, a:active { colors: $light 0 $darker }
-      &.droplab-item-active .btn { colors: $light 0 $darker }
+      .btn-default { colors: cm 0 0 }
+      .is-focused, a:focus, a:active { colors: fg 0 bd }
+      &.droplab-item-active .btn { colors: fg 0 bd }
     }
     // ? MR -> "Created date" dropdown.
     &-sort {
       li {
         // ? Reset due to markup being single `li` with a ton of `a` elements.
-        &:hover a { colors: $lighter, 0, $t; }
+        &:hover a { colors: cm, 0, $t; }
         a {
           transition: 0.1s ease;
-          &:hover { colors: $light, 0, $darker; }
-          &.is-active { colors: $light 0 0 }
+          &:hover { colors: fg, 0, bd; }
+          &.is-active { colors: fg 0 0 }
         }
       }
     }
@@ -939,13 +948,13 @@
     &-right:not(&-sort) {
       li {
         // ? Reset due to markup being single `li` with a ton of `a` elements.
-        &:hover a { colors: $lighter, 0, $t; }
+        &:hover a { colors: cm, 0, $t; }
         a, button:not(.btn), .menu-item {
           transition: 0.15s ease;
-          colors: $lighter, 0, 0;
-          &:hover { colors: $light, 0, $darker; }
+          colors: cm, 0, 0;
+          &:hover { colors: fg, 0, bd; }
         }
-        .form-group label { colors: $light, 0, 0; }
+        .form-group label { colors: fg, 0, 0; }
       }
     }
     // ? Project -> Notifications.
@@ -955,20 +964,20 @@
     // ? Snippets -> Embed menu.
     &-selectable {
       li {
-        button { colors: $lighter, 0, 0; }
-        .is-active { colors: $light, 0, 0; }
+        button { colors: cm, 0, 0; }
+        .is-active { colors: fg, 0, 0; }
       }
     }
     // ? Issue boards -> Add list.
     &-tabs {
       // max-height: 400px !important;
       .dropdown-tabs-list {
-        colors: 0, 0, $dark;
-        box-shadow: 0 1px 0 0 $darker !important;
+        colors: 0, 0, bg;
+        box-shadow: 0 1px 0 0 bd !important;
         .dropdown-tab-item {
-          colors: 0, $darker, 0;
-          a { colors: $light, 0, $dark; }
-          a.active { colors: $lighter, $accent, $dark; }
+          colors: 0, bd, 0;
+          a { colors: fg, 0, bg; }
+          a.active { colors: cm, ac, bg; }
         }
       }
     }
@@ -976,26 +985,26 @@
     &.diff-file-changes {
       min-width: 500px !important;
       .diff-changed-file {
-        [class*="path"] { colors: $lighter, 0, 0; }
+        [class*="path"] { colors: cm, 0, 0; }
         &.is-focused, &:focus {
-          colors: 0, 0, $darker;
-          [class*="file-name"] { colors: $light, 0, 0; }
+          colors: 0, 0, bd;
+          [class*="file-name"] { colors: fg, 0, 0; }
         }
       }
     }
     // ? Footer.
     .dropdown-footer {
-      colors: 0, $darker, 0;
-      li:hover a { colors: $lighter, 0, $t; }
+      colors: 0, bd, 0;
+      li:hover a { colors: cm, 0, $t; }
       li a {
         transition: 0.1s ease;
-        &:hover { colors: $light, 0, $darker; }
+        &:hover { colors: fg, 0, bd; }
       }
     }
     // ? Loader.
     [class*="-loading"] {
-      colors: 0, 0, $dark;
-      .fa-spinner:before { color: $lighter; }
+      colors: 0, 0, bg;
+      .fa-spinner:before { color: cm; }
     }
   }
 
@@ -1004,23 +1013,23 @@
     // Menu.
     &-drop {
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Menu arrow.
     &-arrow {
       padding-left: 12px;
       colors: 0, 0, $t;
-      &::after { colors: $lighter, 0, 0; }
+      &::after { colors: cm, 0, 0; }
     }
     // Input/select.
     &-drop input, &-choice, &-search-choices, &-default {
       radius: $radius !important;
-      colors: $lighter, $darker, $dark;
+      colors: cm, bd, bg;
     }
     &-container-multi &-choices {
       radius: $radius;
-      colors: $lighter, $darker, $dark;
-      input:focus { colors: $light, 0, 0; }
+      colors: cm, bd, bg;
+      input:focus { colors: fg, 0, 0; }
     }
     // ? Fix for flashing input.
     &-container-multi &-choices &-search-field input&-active {
@@ -1029,12 +1038,12 @@
     // Results.
     &-results &-result-label {
       transition: 0.1s ease;
-      colors: $lighter, 0, 0;
-      .group-name { color: $light; }
-      .group-path { color: $lighter; }
+      colors: cm, 0, 0;
+      .group-name { color: fg; }
+      .group-path { color: cm; }
     }
     &-results &-highlighted &-result-label {
-      colors: $light, 0, $darker;
+      colors: fg, 0, bd;
     }
     // Loader.
     &-more-results { colors: 0, 0, $t; }
@@ -1042,12 +1051,12 @@
 
   // Global -> GFM links.
   .gfm {
-    c: $light 0 $darker;
-    &&-issue, &&-merge_request, &&-epic { c: $accent 0 $t }
-    &&-commit, &&-milestone { c: $accent 0 $t }
+    c: fg 0 bd;
+    &&-issue, &&-merge_request, &&-epic { c: ac 0 $t }
+    &&-commit, &&-milestone { c: ac 0 $t }
     &&-label { c: 0 0 $t }
     &.current-user {
-      c: $white 0 $accent;
+      c: $white 0 ac;
       &:hover {
         text-decoration: none;
         colors: $white 0 0;
@@ -1061,7 +1070,7 @@
     .top-area:not(.cover-block) {
       margin-top: 8px;
       radius: $radius;
-      c: 0 0 $dark;
+      c: 0 0 bg;
       box-shadow: $inner;
       .nav-links {
         margin: 0;
@@ -1074,22 +1083,22 @@
     .search-results {
       margin-top: 16px;
       radius: $radius;
-      colors: 0 0 $dark;
+      colors: 0 0 bg;
       box-shadow: $inner;
       // Bug on .../search/users tab. @upstream
       > .content-list {
         > li { padding: 8px }
-        &:not(:last-child) { box-shadow: 0 1px $darker }
+        &:not(:last-child) { box-shadow: 0 1px bd }
       }
       .search-result-row {
         padding: 8px;
         margin-bottom: 0;
-        colors: 0, $darker, 0;
+        colors: 0, bd, 0;
         &:first-child { radius: $radius $radius 0 0; }
         &:last-child { radius: 0 0 $radius $radius; }
         h4 { margin-top: 0px; }
-        code { colors: $lighter, 0, 0; }
-        pre.code { colors: 0, $darker, 0; }
+        code { colors: cm, 0, 0; }
+        pre.code { colors: 0, bd, 0; }
       }
     }
   }
@@ -1104,11 +1113,11 @@
       // Cards.
       .blank-state-link {
         radius: $radius;
-        colors: 0, 0, $dark;
-        &:hover { colors: $light, 0, $darker; }
+        colors: 0, 0, bg;
+        &:hover { colors: fg, 0, bd; }
         .blank-state {
           radius: $radius;
-          colors: 0, $darker, 0;
+          colors: 0, bd, 0;
         }
       }
     }
@@ -1117,7 +1126,7 @@
   // * Dashboard -> New project.
   .gitlab-tabs {
     radius: $radius $radius 0 0;
-    c: 0 $darker;
+    c: 0 bd;
     &.nav.nav-tabs.nav-links {
       radius: $radius $radius 0 0;
       border-bottom: 1px solid;
@@ -1125,20 +1134,20 @@
       > .nav-item { margin: 0 }
     }
     li.nav-item {
-      c: 0 $darker;
+      c: 0 bd;
       a {
         radius: 0;
         ../:first-child a { radius: $radius 0 0 0 }
         ../:last-child a { radius: 0 $radius 0 0 }
-        ../.active a.nav-link { c: $light $accent }
-        ../:hover a.nav-link { c: $light $t }
+        ../.active a.nav-link { c: fg ac }
+        ../:hover a.nav-link { c: fg $t }
       }
     }
   }
   // Tab content.
   .gitlab-tab-content {
     radius: 0 0 $radius $radius;
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     // 'Create from template' area.
     .card-slim {
       padding: 8px !important;
@@ -1147,20 +1156,20 @@
     // Inputs.
     [class*="input-group"] {
       radius: $radius;
-      colors: $lighter, $darker, $darker;
+      colors: cm, bd, bd;
     }
-    .template-option { colors: 0, $darker, 0; }
+    .template-option { colors: 0, bd, 0; }
   }
 
   // * Table -> Old-ish table components.
   .table-responsive, table.table {
     radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    colors: 0, 0, bg;
+    box-shadow: 0 0 0 1px inset bd;
     thead tr {
       th {
         border-top: none;
-        colors: $light, 0, $darker;
+        colors: fg, 0, bd;
       }
       > th:first-child { radius: $radius 0 0 0; }
       > th:last-child { radius: 0 $radius 0 0; }
@@ -1168,11 +1177,11 @@
     tbody tr {
       td {
         transition: 0.15s ease;
-        colors: $lighter $darker 0;
+        colors: cm bd 0;
       }
       &:last-child > td:first-child { radius: 0 0 0 $radius; }
       &:last-child > td:last-child { radius: 0 0 $radius 0; }
-      &:hover > td { colors: $light, 0, $darker; }
+      &:hover > td { colors: fg, 0, bd; }
     }
     // Highlighted odd rows.
     &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 $shadow; }
@@ -1181,7 +1190,7 @@
     // Imported projects.
     .table-success,
     .table-success > td {
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
     }
   }
 
@@ -1189,7 +1198,7 @@
   // * Settings -> Messages.
   .settings-message {
     radius: $radius;
-    colors: $light $darker $dark;
+    colors: fg bd bg;
   }
   // ! Explore replacing `border` with `box-shadow` in the future.
   .triggers-container, .coverage-report, .pipeline-status, .builds-feature {
@@ -1197,44 +1206,44 @@
   }
   // Social icons.
   .provider-btn {
-    colors: $lighter, 0, $dark;
-    &-group { colors: 0, $darker, $dark; }
-    &-image { colors: 0, $darker, 0; }
+    colors: cm, 0, bg;
+    &-group { colors: 0, bd, bg; }
+    &-image { colors: 0, bd, 0; }
   }
   // Path.
   .input-group-text {
-    colors: $light, $darker, 0;
+    colors: fg, bd, 0;
     // Fix #29.
-    &:not(.label-color-preview) { colors: 0, 0, $darker; }
+    &:not(.label-color-preview) { colors: 0, 0, bd; }
   }
   // * Settings -> Emails.
   .account-well {
     radius: $radius;
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
    }
   // * Settings -> Billings page.
-  ul.bordered-list { &, li { colors: 0 $darker 0 }}
+  ul.bordered-list { &, li { colors: 0 bd 0 }}
   // * Settings -> Active sessions.
   .card .list-group {
     radius: $radius;
-    colors: $lighter 0 $dark;
-    box-shadow: 0 0 0 1px inset $darker;
-    &-item { colors: $lighter $darker $t }
+    colors: cm 0 bg;
+    box-shadow: 0 0 0 1px inset bd;
+    &-item { colors: cm bd $t }
   }
   // * Settings -> Pipeline quota.
   .pipeline-quota {
     padding: 0px !important;
-    colors: 0 $darker 0;
+    colors: 0 bd 0;
   }
   // * Global -> Progress bar.
   .progress {
-    colors: 0 0 $darker;
+    colors: 0 0 bd;
     // Filled progress.
-    .bg-success { colors: $light 0 $green }
+    .bg-success { colors: fg 0 $green }
   }
   // TODO: Move.
-  .text-muted, .description { colors: $lighter 0 0 }
-  .profile-settings-content a { color: $accent }
+  .text-muted, .description { colors: cm 0 0 }
+  .profile-settings-content a { color: ac }
 
   // * Alerts.
   .alert-wrapper {
@@ -1272,7 +1281,7 @@
       &[style*="background-color: #004275"] { colors: $white, 0, $blue; }
       &[style*="background-color: #00bd7f"] { colors: $white, 0, $green; }
       &[style*="background-color: #e75e40"] { colors: $white, 0, $orange; }
-      &[style*="background-color: #f4f4f4"] { colors: $light, 0, $darker; }
+      &[style*="background-color: #f4f4f4"] { colors: fg, 0, bd; }
     }
   }
   // Found in IDE when page doesn't load properly.
@@ -1289,24 +1298,24 @@
   }
   // Customers page, possible refactor.
   .alert-danger { colors: $white, $red, $red; }
-  .alert-info { colors: 0, $blue, $dark; }
+  .alert-info { colors: 0, $blue, bg; }
 
   // * Bootstrap breadcrumbs.
   .breadcrumbs {
-    colors: $light, 0, 0;
+    colors: fg, 0, 0;
     // Wrapper.
     .breadcrumbs-container {
       padding: 0 10px;
       margin-top: 10px;
       radius: $radius;
       border: 1px solid !important;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
-    &-list a { colors: $lighter, 0, 0; }
+    &-list a { colors: cm, 0, 0; }
     // Highlighted link.
-    &-sub-title a { colors: $light, 0, 0; }
+    &-sub-title a { colors: fg, 0, 0; }
     // Separator.
-    &-links { c: $lighter $darker 0 }
+    &-links { c: cm bd 0 }
     // ? Reset epics-roadmap page.
     &.group-epics-roadmap {
       border-bottom: none !important;
@@ -1314,15 +1323,15 @@
     }
   }
   .breadcrumb {
-    .breadcrumb-item a { colors: $lighter 0 0 }
-    &.repo-breadcrumb > li + li::before { colors: $lighter 0 0 }
+    .breadcrumb-item a { colors: cm 0 0 }
+    &.repo-breadcrumb > li + li::before { colors: cm 0 0 }
   }
 
   // * Epics :: Resets!
   [data-page*="groups:roadmap:"]  {
     .epics-filters {
-      border: 1px solid $darker;
-      colors: 0 0 $dark;
+      border: 1px solid bd;
+      colors: 0 0 bg;
     }
     .row-content-block {
       margin-top: 0px !important;
@@ -1343,36 +1352,36 @@
   // * Epics :: Roadmap.
   .roadmap-container {
     radius: $radius;
-    colors: 0 0 $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    colors: 0 0 bg;
+    box-shadow: 0 0 0 1px inset bd;
     // Timeline header.
     .timeline-header-blank {
-      colors: $lighter, $darker, $dark;
-      box-shadow: -1px 0 0 0 inset $darker;
-      &::before { colors: 0, $darker, 0; }
+      colors: cm, bd, bg;
+      box-shadow: -1px 0 0 0 inset bd;
+      &::before { colors: 0, bd, 0; }
       &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
     }
     // Timeline items.
     .timeline-header-item {
-      colors: 0, $darker, $dark;
-      .item-label { colors: $light, $darker, 0; }
-      .item-sublabel .sublabel-value { colors: $lighter, 0, 0; }
-      .item-sublabel .label-bold { colors: $light, 0, 0; }
+      colors: 0, bd, bg;
+      .item-label { colors: fg, bd, 0; }
+      .item-sublabel .sublabel-value { colors: cm, 0, 0; }
+      .item-sublabel .label-bold { colors: fg, 0, 0; }
     }
     // Background cells.
     .epics-list-section {
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
       // Left sidebar cells.
       .epic-details-cell {
-        colors: 0, $darker, $dark;
-        box-shadow: -1px 0 0 0 inset $darker;
+        colors: 0, bd, bg;
+        box-shadow: -1px 0 0 0 inset bd;
         &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
-        .epic-url { colors: $light, 0, 0; }
-        .epic-timeframe { colors: $lighter, 0, 0; }
+        .epic-url { colors: fg, 0, 0; }
+        .epic-timeframe { colors: cm, 0, 0; }
       }
       .epics-list-item {
-        &:hover .epic-timeline-cell { colors: 0, $darker, $dark; }
-        .epic-timeline-cell { colors: $light, $dark, 0; }
+        &:hover .epic-timeline-cell { colors: 0, bd, bg; }
+        .epic-timeline-cell { colors: fg, bg, 0; }
         // ? Bars.
         .timeline-bar {
           colors: 0, 0, $blue;
@@ -1400,13 +1409,13 @@
   .pipelines-container .top-area {
     margin-top: 8px;
     radius: $radius;
-    c: 0 0 $dark;
+    c: 0 0 bg;
     box-shadow: $inner;
   }
   #content-body > div[class] > .top-area:not(.cover-block) {
     margin-top: 8px;
     radius: $radius;
-    c: 0 0 $dark;
+    c: 0 0 bg;
     box-shadow: $inner;
     > .nav.nav-tabs:not(#sc) {
       a { padding: 10px 8px }
@@ -1431,7 +1440,7 @@
     radius: $radius;
     border-bottom: none;
     box-shadow: $inner;
-    c: 0 0 $dark;
+    c: 0 0 bg;
     .cover-block ^[0] {
       radius: 0;
       c: 0 0 $t;
@@ -1445,15 +1454,15 @@
       a[class], a[href] {
         line-height: 32px;
         border-bottom-width: 1px !important;
-        c: $lighter;
-        ../:hover > a { c: $light $darker }
+        c: cm;
+        ../:hover > a { c: fg bd }
         ../.active, ../:active {
-          > a { c: $light $accent }
-          .badge.badge-pill { c: $light }
+          > a { c: fg ac }
+          .badge.badge-pill { c: fg }
         }
-        &.active { c: $light $accent $t }
+        &.active { c: fg ac $t }
       }
-      .badge.badge-pill { c: $lighter 0 $darker }
+      .badge.badge-pill { c: cm 0 bd }
     }
     // Whitespace on the right side.
     + .nav-controls {
@@ -1468,12 +1477,12 @@
 
   .scrolling-tabs-container {
     .fade-right {
-      background: linear-gradient(to left, $dark 45%, $t);
-      border-right: 1px solid $darker;
+      background: linear-gradient(to left, bg 45%, $t);
+      border-right: 1px solid bd;
     }
     .fade-left {
-      background: linear-gradient(to right, $dark 45%, $t);
-      border-left: 1px solid $darker;
+      background: linear-gradient(to right, bg 45%, $t);
+      border-left: 1px solid bd;
     }
   }
 
@@ -1481,28 +1490,28 @@
   // * Settings -> Billings.
   .billing-plans {
     [class*="card"] {
-      colors: 0 0 $dark;
+      colors: 0 0 bg;
       .card-header {
         radius: $radius $radius 0 0;
-        colors: $white 0 $accent;
+        colors: $white 0 ac;
       }
       .card-body {
         radius: 0 0 $radius $radius;
         // Items.
         .feature-list li { colors: 0 0 $t }
         // Pricing.
-        .price-per-month { colors: $accent 0 0 }
+        .price-per-month { colors: ac 0 0 }
         .price-per-year { colors: $green 0 0 }
         // Borders.
-        ../.current .card-body { colors: 0 $accent 0 }
-        ../:not(.current) .card-body { colors: 0 $darker 0 }
+        ../.current .card-body { colors: 0 ac 0 }
+        ../:not(.current) .card-body { colors: 0 bd 0 }
       }
     }
   }
 
   /* SSH Keys. */
   // pre,
-  code.key-fingerprint { colors: $lighter, $darker, $darker; }
+  code.key-fingerprint { colors: cm, bd, bd; }
 
 
   // * Projects list.
@@ -1510,15 +1519,15 @@
   .projects-list, #groups .content-list {
     margin: 8px 0;
     radius: $radius;
-    box-shadow: inset 0 0 0 1px $darker;
-    background-color: $dark;
+    box-shadow: inset 0 0 0 1px bd;
+    background-color: bg;
     // Items.
     > li {
       padding: 8px;
       transition: all 0.15s ease-in-out;
-      border-bottom-color: $darker;
+      border-bottom-color: bd;
       // On event.
-      &:hover { background-color: $darker; }
+      &:hover { background-color: bd; }
       // ? Round corners on first and last child.
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
@@ -1535,26 +1544,26 @@
       }
       // Project metadata.
       .metadata-info, .updated-note {
-        colors: $lighter, 0, 0;
-        time { color: $lighter; }
+        colors: cm, 0, 0;
+        time { color: cm; }
       }
       // Project stats and icons.
       .icon-container > .icon-wrapper {
-        colors: $lighter, 0, 0;
+        colors: cm, 0, 0;
       }
     }
   }
 
   // * Avatars.
   .avatar {
-    c: $lighter;
+    c: cm;
     &, &-circle, &-container, &-tile {
       radius: var(--avatar) !important;
       border: none !important;
-      c: $lighter $t $t;
+      c: cm $t $t;
     }
     &:not(img) {
-      c: 0 0 $dark;
+      c: 0 0 bg;
       box-shadow: $inner;
       transition: 0.15s ease !important;
     }
@@ -1563,29 +1572,29 @@
   img.avatar { filter: drop-shadow(1px 1px 2px $shadow); }
   // ? Hover event for content list and group list.
   li:not(.group-row), .group-row-contents {
-    &:hover .avatar:not(img) { c: 0 0 $dark }
+    &:hover .avatar:not(img) { c: 0 0 bg }
   }
 
   // * Project details.
   .project-details {
     .text-plain {
-      color: $light;
-      &:hover { color: $lighter; }
+      color: fg;
+      &:hover { color: cm; }
     }
   }
   .project-stats .nav .stat-link {
-    color: $light;
-    &:hover { color: $lighter; }
+    color: fg;
+    &:hover { color: cm; }
   }
-  .user-access-role { c: $light $darker $dark }
+  .user-access-role { c: fg bd bg }
 
   // * Project -> New fork.
   .fork-thumbnail-container {
     .fork-thumbnail {
       radius: $radius;
-      c: 0 $darker $dark;
+      c: 0 bd bg;
       transition: 0.15s ease;
-      &:hover { c: 0 $accent 0 }
+      &:hover { c: 0 ac 0 }
       a > div { margin: 0 auto }
     }
   }
@@ -1595,7 +1604,7 @@
     .commit-list {
       .commit {
         padding: 8px;
-        a:not(.gpg-status-box) { colors: $light, 0, 0; }
+        a:not(.gpg-status-box) { colors: fg, 0, 0; }
       }
     }
     // Header.
@@ -1603,7 +1612,7 @@
       display: inline-flex;
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       .day { padding-right: 1ch; }
       // Have some whitespace between days.
       &:not(:first-child) { margin-top: 10px; }
@@ -1615,29 +1624,29 @@
       position: relative;
       margin-bottom: 8px;
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: inset 0 0 0 1px $darker;
+      colors: 0, 0, bg;
+      box-shadow: inset 0 0 0 1px bd;
       &::before {
         content: "";
         height: 10px;
         position: absolute;
         top: -10px; left: 28px;
-        border-left: 1px solid $darker;
+        border-left: 1px solid bd;
       }
     }
   }
   .commit {
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     & &-content {
       div.committer {
-        colors: $lighter 0 0;
+        colors: cm 0 0;
         time { color: inherit }
         // FIX: Specificity.
         a[href]^[0]-author-link:not(#e) { color: inherit !important }
       }
     }
     a {
-      colors: $light, 0, 0;
+      colors: fg, 0, 0;
       // Center avatar.
       img { margin: 2px 0 0 2px }
     }
@@ -1648,17 +1657,17 @@
       border-width: 4px;
       font-size: inherit;
       font-family: var(--ui-font);
-      colors: $lighter, $darker, 0;
+      colors: cm, bd, 0;
     }
   }
 
   // Commits -> Show commit message.
   .text-expander {
-    c: 0 $darker $dark;
+    c: 0 bd bg;
     transition: 0.15s ease;
-    &:hover { c: 0 0 $darker }
+    &:hover { c: 0 0 bd }
     &.open {
-      c: 0 $accent $accent;
+      c: 0 ac ac;
       box-shadow: none;
       svg { isvg: $white }
     }
@@ -1672,11 +1681,11 @@
     padding: 8px;
     border: none;
     radius: $radius;
-    colors: 0 0 $dark;
-    box-shadow: inset 0 0 0 1px $darker;
+    colors: 0 0 bg;
+    box-shadow: inset 0 0 0 1px bd;
     [class*="-description"] {
       border-width: 4px;
-      colors: $lighter $darker 0;
+      colors: cm bd 0;
     }
   }
 
@@ -1684,32 +1693,32 @@
   .all-branches {
     > .branch-item {
       padding: 8px;
-      colors: 0, $darker, 0;
-      .branch-title a { colors: $light, 0, 0; }
+      colors: 0, bd, 0;
+      .branch-title a { colors: fg, 0, 0; }
       .branch-commit {
-        colors: $lighter, 0, 0;
-        .commit-sha { colors: $light 0 0 }
-        time, .commit-row-message { colors: $lighter, 0, 0; }
+        colors: cm, 0, 0;
+        .commit-sha { colors: fg 0 0 }
+        time, .commit-row-message { colors: cm, 0, 0; }
       }
     }
     .btn.btn-remove { colors: $white $red $red }
-    .branch-commit .commit-row-message { colors: $light, 0, 0; }
+    .branch-commit .commit-row-message { colors: fg, 0, 0; }
     // Select next sibling and reset the colors.
     & + .card-footer.text-center {
-      colors: $light, 0, $t;
-      a { colors: $lighter, 0, 0; }
+      colors: fg, 0, $t;
+      a { colors: cm, 0, 0; }
     }
   }
   // Graph color.
   .divergence-graph {
-    .graph-side [class*="bar"] { colors: 0, 0, $lighter; }
-    .graph-separator { colors: 0, 0, $lighter; }
-    [class*="count"] { colors: $light, 0, 0; }
+    .graph-side [class*="bar"] { colors: 0, 0, cm; }
+    .graph-separator { colors: 0, 0, cm; }
+    [class*="count"] { colors: fg, 0, 0; }
   }
   .content-list li {
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     // TODO Find a better way to style this selector.
-    a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: $accent !important; }
+    a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: ac !important; }
   }
   // ? Active/Stale/All pages.
   [data-page="projects:branches:index"] {
@@ -1717,11 +1726,11 @@
     .top-area.adjust + .all-branches {
       margin-top: 10px !important;
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: inset 0 0 0 1px $darker;
+      colors: 0, 0, bg;
+      box-shadow: inset 0 0 0 1px bd;
       li {
         transition: 0.1s ease;
-        &:hover { colors: 0, 0, $darker; }
+        &:hover { colors: 0, 0, bd; }
         &:first-child { radius: $radius $radius 0 0; }
         &:last-child { radius: 0 0 $radius $radius; }
       }
@@ -1732,34 +1741,34 @@
   .tags > ul {
     margin-top: 10px;
     radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: inset 0 0 0 1px $darker;
+    colors: 0, 0, bg;
+    box-shadow: inset 0 0 0 1px bd;
     li.flex-row {
       padding: 10px;
       transition: 0.2s ease;
       .branch-commit {
         &, .js-timeago, .commit-row-message {
-          colors: $lighter, 0, 0;
+          colors: cm, 0, 0;
         }
       }
-      .item-title.ref-name { colors: $light, 0, 0; }
+      .item-title.ref-name { colors: fg, 0, 0; }
     }
   }
   // * Project :: Tags -> Details.
   .multi-line .branch-commit {
-    .commit-row-message { colors: $lighter, 0, 0; }
-    .commit-sha { colors: $accent, 0, 0; }
+    .commit-row-message { colors: cm, 0, 0; }
+    .commit-sha { colors: ac, 0, 0; }
   }
 
   // * Project -> Contributors.
   [id*="contributors"] {
     .person .spark, .tint-box {
       radius: $radius;
-      c: $light 0 $dark;
+      c: fg 0 bg;
       box-shadow: $inner;
       .axis {
-        .domain, line { stroke: $lighter; }
-        text { fill: $light; }
+        .domain, line { stroke: cm; }
+        text { fill: fg; }
       }
       // Graph colors.
       .area { isvg: $green }
@@ -1771,25 +1780,25 @@
   .project-network {
     overflow: hidden;
     radius: $radius;
-    c: 0 $darker;
-    .controls { c: 0 $darker $darker }
+    c: 0 bd;
+    .controls { c: 0 bd bd }
     // Graph background.
     .network-graph {
       isvg: $red;
-      c: 0 0 $dark;
+      c: 0 0 bg;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
         fill-opacity: 1 !important;
-        isvg: $darker $t;
+        isvg: bd $t;
       }
-      [d^="M165"], [d^="M185"], [d^="M195"] { fill: $darker }
+      [d^="M165"], [d^="M185"], [d^="M195"] { fill: bd }
       // Text color.
-      > svg text { fill: $light; }
+      > svg text { fill: fg; }
       // Sidebar.
       > svg rect[width*="40"], > svg rect[width*="30"] {
         stroke-width: 0;
-        stroke: $darker;
-        fill: $darker;
+        stroke: bd;
+        fill: bd;
       }
     }
   }
@@ -1799,53 +1808,53 @@
     colors: 0 0 $t;
     &-backdrop.show {
       opacity: 0.7;
-      colors: 0 0 $dark;
+      colors: 0 0 bg;
     }
     .modal-content {
       border: none;
       radius: $radius;
-      colors: 0 0 $dark;
-      box-shadow: 0 0 0 1px inset $darker !important;
+      colors: 0 0 bg;
+      box-shadow: 0 0 0 1px inset bd !important;
       // Rounded corners for the last element.
       > :last-child { radius: 0 0 $radius $radius }
     }
     .modal-header {
       radius: $radius $radius 0 0;
-      colors: 0 $darker $t;
+      colors: 0 bd $t;
     }
     .modal-body {
       colors: 0 0 $t;
       // ? MR -> Merge with CLI instructions.
       pre {
         radius: $radius;
-        colors: $lighter $darker $dark;
+        colors: cm bd bg;
       }
-      [class*="-subheader"] { colors: 0 $darker 0 }
+      [class*="-subheader"] { colors: 0 bd 0 }
       // ? Shortcuts modal.
       .shortcut-mappings {
-        th { colors: $light 0 0 }
-        td { colors: $lighter 0 0 }
-        kbd { colors: $light 0 $darker }
+        th { colors: fg 0 0 }
+        td { colors: cm 0 0 }
+        kbd { colors: fg 0 bd }
       }
       // ? Board scope.
-      .title { colors: $lighter, 0, 0; }
-      .block + .block { border-top-color: $darker; }
+      .title { colors: cm, 0, 0; }
+      .block + .block { border-top-color: bd; }
       // Actions in auth.
       .form-actions {
         radius: 0;
         colors: 0 0 $t;
         border: none !important;
-        box-shadow: 0 -1px $darker;
+        box-shadow: 0 -1px bd;
       }
     }
-    .modal-footer { colors: 0 $darker $t }
+    .modal-footer { colors: 0 bd $t }
   }
 
   // * Global -> Close buttons.
   .close {
     transition: 0.15s ease;
     text-shadow: 0 1px 0 $shadow;
-    &, &:hover, &:focus { colors: $lighter 0 0 }
+    &, &:hover, &:focus { colors: cm 0 0 }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
       text-shadow: 0 1px 0 $shadow;
@@ -1855,11 +1864,11 @@
 
   // * Project -> Blame.
   [data-page*="projects:blame"] {
-    .file-blame-legend { c: 0 $darker $dark }
+    .file-blame-legend { c: 0 bd bg }
     .blame table {
       radius: none;
       box-shadow: none;
-      tr { c: 0 $darker }
+      tr { c: 0 bd }
       tr:last-child > td::before { radius: 0 0 0 4px }
     }
     .blame-commit {
@@ -1886,20 +1895,20 @@
 
   // * Project -> Various resets.
   .file-holder {
-    .file-fork-suggestion { colors: 0, $darker, $dark; }
+    .file-fork-suggestion { colors: 0, bd, bg; }
     .table-responsive { radius: 0 !important; }
-    .file-title a:not(.btn) { colors: $light 0 0 }
+    .file-title a:not(.btn) { colors: fg 0 0 }
   }
 
   // * Project -> Last commit.
   .info-well {
     radius: $radius;
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     > .well-segment {
       padding: 8px;
-      colors: $lighter $darker 0;
+      colors: cm bd 0;
       a {
-        color: $accent;
+        color: ac;
         img { margin: 1px 8px 0 0 }
       }
     }
@@ -1923,69 +1932,69 @@
   // TODO: Remove #sc after refactoring content lists.
   .gpg-status-box:not(#sc) {
     &.valid {
-      c: $green $green $dark;
+      c: $green $green bg;
       &:hover { c: $white 0 $green }
     }
     &.invalid, &.invalid:focus {
-      c: $lighter $darker $dark;
-      &:hover { c: 0 0 $darker }
+      c: cm bd bg;
+      &:hover { c: 0 0 bd }
     }
   }
 
   // * Popover.
   .popover {
     font-family: var(--ui-font);
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     box-shadow: 0 4px 8px 0 $shadow;
-    &-header { colors: 0, $darker, $darker; }
+    &-header { colors: 0, bd, bd; }
     &-body {
-      c: $light 0 0;
+      c: fg 0 0;
       ../.blue { c: 0 0 $blue }
     }
     // Blue popouts?
     .arrow {
-      color: $dark;
+      color: bg;
       ../.blue .arrow { c: $blue }
     }
     &[class*="-top"] {
-      .arrow::before { border-top-color: $darker !important; }
+      .arrow::before { border-top-color: bd !important; }
       .arrow::after { border-top-color: inherit !important; }
     }
     &[class*="-bottom"] {
-      .arrow::before { border-bottom-color: $darker !important; }
+      .arrow::before { border-bottom-color: bd !important; }
       .arrow::after { border-bottom-color: inherit !important; }
     }
     &[class*="-left"] {
-      .arrow::before { border-left-color: $darker !important; }
+      .arrow::before { border-left-color: bd !important; }
       .arrow::after { border-left-color: inherit !important; }
     }
     &[class*="-right"] {
-      .arrow::before { border-right-color: $darker !important; }
+      .arrow::before { border-right-color: bd !important; }
       .arrow::after { border-right-color: inherit !important; }
     }
-    .gpg-popover-user-link { colors: $light, 0, 0; }
+    .gpg-popover-user-link { colors: fg, 0, 0; }
     // Milestones.
     .milestone-popover-body { colors: 0, 0, $t; }
-    .milestone-popover-footer { colors: 0, $darker, 0; }
+    .milestone-popover-footer { colors: 0, bd, 0; }
   }
 
   // Popover -> Tour.
   .onboarding-helper-container {
-    c: 0 0 $dark;
+    c: 0 0 bg;
     box-shadow: $inner, 0 4px 8px 0 $shadow;
     .avatar {
       radius: 50% !important;
-      c: 0 0 $darker;
-      box-shadow: inset 0 0 0 1px $darker;
+      c: 0 0 bd;
+      box-shadow: inset 0 0 0 1px bd;
     }
-    .progress { c: 0 0 $darker }
+    .progress { c: 0 0 bd }
     .bg-info { c: 0 0 $blue }
     .text-info { c: $blue }
     .qa-toggle-btn {
       c: 0 0 $t;
-      &:hover svg { isvg: $light }
+      &:hover svg { isvg: fg }
     }
-    .active { c: 0 0 $darker }
+    .active { c: 0 0 bd }
   }
 
   // * Commits -> Diff summary.
@@ -1994,7 +2003,7 @@
     padding: 8px;
     margin: 10px 0;
     border: 1px solid;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     // Wrapper.
     > .files-changed-inner {
       // Hide buttons on small resolution.
@@ -2011,42 +2020,42 @@
     // Collapsed file content.
     &-file .diff-content {
       radius: 0 0 $radius $radius;
-      colors: $light, 0, $dark;
-      box-shadow: 0 -1px 0 0 $darker;
-      .btn-link { colors: $accent 0 0 }
+      colors: fg, 0, bg;
+      box-shadow: 0 -1px 0 0 bd;
+      .btn-link { colors: ac 0 0 }
       // Gems/Packages/etc.
-      .code .line a { color: $accent; }
+      .code .line a { color: ac; }
       // Inline diffs.
-      .idiff { c: $light }
+      .idiff { c: fg }
       .new .idiff, .idiff.addition { c: 0 0 $green }
       .old .idiff, .idiff.deletion { c: 0 0 $red }
     }
     // ? Fix borders on expanded sections.
-    &-expanded { & > td, & + :not(&) > td { colors: 0, $darker, 0; }}
+    &-expanded { & > td, & + :not(&) > td { colors: 0, bd, 0; }}
   }
 
   // * Diff -> Image.
   .diff-file {
     .image { c: 0 0 $t }
     .frame {
-      c: 0 0 $darker;
+      c: 0 0 bd;
       // Added/removed images.
       &.deleted { c: 0 $red }
       &.added { c: 0 $green }
       // Broken image.
       img {
         background: none !important;
-        c: $light $t 0;
+        c: fg $t 0;
       }
     }
     .view-modes {
       c: 0 0 $t;
       ul li[class] {
-        c: $lighter $darker;
+        c: cm bd;
         text-decoration: none;
         transition: 0.15s ease;
-        &:hover { c: $light }
-        &.active { c: $accent }
+        &:hover { c: fg }
+        &.active { c: ac }
       }
     }
   }
@@ -2059,30 +2068,30 @@
   // * Diff -> Add note.
   .note-container {
     border: none;
-    c: 0 $darker $t;
-    box-shadow: 0 -1px $darker;
+    c: 0 bd $t;
+    box-shadow: 0 -1px bd;
     // Reply background.
     .new-note, .discussion-notes { c: 0 $t }
   }
   // Show/hide replies.
   .notes .replies-toggle {
-    colors: $lighter, $darker, $dark;
+    colors: cm, bd, bg;
     &:not(.expanded) { border-bottom: 0 }
-    &:hover span { colors: $light 0 0 }
+    &:hover span { colors: fg 0 0 }
   }
   /* Text color. */
   .branch-info > span {
-    color: $light !important;
+    color: fg !important;
   }
 
   // * Timeline content.
   .timeline-entry {
-    colors: $light, $darker, $t;
-    &.outlined { colors: 0, 0, $dark; }
+    colors: fg, bd, $t;
+    &.outlined { colors: 0, 0, bg; }
     // Entry borders.
-    .timeline-entry-inner { colors: 0, $darker, 0; }
+    .timeline-entry-inner { colors: 0, bd, 0; }
     // Highlighted entry.
-    &:target, &.target { c: 0 $accent }
+    &:target, &.target { c: 0 ac }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
     // Alerts -> Command alerts.
@@ -2091,7 +2100,7 @@
     .new-note .issuable-note-warning {
       padding: 6px 8px 4px;
       radius: $radius $radius 0 0;
-      colors: $orange $darker $dark;
+      colors: $orange bd bg;
       svg.icon { isvg: $orange }
       // Reset corners in confidential issues.
       + .md-area { radius: 0 0 $radius $radius }
@@ -2101,12 +2110,12 @@
   // Notes -> Note.
   .note {
     // Notes on commits.
-    &:not(.system-note) { colors: 0 0 $dark }
+    &:not(.system-note) { colors: 0 0 bg }
     // Profile links.
-    .note-headline-light { colors: $lighter, 0, 0; }
+    .note-headline-light { colors: cm, 0, 0; }
     .note-headline-meta .system-note-separator {
       text-decoration: none !important;
-      time { color: $lighter }
+      time { color: cm }
     }
   }
 
@@ -2114,17 +2123,17 @@
   .discussion {
     &-header { c: 0 $yellow } // Seems to no longer be necessary.
     &-headline-light {
-      c: $light;
+      c: fg;
     }
     .timeline-entry {
       radius: 0;
-      &:target, &.target { box-shadow: 0 0 0 1px $accent }
+      &:target, &.target { box-shadow: 0 0 0 1px ac }
       &:first-child { radius: $radius $radius 0 0 }
     }
     .discussion-wrapper {
       radius: $radius;
       .replies-toggle {
-        c: 0 0 $darker;
+        c: 0 0 bd;
         &.collapsed { radius: 0 0 $radius $radius }
       }
     }
@@ -2135,21 +2144,21 @@
     // Connectors.
     &::before {
       border-left-width: 1px !important;
-      c: 0 $darker;
+      c: 0 bd;
     }
     // Overwriten by user-link styles.
-    a, a:hover { colors: $accent 0 0 }
+    a, a:hover { colors: ac 0 0 }
     // ? MR -> Notes -> Suggestions.
     .md-suggestion-header {
       radius: $radius $radius 0 0;
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
       + table.code { radius: 0 0 $radius $radius; }
     }
-    .md-suggestion-diff { c: 0 $darker }
-    span > code:not([class]) { c: 0 0 $darker }
+    .md-suggestion-diff { c: 0 bd }
+    span > code:not([class]) { c: 0 0 bd }
     // Added/removed/changed things in discussions.
-    .idiff.addition { c: $light 0 $green }
-    .idiff.deletion { c: $light 0 $red }
+    .idiff.addition { c: fg 0 $green }
+    .idiff.deletion { c: fg 0 $red }
   }
 
   // * Issues :: Conversation notes.
@@ -2157,19 +2166,19 @@
     // ? Note background, avoid system notes and forms.
     .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
       border-radius: $radius;
-      background-color: $dark !important;
+      background-color: bg !important;
     }
     // Icon.
     .system-note .timeline-icon {
-      border: 1px solid $darker;
-      background-color: $dark;
+      border: 1px solid bd;
+      background-color: bg;
     }
     // ? Issue description.
     .detail-page-description > script + div {
       padding: 8px;
       border-radius: $radius;
-      border: 1px solid $darker;
-      background-color: $dark;
+      border: 1px solid bd;
+      background-color: bg;
     }
   }
 
@@ -2177,9 +2186,9 @@
   .common-note-form .md-area {
     padding: 0;
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     &.is-focused {
-      colors: 0 $accent 0;
+      colors: 0 ac 0;
       box-shadow: none !important;
     }
     // Header.
@@ -2187,9 +2196,9 @@
       &-tab {
         button[class] {
           border-width: 1px !important;
-          c: $lighter $darker;
-          &:hover { c: $light $accent }
-          ../.active button { c: $light $accent }
+          c: cm bd;
+          &:hover { c: fg ac }
+          ../.active button { c: fg ac }
         }
       }
       > ul.nav-links {
@@ -2197,32 +2206,32 @@
         margin: 0;
         padding: 8px 0 0 0 !important;
         border-bottom: none;
-        c: 0 $darker $t;
-        box-shadow: inset 0 -1px $darker;
+        c: 0 bd $t;
+        box-shadow: inset 0 -1px bd;
       }
     }
     // Input area.
     .markdown-area {
       padding: 8px;
       font-family: var(--mono-font);
-      c: $light $darker $t;
+      c: fg bd $t;
     }
     .md-preview-holder { padding: 8px }
     // When you use commands.
-    .referenced-commands { colors: 0, 0, $darker; }
+    .referenced-commands { colors: 0, 0, bd; }
     .comment-toolbar {
       padding: 8px;
-      c: $lighter $darker 0;
+      c: cm bd 0;
     }
   }
   // Edited text color.
-  .edited-text { color: $light }
+  .edited-text { color: fg }
 
   // * Markdown selectors.
   .md {
-    colors: $light, $dark, 0;
-    a { colors: $accent, 0, 0; }
-    h1, h2 { colors: 0, $darker, 0; }
+    colors: fg, bg, 0;
+    a { colors: ac, 0, 0; }
+    h1, h2 { colors: 0, bd, 0; }
     // Hack for anchors reported in #61.
     for i in 1..6 {
       h{i} > a.anchor[href] {
@@ -2233,34 +2242,34 @@
         &::after { content: "#" }
       }
     }
-    hr { colors: 0 $darker 0; }
+    hr { colors: 0 bd 0; }
     kbd {
       border: 1px solid;
-      c: $lighter $darker $darker;
-      box-shadow 0 1px 0 $shadow, inset 0 0 0 2px $dark !important;
+      c: cm bd bd;
+      box-shadow 0 1px 0 $shadow, inset 0 0 0 2px bg !important;
     }
     pre {
       &:not([class]) {
         radius: $radius;
-        colors: $light $darker $dark;
+        colors: fg bd bg;
         code { colors: 0 $t $t }
       }
       &.code {
         radius: $radius;
-        colors: 0 $darker $dark;
+        colors: 0 bd bg;
       }
     }
-    caption { c: $lighter }
-    mark { c: $white 0 $accent }
-    p >, a >, :not(pre) > { code { colors: $light $darker $darker }}
+    caption { c: cm }
+    mark { c: $white 0 ac }
+    p >, a >, :not(pre) > { code { colors: fg bd bd }}
     blockquote:not(#sc) {
-      c: $lighter $darker;
+      c: cm bd;
       border-left: 4px solid;
-      &[dir] p, > div p { c: $lighter }
+      &[dir] p, > div p { c: cm }
     }
     img:not(.emoji) {
       border: none;
-      c: $accent $darker $dark;
+      c: ac bd bg;
       transition: 0.15s ease;
       opacity: faded_img;
       &:hover { opacity: 1; }
@@ -2268,29 +2277,29 @@
     ul, ol { ul, ol { margin-bottom: 0 !important }}
   }
   /* Attach a file. */
-  .markdown-selector { color: $accent; }
+  .markdown-selector { color: ac; }
   /* Fullscreen (zen) mode. */
   .zen-backdrop.fullscreen {
-    colors: 0, 0, $darker;
+    colors: 0, 0, bd;
     textarea {
       margin-top: 5px;
       radius: $radius;
-      colors: $light, 0, $dark;
+      colors: fg, 0, bg;
     }
   }
 
 
   // * Left sidebar.
   .nav-sidebar {
-    colors: 0, 0, $dark;
-    box-shadow: 1px 0 0 0 $darker;
-    .divider { colors: 0, $darker, 0; }
+    colors: 0, 0, bg;
+    box-shadow: 1px 0 0 0 bd;
+    .divider { colors: 0, bd, 0; }
     // Hide scrollbar.
     ::-webkit-scrollbar { display: none !important; }
     // Links.
     li a, .context-header > a {
-      colors: $light, 0, 0;
-      &:hover, &:focus { colors: 0, 0, $darker; }
+      colors: fg, 0, 0;
+      &:hover, &:focus { colors: 0, 0, bd; }
     }
     // ? Fix overflow and height on Firefox.
     .nav-sidebar-inner-scroll {
@@ -2303,35 +2312,35 @@
       // Active submenu.
       > li.active:not(.fly-out-top-item) {
         colors: 0, 0, $t;
-        box-shadow: 4px 0 0 0 inset $darker, 1px 0 0 1px inset $darker;
+        box-shadow: 4px 0 0 0 inset bd, 1px 0 0 1px inset bd;
         // Group name.
         > a {
           transition: 0.15s ease;
-          colors: $accent, 0, 0;
-          svg { fill: $accent !important; }
+          colors: ac, 0, 0;
+          svg { fill: ac !important; }
         }
         // Active list items.
         .sidebar-sub-level-items li:not(.fly-out-top-item) {
           transition: 0.15s ease;
           &.active, &:hover {
-            colors: $lighter, 0, $darker;
-            box-shadow: 4px 0 0 0 inset $accent;
+            colors: cm, 0, bd;
+            box-shadow: 4px 0 0 0 inset ac;
             // Remove unnecessary background.
-            a { colors: $light, 0, $t; }
+            a { colors: fg, 0, $t; }
           }
         }
       }
       // Fly-out menu.
       > li:not(.fly-out-top-item).is-showing-fly-out .sidebar-sub-level-items {
         radius: 0 $radius $radius 0;
-        colors: 0, $darker, $dark;
+        colors: 0, bd, bg;
         box-shadow: 2px 2px 2px 0 $shadow;
       }
-      > li.is-over > a { colors: 0, 0, $darker; }
+      > li.is-over > a { colors: 0, 0, bd; }
       // Badges.
-      .badge.badge-pill { colors: $lighter, $darker, $dark; }
+      .badge.badge-pill { colors: cm, bd, bg; }
       > li:hover, > li.active {
-        .badge.badge-pill { colors: $light, $dark, $darker; }
+        .badge.badge-pill { colors: fg, bg, bd; }
       }
       // Remove unnecessary margin on items.
       a {
@@ -2342,8 +2351,8 @@
     // ? Resets for collapsed sidebar.
     &.sidebar-collapsed-desktop {
       ul.sidebar-top-level-items > li.active:not(.fly-out-top-item) {
-        colors: 0, 0, $darker;
-        box-shadow: 4px 0 0 0 inset $accent !important;
+        colors: 0, 0, bd;
+        box-shadow: 4px 0 0 0 inset ac !important;
       }
       ul.sidebar-sub-level-items > li:not(.fly-out-top-item) {
         box-shadow: none !important;
@@ -2354,23 +2363,23 @@
     .toggle-sidebar-button {
       width: 100%;
       transition: 0.15s ease !important;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       .collapse-text {
         transition: 0.15s ease;
-        colors: $lighter, 0, 0;
+        colors: cm, 0, 0;
       }
       &:hover {
-        colors: 0, 0, $darker;
-        .collapse-text { colors: $light, 0, 0; }
+        colors: 0, 0, bd;
+        .collapse-text { colors: fg, 0, 0; }
       }
     }
   }
 
   // * Right sidebar.
   .right-sidebar {
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     // Separators.
-    .block, .gutter-toggle { colors: 0, $darker, 0; }
+    .block, .gutter-toggle { colors: 0, bd, 0; }
     // ! Fix buttons for #52. @upstream
     .btn-link {
       line-height: 16px;
@@ -2379,28 +2388,28 @@
       &[class*="-remove"] { colors: $red 0 0 }
     }
     abbr.value-type-dynamic {
-      colors: $lighter 0 0;
+      colors: cm 0 0;
       text-decoration: underline;
     }
     // Progress in milestones.
-    .progress { colors: 0, 0, $darker; }
+    .progress { colors: 0, 0, bd; }
     // Text color.
-    a:not(.btn):hover { colors: $accent 0 0 }
-    .no-value, .sidebar-collapsed-icon { colors: $light, 0, 0; }
+    a:not(.btn):hover { colors: ac 0 0 }
+    .no-value, .sidebar-collapsed-icon { colors: fg, 0, 0; }
     .title {
-      colors: $lighter, 0, 0;
+      colors: cm, 0, 0;
       // Edit buttons.
-      > a, > button { colors: $lighter, 0, 0; }
+      > a, > button { colors: cm, 0, 0; }
     }
     // Button background.
-    .js-move-issue:hover { colors: 0, 0, $darker; }
+    .js-move-issue:hover { colors: 0, 0, bd; }
     // Adjust sidebar width.
     &.right-sidebar-collapsed {
       width: 50px;
       .block {
         width: 50px;
         transition: 0.15s ease;
-        &:hover { colors: 0, 0, $darker; }
+        &:hover { colors: 0, 0, bd; }
       }
       .gutter-toggle { height: 55px; }
     }
@@ -2414,8 +2423,8 @@
     }
     // Wiki -> Sidebar.
     &.wiki-sidebar {
-      a { c: $light }
-      .active a { c: $accent }
+      a { c: fg }
+      .active a { c: ac }
     }
   }
 
@@ -2423,14 +2432,14 @@
   [data-page*="wikis:show"] #content-body {
     // Wiki sidebar.
     .right-sidebar.wiki-sidebar {
-      a { color: $light; }
-      a:hover { color: $accent; }
-      .active > a { color: $accent; }
+      a { color: fg; }
+      a:hover { color: ac; }
+      .active > a { color: ac; }
     }
     // Text colors.
     .wiki-last-edit-by {
-      colors: $lighter, 0, 0;
-      > strong { colors: $light, 0, 0; }
+      colors: cm, 0, 0;
+      > strong { colors: fg, 0, 0; }
     }
   }
 
@@ -2440,66 +2449,66 @@
     /:not(.file-content) > .mermaid {
       padding-bottom: 10px;
       radius: $radius;
-      c: 0 0 $dark;
+      c: 0 0 bg;
       box-shadow: $inner;
     }
     // Boxes.
-    rect.actor { isvg: $darker, $darker; }
-    text.actor { isvg: $light, 0; }
+    rect.actor { isvg: bd, bd; }
+    text.actor { isvg: fg, 0; }
     // Connectors.
-    .actor-line { isvg: 0, $darker; }
+    .actor-line { isvg: 0, bd; }
     // Notes.
-    .note { isvg: $darker, $accent; }
-    .noteText, .noteText tspan { isvg: $lighter, 0; }
+    .note { isvg: bd, ac; }
+    .noteText, .noteText tspan { isvg: cm, 0; }
     // Lines.
     .message {
-      &Text { isvg: $lighter, 0; }
-      &Line0 { isvg: 0, $darker; }
+      &Text { isvg: cm, 0; }
+      &Line0 { isvg: 0, bd; }
     }
     // #65.
-    .edgePath path { isvg: 0 $darker }
-    .edgePath .arrowheadPath { isvg: $darker $darker }
-    .node { rect, ellipse, polygon { isvg: $dark $darker }}
-    .label { c: $light; }
-    .label { rect { isvg: $darker $darker }}
+    .edgePath path { isvg: 0 bd }
+    .edgePath .arrowheadPath { isvg: bd bd }
+    .node { rect, ellipse, polygon { isvg: bg bd }}
+    .label { c: fg; }
+    .label { rect { isvg: bd bd }}
   }
 
   // * Project :: Project/group home panel.
   .project-home-panel, .group-home-panel {
     colors: 0 $t 0;
     // Text color.
-    .text-secondary { colors: $lighter 0 0; }
+    .text-secondary { colors: cm 0 0; }
     // Remove button backgrounds.
-    .js-read-more-trigger { colors: $accent, 0, $t; }
+    .js-read-more-trigger { colors: ac, 0, $t; }
     // Metadata text color.
     .project-metadata * {
-      colors: $lighter, 0, 0;
+      colors: cm, 0, 0;
       // Reset license button.
       &.project-license .btn { colors: 0 0 $t }
     }
     // Project tags.
     .home-panel-topic-list {
-      colors: 0, $darker, 0;
+      colors: 0, bd, 0;
       // Fix line height.
       .text-nowrap { line-height: 22px !important; }
       svg.icon { margin-top: 4px !important; }
-      .badge:hover { colors: $light, 0, $darker; }
+      .badge:hover { colors: fg, 0, bd; }
     }
     // ? Repo stats.
     .project-stats {
-      .add-license-link, .stat-link { colors: $lighter 0 0 }
-      .project-stat-value { colors: $light 0 0 }
+      .add-license-link, .stat-link { colors: cm 0 0 }
+      .project-stat-value { colors: fg 0 0 }
     }
     // ? Repo buttons.
     .project-repo-buttons {
       .count-badge, .btn-xs { height: 34px; }
       .count-badge {
-        .star-count, .count { colors: $light 0 0 }
-        &-count { colors: 0 $darker $dark }
+        .star-count, .count { colors: fg 0 0 }
+        &-count { colors: 0 bd bg }
         &-button {
           font-size: 14px;
-          colors: $light $darker $darker;
-          &:hover { colors: 0 0 $dark }
+          colors: fg bd bd;
+          &:hover { colors: 0 0 bg }
         }
       }
       .clone-dropdown-btn {
@@ -2517,7 +2526,7 @@
       // "Auto DevOps enabled" and possibly other buttons.
       .stat-text {
         margin-top: 10px;
-        colors: $lighter $darker $dark;
+        colors: cm bd bg;
       }
     }
   }
@@ -2525,9 +2534,9 @@
   // * Arrows.
   // ? Old GitLab design.
   .count-with-arrow {
-    .count { colors: 0, $darker, $dark; }
-    .arrow::before { border-right-color: $darker !important; }
-    .arrow::after { border-right-color: $dark !important; }
+    .count { colors: 0, bd, bg; }
+    .arrow::before { border-right-color: bd !important; }
+    .arrow::after { border-right-color: bg !important; }
   }
   // * Remove unnecessary whitespace.
   .project-home-panel {
@@ -2558,7 +2567,7 @@
   // * Separator.
   .project-stats {
     border-bottom: none;
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     // ? Reset background-color on project page.
     .progress { colors: 0, 0, $t; }
   }
@@ -2578,30 +2587,30 @@
 
   // * Project :: Settings.
   .settings {
-    border-bottom-color: $darker;
+    border-bottom-color: bd;
     // ? Fix border colors.
-    + .settings { colors: 0, $darker, 0; }
+    + .settings { colors: 0, bd, 0; }
     // ? Standalone sections i.e. under Advanced.
     .sub-section {
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     .project-visibility-setting {
       radius: $radius $radius 0 0;
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
     }
     .project-feature-settings {
       radius: 0 0 $radius $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Protected branches/tags/envs.
     &-content {
       [class^="protected-"] {
         radius: $radius;
-        border: 1px solid $darker;
+        border: 1px solid bd;
         > .card-header {
           radius: $radius $radius 0 0;
-          colors: $light $darker $darker;
+          colors: fg bd bd;
          }
         > .settings-message { radius: 0 0 $radius $radius }
         .table-bordered {
@@ -2617,7 +2626,7 @@
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
     radius: $radius;
-    colors: $orange, $darker, $darker;
+    colors: $orange, bd, bd;
     h3 {
       margin: 0.75rem 0;
       font-size: 1.0rem;
@@ -2627,14 +2636,14 @@
   /* Commit button. */
   .commit-sha-group .label,
   .commit-sha-group .btn {
-    color: $light;
-    border-color: $darker;
-    background-color: $dark;
+    color: fg;
+    border-color: bd;
+    background-color: bg;
   }
   /* Fix background in upload files. */
   .commit-message-container { background: none; }
   /* Dropzone! */
-  .blob-upload-dropzone-previews { border-color: $darker; }
+  .blob-upload-dropzone-previews { border-color: bd; }
 
   // * Project -> Badges.
   .project-badge { transition: 0.15s opacity ease }
@@ -2659,7 +2668,7 @@
    // * Project :: Readme.
   .file-holder {
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     // ? Header.
     .file-title {
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
@@ -2667,13 +2676,13 @@
       &, &-flex-parent {
         padding: 8px;
         radius: $radius $radius 0 0;
-        colors: 0 $darker $dark;
+        colors: 0 bd bg;
         // Buttons w/o `button-default` class.
         a { color: unset }
         .btn {
           font-size: inherit;
           padding: 2px 10px;
-          c: $lighter;
+          c: cm;
         }
         // Diff -> Renamed file names. #43
         .idiff {
@@ -2691,26 +2700,26 @@
 
   // * Wiki.
   .wiki:not(.use-csslab) {
-    color: $light;
-    a { color: $accent !important; }
-    h1, h2 { colors: $lighter, $darker, 0; }
-    > p > code { border: 1px solid $darker !important; }
+    color: fg;
+    a { color: ac !important; }
+    h1, h2 { colors: cm, bd, 0; }
+    > p > code { border: 1px solid bd !important; }
     blockquote, .blockquote {
       padding: 8px 16px;
       border-left-width: 4px;
-      colors: $light, $darker, 0;
+      colors: fg, bd, 0;
       // Second rule solves blockquote weirdness in issues.
-      p, * > p { colors: $lighter, 0, 0; }
+      p, * > p { colors: cm, 0, 0; }
     }
     pre { radius: $radius; }
-    pre, code { colors: $lighter, $darker, $dark; }
+    pre, code { colors: cm, bd, bg; }
     img:not(.emoji) {
       border: none;
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     kbd {
-      colors: $accent, $dark, $shadow;
+      colors: ac, bg, $shadow;
       box-shadow: none;
     }
   }
@@ -2719,8 +2728,8 @@
   .table-holder {
     radius: $radius;
     border: none !important;
-    background-color: $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    background-color: bg;
+    box-shadow: 0 0 0 1px inset bd;
     // ? File holder.
     .tree-table tr {
       td { transition: 0.15s ease !important }
@@ -2734,19 +2743,19 @@
         // Text colors.
         .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
           transition: 0.15s ease;
-          colors: $lighter, 0, 0;
+          colors: cm, 0, 0;
         }
         // On event.
         &:hover, &.selected {
-          > td { colors: 0, 0, $darker; }
+          > td { colors: 0, 0, bd; }
           .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
-            colors: $light, 0, 0;
+            colors: fg, 0, 0;
           }
         }
       }
     }
     // ? Fixes `pre` element on project/pages/domains page.
-    tbody pre { colors: $lighter, $darker, $dark; }
+    tbody pre { colors: cm, bd, bg; }
   }
 
   // Groups section.
@@ -2754,16 +2763,16 @@
     .content-list {
       margin-top: 10px;
       radius: $radius;
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
       li {
         transition: 0.15s ease;
-        &:hover { colors: 0, 0, $darker; }
+        &:hover { colors: 0, 0, bd; }
       }
-      .group-row .stats { color: $lighter; }
+      .group-row .stats { color: cm; }
     }
   }
   // Text dividers.
-  .middle-dot-divider::after { color: $lighter; }
+  .middle-dot-divider::after { color: cm; }
   /* Fix master/history/find file/web ide section when low-resolution. */
   @media (max-width: 740px) {
     .nav-block {
@@ -2775,21 +2784,21 @@
   .user-profile {
     // User info cover.
     .cover-block {
-      colors: 0 0 $dark;
-      box-shadow: inset 0 -1px 0 0 $darker;
+      colors: 0 0 bg;
+      box-shadow: inset 0 -1px 0 0 bd;
       [class*="fade-"] { border: none }
       .cover {
-        &-title, &-desc { c: $light }
+        &-title, &-desc { c: fg }
         &-status { padding: 8px 0 4px }
       }
     }
     // ? Calendar in activity. @obsolete
-    #activity > .row-content-block { colors: 0, $darker, $dark; }
+    #activity > .row-content-block { colors: 0, bd, bg; }
     // * Content list items.
     .content_list {
       radius: $radius;
-      background-color: $dark;
-      box-shadow: inset 0 0 0 1px $darker;
+      background-color: bg;
+      box-shadow: inset 0 0 0 1px bd;
       .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
     }
     // ? Overview -> Adjust whitespace between panes.
@@ -2811,10 +2820,10 @@
 
   // * Profile -> Contribution calendar.
   .calendar {
-    &-hint { c: $lighter }
+    &-hint { c: cm }
     svg.contrib-calendar > g {
-      text { fill: $light }
-      rect { fill: $accent }
+      text { fill: fg }
+      rect { fill: ac }
       rect[fill="#ededed"] { opacity: 0.05 }
       rect[fill^="rgb(17"] { opacity: 0.20 }
       rect[fill^="rgb(12"] { opacity: 0.45 }
@@ -2836,24 +2845,24 @@
   }
 
   /* Text color. */
-  .nothing-here-block, .content-list li { c: $light }
+  .nothing-here-block, .content-list li { c: fg }
   .nothing-here-block { padding: 8px; }
 
   // * Project -> Activity.
   .project-activity {
     radius: $radius;
-    background-color: $dark;
-    box-shadow: inset 0 0 0 1px $darker;
+    background-color: bg;
+    box-shadow: inset 0 0 0 1px bd;
     // Item.
     .event-item {
       padding: 8px 8px 8px 60px;
-      colors: $light, $darker, 0;
+      colors: fg, bd, 0;
       transition: background 0.15s ease-in-out;
-      &:hover { background-color: $darker; }
+      &:hover { background-color: bd; }
       // Text color.
-      a { color: $accent; }
-      .event-title { color: $light; }
-      .author_name a, strong a { color: $accent; }
+      a { color: ac; }
+      .event-title { color: fg; }
+      .author_name a, strong a { color: ac; }
       // Remove left padding on small resolution.
       @media (max-width: 575px) { padding-left: 8px; }
       // Avatar position.
@@ -2867,8 +2876,8 @@
     [class*="col"] > [class*="-block"] {
       margin-top: 16px;
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: 0 0 0 1px inset $darker;
+      colors: 0, 0, bg;
+      box-shadow: 0 0 0 1px inset bd;
       // ? Reset font size for blocks. @upstream
       h4 { font-size: 1rem !important }
       // ! @obsolete
@@ -2883,29 +2892,29 @@
         padding: 0 8px;
         colors: 0 $t 0;
         // New top border for lists.
-        + div { box-shadow: inset 0 1px $darker }
+        + div { box-shadow: inset 0 1px bd }
       }
     }
     // ? Content list items.
     .event-item {
-      colors: 0, $darker, 0;
+      colors: 0, bd, 0;
       transition: 0.15s ease;
       padding: 8px 8px 8px 48px !important;
       .system-note-image { left: 12px; }
       .event-title {
-        color: $light;
+        color: fg;
         // Branch/repo.
-        a { color: $light; }
+        a { color: fg; }
       }
-      .author_name a { colors: $light, 0, 0; }
-      .username { colors: $lighter, 0, 0; }
+      .author_name a { colors: fg, 0, 0; }
+      .username { colors: cm, 0, 0; }
       .event-body {
-        .commit-row-title .commit-sha { colors: $light, 0, 0; }
-        &, .md p, .commit-row-title { colors: $light, 0, 0; }
+        .commit-row-title .commit-sha { colors: fg, 0, 0; }
+        &, .md p, .commit-row-title { colors: fg, 0, 0; }
       }
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
-      &:hover { colors: 0, 0, $darker; }
+      &:hover { colors: 0, 0, bd; }
     }
     // Contributions for the selected day.
     .user-calendar {
@@ -2920,12 +2929,12 @@
   // * Project :: Cycle Analytics.
   #cycle-analytics {
     // Introduction.
-    .landing { colors: 0, $darker, $dark; }
+    .landing { colors: 0, bd, bg; }
     // Colors.
     .stage-nav {
       .stage-nav-item {
         position: relative;
-        colors: $light, $darker, $dark;
+        colors: fg, bd, bg;
         // Indicator.
         &::before {
           content: "";
@@ -2936,23 +2945,23 @@
         }
         // Hover event.
         &:hover:not(.active), &.active {
-          colors: 0 $darker $dark;
+          colors: 0 bd bg;
           box-shadow: none;
-          &::before { colors: 0 0 $accent }
+          &::before { colors: 0 0 ac }
         }
         // Hide double borders.
         &, &.active, &:hover:not(.active) { border-top-color: $t !important }
         // Median.
-        .stage-empty, .not-available { color: $lighter; }
+        .stage-empty, .not-available { color: cm; }
         &:last-child { radius: 0 0 0 $radius !important }
       }
     }
     // Related issues.
     .stage-event-item {
-      colors: $lighter, $darker, 0;
-      .total-time { &, span { colors: $lighter 0 0 }}
-      .issue-link, .issue-date, .build-date { colors: $lighter, 0, 0; }
-      .item-title a { colors: $light, 0, 0; }
+      colors: cm, bd, 0;
+      .total-time { &, span { colors: cm 0 0 }}
+      .issue-link, .issue-date, .build-date { colors: cm, 0, 0; }
+      .item-title a { colors: fg, 0, 0; }
     }
   }
 
@@ -2961,8 +2970,8 @@
     .chart-canvas-wrapper {
       margin-top: 10px;
       radius: $radius;
-      colors: 0 0 $dark;
-      box-shadow: 0 0 0 1px inset $darker;
+      colors: 0 0 bg;
+      box-shadow: 0 0 0 1px inset bd;
     }
   }
 
@@ -2971,26 +2980,26 @@
     margin-top: 10px !important;
     padding: 0px;
     radius: $radius;
-    border: 0px solid $darker;
-    colors: $lighter 0 $t;
+    border: 0px solid bd;
+    colors: cm 0 $t;
     // Same as down below; probably outdated.
     &.white {
-      border: 1px solid $darker;
-      background-color: $dark;
+      border: 1px solid bd;
+      background-color: bg;
     }
-    time { color: $lighter }
+    time { color: cm }
     // * Global -> *You pushed to...*
     > .event-last-push {
       padding: 8px;
       radius: $radius;
-      colors: 0 0 $dark;
+      colors: 0 0 bg;
       // Smol button is no-no.
       .btn { padding: 8px }
     }
   }
   /* Sub-header found in compare branches. */
   .sub-header-block {
-    border-color: $darker;
+    border-color: bd;
     background-color: transparent;
     // Commits list.
     + .card {
@@ -3004,8 +3013,8 @@
   [class*="card"] {
     // Nothing to compare.
     &.bg-light {
-      colors: 0 0 $dark;
-      box-shadow: 0 0 0 1px inset $darker;
+      colors: 0 0 bg;
+      box-shadow: 0 0 0 1px inset bd;
     }
     // Reset whitespace.
     > .content-list > li {
@@ -3036,10 +3045,10 @@
   .issue.today {
     colors: 0, 0, $t;
     box-shadow: none;
-    &:hover { colors: 0 0 $darker }
+    &:hover { colors: 0 0 bd }
     &::before {
       content: "";
-      border-left: 4px solid $accent;
+      border-left: 4px solid ac;
       position: absolute;
       top: 0; left: 0; bottom: 0;
     }
@@ -3049,10 +3058,10 @@
   // Items on hover.
   .card > ul > li {
     &:hover, &.done-reversible {
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
     }
     .btn {
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
     }
   }
 
@@ -3078,15 +3087,15 @@
     // ! Might need extra tweaking somewhere.
     .content_list {
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: inset 0 0 0 1px $darker;
+      colors: 0, 0, bg;
+      box-shadow: inset 0 0 0 1px bd;
     }
     // Items.
     .event-item {
       padding: 8px 16px 8px 60px;
-      colors: $light, $darker, 0;
-      .event-title { color: $light; }
-      a { color: $accent; }
+      colors: fg, bd, 0;
+      .event-title { color: fg; }
+      a { color: ac; }
       // Adjust avatars.
       .user-avatar { margin-left: 10px; }
     }
@@ -3104,29 +3113,29 @@
     // Add projects.
     .tokenized-input-wrapper {
       radius: $radius;
-      &.focus { box-shadow: 0 0 1px 1px $accent !important; }
-      .tokenized-input { colors: $light, 0, $t; }
-      .input-token, .tokenized-input-token-remove { colors: 0, 0, $darker; }
+      &.focus { box-shadow: 0 0 1px 1px ac !important; }
+      .tokenized-input { colors: fg, 0, $t; }
+      .input-token, .tokenized-input-token-remove { colors: 0, 0, bd; }
     }
     // Cards.
     .card {
       radius: $radius;
-      box-shadow: 0 0 0 1px inset $darker;
+      box-shadow: 0 0 0 1px inset bd;
       .card-header { radius: $radius $radius 0 0; }
     }
     // * Skeleton.
     .dashboard-cards {
-      .bg-light { colors: 0 0 $darker }
+      .bg-light { colors: 0 0 bd }
       .dashboard-card-skeleton-info::after {
-        background-image: linear-gradient(to right, $t 0%, $dark 50%, $t 100%)
+        background-image: linear-gradient(to right, $t 0%, bg 50%, $t 100%)
       }
     }
     // Modals -> Add projects.
     #add-projects-modal .project-list-item {
       colors: 0 0 $t;
       &:hover {
-        colors: $light 0 $darker;
-        .identicon { colors: 0 0 $dark }
+        colors: fg 0 bd;
+        .identicon { colors: 0 0 bg }
       }
     }
   }
@@ -3139,7 +3148,7 @@
       margin-top: 10px !important;
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       // Round corners.
       li {
         &:first-child { border-radius: $radius $radius 0 0; }
@@ -3159,12 +3168,12 @@
     .todos-list {
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       // List items.
       .todo {
         border: none;
         // Reset borders and round corners.
-        &:not(:first-child) { border-top: 1px solid $darker; }
+        &:not(:first-child) { border-top: 1px solid bd; }
         &:first-child { border-radius: $radius $radius 0 0; }
         &:last-child { border-radius: 0 0 $radius $radius; }
       }
@@ -3175,23 +3184,23 @@
   .issues-holder {
     margin-top: 10px;
     radius: $radius;
-    border: 1px solid $darker;
-    c: 0 0 $dark;
+    border: 1px solid bd;
+    c: 0 0 bg;
     // Email a new issue to this project.
     .issuable-footer {
       padding: 10px;
-      border-top: 1px solid $darker;
+      border-top: 1px solid bd;
     }
     li:not(.page-item) {
       transition: 0.15s ease;
       &:first-child { radius: $radius $radius 0 0; }
-      &:hover { c: 0 0 $darker }
+      &:hover { c: 0 0 bd }
     }
     // ? Reset pagination.
     .gl-pagination {
       padding: 10px;
       margin-top: 0px !important;
-      border-top: 1px solid $darker;
+      border-top: 1px solid bd;
       .pagination { margin: 0px; }
     }
   }
@@ -3200,10 +3209,10 @@
   .issue-form .list-unstyled {
     padding: 8px;
     radius: $radius;
-    colors: 0 0 $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    colors: 0 0 bg;
+    box-shadow: 0 0 0 1px inset bd;
     .suggestion {
-      colors: $accent 0 0;
+      colors: ac 0 0;
       &-state-open { isvg: $green 0 }
       &-state-closed { isvg: $red 0 }
     }
@@ -3212,38 +3221,38 @@
   // * Issues :: Search or filter results.
   .filtered-search-box {
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     &.focus { &, &:hover { colors: 0 $blue 0; box-shadow: none; }}
     // Fix corners.
     [class*="history-dropdown-toggle-button"] { radius: $radius 0 0 $radius }
     &-input-container .filtered-search { radius: 0 $radius $radius 0 }
-    .btn-link { colors: $lighter 0 0 }
+    .btn-link { colors: cm 0 0 }
     // Search field.
-    .form-control { colors: $light, $t, 0; }
+    .form-control { colors: fg, $t, 0; }
     // Search field words.
-    .name { color: $light; }
+    .name { color: fg; }
     // Search field button.
     .clear-search {
       radius: $radius;
-      colors: 0 0 $dark
+      colors: 0 0 bg
     }
     // Search tokens (labels).
     .selectable {
       margin-right: 8px;
       radius: 2px;
       box-shadow: $inner;
-      .name { c: $lighter 0 $t }
+      .name { c: cm 0 $t }
       .value-container {
         margin-right: 0;
-        c: $light 0 $darker;
+        c: fg 0 bd;
       }
     }
-    .filtered-search-token > .name { c: $light 0 $darker }
+    .filtered-search-token > .name { c: fg 0 bd }
   }
 
   // * Issues :: Details.
-  .detail-page-header { c: $light $darker }
-  .issuable-details .content-block { c: $light $t }
+  .detail-page-header { c: fg bd }
+  .issuable-details .content-block { c: fg $t }
 
   // * Epics -> Wrapper.
   .epic-page-container {
@@ -3260,52 +3269,52 @@
   // Time tracking.
   .time_tracker {
     .progress .bg-primary { colors: 0 0 $blue }
-    .compare-label { colors: $lighter 0 0 }
-    .compare-value { colors: $light 0 0 }
-    .time-tracking-help-state { colors: 0 $darker $dark }
+    .compare-label { colors: cm 0 0 }
+    .compare-value { colors: fg 0 0 }
+    .time-tracking-help-state { colors: 0 bd bg }
   }
   // Edited.
   // ? Contains styles for milestone elements; find a better place.
   .detail-page-description {
-    .title, &.milestone-detail { colors: $light, $darker, 0; }
-    .edited-text, .edited-text * { colors: $lighter, 0, 0; }
+    .title, &.milestone-detail { colors: fg, bd, 0; }
+    .edited-text, .edited-text * { colors: cm, 0, 0; }
   }
 
   // * Issues -> Related issues.
   .related-issues-block {
     margin-top: 16px;
     .card-slim {
-      border: 1px solid $darker;
+      border: 1px solid bd;
       .card-header { c: 0 0 $t }
     }
     // Issue metadata.
     .item-body {
       // Link to the issue.
-      a.sortable-link { colors: $light, 0, 0; }
+      a.sortable-link { colors: fg, 0, 0; }
       // Milestone/weight/etc.
-      .item-weight span, .path-id-text { colors: $lighter, 0, 0; }
+      .item-weight span, .path-id-text { colors: cm, 0, 0; }
     }
     // Search Box
-    input { colors: $light, 0, $dark; }
+    input { colors: fg, 0, bg; }
     // Tokens.
     .issue-token {
       radius: 2px;
       box-shadow: $inner;
-      &-reference { c: $light 0 $darker }
+      &-reference { c: fg 0 bd }
       &-remove-button { c: 0 0 $t }
     }
   }
   // Related merge requests.
-  #merge-requests > .card-header { c: 0 0 $dark }
+  #merge-requests > .card-header { c: 0 0 bg }
   // Badges.
-  .issue-count-badge, .mr-count-badge { c: 0 $darker }
+  .issue-count-badge, .mr-count-badge { c: 0 bd }
   .related-items-list {
-    .path-id-text, .item-path-id { colors: $light, 0, 0; }
+    .path-id-text, .item-path-id { colors: fg, 0, 0; }
     .open { fill: $green !important; }
     .closed { fill: $red !important; }
   }
   // Epic Related Issues
-  .sortable-container { background-color: $darker; }
+  .sortable-container { background-color: bd; }
 
   // Notes.
   .note-text pre {
@@ -3317,36 +3326,36 @@
   // * Global -> Cards.
   .card, .card-slim {
     radius: $radius;
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     .card-header {
       radius: $radius $radius 0 0;
-      colors: $light $darker $darker;
+      colors: fg bd bd;
     }
     .card-body {
       padding: 8px;
       colors: 0 0 $t;
-      .text-plain { colors: $lighter 0 0 }
+      .text-plain { colors: cm 0 0 }
       // Reset actions on `user/project/pages` page.
       .form-actions { margin: 0 !important }
     }
     .card-footer {
       padding: 8px;
       radius: 0 0 $radius $radius;
-      colors: 0 $darker $t;
+      colors: 0 bd $t;
     }
     .card-body, .card-footer {
       pre {
         font-family: var(--mono-font);
         radius: $radius;
-        colors: $lighter $darker $dark;
+        colors: cm bd bg;
       }
     }
     // ? Project -> Releases.
     &.linked-card {
-      .badge.badge-pill { colors: $light, 0, 0; }
+      .badge.badge-pill { colors: fg, 0, 0; }
       &::after {
         border: none;
-        border-left: 1px solid $darker;
+        border-left: 1px solid bd;
       }
     }
   }
@@ -3354,24 +3363,24 @@
   // * Emoji menu.
   .emoji-menu {
     radius: $radius;
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     box-shadow: 0 4px 8px 0 $shadow;
   }
 
   // * Auto-complete menu.
   .atwho-view {
     radius: $radius;
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
     .atwho-view-ul {
       li {
-        colors: $light 0 0;
+        colors: fg 0 0;
         // Matching text.
-        strong { colors: $accent 0 0 }
+        strong { colors: ac 0 0 }
         // Light text.
-        small, .params { colors: $lighter 0 0 }
+        small, .params { colors: cm 0 0 }
         // Selected.
-        &:hover, &.cur { colors: $light 0 $darker }
+        &:hover, &.cur { colors: fg 0 bd }
       }
     }
   }
@@ -3384,14 +3393,14 @@
       transition: 0.15s ease;
       padding: 0 !important;
       &:not(:first-child) { padding-left: 8px !important }
-      &-title-caret:hover { colors: 0 0 $darker }
+      &-title-caret:hover { colors: 0 0 bd }
       // Whitespace for the last card.
       .board-card:last-child { margin-bottom: 8px !important }
       &-inner.rounded { radius: $radius !important }
       // Welcome/promos.
       &-blank-state, &-promotion-state {
         radius: 0 0 $radius $radius;
-        colors: 0 0 $dark;
+        colors: 0 0 bg;
       }
     }
   }
@@ -3400,7 +3409,7 @@
   .issue-boards-content {
     // Fullscreen.
     &.is-focused {
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
       // Fix list height.
       .boards-list { height: calc(100vh - 45px) }
     }
@@ -3412,22 +3421,22 @@
     }
     // Board colors.
     .board-inner {
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       // Board header.
-      .board-title { colors: $light, $darker, 0; }
+      .board-title { colors: fg, bd, 0; }
       // Empty, default boards.
-      [class$="-state"] { colors: $light, 0, $dark; }
+      [class$="-state"] { colors: fg, 0, bg; }
       // Showing all issues.
       .board-list-count,
       .board-title-sub-text {
-        colors: $lighter, 0, 0;
+        colors: cm, 0, 0;
       }
     }
     .issue-count-badge {
-      colors: 0, $darker, 0;
+      colors: 0, bd, 0;
     }
     // Weight cards.
-    .board-card-weight { colors: $lighter, 0, 0; }
+    .board-card-weight { colors: cm, 0, 0; }
     // Fix sidebar gutter close svg. #46 @upstream
     .gutter-toggle {
       padding-right: 10px;
@@ -3438,29 +3447,29 @@
   // * Boards -> Cards.
   // ? They turn into a tooltip once dragged so we must style them here.
   .board-card {
-    c: 0 $darker $dark;
+    c: 0 bd bg;
     box-shadow: 0px 1px 2px 0 $shadow;
     transition: 0.15s ease;
     &:hover {
-      c: 0 $accent 0;
+      c: 0 ac 0;
       box-shadow: 0px 2px 4px 0 $shadow;
     }
     // Text color.
-    .board-card-title a { color: $light; }
-    .board-card-number { color: $lighter; }
+    .board-card-title a { color: fg; }
+    .board-card-number { color: cm; }
     // Assignee background.
     .board-card-assignee:hover a { colors: 0, 0, $t; }
   }
   // ? When you move boards themselves.
   .board > .board-inner {
-    colors: 0, $darker, $dark;
-    .board-title { border-bottom-color: $darker; }
+    colors: 0, bd, bg;
+    .board-title { border-bottom-color: bd; }
   }
 
   // * Boards :: Add issues.
   .add-issues-container {
     radius: $radius;
-    colors: 0, 0, $darker;
+    colors: 0, 0, bd;
     // Reset styles.
     .add-issues-header, .add-issues-footer {
       colors: 0, 0, $t;
@@ -3474,18 +3483,18 @@
     // List.
     .manage-labels-list > li:not(.empty-message) {
       &:not(.no-border) {
-        border: 1px solid $darker !important;
+        border: 1px solid bd !important;
         box-shadow: none !important;
       }
       &:not(.is-not-draggable) {
         margin-bottom: 8px;
         radius: $radius;
-        colors: 0 $darker $dark;
+        colors: 0 bd bg;
       }
     }
     .label {
       // Badges.
-      &-badge-gray { colors: $light $darker $darker }
+      &-badge-gray { colors: fg bd bd }
       &-badge-blue { colors: $white $blue $blue }
       &-subscribe-button[data-toggle] {
         width: auto;
@@ -3505,32 +3514,32 @@
     .milestone {
       padding: 8px;
       radius: $radius;
-      c: $light 0 $dark;
+      c: fg 0 bg;
       box-shadow: $inner;
       // Text color.
-      .milestone-range { colors: $light, 0, 0; }
+      .milestone-range { colors: fg, 0, 0; }
       // Links.
       .milestone-progress {
-        .light, a { colors: $lighter, 0, 0; }
+        .light, a { colors: cm, 0, 0; }
       }
       // Title and reopen button.
-      strong a, .btn-reopen { colors: $light, 0, 0; }
+      strong a, .btn-reopen { colors: fg, 0, 0; }
     }
   }
   .milestone {
     padding: 8px;
     .label-badge {
-      c: $lighter $darker $dark;
-      &-gray { c: $light 0 $darker }
+      c: cm bd bg;
+      &-gray { c: fg 0 bd }
     }
     // Color in relatable issues.
-    &-title { colors: $lighter, 0, 0; }
+    &-title { colors: cm, 0, 0; }
     &-banner-link { padding: 2px !important; }
     // Reset for boards.
     &-content {
       .card-header {
         colors: 0 $t $t;
-        + .content-list { box-shadow: 0 1px inset $darker }
+        + .content-list { box-shadow: 0 1px inset bd }
       }
       li:last-child { radius: 0 0 $radius $radius }
     }
@@ -3539,7 +3548,7 @@
   // Details.
   .issuable-row {
     colors: 0, 0, $t;
-    .issuable-number { colors: $lighter, 0, 0; }
+    .issuable-number { colors: cm, 0, 0; }
   }
 
   // Forms.
@@ -3547,7 +3556,7 @@
     padding: 8px;
     border: none;
     radius: $radius;
-    c: 0 0 $dark;
+    c: 0 0 bg;
     box-shadow: $inner;
   }
 
@@ -3559,32 +3568,32 @@
       .bordered-box {
         padding: 8px !important;
         radius: $radius;
-        colors: 0, $darker, $dark;
+        colors: 0, bd, bg;
       }
     }
     // ? Found in: .../repo/pipeline_schedules
     .bordered-box.content-block {
       padding: 8px !important;
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
   }
   .banner-non-empty-state {
     padding: 5px 0 0 0;
     border: 1px solid;
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     &.append-bottom-20 { margin-bottom: 10px }
   }
   // ? Callout in .../project/environments
   .canary-deployment-callout {
-    border-top: 1px solid $darker;
+    border-top: 1px solid bd;
     border-bottom: none;
   }
   // Milestones -> Burndown chart hint.
   .content-block.burndown-hint {
     radius: $radius;
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     svg path[fill='#fff'] { isvg: $t }
   }
   // GitLab-Gold promotion.
@@ -3593,20 +3602,20 @@
   // * Milestones -> Burndown chart.
   .burndown-chart {
     radius: $radius;
-    c: 0 0 $dark;
+    c: 0 0 bg;
     box-shadow: $inner;
-    text { fill: $light; }
+    text { fill: fg; }
     .axis {
       &-label text { colors: $red, 0, 0; }
-      &-label line, line, path { stroke: $lighter; }
+      &-label line, line, path { stroke: cm; }
     }
     // ? Legend!
     .legend {
-      rect { stroke: $lighter; }
-      text { fill: $light; }
+      rect { stroke: cm; }
+      text { fill: fg; }
     }
     .actual.line {
-      stroke: $accent;
+      stroke: ac;
       fill: none !important;
     }
   }
@@ -3614,35 +3623,35 @@
   .repo-charts {
     // Brings back the language color.
     .fa { color: inherit !important; }
-    canvas:not(#languages-chart) { colors: 0, 0, $dark; }
+    canvas:not(#languages-chart) { colors: 0, 0, bg; }
   }
   // ? Found in: .../repo/pipelines/charts
   [data-page="projects:pipelines:charts"] {
     .legend {
       &-success .fa { color: inherit !important; }
-      &-all { colors: $lighter, 0, 0; }
+      &-all { colors: cm, 0, 0; }
       &-all > i { color: inherit !important; }
     }
     canvas {
       radius: $radius;
-      colors: 0, 0, $dark;
-      box-shadow: inset 0 0 0 1px $darker;
+      colors: 0, 0, bg;
+      box-shadow: inset 0 0 0 1px bd;
     }
   }
 
   // * Calendar.
   .pika-single {
     radius: $radius;
-    c: $light $darker $dark;
+    c: fg bd bg;
     // Header.
-    .pika-label { c: $lighter 0 $t }
+    .pika-label { c: cm 0 $t }
     // Cells.
-    th { c: $light $darker }
+    th { c: fg bd }
     td {
-      c: 0 $darker 0;
+      c: 0 bd 0;
       .pika-day {
-        c: $light 0 $dark;
-        &:hover, ../[class^="is-"] .pika-day { c: $accent 0 $darker }
+        c: fg 0 bg;
+        &:hover, ../[class^="is-"] .pika-day { c: ac 0 bd }
       }
     }
     // Shadow.
@@ -3663,15 +3672,15 @@
     // Links.
     .page-item {
       // Defaults.
-      .page-link { colors: $lighter, $darker, $dark; }
+      .page-link { colors: cm, bd, bg; }
       // Disabled.
       &.disabled .page-link {
-        colors: $lighter, 0, 0;
+        colors: cm, 0, 0;
         filter: opacity(0.75) !important;
       }
       // Selected.
-      &.active .page-link { colors: $accent, 0, $darker; }
-      &:hover:not(.disabled):not(.active) .page-link { colors: $accent, 0, 0; }
+      &.active .page-link { colors: ac, 0, bd; }
+      &:hover:not(.disabled):not(.active) .page-link { colors: ac, 0, 0; }
     }
   }
 
@@ -3679,12 +3688,12 @@
   .merge-requests-holder {
     margin-top: 10px;
     radius: $radius;
-    border: 1px solid $darker;
-    c: 0 0 $dark;
+    border: 1px solid bd;
+    c: 0 0 bg;
     li:not(.page-item) {
       transition: 0.15s ease;
       &:first-child { radius: $radius $radius 0 0 }
-      &:hover { c: 0 0 $darker }
+      &:hover { c: 0 0 bd }
       // Approvals.
       .text-success {
         c: $green;
@@ -3695,13 +3704,13 @@
     .gl-pagination {
       padding: 10px;
       margin-top: 0px !important;
-      border-top: 1px solid $darker;
+      border-top: 1px solid bd;
       .pagination { margin: 0px; }
     }
     // Email a new MR to this project.
     .issuable-footer {
       padding: 10px;
-      border-top: 1px solid $darker;
+      border-top: 1px solid bd;
     }
   }
 
@@ -3710,7 +3719,7 @@
     margin: 0 0 10px;
     border: none;
     radius: $radius;
-    colors: 0 0 $dark;
+    colors: 0 0 bg;
     box-shadow: $inner;
     // Resets.
     .nav-links {
@@ -3723,8 +3732,8 @@
   }
   // First contribution.
   .fa-certificate {
-    colors: $accent, 0, 0;
-    + strong { colors: $light, 0, 0; }
+    colors: ac, 0, 0;
+    + strong { colors: fg, 0, 0; }
   }
   /* Resolved. */
   .line-resolve-all {
@@ -3734,7 +3743,7 @@
   // Resolved state icons.
   .line-resolve-btn {
     &.is-active svg { isvg: $green }
-    &.is-disabled svg { isvg: $lighter }
+    &.is-disabled svg { isvg: cm }
   }
 
 
@@ -3751,18 +3760,18 @@
   .diffs {
     .notes {
       border-top: none !important;
-      &::before { border-left: 1px solid $darker !important; }
+      &::before { border-left: 1px solid bd !important; }
     }
     .note.timeline-entry {
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
     }
   }
   // * Notes -> Reply section.
   .discussion-body, .diff-file {
     .discussion-reply-holder {
-      colors: 0 $darker $t;
+      colors: 0 bd $t;
       &:last-child { radius: 0 0 $radius $radius !important; }
-      + .new-note { colors: 0 $darker 0 }
+      + .new-note { colors: 0 bd 0 }
     }
   }
   // Comments disabled.
@@ -3770,8 +3779,8 @@
     margin-top: 10px;
     padding: 8px 0;
     radius: $radius;
-    colors: $light, $darker, $dark;
-    a[href] { color: $accent }
+    colors: fg, bd, bg;
+    a[href] { color: ac }
     [class*="warning"] { colors: $orange, $t, $t; }
   }
   /* Text color. */
@@ -3789,37 +3798,37 @@
 
   // * Merge Requests -> Review.
   .draft-note-component { colors: 0 0 $t }
-  .review-bar-component { colors: 0 $darker $dark }
+  .review-bar-component { colors: 0 bd bg }
 
   // * Merge Requests :: Discussions in file diff.
   .diff-file .notes_holder {
     font-family: var(--ui-font);
     // ! Might not need this line anymore.
     .notes_line {
-      colors: $light, $dark, $dark;
-      border-right-color: $darker !important;
+      colors: fg, bg, bg;
+      border-right-color: bd !important;
     }
     // Note border/background colors.
-    .notes-content { colors: 0 $darker $t }
+    .notes-content { colors: 0 bd $t }
     // Different notes_content.
     .notes_content {
-      colors: $light, $dark, $dark;
+      colors: fg, bg, bg;
       // Discussion.
       .notes {
         border-top: 1px solid;
-        colors: 0, $darker, $dark;
+        colors: 0, bd, bg;
       }
     }
   }
 
   // * Merge Requests :: Files.
   .diff-tree-list {
-    .drag-handle:hover { colors: 0 0 $darker }
+    .drag-handle:hover { colors: 0 0 bd }
     .tree-list-holder {
       // Search.
       .tree-list-search input {
         radius: $radius;
-        colors: $light 0 0;
+        colors: fg 0 0;
       }
       // Files.
       .tree-list-scroll {
@@ -3827,9 +3836,9 @@
         overflow: auto;
         radius: $radius;
         border: 1px solid;
-        colors: 0 $darker $dark;
+        colors: 0 bd bg;
         .file-row {
-          &:hover, &:active { colors: 0 0 $darker }
+          &:hover, &:active { colors: 0 0 bd }
         }
       }
     }
@@ -3841,36 +3850,36 @@
     // ! Temporary fix for #64.
     .report-block-container {
       padding: 0;
-      colors: 0 $darker $t;
+      colors: 0 bd $t;
       .failed svg { isvg: $red 0 }
     }
     .mr-source-target {
       padding: 8px;
       min-height: auto;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Description container.
     .mr-section-container {
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       .mr-widget-section {
         // padding: 12px 8px;
         radius: 0 !important;
-        colors: 0, $darker, 0;
+        colors: 0, bd, 0;
         // MR you can merge.
         > div > .media { padding: 8px }
-        .border-top { colors: 0 $darker 0 }
+        .border-top { colors: 0 bd 0 }
         // MR you can't merge.
         > .mr-widget-body { padding: 8px }
         > .mr-widget-info { padding: 0 8px }
-        .danger_message { colors: $red $red $darker }
+        .danger_message { colors: $red $red bd }
       }
       // Remove extra padding.
       .media-section > .media { padding: 0px !important; }
       .mr-widget-footer .mr-widget-help {
         padding: 0 4px;
-        colors: $lighter 0 0;
+        colors: cm 0 0;
       }
       // Align the CI icon.
       .media > .space-children { margin-left: 4px !important; }
@@ -3883,13 +3892,13 @@
     .mr-widget-heading,
     .mr-widget-footer {
       padding: 8px;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Rounded corners.
     .mr-source-target, .mr-widget-heading { radius: $radius; }
     // Circle icon thing.
-    .circle-icon-container { colors: $light, $darker, 0; }
-    .mr-widget-extension { colors: 0, $darker, $dark; }
+    .circle-icon-container { colors: fg, bd, 0; }
+    .mr-widget-extension { colors: 0, bd, bg; }
     // ? Fixes approved merge request element.
     // TODO Rewrite this entire section at some point.
     .mr-widget-content {
@@ -3898,21 +3907,21 @@
     }
     .mr-widget-workflow {
       // Connector.
-      &::before { border-left-color: $darker; }
+      &::before { border-left-color: bd; }
       // Remove the double-border forming on first child.
       > .mr-widget-border-top:first-child,
       > .mr-widget-section:first-child { border-top: none; }
     }
     // Branch name.
     .label-branch, .pipeline-number {
-      color: $light;
+      color: fg;
       font-size: inherit;
       font-weight: inherit;
       font-family: var(--ui-font);
       &.label-truncate > a { line-height: 1.2 }
     }
     // Found on: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3023
-    .ci-widget { colors: $lighter, 0, 0; }
+    .ci-widget { colors: cm, 0, 0; }
   }
   .mr-widget-workflow::before,
   .mr-widget-heading:not(.deploy-heading)::before {
@@ -3921,10 +3930,10 @@
   }
   // Text color.
   .mr-state-widget {
-    colors: $light, 0, 0;
-    .bold { colors: $light, 0, 0; }
+    colors: fg, 0, 0;
+    .bold { colors: fg, 0, 0; }
     .font-weight-bold, .code-text, .coverage, .diverged-commits-count {
-      colors: $lighter, 0, 0;
+      colors: cm, 0, 0;
       a {
         font-weight: bold;
         color: inherit;
@@ -3932,7 +3941,7 @@
     }
   }
   // Icon color.
-  .git-merge-icon-container { colors: $light, $darker, $darker; }
+  .git-merge-icon-container { colors: fg, bd, bd; }
 
   // * MR -> Changes.
   .mr-version-controls {
@@ -3940,7 +3949,7 @@
     width: 100%;
     radius: $radius;
     border: 1px solid !important;
-    colors: $light, $darker, $dark;
+    colors: fg, bd, bg;
     // Reset the width when file tree is open. @upstream
     &.is-fileTreeOpen {
       margin: 0 !important;
@@ -3953,28 +3962,28 @@
   .line_holder {
     // Show/hide comments.
     .diff-notes-collapse {
-      colors: 0, $darker, $dark;
-      &:hover { colors: 0, 0, $darker; }
+      colors: 0, bd, bg;
+      &:hover { colors: 0, 0, bd; }
     }
     // No new line.
-    .new-nonewline { colors: $lighter, 0, $t; }
+    .new-nonewline { colors: cm, 0, $t; }
     // Unfold lines.
     td.unfold, td.line_content.match {
       font-style: italic;
-      colors: $lighter 0 $t;
+      colors: cm 0 $t;
     }
     // Comment bubble.
     .add-diff-note {
       padding: 0 0 1px 1px;
-      colors: $light $darker $dark;
-      &:hover { colors: 0 0 $darker }
+      colors: fg bd bg;
+      &:hover { colors: 0 0 bd }
     }
     // Highlight the hovered line.
-    &:not(.parallel):hover, &.parallel td.is-over { colors: 0 0 $darker }
+    &:not(.parallel):hover, &.parallel td.is-over { colors: 0 0 bd }
     // Highlight syntax line in parallel view.
-    > td.is-over + .parallel { colors: 0 0 $darker }
+    > td.is-over + .parallel { colors: 0 0 bd }
     // Divider for right pane in side-by-side mode.
-    &.parallel > td:nth-child(3) { box-shadow: -1px 0 $darker }
+    &.parallel > td:nth-child(3) { box-shadow: -1px 0 bd }
   }
   /* Text colors. */
   .diff-stats-summary-toggler { color: $blue !important; }
@@ -3994,8 +4003,8 @@
   }
   // Toggle discussion.
   .note-action-button {
-    color: $light;
-    &:focus, &:hover { color: $lighter; }
+    color: fg;
+    &:focus, &:hover { color: cm; }
   }
   // Reactions.
   .row-content-block.content-component-block { background-color: $t; }
@@ -4004,17 +4013,17 @@
     margin-top: 10px;
     border: 1px solid;
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     li {
       transition: all 0.2s ease-in-out;
       &:first-child { radius: $radius $radius 0 0; }
       &:last-child { radius: 0 0 $radius $radius; }
       &.snippet-row {
         padding: 8px !important;
-        &:hover { colors: 0, 0, $darker; }
+        &:hover { colors: 0, 0, bd; }
         // Text colors.
         .snippet-info {
-          &, time, .js-user-link { colors: $lighter, 0, 0; }
+          &, time, .js-user-link { colors: cm, 0, 0; }
         }
       }
     }
@@ -4035,15 +4044,15 @@
     }
     .snippet-scope-menu {
       margin-top: 0 !important;
-      border-bottom: 1px solid $darker;
+      border-bottom: 1px solid bd;
     }
   }
 
   // * Project :: Members.
   .members-list {
     li.member { padding: 8px; }
-    .cgray time { colors: $lighter, 0, 0; }
-    .member a.member-group-link { colors: $light, 0, 0; }
+    .cgray time { colors: cm, 0, 0; }
+    .member a.member-group-link { colors: fg, 0, 0; }
   }
 
   // * Editor -> Wrapper.
@@ -4062,60 +4071,60 @@
       padding: 0 8px;
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Branch name.
-    .editor-ref { colors: 0, $darker, $t; }
+    .editor-ref { colors: 0, bd, $t; }
     // Commit or disband.
     .form-actions {
       padding: 8px;
       radius: $radius;
-      border: 1px solid $darker;
+      border: 1px solid bd;
     }
   }
 
   // * Editor -> Template selection.
   .template-selectors-menu {
-    colors: 0, $darker, 0;
-    .text-info { colors: $light, 0, 0; }
+    colors: 0, bd, 0;
+    .text-info { colors: fg, 0, 0; }
   }
 
   // * Ace editor.
   .ace-tm {
-    colors: $light, 0, $dark;
+    colors: fg, 0, bg;
     // Gutter.
     .ace_gutter {
       radius: 0 0 0 $radius;
-      colors: $lighter, 0, $dark;
-      box-shadow: 1px 0 0 0 $darker;
+      colors: cm, 0, bg;
+      box-shadow: 1px 0 0 0 bd;
       .ace_gutter-cell { colors: 0, 0, $t; }
       + .ace_scroller { radius: 0 0 $radius 0; }
     }
     // Highlighted line.
-    .ace_gutter-active-line, .ace_active-line { colors: 0, 0, $darker; }
+    .ace_gutter-active-line, .ace_active-line { colors: 0, 0, bd; }
     .ace_selected-word, .ace_selection {
       c: 0 0 $blue;
       opacity: 0.6;
     }
-    .ace_cursor { c: $accent }
+    .ace_cursor { c: ac }
     .ace_indent-guide {
       background: none;
-      box-shadow: 1px 0 0 0 $lighter !important;
+      box-shadow: 1px 0 0 0 cm !important;
     }
     // Wrap line.
-    .ace_print-margin { colors: 0, 0, $darker; }
+    .ace_print-margin { colors: 0, 0, bd; }
     // Search/replace popout.
     .ace_search {
       padding: 0 4px;
       margin: 10px 10px 0 0;
       border: 1px solid;
       radius: $radius;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       box-shadow: 0 4px 8px 0 $shadow;
       // Inputs.
-      &_field { colors: $light, 0, $dark; }
-      .ace_search_form, .ace_replace_form { colors: 0, $darker, 0; }
-      .ace_searchbtn, .ace_replacebtn { colors: 0, $darker, $darker; }
+      &_field { colors: fg, 0, bg; }
+      .ace_search_form, .ace_replace_form { colors: 0, bd, 0; }
+      .ace_searchbtn, .ace_replacebtn { colors: 0, bd, bd; }
     }
     // Options.
     .ace_search_options {
@@ -4124,25 +4133,25 @@
       .ace_button {
         padding: 5px;
         border-radius: 3px;
-        colors: $lighter $t $dark;
-        &:hover, &.checked { colors: $accent, 0, $t; }
+        colors: cm $t bg;
+        &:hover, &.checked { colors: ac, 0, $t; }
       }
     }
     // Scroller.
-    .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px $dark; }
+    .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px bg; }
   }
 
   // * Ace editor -> Syntax highlighting.
   .ace {
-    &_line { colors: $lighter, 0, 0; }
-    &_support&_function { colors: $darker, 0, 0; }
-    &_support&_type { colors: $lighter, 0, 0; }
+    &_line { colors: cm, 0, 0; }
+    &_support&_function { colors: bd, 0, 0; }
+    &_support&_type { colors: cm, 0, 0; }
     &_meta&_tag { colors: $blue, 0, 0; }
     &_string, &_comment { colors: $green, 0, 0; }
     &_heading, &_storage, &_keyword { colors: $blue, 0, 0; }
     &_list { colors: $magenta, 0, 0; }
     &_variable { colors: $green, 0, 0; }
-    &_constant, &_numeric { colors: $light, 0, 0; }
+    &_constant, &_numeric { colors: fg, 0, 0; }
   }
 
   // * About page :: Applications.
@@ -4151,59 +4160,59 @@
     // Search area.
     .search-container {
       border: 1px solid;
-      colors: $light, $darker, $dark;
-      input { colors: $light, 0, $dark; }
+      colors: fg, bd, bg;
+      input { colors: fg, 0, bg; }
       .suggestions {
-        colors: 0, 0, $dark;
+        colors: 0, 0, bg;
         li:hover, .hl { radius: $radius; }
-        li:hover { colors: 0, 0, $darker; }
-        .hl { colors: 0, 0, $accent; }
+        li:hover { colors: 0, 0, bd; }
+        .hl { colors: 0, 0, ac; }
       }
     }
     // Categories.
-    .category-name { colors: $light, 0, 0; }
+    .category-name { colors: fg, 0, 0; }
     .category-applications .tile {
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Scroll.
     .scroll-to-top {
       border: 1px solid;
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
     }
     // Source!
     .source-link {
-      colors: $light, 0, $darker;
-      .external-source-link { colors: $accent, $t, 0; }
+      colors: fg, 0, bd;
+      .external-source-link { colors: ac, $t, 0; }
     }
   }
   // Footer links.
   footer.footer a {
-    colors: $lighter, 0, 0;
-    &:hover, &:focus { colors: $accent, 0, 0; }
+    colors: cm, 0, 0;
+    &:hover, &:focus { colors: ac, 0, 0; }
   }
 
   // * Docs :: Search results.
   .algolia-autocomplete {
-    [class*="dataset"] { colors: $light, $darker, $dark;
+    [class*="dataset"] { colors: fg, bd, bg;
       // Transparentize the content.
-      [class*="docsearch-s"] { colors: $light, 0, $t; }
+      [class*="docsearch-s"] { colors: fg, 0, $t; }
     }
     // Remove shadow.
     .ds-dropdown-menu {
       box-shadow: 0 4px 16px -4px $shadow;
       // Arrow.
-      &:before { colors: 0, $darker, $dark; }
+      &:before { colors: 0, bd, bg; }
     }
     // Header.
-    [class*="header"] { colors: $lighter, $darker, 0; }
+    [class*="header"] { colors: cm, bd, 0; }
     // Separator.
     .algolia-docsearch-suggestion--subcategory-column::before,
-    .algolia-docsearch-suggestion--content::before { colors: 0, 0, $darker; }
+    .algolia-docsearch-suggestion--content::before { colors: 0, 0, bd; }
     // Selected.
-    [class$="--content"]:hover { colors: 0, 0, $darker; }
+    [class$="--content"]:hover { colors: 0, 0, bd; }
     // Matching result.
-    [class*="highlight"] { box-shadow: inset 0 -2px 0 0 $accent !important; }
+    [class*="highlight"] { box-shadow: inset 0 -2px 0 0 ac !important; }
   }
 
   // * Main content.
@@ -4216,7 +4225,7 @@
     // Alerts.
     blockquote {
       position: relative;
-      colors: 0, $t, $dark;
+      colors: 0, $t, bg;
       &::before {
         content: "";
         position: absolute;
@@ -4225,25 +4234,25 @@
         border-left: 4px solid $blue;
       }
     }
-    .alert-warning { colors: 0, $red, $dark; }
+    .alert-warning { colors: 0, $red, bg; }
     .alert.alert-success { colors: 0, $violet, $violet; }
     // Reset *introduced in...* blockquotes.
     blockquote {
       padding: 16px;
       radius: $radius;
-      box-shadow: inset 0 0 0 1px $darker;
+      box-shadow: inset 0 0 0 1px bd;
       > p { margin: 0; }
     }
     // Border colors.
-    h2, h3, h4, h5, h6, .edit-on, .comments { colors: 0, $darker, 0; }
+    h2, h3, h4, h5, h6, .edit-on, .comments { colors: 0, bd, 0; }
     // Text colors.
     a:hover, a:focus { text-decoration: underline; }
-    .article-metadata { colors: $light, 0, 0; }
-    .highlight.plaintext code { colors: $light, 0, 0; }
+    .article-metadata { colors: fg, 0, 0; }
+    .highlight.plaintext code { colors: fg, 0, 0; }
     code {
       radius: 3px;
       border: 1px solid;
-      colors: $accent, $darker, $dark;
+      colors: ac, bd, bg;
     }
     img {
       transition: 0.15s ease;
@@ -4307,53 +4316,53 @@
   .ide {
     // Text color.
     .ide-view {
-      colors: $light, 0, 0;
+      colors: fg, 0, 0;
       // Left sidebar title.
       .context-header > a,
-      .ide-review-sub-header { colors: $light, 0, 0; }
+      .ide-review-sub-header { colors: fg, 0, 0; }
     }
     // Status bar.
-    .ide-activity-bar, .ide-status-bar { colors: 0, $darker, $dark; }
+    .ide-activity-bar, .ide-status-bar { colors: 0, bd, bg; }
     // Resize.
-    .drag-handle { colors: 0, 0, $dark; }
+    .drag-handle { colors: 0, 0, bg; }
   }
   // File templates.
-  #ide .ide-file-templates { colors: 0, $darker, $dark; }
+  #ide .ide-file-templates { colors: 0, bd, bg; }
 
   // Left sidebar active.
   .ide-sidebar-link {
     transition: 0.2s ease-in-out;
     // On event.
     &:focus, &:hover, &.active {
-      colors: $accent, $darker, $darker;
+      colors: ac, bd, bd;
       box-shadow: inset 3px 0 var(--accent) !important;
     }
-    &::after { colors: 0, 0, $dark; }
+    &::after { colors: 0, 0, bg; }
   }
 
   // * IDE :: File explorer.
   .ide {
     // Tree.
     .multi-file-commit-panel-inner-content {
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
       // File in the tree.
       .file-row {
         transition: 0.2s ease-in-out;
-        &.is-active, &:hover, &:active { colors: 0, 0, $darker; }
+        &.is-active, &:hover, &:active { colors: 0, 0, bd; }
         // File options.
-        .ide-entry-dropdown-toggle { colors: $light, 0, $dark; }
+        .ide-entry-dropdown-toggle { colors: fg, 0, bg; }
       }
     }
     // Commit.
     .multi-file-commit-form {
-      colors: 0, $darker, $dark;
-      > .commit-form-compact { border-top-color: $darker; }
+      colors: 0, bd, bg;
+      > .commit-form-compact { border-top-color: bd; }
     }
     // Icons.
     .ide-tree-header button {
-      color: $lighter;
+      color: cm;
       transition: all 0.2s ease-in-out;
-      &[aria-expanded="true"] { colors: 0, 0, $darker; }
+      &[aria-expanded="true"] { colors: 0, 0, bd; }
     }
   }
 
@@ -4363,20 +4372,20 @@
     // Branch popup.
     .ide-nav-form {
       // Separator.
-      .tab-links { colors: 0, $dark, 0; }
+      .tab-links { colors: 0, bg, 0; }
       // Inactive tab.
-      .nav-links li a:not(.active) { colors: 0, 0, $darker; }
-      .border-bottom { border-color: $dark !important; }
+      .nav-links li a:not(.active) { colors: 0, 0, bd; }
+      .border-bottom { border-color: bg !important; }
       // Search container.
       .filtered-search-wrapper {
-        colors: 0, $darker, $dark;
+        colors: 0, bd, bg;
         input { colors: 0, 0, $t; }
       }
       // Project metadata.
-      .ide-merge-request-project-path { color: $lighter; }
+      .ide-merge-request-project-path { color: cm; }
     }
     // Branch on hover.
-    button:hover { colors: $light, 0, $darker; }
+    button:hover { colors: fg, 0, bd; }
   }
   /* Selected. */
   .ide-file-list .file:hover,
@@ -4390,16 +4399,16 @@
   .ide-view {
     // Borders.
     .ide-commit-list-container.is-first,
-    .multi-file-commit-panel-header { colors: 0, $darker, 0; }
+    .multi-file-commit-panel-header { colors: 0, bd, 0; }
     // Remove background on buttons.
     .ide-staged-action-btn { colors: 0, 0, $t; }
     // Commit message.
     .ide-commit-message-field {
-      colors: $lighter, 0, $t;
-      textarea { colors: $light, 0, 0; }
+      colors: cm, 0, $t;
+      textarea { colors: fg, 0, 0; }
     }
     // Background after you push a commit.
-    .multi-file-commit-panel-success-message { colors: 0, 0, $dark; }
+    .multi-file-commit-panel-success-message { colors: 0, 0, bg; }
   }
 
   // * IDE :: Right sidebar.
@@ -4415,7 +4424,7 @@
   /* Build header. */
   .build-page .top-bar {
     radius: $radius $radius 0 0;
-    colors: $lighter, $darker, $dark;
+    colors: cm, bd, bg;
     // ? Fix terminal controls header, bug on upstream.
     &.sidebar-expanded { margin-right: 0 !important; }
   }
@@ -4429,28 +4438,28 @@
     border-top-color: transparent;
     background-color: var(--dark);
     > code {
-      colors: $lighter, 0, 0;
+      colors: cm, 0, 0;
       .term-fg-l-green { colors: $green, 0, 0; }
       .term-fg-red { colors: $red, 0, 0; }
     }
   }
   .build-page .environment-information {
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
   }
 
   // * Build sidebar.
   .build-sidebar {
-    .link-commit { colors: $accent, 0, 0; }
+    .link-commit { colors: ac, 0, 0; }
   }
 
   // * Pipelines :: Builds.
   // TODO Buggy, info: https://gitlab.com/vednoc/dark-gitlab/issues/22
   .builds-container {
-    colors: $light, $darker, $dark;
+    colors: fg, bd, bg;
     .build-job {
       transition: 0.2s ease;
-      a { colors: $light, 0, 0; }
-      &:hover { colors: 0, 0, $darker; }
+      a { colors: fg, 0, 0; }
+      &:hover { colors: 0, 0, bd; }
       // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
       &.retried { colors: 0, 0, $t; }
     }
@@ -4458,9 +4467,9 @@
 
   // * IDE :: Edit area.
   .multi-file-edit-pane {
-   colors: 0, $darker, $dark;
+   colors: 0, bd, bg;
    // Tabs.
-   .ide-mode-tabs { colors: 0, $darker, $darker; }
+   .ide-mode-tabs { colors: 0, bd, bd; }
   }
   /* Tabs. */
   .multi-file-tabs {
@@ -4469,13 +4478,13 @@
     // Items.
     li {
       transition: 0.2s ease-in-out;
-      colors: $lighter, $darker, $t;
-      &.active, &:hover { colors: $accent, $darker, $darker; }
+      colors: cm, bd, $t;
+      &.active, &:hover { colors: ac, bd, bd; }
     }
   }
   // Commit header.
   .ide-commit-editor-header {
-    colors: $light, $darker, $dark;
+    colors: fg, bd, bg;
     box-shadow: inset 0 -1px var(--darker);
   }
   // Git additions/deletions.
@@ -4495,69 +4504,69 @@
 
   // * IDE :: Monaco editor.
   .monaco-editor {
-    colors: $light, 0, $dark;
+    colors: fg, 0, bg;
     // Background.
-    &-background { colors: $light, 0, $dark; }
+    &-background { colors: fg, 0, bg; }
     // TODO figure out what this was. XD
     .scroll-decoration {
-      box-shadow: inset 0 6px 6px -6px $dark !important;
+      box-shadow: inset 0 6px 6px -6px bg !important;
     }
     // Gutter.
     .margin {
-      colors: 0, $dark, $dark;
-      .line-numbers { colors: $lighter, 0, 0; }
+      colors: 0, bg, bg;
+      .line-numbers { colors: cm, 0, 0; }
     }
     // Current line.
-    [class*="current-line"]  { colors: 0, $darker, $darker; }
+    [class*="current-line"]  { colors: 0, bd, bd; }
     // Cursor.
-    .cursor { colors: $light, $accent, $accent; }
+    .cursor { colors: fg, ac, ac; }
     // Indent guide.
-    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 0 0 $accent !important; }
+    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 0 0 ac !important; }
     // Command palette.
     .monaco-quick-open-widget {
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
       box-shadow: $box !important;
       // Focused.
       .monaco-tree-row {
-        &:hover, &.focused { colors: $accent, 0, $darker; }
+        &:hover, &.focused { colors: ac, 0, bd; }
       }
     }
     // Inspect tokens.
-    .tokens-inspect-widget { colors: $light, $darker, $dark; }
+    .tokens-inspect-widget { colors: fg, bd, bg; }
     // Input.
     .monaco-inputbox {
-      colors: $light, $darker, $dark;
-      input { colors: $light, 0, $dark; }
+      colors: fg, bd, bg;
+      input { colors: fg, 0, bg; }
     }
     // Resize.
-    .monaco-sash { colors: 0, 0, $accent; }
+    .monaco-sash { colors: 0, 0, ac; }
     // Find palette.
     .find-widget {
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
       box-shadow: $box;
       .button, .label { filter: invert(var(--bg-invert)); }
     }
     // Accessibility.
     .accessibilityHelpWidget {
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
       box-shadow: $box;
     }
     // Context menu.
     .context-view {
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
       box-shadow: 0 2px 8px $shadow;
     }
     // Hover popup.
-    .monaco-editor-hover { colors: 0, $shadow, $darker; }
+    .monaco-editor-hover { colors: 0, $shadow, bd; }
     // Selection.
-    .cslr.selected-text { background-color: $darker; }
+    .cslr.selected-text { background-color: bd; }
     // Matching.
-    .selectionHighlight { background-color: $darker !important; }
+    .selectionHighlight { background-color: bd !important; }
     // Suggestion.
     .tree {
-      colors: $light, $darker, $darker;
+      colors: fg, bd, bd;
       box-shadow: $box;
-      .focused { colors: $accent, 0, $dark; }
+      .focused { colors: ac, 0, bg; }
     }
   }
   /* Diff view. */
@@ -4568,13 +4577,13 @@
   // ? Dropdown for file finder.
   .ide-view .dropdown-menu {
     max-height: 500px;
-    li button.is-focused, a.active { colors: 0, 0, $dark; }
+    li button.is-focused, a.active { colors: 0, 0, bg; }
   }
 
   // * IDE :: Monaco syntax highlighting.
   .monaco-editor {
-    .mtk1, .mtk3 { color: $light; }
-    .mtk10 { color: $lighter; }
+    .mtk1, .mtk3 { color: fg; }
+    .mtk10 { color: cm; }
     .mtk4, .mtk20 { color: $red; }
     .mtk8 { color: $green; }
     .mtk5, .mtk6, .mtk23 { color: $blue; }
@@ -4585,16 +4594,16 @@
 
   // * Project :: Code view.
   .code {
-    colors: $light, 0, $t;
+    colors: fg, 0, $t;
     // Remove weird border around code wrapper.
     code { border: none; }
     // Highlighted line.
-    span.line.hll { colors: 0 0 $darker }
+    span.line.hll { colors: 0 0 bd }
     // Gutter border.
-    pre.code, .diff-line-num { colors: 0, $darker, 0; }
+    pre.code, .diff-line-num { colors: 0, bd, 0; }
     // Gutters in file view/diff.
     .line-numbers, .diff-line-num {
-      &, a { colors: $lighter, 0, $t; }
+      &, a { colors: cm, 0, $t; }
       // ? Add left border to right section in parralel diff view.
       &:nth-child(3) { border-left: 1px solid $red !darker; }
     }
@@ -4603,8 +4612,8 @@
       // Lines for added/removed sections.
       .line_content {
         z-index: 1;
-        colors: $light, 0, $t;
-        &.new::before, &.old::before { colors: $lighter, 0, 0; }
+        colors: fg, 0, $t;
+        &.new::before, &.old::before { colors: cm, 0, 0; }
         &.old::after, &.new::after {
           content: "";
           z-index: -1;
@@ -4620,7 +4629,7 @@
         z-index: 1;
         border-right: none;
         padding-right: 11px;
-        box-shadow: inset -1px 0 $darker;
+        box-shadow: inset -1px 0 bd;
         &.old::after, &.new::after {
           content: "";
           z-index: -1;
@@ -4641,7 +4650,7 @@
     .gd, .gi {
       z-index: 0;
       position: relative;
-      colors: $light, 0, $t;
+      colors: fg, 0, $t;
       // Fake element.
       &::before {
         content: "";
@@ -4658,8 +4667,8 @@
 
   // * Project :: Code syntax highlighting.
   .code.white {
-    .n, .gh, .s2, .gp { color: $light; }
-    .s, .c, .cp, .c1, .nn, .go { color: $lighter; }
+    .n, .gh, .s2, .gp { color: fg; }
+    .s, .c, .cp, .c1, .nn, .go { color: cm; }
     .m, .nv, .na, .mf { color: $cyan; }
     .nb, .nc, .kt { color: $blue; }
     .ss, .s1, .se, .gu, .nd { color: $magenta; }
@@ -4708,33 +4717,33 @@
     color: var(--light);
   }
   // Pipeline stage connectors.
-  .stage-container::after { border-bottom: 1px solid $lighter !important }
+  .stage-container::after { border-bottom: 1px solid cm !important }
 
   // * Pipelines -> Mini-pipelines.
   .mini-pipeline-graph-dropdown-toggle {
-    colors: 0 0 $dark;
+    colors: 0 0 bg;
     &:focus { box-shadow: 0 0 4px 1px $blue !important }
     // * Pipelines -> Stages. Old info in #22.
     + .mini-pipeline-graph-dropdown-menu {
       // Indicator.
-      &::after { colors: 0 $accent 0 }
+      &::after { colors: 0 ac 0 }
       // Reset for items.
       li {
-        &:hover a { colors: $lighter 0 $t }
-        a:hover, a:focus { colors: $light 0 $darker }
+        &:hover a { colors: cm 0 $t }
+        a:hover, a:focus { colors: fg 0 bd }
         // Pipelines where you have permissions.
         .ci-job-component {
           transition: 0.15s ease;
-          &:hover { colors: 0 0 $darker }
+          &:hover { colors: 0 0 bd }
           .mini-pipeline-graph-dropdown-item {
             colors: 0 0 $t;
-            .ci-status-text { colors: $lighter 0 0 }
-            &:hover .ci-status-text { colors: $light 0 0 }
+            .ci-status-text { colors: cm 0 0 }
+            &:hover .ci-status-text { colors: fg 0 0 }
           }
           // Retry button.
           .ci-action-icon-container {
-            colors: 0 $dark $darker;
-            &:hover { colors: 0 $accent $darker }
+            colors: 0 bg bd;
+            &:hover { colors: 0 ac bd }
           }
         }
       }
@@ -4747,26 +4756,26 @@
   .pipeline-graph {
     margin-top: 8px;
     radius: $radius;
-    c: $light 0 $dark;
+    c: fg 0 bg;
     box-shadow: $inner;
     // Pipeline node.
     .build .build-content {
-      c: $lighter $darker $dark;
+      c: cm bd bg;
       transition: 0.15s ease;
-      &:hover { c: $light $accent 0 }
+      &:hover { c: fg ac 0 }
     }
     // Triangle.
     .cross-project-triangle {
       margin-top: 10px !important;
-      border-left-color: $darker;
+      border-left-color: bd;
     }
     // Linked pipeline?
     // ? https://gitlab.com/gitlab-org/gitlab-ce/pipelines/31973329
     .linked-pipeline {
       &-content {
         radius: 10px !important;
-        colors: $light, $darker, $dark;
-        &:hover { colors: 0, 0, $darker; }
+        colors: fg, bd, bg;
+        &:hover { colors: 0, 0, bd; }
       }
       // Connector line.
       &::before { margin-top: 2px; }
@@ -4774,11 +4783,11 @@
     // Actions.
     .ci-action-icon-container {
       margin: 1px 1px 0 0;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
     // Connectors.
     .build, .stage-column .curve {
-      &::before, &::after { colors: 0, $darker, 0; }
+      &::before, &::after { colors: 0, bd, 0; }
     }
     .ci-build-txt, .ci-status-text { font-weight: normal; }
   }
@@ -4794,7 +4803,7 @@
       &[class*="ci-status-icon-"] {
         width: 24px;
         height: @width;
-        colors: 0 0 $darker;
+        colors: 0 0 bd;
         ../:hover > svg { margin: 0 }
       }
     }
@@ -4805,21 +4814,21 @@
     .table {
       margin-top: 10px;
       border: 1px solid;
-      colors: 0, $darker, $darker;
+      colors: 0, bd, bd;
       // Table header.
       > thead th {
-        colors: $light, 0, 0;
+        colors: fg, 0, 0;
       }
     }
     // Log output.
     .build-trace {
-      colors: 0, $dark, 0;
+      colors: 0, bg, 0;
       > code {
-        colors: $light, $darker, $darker;
+        colors: fg, bd, bd;
       }
     }
     .build-name a {
-      color: $accent;
+      color: ac;
     }
   }
 
@@ -4828,10 +4837,10 @@
     margin-top: 10px;
     border: 1px solid;
     radius: $radius;
-    colors: $light, $darker, $dark;
+    colors: fg, bd, bg;
     // Wrapper.
     .report-block-container {
-      colors: $light, $darker, $dark;
+      colors: fg, bd, bg;
     }
   }
 
@@ -4840,22 +4849,22 @@
     // Breadcrumbs.
     &-header .header-content {
       margin: 4px 0;
-      color: $lighter;
-      a { color: $light;
-        &:hover { color: $accent; }
+      color: cm;
+      a { color: fg;
+        &:hover { color: ac; }
       }
     }
     // Job details.
-    &-light-text { color: $lighter; }
+    &-light-text { color: cm; }
     // Job on hover.
-    &s-container a:hover { color: $accent !important; }
+    &s-container a:hover { color: ac !important; }
   }
 
   // * Jobs :: Browse artifacts.
   [data-page="projects:artifacts:browse"] {
     .tree-table {
       radius: $radius;
-      box-shadow: 0 0 0 1px $darker;
+      box-shadow: 0 0 0 1px bd;
       thead {
         tr, tr > th { border-top: none; }
         th:first-child { radius: $radius 0 0 0; }
@@ -4872,43 +4881,43 @@
         border: none !important;
         td {
           border: none !important;
-          border-top: 1px solid $darker !important;
+          border-top: 1px solid bd !important;
         }
       }
       // Item text color.
-      .tree-item a { colors: $light, 0, 0; }
+      .tree-item a { colors: fg, 0, 0; }
     }
   }
 
   // * CI/CD :: Schedules.
   [data-page^="projects:pipeline_schedules"] {
-    .ref-name, .next-run-cell { colors: $light, 0, 0; }
-    .pipeline-schedule-table-row a { colors: $light, 0, 0; }
+    .ref-name, .next-run-cell { colors: fg, 0, 0; }
+    .pipeline-schedule-table-row a { colors: fg, 0, 0; }
   }
 
   // * Skeleton.
   .animation-container [class^="skeleton-line-"] {
-    background-color: $darker;
+    background-color: bd;
     &::after {
-      background-image: linear-gradient(to right, $darker 0%, $dark 100%)
+      background-image: linear-gradient(to right, bd 0%, bg 100%)
     }
   }
 
   // * Groups.
   .group-nav-container {
-    + .tab-content .has-no-search-results { c: $lighter }
+    + .tab-content .has-no-search-results { c: cm }
   }
   // * Group header.
   .explore-groups {
     radius: $radius;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
   }
   // * Group body.
   .groups-list-tree-container > ul.group-list-tree {
     margin-top: 10px !important;
     radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    colors: 0, 0, bg;
+    box-shadow: 0 0 0 1px inset bd;
     // On event.
     > .group-row {
       // Rounded corners.
@@ -4918,13 +4927,13 @@
     }
     .group-row {
       // Keep fake border even when sub-group is open.
-      &.is-open > div { box-shadow: 0 -1px 0 0 inset $darker; }
+      &.is-open > div { box-shadow: 0 -1px 0 0 inset bd; }
       // Horizontal line.
-      &::before { colors: 0, $darker, 0; }
+      &::before { colors: 0, bd, 0; }
       // Vertical line.
       .group-list-tree::before {
         top: 0px;
-        colors: 0, $darker, 0;
+        colors: 0, bd, 0;
       }
       // Remove top-border from the first item.
       &:first-child { border-top: none !important; }
@@ -4933,10 +4942,10 @@
       // Content.
       &-contents {
         transition: 0.15s ease;
-        &:hover { colors: 0, 0, $darker; }
+        &:hover { colors: 0, 0, bd; }
         // Text colors and width.
         .stats {
-          colors: $lighter, 0, 0;
+          colors: cm, 0, 0;
           .stat-value {
             min-width: 1.5rem;
             text-align: left;
@@ -4955,17 +4964,17 @@
     justify-content: center;
     align-items: center;
     radius: $radius;
-    colors: 0 0 $dark;
-    box-shadow: 0 0 0 1px inset $darker;
+    colors: 0 0 bg;
+    box-shadow: 0 0 0 1px inset bd;
     overflow-y: hidden; // Hide whitespace.
     svg {
       margin-top: -75px;
-      text { isvg: $lighter false }
-      path, line { isvg: false $lighter }
+      text { isvg: cm false }
+      path, line { isvg: false cm }
       rect {
         fill: $t !important;
-        &.bar-rect { isvg: $darker $blue }
-        &[fill="#fff" i] { isvg: $dark false }
+        &.bar-rect { isvg: bd $blue }
+        &[fill="#fff" i] { isvg: bg false }
       }
     }
   }
@@ -5011,10 +5020,10 @@
 
   // * Icons -> CI status icons.
   .ci-status {
-    colors: 0 0 $dark;
-    &[class*="ci-"]:hover { colors: 0 0 $darker }
+    colors: 0 0 bg;
+    &[class*="ci-"]:hover { colors: 0 0 bd }
     // Replace icon's main fill color.
-    ../ symbol[id^="status_"] { path[fill='#FFF' i] { isvg: $dark }}
+    ../ symbol[id^="status_"] { path[fill='#FFF' i] { isvg: bg }}
     // Colors!
     &.ci-success,
     &-icon-success, &-icon-passed {
@@ -5037,16 +5046,16 @@
       svg { isvg: $red }
     }
     &.ci-created, &.ci-skipped, &.ci-canceled, &.ci-disabled, &.ci-manual {
-      colors: $lighter $lighter 0;
+      colors: cm cm 0;
     }
     ^[0]-icon {
       &-skipped, &-created, &-canceled {
-        colors: 0 $lighter 0;
-        svg { isvg: $lighter }
+        colors: 0 cm 0;
+        svg { isvg: cm }
       }
       &-canceled, &-scheduled, &-disabled, &-not-found, &-manual {
-        colors: 0 $lighter 0;
-        svg { isvg: $lighter }
+        colors: 0 cm 0;
+        svg { isvg: cm }
       }
     }
   }
@@ -5107,10 +5116,10 @@
   if ( dark_logo == 1 ) {
     .tanuki-logo {
       filter: brightness(095%) drop-shadow(0px 1px 1px $shadow) !important;
-      .tanuki { &-right-eye, &-left-eye { isvg: $accent $t; }}
-      .tanuki-right { &-cheek, &-ear { isvg: $dark $t; }}
-      .tanuki-left { &-cheek, &-ear { isvg: $dark $t; }}
-      .tanuki-nose { isvg: $dark $t; }
+      .tanuki { &-right-eye, &-left-eye { isvg: ac $t; }}
+      .tanuki-right { &-cheek, &-ear { isvg: bg $t; }}
+      .tanuki-left { &-cheek, &-ear { isvg: bg $t; }}
+      .tanuki-nose { isvg: bg $t; }
     }
   }
 
@@ -5173,7 +5182,7 @@
 
 @-moz-document regexp("https?://customers.gitlab.com(/.*)") {
   h1, h2 { font-weight: normal }
-  .times { c: $lighter }
+  .times { c: cm }
   .list {
     &-title {
       c: $white 0 $blue;
@@ -5182,14 +5191,14 @@
     }
     &-info {
       radius: 0 0 3px 3px;
-      c: 0 $darker $dark;
+      c: 0 bd bg;
     }
   }
   .btn {
     &:hover { opacity: 0.8 }
     &-gitlab.secondary { c: $white $violet $violet }
     &-gitlab.primary {
-      c: $white $darker $blue;
+      c: $white bd $blue;
       transition: 0.15s ease;
     }
   }
@@ -5203,33 +5212,33 @@
   }
   .buy-ci-minutes {
     radius: $radius;
-    c: $light $darker $dark;
+    c: fg bd bg;
   }
   .white-card {
     radius: $radius;
-    c: $lighter $darker $dark;
-    .title { c: 0 $darker $darker }
-    label { c: $lighter 0 0 0 }
+    c: cm bd bg;
+    .title { c: 0 bd bd }
+    label { c: cm 0 0 0 }
     select, option, input {
-      c: $lighter 0 $darker;
+      c: cm 0 bd;
       box-shadow: none;
     }
     .description { margin-top: 32px }
     // Left column.
     .subscription-total {
-      c: 0 $darker;
+      c: 0 bd;
       .total-amount { c: $blue }
     }
     // Right column.
     .chosen-container {
       // Results.
       .chosen-drop {
-        c: 0 $darker $darker;
+        c: 0 bd bd;
         box-shadow: none !important;
         .chosen-results {
-          c: $light;
+          c: fg;
           .highlighted {
-            c: $light 0 $accent;
+            c: fg 0 ac;
             background-image: none;
           }
         }
@@ -5238,7 +5247,7 @@
       .chosen-single {
         min-height: 34px;
         line-height: 34px;
-        c: $light $darker $darker;
+        c: fg bd bd;
         background-image: none !important;
         box-shadow: none !important;
         // Caret position.
@@ -5251,37 +5260,37 @@
 
 @-moz-document regexp("https?://design.gitlab.com(/.*)") {
   // Loading bar.
-  .nuxt-progress { colors: 0, 0, $accent; }
+  .nuxt-progress { colors: 0, 0, ac; }
   // Contribute section.
-  .contribute { colors: 0, $darker, $dark; }
+  .contribute { colors: 0, bd, bg; }
   // Cards.
-  .card--header { colors: 0, $darker, $darker; }
+  .card--header { colors: 0, bd, bd; }
   // Navigation.
   .nav-sidebar {
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     &__header {
-      colors: 0, $darker, 0;
-      &-anchor { colors: $light, 0, 0; }
+      colors: 0, bd, 0;
+      &-anchor { colors: fg, 0, 0; }
     }
     // Links.
-    summary:hover, details > a:hover { colors: 0, 0, $darker; }
-    &__section-items-anchor { colors: $lighter, 0, 0; }
+    summary:hover, details > a:hover { colors: 0, 0, bd; }
+    &__section-items-anchor { colors: cm, 0, 0; }
     .nuxt-link-exact-active {
-      colors: $light, 0, $darker;
-      box-shadow: inset 4px 0 0 $accent !important;
+      colors: fg, 0, bd;
+      box-shadow: inset 4px 0 0 ac !important;
     }
   }
   // Fix color details.
-  .palette:not(.neutral) > .color { background-color: $darker; }
-  .todo { colors: 0, $darker, $dark; }
+  .palette:not(.neutral) > .color { background-color: bd; }
+  .todo { colors: 0, bd, bg; }
   table {
-    colors: $light, $darker, $dark;
-    thead { colors: 0, $darker, $darker; }
-    td, th { colors: 0, $darker, 0; }
-    td.header, th.header { colors: 0, $darker, $darker; }
+    colors: fg, bd, bg;
+    thead { colors: 0, bd, bd; }
+    td, th { colors: 0, bd, 0; }
+    td.header, th.header { colors: 0, bd, bd; }
   }
   // Typography spacing.
-  .baseline--typography:after { background-image: linear-gradient($darker 1px, $t 0); }
+  .baseline--typography:after { background-image: linear-gradient(bd 1px, $t 0); }
 }
 
 @-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
@@ -5289,13 +5298,13 @@
   .hero-container {
     background: none;
     border-bottom: 1px solid;
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
     &::before {
       opacity: 0.6;
       content: "";
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      background-image: linear-gradient(160deg, $yellow -50%, $accent 200%);
+      background-image: linear-gradient(160deg, $yellow -50%, ac 200%);
     }
     img {
       opacity: 1 !important;
@@ -5313,56 +5322,56 @@
   // * Index page for about sub-domain.
   .sdlc-table {
     radius: $radius !important;
-    colors: 0, 0, $dark;
-    box-shadow: 0 0 0 1px $darker !important;
+    colors: 0, 0, bg;
+    box-shadow: 0 0 0 1px bd !important;
     .sdlc-column:not(:last-child) {
-      border-right-color: $darker !important;
+      border-right-color: bd !important;
     }
     .stage-container, .solutions-container {
-      border-bottom-color: $darker !important;
+      border-bottom-color: bd !important;
     }
     .devops-tool-logo-container {
       radius: 0 0 $radius $radius;
-      colors: 0, 0, $dark;
+      colors: 0, 0, bg;
     }
   }
-  a.feature-more { colors: $accent, 0, 0; }
+  a.feature-more { colors: ac, 0, 0; }
 
   // * Blog resources.
   .tile-resource {
     radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: $box, 0 0 0 1px $darker;
+    colors: 0, 0, bg;
+    box-shadow: $box, 0 0 0 1px bd;
     .tile-info  { colors: 0, 0, $t; }
   }
 
   // * Articles.
   .blog.article {
-    .overlay { background: linear-gradient(0deg, $dark, $t 100%); }
-    .body { colors: 0, 0, $dark; }
+    .overlay { background: linear-gradient(0deg, bg, $t 100%); }
+    .body { colors: 0, 0, bg; }
     // Anchors.
     .content {
       h1, h2, h3, h4, h5, h6, ul li, a {
-        // colors: $accent, 0, 0;
-        a, code { colors: $accent, 0, 0; }
+        // colors: ac, 0, 0;
+        a, code { colors: ac, 0, 0; }
       }
-      p a, p a > a { colors: $accent, 0, 0; }
+      p a, p a > a { colors: ac, 0, 0; }
     }
     .btn {
-      &-red { colors: $light $red $darker }
-      &-default { colors: $light $darker 0 }
+      &-red { colors: fg $red bd }
+      &-default { colors: fg bd 0 }
     }
-    .twitter-block .panel-body { colors: $lighter, 0, $darker; }
+    .twitter-block .panel-body { colors: cm, 0, bd; }
     // Availability of the features.
-    .badge:not(.available) { colors: $light $darker $dark }
+    .badge:not(.available) { colors: fg bd bg }
     .top-row .badge.available { colors: $white $red $red }
     .bottom-row .badge.available { colors: $white $orange $orange }
     // Previous/next buttons.
-    .pull-left a, .pull-right a { colors: $light, $darker, $dark; }
+    .pull-left a, .pull-right a { colors: fg, bd, bg; }
     // Signup section.
     .signup {
       max-width: 100%;
-      colors: 0, 0, $darker;
+      colors: 0, 0, bd;
       > .panel {
         margin: 0 auto;
         max-width: 900px;
@@ -5372,25 +5381,25 @@
     .comments {
       radius: $radius;
       border: 1px solid;
-      colors: 0, $darker, $dark;
+      colors: 0, bd, bg;
     }
   }
   // Header anchor.
-  .header-link > i.fa-link { colors: $lighter, 0, 0; }
+  .header-link > i.fa-link { colors: cm, 0, 0; }
   // Divider between new features.
-  [class$="-column"]:last-child { colors: 0, $darker, 0; }
+  [class$="-column"]:last-child { colors: 0, bd, 0; }
   // Navbar.
   .sticky-banner {
-    colors: 0, 0, $darker;
+    colors: 0, 0, bd;
     box-shadow: 0 0 8px 0 $shadow;
   }
   .gray-section {
-    colors: $lighter, $darker, $dark;
+    colors: cm, bd, bg;
   }
   .blog-category-nav ul li {
-    colors: $lighter 0 0;
-    &::after { colors: 0 0 $accent }
-    &:hover { colors: $accent 0 0 }
+    colors: cm 0 0;
+    &::after { colors: 0 0 ac }
+    &:hover { colors: ac 0 0 }
   }
 
   // * Navbar.
@@ -5404,30 +5413,30 @@
     // Search.
     .search-box {
       background: none !important;
-      colors: $light 0 $dark;
-      box-shadow: 0 -1px 0 0 inset $darker;
-      &-large, .search-input { colors: $light $t $t }
+      colors: fg 0 bg;
+      box-shadow: 0 -1px 0 0 inset bd;
+      &-large, .search-input { colors: fg $t $t }
     }
     .sign-up, .search-icon {
       radius: $radius;
       colors: 0 0 $t;
-      &:hover { colors: $accent 0 $dark }
+      &:hover { colors: ac 0 bg }
     }
-    .icon-bar { colors: 0 0 $lighter }
+    .icon-bar { colors: 0 0 cm }
     // Mobile.
     .mobile-menu {
-      colors: 0 0 $dark;
+      colors: 0 0 bg;
       li .dropdown a {
         radius: $radius;
-        &:hover { colors: 0 0 $darker }
+        &:hover { colors: 0 0 bd }
       }
-      li .main-nav-link { colors: $accent 0 0 }
+      li .main-nav-link { colors: ac 0 0 }
       ul .sign-up-container {
-        colors: 0 0 $dark;
+        colors: 0 0 bg;
         li .sign-up {
           radius: $radius;
-          colors: $lighter 0 $darker;
-          &:hover { colors: $light 0 0; }
+          colors: cm 0 bd;
+          &:hover { colors: fg 0 0; }
         }
       }
     }
@@ -5435,29 +5444,29 @@
     .navbar-right ul li {
       a, .search-icon i {
         radius: $radius;
-        colors: $light 0 0;
-        &:hover:not(.fa), &:focus { colors: $accent 0 $dark }
+        colors: fg 0 0;
+        &:hover:not(.fa), &:focus { colors: ac 0 bg }
       }
       .dropdown {
         radius: $radius;
         border: 1px solid;
-        colors: $lighter $darker $dark;
+        colors: cm bd bg;
         a {
           radius: $radius;
-          colors: $lighter 0 0;
-          &:hover { colors: $accent 0 $darker }
+          colors: cm 0 0;
+          &:hover { colors: ac 0 bd }
         }
       }
       // Active page indicator.
-      &.menu-item-active::after { colors: 0 0 $accent }
+      &.menu-item-active::after { colors: 0 0 ac }
     }
   }
 
   // Announcements.
   .announcement-container {
     radius: $radius;
-    colors: $lighter 0 $dark;
-    box-shadow: inset 0 0 0 1px $darker;
+    colors: cm 0 bg;
+    box-shadow: inset 0 0 0 1px bd;
     img { filter: grayscale(100%) }
   }
 
@@ -5466,7 +5475,7 @@
     z-index: 1;
     &, &::after {
       background-image: linear-gradient(60deg, $orange -100%, $violet 200%);
-      background-color: $dark;
+      background-color: bg;
     }
     h1 { text-shadow: 2.5px 2.5px 0 $shadow; }
     // Prevent custom opacity on these images.
@@ -5482,83 +5491,83 @@
   // * Main content.
   .md-page {
     radius: $radius;
-    colors: 0, 0, $dark;
-    box-shadow: inset 0 0 0 1px $darker, 0 3px 3px 0 $shadow;
+    colors: 0, 0, bg;
+    box-shadow: inset 0 0 0 1px bd, 0 3px 3px 0 $shadow;
     // Inputs.
     input, select, textarea, fieldset {
       radius: $radius;
-      colors: $light $darker $dark;
+      colors: fg bd bg;
     }
     .highlight {
-      colors: $light $darker $dark;
+      colors: fg bd bg;
       > code { colors: 0 $t $t }
       .err { colors: $white 0 $red }
     }
     li {
-      colors: $lighter, 0, 0;
+      colors: cm, 0, 0;
       a {
-        colors: $accent, 0, 0;
-        code { colors: $accent, 0, 0; }
+        colors: ac, 0, 0;
+        code { colors: ac, 0, 0; }
       }
     }
     p.date { font-weight: bold; }
-    .breadcrumb { colors: 0, 0, $darker; }
-    .breadcrumb > li + li::before { colors: $lighter, 0, 0; }
+    .breadcrumb { colors: 0, 0, bd; }
+    .breadcrumb > li + li::before { colors: cm, 0, 0; }
   }
 
   // ? https://about.gitlab.com/press/press-kit
   .tile {
     radius: $radius;
-    colors: 0, 0, $dark;
+    colors: 0, 0, bg;
     transition: 0.2s ease;
-    box-shadow: inset 0 0 0 1px $darker, 0 2px 4px 0 $shadow;
-    &:hover { box-shadow: inset 0 0 0 1px $darker, 0 4px 8px 2px $shadow; }
-    .list { colors: 0, $darker, 0; }
-    .list > a { colors: 0, $darker, 0; }
+    box-shadow: inset 0 0 0 1px bd, 0 2px 4px 0 $shadow;
+    &:hover { box-shadow: inset 0 0 0 1px bd, 0 4px 8px 2px $shadow; }
+    .list { colors: 0, bd, 0; }
+    .list > a { colors: 0, bd, 0; }
   }
   // Article borders.
-  .press-block { colors: 0, $darker, 0; }
+  .press-block { colors: 0, bd, 0; }
   // Mini nav.
   .press-toc-links, .toc-links {
-    a { colors: $light, 0, 0; }
-    a:hover { colors: $accent, $t, 0; }
+    a { colors: fg, 0, 0; }
+    a:hover { colors: ac, $t, 0; }
   }
 
   // ? https://about.gitlab.com/solutions/public-sector
   .summary-container, .characteristics-container {
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
   }
   .form-container {
     margin-bottom: -80px;
-    colors: 0, 0, $dark;
+    colors: 0, 0, bg;
   }
 
   // ? https://about.gitlab.com/pricing/
   .tabs-wrapper {
-    colors: 0, $darker, 0;
+    colors: 0, bd, 0;
     .pricing-tabs {
-      li { colors: 0, $darker, $dark; }
-      li.active { colors: 0, $darker, $darker; }
+      li { colors: 0, bd, bg; }
+      li.active { colors: 0, bd, bd; }
     }
   }
   // Plans.
   .plan-row .plan {
-    colors: $lighter, $orange, $dark;
-    box-shadow: inset 0 0 0 1px $darker;
-    li > a { color: $accent; }
-    .btn-pricing { colors: $accent, $accent, 0; }
-    .plan-name, .all-features { colors: $light, $darker, 0; }
+    colors: cm, $orange, bg;
+    box-shadow: inset 0 0 0 1px bd;
+    li > a { color: ac; }
+    .btn-pricing { colors: ac, ac, 0; }
+    .plan-name, .all-features { colors: fg, bd, 0; }
   }
 
   // QnA.
   .faq {
     margin-bottom: -80px;
-    colors: 0, $darker, $dark;
+    colors: 0, bd, bg;
     .faq-item {
-      .faq-inner-item { colors: $lighter, $darker, 0; }
+      .faq-inner-item { colors: cm, bd, 0; }
       &.is-open .faq-inner-item {
-        colors: $light, $darker, 0;
-        .faq-answer p { colors: 0, 0, $darker; }
+        colors: fg, bd, 0;
+        .faq-answer p { colors: 0, 0, bd; }
       }
     }
   }
@@ -5566,28 +5575,28 @@
   // Sign up.
   .mktoForm {
     input[type], select.mktoField, textarea.mktoField {
-      colors: $light $darker $dark;
+      colors: fg bd bg;
     }
   }
   .newsletter-form .mktoButton {
-    colors: $light, $shadow, $dark;
+    colors: fg, $shadow, bg;
     &:hover {
-      colors: $accent, $shadow, $dark;
+      colors: ac, $shadow, bg;
     }
   }
   .newsletter-form .mktoForm .mktoLogicalField label {
-    color: $light !important;
+    color: fg !important;
   }
 
   // Page -> Case studies.
   .case-study-page {
-    .customer-info-section-wrapper { colors: 0 $darker 0 }
-    .customer-case-section-wrapper { colors: 0 0 $dark }
+    .customer-info-section-wrapper { colors: 0 bd 0 }
+    .customer-case-section-wrapper { colors: 0 0 bg }
   }
 
   // Page -> Jobs.
   .jobs-content-row {
-    colors: 0 0 $dark;
+    colors: 0 0 bg;
     // OpenStreetMap reset.
     + div .teleport-thing {
       margin-top: 20px;
@@ -5598,10 +5607,10 @@
   // Front page
   .sdlc-container .sdlc-table {
     td:not(:last-child), td:not(:last-child), tr:not(:last-child) {
-      border-color: $darker !important;
+      border-color: bd !important;
     }
     .competitor-logo-container {
-      background-color: $darker !important;
+      background-color: bd !important;
     }
   }
 
@@ -5611,15 +5620,15 @@
   .feature, .integrated-teams {
     border: 1px solid;
     radius: $radius !important;
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
   }
   .k8s-layer-media { margin-left: 16px }
   .u-subtle-bg {
-    background-color: $dark;
+    background-color: bg;
   }
   .flex-tile-list > .tile {
-    colors: $light, $darker, $darker;
+    colors: fg, bd, bd;
   }
   .cta-btn {
     transition: 0.15s ease;
@@ -5629,42 +5638,42 @@
       &:hover { opacity: 0.8 }
     }
     &.accent {
-      colors: $white $accent $accent;
+      colors: $white ac ac;
       &:hover { opacity: 0.8 }
     }
   }
   .panel, .panel-info > .panel-heading {
-    colors: $light, $darker, $darker;
+    colors: fg, bd, bd;
   }
   .panel-success > .panel-heading {
-    colors: $lighter, $green, $green;
+    colors: cm, $green, $green;
     .panel-title {
-      color: $lighter !important;
+      color: cm !important;
     }
   }
   .panel-warning > .panel-heading {
-    colors: $lighter, $orange, $orange;
+    colors: cm, $orange, $orange;
     .panel-title {
-      color: $lighter !important;
+      color: cm !important;
     }
   }
   // Featured Posts cards
   .blog.list {
     .article-information {
-      colors: $lighter, $shadow, $darker;
+      colors: cm, $shadow, bd;
       a {
-        color: $accent !important;
+        color: ac !important;
       }
     }
     .more, .browse {
-      colors: $lighter, $dark, $dark;
+      colors: cm, bg, bg;
       &:hover {
-        background-color: $accent !important;
+        background-color: ac !important;
       }
     }
   }
   .blog .callout, .blog .gitlab-trial {
-    colors: $lighter, $shadow, $darker;
+    colors: cm, $shadow, bd;
   }
 
   // * Handbook search.
@@ -5672,25 +5681,25 @@
     &-autocomplete, &-slide-autocomplete {
       > div[class] {
         radius: $radius !important;
-        colors: $light $darker $dark;
+        colors: fg bd bg;
         box-shadow: 0 2px 4px 0 $shadow;
       }
     }
     &-result[href] {
-      border-color: $darker !important;
-      &:hover { colors: $light $darker $darker }
+      border-color: bd !important;
+      &:hover { colors: fg bd bd }
       .st-ui-type-heading {
-        colors: $accent 0 0;
+        colors: ac 0 0;
         em {
-          colors: $white 0 $accent;
-          box-shadow: inset 0 -1px $accent;
+          colors: $white 0 ac;
+          box-shadow: inset 0 -1px ac;
         }
       }
       .st-ui-type-detail, .st-ui-type-detail-bold {
-        colors: $lighter 0 0;
+        colors: cm 0 0;
         em {
-          colors: $accent 0 $t;
-          box-shadow: inset 0 -1px $accent;
+          colors: ac 0 $t;
+          box-shadow: inset 0 -1px ac;
         }
       }
     }
@@ -5698,11 +5707,11 @@
 
   // Search
   .st-ui-injected-overlay-container {
-    colors: $lighter, $darker, $dark;
+    colors: cm, bd, bg;
     .st-ui-header, .st-ui-footer {
-      colors: $lighter, $darker, $dark;
+      colors: cm, bd, bg;
       input[type="text"] {
-        color: $lighter !important;
+        color: cm !important;
       }
     }
   }
@@ -5712,23 +5721,23 @@
 
   // Code
   .command, .alert-warning {
-    colors: $accent, $shadow, $darker;
+    colors: ac, $shadow, bd;
   }
   .panel-body pre {
-    colors: $accent, $shadow, $dark;
+    colors: ac, $shadow, bg;
   }
   .method p a:not(.btn) {
-    color: $accent !important;
+    color: ac !important;
   }
   .distro-content .display-extra-links li {
     a {
-      colors: $accent, $darler, 0;
+      colors: ac, $darler, 0;
       background: $t !important;
       text-shadow: none !important;
       text-decoration: none !important;
     }
     &:not(:last-child)::before {
-      background-color: $darker !important;
+      background-color: bd !important;
     }
   }
 
@@ -5737,16 +5746,16 @@
     margin-top: 50px;
     padding-top: 20px;
     border-top: 1px solid;
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
   }
 
   // Footer -> Sources.
   .source-link {
     border-top: 1px solid;
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
     .external-source-link {
-      colors: $lighter $lighter 0;
-      &:hover { colors: $accent $t 0 }
+      colors: cm cm 0;
+      &:hover { colors: ac $t 0 }
     }
   }
 
@@ -5754,10 +5763,10 @@
   if ( dark_logo == 1 ) {
     svg.nav-logo {
       filter: drop-shadow(0 2px 4px $shadow);
-      path:nth-child(1) { isvg: $light 0 }
-      path:nth-child(2), path:nth-child(5), path:nth-child(8) { isvg: $dark 0 }
-      path:nth-child(7), path:nth-child(4) { isvg: $dark 0 }
-      path:nth-child(3), path:nth-child(6) { isvg: $accent 0 }
+      path:nth-child(1) { isvg: fg 0 }
+      path:nth-child(2), path:nth-child(5), path:nth-child(8) { isvg: bg 0 }
+      path:nth-child(7), path:nth-child(4) { isvg: bg 0 }
+      path:nth-child(3), path:nth-child(6) { isvg: ac 0 }
     }
   }
 }
@@ -5766,56 +5775,56 @@
 @-moz-document regexp("^https?://forum.gitlab.com(/.*)$") {
   // Top bar.
   nav#bar {
-    colors: 0 0 $darker;
+    colors: 0 0 bd;
     li a {
-      colors: $lighter 0 0;
-      &:hover { colors: $light 0 0 }
+      colors: cm 0 0;
+      &:hover { colors: fg 0 0 }
     }
   }
 
   // Navigation and menu.
   .d-header {
-    colors: 0 $darker $dark;
-    .icon { &:hover { colors: 0 $darker $darker }}
-    .active { > a { &, &::after { colors: 0 $darker $dark }}}
+    colors: 0 bd bg;
+    .icon { &:hover { colors: 0 bd bd }}
+    .active { > a { &, &::after { colors: 0 bd bg }}}
     .menu-panel {
       radius: $radius;
-      colors: 0 $darker $dark;
+      colors: 0 bd bg;
       box-shadow: 0 2px 4px -1px $shadow;
       // Burger
       ul a {
-        colors: $light 0 0;
-        &:hover, &:focus { colors: 0 $t $darker }
+        colors: fg 0 0;
+        &:hover, &:focus { colors: 0 $t bd }
       }
     }
   }
 
   input[type] {
-    colors: $lighter $darker $dark;
+    colors: cm bd bg;
     &:focus {
-      colors: $light $accent 0;
+      colors: fg ac 0;
       box-shadow: none !important;
     }
   }
 
   // Advanced search.
   .search-container {
-    .search-advanced-title { colors: 0 0 $darker }
+    .search-advanced-title { colors: 0 0 bd }
     .search-advanced-filters {
-      colors: 0 0 $dark;
-      box-shadow: 0 0 0 1px inset $darker;
+      colors: 0 0 bg;
+      box-shadow: 0 0 0 1px inset bd;
     }
     // Posted by.
     .ac-wrap {
-      colors: 0 $darker $dark;
+      colors: 0 bd bg;
       .ac-user {
-        colors: 0 $dark $dark;
-        box-shadow: 0 0 0 1px $darker;
-        li { colors: 0 $darker 0 }
+        colors: 0 bg bg;
+        box-shadow: 0 0 0 1px bd;
+        li { colors: 0 bd 0 }
         a {
-          colors: $lighter 0 0;
-          &:hover, &.selected { colors: 0 0 $darker }
-          .username { colors: $light 0 0 }
+          colors: cm 0 0;
+          &:hover, &.selected { colors: 0 0 bd }
+          .username { colors: fg 0 0 }
         }
       }
     }
@@ -5824,58 +5833,58 @@
   // Dropdowns.
   .select-kit {
     .is-focused {
-      colors: 0 $accent 0;
+      colors: 0 ac 0;
       box-shadow: none !important;
     }
-    .is-highlighted { colors: $light 0 $darker }
-    .combo-box-header { colors: $light $darker $dark }
-    &-collection { box-shadow: 0 0 0 1px $darker }
-    &.multi-select { colors: 0 $darker $dark }
-    &-header { colors: $lighter $darker $t }
-    &-filter { colors: 0 $darker $dark }
+    .is-highlighted { colors: fg 0 bd }
+    .combo-box-header { colors: fg bd bg }
+    &-collection { box-shadow: 0 0 0 1px bd }
+    &.multi-select { colors: 0 bd bg }
+    &-header { colors: cm bd $t }
+    &-filter { colors: 0 bd bg }
     &-body {
       box-shadow: 0 2px 4px 0 $shadow;
-      ../-collection { colors: 0 0 $dark }
-      span, .topic-count { colors: $lighter 0 0 }
+      ../-collection { colors: 0 0 bg }
+      span, .topic-count { colors: cm 0 0 }
     }
     .period-chooser {
-      .top-date-string { colors: $lighter 0 0 }
-      .date-section { colors: $accent 0 0 }
+      .top-date-string { colors: cm 0 0 }
+      .date-section { colors: ac 0 0 }
     }
   }
 
   // Shortcuts.
   #keyboard-shortcuts-help ul b {
     border-bottom: 1px solid;
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
   }
 
   // Breadcrumbs.
   .nav-pills {
-    a { colors: $lighter $t $dark }
-    .active a { colors: $accent 0 0 }
+    a { colors: cm $t bg }
+    .active a { colors: ac 0 0 }
   }
 
   // Post badges.
-  .badge-wrapper.bar span.badge-category { colors: $lighter 0 0 }
+  .badge-wrapper.bar span.badge-category { colors: cm 0 0 }
 
   // Topic list.
   .topic-list {
-    .num, .badge-posts[href] { colors: $lighter 0 0 }
-    .sortable:hover { colors: $accent 0 $t }
-    .topic-excerpt { colors: $lighter 0 0 }
+    .num, .badge-posts[href] { colors: cm 0 0 }
+    .sortable:hover { colors: ac 0 $t }
+    .topic-excerpt { colors: cm 0 0 }
     .main-link a.title {
-      colors: $light 0 0;
-      &:visited { colors: $accent 0 0 }
+      colors: fg 0 0;
+      &:visited { colors: ac 0 0 }
     }
     // Tables.
     tr {
-      colors: 0 $darker 0;
-      th { colors: $lighter 0 0 }
-      &:hover > td { colors: 0 0 $darker }
+      colors: 0 bd 0;
+      th { colors: cm 0 0 }
+      &:hover > td { colors: 0 0 bd }
     }
-    tbody { colors: 0 $darker 0 }
+    tbody { colors: 0 bd 0 }
   }
   // Number of views.
   .heatmap {
@@ -5885,23 +5894,23 @@
   }
   // Last visit.
   .topic-list .topic-list-item-separator td {
-    colors: 0 $accent 0;
-    span { colors: $accent $shadow $darker }
+    colors: 0 ac 0;
+    span { colors: ac $shadow bd }
   }
   // Tags.
   .discourse-tag.simple {
-    &, &:hover { colors: $lighter 0 0 }
-    &:visited { colors: $accent 0 0 }
+    &, &:hover { colors: cm 0 0 }
+    &:visited { colors: ac 0 0 }
   }
 
   // Main content.
   #main {
-    .title-wrapper h1 a, .topic-link { colors: $light 0 0 }
-    .topic-body, .topic-avatar, .topic-status-info { colors: 0 $darker 0 }
-    .onebox { colors: 0 $darker 0 }
+    .title-wrapper h1 a, .topic-link { colors: fg 0 0 }
+    .topic-body, .topic-avatar, .topic-status-info { colors: 0 bd 0 }
+    .onebox { colors: 0 bd 0 }
     .post-links-container {
-      .post-links { colors: 0 $darker 0 }
-      ul li a[href] { colors: $light 0 0}
+      .post-links { colors: 0 bd 0 }
+      ul li a[href] { colors: fg 0 0}
     }
   }
 
@@ -5910,41 +5919,41 @@
     &, &.highlighted { animation: 0s !important; }
   }
   // Pinned topics
-  .names span a { colors: $lighter 0 0 }
+  .names span a { colors: cm 0 0 }
   .small-action {
-    colors: 0 $darker 0;
-    .small-action-desc { colors: $light 0 0 }
+    colors: 0 bd 0;
+    .small-action-desc { colors: fg 0 0 }
   }
   // Mods.
   .moderator {
-    .names span.user-title, .regular > .cooked { colors: $accent 0 $darker }
+    .names span.user-title, .regular > .cooked { colors: ac 0 bd }
   }
-  .alert.alert-info { colors: $lighter 0 $darker }
+  .alert.alert-info { colors: cm 0 bd }
   // Mentions.
-  a.mention, a.mention-group { colors: $accent 0 $darker }
+  a.mention, a.mention-group { colors: ac 0 bd }
 
   // Code blocks.
   .topic-post {
-    * > code, blockquote { colors: $lighter $darker $darker }
+    * > code, blockquote { colors: cm bd bd }
   }
   .quote-button {
-    colors: $lighter $darker $light;
+    colors: cm bd fg;
     box-shadow: 0 2px 4px 0 !important;
   }
-  aside.quote .title { colors: $light $accent $darker }
+  aside.quote .title { colors: fg ac bd }
 
   // Badges.
-  .badge-notification { colors: $accent 0 $darker }
+  .badge-notification { colors: ac 0 bd }
   .badge-card {
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     .badge-contents .badge-info {
       border: none !important;
-      colors: $lighter 0 $t;
-      h3 { colors: $accent 0 0 }
+      colors: cm 0 $t;
+      h3 { colors: ac 0 0 }
     }
     .badge-contents .badge-icon {
       &.badge-type-gold .fa { colors: $yellow 0 0 }
-      &.badge-type-silver .fa { colors: $light 0 0 }
+      &.badge-type-silver .fa { colors: fg 0 0 }
       &.badge-type-bronze .fa { colors: $orange 0 0 }
     }
   }
@@ -5953,167 +5962,167 @@
   nav.post-controls {
     *:hover { colors: 0 0 $t }
     .like-button {
-      .like-count { colors: $light 0 0 }
+      .like-count { colors: fg 0 0 }
       &:hover {
-        .like-count { colors: $accent 0 0 }
-        .d-hover { colors: $accent 0 0 }
+        .like-count { colors: ac 0 0 }
+        .d-hover { colors: ac 0 0 }
       }
     }
   }
-  #share-link { colors: 0 0 $darker }
+  #share-link { colors: 0 0 bd }
   // Reply.
   nav.post-controls button.create {
-    colors: $light 0 0;
-    &:hover { colors: $accent 0 0 }
+    colors: fg 0 0;
+    &:hover { colors: ac 0 0 }
   }
 
   // Topic map.
   .topic-map {
-    colors: 0 $shadow $darker;
+    colors: 0 $shadow bd;
     section { colors: 0 $shadow 0 }
-    .buttons .btn, .link-summary .btn { colors: 0 $shadow $darker }
-    .map .number, .map i, span.domain { colors: $light 0 0 }
+    .buttons .btn, .link-summary .btn { colors: 0 $shadow bd }
+    .map .number, .map i, span.domain { colors: fg 0 0 }
     td { colors: 0 0 $t }
   }
 
   // Timeline.
   .timeline-container .topic-timeline {
-    .timeline-handle { colors: 0 0 $lighter }
-    .timeline-scrollarea { colors: 0 $lighter 0 }
-    .timeline-replies { colors: $lighter 0 0 }
-    .timeline-ago, .start-date, .now-date { colors: $light 0 0 }
+    .timeline-handle { colors: 0 0 cm }
+    .timeline-scrollarea { colors: 0 cm 0 }
+    .timeline-replies { colors: cm 0 0 }
+    .timeline-ago, .start-date, .now-date { colors: fg 0 0 }
   }
   #topic-progress-wrapper {
-    .timeline-fullscreen, #topic-progress, .bg { colors: $lighter $t $t }
-    .topic-timeline { .username, .title a { colors: $accent 0 0 }}
+    .timeline-fullscreen, #topic-progress, .bg { colors: cm $t $t }
+    .topic-timeline { .username, .title a { colors: ac 0 0 }}
   }
 
   // New topic modal/comment modal.
-  .open .grippie { colors: 0 0 $accent }
+  .open .grippie { colors: 0 0 ac }
   #reply-control {
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     box-shadow: none !important;
     .reply-to .action-title, #draft-status, #file-uploading {
-      colors: $light 0 0
+      colors: fg 0 0
     }
     .save-or-cancel .cancel {
-      colors: $lighter 0 0
+      colors: cm 0 0
       &:hover { colors: $red 0 0 }
     }
   }
   .select-kit.dropdown-select-box {
-    .select-kit-body { colors: $light $darker $dark }
+    .select-kit-body { colors: fg bd bg }
     &.toolbar-popup-menu-options .select-kit-row {
-      colors: $lighter 0 $dark;
-      &:hover .name { colors: $accent 0 0 }
-      .name, .d-icon { colors: $light 0 0 }
+      colors: cm 0 bg;
+      &:hover .name { colors: ac 0 0 }
+      .name, .d-icon { colors: fg 0 0 }
     }
-    .select-kit-row .texts .name { colors: $accent 0 0 }
-    .select-kit-row .texts .desc { colors: $light 0 0 }
+    .select-kit-row .texts .name { colors: ac 0 0 }
+    .select-kit-row .texts .desc { colors: fg 0 0 }
   }
-  .composer-popup { colors: $lighter $darker $dark }
+  .composer-popup { colors: cm bd bg }
 
   // User pages.
-  .user-content { colors: 0 0 $dark }
+  .user-content { colors: 0 0 bg }
   .user-main .about {
-    .details, &.collapsed-info .details { colors: 0 $darker $dark }
-    &.collapsed-info .controls ul a, & .controls a { colors: $light 0 $darker }
+    .details, &.collapsed-info .details { colors: 0 bd bg }
+    &.collapsed-info .controls ul a, & .controls a { colors: fg 0 bd }
     .secondary {
-      colors: 0 $darker $dark;
-      dt { colors: $light 0 0 }
-      dd { colors: $lighter 0 0 }
+      colors: 0 bd bg;
+      dt { colors: fg 0 0 }
+      dd { colors: cm 0 0 }
     }
   }
-  .stats-section .value { colors: $light 0 0 }
+  .stats-section .value { colors: fg 0 0 }
   .user-main .d-icon-heart { colors: $red 0 0 }
   // Top borders.
-  .top-sub-section li { colors: 0 $darker 0 }
+  .top-sub-section li { colors: 0 bd 0 }
   // Other usernames.
-  .user-info .user-detail .username a { colors: $lighter 0 0 }
-  .user-info .user-detail .name { colors: $light 0 0 }
+  .user-info .user-detail .username a { colors: cm 0 0 }
+  .user-info .user-detail .name { colors: fg 0 0 }
   // Text colors.
-  .links-section .domain { colors: $light 0 0 }
-  .top-sub-section .topic-info { colors: $light 0 0 }
+  .links-section .domain { colors: fg 0 0 }
+  .top-sub-section .topic-info { colors: fg 0 0 }
   // User activity.
   .user-stream {
-    .item, .user-stream-item { colors: 0 $shadow $darker }
-    .time, .delete-info { colors: $light 0 0 }
+    .item, .user-stream-item { colors: 0 $shadow bd }
+    .time, .delete-info { colors: fg 0 0 }
   }
-  .user-navigation .nav-stacked a, .controls > .btn[href] { colors: $lighter 0 0 }
+  .user-navigation .nav-stacked a, .controls > .btn[href] { colors: cm 0 0 }
   // Logged user settings.
   .user-preferences {
-    .static { colors: $lighter 0 0 }
-    .instructions { colors: $light 0 0 }
+    .static { colors: cm 0 0 }
+    .instructions { colors: fg 0 0 }
   }
 
   // About.
   .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
     colors: 0 $shadow 0;
-    & .d-editor-preview { colors: 0 0 $dark }
-    & textarea { colors: $light 0 0 }
+    & .d-editor-preview { colors: 0 0 bg }
+    & textarea { colors: fg 0 0 }
   }
   .d-editor {
     &-spacer, &-button-bar { colors: 0 0 $shadow }
     &-textarea-wrapper {
-      colors: $light $darker $darker;
-      textarea { colors: $light $darker $dark }
+      colors: fg bd bd;
+      textarea { colors: fg bd bg }
     }
     // Insert link.
-    & .d-editor-modal { colors: $light $darker $dark }
+    & .d-editor-modal { colors: fg bd bg }
   }
 
   // Emojis.
   .emoji-picker {
-    colors: $light $darker $dark;
+    colors: fg bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
-    .categories-column { colors: 0 $darker $dark }
+    .categories-column { colors: 0 bd bg }
     .filter {
-      colors: 0 $darker 0;
+      colors: 0 bd 0;
       .clear-filter .fa, .d-icon-search .fa {
-        colors: $lighter 0 0;
-        &:hover { colors: $light 0 0 }
+        colors: cm 0 0;
+        &:hover { colors: fg 0 0 }
       }
     }
-    .section-header .title { colors: $lighter 0 0 }
-    button.emoji:hover { colors: 0 0 $dark }
-    .footer { colors: 0 $darker 0 }
+    .section-header .title { colors: cm 0 0 }
+    button.emoji:hover { colors: 0 0 bg }
+    .footer { colors: 0 bd 0 }
   }
 
   // Upload image.
-  .uploaded-image-preview { color: 0 0 $darker }
-  .upload-selector .radios .inputs input[type="file"] { colors: $light 0 0 }
+  .uploaded-image-preview { color: 0 0 bd }
+  .upload-selector .radios .inputs input[type="file"] { colors: fg 0 0 }
 
   // Modals.
   .modal {
-    &-header { colors: $light $darker 0 }
+    &-header { colors: fg bd 0 }
     &-inner-container {
-      colors: $light $darker $dark;
+      colors: fg bd bg;
       box-shadow: 0 2px 4px 0 $shadow !important;
     }
-    .modal-body label { colors: $lighter 0 0 }
+    .modal-body label { colors: cm 0 0 }
     // History.
     &.history-modal {
       #revision-details, tbody { colors: 0 $shadow 0 }
-      .diff-ins { colors: $lighter 0 $green }
+      .diff-ins { colors: cm 0 $green }
     }
   }
 
   // Notifications.
   .user-menu .notifications li {
-    colors: $light $darker $dark;
-    &:hover, &:focus { colors: 0 0 $darker }
-    span { colors: $accent 0 0 }
+    colors: fg bd bg;
+    &:hover, &:focus { colors: 0 0 bd }
+    span { colors: ac 0 0 }
   }
   div.menu-links-header a {
-    color: $lighter;
-    &:hover, &:focus { colors: $accent 0 $dark }
+    color: cm;
+    &:hover, &:focus { colors: ac 0 bg }
   }
 
   // Login/register.
-  #simple-container { colors: 0 0 $darker }
-  #login-buttons:not(.hidden) { colors: 0 $darker 0 }
-  button#login-link, button#new-account-link { colors: $lighter 0 0 }
-  #login-form a { colors: $light 0 0 }
+  #simple-container { colors: 0 0 bd }
+  #login-buttons:not(.hidden) { colors: 0 bd 0 }
+  button#login-link, button#new-account-link { colors: cm 0 0 }
+  #login-form a { colors: fg 0 0 }
 }
 
 @-moz-document regexp("https?://docs.gitlab.com(/.*)") {
@@ -6121,17 +6130,17 @@
   .landing {
     // Search container.
     .landing-header {
-      colors: $light 0 $dark;
-      box-shadow: 0 1px 0 0 $darker, 0 2px 8px 0 $shadow;
+      colors: fg 0 bg;
+      box-shadow: 0 1px 0 0 bd, 0 2px 8px 0 $shadow;
       // Navbar.
       &-top {
-        colors: 0 $darker $dark;
-        box-shadow: 0 1px 0 0 $darker, 0 2px 4px 0 $shadow;
+        colors: 0 bd bg;
+        box-shadow: 0 1px 0 0 bd, 0 2px 4px 0 $shadow;
         // Items.
         .header-link {
           transition: 0.15s ease;
           text-decoration: none !important;
-          &:hover p { colors: $accent, 0, 0; }
+          &:hover p { colors: ac, 0, 0; }
         }
       }
       // Search.
@@ -6139,7 +6148,7 @@
         img { filter: invert(var(--bg-invert)) }
         input {
           radius: $radius;
-          colors: $light 0 $darker;
+          colors: fg 0 bd;
           &:focus { box-shadow: 0 4px 16px -4px $shadow; }
         }
       }
@@ -6148,55 +6157,55 @@
     .main-topics li {
       radius: $radius;
       border: 1px solid;
-      colors: 0 $darker $dark;
+      colors: 0 bd bg;
       box-shadow: 0 4px 16px -4px $shadow !important;
     }
     // Most popular topics.
-    .topic h4 { colors: 0, $darker, 0; }
+    .topic h4 { colors: 0, bd, 0; }
   }
 
   // * Navigation.
   .header {
-    colors: 0 $darker $dark;
+    colors: 0 bd bg;
     // Search bar.
     #search-form {
-      colors: $lighter 0 0;
+      colors: cm 0 0;
       // Found on docs/.../archives page.
       .docsearch {
         radius: $radius;
-        colors: $lighter 0 $darker;
+        colors: cm 0 bd;
       }
       input[type="text"] {
         padding: 2px 11px 2px 28px;
         line-height: 30px;
         radius: $radius;
-        colors: $light $darker 0;
+        colors: fg bd 0;
       }
     }
     // Docs versions.
-    .btn-versions { colors: $lighter $darker $t }
-    .versions-tooltip { colors: $light, 0, $dark; }
+    .btn-versions { colors: cm bd $t }
+    .versions-tooltip { colors: fg, 0, bg; }
     // Main navigation.
-    .nav-item a { colors: $light, 0, 0; }
-    .nav-item:hover a { colors: $accent, 0, 0; }
+    .nav-item a { colors: fg, 0, 0; }
+    .nav-item:hover a { colors: ac, 0, 0; }
   }
 
   // Cards
   .main-topics li .wrapper h2 {
-    border-color: $darker !important;
+    border-color: bd !important;
   }
 
   // Footer
   .footer {
-    colors: 0 0 $dark;
-    box-shadow: 0 -1px 0 0 $darker, 0 -2px 4px 0 $shadow;
+    colors: 0 0 bg;
+    box-shadow: 0 -1px 0 0 bd, 0 -2px 4px 0 $shadow;
     // Colorize icons.
-    a:hover .fa { colors: $accent, 0, 0; }
+    a:hover .fa { colors: ac, 0, 0; }
     // "Created with" section.
     .source-link {
       border-top: 1px solid;
-      colors: $lighter, $darker, $dark;
-      a { colors: $accent, 0, 0; }
+      colors: cm, bd, bg;
+      a { colors: ac, 0, 0; }
     }
   }
 
@@ -6231,33 +6240,33 @@
   // * Main content.
   .main {
     border: none;
-    h1 { colors: 0, $darker, 0; }
+    h1 { colors: 0, bd, 0; }
     img { box-shadow: none !important; }
-    * > a { colors: $accent, 0, 0; }
+    * > a { colors: ac, 0, 0; }
     // Help and feedback section.
     .comments {
       margin: 16px auto -16px auto;
       radius: $radius;
       border: 1px solid;
-      colors: 0 $darker $dark;
+      colors: 0 bd bg;
       .nav-tabs {
         margin: 0;
-        border-color: $darker;
+        border-color: bd;
         li a {
           border-bottom: none;
           radius: $radius $radius 0 0;
-          colors: $lighter $darker $t;
-          &.active { colors: $light $darker $darker }
+          colors: cm bd $t;
+          &.active { colors: fg bd bd }
         }
       }
       // Buttons.
       .comments-filter a.comments-holder {
-        colors: 0 $darker $dark;
+        colors: 0 bd bg;
         box-shadow: none !important;
       }
       .tab-content .row {
         margin-top: 16px;
-        colors: 0 $darker 0;
+        colors: 0 bd 0;
       }
     }
   }
@@ -6265,27 +6274,27 @@
     filter: invert(1);
   }
   .badge-small:hover::after {
-    colors: $accent, $shadow, $darker;
+    colors: ac, $shadow, bd;
     box-shadow: $box !important;
   }
 
   // * Left sidebar.
   .global-nav {
-    colors: 0, 0, $dark;
-    box-shadow: 1px 0 $darker;
-    a.active { colors: $lighter, $accent, $darker; }
-    &-block-top a { color: $light; text-shadow: none; }
+    colors: 0, 0, bg;
+    box-shadow: 1px 0 bd;
+    a.active { colors: cm, ac, bd; }
+    &-block-top a { color: fg; text-shadow: none; }
     &-link {
-      color: $lighter;
+      color: cm;
       box-shadow: none !important;
       transition: all 0.15s ease-in-out;
       &:visited { colors: $violet 0 0 }
-      &:hover, &:focus { colors: $light, 0, $darker; }
+      &:hover, &:focus { colors: fg, 0, bd; }
     }
     .nav-link {
       transition: 0.15s ease;
       &:hover {
-        colors: 0 0 $darker;
+        colors: 0 0 bd;
         box-shadow: none;
       }
     }
@@ -6295,14 +6304,14 @@
   .doc-nav {
     right: -12px;
     height: calc(100vh + 20px);
-    colors: $lighter 0 $t;
+    colors: cm 0 $t;
     // Wrapper.
     #markdown-toc {
       a {
         text-decoration: none;
-        colors: $lighter 0 0;
-        &:hover { colors: $light 0 0 }
-        &.active { colors: $accent 0 0 }
+        colors: cm 0 0;
+        &:hover { colors: fg 0 0 }
+        &.active { colors: ac 0 0 }
       }
     }
   }
@@ -6314,9 +6323,9 @@
       colors: 0 0 $t;
       &--input {
         radius: $radius;
-        colors: $light $darker $dark;
+        colors: fg bd bg;
         box-shadow: 0 2px 4px 0 $shadow;
-        &:focus { colors: 0 $accent 0 }
+        &:focus { colors: 0 ac 0 }
       }
       &--magnifier { pointer-events: none }
     }
@@ -6324,14 +6333,14 @@
       .ais-stats {
         &, .stats {
           opacity: 1;
-          colors: $lighter 0 0;
+          colors: cm 0 0;
         }
       }
       .ais-header {
-        colors: 0 $darker 0;
+        colors: 0 bd 0;
         + .ais-body {
-          label { colors: $light 0 0 }
-          label > span { colors: $light 0 $darker }
+          label { colors: fg 0 0 }
+          label > span { colors: fg 0 bd }
         }
       }
       // Results.
@@ -6341,24 +6350,24 @@
           font-size: 1rem;
           colors: 0 $t 0;
           box-shadow: none;
-          em { colors: $accent 0 $t }
+          em { colors: ac 0 $t }
         }
-        &-text { colors: $lighter 0 0 }
+        &-text { colors: cm 0 0 }
         &-tag {
           radius: 0 0 3px 3px;
-          colors: $light $t $t;
+          colors: fg $t $t;
         }
       }
       .ais-infinite-hits {
         radius: $radius;
-        colors: 0 0 $dark;
-        box-shadow: inset 0 0 0 1px $darker;
+        colors: 0 0 bg;
+        box-shadow: inset 0 0 0 1px bd;
         &__empty { padding: 8px }
-        &--item:not(:first-child) { box-shadow: 0 -1px $darker }
+        &--item:not(:first-child) { box-shadow: 0 -1px bd }
         &--showmore > button {
           radius: $radius;
           border: 1px solid;
-          colors: $lighter $darker $dark;
+          colors: cm bd bg;
         }
       }
     }
@@ -6367,7 +6376,7 @@
   // * Code blocks.
   pre.highlight {
     radius: $radius;
-    colors: 0 $darker $t;
+    colors: 0 bd $t;
     box-shadow: 0 2px 4px 0 $shadow;
     code {
       white-space: pre-wrap;
@@ -6379,15 +6388,15 @@
     .clip-btn {
       top: 1px; right: 1px;
       radius: 0 $radius 0 0;
-      colors: $lighter, 0, $dark;
-      .fa-clipboard::before { color: $lighter; }
+      colors: cm, 0, bg;
+      .fa-clipboard::before { color: cm; }
     }
     // Syntax highlighting.
-    code, .na, .c { colors: $lighter, 0, 0; }
-    .n, .p, .nb { colors: $light, 0, 0; }
+    code, .na, .c { colors: cm, 0, 0; }
+    .n, .p, .nb { colors: fg, 0, 0; }
     .pi { colors: $red, 0, 0; }
     .no { colors: $violet, 0, 0; }
-    .na { colors: $lighter, 0, 0; }
+    .na { colors: cm, 0, 0; }
     .s1, .s2 { colors: $green, 0, 0; }
     .kp, .k { colors: $violet, 0, 0; }
     .nt { colors: $blue, 0, 0; }
@@ -6420,23 +6429,23 @@
 
   // * About section.
   .section_border_1 {
-    colors: 0, $darker, $dark;
-    a { colors: $accent, 0, 0; }
+    colors: 0, bd, bg;
+    a { colors: ac, 0, 0; }
     // Icons and text elements nested within them.
     .fa {
-      span { colors: $light, 0, 0; }
+      span { colors: fg, 0, 0; }
       &-check { colors: $green, 0, 0; }
     }
   }
 
   // * Table.
-  .status_td { colors: $lighter, $darker, $dark; }
+  .status_td { colors: cm, bd, bg; }
 
   // * History timeline.
-  #statusio_history .history-filter-text, .back-text { colors: $lighter, 0, 0; }
+  #statusio_history .history-filter-text, .back-text { colors: cm, 0, 0; }
   #statusio_history_timeline .timelineContainer {
-    colors: 0, $darker, 0;
-    .incident_time { colors: $light, 0, 0; }
+    colors: 0, bd, 0;
+    .incident_time { colors: fg, 0, 0; }
     .timelineMajor h2 {
       background-image: none !important;
       &::after {
@@ -6446,12 +6455,12 @@
         left: 16px;
         width: 24px;
         height: 2px;
-        colors: 0, 0, $darker;
+        colors: 0, 0, bd;
       }
     }
     .timelineMinor dt {
       background: none;
-      .open, .closed { colors: $lighter, 0, 0; }
+      .open, .closed { colors: cm, 0, 0; }
       &::before {
         content: "";
         position: absolute;
@@ -6459,15 +6468,15 @@
         left: 0px;
         width: 12px;
         height: 2px;
-        colors: 0, 0, $darker;
+        colors: 0, 0, bd;
       }
     }
-    hr { colors: 0, 0, $darker; }
+    hr { colors: 0, 0, bd; }
   }
 
   // * Labels.
-  .label-success { colors: $light, 0, $green; }
-  .label-info { colors: $light, 0, $blue; }
+  .label-success { colors: fg, 0, $green; }
+  .label-info { colors: fg, 0, $blue; }
 
   // * Rounded corners.
   .make_round {
@@ -6482,7 +6491,7 @@
 
   // * Footer.
   #bottom_menu {
-    a { colors: $accent, 0, 0; }
+    a { colors: ac, 0, 0; }
     strong a { text-decoration: underline; }
   }
 }
@@ -6495,15 +6504,15 @@
   .white-box {
     radius: $radius;
     border: 1px solid;
-    colors: $light, $darker, $dark;
-    a { colors: $accent, 0, 0; }
-    .text-switch { colors: $lighter, 0, 0; }
+    colors: fg, bd, bg;
+    a { colors: ac, 0, 0; }
+    .text-switch { colors: cm, 0, 0; }
     .switch .cmn-toggle-round {
-      + label { colors: 0, 0, $darker; }
-      + label::after { colors: 0, 0, $darker; }
-      + label::before { colors: 0, 0, $dark; }
+      + label { colors: 0, 0, bd; }
+      + label::after { colors: 0, 0, bd; }
+      + label::before { colors: 0, 0, bg; }
       &:checked + label::before { colors: 0, 0, $blue; }
     }
   }
-  .footer a { colors: $light, 0, 0; }
+  .footer a { colors: fg, 0, 0; }
 }
