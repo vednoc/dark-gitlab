@@ -2085,10 +2085,7 @@
     // Entry borders.
     .timeline-entry-inner { colors: 0, $darker, 0; }
     // Highlighted entry.
-    &:target, &.target {
-      border: 1px solid;
-      colors: 0 $blue 0;
-    }
+    &:target, &.target { c: 0 $accent }
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
     // Alerts -> Command alerts.
@@ -2124,6 +2121,7 @@
     }
     .timeline-entry {
       radius: 0;
+      &:target, &.target { box-shadow: 0 0 0 1px $accent }
       &:first-child { radius: $radius $radius 0 0 }
     }
     .discussion-wrapper {
