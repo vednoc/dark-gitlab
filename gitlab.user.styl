@@ -84,12 +84,12 @@
 
   // * Use stylus-lang variables with CSS variables.
 
-  bg    = var(--dark);
-  bd  = var(--darker);
-  fg   = var(--light);
-  cm = var(--lighter);
-  ac  = var(--accent);
-  $shadow  = var(--shadow);
+  bg      = var(--dark);
+  bd      = var(--darker);
+  fg      = var(--light);
+  cm      = var(--lighter);
+  ac      = var(--accent);
+  $shadow = var(--shadow);
   yellow  = var(--yellow);
   orange  = var(--orange);
   red     = var(--red);
@@ -99,11 +99,10 @@
   cyan    = var(--cyan);
   green   = var(--green);
   white   = var(--white);
-  $radius  = var(--radius);
-  $t       = var(--t);
-  $box     = var(--box-shadow);
-  $outer   = 0 0 0 1px bd;
-  $inner   = inset 0 0 0 1px bd;
+  r       = var(--radius);
+  t       = var(--t);
+  outer   = 0 0 0 1px bd;
+  inner   = inset outer;
 
   fg = fg;
   cm = cm;
@@ -136,7 +135,7 @@
     if y is a 'call' { stroke: y !important; }
   }
   // * Border radius mixin.
-  radius() { border-radius: arguments }
+  rad() { border-radius: arguments }
 
   // * Scrollbars.
   if ( enable_sb == 1 ) {
@@ -152,13 +151,13 @@
   ::-webkit-input-placeholder { color: cm !important; }
 
   body {
-    colors: fg 0 $t;
+    colors: fg 0 t;
     font-family: var(--ui-font);
     // Fixes content shift when modal is open.
     &.modal-open { padding-right: 0px !important; }
     // Empty navbar.
     &.navless {
-      colors: fg 0 $t;
+      colors: fg 0 t;
       height: calc(100% - 41px);
       .navbar-empty { colors: 0 bd bg }
     }
@@ -181,12 +180,12 @@
     }
     hr {
       margin: 16px auto;
-      colors: 0 bd $t;
+      colors: 0 bd t;
     }
-    img { &.transparent, &.lazy { colors: 0 bd $t }}
+    img { &.transparent, &.lazy { colors: 0 bd t }}
     code { c: fg bd bg 0 0 0 }
     pre {
-      radius: $radius;
+      rad: r;
       font-family: var(--mono-font);
       c: fg bd bg 0 0 0;
     }
@@ -232,26 +231,26 @@
 
   // * Table -> Base styles for all `table` elements.
   table:not([class]) {
-    radius: $radius;
+    rad: r;
     display: table !important;
     border-style: hidden !important;
     border-collapse: collapse !important;
     colors: 0 0 bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     thead {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       th { colors: fg bd bd }
       tr:first-child {
         th { border: none !important }
-        > th:first-child { border-top-left-radius: $radius; }
-        > th:last-child { border-top-right-radius: $radius; }
+        > th:first-child { border-top-left-radius: r; }
+        > th:last-child { border-top-right-radius: r; }
       }
     }
     tbody {
-      colors: 0 bd $t; // Fixes large top border in docs.
+      colors: 0 bd t; // Fixes large top border in docs.
       td {
         word-break: break-all;
-        colors: fg bd $t;
+        colors: fg bd t;
       }
       // AsciiDoc tables.
       tr > th {
@@ -260,8 +259,8 @@
       }
       tr:last-child {
         // Bottom corners look a bit off on Firefox.
-        th, td { &:first-child { border-bottom-left-radius: $radius; }}
-        td:last-child { border-bottom-right-radius: $radius; }
+        th, td { &:first-child { border-bottom-left-radius: r; }}
+        td:last-child { border-bottom-right-radius: r; }
       }
     }
   }
@@ -322,20 +321,20 @@
     colors: 0 bd 0;
     > .table {
       border-collapse: collapse;
-      box-shadow: 0 0 0 1px bd;
+      box-shadow: inner;
       thead th {
         padding: 8px !important;
         colors: fg, bd, bd;
-        &:first-child { border-top-left-radius: $radius; }
-        &:last-child { border-top-right-radius: $radius; }
+        &:first-child { border-top-left-radius: r; }
+        &:last-child { border-top-right-radius: r; }
       }
       tbody {
         td {
           padding: 8px !important;
           colors: fg, bd, bg;
         }
-        tr:last-child > td:first-child { border-bottom-left-radius: $radius; }
-        tr:last-child > td:last-child { border-bottom-right-radius: $radius; }
+        tr:last-child > td:first-child { border-bottom-left-radius: r; }
+        tr:last-child > td:last-child { border-bottom-right-radius: r; }
       }
     }
   }
@@ -412,14 +411,14 @@
   .account-btn-link, [class*="settings-sidebar"] a { c: ac 0 0 0 }
   // Warnings.
   .warning_message {
-    radius: 0 $radius $radius 0;
+    rad: 0 r r 0;
     border-left-color: ac;
     c: fg 0 bd;
   }
 
   // * Global -> Alerts.
   .bs-callout {
-    radius: 4px;
+    rad: 4px;
     position: relative;
     colors: fg bd bg;
     &.gcp-signup-offer { border-left-color: blue !important }
@@ -430,7 +429,7 @@
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
-        radius: 4px 0 0 4px;
+        rad: 4px 0 0 4px;
         border-left: 4px solid bd;
       }
     }
@@ -441,7 +440,7 @@
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
-        radius: 4px 0 0 4px;
+        rad: 4px 0 0 4px;
         border-left: 4px solid blue;
       }
     }
@@ -453,7 +452,7 @@
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
-        radius: 4px 0 0 4px;
+        rad: 4px 0 0 4px;
         border-left: 4px solid orange;
       }
     }
@@ -462,7 +461,7 @@
   // * Global -> Scoped labels.
   .scoped-label {
     .fa-question-circle {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       &[style*="color: #FFFFFF"]  { color: #ffffff !important }
       &[style*="color: #333333"]  { color: #000000 !important }
     }
@@ -503,8 +502,8 @@
       }
     }
     &-link {
-      c: cm $t $t;
-      &:hover { c: 0 0 $t }
+      c: cm t t;
+      &:hover { c: 0 0 t }
     }
     // Green buttons.
     &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
@@ -546,9 +545,9 @@
       colors: cm bd bg;
       &:hover { colors: fg 0 bd; }
     }
-    &-blank { colors: cm 0 $t; }
+    &-blank { colors: cm 0 t; }
     &-clipboard {
-      colors: cm bd $t;
+      colors: cm bd t;
       &:hover { colors: fg 0 0 }
       &:hover svg { isvg: fg }
     }
@@ -572,7 +571,7 @@
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
-    colors: 0 0 $t;
+    colors: 0 0 t;
     .btn:focus { colors: 0, 0, bd; }
   }
   // ? Reaction buttons.
@@ -624,7 +623,7 @@
     &-description, &-disabled-reason { c: cm }
   }
   .bordered-box {
-    radius: $radius;
+    rad: r;
     c: 0 bd;
   }
   // ? Check #13 for more info.
@@ -638,7 +637,7 @@
     }
   }
   // ? Promotion background on i.e. project/audit_events page.
-  .promotion-backdrop { colors: 0, 0, $t; }
+  .promotion-backdrop { colors: 0, 0, t; }
   // ? Custom GitLab tables on i.e. project/settings/badges page.
   .gl-responsive-table-row-layout {
     colors: 0, bd, 0;
@@ -648,7 +647,7 @@
     .badge.badge-pill { colors: fg, 0, bd; }
     // Footer.
     .table-button-footer {
-      colors: 0, bd, $t;
+      colors: 0, bd, t;
       @media screen and (max-width: 767px) { colors: 0, 0, bd; }
     }
   }
@@ -658,8 +657,8 @@
       border-bottom: none !important;
       border-top: 1px solid bd;
     }
-    &:first-child { radius: $radius $radius 0 0; }
-    &:last-child { radius: 0 0 $radius $radius; }
+    &:first-child { rad: r r 0 0; }
+    &:last-child { rad: 0 0 r r; }
   }
   // ? 404 page.
   img[alt="404"] + .container {
@@ -692,7 +691,7 @@
     // Header.
     .new-session-tabs {
       border-color: bd;
-      box-shadow: 0 0 0 1px bd;
+      box-shadow: inner;
       li {
         colors: cm, bd, bd;
         a.active, a:hover { colors: fg, ac, bd; }
@@ -700,16 +699,16 @@
     }
     // Credentials.
     .login-box {
-      radius: 0 0 $radius $radius;
-      box-shadow: 0 0 0 1px bd;
+      rad: 0 0 r r;
+      box-shadow: inner;
       background-color: bg;
       .form-control { colors: 0, 0, bd; }
     }
     // Sign in with.
     .omniauth-container {
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
-      box-shadow: 0 0 0 1px bd;
+      box-shadow: inner;
       .omniauth-btn { colors: 0, 0, bd; }
     }
   }
@@ -742,7 +741,7 @@
         &:hover, &[class*="Selected"] { colors: 0, 0, bg; }
       }
       thead th { colors: fg, bg, bg; }
-      tbody td { colors: fg, bg, $t; }
+      tbody td { colors: fg, bg, t; }
     }
   }
 
@@ -761,7 +760,7 @@
     .search form {
       padding: 4px 2px 3px;
       height: unset;
-      radius: $radius;
+      rad: r;
       colors: cm bd bd;
       #search { colors: cm 0 0 }
     }
@@ -786,9 +785,9 @@
     }
     // ? Avatars -> Reset.
     .header-user-avatar {
-      radius: var(--avatar) !important;
+      rad: var(--avatar) !important;
       border: none !important;
-      colors: cm, 0, $t;
+      colors: cm, 0, t;
     }
     // ? Shows theme version in the user dropdown.
     .header-user li:first-child::before {
@@ -803,7 +802,7 @@
 
   // * Navbar -> Projects/Groups.
   .frequent-items-dropdown-menu {
-    radius: $radius;
+    rad: r;
     .section-header { colors: fg, 0, 0; }
     .section-empty, [class*="namespace"] { colors: cm, 0, 0;}
     [class*="dropdown-sidebar"] { colors: 0, bd, 0; }
@@ -845,8 +844,8 @@
         colors: 0, bd, bg;
         transition: 0.2s ease !important;
         &:hover, &.active { colors: 0, 0, bd; }
-        &:first-child { border-radius: $radius 0 0 $radius; }
-        &:last-child { border-radius: 0 $radius $radius 0; }
+        &:first-child { border-radius: r 0 0 r; }
+        &:last-child { border-radius: 0 r r 0; }
       }
     }
     a:active { colors: fg, 0, bd; }
@@ -891,7 +890,7 @@
     }
   }
   .dropdown-menu {
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     box-shadow: 0 4px 8px 0 $shadow;
     // ? Height reset.
@@ -903,7 +902,7 @@
     &-inner-content { colors: cm 0 0 }
     // ? Input / Search.
     .dropdown-input-field, .default-dropdown-input {
-      radius: $radius;
+      rad: r;
       colors: fg, bd, bg;
       &:focus {
         colors: 0 ac 0;
@@ -912,7 +911,7 @@
     }
     // ? Body/Content.
     .dropdown-info-note { colors: fg, 0, 0; }
-    [class*="divider"] { colors: 0, bd, $t; }
+    [class*="divider"] { colors: 0, bd, t; }
     .dropdown-item {
       colors: cm 0 0;
       &:focus, &:active { colors: 0 0 bd }
@@ -936,7 +935,7 @@
     &-sort {
       li {
         // ? Reset due to markup being single `li` with a ton of `a` elements.
-        &:hover a { colors: cm, 0, $t; }
+        &:hover a { colors: cm, 0, t; }
         a {
           transition: 0.1s ease;
           &:hover { colors: fg, 0, bd; }
@@ -948,7 +947,7 @@
     &-right:not(&-sort) {
       li {
         // ? Reset due to markup being single `li` with a ton of `a` elements.
-        &:hover a { colors: cm, 0, $t; }
+        &:hover a { colors: cm, 0, t; }
         a, button:not(.btn), .menu-item {
           transition: 0.15s ease;
           colors: cm, 0, 0;
@@ -995,7 +994,7 @@
     // ? Footer.
     .dropdown-footer {
       colors: 0, bd, 0;
-      li:hover a { colors: cm, 0, $t; }
+      li:hover a { colors: cm, 0, t; }
       li a {
         transition: 0.1s ease;
         &:hover { colors: fg, 0, bd; }
@@ -1012,22 +1011,22 @@
   .select2 {
     // Menu.
     &-drop {
-      radius: $radius;
+      rad: r;
       colors: 0, bd, bg;
     }
     // Menu arrow.
     &-arrow {
       padding-left: 12px;
-      colors: 0, 0, $t;
+      colors: 0, 0, t;
       &::after { colors: cm, 0, 0; }
     }
     // Input/select.
     &-drop input, &-choice, &-search-choices, &-default {
-      radius: $radius !important;
+      rad: r !important;
       colors: cm, bd, bg;
     }
     &-container-multi &-choices {
-      radius: $radius;
+      rad: r;
       colors: cm, bd, bg;
       input:focus { colors: fg, 0, 0; }
     }
@@ -1046,15 +1045,15 @@
       colors: fg, 0, bd;
     }
     // Loader.
-    &-more-results { colors: 0, 0, $t; }
+    &-more-results { colors: 0, 0, t; }
   }
 
   // Global -> GFM links.
   .gfm {
     c: fg 0 bd;
-    &&-issue, &&-merge_request, &&-epic { c: ac 0 $t }
-    &&-commit, &&-milestone { c: ac 0 $t }
-    &&-label { c: 0 0 $t }
+    &&-issue, &&-merge_request, &&-epic { c: ac 0 t }
+    &&-commit, &&-milestone { c: ac 0 t }
+    &&-label { c: 0 0 t }
     &.current-user {
       c: white 0 ac;
       &:hover {
@@ -1069,22 +1068,22 @@
   [data-project=""] {
     .top-area:not(.cover-block) {
       margin-top: 8px;
-      radius: $radius;
+      rad: r;
       c: 0 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
       .nav-links {
         margin: 0;
-        radius: 0;
-        c: 0 0 $t;
+        rad: 0;
+        c: 0 0 t;
         box-shadow: none;
       }
     }
     // Issues/MR/Milestones.
     .search-results {
       margin-top: 16px;
-      radius: $radius;
+      rad: r;
       colors: 0 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
       // Bug on .../search/users tab. @upstream
       > .content-list {
         > li { padding: 8px }
@@ -1094,8 +1093,8 @@
         padding: 8px;
         margin-bottom: 0;
         colors: 0, bd, 0;
-        &:first-child { radius: $radius $radius 0 0; }
-        &:last-child { radius: 0 0 $radius $radius; }
+        &:first-child { rad: r r 0 0; }
+        &:last-child { rad: 0 0 r r; }
         h4 { margin-top: 0px; }
         code { colors: cm, 0, 0; }
         pre.code { colors: 0, bd, 0; }
@@ -1112,11 +1111,11 @@
       .blank-state-row { justify-content: space-between; }
       // Cards.
       .blank-state-link {
-        radius: $radius;
+        rad: r;
         colors: 0, 0, bg;
         &:hover { colors: fg, 0, bd; }
         .blank-state {
-          radius: $radius;
+          rad: r;
           colors: 0, bd, 0;
         }
       }
@@ -1125,10 +1124,10 @@
 
   // * Dashboard -> New project.
   .gitlab-tabs {
-    radius: $radius $radius 0 0;
+    rad: r r 0 0;
     c: 0 bd;
     &.nav.nav-tabs.nav-links {
-      radius: $radius $radius 0 0;
+      rad: r r 0 0;
       border-bottom: 1px solid;
       box-shadow: none;
       > .nav-item { margin: 0 }
@@ -1136,17 +1135,17 @@
     li.nav-item {
       c: 0 bd;
       a {
-        radius: 0;
-        ../:first-child a { radius: $radius 0 0 0 }
-        ../:last-child a { radius: 0 $radius 0 0 }
+        rad: 0;
+        ../:first-child a { rad: r 0 0 0 }
+        ../:last-child a { rad: 0 r 0 0 }
         ../.active a.nav-link { c: fg ac }
-        ../:hover a.nav-link { c: fg $t }
+        ../:hover a.nav-link { c: fg t }
       }
     }
   }
   // Tab content.
   .gitlab-tab-content {
-    radius: 0 0 $radius $radius;
+    rad: 0 0 r r;
     colors: 0 bd bg;
     // 'Create from template' area.
     .card-slim {
@@ -1155,7 +1154,7 @@
     }
     // Inputs.
     [class*="input-group"] {
-      radius: $radius;
+      rad: r;
       colors: cm, bd, bd;
     }
     .template-option { colors: 0, bd, 0; }
@@ -1163,7 +1162,7 @@
 
   // * Table -> Old-ish table components.
   .table-responsive, table.table {
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
     box-shadow: 0 0 0 1px inset bd;
     thead tr {
@@ -1171,16 +1170,16 @@
         border-top: none;
         colors: fg, 0, bd;
       }
-      > th:first-child { radius: $radius 0 0 0; }
-      > th:last-child { radius: 0 $radius 0 0; }
+      > th:first-child { rad: r 0 0 0; }
+      > th:last-child { rad: 0 r 0 0; }
     }
     tbody tr {
       td {
         transition: 0.15s ease;
         colors: cm bd 0;
       }
-      &:last-child > td:first-child { radius: 0 0 0 $radius; }
-      &:last-child > td:last-child { radius: 0 0 $radius 0; }
+      &:last-child > td:first-child { rad: 0 0 0 r; }
+      &:last-child > td:last-child { rad: 0 0 r 0; }
       &:hover > td { colors: fg, 0, bd; }
     }
     // Highlighted odd rows.
@@ -1197,7 +1196,7 @@
 
   // * Settings -> Messages.
   .settings-message {
-    radius: $radius;
+    rad: r;
     colors: fg bd bg;
   }
   // ! Explore replacing `border` with `box-shadow` in the future.
@@ -1218,17 +1217,17 @@
   }
   // * Settings -> Emails.
   .account-well {
-    radius: $radius;
+    rad: r;
     colors: cm bd bg;
    }
   // * Settings -> Billings page.
   ul.bordered-list { &, li { colors: 0 bd 0 }}
   // * Settings -> Active sessions.
   .card .list-group {
-    radius: $radius;
+    rad: r;
     colors: cm 0 bg;
     box-shadow: 0 0 0 1px inset bd;
-    &-item { colors: cm bd $t }
+    &-item { colors: cm bd t }
   }
   // * Settings -> Pipeline quota.
   .pipeline-quota {
@@ -1294,7 +1293,7 @@
   // Green alerts.
   .alert-success {
     colors: white, green, green;
-    &.prepend-top-default { radius: $radius; }
+    &.prepend-top-default { rad: r; }
   }
   // Customers page, possible refactor.
   .alert-danger { colors: white, red, red; }
@@ -1307,7 +1306,7 @@
     .breadcrumbs-container {
       padding: 0 10px;
       margin-top: 10px;
-      radius: $radius;
+      rad: r;
       border: 1px solid !important;
       colors: 0, bd, bg;
     }
@@ -1336,14 +1335,14 @@
     .row-content-block {
       margin-top: 0px !important;
       padding: 8px !important;
-      radius: 0 !important;
+      rad: 0 !important;
     }
     .alert-wrapper .breadcrumbs.container-fluid.group-epics-roadmap {
       padding: 0px !important;
       max-width: 100% !important;
       .breadcrumbs-container {
         margin-top: 0px !important;
-        radius: 0px !important;
+        rad: 0px !important;
         border: none !important;
       }
     }
@@ -1351,7 +1350,7 @@
 
   // * Epics :: Roadmap.
   .roadmap-container {
-    radius: $radius;
+    rad: r;
     colors: 0 0 bg;
     box-shadow: 0 0 0 1px inset bd;
     // Timeline header.
@@ -1359,7 +1358,7 @@
       colors: cm, bd, bg;
       box-shadow: -1px 0 0 0 inset bd;
       &::before { colors: 0, bd, 0; }
-      &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
+      &::after { background: linear-gradient(to right, $shadow 0%, t 100%); }
     }
     // Timeline items.
     .timeline-header-item {
@@ -1375,7 +1374,7 @@
       .epic-details-cell {
         colors: 0, bd, bg;
         box-shadow: -1px 0 0 0 inset bd;
-        &::after { background: linear-gradient(to right, $shadow 0%, $t 100%); }
+        &::after { background: linear-gradient(to right, $shadow 0%, t 100%); }
         .epic-url { colors: fg, 0, 0; }
         .epic-timeframe { colors: cm, 0, 0; }
       }
@@ -1408,19 +1407,19 @@
   // Dashboard -> Navigation.
   .pipelines-container .top-area {
     margin-top: 8px;
-    radius: $radius;
+    rad: r;
     c: 0 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
   }
   #content-body > div[class] > .top-area:not(.cover-block) {
     margin-top: 8px;
-    radius: $radius;
+    rad: r;
     c: 0 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
     > .nav.nav-tabs:not(#sc) {
       a { padding: 10px 8px }
       margin-top: 0;
-      c: 0 $t $t;
+      c: 0 t t;
       box-shadow: none;
     }
     // ../project/pipeline_schedules
@@ -1437,13 +1436,13 @@
   .nav.nav-tabs {
     padding: 0 !important;
     margin-top: 8px;
-    radius: $radius;
+    rad: r;
     border-bottom: none;
-    box-shadow: $inner;
+    box-shadow: inner;
     c: 0 0 bg;
     .cover-block ^[0] {
-      radius: 0;
-      c: 0 0 $t;
+      rad: 0;
+      c: 0 0 t;
       box-shadow: none;
     }
   }
@@ -1460,7 +1459,7 @@
           > a { c: fg ac }
           .badge.badge-pill { c: fg }
         }
-        &.active { c: fg ac $t }
+        &.active { c: fg ac t }
       }
       .badge.badge-pill { c: cm 0 bd }
     }
@@ -1477,11 +1476,11 @@
 
   .scrolling-tabs-container {
     .fade-right {
-      background: linear-gradient(to left, bg 45%, $t);
+      background: linear-gradient(to left, bg 45%, t);
       border-right: 1px solid bd;
     }
     .fade-left {
-      background: linear-gradient(to right, bg 45%, $t);
+      background: linear-gradient(to right, bg 45%, t);
       border-left: 1px solid bd;
     }
   }
@@ -1492,13 +1491,13 @@
     [class*="card"] {
       colors: 0 0 bg;
       .card-header {
-        radius: $radius $radius 0 0;
+        rad: r r 0 0;
         colors: white 0 ac;
       }
       .card-body {
-        radius: 0 0 $radius $radius;
+        rad: 0 0 r r;
         // Items.
-        .feature-list li { colors: 0 0 $t }
+        .feature-list li { colors: 0 0 t }
         // Pricing.
         .price-per-month { colors: ac 0 0 }
         .price-per-year { colors: green 0 0 }
@@ -1518,8 +1517,8 @@
   // TODO move groups to appropriate place. Possible refactor.
   .projects-list, #groups .content-list {
     margin: 8px 0;
-    radius: $radius;
-    box-shadow: inset 0 0 0 1px bd;
+    rad: r;
+    box-shadow: inset inner;
     background-color: bg;
     // Items.
     > li {
@@ -1529,8 +1528,8 @@
       // On event.
       &:hover { background-color: bd; }
       // ? Round corners on first and last child.
-      &:first-child { radius: $radius $radius 0 0; }
-      &:last-child { radius: 0 0 $radius $radius; }
+      &:first-child { rad: r r 0 0; }
+      &:last-child { rad: 0 0 r r; }
     }
     // ? List items from 11.8 update?
     .project-row {
@@ -1558,13 +1557,13 @@
   .avatar {
     c: cm;
     &, &-circle, &-container, &-tile {
-      radius: var(--avatar) !important;
+      rad: var(--avatar) !important;
       border: none !important;
-      c: cm $t $t;
+      c: cm t t;
     }
     &:not(img) {
       c: 0 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
       transition: 0.15s ease !important;
     }
   }
@@ -1591,7 +1590,7 @@
   // * Project -> New fork.
   .fork-thumbnail-container {
     .fork-thumbnail {
-      radius: $radius;
+      rad: r;
       c: 0 bd bg;
       transition: 0.15s ease;
       &:hover { c: 0 ac 0 }
@@ -1610,7 +1609,7 @@
     // Header.
     .commit-header {
       display: inline-flex;
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
       .day { padding-right: 1ch; }
@@ -1623,9 +1622,9 @@
     .commits-row {
       position: relative;
       margin-bottom: 8px;
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
       &::before {
         content: "";
         height: 10px;
@@ -1680,9 +1679,9 @@
     margin-bottom: 10px;
     padding: 8px;
     border: none;
-    radius: $radius;
+    rad: r;
     colors: 0 0 bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     [class*="-description"] {
       border-width: 4px;
       colors: cm bd 0;
@@ -1705,7 +1704,7 @@
     .branch-commit .commit-row-message { colors: fg, 0, 0; }
     // Select next sibling and reset the colors.
     & + .card-footer.text-center {
-      colors: fg, 0, $t;
+      colors: fg, 0, t;
       a { colors: cm, 0, 0; }
     }
   }
@@ -1725,14 +1724,14 @@
     .row-content-block + .all-branches,
     .top-area.adjust + .all-branches {
       margin-top: 10px !important;
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
       li {
         transition: 0.1s ease;
         &:hover { colors: 0, 0, bd; }
-        &:first-child { radius: $radius $radius 0 0; }
-        &:last-child { radius: 0 0 $radius $radius; }
+        &:first-child { rad: r r 0 0; }
+        &:last-child { rad: 0 0 r r; }
       }
     }
   }
@@ -1740,9 +1739,9 @@
   // * Project :: Tags.
   .tags > ul {
     margin-top: 10px;
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     li.flex-row {
       padding: 10px;
       transition: 0.2s ease;
@@ -1763,9 +1762,9 @@
   // * Project -> Contributors.
   [id*="contributors"] {
     .person .spark, .tint-box {
-      radius: $radius;
+      rad: r;
       c: fg 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
       .axis {
         .domain, line { stroke: cm; }
         text { fill: fg; }
@@ -1779,7 +1778,7 @@
   // * Project -> Graph.
   .project-network {
     overflow: hidden;
-    radius: $radius;
+    rad: r;
     c: 0 bd;
     .controls { c: 0 bd bd }
     // Graph background.
@@ -1789,7 +1788,7 @@
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
         fill-opacity: 1 !important;
-        isvg: bd $t;
+        isvg: bd t;
       }
       [d^="M165"], [d^="M185"], [d^="M195"] { fill: bd }
       // Text color.
@@ -1805,28 +1804,28 @@
 
   // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
-    colors: 0 0 $t;
+    colors: 0 0 t;
     &-backdrop.show {
       opacity: 0.7;
       colors: 0 0 bg;
     }
     .modal-content {
       border: none;
-      radius: $radius;
+      rad: r;
       colors: 0 0 bg;
       box-shadow: 0 0 0 1px inset bd !important;
       // Rounded corners for the last element.
-      > :last-child { radius: 0 0 $radius $radius }
+      > :last-child { rad: 0 0 r r }
     }
     .modal-header {
-      radius: $radius $radius 0 0;
-      colors: 0 bd $t;
+      rad: r r 0 0;
+      colors: 0 bd t;
     }
     .modal-body {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       // ? MR -> Merge with CLI instructions.
       pre {
-        radius: $radius;
+        rad: r;
         colors: cm bd bg;
       }
       [class*="-subheader"] { colors: 0 bd 0 }
@@ -1841,13 +1840,13 @@
       .block + .block { border-top-color: bd; }
       // Actions in auth.
       .form-actions {
-        radius: 0;
-        colors: 0 0 $t;
+        rad: 0;
+        colors: 0 0 t;
         border: none !important;
         box-shadow: 0 -1px bd;
       }
     }
-    .modal-footer { colors: 0 bd $t }
+    .modal-footer { colors: 0 bd t }
   }
 
   // * Global -> Close buttons.
@@ -1866,10 +1865,10 @@
   [data-page*="projects:blame"] {
     .file-blame-legend { c: 0 bd bg }
     .blame table {
-      radius: none;
+      rad: none;
       box-shadow: none;
       tr { c: 0 bd }
-      tr:last-child > td::before { radius: 0 0 0 4px }
+      tr:last-child > td::before { rad: 0 0 0 4px }
     }
     .blame-commit {
       position: relative;
@@ -1896,13 +1895,13 @@
   // * Project -> Various resets.
   .file-holder {
     .file-fork-suggestion { colors: 0, bd, bg; }
-    .table-responsive { radius: 0 !important; }
+    .table-responsive { rad: 0 !important; }
     .file-title a:not(.btn) { colors: fg 0 0 }
   }
 
   // * Project -> Last commit.
   .info-well {
-    radius: $radius;
+    rad: r;
     colors: fg bd bg;
     > .well-segment {
       padding: 8px;
@@ -1914,7 +1913,7 @@
     }
     // Deleted branch.
     .limit-box {
-      radius: $radius;
+      rad: r;
       c: white 0 orange;
       svg {
         margin-top: 3px;
@@ -1974,24 +1973,24 @@
     }
     .gpg-popover-user-link { colors: fg, 0, 0; }
     // Milestones.
-    .milestone-popover-body { colors: 0, 0, $t; }
+    .milestone-popover-body { colors: 0, 0, t; }
     .milestone-popover-footer { colors: 0, bd, 0; }
   }
 
   // Popover -> Tour.
   .onboarding-helper-container {
     c: 0 0 bg;
-    box-shadow: $inner, 0 4px 8px 0 $shadow;
+    box-shadow: inner, 0 4px 8px 0 $shadow;
     .avatar {
-      radius: 50% !important;
+      rad: 50% !important;
       c: 0 0 bd;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
     }
     .progress { c: 0 0 bd }
     .bg-info { c: 0 0 blue }
     .text-info { c: blue }
     .qa-toggle-btn {
-      c: 0 0 $t;
+      c: 0 0 t;
       &:hover svg { isvg: fg }
     }
     .active { c: 0 0 bd }
@@ -1999,7 +1998,7 @@
 
   // * Commits -> Diff summary.
   .diff-files-changed {
-    radius: $radius;
+    rad: r;
     padding: 8px;
     margin: 10px 0;
     border: 1px solid;
@@ -2011,15 +2010,15 @@
         @media (max-width: 885px) { display: none !important; }
       }
       // ? Git stats.
-      .commit-stat-summary { colors: 0 0 $t }
+      .commit-stat-summary { colors: 0 0 t }
     }
   }
   // * Diff file.
   .diff {
-    radius: $radius;
+    rad: r;
     // Collapsed file content.
     &-file .diff-content {
-      radius: 0 0 $radius $radius;
+      rad: 0 0 r r;
       colors: fg, 0, bg;
       box-shadow: 0 -1px 0 0 bd;
       .btn-link { colors: ac 0 0 }
@@ -2036,7 +2035,7 @@
 
   // * Diff -> Image.
   .diff-file {
-    .image { c: 0 0 $t }
+    .image { c: 0 0 t }
     .frame {
       c: 0 0 bd;
       // Added/removed images.
@@ -2045,11 +2044,11 @@
       // Broken image.
       img {
         background: none !important;
-        c: fg $t 0;
+        c: fg t 0;
       }
     }
     .view-modes {
-      c: 0 0 $t;
+      c: 0 0 t;
       ul li[class] {
         c: cm bd;
         text-decoration: none;
@@ -2062,16 +2061,16 @@
   // * Diff -> Reset file-title when scrolling.
   .sticky-placeholder ~ .files {
     .diff-file .file-title-flex-parent {
-      radius: 0;
+      rad: 0;
     }
   }
   // * Diff -> Add note.
   .note-container {
     border: none;
-    c: 0 bd $t;
+    c: 0 bd t;
     box-shadow: 0 -1px bd;
     // Reply background.
-    .new-note, .discussion-notes { c: 0 $t }
+    .new-note, .discussion-notes { c: 0 t }
   }
   // Show/hide replies.
   .notes .replies-toggle {
@@ -2086,24 +2085,24 @@
 
   // * Timeline content.
   .timeline-entry {
-    colors: fg, bd, $t;
+    colors: fg, bd, t;
     &.outlined { colors: 0, 0, bg; }
     // Entry borders.
     .timeline-entry-inner { colors: 0, bd, 0; }
     // Highlighted entry.
     &:target, &.target { c: 0 ac }
     // Fix button background.
-    .note-action-button { colors: 0, 0, $t; }
+    .note-action-button { colors: 0, 0, t; }
     // Alerts -> Command alerts.
     .flash-container .flash-notice { colors: white 0 blue }
     // Confidential issue warning.
     .new-note .issuable-note-warning {
       padding: 6px 8px 4px;
-      radius: $radius $radius 0 0;
+      rad: r r 0 0;
       colors: orange bd bg;
       svg.icon { isvg: orange }
       // Reset corners in confidential issues.
-      + .md-area { radius: 0 0 $radius $radius }
+      + .md-area { rad: 0 0 r r }
     }
   }
 
@@ -2126,21 +2125,21 @@
       c: fg;
     }
     .timeline-entry {
-      radius: 0;
+      rad: 0;
       &:target, &.target { box-shadow: 0 0 0 1px ac }
-      &:first-child { radius: $radius $radius 0 0 }
+      &:first-child { rad: r r 0 0 }
     }
     .discussion-wrapper {
-      radius: $radius;
+      rad: r;
       .replies-toggle {
         c: 0 0 bd;
-        &.collapsed { radius: 0 0 $radius $radius }
+        &.collapsed { rad: 0 0 r r }
       }
     }
   }
   // * Notes.
   .notes {
-    colors: 0 0 $t;
+    colors: 0 0 t;
     // Connectors.
     &::before {
       border-left-width: 1px !important;
@@ -2150,9 +2149,9 @@
     a, a:hover { colors: ac 0 0 }
     // ? MR -> Notes -> Suggestions.
     .md-suggestion-header {
-      radius: $radius $radius 0 0;
+      rad: r r 0 0;
       colors: fg, bd, bg;
-      + table.code { radius: 0 0 $radius $radius; }
+      + table.code { rad: 0 0 r r; }
     }
     .md-suggestion-diff { c: 0 bd }
     span > code:not([class]) { c: 0 0 bd }
@@ -2165,7 +2164,7 @@
   [id^="notes"] {
     // ? Note background, avoid system notes and forms.
     .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
-      border-radius: $radius;
+      border-radius: r;
       background-color: bg !important;
     }
     // Icon.
@@ -2176,7 +2175,7 @@
     // ? Issue description.
     .detail-page-description > script + div {
       padding: 8px;
-      border-radius: $radius;
+      border-radius: r;
       border: 1px solid bd;
       background-color: bg;
     }
@@ -2185,7 +2184,7 @@
   // * Global -> Markdown input area.
   .common-note-form .md-area {
     padding: 0;
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     &.is-focused {
       colors: 0 ac 0;
@@ -2202,11 +2201,11 @@
         }
       }
       > ul.nav-links {
-        radius: 0;
+        rad: 0;
         margin: 0;
         padding: 8px 0 0 0 !important;
         border-bottom: none;
-        c: 0 bd $t;
+        c: 0 bd t;
         box-shadow: inset 0 -1px bd;
       }
     }
@@ -2214,7 +2213,7 @@
     .markdown-area {
       padding: 8px;
       font-family: var(--mono-font);
-      c: fg bd $t;
+      c: fg bd t;
     }
     .md-preview-holder { padding: 8px }
     // When you use commands.
@@ -2250,12 +2249,12 @@
     }
     pre {
       &:not([class]) {
-        radius: $radius;
+        rad: r;
         colors: fg bd bg;
-        code { colors: 0 $t $t }
+        code { colors: 0 t t }
       }
       &.code {
-        radius: $radius;
+        rad: r;
         colors: 0 bd bg;
       }
     }
@@ -2283,7 +2282,7 @@
     colors: 0, 0, bd;
     textarea {
       margin-top: 5px;
-      radius: $radius;
+      rad: r;
       colors: fg, 0, bg;
     }
   }
@@ -2311,7 +2310,7 @@
     .nav-sidebar-inner-scroll > ul.sidebar-top-level-items {
       // Active submenu.
       > li.active:not(.fly-out-top-item) {
-        colors: 0, 0, $t;
+        colors: 0, 0, t;
         box-shadow: 4px 0 0 0 inset bd, 1px 0 0 1px inset bd;
         // Group name.
         > a {
@@ -2326,13 +2325,13 @@
             colors: cm, 0, bd;
             box-shadow: 4px 0 0 0 inset ac;
             // Remove unnecessary background.
-            a { colors: fg, 0, $t; }
+            a { colors: fg, 0, t; }
           }
         }
       }
       // Fly-out menu.
       > li:not(.fly-out-top-item).is-showing-fly-out .sidebar-sub-level-items {
-        radius: 0 $radius $radius 0;
+        rad: 0 r r 0;
         colors: 0, bd, bg;
         box-shadow: 2px 2px 2px 0 $shadow;
       }
@@ -2448,9 +2447,9 @@
     // #21.
     /:not(.file-content) > .mermaid {
       padding-bottom: 10px;
-      radius: $radius;
+      rad: r;
       c: 0 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
     }
     // Boxes.
     rect.actor { isvg: bd, bd; }
@@ -2475,16 +2474,16 @@
 
   // * Project :: Project/group home panel.
   .project-home-panel, .group-home-panel {
-    colors: 0 $t 0;
+    colors: 0 t 0;
     // Text color.
     .text-secondary { colors: cm 0 0; }
     // Remove button backgrounds.
-    .js-read-more-trigger { colors: ac, 0, $t; }
+    .js-read-more-trigger { colors: ac, 0, t; }
     // Metadata text color.
     .project-metadata * {
       colors: cm, 0, 0;
       // Reset license button.
-      &.project-license .btn { colors: 0 0 $t }
+      &.project-license .btn { colors: 0 0 t }
     }
     // Project tags.
     .home-panel-topic-list {
@@ -2569,13 +2568,13 @@
     border-bottom: none;
     colors: 0, bd, 0;
     // ? Reset background-color on project page.
-    .progress { colors: 0, 0, $t; }
+    .progress { colors: 0, 0, t; }
   }
   // Language bar.
   .progress.repository-languages-bar {
-    background-color: $t !important;
+    background-color: t !important;
     .progress-bar {
-      radius: 8px;
+      rad: 8px;
       // ? Fixes buggy bar in `.../vednoc/better-comments` repo.
       flex-grow: 1;
       // Apply right margin to all but the last child.
@@ -2592,31 +2591,31 @@
     + .settings { colors: 0, bd, 0; }
     // ? Standalone sections i.e. under Advanced.
     .sub-section {
-      radius: $radius;
+      rad: r;
       colors: 0, bd, bg;
     }
     .project-visibility-setting {
-      radius: $radius $radius 0 0;
+      rad: r r 0 0;
       colors: fg, bd, bg;
     }
     .project-feature-settings {
-      radius: 0 0 $radius $radius;
+      rad: 0 0 r r;
       colors: 0, bd, bg;
     }
     // Protected branches/tags/envs.
     &-content {
       [class^="protected-"] {
-        radius: $radius;
+        rad: r;
         border: 1px solid bd;
         > .card-header {
-          radius: $radius $radius 0 0;
+          rad: r r 0 0;
           colors: fg bd bd;
          }
-        > .settings-message { radius: 0 0 $radius $radius }
+        > .settings-message { rad: 0 0 r r }
         .table-bordered {
           margin: 0;
           border: none;
-          radius: $radius;
+          rad: r;
           box-shadow: none;
           th, td { border: none }
         }
@@ -2625,7 +2624,7 @@
   }
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
-    radius: $radius;
+    rad: r;
     colors: orange, bd, bd;
     h3 {
       margin: 0.75rem 0;
@@ -2647,7 +2646,7 @@
 
   // * Project -> Badges.
   .project-badge { transition: 0.15s opacity ease }
-  [src*="for-the-badge"] { radius: $radius; }
+  [src*="for-the-badge"] { rad: r; }
   span.badge, button.badge, div.badge {
     // Remove unnecessary underline.
     &.color-label { text-decoration: none !important; }
@@ -2667,7 +2666,7 @@
 
    // * Project :: Readme.
   .file-holder {
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     // ? Header.
     .file-title {
@@ -2675,7 +2674,7 @@
       border-top: 1px solid;
       &, &-flex-parent {
         padding: 8px;
-        radius: $radius $radius 0 0;
+        rad: r r 0 0;
         colors: 0 bd bg;
         // Buttons w/o `button-default` class.
         a { color: unset }
@@ -2686,14 +2685,14 @@
         }
         // Diff -> Renamed file names. #43
         .idiff {
-          &.addition { colors: green 0 $t }
-          &.deletion { colors: red 0 $t }
+          &.addition { colors: green 0 t }
+          &.deletion { colors: red 0 t }
         }
       }
     }
     // ? Body.
     .file-content {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       &.blob-no-preview h4 { text-shadow: none }
     }
   }
@@ -2711,11 +2710,11 @@
       // Second rule solves blockquote weirdness in issues.
       p, * > p { colors: cm, 0, 0; }
     }
-    pre { radius: $radius; }
+    pre { rad: r; }
     pre, code { colors: cm, bd, bg; }
     img:not(.emoji) {
       border: none;
-      radius: $radius;
+      rad: r;
       colors: 0, bd, bg;
     }
     kbd {
@@ -2726,7 +2725,7 @@
 
   // * Project -> File table.
   .table-holder {
-    radius: $radius;
+    rad: r;
     border: none !important;
     background-color: bg;
     box-shadow: 0 0 0 1px inset bd;
@@ -2735,7 +2734,7 @@
       td { transition: 0.15s ease !important }
       // ? Hide borders on file-holder.
       ../ .tree-table thead tr { border: none }
-      &:last-of-type { colors: 0 $t 0 }
+      &:last-of-type { colors: 0 t 0 }
       // ? Table cells.
       &.tree-item {
         // Git submodules.
@@ -2762,7 +2761,7 @@
   [data-page="users:show"] #groups {
     .content-list {
       margin-top: 10px;
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
       li {
         transition: 0.15s ease;
@@ -2796,9 +2795,9 @@
     #activity > .row-content-block { colors: 0, bd, bg; }
     // * Content list items.
     .content_list {
-      radius: $radius;
+      rad: r;
       background-color: bg;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
       .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
     }
     // ? Overview -> Adjust whitespace between panes.
@@ -2835,12 +2834,12 @@
   // ? Compact projects-list.
   .compact.projects-list {
     margin: 0 !important;
-    colors: 0, 0, $t;
+    colors: 0, 0, t;
     box-shadow: none !important;
     .project-row {
       padding: 8px;
-      &:first-child { radius: 0; }
-      &:last-child { radius: 0 0 $radius $radius; }
+      &:first-child { rad: 0; }
+      &:last-child { rad: 0 0 r r; }
     }
   }
 
@@ -2850,9 +2849,9 @@
 
   // * Project -> Activity.
   .project-activity {
-    radius: $radius;
+    rad: r;
     background-color: bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     // Item.
     .event-item {
       padding: 8px 8px 8px 60px;
@@ -2875,7 +2874,7 @@
     // Sections.
     [class*="col"] > [class*="-block"] {
       margin-top: 16px;
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
       box-shadow: 0 0 0 1px inset bd;
       // ? Reset font size for blocks. @upstream
@@ -2886,11 +2885,11 @@
         h4, h5 { padding: 0 8px }
         + .prepend-top-10 { padding: 0 8px }
         // Hide "activity" border.
-        &:first-child { colors: 0 $t 0 }
+        &:first-child { colors: 0 t 0 }
       }
       .border-bottom {
         padding: 0 8px;
-        colors: 0 $t 0;
+        colors: 0 t 0;
         // New top border for lists.
         + div { box-shadow: inset 0 1px bd }
       }
@@ -2912,8 +2911,8 @@
         .commit-row-title .commit-sha { colors: fg, 0, 0; }
         &, .md p, .commit-row-title { colors: fg, 0, 0; }
       }
-      &:first-child { radius: $radius $radius 0 0; }
-      &:last-child { radius: 0 0 $radius $radius; }
+      &:first-child { rad: r r 0 0; }
+      &:last-child { rad: 0 0 r r; }
       &:hover { colors: 0, 0, bd; }
     }
     // Contributions for the selected day.
@@ -2941,7 +2940,7 @@
           position: absolute;
           top: 0; left: 0; bottom: 0;
           width: 4px;
-          ../:last-child::before { radius: 0 0 0 $radius }
+          ../:last-child::before { rad: 0 0 0 r }
         }
         // Hover event.
         &:hover:not(.active), &.active {
@@ -2950,10 +2949,10 @@
           &::before { colors: 0 0 ac }
         }
         // Hide double borders.
-        &, &.active, &:hover:not(.active) { border-top-color: $t !important }
+        &, &.active, &:hover:not(.active) { border-top-color: t !important }
         // Median.
         .stage-empty, .not-available { color: cm; }
-        &:last-child { radius: 0 0 0 $radius !important }
+        &:last-child { rad: 0 0 0 r !important }
       }
     }
     // Related issues.
@@ -2969,7 +2968,7 @@
   .insights-charts {
     .chart-canvas-wrapper {
       margin-top: 10px;
-      radius: $radius;
+      rad: r;
       colors: 0 0 bg;
       box-shadow: 0 0 0 1px inset bd;
     }
@@ -2979,9 +2978,9 @@
   .row-content-block {
     margin-top: 10px !important;
     padding: 0px;
-    radius: $radius;
+    rad: r;
     border: 0px solid bd;
-    colors: cm 0 $t;
+    colors: cm 0 t;
     // Same as down below; probably outdated.
     &.white {
       border: 1px solid bd;
@@ -2991,7 +2990,7 @@
     // * Global -> *You pushed to...*
     > .event-last-push {
       padding: 8px;
-      radius: $radius;
+      rad: r;
       colors: 0 0 bg;
       // Smol button is no-no.
       .btn { padding: 8px }
@@ -3003,8 +3002,8 @@
     background-color: transparent;
     // Commits list.
     + .card {
-      border-radius: $radius !important;
-      ul > li:last-child { radius: 0 0 $radius $radius; }
+      border-radius: r !important;
+      ul > li:last-child { rad: 0 0 r r; }
     }
   }
   // Sticky file name.
@@ -3043,7 +3042,7 @@
   }
   // ? New issues.
   .issue.today {
-    colors: 0, 0, $t;
+    colors: 0, 0, t;
     box-shadow: none;
     &:hover { colors: 0 0 bd }
     &::before {
@@ -3054,7 +3053,7 @@
     }
   }
   // ? Rounded corners for first list item.
-  .issuable-list > li:first-child::before { radius: $radius 0 0 0; }
+  .issuable-list > li:first-child::before { rad: r 0 0 0; }
   // Items on hover.
   .card > ul > li {
     &:hover, &.done-reversible {
@@ -3086,9 +3085,9 @@
     // List.
     // ! Might need extra tweaking somewhere.
     .content_list {
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
     }
     // Items.
     .event-item {
@@ -3112,27 +3111,27 @@
     }
     // Add projects.
     .tokenized-input-wrapper {
-      radius: $radius;
+      rad: r;
       &.focus { box-shadow: 0 0 1px 1px ac !important; }
-      .tokenized-input { colors: fg, 0, $t; }
+      .tokenized-input { colors: fg, 0, t; }
       .input-token, .tokenized-input-token-remove { colors: 0, 0, bd; }
     }
     // Cards.
     .card {
-      radius: $radius;
+      rad: r;
       box-shadow: 0 0 0 1px inset bd;
-      .card-header { radius: $radius $radius 0 0; }
+      .card-header { rad: r r 0 0; }
     }
     // * Skeleton.
     .dashboard-cards {
       .bg-light { colors: 0 0 bd }
       .dashboard-card-skeleton-info::after {
-        background-image: linear-gradient(to right, $t 0%, bg 50%, $t 100%)
+        background-image: linear-gradient(to right, t 0%, bg 50%, t 100%)
       }
     }
     // Modals -> Add projects.
     #add-projects-modal .project-list-item {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       &:hover {
         colors: fg 0 bd;
         .identicon { colors: 0 0 bg }
@@ -3142,17 +3141,17 @@
 
   // * Dashboard :: Issues/MR page.
   [class$="-filters"] + .card {
-    colors: 0, $t, $t;
+    colors: 0, t, t;
     // List.
     .issuable-list {
       margin-top: 10px !important;
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
       // Round corners.
       li {
-        &:first-child { border-radius: $radius $radius 0 0; }
-        &:last-child { border-radius: 0 0 $radius $radius; }
+        &:first-child { border-radius: r r 0 0; }
+        &:last-child { border-radius: 0 0 r r; }
       }
       // Remove right padding on issues/merge requests page.
       .issuable-info-container { padding-right: 0; }
@@ -3162,11 +3161,11 @@
   // * Dashboard :: Todos page.
   .js-todos-all .card {
     margin-top: 10px;
-    radius: $radius;
-    colors: 0, 0, $t;
+    rad: r;
+    colors: 0, 0, t;
     // List wrapper.
     .todos-list {
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
       // List items.
@@ -3174,8 +3173,8 @@
         border: none;
         // Reset borders and round corners.
         &:not(:first-child) { border-top: 1px solid bd; }
-        &:first-child { border-radius: $radius $radius 0 0; }
-        &:last-child { border-radius: 0 0 $radius $radius; }
+        &:first-child { border-radius: r r 0 0; }
+        &:last-child { border-radius: 0 0 r r; }
       }
     }
   }
@@ -3183,7 +3182,7 @@
   // * Issues -> List.
   .issues-holder {
     margin-top: 10px;
-    radius: $radius;
+    rad: r;
     border: 1px solid bd;
     c: 0 0 bg;
     // Email a new issue to this project.
@@ -3193,7 +3192,7 @@
     }
     li:not(.page-item) {
       transition: 0.15s ease;
-      &:first-child { radius: $radius $radius 0 0; }
+      &:first-child { rad: r r 0 0; }
       &:hover { c: 0 0 bd }
     }
     // ? Reset pagination.
@@ -3208,7 +3207,7 @@
   // * Issues -> Similar issues list.
   .issue-form .list-unstyled {
     padding: 8px;
-    radius: $radius;
+    rad: r;
     colors: 0 0 bg;
     box-shadow: 0 0 0 1px inset bd;
     .suggestion {
@@ -3220,28 +3219,28 @@
 
   // * Issues :: Search or filter results.
   .filtered-search-box {
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     &.focus { &, &:hover { colors: 0 blue 0; box-shadow: none; }}
     // Fix corners.
-    [class*="history-dropdown-toggle-button"] { radius: $radius 0 0 $radius }
-    &-input-container .filtered-search { radius: 0 $radius $radius 0 }
+    [class*="history-dropdown-toggle-button"] { rad: r 0 0 r }
+    &-input-container .filtered-search { rad: 0 r r 0 }
     .btn-link { colors: cm 0 0 }
     // Search field.
-    .form-control { colors: fg, $t, 0; }
+    .form-control { colors: fg, t, 0; }
     // Search field words.
     .name { color: fg; }
     // Search field button.
     .clear-search {
-      radius: $radius;
+      rad: r;
       colors: 0 0 bg
     }
     // Search tokens (labels).
     .selectable {
       margin-right: 8px;
-      radius: 2px;
-      box-shadow: $inner;
-      .name { c: cm 0 $t }
+      rad: 2px;
+      box-shadow: inner;
+      .name { c: cm 0 t }
       .value-container {
         margin-right: 0;
         c: fg 0 bd;
@@ -3252,19 +3251,19 @@
 
   // * Issues :: Details.
   .detail-page-header { c: fg bd }
-  .issuable-details .content-block { c: fg $t }
+  .issuable-details .content-block { c: fg t }
 
   // * Epics -> Wrapper.
   .epic-page-container {
     // Remove extra padding.
     .issuable-details {
       padding: 0;
-      colors: 0, $t, 0;
+      colors: 0, t, 0;
       // Remove margin.
       .card-slim { margin-bottom: 0px; }
     }
     // Reactions wrapper.
-    + .content-block { colors: 0 $t 0; }
+    + .content-block { colors: 0 t 0; }
   }
   // Time tracking.
   .time_tracker {
@@ -3285,7 +3284,7 @@
     margin-top: 16px;
     .card-slim {
       border: 1px solid bd;
-      .card-header { c: 0 0 $t }
+      .card-header { c: 0 0 t }
     }
     // Issue metadata.
     .item-body {
@@ -3298,10 +3297,10 @@
     input { colors: fg, 0, bg; }
     // Tokens.
     .issue-token {
-      radius: 2px;
-      box-shadow: $inner;
+      rad: 2px;
+      box-shadow: inner;
       &-reference { c: fg 0 bd }
-      &-remove-button { c: 0 0 $t }
+      &-remove-button { c: 0 0 t }
     }
   }
   // Related merge requests.
@@ -3318,35 +3317,35 @@
 
   // Notes.
   .note-text pre {
-    radius: $radius !important;
+    rad: r !important;
   }
   // ? Fixes missing bottom border for code.
   .notes .note-text > p:last-child { padding-bottom: 1px !important; }
 
   // * Global -> Cards.
   .card, .card-slim {
-    radius: $radius;
+    rad: r;
     colors: 0 bd bg;
     .card-header {
-      radius: $radius $radius 0 0;
+      rad: r r 0 0;
       colors: fg bd bd;
     }
     .card-body {
       padding: 8px;
-      colors: 0 0 $t;
+      colors: 0 0 t;
       .text-plain { colors: cm 0 0 }
       // Reset actions on `user/project/pages` page.
       .form-actions { margin: 0 !important }
     }
     .card-footer {
       padding: 8px;
-      radius: 0 0 $radius $radius;
-      colors: 0 bd $t;
+      rad: 0 0 r r;
+      colors: 0 bd t;
     }
     .card-body, .card-footer {
       pre {
         font-family: var(--mono-font);
-        radius: $radius;
+        rad: r;
         colors: cm bd bg;
       }
     }
@@ -3362,14 +3361,14 @@
 
   // * Emoji menu.
   .emoji-menu {
-    radius: $radius;
+    rad: r;
     colors: 0 bd bg;
     box-shadow: 0 4px 8px 0 $shadow;
   }
 
   // * Auto-complete menu.
   .atwho-view {
-    radius: $radius;
+    rad: r;
     colors: cm bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
     .atwho-view-ul {
@@ -3396,10 +3395,10 @@
       &-title-caret:hover { colors: 0 0 bd }
       // Whitespace for the last card.
       .board-card:last-child { margin-bottom: 8px !important }
-      &-inner.rounded { radius: $radius !important }
+      &-inner.rounded { rad: r !important }
       // Welcome/promos.
       &-blank-state, &-promotion-state {
-        radius: 0 0 $radius $radius;
+        rad: 0 0 r r;
         colors: 0 0 bg;
       }
     }
@@ -3417,7 +3416,7 @@
     .row-content-block {
       margin: 0 16px;
       // Fix search box.
-      .filtered-search-box { radius: 3px }
+      .filtered-search-box { rad: 3px }
     }
     // Board colors.
     .board-inner {
@@ -3458,7 +3457,7 @@
     .board-card-title a { color: fg; }
     .board-card-number { color: cm; }
     // Assignee background.
-    .board-card-assignee:hover a { colors: 0, 0, $t; }
+    .board-card-assignee:hover a { colors: 0, 0, t; }
   }
   // ? When you move boards themselves.
   .board > .board-inner {
@@ -3468,18 +3467,18 @@
 
   // * Boards :: Add issues.
   .add-issues-container {
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bd;
     // Reset styles.
     .add-issues-header, .add-issues-footer {
-      colors: 0, 0, $t;
+      colors: 0, 0, t;
     }
   }
 
   // * Issues :: Labels.
   .labels-container {
     padding: 0px;
-    colors: 0, 0, $t;
+    colors: 0, 0, t;
     // List.
     .manage-labels-list > li:not(.empty-message) {
       &:not(.no-border) {
@@ -3488,7 +3487,7 @@
       }
       &:not(.is-not-draggable) {
         margin-bottom: 8px;
-        radius: $radius;
+        rad: r;
         colors: 0 bd bg;
       }
     }
@@ -3508,14 +3507,14 @@
   // * Issues -> Milestones.
   .milestones {
     padding: 0;
-    radius: 0;
-    c: 0 0 $t;
+    rad: 0;
+    c: 0 0 t;
     // Items.
     .milestone {
       padding: 8px;
-      radius: $radius;
+      rad: r;
       c: fg 0 bg;
-      box-shadow: $inner;
+      box-shadow: inner;
       // Text color.
       .milestone-range { colors: fg, 0, 0; }
       // Links.
@@ -3538,16 +3537,16 @@
     // Reset for boards.
     &-content {
       .card-header {
-        colors: 0 $t $t;
+        colors: 0 t t;
         + .content-list { box-shadow: 0 1px inset bd }
       }
-      li:last-child { radius: 0 0 $radius $radius }
+      li:last-child { rad: 0 0 r r }
     }
   }
 
   // Details.
   .issuable-row {
-    colors: 0, 0, $t;
+    colors: 0, 0, t;
     .issuable-number { colors: cm, 0, 0; }
   }
 
@@ -3555,9 +3554,9 @@
   .form-actions {
     padding: 8px;
     border: none;
-    radius: $radius;
+    rad: r;
     c: 0 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
   }
 
   // * Promotional.
@@ -3567,21 +3566,21 @@
     &.promotion-callout {
       .bordered-box {
         padding: 8px !important;
-        radius: $radius;
+        rad: r;
         colors: 0, bd, bg;
       }
     }
     // ? Found in: .../repo/pipeline_schedules
     .bordered-box.content-block {
       padding: 8px !important;
-      radius: $radius;
+      rad: r;
       colors: 0, bd, bg;
     }
   }
   .banner-non-empty-state {
     padding: 5px 0 0 0;
     border: 1px solid;
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     &.append-bottom-20 { margin-bottom: 10px }
   }
@@ -3592,18 +3591,18 @@
   }
   // Milestones -> Burndown chart hint.
   .content-block.burndown-hint {
-    radius: $radius;
+    rad: r;
     colors: 0 bd bg;
-    svg path[fill='#fff'] { isvg: $t }
+    svg path[fill='#fff'] { isvg: t }
   }
   // GitLab-Gold promotion.
   .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0; }
 
   // * Milestones -> Burndown chart.
   .burndown-chart {
-    radius: $radius;
+    rad: r;
     c: 0 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
     text { fill: fg; }
     .axis {
       &-label text { colors: red, 0, 0; }
@@ -3633,18 +3632,18 @@
       &-all > i { color: inherit !important; }
     }
     canvas {
-      radius: $radius;
+      rad: r;
       colors: 0, 0, bg;
-      box-shadow: inset 0 0 0 1px bd;
+      box-shadow: inset inner;
     }
   }
 
   // * Calendar.
   .pika-single {
-    radius: $radius;
+    rad: r;
     c: fg bd bg;
     // Header.
-    .pika-label { c: cm 0 $t }
+    .pika-label { c: cm 0 t }
     // Cells.
     th { c: fg bd }
     td {
@@ -3662,12 +3661,12 @@
   .pagination {
     // Rounded corners.
     > .page-item:first-child a {
-      border-top-left-radius: $radius;
-      border-bottom-left-radius: $radius;
+      border-top-left-radius: r;
+      border-bottom-left-radius: r;
     }
     > .page-item:last-child a {
-      border-top-right-radius: $radius;
-      border-bottom-right-radius: $radius;
+      border-top-right-radius: r;
+      border-bottom-right-radius: r;
     }
     // Links.
     .page-item {
@@ -3687,12 +3686,12 @@
   // * Merge Requests -> List.
   .merge-requests-holder {
     margin-top: 10px;
-    radius: $radius;
+    rad: r;
     border: 1px solid bd;
     c: 0 0 bg;
     li:not(.page-item) {
       transition: 0.15s ease;
-      &:first-child { radius: $radius $radius 0 0 }
+      &:first-child { rad: r r 0 0 }
       &:hover { c: 0 0 bd }
       // Approvals.
       .text-success {
@@ -3718,14 +3717,14 @@
   .merge-request-tabs-holder, .epic-tabs-holder {
     margin: 0 0 10px;
     border: none;
-    radius: $radius;
+    rad: r;
     colors: 0 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
     // Resets.
     .nav-links {
       margin: 0;
-      radius: 0;
-      c: 0 0 $t;
+      rad: 0;
+      c: 0 0 t;
       box-shadow: none;
     }
     > div > div:last-child { margin: 0 8px }
@@ -3769,8 +3768,8 @@
   // * Notes -> Reply section.
   .discussion-body, .diff-file {
     .discussion-reply-holder {
-      colors: 0 bd $t;
-      &:last-child { radius: 0 0 $radius $radius !important; }
+      colors: 0 bd t;
+      &:last-child { rad: 0 0 r r !important; }
       + .new-note { colors: 0 bd 0 }
     }
   }
@@ -3778,10 +3777,10 @@
   .disabled-comment {
     margin-top: 10px;
     padding: 8px 0;
-    radius: $radius;
+    rad: r;
     colors: fg, bd, bg;
     a[href] { color: ac }
-    [class*="warning"] { colors: orange, $t, $t; }
+    [class*="warning"] { colors: orange, t, t; }
   }
   /* Text color. */
   .timeline .system-note .note-text,
@@ -3797,7 +3796,7 @@
   }
 
   // * Merge Requests -> Review.
-  .draft-note-component { colors: 0 0 $t }
+  .draft-note-component { colors: 0 0 t }
   .review-bar-component { colors: 0 bd bg }
 
   // * Merge Requests :: Discussions in file diff.
@@ -3809,7 +3808,7 @@
       border-right-color: bd !important;
     }
     // Note border/background colors.
-    .notes-content { colors: 0 bd $t }
+    .notes-content { colors: 0 bd t }
     // Different notes_content.
     .notes_content {
       colors: fg, bg, bg;
@@ -3827,14 +3826,14 @@
     .tree-list-holder {
       // Search.
       .tree-list-search input {
-        radius: $radius;
+        rad: r;
         colors: fg 0 0;
       }
       // Files.
       .tree-list-scroll {
         padding: 8px;
         overflow: auto;
-        radius: $radius;
+        rad: r;
         border: 1px solid;
         colors: 0 bd bg;
         .file-row {
@@ -3850,7 +3849,7 @@
     // ! Temporary fix for #64.
     .report-block-container {
       padding: 0;
-      colors: 0 bd $t;
+      colors: 0 bd t;
       .failed svg { isvg: red 0 }
     }
     .mr-source-target {
@@ -3860,12 +3859,12 @@
     }
     // Description container.
     .mr-section-container {
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
       .mr-widget-section {
         // padding: 12px 8px;
-        radius: 0 !important;
+        rad: 0 !important;
         colors: 0, bd, 0;
         // MR you can merge.
         > div > .media { padding: 8px }
@@ -3884,8 +3883,8 @@
       // Align the CI icon.
       .media > .space-children { margin-left: 4px !important; }
       // Rounded corners.
-      > section:first-child { radius: $radius $radius 0 0; }
-      > div:last-child { radius: 0 0 $radius $radius; }
+      > section:first-child { rad: r r 0 0; }
+      > div:last-child { rad: 0 0 r r; }
     }
     // Borders.
     .media-section,
@@ -3895,7 +3894,7 @@
       colors: 0, bd, bg;
     }
     // Rounded corners.
-    .mr-source-target, .mr-widget-heading { radius: $radius; }
+    .mr-source-target, .mr-widget-heading { rad: r; }
     // Circle icon thing.
     .circle-icon-container { colors: fg, bd, 0; }
     .mr-widget-extension { colors: 0, bd, bg; }
@@ -3947,7 +3946,7 @@
   .mr-version-controls {
     margin: 0;
     width: 100%;
-    radius: $radius;
+    rad: r;
     border: 1px solid !important;
     colors: fg, bd, bg;
     // Reset the width when file tree is open. @upstream
@@ -3966,11 +3965,11 @@
       &:hover { colors: 0, 0, bd; }
     }
     // No new line.
-    .new-nonewline { colors: cm, 0, $t; }
+    .new-nonewline { colors: cm, 0, t; }
     // Unfold lines.
     td.unfold, td.line_content.match {
       font-style: italic;
-      colors: cm 0 $t;
+      colors: cm 0 t;
     }
     // Comment bubble.
     .add-diff-note {
@@ -4007,17 +4006,17 @@
     &:focus, &:hover { color: cm; }
   }
   // Reactions.
-  .row-content-block.content-component-block { background-color: $t; }
+  .row-content-block.content-component-block { background-color: t; }
   // Snippets list.
   .snippets-list-holder {
     margin-top: 10px;
     border: 1px solid;
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
     li {
       transition: all 0.2s ease-in-out;
-      &:first-child { radius: $radius $radius 0 0; }
-      &:last-child { radius: 0 0 $radius $radius; }
+      &:first-child { rad: r r 0 0; }
+      &:last-child { rad: 0 0 r r; }
       &.snippet-row {
         padding: 8px !important;
         &:hover { colors: 0, 0, bd; }
@@ -4040,7 +4039,7 @@
     // Sub-navigation.
     .top-area {
       padding: 0 !important;
-      colors: 0, $t, $t;
+      colors: 0, t, t;
     }
     .snippet-scope-menu {
       margin-top: 0 !important;
@@ -4057,28 +4056,28 @@
 
   // * Editor -> Wrapper.
   .file-editor {
-    .file-title input { radius: $radius }
+    .file-title input { rad: r }
     // Rounded corners; might remove later.
-    .file-holder { radius: $radius; }
+    .file-holder { rad: r; }
     // Fix flashing white background.
     #editor {
-      radius: 0 0 $radius $radius;
-      c: 0 0 $t;
+      rad: 0 0 r r;
+      c: 0 0 t;
     }
     // Header.
     .nav-links {
       margin-bottom: 10px;
       padding: 0 8px;
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
     }
     // Branch name.
-    .editor-ref { colors: 0, bd, $t; }
+    .editor-ref { colors: 0, bd, t; }
     // Commit or disband.
     .form-actions {
       padding: 8px;
-      radius: $radius;
+      rad: r;
       border: 1px solid bd;
     }
   }
@@ -4094,11 +4093,11 @@
     colors: fg, 0, bg;
     // Gutter.
     .ace_gutter {
-      radius: 0 0 0 $radius;
+      rad: 0 0 0 r;
       colors: cm, 0, bg;
       box-shadow: 1px 0 0 0 bd;
-      .ace_gutter-cell { colors: 0, 0, $t; }
-      + .ace_scroller { radius: 0 0 $radius 0; }
+      .ace_gutter-cell { colors: 0, 0, t; }
+      + .ace_scroller { rad: 0 0 r 0; }
     }
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, bd; }
@@ -4118,7 +4117,7 @@
       padding: 0 4px;
       margin: 10px 10px 0 0;
       border: 1px solid;
-      radius: $radius;
+      rad: r;
       colors: 0, bd, bg;
       box-shadow: 0 4px 8px 0 $shadow;
       // Inputs.
@@ -4133,8 +4132,8 @@
       .ace_button {
         padding: 5px;
         border-radius: 3px;
-        colors: cm $t bg;
-        &:hover, &.checked { colors: ac, 0, $t; }
+        colors: cm t bg;
+        &:hover, &.checked { colors: ac, 0, t; }
       }
     }
     // Scroller.
@@ -4164,7 +4163,7 @@
       input { colors: fg, 0, bg; }
       .suggestions {
         colors: 0, 0, bg;
-        li:hover, .hl { radius: $radius; }
+        li:hover, .hl { rad: r; }
         li:hover { colors: 0, 0, bd; }
         .hl { colors: 0, 0, ac; }
       }
@@ -4183,7 +4182,7 @@
     // Source!
     .source-link {
       colors: fg, 0, bd;
-      .external-source-link { colors: ac, $t, 0; }
+      .external-source-link { colors: ac, t, 0; }
     }
   }
   // Footer links.
@@ -4196,7 +4195,7 @@
   .algolia-autocomplete {
     [class*="dataset"] { colors: fg, bd, bg;
       // Transparentize the content.
-      [class*="docsearch-s"] { colors: fg, 0, $t; }
+      [class*="docsearch-s"] { colors: fg, 0, t; }
     }
     // Remove shadow.
     .ds-dropdown-menu {
@@ -4225,12 +4224,12 @@
     // Alerts.
     blockquote {
       position: relative;
-      colors: 0, $t, bg;
+      colors: 0, t, bg;
       &::before {
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
-        radius: $radius 0 0 $radius;
+        rad: r 0 0 r;
         border-left: 4px solid blue;
       }
     }
@@ -4239,8 +4238,8 @@
     // Reset *introduced in...* blockquotes.
     blockquote {
       padding: 16px;
-      radius: $radius;
-      box-shadow: inset 0 0 0 1px bd;
+      rad: r;
+      box-shadow: inset inner;
       > p { margin: 0; }
     }
     // Border colors.
@@ -4250,7 +4249,7 @@
     .article-metadata { colors: fg, 0, 0; }
     .highlight.plaintext code { colors: fg, 0, 0; }
     code {
-      radius: 3px;
+      rad: 3px;
       border: 1px solid;
       colors: ac, bd, bg;
     }
@@ -4379,7 +4378,7 @@
       // Search container.
       .filtered-search-wrapper {
         colors: 0, bd, bg;
-        input { colors: 0, 0, $t; }
+        input { colors: 0, 0, t; }
       }
       // Project metadata.
       .ide-merge-request-project-path { color: cm; }
@@ -4401,10 +4400,10 @@
     .ide-commit-list-container.is-first,
     .multi-file-commit-panel-header { colors: 0, bd, 0; }
     // Remove background on buttons.
-    .ide-staged-action-btn { colors: 0, 0, $t; }
+    .ide-staged-action-btn { colors: 0, 0, t; }
     // Commit message.
     .ide-commit-message-field {
-      colors: cm, 0, $t;
+      colors: cm, 0, t;
       textarea { colors: fg, 0, 0; }
     }
     // Background after you push a commit.
@@ -4423,7 +4422,7 @@
   }
   /* Build header. */
   .build-page .top-bar {
-    radius: $radius $radius 0 0;
+    rad: r r 0 0;
     colors: cm, bd, bg;
     // ? Fix terminal controls header, bug on upstream.
     &.sidebar-expanded { margin-right: 0 !important; }
@@ -4432,7 +4431,7 @@
   .build-page > header > .build-header.top-area { margin-bottom: 10px; }
   /* Build log. */
   .build-page .build-trace {
-    radius: 0 0 $radius $radius;
+    rad: 0 0 r r;
     color: var(--light);
     border: 1px solid var(--darker);
     border-top-color: transparent;
@@ -4461,7 +4460,7 @@
       a { colors: fg, 0, 0; }
       &:hover { colors: 0, 0, bd; }
       // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
-      &.retried { colors: 0, 0, $t; }
+      &.retried { colors: 0, 0, t; }
     }
   }
 
@@ -4478,7 +4477,7 @@
     // Items.
     li {
       transition: 0.2s ease-in-out;
-      colors: cm, bd, $t;
+      colors: cm, bd, t;
       &.active, &:hover { colors: ac, bd, bd; }
     }
   }
@@ -4525,7 +4524,7 @@
     // Command palette.
     .monaco-quick-open-widget {
       colors: fg, bd, bg;
-      box-shadow: $box !important;
+      box-shadow: 0 2px 4px 0 $shadow !important;
       // Focused.
       .monaco-tree-row {
         &:hover, &.focused { colors: ac, 0, bd; }
@@ -4543,13 +4542,13 @@
     // Find palette.
     .find-widget {
       colors: 0, 0, bd;
-      box-shadow: $box;
+      box-shadow: 0 2px 4px 0 $shadow;
       .button, .label { filter: invert(var(--bg-invert)); }
     }
     // Accessibility.
     .accessibilityHelpWidget {
       colors: fg, bd, bg;
-      box-shadow: $box;
+      box-shadow: 0 2px 4px 0 $shadow;
     }
     // Context menu.
     .context-view {
@@ -4565,7 +4564,7 @@
     // Suggestion.
     .tree {
       colors: fg, bd, bd;
-      box-shadow: $box;
+      box-shadow: 0 2px 4px 0 $shadow;
       .focused { colors: ac, 0, bg; }
     }
   }
@@ -4594,7 +4593,7 @@
 
   // * Project :: Code view.
   .code {
-    colors: fg, 0, $t;
+    colors: fg, 0, t;
     // Remove weird border around code wrapper.
     code { border: none; }
     // Highlighted line.
@@ -4603,7 +4602,7 @@
     pre.code, .diff-line-num { colors: 0, bd, 0; }
     // Gutters in file view/diff.
     .line-numbers, .diff-line-num {
-      &, a { colors: cm, 0, $t; }
+      &, a { colors: cm, 0, t; }
       // ? Add left border to right section in parralel diff view.
       &:nth-child(3) { border-left: 1px solid red !darker; }
     }
@@ -4612,7 +4611,7 @@
       // Lines for added/removed sections.
       .line_content {
         z-index: 1;
-        colors: fg, 0, $t;
+        colors: fg, 0, t;
         &.new::before, &.old::before { colors: cm, 0, 0; }
         &.old::after, &.new::after {
           content: "";
@@ -4642,15 +4641,15 @@
       }
       // Rounded corners.
       &:last-child > td {
-        &:first-child, &:first-child::after { radius: 0 0 0 $radius; }
-        &:last-child, &:last-child::after { radius: 0 0 $radius 0; }
+        &:first-child, &:first-child::after { rad: 0 0 0 r; }
+        &:last-child, &:last-child::after { rad: 0 0 r 0; }
       }
     }
     // ? Notes -> Suggested changes.
     .gd, .gi {
       z-index: 0;
       position: relative;
-      colors: fg, 0, $t;
+      colors: fg, 0, t;
       // Fake element.
       &::before {
         content: "";
@@ -4675,7 +4674,7 @@
     .sx, .sb, .sh, .nf, .gt, .sd { color: red; }
     .nt, .si, .mi { color: voilet; }
     .err {
-      colors: 0, 0, $t;
+      colors: 0, 0, t;
       box-shadow: inset 0 -2px 0 0 red;
     }
   }
@@ -4729,14 +4728,14 @@
       &::after { colors: 0 ac 0 }
       // Reset for items.
       li {
-        &:hover a { colors: cm 0 $t }
+        &:hover a { colors: cm 0 t }
         a:hover, a:focus { colors: fg 0 bd }
         // Pipelines where you have permissions.
         .ci-job-component {
           transition: 0.15s ease;
           &:hover { colors: 0 0 bd }
           .mini-pipeline-graph-dropdown-item {
-            colors: 0 0 $t;
+            colors: 0 0 t;
             .ci-status-text { colors: cm 0 0 }
             &:hover .ci-status-text { colors: fg 0 0 }
           }
@@ -4755,9 +4754,9 @@
   // * CI/CD -> Pipeline details.
   .pipeline-graph {
     margin-top: 8px;
-    radius: $radius;
+    rad: r;
     c: fg 0 bg;
-    box-shadow: $inner;
+    box-shadow: inner;
     // Pipeline node.
     .build .build-content {
       c: cm bd bg;
@@ -4773,7 +4772,7 @@
     // ? https://gitlab.com/gitlab-org/gitlab-ce/pipelines/31973329
     .linked-pipeline {
       &-content {
-        radius: 10px !important;
+        rad: 10px !important;
         colors: fg, bd, bg;
         &:hover { colors: 0, 0, bd; }
       }
@@ -4836,7 +4835,7 @@
   .split-report-section {
     margin-top: 10px;
     border: 1px solid;
-    radius: $radius;
+    rad: r;
     colors: fg, bd, bg;
     // Wrapper.
     .report-block-container {
@@ -4863,17 +4862,17 @@
   // * Jobs :: Browse artifacts.
   [data-page="projects:artifacts:browse"] {
     .tree-table {
-      radius: $radius;
-      box-shadow: 0 0 0 1px bd;
+      rad: r;
+      box-shadow: inner;
       thead {
         tr, tr > th { border-top: none; }
-        th:first-child { radius: $radius 0 0 0; }
-        th:last-child { radius: 0 $radius 0 0; }
+        th:first-child { rad: r 0 0 0; }
+        th:last-child { rad: 0 r 0 0; }
       }
       tbody {
         tr:last-child {
-          td:first-child { radius: 0 0 0 $radius; }
-          td:last-child { radius: 0 0 $radius 0; }
+          td:first-child { rad: 0 0 0 r; }
+          td:last-child { rad: 0 0 r 0; }
         }
       }
       // Remove borders.
@@ -4909,20 +4908,20 @@
   }
   // * Group header.
   .explore-groups {
-    radius: $radius;
+    rad: r;
     colors: 0, bd, bg;
   }
   // * Group body.
   .groups-list-tree-container > ul.group-list-tree {
     margin-top: 10px !important;
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
     box-shadow: 0 0 0 1px inset bd;
     // On event.
     > .group-row {
       // Rounded corners.
-      &:first-child > div { radius: $radius $radius 0 0; }
-      &:last-child > div { radius: 0 0 $radius $radius; }
+      &:first-child > div { rad: r r 0 0; }
+      &:last-child > div { rad: 0 0 r r; }
       // &.has-children .group-list-tree { margin-left: 42px !important; }
     }
     .group-row {
@@ -4938,7 +4937,7 @@
       // Remove top-border from the first item.
       &:first-child { border-top: none !important; }
       // Fix last item background.
-      &:last-child::before { colors: 0, 0, $t; }
+      &:last-child::before { colors: 0, 0, t; }
       // Content.
       &-contents {
         transition: 0.15s ease;
@@ -4963,7 +4962,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    radius: $radius;
+    rad: r;
     colors: 0 0 bg;
     box-shadow: 0 0 0 1px inset bd;
     overflow-y: hidden; // Hide whitespace.
@@ -4972,7 +4971,7 @@
       text { isvg: cm false }
       path, line { isvg: false cm }
       rect {
-        fill: $t !important;
+        fill: t !important;
         &.bar-rect { isvg: bd blue }
         &[fill="#fff" i] { isvg: bg false }
       }
@@ -5116,10 +5115,10 @@
   if ( dark_logo == 1 ) {
     .tanuki-logo {
       filter: brightness(095%) drop-shadow(0px 1px 1px $shadow) !important;
-      .tanuki { &-right-eye, &-left-eye { isvg: ac $t; }}
-      .tanuki-right { &-cheek, &-ear { isvg: bg $t; }}
-      .tanuki-left { &-cheek, &-ear { isvg: bg $t; }}
-      .tanuki-nose { isvg: bg $t; }
+      .tanuki { &-right-eye, &-left-eye { isvg: ac t; }}
+      .tanuki-right { &-cheek, &-ear { isvg: bg t; }}
+      .tanuki-left { &-cheek, &-ear { isvg: bg t; }}
+      .tanuki-nose { isvg: bg t; }
     }
   }
 
@@ -5190,7 +5189,7 @@
       &.secondary { c: 0 0 voilet }
     }
     &-info {
-      radius: 0 0 3px 3px;
+      rad: 0 0 3px 3px;
       c: 0 bd bg;
     }
   }
@@ -5211,11 +5210,11 @@
     }
   }
   .buy-ci-minutes {
-    radius: $radius;
+    rad: r;
     c: fg bd bg;
   }
   .white-card {
-    radius: $radius;
+    rad: r;
     c: cm bd bg;
     .title { c: 0 bd bd }
     label { c: cm 0 0 0 }
@@ -5290,7 +5289,7 @@
     td.header, th.header { colors: 0, bd, bd; }
   }
   // Typography spacing.
-  .baseline--typography:after { background-image: linear-gradient(bd 1px, $t 0); }
+  .baseline--typography:after { background-image: linear-gradient(bd 1px, t 0); }
 }
 
 @-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
@@ -5321,9 +5320,9 @@
 
   // * Index page for about sub-domain.
   .sdlc-table {
-    radius: $radius !important;
+    rad: r !important;
     colors: 0, 0, bg;
-    box-shadow: 0 0 0 1px bd !important;
+    box-shadow: inner !important;
     .sdlc-column:not(:last-child) {
       border-right-color: bd !important;
     }
@@ -5331,7 +5330,7 @@
       border-bottom-color: bd !important;
     }
     .devops-tool-logo-container {
-      radius: 0 0 $radius $radius;
+      rad: 0 0 r r;
       colors: 0, 0, bg;
     }
   }
@@ -5339,15 +5338,15 @@
 
   // * Blog resources.
   .tile-resource {
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
-    box-shadow: $box, 0 0 0 1px bd;
-    .tile-info  { colors: 0, 0, $t; }
+    box-shadow: 0 2px 4px 0 $shadow, inner;
+    .tile-info  { colors: 0, 0, t; }
   }
 
   // * Articles.
   .blog.article {
-    .overlay { background: linear-gradient(0deg, bg, $t 100%); }
+    .overlay { background: linear-gradient(0deg, bg, t 100%); }
     .body { colors: 0, 0, bg; }
     // Anchors.
     .content {
@@ -5379,7 +5378,7 @@
     }
     // Disqus section.
     .comments {
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0, bd, bg;
     }
@@ -5404,10 +5403,10 @@
 
   // * Navbar.
   .navbar {
-    a.navbar-brand { colors: 0 0 $t }
+    a.navbar-brand { colors: 0 0 t }
     // Transparentize header.
     &.navbar-header-transparent {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       box-shadow: none !important;
     }
     // Search.
@@ -5415,11 +5414,11 @@
       background: none !important;
       colors: fg 0 bg;
       box-shadow: 0 -1px 0 0 inset bd;
-      &-large, .search-input { colors: fg $t $t }
+      &-large, .search-input { colors: fg t t }
     }
     .sign-up, .search-icon {
-      radius: $radius;
-      colors: 0 0 $t;
+      rad: r;
+      colors: 0 0 t;
       &:hover { colors: ac 0 bg }
     }
     .icon-bar { colors: 0 0 cm }
@@ -5427,14 +5426,14 @@
     .mobile-menu {
       colors: 0 0 bg;
       li .dropdown a {
-        radius: $radius;
+        rad: r;
         &:hover { colors: 0 0 bd }
       }
       li .main-nav-link { colors: ac 0 0 }
       ul .sign-up-container {
         colors: 0 0 bg;
         li .sign-up {
-          radius: $radius;
+          rad: r;
           colors: cm 0 bd;
           &:hover { colors: fg 0 0; }
         }
@@ -5443,16 +5442,16 @@
     // Dropdowns and items.
     .navbar-right ul li {
       a, .search-icon i {
-        radius: $radius;
+        rad: r;
         colors: fg 0 0;
         &:hover:not(.fa), &:focus { colors: ac 0 bg }
       }
       .dropdown {
-        radius: $radius;
+        rad: r;
         border: 1px solid;
         colors: cm bd bg;
         a {
-          radius: $radius;
+          rad: r;
           colors: cm 0 0;
           &:hover { colors: ac 0 bd }
         }
@@ -5464,9 +5463,9 @@
 
   // Announcements.
   .announcement-container {
-    radius: $radius;
+    rad: r;
     colors: cm 0 bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     img { filter: grayscale(100%) }
   }
 
@@ -5490,17 +5489,17 @@
 
   // * Main content.
   .md-page {
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
-    box-shadow: inset 0 0 0 1px bd, 0 3px 3px 0 $shadow;
+    box-shadow: inset inner, 0 3px 3px 0 $shadow;
     // Inputs.
     input, select, textarea, fieldset {
-      radius: $radius;
+      rad: r;
       colors: fg bd bg;
     }
     .highlight {
       colors: fg bd bg;
-      > code { colors: 0 $t $t }
+      > code { colors: 0 t t }
       .err { colors: white 0 red }
     }
     li {
@@ -5517,11 +5516,11 @@
 
   // ? https://about.gitlab.com/press/press-kit
   .tile {
-    radius: $radius;
+    rad: r;
     colors: 0, 0, bg;
     transition: 0.2s ease;
-    box-shadow: inset 0 0 0 1px bd, 0 2px 4px 0 $shadow;
-    &:hover { box-shadow: inset 0 0 0 1px bd, 0 4px 8px 2px $shadow; }
+    box-shadow: inset inner, 0 2px 4px 0 $shadow;
+    &:hover { box-shadow: inset inner, 0 4px 8px 2px $shadow; }
     .list { colors: 0, bd, 0; }
     .list > a { colors: 0, bd, 0; }
   }
@@ -5530,7 +5529,7 @@
   // Mini nav.
   .press-toc-links, .toc-links {
     a { colors: fg, 0, 0; }
-    a:hover { colors: ac, $t, 0; }
+    a:hover { colors: ac, t, 0; }
   }
 
   // ? https://about.gitlab.com/solutions/public-sector
@@ -5553,7 +5552,7 @@
   // Plans.
   .plan-row .plan {
     colors: cm, orange, bg;
-    box-shadow: inset 0 0 0 1px bd;
+    box-shadow: inset inner;
     li > a { color: ac; }
     .btn-pricing { colors: ac, ac, 0; }
     .plan-name, .all-features { colors: fg, bd, 0; }
@@ -5600,7 +5599,7 @@
     // OpenStreetMap reset.
     + div .teleport-thing {
       margin-top: 20px;
-      iframe { radius: $radius }
+      iframe { rad: r }
     }
   }
 
@@ -5619,7 +5618,7 @@
   .testimonials-container .testimonials-row .testimonial, .forrester-graphic-title,
   .feature, .integrated-teams {
     border: 1px solid;
-    radius: $radius !important;
+    rad: r !important;
     colors: fg bd bg;
     box-shadow: 0 2px 4px 0 $shadow;
   }
@@ -5632,7 +5631,7 @@
   }
   .cta-btn {
     transition: 0.15s ease;
-    radius: $radius;
+    rad: r;
     &.orange {
       colors: white orange orange;
       &:hover { opacity: 0.8 }
@@ -5680,7 +5679,7 @@
   .st-ui {
     &-autocomplete, &-slide-autocomplete {
       > div[class] {
-        radius: $radius !important;
+        rad: r !important;
         colors: fg bd bg;
         box-shadow: 0 2px 4px 0 $shadow;
       }
@@ -5698,7 +5697,7 @@
       .st-ui-type-detail, .st-ui-type-detail-bold {
         colors: cm 0 0;
         em {
-          colors: ac 0 $t;
+          colors: ac 0 t;
           box-shadow: inset 0 -1px ac;
         }
       }
@@ -5732,7 +5731,7 @@
   .distro-content .display-extra-links li {
     a {
       colors: ac, $darler, 0;
-      background: $t !important;
+      background: t !important;
       text-shadow: none !important;
       text-decoration: none !important;
     }
@@ -5755,7 +5754,7 @@
     colors: cm bd bg;
     .external-source-link {
       colors: cm cm 0;
-      &:hover { colors: ac $t 0 }
+      &:hover { colors: ac t 0 }
     }
   }
 
@@ -5788,13 +5787,13 @@
     .icon { &:hover { colors: 0 bd bd }}
     .active { > a { &, &::after { colors: 0 bd bg }}}
     .menu-panel {
-      radius: $radius;
+      rad: r;
       colors: 0 bd bg;
       box-shadow: 0 2px 4px -1px $shadow;
       // Burger
       ul a {
         colors: fg 0 0;
-        &:hover, &:focus { colors: 0 $t bd }
+        &:hover, &:focus { colors: 0 t bd }
       }
     }
   }
@@ -5819,7 +5818,7 @@
       colors: 0 bd bg;
       .ac-user {
         colors: 0 bg bg;
-        box-shadow: 0 0 0 1px bd;
+        box-shadow: inner;
         li { colors: 0 bd 0 }
         a {
           colors: cm 0 0;
@@ -5838,9 +5837,9 @@
     }
     .is-highlighted { colors: fg 0 bd }
     .combo-box-header { colors: fg bd bg }
-    &-collection { box-shadow: 0 0 0 1px bd }
+    &-collection { box-shadow: inner }
     &.multi-select { colors: 0 bd bg }
-    &-header { colors: cm bd $t }
+    &-header { colors: cm bd t }
     &-filter { colors: 0 bd bg }
     &-body {
       box-shadow: 0 2px 4px 0 $shadow;
@@ -5862,7 +5861,7 @@
 
   // Breadcrumbs.
   .nav-pills {
-    a { colors: cm $t bg }
+    a { colors: cm t bg }
     .active a { colors: ac 0 0 }
   }
 
@@ -5872,7 +5871,7 @@
   // Topic list.
   .topic-list {
     .num, .badge-posts[href] { colors: cm 0 0 }
-    .sortable:hover { colors: ac 0 $t }
+    .sortable:hover { colors: ac 0 t }
     .topic-excerpt { colors: cm 0 0 }
     .main-link a.title {
       colors: fg 0 0;
@@ -5948,7 +5947,7 @@
     colors: 0 bd bg;
     .badge-contents .badge-info {
       border: none !important;
-      colors: cm 0 $t;
+      colors: cm 0 t;
       h3 { colors: ac 0 0 }
     }
     .badge-contents .badge-icon {
@@ -5960,7 +5959,7 @@
 
   // Like and share buttons.
   nav.post-controls {
-    *:hover { colors: 0 0 $t }
+    *:hover { colors: 0 0 t }
     .like-button {
       .like-count { colors: fg 0 0 }
       &:hover {
@@ -5982,7 +5981,7 @@
     section { colors: 0 $shadow 0 }
     .buttons .btn, .link-summary .btn { colors: 0 $shadow bd }
     .map .number, .map i, span.domain { colors: fg 0 0 }
-    td { colors: 0 0 $t }
+    td { colors: 0 0 t }
   }
 
   // Timeline.
@@ -5993,7 +5992,7 @@
     .timeline-ago, .start-date, .now-date { colors: fg 0 0 }
   }
   #topic-progress-wrapper {
-    .timeline-fullscreen, #topic-progress, .bg { colors: cm $t $t }
+    .timeline-fullscreen, #topic-progress, .bg { colors: cm t t }
     .topic-timeline { .username, .title a { colors: ac 0 0 }}
   }
 
@@ -6147,7 +6146,7 @@
       .input-container {
         img { filter: invert(var(--bg-invert)) }
         input {
-          radius: $radius;
+          rad: r;
           colors: fg 0 bd;
           &:focus { box-shadow: 0 4px 16px -4px $shadow; }
         }
@@ -6155,7 +6154,7 @@
     }
     // Cards.
     .main-topics li {
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0 bd bg;
       box-shadow: 0 4px 16px -4px $shadow !important;
@@ -6172,18 +6171,18 @@
       colors: cm 0 0;
       // Found on docs/.../archives page.
       .docsearch {
-        radius: $radius;
+        rad: r;
         colors: cm 0 bd;
       }
       input[type="text"] {
         padding: 2px 11px 2px 28px;
         line-height: 30px;
-        radius: $radius;
+        rad: r;
         colors: fg bd 0;
       }
     }
     // Docs versions.
-    .btn-versions { colors: cm bd $t }
+    .btn-versions { colors: cm bd t }
     .versions-tooltip { colors: fg, 0, bg; }
     // Main navigation.
     .nav-item a { colors: fg, 0, 0; }
@@ -6221,19 +6220,19 @@
     }
 
     .footer-logo path.logo-dark-orange-shape:nth-child(4), .footer-logo path.logo-light-orange-shape:nth-child(3) {
-      dark-logo: $t, 0, 0, 0, 0;
+      dark-logo: t, 0, 0, 0, 0;
     }
     .footer-logo path.logo-svg-shape:nth-child(1) {
-      dark-logo: 0, $t, 0, 0, 0;
+      dark-logo: 0, t, 0, 0, 0;
     }
     .footer-logo path.logo-dark-orange-shape:nth-child(7), .footer-logo path.logo-light-orange-shape:nth-child(6) {
-      dark-logo: 0, 0, $t, 0, 0;
+      dark-logo: 0, 0, t, 0, 0;
     }
     .footer-logo path.logo-orange-shape:nth-child(2) {
-      dark-logo: 0, 0, 0, $t, 0;
+      dark-logo: 0, 0, 0, t, 0;
     }
     .footer-logo path.logo-orange-shape:nth-child(5) {
-      dark-logo: 0, 0, 0, 0, $t;
+      dark-logo: 0, 0, 0, 0, t;
     }
   }
 
@@ -6246,7 +6245,7 @@
     // Help and feedback section.
     .comments {
       margin: 16px auto -16px auto;
-      radius: $radius;
+      rad: r;
       border: 1px solid;
       colors: 0 bd bg;
       .nav-tabs {
@@ -6254,8 +6253,8 @@
         border-color: bd;
         li a {
           border-bottom: none;
-          radius: $radius $radius 0 0;
-          colors: cm bd $t;
+          rad: r r 0 0;
+          colors: cm bd t;
           &.active { colors: fg bd bd }
         }
       }
@@ -6275,7 +6274,7 @@
   }
   .badge-small:hover::after {
     colors: ac, $shadow, bd;
-    box-shadow: $box !important;
+    box-shadow: 0 2px 4px 0 $shadow !important;
   }
 
   // * Left sidebar.
@@ -6304,7 +6303,7 @@
   .doc-nav {
     right: -12px;
     height: calc(100vh + 20px);
-    colors: cm 0 $t;
+    colors: cm 0 t;
     // Wrapper.
     #markdown-toc {
       a {
@@ -6320,9 +6319,9 @@
   // ? https://docs.gitlab.com/search/?q=test&idx=gitlab&p=1
   .instantsearch-input {
     .ais-search-box {
-      colors: 0 0 $t;
+      colors: 0 0 t;
       &--input {
-        radius: $radius;
+        rad: r;
         colors: fg bd bg;
         box-shadow: 0 2px 4px 0 $shadow;
         &:focus { colors: 0 ac 0 }
@@ -6348,24 +6347,24 @@
         &-content {
           padding: 8px;
           font-size: 1rem;
-          colors: 0 $t 0;
+          colors: 0 t 0;
           box-shadow: none;
-          em { colors: ac 0 $t }
+          em { colors: ac 0 t }
         }
         &-text { colors: cm 0 0 }
         &-tag {
-          radius: 0 0 3px 3px;
-          colors: fg $t $t;
+          rad: 0 0 3px 3px;
+          colors: fg t t;
         }
       }
       .ais-infinite-hits {
-        radius: $radius;
+        rad: r;
         colors: 0 0 bg;
-        box-shadow: inset 0 0 0 1px bd;
+        box-shadow: inset inner;
         &__empty { padding: 8px }
         &--item:not(:first-child) { box-shadow: 0 -1px bd }
         &--showmore > button {
-          radius: $radius;
+          rad: r;
           border: 1px solid;
           colors: cm bd bg;
         }
@@ -6375,19 +6374,19 @@
 
   // * Code blocks.
   pre.highlight {
-    radius: $radius;
-    colors: 0 bd $t;
+    rad: r;
+    colors: 0 bd t;
     box-shadow: 0 2px 4px 0 $shadow;
     code {
       white-space: pre-wrap;
       word-break: break-all;
-      radius: inherit;
-      colors: 0 $t 0;
+      rad: inherit;
+      colors: 0 t 0;
     }
     // Copy to clipboard.
     .clip-btn {
       top: 1px; right: 1px;
-      radius: 0 $radius 0 0;
+      rad: 0 r 0 0;
       colors: cm, 0, bg;
       .fa-clipboard::before { color: cm; }
     }
@@ -6480,13 +6479,13 @@
 
   // * Rounded corners.
   .make_round {
-    radius: $radius;
-    &.make_round_bottom_only { radius: 0 0 $radius $radius; }
-    &.panel-heading { radius: $radius $radius 0 0; }
+    rad: r;
+    &.make_round_bottom_only { rad: 0 0 r r; }
+    &.panel-heading { rad: r r 0 0; }
   }
   .component {
-    &_first { radius: $radius $radius 0 0; }
-    &_last { radius: 0 0 $radius $radius; }
+    &_first { rad: r r 0 0; }
+    &_last { rad: 0 0 r r; }
   }
 
   // * Footer.
@@ -6502,7 +6501,7 @@
     .wrapper > img.bg { opacity: 0 }
   }
   .white-box {
-    radius: $radius;
+    rad: r;
     border: 1px solid;
     colors: fg, bd, bg;
     a { colors: ac, 0, 0; }
