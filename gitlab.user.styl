@@ -120,13 +120,13 @@
       if y is a 'call' or y is a 'rgba' {     border-color: yi is 0 ? y : y !important }
       if z is a 'call' or z is a 'rgba' { background-color: zi is 0 ? z : z !important }
   }
-  // * Inlined SVGs.
-  // ? Only fill -> `isvg: ac 0;`
-  isvg(x, y = 0) {
-    if x is a 'call' { fill: x !important; }
-    if y is a 'call' { stroke: y !important; }
+  // SVG colors.
+  // ? Only fill -> `v: ac 0;`
+  v(x, y = 0, xi = 1, yi = 1) {
+    if x is a 'call' or x is a 'rgba' {   fill: xi is 0 ? x : x !important }
+    if y is a 'call' or y is a 'rgba' { stroke: yi is 0 ? y : y !important }
   }
-  // * Border radius mixin.
+  // Border radius mixin.
   rad() { border-radius: arguments }
 
   // * Scrollbars.
@@ -346,11 +346,11 @@
 
   // * Icons!
   svg {
-    isvg: cm;
+    v: cm;
     // Diff icons.
-    &.ic-file-addition { &, &-solid { isvg: green }}
-    &.ic-file-modified { &, &-solid { isvg: blue }}
-    &.ic-file-deletion { &, &-solid { isvg: red }}
+    &.ic-file-addition { &, &-solid { v: green }}
+    &.ic-file-modified { &, &-solid { v: blue }}
+    &.ic-file-deletion { &, &-solid { v: red }}
   }
   .fa {
     colors: cm 0 0;
@@ -359,7 +359,7 @@
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
   .nav-controls .has-tooltip svg, .award-control-icon svg, .commit-icon {
-    path { fill: cm !important; }
+    path { v: cm }
   }
 
   // * Global -> Bootstrap reset.
@@ -486,7 +486,7 @@
     &.active {
       colors: fg bd bd;
       box-shadow: none !important;
-      svg { fill: fg !important }
+      svg { v: fg }
     }
     &-secondary {
       &:not(:disabled):not(.disabled) {
@@ -541,7 +541,7 @@
     &-clipboard {
       colors: cm bd t;
       &:hover { colors: fg 0 0 }
-      &:hover svg { isvg: fg }
+      &:hover svg { v: fg }
     }
     // Comment on a note.
     &-text-field {
@@ -593,7 +593,7 @@
   // Confidential icon.
   .issuable-warning-icon {
     colors: 0 0 bd;
-    svg.icon { isvg: orange }
+    svg.icon { v: orange }
   }
 
   // * Global -> Random styles.
@@ -605,10 +605,10 @@
     color: ac !important;
   }
   .label-bold { color: fg; }
-  .cred { color: red; fill: red !important; }
-  .cblue { color: blue; fill: blue !important; }
-  .cgreen { color: green; fill: green !important; }
-  .diff-file-changed-icon { &:not(.cgreen):not(.cred) { isvg: blue }}
+  .cred { color: red; v: red }
+  .cblue { color: blue; v: blue }
+  .cgreen { color: green; v: green }
+  .diff-file-changed-icon { &:not(.cgreen):not(.cred) { v: blue }}
   // ? Move to a better place.
   .option {
     &-title { c: fg }
@@ -747,7 +747,7 @@
     if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
     .canary-badge .badge.badge-pill { colors: white green green }
     // Logo text color.
-    .logo-text svg, svg.nav-logo .wordmark { fill: fg !important; }
+    .logo-text svg, svg.nav-logo .wordmark { v: fg }
     // Search.
     .search form {
       padding: 4px 2px 3px;
@@ -766,7 +766,7 @@
     &-sub-nav, &-nav {
       > li.active, .dropdown.show {
         > a, > button { colors: fg 0 bd }
-        svg { isvg: fg }
+        svg { v: fg }
       }
       .btn:focus { colors: 0 0 bd }
     }
@@ -1660,7 +1660,7 @@
     &.open {
       c: 0 ac ac;
       box-shadow: none;
-      svg { isvg: white }
+      svg { v: white }
     }
     &:focus { outline: none }
   }
@@ -1758,12 +1758,12 @@
       c: fg 0 bg;
       box-shadow: inner;
       .axis {
-        .domain, line { stroke: cm; }
-        text { fill: fg; }
+        .domain, line { v: 0 cm }
+        text { v: fg }
       }
       // Graph colors.
-      .area { isvg: green }
-      .area-contributor { isvg: orange }
+      .area { v: green }
+      .area-contributor { v: orange }
     }
   }
 
@@ -1775,21 +1775,20 @@
     .controls { c: 0 bd bd }
     // Graph background.
     .network-graph {
-      isvg: red;
+      v: red;
       c: 0 0 bg;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
         fill-opacity: 1 !important;
-        isvg: bd t;
+        v: bd t;
       }
-      [d^="M165"], [d^="M185"], [d^="M195"] { fill: bd }
+      [d^="M165"], [d^="M185"], [d^="M195"] { v: bd 0 0 }
       // Text color.
-      > svg text { fill: fg; }
+      > svg text { v: fg 0 0 }
       // Sidebar.
       > svg rect[width*="40"], > svg rect[width*="30"] {
         stroke-width: 0;
-        stroke: bd;
-        fill: bd;
+        v: bd bd 0 0;
       }
     }
   }
@@ -1909,7 +1908,7 @@
       c: white 0 orange;
       svg {
         margin-top: 3px;
-        isvg: white;
+        v: white;
       }
       .fa { c: white }
     }
@@ -1983,7 +1982,7 @@
     .text-info { c: blue }
     .qa-toggle-btn {
       c: 0 0 t;
-      &:hover svg { isvg: fg }
+      &:hover svg { v: fg }
     }
     .active { c: 0 0 bd }
   }
@@ -2092,7 +2091,7 @@
       padding: 6px 8px 4px;
       rad: r r 0 0;
       colors: orange bd bg;
-      svg.icon { isvg: orange }
+      svg.icon { v: orange }
       // Reset corners in confidential issues.
       + .md-area { rad: 0 0 r r }
     }
@@ -2308,7 +2307,7 @@
         > a {
           transition: 0.15s ease;
           colors: ac, 0, 0;
-          svg { fill: ac !important; }
+          svg { v: ac }
         }
         // Active list items.
         .sidebar-sub-level-items li:not(.fly-out-top-item) {
@@ -2444,24 +2443,24 @@
       box-shadow: inner;
     }
     // Boxes.
-    rect.actor { isvg: bd, bd; }
-    text.actor { isvg: fg, 0; }
+    rect.actor { v: bd, bd; }
+    text.actor { v: fg, 0; }
     // Connectors.
-    .actor-line { isvg: 0, bd; }
+    .actor-line { v: 0, bd; }
     // Notes.
-    .note { isvg: bd, ac; }
-    .noteText, .noteText tspan { isvg: cm, 0; }
+    .note { v: bd, ac; }
+    .noteText, .noteText tspan { v: cm, 0; }
     // Lines.
     .message {
-      &Text { isvg: cm, 0; }
-      &Line0 { isvg: 0, bd; }
+      &Text { v: cm, 0; }
+      &Line0 { v: 0, bd; }
     }
     // #65.
-    .edgePath path { isvg: 0 bd }
-    .edgePath .arrowheadPath { isvg: bd bd }
-    .node { rect, ellipse, polygon { isvg: bg bd }}
+    .edgePath path { v: 0 bd }
+    .edgePath .arrowheadPath { v: bd bd }
+    .node { rect, ellipse, polygon { v: bg bd }}
     .label { c: fg; }
-    .label { rect { isvg: bd bd }}
+    .label { rect { v: bd bd }}
   }
 
   // * Project :: Project/group home panel.
@@ -2505,7 +2504,7 @@
       .clone-dropdown-btn {
         font-size: 14px;
         colors: white green green;
-        svg { isvg: white 0 }
+        svg { v: white 0 }
       }
     }
   }
@@ -2813,8 +2812,8 @@
   .calendar {
     &-hint { c: cm }
     svg.contrib-calendar > g {
-      text { fill: fg }
-      rect { fill: ac }
+      text { v: fg }
+      rect { v: ac }
       rect[fill="#ededed"] { opacity: 0.05 }
       rect[fill^="rgb(17"] { opacity: 0.20 }
       rect[fill^="rgb(12"] { opacity: 0.45 }
@@ -3204,8 +3203,8 @@
     box-shadow: 0 0 0 1px inset bd;
     .suggestion {
       colors: ac 0 0;
-      &-state-open { isvg: green 0 }
-      &-state-closed { isvg: red 0 }
+      &-state-open { v: green 0 }
+      &-state-closed { v: red 0 }
     }
   }
 
@@ -3301,8 +3300,8 @@
   .issue-count-badge, .mr-count-badge { c: 0 bd }
   .related-items-list {
     .path-id-text, .item-path-id { colors: fg, 0, 0; }
-    .open { fill: green !important; }
-    .closed { fill: red !important; }
+    .open { v: green }
+    .closed { v: red }
   }
   // Epic Related Issues
   .sortable-container { background-color: bd; }
@@ -3585,7 +3584,7 @@
   .content-block.burndown-hint {
     rad: r;
     colors: 0 bd bg;
-    svg path[fill='#fff'] { isvg: t }
+    svg path[fill='#fff'] { v: t }
   }
   // GitLab-Gold promotion.
   .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0; }
@@ -3595,20 +3594,17 @@
     rad: r;
     c: 0 0 bg;
     box-shadow: inner;
-    text { fill: fg; }
+    text { v: fg }
     .axis {
       &-label text { colors: red, 0, 0; }
-      &-label line, line, path { stroke: cm; }
+      &-label line, line, path { v: 0 cm }
     }
     // ? Legend!
     .legend {
-      rect { stroke: cm; }
-      text { fill: fg; }
+      rect { v: 0 cm }
+      text { v: fg }
     }
-    .actual.line {
-      stroke: ac;
-      fill: none !important;
-    }
+    .actual.line { v: 0 ac }
   }
   // Repository charts.
   .repo-charts {
@@ -3688,7 +3684,7 @@
       // Approvals.
       .text-success {
         c: green;
-        svg { isvg: green }
+        svg { v: green }
       }
     }
     // ? Reset pagination.
@@ -3733,8 +3729,8 @@
   }
   // Resolved state icons.
   .line-resolve-btn {
-    &.is-active svg { isvg: green }
-    &.is-disabled svg { isvg: cm }
+    &.is-active svg { v: green }
+    &.is-disabled svg { v: cm }
   }
 
 
@@ -3842,7 +3838,7 @@
     .report-block-container {
       padding: 0;
       colors: 0 bd t;
-      .failed svg { isvg: red 0 }
+      .failed svg { v: red 0 }
     }
     .mr-source-target {
       padding: 8px;
@@ -4960,12 +4956,12 @@
     overflow-y: hidden; // Hide whitespace.
     svg {
       margin-top: -75px;
-      text { isvg: cm false }
-      path, line { isvg: false cm }
+      text { v: cm 0 }
+      path, line { v: 0 cm }
       rect {
-        fill: t !important;
-        &.bar-rect { isvg: bd blue }
-        &[fill="#fff" i] { isvg: bg false }
+        v: t;
+        &.bar-rect { v: bd blue }
+        &[fill="#fff" i] { v: bg 0 }
       }
     }
   }
@@ -5014,27 +5010,27 @@
     colors: 0 0 bg;
     &[class*="ci-"]:hover { colors: 0 0 bd }
     // Replace icon's main fill color.
-    ../ symbol[id^="status_"] { path[fill='#FFF' i] { isvg: bg }}
+    ../ symbol[id^="status_"] { path[fill='#FFF' i] { v: bg }}
     // Colors!
     &.ci-success,
     &-icon-success, &-icon-passed {
       colors: green green 0;
-      svg { isvg: green }
+      svg { v: green }
     }
     &.ci-running,
     &-icon-running {
       colors: blue blue 0;
-      svg { isvg: blue }
+      svg { v: blue }
     }
     &.ci-success-with-warnings, &-icon-failed-with-warnings,
     &-icon-pending, &-icon-warning, &-icon-success-with-warnings {
       colors: orange orange 0;
-      svg { isvg: orange }
+      svg { v: orange }
     }
     &.ci-failed,
     &-icon-failed {
       colors: red red 0;
-      svg { isvg: red }
+      svg { v: red }
     }
     &.ci-created, &.ci-skipped, &.ci-canceled, &.ci-disabled, &.ci-manual {
       colors: cm cm 0;
@@ -5042,11 +5038,11 @@
     ^[0]-icon {
       &-skipped, &-created, &-canceled {
         colors: 0 cm 0;
-        svg { isvg: cm }
+        svg { v: cm }
       }
       &-canceled, &-scheduled, &-disabled, &-not-found, &-manual {
         colors: 0 cm 0;
-        svg { isvg: cm }
+        svg { v: cm }
       }
     }
   }
@@ -5058,16 +5054,16 @@
     &_failed_borderless { colors: 0 red 0 }
   }
   // Icons in epics.
-  .issue-token-state-icon-open { fill: green !important; }
-  .issue-token-state-icon-closed { fill: blue !important; }
+  .issue-token-state-icon-open { v: green }
+  .issue-token-state-icon-closed { v: blue }
   // Icons in activities.
-  .commented-on-icon svg { fill: blue !important; }
-  .created-icon svg { fill: cyan !important; }
-  .opened-icon svg { fill: green !important; }
-  .closed-icon svg { fill: red !important; }
-  .accepted-icon svg { fill: cyan !important; }
-  .deleted-icon svg { fill: yellow !important; }
-  .imported-icon svg { fill: voilet !important; }
+  .commented-on-icon svg { v: blue }
+  .created-icon svg { v: cyan }
+  .opened-icon svg { v: green }
+  .closed-icon svg { v: red }
+  .accepted-icon svg { v: cyan }
+  .deleted-icon svg { v: yellow }
+  .imported-icon svg { v: voilet }
 
   // * Centers project header elements; old design lookalike.
   if ( p_header == 1 ) {
@@ -5107,10 +5103,10 @@
   if ( dark_logo == 1 ) {
     .tanuki-logo {
       filter: brightness(095%) drop-shadow(0px 1px 1px sh) !important;
-      .tanuki { &-right-eye, &-left-eye { isvg: ac t; }}
-      .tanuki-right { &-cheek, &-ear { isvg: bg t; }}
-      .tanuki-left { &-cheek, &-ear { isvg: bg t; }}
-      .tanuki-nose { isvg: bg t; }
+      .tanuki { &-right-eye, &-left-eye { v: ac t; }}
+      .tanuki-right { &-cheek, &-ear { v: bg t; }}
+      .tanuki-left { &-cheek, &-ear { v: bg t; }}
+      .tanuki-nose { v: bg t; }
     }
   }
 
@@ -5754,10 +5750,10 @@
   if ( dark_logo == 1 ) {
     svg.nav-logo {
       filter: drop-shadow(0 2px 4px sh);
-      path:nth-child(1) { isvg: fg 0 }
-      path:nth-child(2), path:nth-child(5), path:nth-child(8) { isvg: bg 0 }
-      path:nth-child(7), path:nth-child(4) { isvg: bg 0 }
-      path:nth-child(3), path:nth-child(6) { isvg: ac 0 }
+      path:nth-child(1) { v: fg 0 }
+      path:nth-child(2), path:nth-child(5), path:nth-child(8) { v: bg 0 }
+      path:nth-child(7), path:nth-child(4) { v: bg 0 }
+      path:nth-child(3), path:nth-child(6) { v: ac 0 }
     }
   }
 }
