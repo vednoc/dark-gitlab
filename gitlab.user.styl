@@ -494,8 +494,8 @@
       }
     }
     &-link {
-      colors: $lighter $t 0;
-      &:hover { colors: 0 0 $t }
+      c: $lighter $t $t;
+      &:hover { c: 0 0 $t }
     }
     // Green buttons.
     &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
@@ -821,11 +821,8 @@
     &-toggle-text.is-default { colors: $lighter 0 0 }
     // On event.
     &-item {
-      transition: background 0.15s ease-in-out;
-      &:hover, &:focus {
-        color: var(--light);
-        background-color: var(--dark);
-      }
+      transition: 0.15s ease;
+      &:hover, &:focus { c: $light 0 $dark 0 0 0 }
     }
     // Shadow.
     &-content-faded-mask::after {
@@ -2639,14 +2636,14 @@
   /* Dropzone! */
   .blob-upload-dropzone-previews { border-color: $darker; }
 
-  // * Project :: Badges.
-  .project-badge { transition: 0.2s opacity ease-in-out; }
+  // * Project -> Badges.
+  .project-badge { transition: 0.15s opacity ease }
   [src*="for-the-badge"] { radius: $radius; }
   span.badge, button.badge, div.badge {
     // Remove unnecessary underline.
     &.color-label { text-decoration: none !important; }
     // Apply everywhere except on color-label elements.
-    &:not(.color-label) { colors: var(--white), 0, 0; }
+    &:not(.color-label) { c: $white }
     // Hack for darkening background color.
     &:not(.badge-pill):not(.available) {
       // transition: 0.15s ease;
@@ -2795,7 +2792,7 @@
       box-shadow: inset 0 0 0 1px $darker;
       .event-item { @media (max-width: 575px) {  padding-left: 8px !important; }}
     }
-    // ? Overview -> Adjust whitewspace between panes.
+    // ? Overview -> Adjust whitespace between panes.
     .row {
       @media (min-width: 980px) {
         .col-12 .append-bottom-default { margin-bottom: 0; }
