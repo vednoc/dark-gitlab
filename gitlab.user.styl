@@ -3174,21 +3174,21 @@
     }
   }
 
-  // * Issues :: List.
+  // * Issues -> List.
   .issues-holder {
     margin-top: 10px;
     radius: $radius;
     border: 1px solid $darker;
-    background-color: $dark;
+    c: 0 0 $dark;
     // Email a new issue to this project.
     .issuable-footer {
       padding: 10px;
       border-top: 1px solid $darker;
     }
     li:not(.page-item) {
-      transition: background 0.15s ease-in-out;
+      transition: 0.15s ease;
       &:first-child { radius: $radius $radius 0 0; }
-      &:hover { background-color: $darker; }
+      &:hover { c: 0 0 $darker }
     }
     // ? Reset pagination.
     .gl-pagination {
@@ -3678,32 +3678,33 @@
     }
   }
 
-  // * Merge Requests :: List.
+  // * Merge Requests -> List.
   .merge-requests-holder {
     margin-top: 10px;
     radius: $radius;
-    border: 1px solid var(--darker);
-    background-color: var(--dark);
+    border: 1px solid $darker;
+    c: 0 0 $dark;
     li:not(.page-item) {
-      transition: background 0.15s ease-in-out;
-      &:hover { background-color: var(--darker); }
+      transition: 0.15s ease;
+      &:first-child { radius: $radius $radius 0 0 }
+      &:hover { c: 0 0 $darker }
       // Approvals.
       .text-success {
-        colors: $green, 0, 0;
-        svg { fill: $green !important; }
+        c: $green;
+        svg { isvg: $green }
       }
     }
-    // Fix whitespace.
+    // ? Reset pagination.
     .gl-pagination {
       padding: 10px;
       margin-top: 0px !important;
       border-top: 1px solid $darker;
       .pagination { margin: 0px; }
     }
-    // Email a new MR.
+    // Email a new MR to this project.
     .issuable-footer {
       padding: 10px;
-      border-top: 1px solid var(--darker);
+      border-top: 1px solid $darker;
     }
   }
 
