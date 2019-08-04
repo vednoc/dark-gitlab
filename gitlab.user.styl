@@ -2813,14 +2813,17 @@
   }
 
   // * Profile -> Contribution calendar.
-  svg.contrib-calendar > g {
-    text { fill: $light; }
-    rect { fill: $accent; }
-    rect[fill="#ededed"] { opacity: 0.05; }
-    rect[fill^="rgb(17"] { opacity: 0.20; }
-    rect[fill^="rgb(12"] { opacity: 0.40; }
-    rect[fill^="rgb(82"] { opacity: 0.65; }
-    rect[fill^="rgb(37"] { opacity: 1; }
+  .calendar {
+    &-hint { c: $lighter }
+    svg.contrib-calendar > g {
+      text { fill: $light }
+      rect { fill: $accent }
+      rect[fill="#ededed"] { opacity: 0.05 }
+      rect[fill^="rgb(17"] { opacity: 0.20 }
+      rect[fill^="rgb(12"] { opacity: 0.45 }
+      rect[fill^="rgb(82"] { opacity: 0.70 }
+      rect[fill^="rgb(37"] { opacity: 1 }
+    }
   }
 
   // ? Compact projects-list.
@@ -2836,11 +2839,7 @@
   }
 
   /* Text color. */
-  .nothing-here-block,
-  .calendar-hint,
-  .content-list li {
-    color: var(--light) !important;
-  }
+  .nothing-here-block, .content-list li { c: $light }
   .nothing-here-block { padding: 8px; }
 
   // * Project -> Activity.
