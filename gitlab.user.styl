@@ -90,15 +90,15 @@
   cm = var(--lighter);
   ac  = var(--accent);
   $shadow  = var(--shadow);
-  $yellow  = var(--yellow);
-  $orange  = var(--orange);
-  $red     = var(--red);
-  $magenta = var(--magenta);
-  $violet  = var(--violet);
-  $blue    = var(--blue);
-  $cyan    = var(--cyan);
-  $green   = var(--green);
-  $white   = var(--white);
+  yellow  = var(--yellow);
+  orange  = var(--orange);
+  red     = var(--red);
+  magenta = var(--magenta);
+  voilet  = var(--violet);
+  blue    = var(--blue);
+  cyan    = var(--cyan);
+  green   = var(--green);
+  white   = var(--white);
   $radius  = var(--radius);
   $t       = var(--t);
   $box     = var(--box-shadow);
@@ -210,7 +210,7 @@
     }
     input[type="checkbox"] {
       &:checked { colors: 0 $shadow ac }
-      &:indeterminate { colors: 0 $shadow $red }
+      &:indeterminate { colors: 0 $shadow red }
     }
   }
 
@@ -357,13 +357,13 @@
   svg {
     isvg: cm;
     // Diff icons.
-    &.ic-file-addition { &, &-solid { isvg: $green }}
-    &.ic-file-modified { &, &-solid { isvg: $blue }}
-    &.ic-file-deletion { &, &-solid { isvg: $red }}
+    &.ic-file-addition { &, &-solid { isvg: green }}
+    &.ic-file-modified { &, &-solid { isvg: blue }}
+    &.ic-file-deletion { &, &-solid { isvg: red }}
   }
   .fa {
     colors: cm 0 0;
-    &[class*="online"] { colors: $green 0 0 }
+    &[class*="online"] { colors: green 0 0 }
   }
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
@@ -382,14 +382,14 @@
     &-white { colors: fg 0 0 }
     &-tertiary { colors: cm 0 0 }
     &-secondary { colors: fg 0 0 }
-    &-danger { colors: $red 0 0 }
+    &-danger { colors: red 0 0 }
   }
   .badge {
     &.unverified { colors: cm cm bg }
-    &.verified { colors: $green $green bg }
-    &-success { colors: fg 0 $green }
-    &-primary { colors: fg 0 $blue }
-    &-info { colors: fg 0 $blue }
+    &.verified { colors: green green bg }
+    &-success { colors: fg 0 green }
+    &-primary { colors: fg 0 blue }
+    &-info { colors: fg 0 blue }
     &-pill { colors: fg 0 0 }
     &.badge-pill {
       // Prevent conflicts.
@@ -398,15 +398,15 @@
         colors: cm bd bg;
       }
       // Dashboard -> Activities.
-      &.issues-count { colors: $white 0 $green }
-      &.merge-requests-count { colors: $white 0 $orange }
-      &.todos-count { colors: $white 0 $blue }
+      &.issues-count { colors: white 0 green }
+      &.merge-requests-count { colors: white 0 orange }
+      &.todos-count { colors: white 0 blue }
     }
     &-gray { colors: fg bd bd }
   }
   // Text colors.
-  .danger-title { c: $red }
-  .warning-title { c: $orange }
+  .danger-title { c: red }
+  .warning-title { c: orange }
   .cgray, .committed_ago, .hint, .help-block { c: cm }
   .light, .description-block, .task-list-item { c: fg }
   .account-btn-link, [class*="settings-sidebar"] a { c: ac 0 0 0 }
@@ -422,7 +422,7 @@
     radius: 4px;
     position: relative;
     colors: fg bd bg;
-    &.gcp-signup-offer { border-left-color: $blue !important }
+    &.gcp-signup-offer { border-left-color: blue !important }
     &.help-callout, &.shared-runners-description {
       border-left: none;
       box-shadow: 0 0 0 1px inset bd;
@@ -436,25 +436,25 @@
     }
     &&-info {
       border: none;
-      box-shadow: 0 0 0 1px inset $blue;
+      box-shadow: 0 0 0 1px inset blue;
       &::before {
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
         radius: 4px 0 0 4px;
-        border-left: 4px solid $blue;
+        border-left: 4px solid blue;
       }
     }
     &&-warning {
       border: none;
-      box-shadow: 0 0 0 1px inset $orange;
+      box-shadow: 0 0 0 1px inset orange;
       a { colors: ac 0 0 }
       &::before {
         content: "";
         position: absolute;
         top: 0; left: 0; bottom: 0;
         radius: 4px 0 0 4px;
-        border-left: 4px solid $orange;
+        border-left: 4px solid orange;
       }
     }
   }
@@ -509,36 +509,36 @@
     // Green buttons.
     &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
     &.comment-btn, .comment-btn, .commit-btn {
-      colors: $white $green $green;
+      colors: white green green;
       &:hover { opacity: 0.75; }
       .fa { color: inherit !important }
     }
     // TODO: Find where this button is located.
-    &-create.comment-btn { colors: $green $green bg; }
+    &-create.comment-btn { colors: green green bg; }
     // Blue buttons.
     &-info, &-primary, &-register {
-      colors: $white $blue $blue;
+      colors: white blue blue;
       &:hover { opacity: 0.75; }
     }
     &-primary&-inverted { c: ac ac bg }
     // Orange buttons.
     &-warning {
-      colors: $white $orange $orange;
+      colors: white orange orange;
       &:hover { opacity: 0.75; }
     }
     // Close buttons.
     &-close, &-close-color {
-      colors: $red $red bg;
-      &:hover { colors: $white 0 $red; }
+      colors: red red bg;
+      &:hover { colors: white 0 red; }
     }
     &-close-color.dropdown-toggle {
-      colors: $red $red bg;
+      colors: red red bg;
       .fa { color: inherit !important; }
-      &:hover { colors: $white 0 $red; }
+      &:hover { colors: white 0 red; }
     }
     // Remove buttons.
     &-danger, &-remove, &-red, &-inverted.btn-remove {
-      colors: $white $red $red;
+      colors: white red red;
       &:hover { opacity: 0.75; }
     }
     // Blank buttons.
@@ -579,7 +579,7 @@
   .award-control {
     &.is-active, &.user-authored { colors: fg, bd, bg; }
     // Reacted to.
-    &.active { colors: fg, $blue, bg; }
+    &.active { colors: fg, blue, bg; }
   }
 
   // * Project notifications.
@@ -592,17 +592,17 @@
 
   // Issue/Merge status.
   .status-box {
-    &-mr-merged { colors: $white, 0, $blue; }
-    &-mr-closed { colors: $white, 0, $red; }
-    &-open { colors: $white, 0, $green; }
-    &-issue-closed { colors: $white, 0, $blue; }
-    &-expired { c: $white 0 $orange }
-    &-closed { c: $white 0 $red }
+    &-mr-merged { colors: white, 0, blue; }
+    &-mr-closed { colors: white, 0, red; }
+    &-open { colors: white, 0, green; }
+    &-issue-closed { colors: white, 0, blue; }
+    &-expired { c: white 0 orange }
+    &-closed { c: white 0 red }
   }
   // Confidential icon.
   .issuable-warning-icon {
     colors: 0 0 bd;
-    svg.icon { isvg: $orange }
+    svg.icon { isvg: orange }
   }
 
   // * Global -> Random styles.
@@ -614,10 +614,10 @@
     color: ac !important;
   }
   .label-bold { color: fg; }
-  .cred { color: $red; fill: $red !important; }
-  .cblue { color: $blue; fill: $blue !important; }
-  .cgreen { color: $green; fill: $green !important; }
-  .diff-file-changed-icon { &:not(.cgreen):not(.cred) { isvg: $blue }}
+  .cred { color: red; fill: red !important; }
+  .cblue { color: blue; fill: blue !important; }
+  .cgreen { color: green; fill: green !important; }
+  .diff-file-changed-icon { &:not(.cgreen):not(.cred) { isvg: blue }}
   // ? Move to a better place.
   .option {
     &-title { c: fg }
@@ -670,7 +670,7 @@
   .form-control {
     colors: cm bd bg;
     &:focus, &.focus {
-      c: fg $blue;
+      c: fg blue;
       box-shadow: none;
       &:hover { box-shadow: none }
     }
@@ -736,7 +736,7 @@
     [id*="DialogDetail"] {
       border-width: 1px;
       colors: fg, bg, bd;
-      [id*="BodyContentTabs"] { border-color: $red; }
+      [id*="BodyContentTabs"] { border-color: red; }
       a {
         colors: ac, bg, 0;
         &:hover, &[class*="Selected"] { colors: 0, 0, bg; }
@@ -754,7 +754,7 @@
     if ( navbar_c == 1 ) { colors: 0 0 bg }
     // ? Feature -> Show 'next' badge.
     if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
-    .canary-badge .badge.badge-pill { colors: $white $green $green }
+    .canary-badge .badge.badge-pill { colors: white green green }
     // Logo text color.
     .logo-text svg, svg.nav-logo .wordmark { fill: fg !important; }
     // Search.
@@ -1056,10 +1056,10 @@
     &&-commit, &&-milestone { c: ac 0 $t }
     &&-label { c: 0 0 $t }
     &.current-user {
-      c: $white 0 ac;
+      c: white 0 ac;
       &:hover {
         text-decoration: none;
-        colors: $white 0 0;
+        colors: white 0 0;
         opacity: 0.8;
       }
     }
@@ -1239,7 +1239,7 @@
   .progress {
     colors: 0 0 bd;
     // Filled progress.
-    .bg-success { colors: fg 0 $green }
+    .bg-success { colors: fg 0 green }
   }
   // TODO: Move.
   .text-muted, .description { colors: cm 0 0 }
@@ -1265,40 +1265,40 @@
         max-width: 100%;
       }
       a {
-        color: $white;
+        color: white;
         text-decoration: underline;
       }
     }
     // Alert colors.
-    .flash-notice { colors: $white, $blue, $blue; }
-    .flash-alert { colors: $white, $red, $red; }
-    .flash-success { colors: $white, $green, $green; }
-    .alert-warning { colors: $white, $orange, $orange; }
-    .alert-link { colors: $white, 0, 0; }
+    .flash-notice { colors: white, blue, blue; }
+    .flash-alert { colors: white, red, red; }
+    .flash-success { colors: white, green, green; }
+    .alert-warning { colors: white, orange, orange; }
+    .alert-link { colors: white, 0, 0; }
     // ? Broadcasts found on `git.synz.io`.
     .broadcast-message {
       p, .fa { color: inherit !important; }
-      &[style*="background-color: #004275"] { colors: $white, 0, $blue; }
-      &[style*="background-color: #00bd7f"] { colors: $white, 0, $green; }
-      &[style*="background-color: #e75e40"] { colors: $white, 0, $orange; }
+      &[style*="background-color: #004275"] { colors: white, 0, blue; }
+      &[style*="background-color: #00bd7f"] { colors: white, 0, green; }
+      &[style*="background-color: #e75e40"] { colors: white, 0, orange; }
       &[style*="background-color: #f4f4f4"] { colors: fg, 0, bd; }
     }
   }
   // Found in IDE when page doesn't load properly.
   .flash-container {
     .flash-alert {
-      colors: $white 0 $red;
-      .flash-action { colors: $white 0 0 }
+      colors: white 0 red;
+      .flash-action { colors: white 0 0 }
     }
   }
   // Green alerts.
   .alert-success {
-    colors: $white, $green, $green;
+    colors: white, green, green;
     &.prepend-top-default { radius: $radius; }
   }
   // Customers page, possible refactor.
-  .alert-danger { colors: $white, $red, $red; }
-  .alert-info { colors: 0, $blue, bg; }
+  .alert-danger { colors: white, red, red; }
+  .alert-info { colors: 0, blue, bg; }
 
   // * Bootstrap breadcrumbs.
   .breadcrumbs {
@@ -1384,12 +1384,12 @@
         .epic-timeline-cell { colors: fg, bg, 0; }
         // ? Bars.
         .timeline-bar {
-          colors: 0, 0, $blue;
+          colors: 0, 0, blue;
           &.start-date-undefined { background: linear-gradient(
-            to right, #55555510 0%, #55555530 50%, $blue 100%
+            to right, #55555510 0%, #55555530 50%, blue 100%
           ) !important; }
           &.end-date-undefined { background: linear-gradient(
-            to right, $blue 0%, #55555530 50%, #55555510 100%
+            to right, blue 0%, #55555530 50%, #55555510 100%
           ) !important; }
         }
       }
@@ -1493,7 +1493,7 @@
       colors: 0 0 bg;
       .card-header {
         radius: $radius $radius 0 0;
-        colors: $white 0 ac;
+        colors: white 0 ac;
       }
       .card-body {
         radius: 0 0 $radius $radius;
@@ -1501,7 +1501,7 @@
         .feature-list li { colors: 0 0 $t }
         // Pricing.
         .price-per-month { colors: ac 0 0 }
-        .price-per-year { colors: $green 0 0 }
+        .price-per-year { colors: green 0 0 }
         // Borders.
         ../.current .card-body { colors: 0 ac 0 }
         ../:not(.current) .card-body { colors: 0 bd 0 }
@@ -1669,7 +1669,7 @@
     &.open {
       c: 0 ac ac;
       box-shadow: none;
-      svg { isvg: $white }
+      svg { isvg: white }
     }
     &:focus { outline: none }
   }
@@ -1701,7 +1701,7 @@
         time, .commit-row-message { colors: cm, 0, 0; }
       }
     }
-    .btn.btn-remove { colors: $white $red $red }
+    .btn.btn-remove { colors: white red red }
     .branch-commit .commit-row-message { colors: fg, 0, 0; }
     // Select next sibling and reset the colors.
     & + .card-footer.text-center {
@@ -1771,8 +1771,8 @@
         text { fill: fg; }
       }
       // Graph colors.
-      .area { isvg: $green }
-      .area-contributor { isvg: $orange }
+      .area { isvg: green }
+      .area-contributor { isvg: orange }
     }
   }
 
@@ -1784,7 +1784,7 @@
     .controls { c: 0 bd bd }
     // Graph background.
     .network-graph {
-      isvg: $red;
+      isvg: red;
       c: 0 0 bg;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
@@ -1887,7 +1887,7 @@
     for i in 0..9 {
       .legend-box-{i},
       .blame-commit-age-{i}::before {
-        colors: 0 0 $green;
+        colors: 0 0 green;
         opacity: s(("0.%s99"), i);
       }
     }
@@ -1915,12 +1915,12 @@
     // Deleted branch.
     .limit-box {
       radius: $radius;
-      c: $white 0 $orange;
+      c: white 0 orange;
       svg {
         margin-top: 3px;
-        isvg: $white;
+        isvg: white;
       }
-      .fa { c: $white }
+      .fa { c: white }
     }
     // Resets.
     .branch-link { margin-bottom: 0 }
@@ -1932,8 +1932,8 @@
   // TODO: Remove #sc after refactoring content lists.
   .gpg-status-box:not(#sc) {
     &.valid {
-      c: $green $green bg;
-      &:hover { c: $white 0 $green }
+      c: green green bg;
+      &:hover { c: white 0 green }
     }
     &.invalid, &.invalid:focus {
       c: cm bd bg;
@@ -1949,12 +1949,12 @@
     &-header { colors: 0, bd, bd; }
     &-body {
       c: fg 0 0;
-      ../.blue { c: 0 0 $blue }
+      ../.blue { c: 0 0 blue }
     }
     // Blue popouts?
     .arrow {
       color: bg;
-      ../.blue .arrow { c: $blue }
+      ../.blue .arrow { c: blue }
     }
     &[class*="-top"] {
       .arrow::before { border-top-color: bd !important; }
@@ -1988,8 +1988,8 @@
       box-shadow: inset 0 0 0 1px bd;
     }
     .progress { c: 0 0 bd }
-    .bg-info { c: 0 0 $blue }
-    .text-info { c: $blue }
+    .bg-info { c: 0 0 blue }
+    .text-info { c: blue }
     .qa-toggle-btn {
       c: 0 0 $t;
       &:hover svg { isvg: fg }
@@ -2027,8 +2027,8 @@
       .code .line a { color: ac; }
       // Inline diffs.
       .idiff { c: fg }
-      .new .idiff, .idiff.addition { c: 0 0 $green }
-      .old .idiff, .idiff.deletion { c: 0 0 $red }
+      .new .idiff, .idiff.addition { c: 0 0 green }
+      .old .idiff, .idiff.deletion { c: 0 0 red }
     }
     // ? Fix borders on expanded sections.
     &-expanded { & > td, & + :not(&) > td { colors: 0, bd, 0; }}
@@ -2040,8 +2040,8 @@
     .frame {
       c: 0 0 bd;
       // Added/removed images.
-      &.deleted { c: 0 $red }
-      &.added { c: 0 $green }
+      &.deleted { c: 0 red }
+      &.added { c: 0 green }
       // Broken image.
       img {
         background: none !important;
@@ -2095,13 +2095,13 @@
     // Fix button background.
     .note-action-button { colors: 0, 0, $t; }
     // Alerts -> Command alerts.
-    .flash-container .flash-notice { colors: $white 0 $blue }
+    .flash-container .flash-notice { colors: white 0 blue }
     // Confidential issue warning.
     .new-note .issuable-note-warning {
       padding: 6px 8px 4px;
       radius: $radius $radius 0 0;
-      colors: $orange bd bg;
-      svg.icon { isvg: $orange }
+      colors: orange bd bg;
+      svg.icon { isvg: orange }
       // Reset corners in confidential issues.
       + .md-area { radius: 0 0 $radius $radius }
     }
@@ -2121,7 +2121,7 @@
 
   // Notes -> Discussion.
   .discussion {
-    &-header { c: 0 $yellow } // Seems to no longer be necessary.
+    &-header { c: 0 yellow } // Seems to no longer be necessary.
     &-headline-light {
       c: fg;
     }
@@ -2157,8 +2157,8 @@
     .md-suggestion-diff { c: 0 bd }
     span > code:not([class]) { c: 0 0 bd }
     // Added/removed/changed things in discussions.
-    .idiff.addition { c: fg 0 $green }
-    .idiff.deletion { c: fg 0 $red }
+    .idiff.addition { c: fg 0 green }
+    .idiff.deletion { c: fg 0 red }
   }
 
   // * Issues :: Conversation notes.
@@ -2260,7 +2260,7 @@
       }
     }
     caption { c: cm }
-    mark { c: $white 0 ac }
+    mark { c: white 0 ac }
     p >, a >, :not(pre) > { code { colors: fg bd bd }}
     blockquote:not(#sc) {
       c: cm bd;
@@ -2385,7 +2385,7 @@
       line-height: 16px;
       text-transform: capitalize;
       &[class*="-date-"] { margin-top: -2px }
-      &[class*="-remove"] { colors: $red 0 0 }
+      &[class*="-remove"] { colors: red 0 0 }
     }
     abbr.value-type-dynamic {
       colors: cm 0 0;
@@ -2513,8 +2513,8 @@
       }
       .clone-dropdown-btn {
         font-size: 14px;
-        colors: $white $green $green;
-        svg { isvg: $white 0 }
+        colors: white green green;
+        svg { isvg: white 0 }
       }
     }
   }
@@ -2626,7 +2626,7 @@
   // ? Service Desk -> Forward...
   #js-service-desk .card-header {
     radius: $radius;
-    colors: $orange, bd, bd;
+    colors: orange, bd, bd;
     h3 {
       margin: 0.75rem 0;
       font-size: 1.0rem;
@@ -2652,7 +2652,7 @@
     // Remove unnecessary underline.
     &.color-label { text-decoration: none !important; }
     // Apply everywhere except on color-label elements.
-    &:not(.color-label) { c: $white }
+    &:not(.color-label) { c: white }
     // Hack for darkening background color.
     &:not(.badge-pill):not(.available) {
       // transition: 0.15s ease;
@@ -2686,8 +2686,8 @@
         }
         // Diff -> Renamed file names. #43
         .idiff {
-          &.addition { colors: $green 0 $t }
-          &.deletion { colors: $red 0 $t }
+          &.addition { colors: green 0 $t }
+          &.deletion { colors: red 0 $t }
         }
       }
     }
@@ -3213,8 +3213,8 @@
     box-shadow: 0 0 0 1px inset bd;
     .suggestion {
       colors: ac 0 0;
-      &-state-open { isvg: $green 0 }
-      &-state-closed { isvg: $red 0 }
+      &-state-open { isvg: green 0 }
+      &-state-closed { isvg: red 0 }
     }
   }
 
@@ -3222,7 +3222,7 @@
   .filtered-search-box {
     radius: $radius;
     colors: 0, bd, bg;
-    &.focus { &, &:hover { colors: 0 $blue 0; box-shadow: none; }}
+    &.focus { &, &:hover { colors: 0 blue 0; box-shadow: none; }}
     // Fix corners.
     [class*="history-dropdown-toggle-button"] { radius: $radius 0 0 $radius }
     &-input-container .filtered-search { radius: 0 $radius $radius 0 }
@@ -3268,7 +3268,7 @@
   }
   // Time tracking.
   .time_tracker {
-    .progress .bg-primary { colors: 0 0 $blue }
+    .progress .bg-primary { colors: 0 0 blue }
     .compare-label { colors: cm 0 0 }
     .compare-value { colors: fg 0 0 }
     .time-tracking-help-state { colors: 0 bd bg }
@@ -3310,8 +3310,8 @@
   .issue-count-badge, .mr-count-badge { c: 0 bd }
   .related-items-list {
     .path-id-text, .item-path-id { colors: fg, 0, 0; }
-    .open { fill: $green !important; }
-    .closed { fill: $red !important; }
+    .open { fill: green !important; }
+    .closed { fill: red !important; }
   }
   // Epic Related Issues
   .sortable-container { background-color: bd; }
@@ -3495,7 +3495,7 @@
     .label {
       // Badges.
       &-badge-gray { colors: fg bd bd }
-      &-badge-blue { colors: $white $blue $blue }
+      &-badge-blue { colors: white blue blue }
       &-subscribe-button[data-toggle] {
         width: auto;
         padding: 3px 8px ;
@@ -3606,7 +3606,7 @@
     box-shadow: $inner;
     text { fill: fg; }
     .axis {
-      &-label text { colors: $red, 0, 0; }
+      &-label text { colors: red, 0, 0; }
       &-label line, line, path { stroke: cm; }
     }
     // ? Legend!
@@ -3696,8 +3696,8 @@
       &:hover { c: 0 0 bd }
       // Approvals.
       .text-success {
-        c: $green;
-        svg { isvg: $green }
+        c: green;
+        svg { isvg: green }
       }
     }
     // ? Reset pagination.
@@ -3742,7 +3742,7 @@
   }
   // Resolved state icons.
   .line-resolve-btn {
-    &.is-active svg { isvg: $green }
+    &.is-active svg { isvg: green }
     &.is-disabled svg { isvg: cm }
   }
 
@@ -3781,7 +3781,7 @@
     radius: $radius;
     colors: fg, bd, bg;
     a[href] { color: ac }
-    [class*="warning"] { colors: $orange, $t, $t; }
+    [class*="warning"] { colors: orange, $t, $t; }
   }
   /* Text color. */
   .timeline .system-note .note-text,
@@ -3851,7 +3851,7 @@
     .report-block-container {
       padding: 0;
       colors: 0 bd $t;
-      .failed svg { isvg: $red 0 }
+      .failed svg { isvg: red 0 }
     }
     .mr-source-target {
       padding: 8px;
@@ -3873,7 +3873,7 @@
         // MR you can't merge.
         > .mr-widget-body { padding: 8px }
         > .mr-widget-info { padding: 0 8px }
-        .danger_message { colors: $red $red bd }
+        .danger_message { colors: red red bd }
       }
       // Remove extra padding.
       .media-section > .media { padding: 0px !important; }
@@ -3986,7 +3986,7 @@
     &.parallel > td:nth-child(3) { box-shadow: -1px 0 bd }
   }
   /* Text colors. */
-  .diff-stats-summary-toggler { color: $blue !important; }
+  .diff-stats-summary-toggler { color: blue !important; }
 
   // * Snippets
   .project-snippets {
@@ -4103,7 +4103,7 @@
     // Highlighted line.
     .ace_gutter-active-line, .ace_active-line { colors: 0, 0, bd; }
     .ace_selected-word, .ace_selection {
-      c: 0 0 $blue;
+      c: 0 0 blue;
       opacity: 0.6;
     }
     .ace_cursor { c: ac }
@@ -4146,11 +4146,11 @@
     &_line { colors: cm, 0, 0; }
     &_support&_function { colors: bd, 0, 0; }
     &_support&_type { colors: cm, 0, 0; }
-    &_meta&_tag { colors: $blue, 0, 0; }
-    &_string, &_comment { colors: $green, 0, 0; }
-    &_heading, &_storage, &_keyword { colors: $blue, 0, 0; }
-    &_list { colors: $magenta, 0, 0; }
-    &_variable { colors: $green, 0, 0; }
+    &_meta&_tag { colors: blue, 0, 0; }
+    &_string, &_comment { colors: green, 0, 0; }
+    &_heading, &_storage, &_keyword { colors: blue, 0, 0; }
+    &_list { colors: magenta, 0, 0; }
+    &_variable { colors: green, 0, 0; }
     &_constant, &_numeric { colors: fg, 0, 0; }
   }
 
@@ -4231,11 +4231,11 @@
         position: absolute;
         top: 0; left: 0; bottom: 0;
         radius: $radius 0 0 $radius;
-        border-left: 4px solid $blue;
+        border-left: 4px solid blue;
       }
     }
-    .alert-warning { colors: 0, $red, bg; }
-    .alert.alert-success { colors: 0, $violet, $violet; }
+    .alert-warning { colors: 0, red, bg; }
+    .alert.alert-success { colors: 0, voilet, voilet; }
     // Reset *introduced in...* blockquotes.
     blockquote {
       padding: 16px;
@@ -4294,7 +4294,7 @@
       .file-content {
         max-width: unset !important;
         // outline-offset: -1px;
-        // outline: 1px solid $yellow;
+        // outline: 1px solid yellow;
       }
     }
   }
@@ -4439,8 +4439,8 @@
     background-color: var(--dark);
     > code {
       colors: cm, 0, 0;
-      .term-fg-l-green { colors: $green, 0, 0; }
-      .term-fg-red { colors: $red, 0, 0; }
+      .term-fg-l-green { colors: green, 0, 0; }
+      .term-fg-red { colors: red, 0, 0; }
     }
   }
   .build-page .environment-information {
@@ -4584,12 +4584,12 @@
   .monaco-editor {
     .mtk1, .mtk3 { color: fg; }
     .mtk10 { color: cm; }
-    .mtk4, .mtk20 { color: $red; }
-    .mtk8 { color: $green; }
-    .mtk5, .mtk6, .mtk23 { color: $blue; }
-    .mtk14 { color: $magenta; }
-    .mtk22, .mtk12 { color: $cyan; }
-    .mtk11 { color: $orange; }
+    .mtk4, .mtk20 { color: red; }
+    .mtk8 { color: green; }
+    .mtk5, .mtk6, .mtk23 { color: blue; }
+    .mtk14 { color: magenta; }
+    .mtk22, .mtk12 { color: cyan; }
+    .mtk11 { color: orange; }
   }
 
   // * Project :: Code view.
@@ -4605,7 +4605,7 @@
     .line-numbers, .diff-line-num {
       &, a { colors: cm, 0, $t; }
       // ? Add left border to right section in parralel diff view.
-      &:nth-child(3) { border-left: 1px solid $red !darker; }
+      &:nth-child(3) { border-left: 1px solid red !darker; }
     }
     // ? Code wrapper.
     .line_holder {
@@ -4621,8 +4621,8 @@
           top: 0; right: 0; bottom: 0; left: 0;
           position: absolute;
         }
-        &.old::after { colors: 0, 0, $red; }
-        &.new::after { colors: 0, 0, $green; }
+        &.old::after { colors: 0, 0, red; }
+        &.new::after { colors: 0, 0, green; }
       }
       // Gutters for added/removed sections.
       .diff-line-num.old, .diff-line-num.new {
@@ -4637,8 +4637,8 @@
           top: 0; right: 0; bottom: 0; left: 0;
           position: absolute;
         }
-        &.old::after { colors: 0, 0, $red; }
-        &.new::after { colors: 0, 0, $green; }
+        &.old::after { colors: 0, 0, red; }
+        &.new::after { colors: 0, 0, green; }
       }
       // Rounded corners.
       &:last-child > td {
@@ -4661,22 +4661,22 @@
       }
     }
     // Removed/added.
-    .gd::before { colors: 0, 0, $red; }
-    .gi::before { colors: 0, 0, $green; }
+    .gd::before { colors: 0, 0, red; }
+    .gi::before { colors: 0, 0, green; }
   }
 
   // * Project :: Code syntax highlighting.
   .code.white {
     .n, .gh, .s2, .gp { color: fg; }
     .s, .c, .cp, .c1, .nn, .go { color: cm; }
-    .m, .nv, .na, .mf { color: $cyan; }
-    .nb, .nc, .kt { color: $blue; }
-    .ss, .s1, .se, .gu, .nd { color: $magenta; }
-    .sx, .sb, .sh, .nf, .gt, .sd { color: $red; }
-    .nt, .si, .mi { color: $violet; }
+    .m, .nv, .na, .mf { color: cyan; }
+    .nb, .nc, .kt { color: blue; }
+    .ss, .s1, .se, .gu, .nd { color: magenta; }
+    .sx, .sb, .sh, .nf, .gt, .sd { color: red; }
+    .nt, .si, .mi { color: voilet; }
     .err {
       colors: 0, 0, $t;
-      box-shadow: inset 0 -2px 0 0 $red;
+      box-shadow: inset 0 -2px 0 0 red;
     }
   }
 
@@ -4722,7 +4722,7 @@
   // * Pipelines -> Mini-pipelines.
   .mini-pipeline-graph-dropdown-toggle {
     colors: 0 0 bg;
-    &:focus { box-shadow: 0 0 4px 1px $blue !important }
+    &:focus { box-shadow: 0 0 4px 1px blue !important }
     // * Pipelines -> Stages. Old info in #22.
     + .mini-pipeline-graph-dropdown-menu {
       // Indicator.
@@ -4973,7 +4973,7 @@
       path, line { isvg: false cm }
       rect {
         fill: $t !important;
-        &.bar-rect { isvg: bd $blue }
+        &.bar-rect { isvg: bd blue }
         &[fill="#fff" i] { isvg: bg false }
       }
     }
@@ -5027,23 +5027,23 @@
     // Colors!
     &.ci-success,
     &-icon-success, &-icon-passed {
-      colors: $green $green 0;
-      svg { isvg: $green }
+      colors: green green 0;
+      svg { isvg: green }
     }
     &.ci-running,
     &-icon-running {
-      colors: $blue $blue 0;
-      svg { isvg: $blue }
+      colors: blue blue 0;
+      svg { isvg: blue }
     }
     &.ci-success-with-warnings, &-icon-failed-with-warnings,
     &-icon-pending, &-icon-warning, &-icon-success-with-warnings {
-      colors: $orange $orange 0;
-      svg { isvg: $orange }
+      colors: orange orange 0;
+      svg { isvg: orange }
     }
     &.ci-failed,
     &-icon-failed {
-      colors: $red $red 0;
-      svg { isvg: $red }
+      colors: red red 0;
+      svg { isvg: red }
     }
     &.ci-created, &.ci-skipped, &.ci-canceled, &.ci-disabled, &.ci-manual {
       colors: cm cm 0;
@@ -5061,22 +5061,22 @@
   }
   // * Icons -> Borderless CI status icons.
   .ic-status {
-    &_warning_borderless { colors: 0 $orange 0 }
-    &_success_borderless { colors: 0 $green 0 }
-    &_running_borderless { colors: 0 $blue 0 }
-    &_failed_borderless { colors: 0 $red 0 }
+    &_warning_borderless { colors: 0 orange 0 }
+    &_success_borderless { colors: 0 green 0 }
+    &_running_borderless { colors: 0 blue 0 }
+    &_failed_borderless { colors: 0 red 0 }
   }
   // Icons in epics.
-  .issue-token-state-icon-open { fill: $green !important; }
-  .issue-token-state-icon-closed { fill: $blue !important; }
+  .issue-token-state-icon-open { fill: green !important; }
+  .issue-token-state-icon-closed { fill: blue !important; }
   // Icons in activities.
-  .commented-on-icon svg { fill: $blue !important; }
-  .created-icon svg { fill: $cyan !important; }
-  .opened-icon svg { fill: $green !important; }
-  .closed-icon svg { fill: $red !important; }
-  .accepted-icon svg { fill: $cyan !important; }
-  .deleted-icon svg { fill: $yellow !important; }
-  .imported-icon svg { fill: $violet !important; }
+  .commented-on-icon svg { fill: blue !important; }
+  .created-icon svg { fill: cyan !important; }
+  .opened-icon svg { fill: green !important; }
+  .closed-icon svg { fill: red !important; }
+  .accepted-icon svg { fill: cyan !important; }
+  .deleted-icon svg { fill: yellow !important; }
+  .imported-icon svg { fill: voilet !important; }
 
   // * Centers project header elements; old design lookalike.
   if ( p_header == 1 ) {
@@ -5185,9 +5185,9 @@
   .times { c: cm }
   .list {
     &-title {
-      c: $white 0 $blue;
+      c: white 0 blue;
       h3 { color: inherit !important }
-      &.secondary { c: 0 0 $violet }
+      &.secondary { c: 0 0 voilet }
     }
     &-info {
       radius: 0 0 3px 3px;
@@ -5196,18 +5196,18 @@
   }
   .btn {
     &:hover { opacity: 0.8 }
-    &-gitlab.secondary { c: $white $violet $violet }
+    &-gitlab.secondary { c: white voilet voilet }
     &-gitlab.primary {
-      c: $white bd $blue;
+      c: white bd blue;
       transition: 0.15s ease;
     }
   }
   .pricing-category-ruler {
-    .ruler { c: 0 0 $violet }
-    .label { c: $violet }
+    .ruler { c: 0 0 voilet }
+    .label { c: voilet }
     &.com {
-      .ruler { c: 0 0 $blue }
-      .label { c: $blue }
+      .ruler { c: 0 0 blue }
+      .label { c: blue }
     }
   }
   .buy-ci-minutes {
@@ -5227,7 +5227,7 @@
     // Left column.
     .subscription-total {
       c: 0 bd;
-      .total-amount { c: $blue }
+      .total-amount { c: blue }
     }
     // Right column.
     .chosen-container {
@@ -5304,7 +5304,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      background-image: linear-gradient(160deg, $yellow -50%, ac 200%);
+      background-image: linear-gradient(160deg, yellow -50%, ac 200%);
     }
     img {
       opacity: 1 !important;
@@ -5358,14 +5358,14 @@
       p a, p a > a { colors: ac, 0, 0; }
     }
     .btn {
-      &-red { colors: fg $red bd }
+      &-red { colors: fg red bd }
       &-default { colors: fg bd 0 }
     }
     .twitter-block .panel-body { colors: cm, 0, bd; }
     // Availability of the features.
     .badge:not(.available) { colors: fg bd bg }
-    .top-row .badge.available { colors: $white $red $red }
-    .bottom-row .badge.available { colors: $white $orange $orange }
+    .top-row .badge.available { colors: white red red }
+    .bottom-row .badge.available { colors: white orange orange }
     // Previous/next buttons.
     .pull-left a, .pull-right a { colors: fg, bd, bg; }
     // Signup section.
@@ -5474,7 +5474,7 @@
   .simple-header, .blank-header {
     z-index: 1;
     &, &::after {
-      background-image: linear-gradient(60deg, $orange -100%, $violet 200%);
+      background-image: linear-gradient(60deg, orange -100%, voilet 200%);
       background-color: bg;
     }
     h1 { text-shadow: 2.5px 2.5px 0 $shadow; }
@@ -5501,7 +5501,7 @@
     .highlight {
       colors: fg bd bg;
       > code { colors: 0 $t $t }
-      .err { colors: $white 0 $red }
+      .err { colors: white 0 red }
     }
     li {
       colors: cm, 0, 0;
@@ -5552,7 +5552,7 @@
   }
   // Plans.
   .plan-row .plan {
-    colors: cm, $orange, bg;
+    colors: cm, orange, bg;
     box-shadow: inset 0 0 0 1px bd;
     li > a { color: ac; }
     .btn-pricing { colors: ac, ac, 0; }
@@ -5634,11 +5634,11 @@
     transition: 0.15s ease;
     radius: $radius;
     &.orange {
-      colors: $white $orange $orange;
+      colors: white orange orange;
       &:hover { opacity: 0.8 }
     }
     &.accent {
-      colors: $white ac ac;
+      colors: white ac ac;
       &:hover { opacity: 0.8 }
     }
   }
@@ -5646,13 +5646,13 @@
     colors: fg, bd, bd;
   }
   .panel-success > .panel-heading {
-    colors: cm, $green, $green;
+    colors: cm, green, green;
     .panel-title {
       color: cm !important;
     }
   }
   .panel-warning > .panel-heading {
-    colors: cm, $orange, $orange;
+    colors: cm, orange, orange;
     .panel-title {
       color: cm !important;
     }
@@ -5691,7 +5691,7 @@
       .st-ui-type-heading {
         colors: ac 0 0;
         em {
-          colors: $white 0 ac;
+          colors: white 0 ac;
           box-shadow: inset 0 -1px ac;
         }
       }
@@ -5888,9 +5888,9 @@
   }
   // Number of views.
   .heatmap {
-    &-high { &, span { colors: $red 0 0 }}
-    &-med { &, span { colors: $orange 0 0 }}
-    &-low { &, span { colors: $yellow 0 0 }}
+    &-high { &, span { colors: red 0 0 }}
+    &-med { &, span { colors: orange 0 0 }}
+    &-low { &, span { colors: yellow 0 0 }}
   }
   // Last visit.
   .topic-list .topic-list-item-separator td {
@@ -5952,9 +5952,9 @@
       h3 { colors: ac 0 0 }
     }
     .badge-contents .badge-icon {
-      &.badge-type-gold .fa { colors: $yellow 0 0 }
+      &.badge-type-gold .fa { colors: yellow 0 0 }
       &.badge-type-silver .fa { colors: fg 0 0 }
-      &.badge-type-bronze .fa { colors: $orange 0 0 }
+      &.badge-type-bronze .fa { colors: orange 0 0 }
     }
   }
 
@@ -6007,7 +6007,7 @@
     }
     .save-or-cancel .cancel {
       colors: cm 0 0
-      &:hover { colors: $red 0 0 }
+      &:hover { colors: red 0 0 }
     }
   }
   .select-kit.dropdown-select-box {
@@ -6034,7 +6034,7 @@
     }
   }
   .stats-section .value { colors: fg 0 0 }
-  .user-main .d-icon-heart { colors: $red 0 0 }
+  .user-main .d-icon-heart { colors: red 0 0 }
   // Top borders.
   .top-sub-section li { colors: 0 bd 0 }
   // Other usernames.
@@ -6103,7 +6103,7 @@
     // History.
     &.history-modal {
       #revision-details, tbody { colors: 0 $shadow 0 }
-      .diff-ins { colors: cm 0 $green }
+      .diff-ins { colors: cm 0 green }
     }
   }
 
@@ -6288,7 +6288,7 @@
       color: cm;
       box-shadow: none !important;
       transition: all 0.15s ease-in-out;
-      &:visited { colors: $violet 0 0 }
+      &:visited { colors: voilet 0 0 }
       &:hover, &:focus { colors: fg, 0, bd; }
     }
     .nav-link {
@@ -6394,14 +6394,14 @@
     // Syntax highlighting.
     code, .na, .c { colors: cm, 0, 0; }
     .n, .p, .nb { colors: fg, 0, 0; }
-    .pi { colors: $red, 0, 0; }
-    .no { colors: $violet, 0, 0; }
+    .pi { colors: red, 0, 0; }
+    .no { colors: voilet, 0, 0; }
     .na { colors: cm, 0, 0; }
-    .s1, .s2 { colors: $green, 0, 0; }
-    .kp, .k { colors: $violet, 0, 0; }
-    .nt { colors: $blue, 0, 0; }
-    .se, .err { colors: $orange, 0, 0; }
-    .o { colors: $cyan, 0, 0; }
+    .s1, .s2 { colors: green, 0, 0; }
+    .kp, .k { colors: voilet, 0, 0; }
+    .nt { colors: blue, 0, 0; }
+    .se, .err { colors: orange, 0, 0; }
+    .o { colors: cyan, 0, 0; }
   }
 }
 
@@ -6422,10 +6422,10 @@
   }
 
   // * Status bar.
-  [style*="background:#C44031"] { colors: 0, 0, $red; }
-  [style*="background:#27AE60"] { colors: 0, 0, $green; }
-  [style*="background:#00AAF0"] { colors: 0, 0, $blue; }
-  [style*="background:#FFA837"] { colors: 0, 0, $yellow; }
+  [style*="background:#C44031"] { colors: 0, 0, red; }
+  [style*="background:#27AE60"] { colors: 0, 0, green; }
+  [style*="background:#00AAF0"] { colors: 0, 0, blue; }
+  [style*="background:#FFA837"] { colors: 0, 0, yellow; }
 
   // * About section.
   .section_border_1 {
@@ -6434,7 +6434,7 @@
     // Icons and text elements nested within them.
     .fa {
       span { colors: fg, 0, 0; }
-      &-check { colors: $green, 0, 0; }
+      &-check { colors: green, 0, 0; }
     }
   }
 
@@ -6475,8 +6475,8 @@
   }
 
   // * Labels.
-  .label-success { colors: fg, 0, $green; }
-  .label-info { colors: fg, 0, $blue; }
+  .label-success { colors: fg, 0, green; }
+  .label-info { colors: fg, 0, blue; }
 
   // * Rounded corners.
   .make_round {
@@ -6511,7 +6511,7 @@
       + label { colors: 0, 0, bd; }
       + label::after { colors: 0, 0, bd; }
       + label::before { colors: 0, 0, bg; }
-      &:checked + label::before { colors: 0, 0, $blue; }
+      &:checked + label::before { colors: 0, 0, blue; }
     }
   }
   .footer a { colors: fg, 0, 0; }
