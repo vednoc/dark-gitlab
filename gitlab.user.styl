@@ -82,14 +82,15 @@
     --background: bg_image;
   }
 
-  // * Use stylus-lang variables with CSS variables.
-
+  // Overwrite existing Stylus-lang vars with CSS vars.
   bg      = var(--dark);
   bd      = var(--darker);
+  hl      = #323232; // TODO: Implement a highlight color.
   fg      = var(--light);
   cm      = var(--lighter);
   ac      = var(--accent);
-  $shadow = var(--shadow);
+  sh      = var(--shadow);
+  bsh     = 0 2px 4px sh;
   yellow  = var(--yellow);
   orange  = var(--orange);
   red     = var(--red);
@@ -103,15 +104,6 @@
   t       = var(--t);
   outer   = 0 0 0 1px bd;
   inner   = inset outer;
-
-  fg = fg;
-  cm = cm;
-  bg = bg;
-  hl = #323232;
-  bd = bd;
-  ac = ac;
-  fg = fg;
-
 
   // * Color mixin; use the new one.
   // ? All colors -> `colors: fg bd bg;`
@@ -205,11 +197,11 @@
     }
     input[type="radio"] {
       border-radius: 100% !important;
-      &:checked { colors: 0 $shadow ac }
+      &:checked { colors: 0 sh ac }
     }
     input[type="checkbox"] {
-      &:checked { colors: 0 $shadow ac }
-      &:indeterminate { colors: 0 $shadow red }
+      &:checked { colors: 0 sh ac }
+      &:indeterminate { colors: 0 sh red }
     }
   }
 
@@ -723,7 +715,7 @@
   // * Cookies.
   #CybotCookiebotDialog {
     colors: fg, 0, bd;
-    box-shadow: 0 0 4px 0 $shadow;
+    box-shadow: 0 0 4px 0 sh;
     // Buttons.
     [id*="ButtonsSelectPane"] { colors: 0, bg, bg; }
     // Show/hide details button.
@@ -748,7 +740,7 @@
   // * Navbar.
   .navbar {
     colors: 0 bd 0;
-    box-shadow: 0 2px 4px 0 $shadow !important;
+    box-shadow: bsh !important;
     // ? Feature -> Theme navbar color.
     if ( navbar_c == 1 ) { colors: 0 0 bg }
     // ? Feature -> Show 'next' badge.
@@ -892,7 +884,7 @@
   .dropdown-menu {
     rad: r;
     colors: 0, bd, bg;
-    box-shadow: 0 4px 8px 0 $shadow;
+    box-shadow: 0 4px 8px 0 sh;
     // ? Height reset.
     &-selectable.show { max-height: unset !important; }
     &, &-nav { max-height: 352px !important }
@@ -906,7 +898,7 @@
       colors: fg, bd, bg;
       &:focus {
         colors: 0 ac 0;
-        box-shadow: 0 2px 4px 0 $shadow;
+        box-shadow: bsh;
       }
     }
     // ? Body/Content.
@@ -1183,7 +1175,7 @@
       &:hover > td { colors: fg, 0, bd; }
     }
     // Highlighted odd rows.
-    &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 $shadow; }
+    &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 sh; }
     // Remove extra margin.
     > .table { margin-bottom: 0px; }
     // Imported projects.
@@ -1358,7 +1350,7 @@
       colors: cm, bd, bg;
       box-shadow: -1px 0 0 0 inset bd;
       &::before { colors: 0, bd, 0; }
-      &::after { background: linear-gradient(to right, $shadow 0%, t 100%); }
+      &::after { background: linear-gradient(to right, sh 0%, t 100%); }
     }
     // Timeline items.
     .timeline-header-item {
@@ -1374,7 +1366,7 @@
       .epic-details-cell {
         colors: 0, bd, bg;
         box-shadow: -1px 0 0 0 inset bd;
-        &::after { background: linear-gradient(to right, $shadow 0%, t 100%); }
+        &::after { background: linear-gradient(to right, sh 0%, t 100%); }
         .epic-url { colors: fg, 0, 0; }
         .epic-timeframe { colors: cm, 0, 0; }
       }
@@ -1568,7 +1560,7 @@
     }
   }
   // ? Drop some shadow; use transparent avatars for best results.
-  img.avatar { filter: drop-shadow(1px 1px 2px $shadow); }
+  img.avatar { filter: drop-shadow(1px 1px 2px sh); }
   // ? Hover event for content list and group list.
   li:not(.group-row), .group-row-contents {
     &:hover .avatar:not(img) { c: 0 0 bg }
@@ -1852,11 +1844,11 @@
   // * Global -> Close buttons.
   .close {
     transition: 0.15s ease;
-    text-shadow: 0 1px 0 $shadow;
+    text-shadow: 0 1px 0 sh;
     &, &:hover, &:focus { colors: cm 0 0 }
     // Non-modal.
     &:not(:disabled):not(.disabled) .fa {
-      text-shadow: 0 1px 0 $shadow;
+      text-shadow: 0 1px 0 sh;
       transform: translateY(-5px);
     }
   }
@@ -1944,7 +1936,7 @@
   .popover {
     font-family: var(--ui-font);
     colors: 0, bd, bg;
-    box-shadow: 0 4px 8px 0 $shadow;
+    box-shadow: 0 4px 8px 0 sh;
     &-header { colors: 0, bd, bd; }
     &-body {
       c: fg 0 0;
@@ -1980,7 +1972,7 @@
   // Popover -> Tour.
   .onboarding-helper-container {
     c: 0 0 bg;
-    box-shadow: inner, 0 4px 8px 0 $shadow;
+    box-shadow: inner, 0 4px 8px 0 sh;
     .avatar {
       rad: 50% !important;
       c: 0 0 bd;
@@ -2245,7 +2237,7 @@
     kbd {
       border: 1px solid;
       c: cm bd bd;
-      box-shadow 0 1px 0 $shadow, inset 0 0 0 2px bg !important;
+      box-shadow 0 1px 0 sh, inset 0 0 0 2px bg !important;
     }
     pre {
       &:not([class]) {
@@ -2333,7 +2325,7 @@
       > li:not(.fly-out-top-item).is-showing-fly-out .sidebar-sub-level-items {
         rad: 0 r r 0;
         colors: 0, bd, bg;
-        box-shadow: 2px 2px 2px 0 $shadow;
+        box-shadow: 2px 2px 2px 0 sh;
       }
       > li.is-over > a { colors: 0, 0, bd; }
       // Badges.
@@ -2718,7 +2710,7 @@
       colors: 0, bd, bg;
     }
     kbd {
-      colors: ac, bg, $shadow;
+      colors: ac, bg, sh;
       box-shadow: none;
     }
   }
@@ -3363,14 +3355,14 @@
   .emoji-menu {
     rad: r;
     colors: 0 bd bg;
-    box-shadow: 0 4px 8px 0 $shadow;
+    box-shadow: 0 4px 8px 0 sh;
   }
 
   // * Auto-complete menu.
   .atwho-view {
     rad: r;
     colors: cm bd bg;
-    box-shadow: 0 2px 4px 0 $shadow;
+    box-shadow: bsh;
     .atwho-view-ul {
       li {
         colors: fg 0 0;
@@ -3447,11 +3439,11 @@
   // ? They turn into a tooltip once dragged so we must style them here.
   .board-card {
     c: 0 bd bg;
-    box-shadow: 0px 1px 2px 0 $shadow;
+    box-shadow: 0px 1px 2px 0 sh;
     transition: 0.15s ease;
     &:hover {
       c: 0 ac 0;
-      box-shadow: 0px 2px 4px 0 $shadow;
+      box-shadow: 0px 2px 4px 0 sh;
     }
     // Text color.
     .board-card-title a { color: fg; }
@@ -3654,7 +3646,7 @@
       }
     }
     // Shadow.
-    &.is-bound { box-shadow: 0 2px 4px 0 $shadow }
+    &.is-bound { box-shadow: bsh }
   }
 
   // * Pagination.
@@ -4119,7 +4111,7 @@
       border: 1px solid;
       rad: r;
       colors: 0, bd, bg;
-      box-shadow: 0 4px 8px 0 $shadow;
+      box-shadow: 0 4px 8px 0 sh;
       // Inputs.
       &_field { colors: fg, 0, bg; }
       .ace_search_form, .ace_replace_form { colors: 0, bd, 0; }
@@ -4199,7 +4191,7 @@
     }
     // Remove shadow.
     .ds-dropdown-menu {
-      box-shadow: 0 4px 16px -4px $shadow;
+      box-shadow: 0 4px 16px -4px sh;
       // Arrow.
       &:before { colors: 0, bd, bg; }
     }
@@ -4524,7 +4516,7 @@
     // Command palette.
     .monaco-quick-open-widget {
       colors: fg, bd, bg;
-      box-shadow: 0 2px 4px 0 $shadow !important;
+      box-shadow: bsh !important;
       // Focused.
       .monaco-tree-row {
         &:hover, &.focused { colors: ac, 0, bd; }
@@ -4542,21 +4534,21 @@
     // Find palette.
     .find-widget {
       colors: 0, 0, bd;
-      box-shadow: 0 2px 4px 0 $shadow;
+      box-shadow: bsh;
       .button, .label { filter: invert(var(--bg-invert)); }
     }
     // Accessibility.
     .accessibilityHelpWidget {
       colors: fg, bd, bg;
-      box-shadow: 0 2px 4px 0 $shadow;
+      box-shadow: bsh;
     }
     // Context menu.
     .context-view {
       colors: 0, 0, bd;
-      box-shadow: 0 2px 8px $shadow;
+      box-shadow: bsh;
     }
     // Hover popup.
-    .monaco-editor-hover { colors: 0, $shadow, bd; }
+    .monaco-editor-hover { colors: 0, sh, bd; }
     // Selection.
     .cslr.selected-text { background-color: bd; }
     // Matching.
@@ -4564,7 +4556,7 @@
     // Suggestion.
     .tree {
       colors: fg, bd, bd;
-      box-shadow: 0 2px 4px 0 $shadow;
+      box-shadow: bsh;
       .focused { colors: ac, 0, bg; }
     }
   }
@@ -5114,7 +5106,7 @@
   // Switch to our version of GitLab logo.
   if ( dark_logo == 1 ) {
     .tanuki-logo {
-      filter: brightness(095%) drop-shadow(0px 1px 1px $shadow) !important;
+      filter: brightness(095%) drop-shadow(0px 1px 1px sh) !important;
       .tanuki { &-right-eye, &-left-eye { isvg: ac t; }}
       .tanuki-right { &-cheek, &-ear { isvg: bg t; }}
       .tanuki-left { &-cheek, &-ear { isvg: bg t; }}
@@ -5340,7 +5332,7 @@
   .tile-resource {
     rad: r;
     colors: 0, 0, bg;
-    box-shadow: 0 2px 4px 0 $shadow, inner;
+    box-shadow: bsh, inner;
     .tile-info  { colors: 0, 0, t; }
   }
 
@@ -5390,7 +5382,7 @@
   // Navbar.
   .sticky-banner {
     colors: 0, 0, bd;
-    box-shadow: 0 0 8px 0 $shadow;
+    box-shadow: 0 0 8px 0 sh;
   }
   .gray-section {
     colors: cm, bd, bg;
@@ -5476,13 +5468,13 @@
       background-image: linear-gradient(60deg, orange -100%, voilet 200%);
       background-color: bg;
     }
-    h1 { text-shadow: 2.5px 2.5px 0 $shadow; }
+    h1 { text-shadow: 2.5px 2.5px 0 sh; }
     // Prevent custom opacity on these images.
     img {
       pointer-events: none;
       &.hero-image-small {
         opacity: 1 !important;
-        filter: drop-shadow(0 4px 4px $shadow);
+        filter: drop-shadow(0 4px 4px sh);
       }
     }
   }
@@ -5491,7 +5483,7 @@
   .md-page {
     rad: r;
     colors: 0, 0, bg;
-    box-shadow: inset inner, 0 3px 3px 0 $shadow;
+    box-shadow: inset inner, 0 3px 3px 0 sh;
     // Inputs.
     input, select, textarea, fieldset {
       rad: r;
@@ -5519,8 +5511,8 @@
     rad: r;
     colors: 0, 0, bg;
     transition: 0.2s ease;
-    box-shadow: inset inner, 0 2px 4px 0 $shadow;
-    &:hover { box-shadow: inset inner, 0 4px 8px 2px $shadow; }
+    box-shadow: inset inner, bsh;
+    &:hover { box-shadow: inset inner, 0 4px 8px 2px sh; }
     .list { colors: 0, bd, 0; }
     .list > a { colors: 0, bd, 0; }
   }
@@ -5578,9 +5570,9 @@
     }
   }
   .newsletter-form .mktoButton {
-    colors: fg, $shadow, bg;
+    colors: fg, sh, bg;
     &:hover {
-      colors: ac, $shadow, bg;
+      colors: ac, sh, bg;
     }
   }
   .newsletter-form .mktoForm .mktoLogicalField label {
@@ -5620,7 +5612,7 @@
     border: 1px solid;
     rad: r !important;
     colors: fg bd bg;
-    box-shadow: 0 2px 4px 0 $shadow;
+    box-shadow: bsh;
   }
   .k8s-layer-media { margin-left: 16px }
   .u-subtle-bg {
@@ -5659,7 +5651,7 @@
   // Featured Posts cards
   .blog.list {
     .article-information {
-      colors: cm, $shadow, bd;
+      colors: cm, sh, bd;
       a {
         color: ac !important;
       }
@@ -5672,7 +5664,7 @@
     }
   }
   .blog .callout, .blog .gitlab-trial {
-    colors: cm, $shadow, bd;
+    colors: cm, sh, bd;
   }
 
   // * Handbook search.
@@ -5681,7 +5673,7 @@
       > div[class] {
         rad: r !important;
         colors: fg bd bg;
-        box-shadow: 0 2px 4px 0 $shadow;
+        box-shadow: bsh;
       }
     }
     &-result[href] {
@@ -5720,10 +5712,10 @@
 
   // Code
   .command, .alert-warning {
-    colors: ac, $shadow, bd;
+    colors: ac, sh, bd;
   }
   .panel-body pre {
-    colors: ac, $shadow, bg;
+    colors: ac, sh, bg;
   }
   .method p a:not(.btn) {
     color: ac !important;
@@ -5761,7 +5753,7 @@
   // * Feature -> Custom logo.
   if ( dark_logo == 1 ) {
     svg.nav-logo {
-      filter: drop-shadow(0 2px 4px $shadow);
+      filter: drop-shadow(0 2px 4px sh);
       path:nth-child(1) { isvg: fg 0 }
       path:nth-child(2), path:nth-child(5), path:nth-child(8) { isvg: bg 0 }
       path:nth-child(7), path:nth-child(4) { isvg: bg 0 }
@@ -5789,7 +5781,7 @@
     .menu-panel {
       rad: r;
       colors: 0 bd bg;
-      box-shadow: 0 2px 4px -1px $shadow;
+      box-shadow: bsh;
       // Burger
       ul a {
         colors: fg 0 0;
@@ -5842,7 +5834,7 @@
     &-header { colors: cm bd t }
     &-filter { colors: 0 bd bg }
     &-body {
-      box-shadow: 0 2px 4px 0 $shadow;
+      box-shadow: bsh;
       ../-collection { colors: 0 0 bg }
       span, .topic-count { colors: cm 0 0 }
     }
@@ -5856,7 +5848,7 @@
   #keyboard-shortcuts-help ul b {
     border-bottom: 1px solid;
     colors: fg bd bg;
-    box-shadow: 0 2px 4px 0 $shadow;
+    box-shadow: bsh;
   }
 
   // Breadcrumbs.
@@ -5894,7 +5886,7 @@
   // Last visit.
   .topic-list .topic-list-item-separator td {
     colors: 0 ac 0;
-    span { colors: ac $shadow bd }
+    span { colors: ac sh bd }
   }
   // Tags.
   .discourse-tag.simple {
@@ -5977,9 +5969,9 @@
 
   // Topic map.
   .topic-map {
-    colors: 0 $shadow bd;
-    section { colors: 0 $shadow 0 }
-    .buttons .btn, .link-summary .btn { colors: 0 $shadow bd }
+    colors: 0 sh bd;
+    section { colors: 0 sh 0 }
+    .buttons .btn, .link-summary .btn { colors: 0 sh bd }
     .map .number, .map i, span.domain { colors: fg 0 0 }
     td { colors: 0 0 t }
   }
@@ -6044,7 +6036,7 @@
   .top-sub-section .topic-info { colors: fg 0 0 }
   // User activity.
   .user-stream {
-    .item, .user-stream-item { colors: 0 $shadow bd }
+    .item, .user-stream-item { colors: 0 sh bd }
     .time, .delete-info { colors: fg 0 0 }
   }
   .user-navigation .nav-stacked a, .controls > .btn[href] { colors: cm 0 0 }
@@ -6056,12 +6048,12 @@
 
   // About.
   .user-preferences .bio-composer, .group-form-bio, .edit-category-tab-topic-template {
-    colors: 0 $shadow 0;
+    colors: 0 sh 0;
     & .d-editor-preview { colors: 0 0 bg }
     & textarea { colors: fg 0 0 }
   }
   .d-editor {
-    &-spacer, &-button-bar { colors: 0 0 $shadow }
+    &-spacer, &-button-bar { colors: 0 0 sh }
     &-textarea-wrapper {
       colors: fg bd bd;
       textarea { colors: fg bd bg }
@@ -6073,7 +6065,7 @@
   // Emojis.
   .emoji-picker {
     colors: fg bd bg;
-    box-shadow: 0 2px 4px 0 $shadow;
+    box-shadow: bsh;
     .categories-column { colors: 0 bd bg }
     .filter {
       colors: 0 bd 0;
@@ -6096,12 +6088,12 @@
     &-header { colors: fg bd 0 }
     &-inner-container {
       colors: fg bd bg;
-      box-shadow: 0 2px 4px 0 $shadow !important;
+      box-shadow: bsh !important;
     }
     .modal-body label { colors: cm 0 0 }
     // History.
     &.history-modal {
-      #revision-details, tbody { colors: 0 $shadow 0 }
+      #revision-details, tbody { colors: 0 sh 0 }
       .diff-ins { colors: cm 0 green }
     }
   }
@@ -6130,11 +6122,11 @@
     // Search container.
     .landing-header {
       colors: fg 0 bg;
-      box-shadow: 0 1px 0 0 bd, 0 2px 8px 0 $shadow;
+      box-shadow: 0 1px 0 0 bd, 0 2px 8px 0 sh;
       // Navbar.
       &-top {
         colors: 0 bd bg;
-        box-shadow: 0 1px 0 0 bd, 0 2px 4px 0 $shadow;
+        box-shadow: 0 1px 0 0 bd, bsh;
         // Items.
         .header-link {
           transition: 0.15s ease;
@@ -6148,7 +6140,7 @@
         input {
           rad: r;
           colors: fg 0 bd;
-          &:focus { box-shadow: 0 4px 16px -4px $shadow; }
+          &:focus { box-shadow: 0 4px 16px -4px sh; }
         }
       }
     }
@@ -6157,7 +6149,7 @@
       rad: r;
       border: 1px solid;
       colors: 0 bd bg;
-      box-shadow: 0 4px 16px -4px $shadow !important;
+      box-shadow: 0 4px 16px -4px sh !important;
     }
     // Most popular topics.
     .topic h4 { colors: 0, bd, 0; }
@@ -6197,7 +6189,7 @@
   // Footer
   .footer {
     colors: 0 0 bg;
-    box-shadow: 0 -1px 0 0 bd, 0 -2px 4px 0 $shadow;
+    box-shadow: 0 -1px 0 0 bd, 0 -2px 4px 0 sh;
     // Colorize icons.
     a:hover .fa { colors: ac, 0, 0; }
     // "Created with" section.
@@ -6273,8 +6265,8 @@
     filter: invert(1);
   }
   .badge-small:hover::after {
-    colors: ac, $shadow, bd;
-    box-shadow: 0 2px 4px 0 $shadow !important;
+    colors: ac, sh, bd;
+    box-shadow: bsh !important;
   }
 
   // * Left sidebar.
@@ -6323,7 +6315,7 @@
       &--input {
         rad: r;
         colors: fg bd bg;
-        box-shadow: 0 2px 4px 0 $shadow;
+        box-shadow: bsh;
         &:focus { colors: 0 ac 0 }
       }
       &--magnifier { pointer-events: none }
@@ -6376,7 +6368,7 @@
   pre.highlight {
     rad: r;
     colors: 0 bd t;
-    box-shadow: 0 2px 4px 0 $shadow;
+    box-shadow: bsh;
     code {
       white-space: pre-wrap;
       word-break: break-all;
