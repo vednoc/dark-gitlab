@@ -2104,30 +2104,45 @@
     }
   }
 
-  // * Note.
+  // Notes -> Note.
   .note {
     // Notes on commits.
     &:not(.system-note) { colors: 0 0 $dark }
     // Profile links.
     .note-headline-light { colors: $lighter, 0, 0; }
+    .note-headline-meta .system-note-separator {
+      text-decoration: none !important;
+      time { color: $lighter }
+    }
   }
-  .discussion-header { colors: 0, $darker, 0; }
-  // ? Fix for discussion's rounded corners in MR.
-  // TODO: Explore merging this with `.card, .card-slim` selectors.
-  .discussion-wrapper {
-    radius: $radius;
-    [class$="notes"] .replies-toggle:last-child { radius: 0 0 $radius $radius; }
-  }
-  /* Text color. */
-  .discussion-headline-light,
-  .note-headline-meta .system-note-separator {
-    text-decoration: none !important;
-    color: var(--light);
-    time { color: $lighter; }
+
+  // Notes -> Discussion.
+  .discussion {
+    &-header { c: 0 $yellow } // Seems to no longer be necessary.
+    &-headline-light {
+      c: $light;
+    }
+    .timeline-entry {
+      radius: 0;
+      &:first-child { radius: $radius $radius 0 0 }
+    }
+    .discussion-wrapper {
+      radius: $radius;
+      .replies-toggle {
+        c: 0 0 $darker;
+        &.collapsed { radius: 0 0 $radius $radius }
+      }
+    }
   }
   // * Notes.
   .notes {
     colors: 0 0 $t;
+    // Connectors.
+    &::before {
+      border-left-width: 1px !important;
+      c: 0 $darker;
+    }
+    // Overwriten by user-link styles.
     a, a:hover { colors: $accent 0 0 }
     // ? MR -> Notes -> Suggestions.
     .md-suggestion-header {
@@ -2161,11 +2176,6 @@
       border: 1px solid $darker;
       background-color: $dark;
     }
-  }
-  // The line connector.
-  .main-notes-list::before {
-    border-left-width: 1px !important;
-    colors: 0, $darker, 0;
   }
 
   // * Global -> Markdown input area.
