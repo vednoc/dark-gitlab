@@ -681,12 +681,13 @@
   // * Sign in/register page.
   .login-page {
     // Header.
-    .new-session-tabs {
-      border-color: bd;
-      box-shadow: inner;
-      li {
-        colors: cm, bd, bd;
-        a.active, a:hover { colors: fg, ac, bd; }
+    .nav-links.new-session-tabs {
+      margin-bottom: -1px;
+      rad: r r 0 0;
+      li.nav-item {
+        margin: 0;
+        colors: fg bd t;
+        a.active, a:hover { c: ac t t }
       }
     }
     // Credentials.
@@ -694,14 +695,13 @@
       rad: 0 0 r r;
       box-shadow: inner;
       background-color: bg;
-      .form-control { colors: 0, 0, bd; }
     }
     // Sign in with.
     .omniauth-container {
       rad: r;
-      colors: 0, 0, bg;
+      colors: 0 0 bg;
       box-shadow: inner;
-      .omniauth-btn { colors: 0, 0, bd; }
+      .omniauth-btn:hover { colors: 0 0 bd }
     }
   }
 
