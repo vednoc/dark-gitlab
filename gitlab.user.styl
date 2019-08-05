@@ -1157,11 +1157,11 @@
   .table-responsive, table.table {
     rad: r;
     colors: 0, 0, bg;
-    box-shadow: 0 0 0 1px inset bd;
+    box-shadow: inner;
     thead tr {
       th {
         border-top: none;
-        colors: fg, 0, bd;
+        c: fg 0 hl;
       }
       > th:first-child { rad: r 0 0 0; }
       > th:last-child { rad: 0 r 0 0; }
@@ -1169,11 +1169,11 @@
     tbody tr {
       td {
         transition: 0.15s ease;
-        colors: cm bd 0;
+        colors: cm bd bg;
       }
       &:last-child > td:first-child { rad: 0 0 0 r; }
       &:last-child > td:last-child { rad: 0 0 r 0; }
-      &:hover > td { colors: fg, 0, bd; }
+      &:hover > td { c: fg 0 hl }
     }
     // Highlighted odd rows.
     &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 sh; }
@@ -2717,32 +2717,21 @@
 
   // * Project -> File table.
   .table-holder {
-    rad: r;
-    border: none !important;
-    background-color: bg;
-    box-shadow: 0 0 0 1px inset bd;
-    // ? File holder.
-    .tree-table tr {
-      td { transition: 0.15s ease !important }
-      // ? Hide borders on file-holder.
-      ../ .tree-table thead tr { border: none }
-      &:last-of-type { colors: 0 t 0 }
-      // ? Table cells.
-      &.tree-item {
-        // Git submodules.
-        span a { color: inherit; }
-        // Text colors.
-        .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
+    // Project -> File table.
+    .table {
+      // Hide thead borders.
+      thead tr { border: none }
+      tr.tree-item {
+        c: 0 bd;
+        // Reset borders.
+        > td {
+          border: none !important;
           transition: 0.15s ease;
-          colors: cm, 0, 0;
         }
-        // On event.
-        &:hover, &.selected {
-          > td { colors: 0, 0, bd; }
-          .tree-time-ago, .tree-commit-link, .tree-item-file-name > *, time {
-            colors: fg, 0, 0;
-          }
-        }
+        &:last-child { border-bottom: none }
+        &:hover, &.selected { > td { c: 0 0 hl }}
+        // All text colors.
+        * { c: fg }
       }
     }
     // ? Fixes `pre` element on project/pages/domains page.
