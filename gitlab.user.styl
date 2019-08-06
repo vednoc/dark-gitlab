@@ -1319,7 +1319,11 @@
   }
 
   // * Epics -> Resets!
-  [data-page*="groups:roadmap:"]  {
+  [data-page*="groups:epics:"] {
+    // @upstream
+    .filtered-search-wrapper { display: flex }
+  }
+  [data-page*="groups:roadmap:"] {
     .empty-state { margin: 0 }
     .epics-filters {
       border-top: 1px solid bd;
