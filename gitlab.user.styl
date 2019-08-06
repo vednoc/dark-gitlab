@@ -229,7 +229,7 @@
     border-style: hidden !important;
     border-collapse: collapse !important;
     colors: 0 0 bg;
-    box-shadow: inset inner;
+    box-shadow: inner;
     thead {
       colors: 0 0 t;
       th { colors: fg bd bd }
@@ -385,10 +385,8 @@
     &-pill { colors: fg 0 0 }
     &.badge-pill {
       // Prevent conflicts.
-      & {
-        box-shadow: 0 0 0 1px inset bd;
-        colors: cm bd bg;
-      }
+      c: cm bd bg;
+      box-shadow: inner;
       // Dashboard -> Activities.
       &.issues-count { colors: white 0 green }
       &.merge-requests-count { colors: white 0 orange }
@@ -417,7 +415,7 @@
     &.gcp-signup-offer { border-left-color: blue !important }
     &.help-callout, &.shared-runners-description {
       border-left: none;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
       &::before {
         content: "";
         position: absolute;
@@ -428,7 +426,7 @@
     }
     &&-info {
       border: none;
-      box-shadow: 0 0 0 1px inset blue;
+      box-shadow: inset 0 0 0 1px blue;
       &::before {
         content: "";
         position: absolute;
@@ -439,7 +437,7 @@
     }
     &&-warning {
       border: none;
-      box-shadow: 0 0 0 1px inset orange;
+      box-shadow: inset 0 0 0 1px orange;
       a { colors: ac 0 0 }
       &::before {
         content: "";
@@ -1217,10 +1215,11 @@
   ul.bordered-list { &, li { colors: 0 bd 0 }}
   // * Settings -> Active sessions.
   .card .list-group {
+    border: 1px solid bd;
     rad: r;
-    colors: cm 0 bg;
-    box-shadow: 0 0 0 1px inset bd;
+    c: cm 0 bg;
     &-item { colors: cm bd t }
+    &-item:hover { c: 0 0 hl }
   }
   // * Settings -> Pipeline quota.
   .pipeline-quota {
@@ -1322,8 +1321,11 @@
   // * Epics :: Resets!
   [data-page*="groups:roadmap:"]  {
     .epics-filters {
-      border: 1px solid bd;
+      border-top: 1px solid bd;
+      border-bottom: 1px solid bd;
       colors: 0 0 bg;
+      // @upstream
+      .filtered-search-wrapper { display: flex }
     }
     .row-content-block {
       margin-top: 0px !important;
@@ -1343,13 +1345,11 @@
 
   // * Epics :: Roadmap.
   .roadmap-container {
-    rad: r;
     colors: 0 0 bg;
-    box-shadow: 0 0 0 1px inset bd;
     // Timeline header.
     .timeline-header-blank {
       colors: cm, bd, bg;
-      box-shadow: -1px 0 0 0 inset bd;
+      box-shadow: inset -1px 0 bd;
       &::before { colors: 0, bd, 0; }
       &::after { background: linear-gradient(to right, sh 0%, t 100%); }
     }
@@ -1362,18 +1362,18 @@
     }
     // Background cells.
     .epics-list-section {
-      colors: 0, 0, bd;
+      c: 0 0 hl;
       // Left sidebar cells.
       .epic-details-cell {
         colors: 0, bd, bg;
-        box-shadow: -1px 0 0 0 inset bd;
+        box-shadow: inset -1px 0 bd;
         &::after { background: linear-gradient(to right, sh 0%, t 100%); }
         .epic-url { colors: fg, 0, 0; }
         .epic-timeframe { colors: cm, 0, 0; }
       }
       .epics-list-item {
         &:hover .epic-timeline-cell { colors: 0, bd, bg; }
-        .epic-timeline-cell { colors: fg, bg, 0; }
+        .epic-timeline-cell { c: fg bd 0 }
         // ? Bars.
         .timeline-bar {
           colors: 0, 0, blue;
@@ -1805,7 +1805,7 @@
       border: none;
       rad: r;
       colors: 0 0 bg;
-      box-shadow: 0 0 0 1px inset bd !important;
+      box-shadow: inner !important;
       // Rounded corners for the last element.
       > :last-child { rad: 0 0 r r }
     }
@@ -2303,7 +2303,7 @@
       // Active submenu.
       > li.active:not(.fly-out-top-item) {
         colors: 0, 0, t;
-        box-shadow: 4px 0 0 0 inset bd, 1px 0 0 1px inset bd;
+        box-shadow: inset 4px 0 bd, inset 1px 0 0 1px bd;
         // Group name.
         > a {
           transition: 0.15s ease;
@@ -2315,7 +2315,7 @@
           transition: 0.15s ease;
           &.active, &:hover {
             colors: cm, 0, bd;
-            box-shadow: 4px 0 0 0 inset ac;
+            box-shadow: inset 4px 0 ac;
             // Remove unnecessary background.
             a { colors: fg, 0, t; }
           }
@@ -2343,7 +2343,7 @@
     &.sidebar-collapsed-desktop {
       ul.sidebar-top-level-items > li.active:not(.fly-out-top-item) {
         colors: 0, 0, bd;
-        box-shadow: 4px 0 0 0 inset ac !important;
+        box-shadow: inset 4px 0 ac !important;
       }
       ul.sidebar-sub-level-items > li:not(.fly-out-top-item) {
         box-shadow: none !important;
@@ -2765,7 +2765,7 @@
     // User info cover.
     .cover-block {
       colors: 0 0 bg;
-      box-shadow: inset 0 -1px 0 0 bd;
+      box-shadow: inset 0 -1px bd;
       [class*="fade-"] { border: none }
       .cover {
         &-title, &-desc { c: fg }
@@ -2857,7 +2857,7 @@
       margin-top: 16px;
       rad: r;
       colors: 0, 0, bg;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
       // ? Reset font size for blocks. @upstream
       h4 { font-size: 1rem !important }
       // ! @obsolete
@@ -2951,7 +2951,7 @@
       margin-top: 10px;
       rad: r;
       colors: 0 0 bg;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
     }
   }
 
@@ -2994,7 +2994,7 @@
     // Nothing to compare.
     &.bg-light {
       colors: 0 0 bg;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
     }
     // Reset whitespace.
     > .content-list > li {
@@ -3100,7 +3100,7 @@
     // Cards.
     .card {
       rad: r;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
       .card-header { rad: r r 0 0; }
     }
     // * Skeleton.
@@ -3190,7 +3190,7 @@
     padding: 8px;
     rad: r;
     colors: 0 0 bg;
-    box-shadow: 0 0 0 1px inset bd;
+    box-shadow: inner;
     .suggestion {
       colors: ac 0 0;
       &-state-open { v: green 0 }
@@ -3519,7 +3519,7 @@
     &-content {
       .card-header {
         colors: 0 t t;
-        + .content-list { box-shadow: 0 1px inset bd }
+        + .content-list { box-shadow: inset 0 1px bd }
       }
       li:last-child { rad: 0 0 r r }
     }
@@ -4190,7 +4190,7 @@
     // Selected.
     [class$="--content"]:hover { colors: 0, 0, bd; }
     // Matching result.
-    [class*="highlight"] { box-shadow: inset 0 -2px 0 0 ac !important; }
+    [class*="highlight"] { box-shadow: inset 0 -2px ac !important; }
   }
 
   // * Main content.
@@ -4309,11 +4309,11 @@
 
   // Left sidebar active.
   .ide-sidebar-link {
-    transition: 0.2s ease-in-out;
+    transition: 0.15s ease;
     // On event.
     &:focus, &:hover, &.active {
       colors: ac, bd, bd;
-      box-shadow: inset 3px 0 var(--accent) !important;
+      box-shadow: inset 3px 0 ac !important;
     }
     &::after { colors: 0, 0, bg; }
   }
@@ -4485,9 +4485,8 @@
     colors: fg, 0, bg;
     // Background.
     &-background { colors: fg, 0, bg; }
-    // TODO figure out what this was. XD
     .scroll-decoration {
-      box-shadow: inset 0 6px 6px -6px bg !important;
+      box-shadow: inset 0 2px 4px -1px bd !important;
     }
     // Gutter.
     .margin {
@@ -4499,7 +4498,7 @@
     // Cursor.
     .cursor { colors: fg, ac, ac; }
     // Indent guide.
-    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 0 0 ac !important; }
+    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 ac }
     // Command palette.
     .monaco-quick-open-widget {
       colors: fg, bd, bg;
@@ -4654,7 +4653,7 @@
     .nt, .si, .mi { color: voilet; }
     .err {
       colors: 0, 0, t;
-      box-shadow: inset 0 -2px 0 0 red;
+      box-shadow: inset 0 -2px red;
     }
   }
 
@@ -4893,9 +4892,9 @@
   // * Group body.
   .groups-list-tree-container > ul.group-list-tree {
     margin-top: 10px !important;
+    border: 1px solid bd;
     rad: r;
     colors: 0, 0, bg;
-    box-shadow: 0 0 0 1px inset bd;
     // On event.
     > .group-row {
       // Rounded corners.
@@ -4905,7 +4904,7 @@
     }
     .group-row {
       // Keep fake border even when sub-group is open.
-      &.is-open > div { box-shadow: 0 -1px 0 0 inset bd; }
+      &.is-open > div { box-shadow: inset 0 -1px bd }
       // Horizontal line.
       &::before { colors: 0, bd, 0; }
       // Vertical line.
@@ -4920,7 +4919,7 @@
       // Content.
       &-contents {
         transition: 0.15s ease;
-        &:hover { colors: 0, 0, bd; }
+        &:hover { c: 0 0 hl }
         // Text colors and width.
         .stats {
           colors: cm, 0, 0;
@@ -4943,7 +4942,7 @@
     align-items: center;
     rad: r;
     colors: 0 0 bg;
-    box-shadow: 0 0 0 1px inset bd;
+    box-shadow: inner;
     overflow-y: hidden; // Hide whitespace.
     svg {
       margin-top: -75px;
@@ -5252,10 +5251,12 @@
     }
     // Links.
     summary:hover, details > a:hover { colors: 0, 0, bd; }
-    &__section-items-anchor { colors: cm, 0, 0; }
-    .nuxt-link-exact-active {
-      colors: fg, 0, bd;
-      box-shadow: inset 4px 0 0 ac !important;
+    &__section-items-anchor {
+      c: cm;
+      &.nuxt-link-exact-active {
+        c: fg 0 bd;
+        box-shadow: inset 4px 0 ac !important;
+      }
     }
   }
   // Fix color details.
@@ -5392,7 +5393,7 @@
     .search-box {
       background: none !important;
       colors: fg 0 bg;
-      box-shadow: 0 -1px 0 0 inset bd;
+      box-shadow: inset 0 -1px bd;
       &-large, .search-input { colors: fg t t }
     }
     .sign-up, .search-icon {
@@ -5790,7 +5791,7 @@
     .search-advanced-title { colors: 0 0 bd }
     .search-advanced-filters {
       colors: 0 0 bg;
-      box-shadow: 0 0 0 1px inset bd;
+      box-shadow: inner;
     }
     // Posted by.
     .ac-wrap {
