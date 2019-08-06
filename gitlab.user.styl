@@ -2049,12 +2049,6 @@
       }
     }
   }
-  // * Diff -> Reset file-title when scrolling.
-  .sticky-placeholder ~ .files {
-    .diff-file .file-title-flex-parent {
-      rad: 0;
-    }
-  }
   // * Diff -> Add note.
   .note-container {
     border: none;
@@ -2649,7 +2643,7 @@
     }
   }
 
-   // * Project :: Readme.
+   // * Project -> Readme.
   .file-holder {
     rad: r;
     colors: 0, bd, bg;
@@ -2660,6 +2654,7 @@
       &, &-flex-parent {
         rad: r r 0 0;
         colors: 0 bd hl;
+        &.is-commit { min-height: 52px }
         // Buttons w/o `button-default` class.
         a { color: unset }
         .btn {
