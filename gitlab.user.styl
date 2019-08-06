@@ -12,9 +12,9 @@
 @var text     b_radius  "Custom border radius" 4px
 @var text     a_radius  "Custom avatar radius" 50%
 @var text     max_width "Custom width for fluid/fixed layout" 100%
-@var text     ui_font   "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'"
-@var text     mono_font "Custom mono font" "'custom_font', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace"
-@var text     emoji_font "Custom emoji font" "'custom_font', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+@var text     ui_font   "Custom UI font" "'font_name'"
+@var text     mono_font "Custom mono font" "'font_name'"
+@var text     emoji_font "Custom emoji font" "'font_name'"
 @var text     faded_img "Fade images in md/wiki/blog" "1"
 @var checkbox gl_icons  "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header  "Center project header elements" 0
@@ -72,9 +72,9 @@
     --width     : max_width;
     --radius    : b_radius;
     --avatar    : a_radius;
-    --ui-font   : ui_font;
-    --mono-font : mono_font;
-    --emoji-font: emoji_font;
+    --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, var(--emoji-font);
+    --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace;
+    --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --bg-invert : bg_invert;
     --bg-filter : bg_filter;
     --bg-size   : bg_size;
