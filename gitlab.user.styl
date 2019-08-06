@@ -2290,7 +2290,7 @@
     // Links.
     li a, .context-header > a {
       colors: fg, 0, 0;
-      &:hover, &:focus { colors: 0, 0, bd; }
+      &:hover, &:focus { c: 0 0 hl }
     }
     // ? Fix overflow and height on Firefox.
     .nav-sidebar-inner-scroll {
@@ -2314,7 +2314,7 @@
         .sidebar-sub-level-items li:not(.fly-out-top-item) {
           transition: 0.15s ease;
           &.active, &:hover {
-            colors: cm, 0, bd;
+            c: cm 0 hl;
             box-shadow: inset 4px 0 ac;
             // Remove unnecessary background.
             a { colors: fg, 0, t; }
@@ -2355,13 +2355,10 @@
       width: 100%;
       transition: 0.15s ease !important;
       colors: 0, bd, bg;
+      &:hover { c: 0 0 hl }
       .collapse-text {
         transition: 0.15s ease;
-        colors: cm, 0, 0;
-      }
-      &:hover {
-        colors: 0, 0, bd;
-        .collapse-text { colors: fg, 0, 0; }
+        c: fg;
       }
     }
   }
@@ -2392,18 +2389,13 @@
       // Edit buttons.
       > a, > button { colors: cm, 0, 0; }
     }
-    // Button background.
-    .js-move-issue:hover { colors: 0, 0, bd; }
     // Adjust sidebar width.
     &.right-sidebar-collapsed {
-      width: 50px;
-      .block {
-        width: 50px;
-        transition: 0.15s ease;
-        &:hover { colors: 0, 0, bd; }
-      }
-      .gutter-toggle { height: 55px; }
+      &, .block { width: 50px }
+      .width:hover { c: 0 0 hl }
+      .gutter-toggle { height: 55px }
     }
+    .issuable-sidebar-header { height: 55px !important }
     // Expanded state should take more available space.
     &.right-sidebar-expanded .issuable-sidebar {
       padding: 0 16px;
