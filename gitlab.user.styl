@@ -2327,12 +2327,14 @@
         colors: 0, bd, bg;
         box-shadow: 2px 2px 2px 0 sh;
       }
-      > li.is-over > a { colors: 0, 0, bd; }
+      > li.is-over > a { c: 0 0 hl }
       // Badges.
-      .badge.badge-pill { colors: cm, bd, bg; }
-      > li:hover, > li.active {
-        .badge.badge-pill { colors: fg, bg, bd; }
+      .badge.badge-pill {
+        padding: 4px;
+        min-width: 20px;
+        c: cm 0 hl;
       }
+      > li:hover, > li.active {.badge.badge-pill { c: fg }}
       // Remove unnecessary margin on items.
       a {
         margin-right: 0;
