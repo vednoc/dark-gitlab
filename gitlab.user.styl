@@ -1318,8 +1318,9 @@
     &.repo-breadcrumb > li + li::before { colors: cm 0 0 }
   }
 
-  // * Epics :: Resets!
+  // * Epics -> Resets!
   [data-page*="groups:roadmap:"]  {
+    .empty-state { margin: 0 }
     .epics-filters {
       border-top: 1px solid bd;
       border-bottom: 1px solid bd;
@@ -1343,9 +1344,8 @@
     }
   }
 
-  // * Epics :: Roadmap.
+  // * Epics -> Roadmap.
   .roadmap-container {
-    colors: 0 0 bg;
     // Timeline header.
     .timeline-header-blank {
       colors: cm, bd, bg;
