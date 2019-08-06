@@ -1512,7 +1512,7 @@
   .projects-list, #groups .content-list {
     margin: 8px 0;
     rad: r;
-    box-shadow: inner;
+    border: 1px solid bd;
     background-color: bg;
     // Items.
     > li {
@@ -1520,7 +1520,7 @@
       transition: 0.15s ease;
       border-bottom-color: bd;
       // On event.
-      &:hover { background-color: bd; }
+      &:hover { c: 0 0 hl }
       // ? Round corners on first and last child.
       &:first-child { rad: r r 0 0; }
       &:last-child { rad: 0 0 r r; }
@@ -1563,10 +1563,6 @@
   }
   // ? Drop some shadow; use transparent avatars for best results.
   img.avatar { filter: drop-shadow(1px 1px 2px sh); }
-  // ? Hover event for content list and group list.
-  li:not(.group-row), .group-row-contents {
-    &:hover .avatar:not(img) { c: 0 0 bg }
-  }
 
   // * Project details.
   .project-details {
@@ -2662,9 +2658,8 @@
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
       border-top: 1px solid;
       &, &-flex-parent {
-        padding: 8px;
         rad: r r 0 0;
-        colors: 0 bd bg;
+        colors: 0 bd hl;
         // Buttons w/o `button-default` class.
         a { color: unset }
         .btn {
@@ -2959,6 +2954,7 @@
     rad: r;
     border: 0px solid bd;
     colors: cm 0 t;
+    &.middle-block { margin-bottom: 10px }
     // Same as down below; probably outdated.
     &.white {
       border: 1px solid bd;
@@ -4888,7 +4884,7 @@
     margin-top: 10px !important;
     border: 1px solid bd;
     rad: r;
-    colors: 0, 0, bg;
+    c: 0 0 bg;
     // On event.
     > .group-row {
       // Rounded corners.
