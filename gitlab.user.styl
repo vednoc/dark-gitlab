@@ -1935,11 +1935,13 @@
   // * Popover.
   .popover {
     font-family: var(--ui-font);
-    colors: 0, bd, bg;
-    box-shadow: 0 4px 8px 0 sh;
+    rad: r;
+    c: 0 bd bg;
+    box-shadow: 0 2px 4px 0 sh;
     &-header { colors: 0, bd, bd; }
     &-body {
-      c: fg 0 0;
+      padding: 0;
+      c: fg;
       ../.blue { c: 0 0 blue }
     }
     // Blue popouts?
