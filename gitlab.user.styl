@@ -309,25 +309,22 @@
       }
     }
   }
-  // * Table -> Project settings page.
+  // * Table -> Project settings page or new MR.
   .border-bottom {
+    padding-bottom: 10px;
     colors: 0 bd 0;
     > .table {
       border-collapse: collapse;
-      box-shadow: inner;
+      box-shadow: outer;
       thead th {
         padding: 8px !important;
-        colors: fg, bd, bd;
-        &:first-child { border-top-left-radius: r; }
-        &:last-child { border-top-right-radius: r; }
+        c: fg bd hl;
       }
       tbody {
         td {
           padding: 8px !important;
-          colors: fg, bd, bg;
+          c: fg bd bg;
         }
-        tr:last-child > td:first-child { border-bottom-left-radius: r; }
-        tr:last-child > td:last-child { border-bottom-right-radius: r; }
       }
     }
   }
