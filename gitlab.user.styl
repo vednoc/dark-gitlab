@@ -4652,32 +4652,29 @@
   }
 
 
-  // * Project CI/CD :: Pipelines.
+  // * CI/CD -> Pipelines.
   .table-holder {
     margin: 10px 0 0 0;
     .ci-table {
-      margin-bottom: 0;
-      // Pipelines.
-      > [class*="row"] {
+      border-collapse: separate;
+      border: 1px solid bd;
+      rad: r;
+      c: 0 0 bg;
+      tr {
+        &:not([class]) > td { c: 0 0 bg }
+        > th { c: fg darker hl }
+        > td { padding: 8px }
+      }
+      .table-row-header {
         padding: 8px;
-        border-color: var(--darker);
+        c: fg t hl;
       }
-      // Header.
-      th, .table-row-header {
-        font-weight: 700;
-        color: var(--light);
-        border-color: transparent;
-        background-color: var(--darker);
+      // > [class*="table-row"] {  }
+      .commit {
+        padding: 8px;
+        transition: 0.15s ease;
+        &:hover, &:hover { c: 0 0 hl }
       }
-      // On hover.
-      .commit, .commit > td {
-        transition: background 0.15s ease-in-out;
-        &:hover, &:hover > td {
-          background-color: var(--darker) !important;
-        }
-      }
-      // Whitespace.
-      tr td { padding: 4px 8px }
     }
   }
   /* Pipeline commit. */
