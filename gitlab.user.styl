@@ -58,7 +58,7 @@
     --lighter   : lighter;
     --accent    : accent;
     --shadow    : shadow;
-    --box-shadow: 0 2px 3px 0 var(--shadow);
+    --bshadow   : 0 2px 4px var(--shadow);
     --yellow    : yellow;
     --orange    : orange;
     --red       : red;
@@ -91,7 +91,7 @@
   cm      = var(--lighter);
   ac      = var(--accent);
   sh      = var(--shadow);
-  bsh     = 0 2px 4px sh;
+  bsh     = var(--bshadow);
   yellow  = var(--yellow);
   orange  = var(--orange);
   red     = var(--red);
@@ -1934,7 +1934,7 @@
     font-family: var(--ui-font);
     rad: r;
     c: 0 bd bg;
-    box-shadow: 0 2px 4px 0 sh;
+    box-shadow: bsh;
     &-header { colors: 0, bd, bd; }
     &-body {
       padding: 0;
@@ -5902,7 +5902,7 @@
   }
   .quote-button {
     colors: cm bd fg;
-    box-shadow: 0 2px 4px 0 !important;
+    box-shadow: bsh !important;
   }
   aside.quote .title { colors: fg ac bd }
 
