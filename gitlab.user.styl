@@ -2223,17 +2223,17 @@
     pre {
       &:not([class]) {
         rad: r;
-        colors: fg bd bg;
+        c: fg bd hl;
         code { colors: 0 t t }
       }
       &.code {
         rad: r;
-        colors: 0 bd bg;
+        colors: 0 bd hl;
       }
     }
     caption { c: cm }
     mark { c: white 0 ac }
-    p >, a >, :not(pre) > { code { colors: fg bd bd }}
+    p, a, :not(pre) { > code { colors: fg bd hl }}
     blockquote:not(#sc) {
       c: cm bd;
       border-left: 4px solid;
@@ -2247,19 +2247,12 @@
       &:hover { opacity: 1; }
     }
     ul, ol { ul, ol { margin-bottom: 0 !important }}
-  }
-  /* Attach a file. */
-  .markdown-selector { color: ac; }
-  /* Fullscreen (zen) mode. */
-  .zen-backdrop.fullscreen {
-    colors: 0, 0, bd;
-    textarea {
-      margin-top: 5px;
-      rad: r;
-      colors: fg, 0, bg;
+    // Fullscreen mode.
+    &-area .zen-backdrop.fullscreen {
+      c: 0 0 bg;
+      textarea { c: fg 0 t }
     }
   }
-
 
   // * Left sidebar.
   .nav-sidebar {
