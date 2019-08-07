@@ -629,10 +629,7 @@
   }
   // ? Pipelines: Fix table corners and item borders.
   .gl-responsive-table-row {
-    &:not(:last-child):not(:first-child) {
-      border-bottom: none !important;
-      border-top: 1px solid bd;
-    }
+    &:not(:last-child) { border-bottom: 1px solid bd }
     &:first-child { rad: r r 0 0; }
     &:last-child { rad: 0 0 r r; }
   }
@@ -1205,6 +1202,11 @@
   .pipeline-quota {
     padding: 0px !important;
     colors: 0 bd 0;
+    // Reset the table; refactor at some point.
+    + table.table {
+      border-collapse: separate;
+      border: 1px solid bd;
+    }
   }
   // Settings -> Badges.
   .settings-content {
@@ -4636,7 +4638,7 @@
         padding: 8px;
         c: fg t hl;
       }
-      // > [class*="table-row"] {  }
+      > [class*="table-row"]:nth-last-child(2) { border-bottom: none }
       .commit {
         padding: 8px;
         transition: 0.15s ease;
