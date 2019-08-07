@@ -379,17 +379,16 @@
     &-success { colors: fg 0 green }
     &-primary { colors: fg 0 blue }
     &-info { colors: fg 0 blue }
-    &-pill { colors: fg 0 0 }
-    &.badge-pill {
-      // Prevent conflicts.
-      c: cm bd bg;
+    &-gray { colors: fg bd bd }
+    // Resets.
+    &&-pill {
+      c: cm bd hl;
       box-shadow: inner;
       // Dashboard -> Activities.
       &.issues-count { colors: white 0 green }
       &.merge-requests-count { colors: white 0 orange }
       &.todos-count { colors: white 0 blue }
     }
-    &-gray { colors: fg bd bd }
   }
   // Text colors.
   .danger-title { c: red }
@@ -2305,14 +2304,11 @@
         colors: 0, bd, bg;
         box-shadow: 2px 2px 2px 0 sh;
       }
-      > li.is-over > a { c: 0 0 hl }
-      // Badges.
-      .badge.badge-pill {
-        padding: 4px;
-        min-width: 20px;
-        c: cm 0 hl;
+      > li {
+        &.is-over > a { c: 0 0 hl }
+        &:hover, &.active { .badge.badge-pill { c: fg }}
+        .badge.badge-pill { min-width: 20px }
       }
-      > li:hover, > li.active {.badge.badge-pill { c: fg }}
       // Remove unnecessary margin on items.
       a {
         margin-right: 0;
@@ -2615,7 +2611,7 @@
     // Remove unnecessary underline.
     &.color-label { text-decoration: none !important; }
     // Apply everywhere except on color-label elements.
-    &:not(.color-label) { c: white }
+    &:not(.badge-pill):not(.color-label) { c: white }
     // Hack for darkening background color.
     &:not(.badge-pill):not(.available) {
       // transition: 0.15s ease;
@@ -3282,7 +3278,8 @@
     colors: 0 bd bg;
     .card-header {
       rad: r r 0 0;
-      colors: fg bd bd;
+      colors: fg bd hl;
+      .badge-pill { c: 0 0 bg }
     }
     .card-body {
       padding: 8px;
