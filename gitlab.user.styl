@@ -460,26 +460,19 @@
     // ? Base selectors.
     &, .btn-default {
       transition: 0.15s ease;
-      color: cm;
-      border-color: bd;
-      background-color: bg;
-      &:hover, &:focus, &.focus {
-        color: fg;
-        border-color: bd;
-        background-color: bd;
-        box-shadow: none !important;
-      }
+      c: cm bd bg 0 0 0;
+      // &:hover, &:focus, &.focus {
+      //   c: fg bd hl 0 0 0;
+      //   box-shadow: none !important;
+      // }
     }
-    // TODO: Needs testing.
     &:not(:disabled):not(.disabled) {
-      &:hover, &:focus, &:active {
-        color: fg;
-        border-color: bd;
-        background-color: bd;
+      &:hover, &:focus, &.focus, &:active {
+        c: fg bd hl 0 0 0;
         box-shadow: none;
       }
     }
-    &.active {
+    &.active, &.is-active {
       colors: fg bd bd;
       box-shadow: none !important;
       svg { v: fg }
@@ -494,14 +487,12 @@
       &:hover { c: 0 0 t }
     }
     // Green buttons.
-    &-success, &-register, &-new, &-create, &-save, &-success.dropdown-toggle,
+    &-success, &-register, &-new, &-create, &-save,
     &.comment-btn, .comment-btn, .commit-btn {
       colors: white green green;
       &:hover { opacity: 0.75; }
       .fa { color: inherit !important }
     }
-    // TODO: Find where this button is located.
-    &-create.comment-btn { colors: green green bg; }
     // Blue buttons.
     &-info, &-primary, &-register {
       colors: white blue blue;
@@ -531,7 +522,7 @@
     // Blank buttons.
     &-cancel, &-retry {
       colors: cm bd bg;
-      &:hover { colors: fg 0 bd; }
+      &:hover, &:focus { c: fg 0 hl }
     }
     &-blank { colors: cm 0 t; }
     &-clipboard {
@@ -540,9 +531,7 @@
       &:hover svg { v: fg }
     }
     // Comment on a note.
-    &-text-field {
-      colors: cm, bd, bd;
-    }
+    &-text-field { c: cm bd hl }
     // Colors for buttons with dashed borders.
     &-missing {
       colors: cm bd bg;
@@ -754,9 +743,9 @@
     }
     // Navbar links and buttons.
     a, button {
-      transition: 0.15s ease;
       colors: cm 0 0;
-      &:hover, &:focus { colors: fg 0 bd }
+      transition: 0.15s ease;
+      &:hover, &:focus { c: fg 0 hl }
     }
     // Active tab/button/menu.
     &-sub-nav, &-nav {
