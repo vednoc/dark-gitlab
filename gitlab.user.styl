@@ -553,9 +553,8 @@
   }
   // ? Reaction buttons.
   .award-control {
-    &.is-active, &.user-authored { colors: fg, bd, bg; }
-    // Reacted to.
-    &.active { colors: fg, blue, bg; }
+    &.user-authored { c: fg bd bg }
+    &.active { c: fg blue hl }
   }
 
   // * Project notifications.
@@ -1027,7 +1026,7 @@
 
   // Global -> GFM links.
   .gfm {
-    c: fg 0 bd;
+    c: fg 0 hl;
     &&-issue, &&-merge_request, &&-epic { c: ac 0 t }
     &&-commit, &&-milestone { c: ac 0 t }
     &&-label { c: 0 0 t }
@@ -2046,12 +2045,6 @@
     // Reply background.
     .new-note, .discussion-notes { c: 0 t }
   }
-  // Show/hide replies.
-  .notes .replies-toggle {
-    colors: cm, bd, bg;
-    &:not(.expanded) { border-bottom: 0 }
-    &:hover span { colors: fg 0 0 }
-  }
   /* Text color. */
   .branch-info > span {
     color: fg !important;
@@ -2105,8 +2098,11 @@
     }
     .discussion-wrapper {
       rad: r;
+      // Show/hide replies.
       .replies-toggle {
-        c: 0 0 bd;
+        c: cm bd hl;
+        &:not(.expanded) { border-bottom: 0 }
+        &:hover span { colors: fg 0 0 }
         &.collapsed { rad: 0 0 r r }
       }
     }
@@ -3242,7 +3238,7 @@
     margin-top: 16px;
     .card-slim {
       border: 1px solid bd;
-      .card-header { c: 0 0 t }
+      .card-header { c: 0 0 hl }
     }
     // Issue metadata.
     .item-body {
@@ -3262,9 +3258,9 @@
     }
   }
   // Related merge requests.
-  #merge-requests > .card-header { c: 0 0 bg }
+  #merge-requests > .card-header { c: 0 0 hl }
   // Badges.
-  .issue-count-badge, .mr-count-badge { c: 0 bd }
+  .issue-count-badge, .mr-count-badge { c: 0 bd bg }
   .related-items-list {
     .path-id-text, .item-path-id { colors: fg, 0, 0; }
     .open { v: green }
@@ -3726,6 +3722,7 @@
     .discussion-reply-holder {
       colors: 0 bd t;
       &:last-child { rad: 0 0 r r !important; }
+      &.is-replying { c: 0 0 hl }
       + .new-note { colors: 0 bd 0 }
     }
   }
