@@ -163,7 +163,7 @@
       }
     }
     // ? Browser defaults.
-    time { color: fg }
+    time { color: inherit }
     h1, h2, h3, h4, h5, h6, p { colors: fg 0 0 }
     ul, ol { color: fg }
     a {
@@ -2059,7 +2059,7 @@
     // Entry borders.
     .timeline-entry-inner { colors: 0, bd, 0; }
     // Highlighted entry.
-    &:target, &.target { c: 0 ac }
+    &:target, &.target { &:not(#sc) { c: 0 0 hl }}
     // Fix button background.
     .note-action-button { colors: 0, 0, t; }
     // Alerts -> Command alerts.
@@ -2080,7 +2080,7 @@
     // Notes on commits.
     &:not(.system-note) { colors: 0 0 bg }
     // Profile links.
-    .note-headline-light { colors: cm, 0, 0; }
+    .note-headline-light { c: cm }
     .note-headline-meta .system-note-separator {
       text-decoration: none !important;
       time { color: cm }
@@ -2090,12 +2090,13 @@
   // Notes -> Discussion.
   .discussion {
     &-header { c: 0 yellow } // Seems to no longer be necessary.
-    &-headline-light {
-      c: fg;
-    }
+    &-headline-light { c: cm }
     .timeline-entry {
       rad: 0;
-      &:target, &.target { box-shadow: 0 0 0 1px ac }
+      &:target, &.target {
+        c: 0 0 hl;
+        box-shadow: inset 0 1px bd, inset 0 -1px bd;
+      }
       &:first-child { rad: r r 0 0 }
     }
     .discussion-wrapper {
@@ -2104,8 +2105,8 @@
       .replies-toggle {
         c: cm bd hl;
         &:not(.expanded) { border-bottom: 0 }
-        &:hover span { colors: fg 0 0 }
         &.collapsed { rad: 0 0 r r }
+        span { c: cm }
       }
     }
   }
@@ -2196,7 +2197,7 @@
     }
   }
   // Edited text color.
-  .edited-text { color: fg }
+  .edited-text { color: cm }
 
   // * Markdown selectors.
   .md {
