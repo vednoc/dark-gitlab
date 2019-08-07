@@ -516,6 +516,7 @@
     // Remove buttons.
     &-danger, &-remove, &-red, &-inverted.btn-remove {
       colors: white red red;
+      .fa { c: white }
       &:hover { opacity: 0.75; }
     }
     // Blank buttons.
@@ -533,8 +534,8 @@
     &-text-field { c: cm bd hl }
     // Colors for buttons with dashed borders.
     &-missing {
-      colors: cm bd bg;
-      &:hover { colors: fg 0 bd; }
+      c: cm bd bg;
+      &:hover { c: fg 0 hl }
     }
     // Disabled buttons.
     &.disabled, &[disabled] {
@@ -805,12 +806,10 @@
     // On event.
     &-item {
       transition: 0.15s ease;
-      &:hover, &:focus { c: fg 0 bg 0 0 0 }
+      &:hover, &:focus { c: fg 0 hl 0 0 0 }
     }
     // Shadow.
-    &-content-faded-mask::after {
-      background: none;
-    }
+    &-content-faded-mask::after { background: none }
     // Color boxes.
     &-label-box { border-color: inherit !important }
     // Button groups.
@@ -818,7 +817,7 @@
       > button, > a {
         colors: 0, bd, bg;
         transition: 0.2s ease !important;
-        &:hover, &.active { colors: 0, 0, bd; }
+        &:hover, &.active { c: 0 0 hl }
         &:first-child { border-radius: r 0 0 r; }
         &:last-child { border-radius: 0 r r 0; }
       }
@@ -833,8 +832,7 @@
         &.dropdown-header { colors: cm, 0, 0; }
         a {
           span b { colors: ac, 0, 0; }
-          &:hover { colors: fg, 0, bd; }
-          &.is-focused { colors: fg 0 bd }
+          &:hover, &.is-focused { c: fg 0 hl }
           // ? Multiple `active` elements.
           &.is-active { colors: cm 0 0 }
         }
@@ -843,16 +841,16 @@
     // ? Issue boards -> Switch board.
     &-extended-height {
       a {
-        transition: 0.1s ease;
+        transition: 0.15s ease;
         colors: cm, 0, 0;
-        &:hover, &:active, &:focus { colors: fg, 0, bd; }
+        &:hover, &:active, &:focus { c: fg 0 hl }
         &.is-active { colors: ac, 0, 0; }
       }
       // ? Boards -> Create new board.
       .dropdown-divider ~ .dropdown-item {
         colors: cm, 0, 0;
         transition: 0.15s ease;
-        &:hover, &:active, &:focus { colors: fg, 0, bd; }
+        &:hover, &:active, &:focus { c: fg 0 hl }
       }
     }
     // ? Project -> Insights.
@@ -891,13 +889,13 @@
       colors: cm 0 0;
       &:focus, &:active { colors: 0 0 bd }
       // ? Search projects on `/-/operations` page.
-      &:not(.disable-hover):hover { colors: 0 0 bd }
+      &:not(.disable-hover):hover { c: 0 0 hl }
     }
     li {
       // ? Reset avatar padding.
       .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
       // ? Base styles.
-      &:hover a, &:hover button:not(.btn-success) { colors: fg 0 bd }
+      &:hover a, &:hover button:not(.btn-success) { colors: fg 0 hl }
       a, button:not(.btn) {
         colors: cm 0 0;
         transition: 0.15s ease;
@@ -912,8 +910,8 @@
         // ? Reset due to markup being single `li` with a ton of `a` elements.
         &:hover a { colors: cm, 0, t; }
         a {
-          transition: 0.1s ease;
-          &:hover { colors: fg, 0, bd; }
+          transition: 0.15s ease;
+          &:hover { c: fg 0 hl }
           &.is-active { colors: fg 0 0 }
         }
       }
@@ -926,7 +924,7 @@
         a, button:not(.btn), .menu-item {
           transition: 0.15s ease;
           colors: cm, 0, 0;
-          &:hover { colors: fg, 0, bd; }
+          &:hover { c: fg 0 hl }
         }
         .form-group label { colors: fg, 0, 0; }
       }
@@ -971,8 +969,8 @@
       colors: 0, bd, 0;
       li:hover a { colors: cm, 0, t; }
       li a {
-        transition: 0.1s ease;
-        &:hover { colors: fg, 0, bd; }
+        transition: 0.15s ease;
+        &:hover { c: fg 0 hl }
       }
     }
     // ? Loader.
@@ -1011,14 +1009,12 @@
     }
     // Results.
     &-results &-result-label {
-      transition: 0.1s ease;
+      transition: 0.15s ease;
       colors: cm, 0, 0;
       .group-name { color: fg; }
       .group-path { color: cm; }
     }
-    &-results &-highlighted &-result-label {
-      colors: fg, 0, bd;
-    }
+    &-results &-highlighted &-result-label { c: fg 0 hl }
     // Loader.
     &-more-results { colors: 0, 0, t; }
   }
