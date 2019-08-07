@@ -791,12 +791,12 @@
       transition: 0.15s ease;
       &:not(.search-input):not([class*="btn-"]) {
         colors: cm bd bg;
-        &:hover { colors: fg 0 bd }
+        &:hover { colors: fg 0 hl }
       }
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
       // ? Active state for toggles.
-      ^[0].show & {
+      ^[0].show:not(#sc) & {
         colors: fg bd bd;
         ^[2] ^[0]-toggle-text { colors: fg 0 0 }
       }
@@ -2467,23 +2467,24 @@
       .count-badge, .btn-xs { height: 34px; }
       .count-badge {
         .star-count, .count { colors: fg 0 0 }
-        &-count { colors: 0 bd bg }
+        &-count { c: 0 bd hl }
         &-button {
           font-size: 14px;
-          colors: fg bd bd;
-          &:hover { colors: 0 0 bg }
+          c: fg bd bg;
+          &:hover { c: 0 0 hl }
         }
       }
       .clone-dropdown-btn {
         font-size: 14px;
-        colors: white green green;
+        c: white blue blue;
         svg { v: white 0 }
+        &:focus { opacity: 0.6 }
       }
     }
   }
   // ? Default buttons.
   .project-buttons {
-    margin: 0;
+    // margin: 0;
     .nav {
       .btn { margin-top: 10px }
       // "Auto DevOps enabled" and possibly other buttons.
