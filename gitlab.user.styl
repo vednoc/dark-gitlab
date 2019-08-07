@@ -1206,6 +1206,13 @@
     padding: 0px !important;
     colors: 0 bd 0;
   }
+  // Settings -> Badges.
+  .settings-content {
+    .card > .card-body {
+      padding: 0;
+      > .gl-responsive-table-row { padding: 16px }
+    }
+  }
   // * Global -> Progress bar.
   .progress {
     colors: 0 0 bd;
@@ -3000,16 +3007,6 @@
   }
   // ? Rounded corners for first list item.
   .issuable-list > li:first-child::before { rad: r 0 0 0; }
-  // Items on hover.
-  .card > ul > li {
-    &:hover, &.done-reversible {
-      colors: 0, 0, bd;
-    }
-    .btn {
-      colors: 0, 0, bg;
-    }
-  }
-
 
   // * Dashboard -> Activity.
   .activities {
@@ -3304,6 +3301,8 @@
         border-left: 1px solid bd;
       }
     }
+    // Items on hover.
+    > ul > li { &:hover, &.done-reversible { c: 0 0 hl }}
   }
 
   // * Emoji menu.
