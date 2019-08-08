@@ -1527,6 +1527,41 @@
     }
   }
 
+  // Global -> Content lists.
+  ul.content-list:not(.event_commits) {
+    margin-top: 10px;
+    border: 1px solid bd;
+    rad: r;
+    c: 0 0 bg;
+    > li {
+      padding: 8px;
+      transition: 0.15s ease;
+      &:hover { c: 0 0 hl }
+    }
+    .group-row .stats { color: cm; }
+  }
+  // Project -> Activity.
+  .content_list {
+    margin-top: 10px;
+    border: 1px solid bd;
+    rad: r;
+    c: 0 0 bg;
+    .event-item {
+      padding: 8px 0 8px 56px;
+      c: cm bd;
+      transition: 0.15s ease;
+      .event-title { c: fg }
+      .system-note-image { margin-left: 8px }
+      .event-item-timestamp { margin-right: 8px }
+      &:hover {  c: 0 0 hl }
+      // Remove left padding on small resolution.
+      @media (max-width: 575px) { padding-left: 8px }
+      // Corners.
+      &:first-child { rad: r r 0 0 }
+      &:last-child { rad: 0 0 r r }
+    }
+  }
+
   // * Avatars.
   .avatar {
     c: cm;
@@ -2694,19 +2729,6 @@
     tbody pre { colors: cm, bd, bg; }
   }
 
-  // Groups section.
-  [data-page="users:show"] #groups {
-    .content-list {
-      margin-top: 10px;
-      rad: r;
-      colors: 0, 0, bg;
-      li {
-        transition: 0.15s ease;
-        &:hover { colors: 0, 0, bd; }
-      }
-      .group-row .stats { color: cm; }
-    }
-  }
   // Text dividers.
   .middle-dot-divider::after { color: cm; }
   /* Fix master/history/find file/web ide section when low-resolution. */
@@ -2740,6 +2762,7 @@
     }
     // ? Reset items and loader height.
     .overview-content-list {
+      a { c: fg }
       > .loading {
         &, > .loading {
           margin: 0 auto !important;
@@ -2765,30 +2788,10 @@
     }
   }
 
-  /* Text color. */
-  .nothing-here-block, .content-list li { c: fg }
-  .nothing-here-block { padding: 8px; }
-
-  // * Project -> Activity.
-  .project-activity {
-    rad: r;
-    background-color: bg;
-    box-shadow: inner;
-    // Item.
-    .event-item {
-      padding: 8px 8px 8px 60px;
-      colors: fg, bd, 0;
-      transition: background 0.15s ease-in-out;
-      &:hover { background-color: bd; }
-      // Text color.
-      a { color: ac; }
-      .event-title { color: fg; }
-      .author_name a, strong a { color: ac; }
-      // Remove left padding on small resolution.
-      @media (max-width: 575px) { padding-left: 8px; }
-      // Avatar position.
-      .user-avatar { margin-left: 8px; }
-    }
+  // Empty block.
+  .nothing-here-block {
+    padding: 8px;
+    c: fg;
   }
 
   // * Profile -> Overview.
@@ -2977,29 +2980,16 @@
 
   // * Dashboard -> Activity.
   .activities {
-    // Navigation tweaks.
-    &.nav-block {
-      position: relative;
-      margin-bottom: 8px;
-      border-bottom: none;
-      > div[class] { @media (max-width: 740px) { width: 100% }}
-    }
+    c: 0 t;
+    // @upstream
+    > .is-smaller { width: 100% }
     // Fix RSS icon.
     .controls {
-      margin: 14px 0 0 0;
-      z-index: 9;
+      top: 0;
+      right: 8px;
+      margin: 14px -2px 0 0;
       position: absolute;
-      top: 0; right: 8px;
       @media (max-width: 740px) { display: none !important; }
-    }
-    // Items.
-    .event-item {
-      padding: 8px 16px 8px 60px;
-      colors: fg, bd, 0;
-      .event-title { color: fg; }
-      a { color: ac; }
-      // Adjust avatars.
-      .user-avatar { margin-left: 10px; }
     }
   }
 
