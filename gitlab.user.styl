@@ -1,34 +1,34 @@
 /* ==UserStyle==
-@name         GitLab Dark by Mew
+@name         Dark-GitLab
 @namespace    gitlab.com/vednoc/dark-gitlab
 @version      0.45.2
-@description  Dark theme for GitLab.
-@author       vednoc
+@description  Dark and light theme for GitLab and self-hosted GitLab instances.
+@author       vednoc <vednoc@pm.me> (https://gitlab.com/vednoc)
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
 @preprocessor stylus
 
-@var text     b_radius  "Custom border radius" 4px
-@var text     a_radius  "Custom avatar radius" 50%
-@var text     max_width "Custom width for fluid/fixed layout" 100%
-@var text     ui_font   "Custom UI font" "'font_name'"
-@var text     mono_font "Custom mono font" "'font_name'"
+@var text     b_radius   "Custom border radius" 4px
+@var text     a_radius   "Custom avatar radius" 8px
+@var text     max_width  "Custom width for fluid/fixed layout" 100%
+@var text     ui_font    "Custom UI font" "'font_name'"
+@var text     mono_font  "Custom mono font" "'font_name'"
 @var text     emoji_font "Custom emoji font" "'font_name'"
-@var text     faded_img "Fade images in md/wiki/blog" "1"
-@var checkbox gl_icons  "GitLab Icons [Add-on]: Fix icon alignment" 0
-@var checkbox p_header  "Center project header elements" 0
-@var checkbox dark_logo "Switch to our darker logo" 0
-@var checkbox navbar_c  "Navbar: Theme navbar color" 1
-@var checkbox navbar_n  "Navbar: Show 'next' badge" 1
-@var checkbox invert_ic "Icons: Invert in Chromium-based browsers" 1
-@var checkbox enable_sb "Enable custom scrollbars" 1
-@var checkbox bg_invert "Background inversion" 1
-@var text     bg_image  "Background url/base64" "url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA7SURBVCiRY2BgYHBgQABbBgaGlwwMDE4ExBwYGBheMRBQRJQY/TUyQN3uQIZGBzhBhsbRACNR44gMMADUtz9VRtuY9AAAAABJRU5ErkJggg==")"
-@var text     bg_filter "Background filters" opacity(0.05) invert(var(--bg-invert))
-@var text     bg_size   "Background size" 15px
-@var text     bg_repeat "Background repeat" repeat
-@var text     bg_pos    "Background position" center
+@var text     faded_img  "Fade images in md/wiki/blog" "1"
+@var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
+@var checkbox p_header   "Center project header elements" 0
+@var checkbox dark_logo  "Switch to our darker logo" 0
+@var checkbox navbar_c   "Navbar: Theme navbar color" 1
+@var checkbox navbar_n   "Navbar: Show 'next' badge" 1
+@var checkbox invert_ic  "Icons: Invert in Chromium-based browsers" 1
+@var checkbox enable_sb  "Enable custom scrollbars" 1
+@var checkbox bg_invert  "Background invert colors" 0
+@var text     bg_image   "Background URL/base64" "#00000005 url("full-img-URL")"
+@var text     bg_filter  "Background filter" opacity(1) invert(var(--bg-invert))
+@var text     bg_size    "Background size" cover
+@var text     bg_repeat  "Background repeat" repeat
+@var text     bg_pos     "Background position" center
 
 @var color dark    "Color: Primary bg   " #212121
 @var color darken  "Color: Highlight bg " #262626
