@@ -1528,7 +1528,7 @@
   ul.content-list {
     > li {
       padding: 8px;
-      c: 0 bd;
+      c: fg bd;
       transition: 0.15s ease;
       &:hover { c: 0 0 hl }
       a { c: ac }
@@ -1557,7 +1557,7 @@
     }
   }
   // Project -> Groups.
-  #groups, #snippets {
+  #groups, #snippets, .snippets-list-holder {
     ul.content-list {
       margin-top: 10px;
       border: 1px solid bd;
@@ -2676,6 +2676,8 @@
     .file-content {
       colors: 0 0 t;
       &.blob-no-preview h4 { text-shadow: none }
+      // @upstream
+      &.code pre { rad: 0 }
     }
   }
 
@@ -2817,10 +2819,15 @@
         // Hide "activity" border.
         &:first-child { colors: 0 t 0 }
       }
+      // Improve empty list.
       .border-bottom {
         padding: 0 8px;
-        colors: 0 0 hl;
         rad: r r 0 0;
+        colors: 0 t hl;
+        + div {
+          min-height: 32px;
+          box-shadow: 0 -1px bd;
+        }
       }
     }
     // ? Content list items.
@@ -3107,7 +3114,7 @@
       margin-right: 8px;
       rad: 2px;
       box-shadow: inner;
-      .name { c: cm 0 t }
+      .name { c: cm 0 hl }
       .value-container {
         margin-right: 0;
         c: fg 0 bd;
@@ -3512,6 +3519,7 @@
     c: fg bd bg;
     // Header.
     .pika-label { c: cm 0 t }
+    .pika-prev, .pika-next { filter: invert(1) }
     // Cells.
     th { c: fg bd }
     td {
@@ -3520,6 +3528,7 @@
         c: fg 0 bg;
         &:hover, ../[class^="is-"] .pika-day { c: ac 0 bd }
       }
+      &.is-disabled .pika-day { c: cm 0 t }
     }
     // Shadow.
     &.is-bound { box-shadow: bsh }
