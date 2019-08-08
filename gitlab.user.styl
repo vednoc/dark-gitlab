@@ -1522,7 +1522,7 @@
       a { c: ac 0 0 0 0 }
     }
     li {
-      fg: fg 0 0 0;
+      c: fg 0 0 0;
       a[href] { c: ac 0 0 0 }
     }
     .group-row .stats { color: cm; }
@@ -3564,6 +3564,7 @@
       transition: 0.15s ease;
       &:first-child { rad: r r 0 0 }
       &:hover { c: 0 0 bd }
+      .issuable-comments a { c: fg }
       // Approvals.
       .text-success {
         c: green;
