@@ -729,7 +729,7 @@
     }
     // ? Avatars -> Reset.
     .header-user-avatar {
-      rad: var(--avatar) !important;
+      radius: 50%;
       border: none !important;
       colors: cm, 0, t;
     }
@@ -1564,12 +1564,27 @@
     &, &-circle, &-container, &-tile {
       rad: var(--avatar) !important;
       border: none !important;
-      c: cm t t;
+      c: fg t t;
     }
     &:not(img) {
-      c: 0 0 bg;
-      box-shadow: inner;
+      box-shadow: inset 0 0 0 2px bd;
       transition: 0.15s ease !important;
+    }
+    &.identicon {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        opacity: 0.5;
+      }
+      &.bg1::before { c: 0 0 yellow }
+      &.bg2::before { c: 0 0 magenta }
+      &.bg3::before { c: 0 0 violet }
+      &.bg4::before { c: 0 0 blue }
+      &.bg5::before { c: 0 0 cyan }
+      &.bg6::before { c: 0 0 red }
+      &.bg7::before { c: 0 0 orange }
     }
   }
   // ? Drop some shadow; use transparent avatars for best results.
