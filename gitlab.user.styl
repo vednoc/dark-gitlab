@@ -1499,9 +1499,8 @@
   code.key-fingerprint { colors: cm, bd, bd; }
 
 
-  // * Projects list.
-  // TODO move groups to appropriate place. Possible refactor.
-  .projects-list, #groups .content-list {
+  // Dashboard -> Projects list.
+  .projects-list {
     margin: 8px 0;
     rad: r;
     border: 1px solid bd;
@@ -1536,6 +1535,14 @@
       .icon-container > .icon-wrapper {
         colors: cm, 0, 0;
       }
+    }
+    // Profile -> Compact list.
+    &.compact {
+      margin: 0;
+      border: none;
+      rad: 0 0 r r;
+      .project-row { padding: 8px }
+      .project-row:first-child { rad: 0 }
     }
   }
 
@@ -2757,12 +2764,16 @@
         .col-lg-6:last-child { padding-left: 3px; }
       }
     }
-    // ? Fix loader height.
-    .overview-content-list > .loading  {
-      &, > .loading {
-        margin: 0 auto !important;
-        height: 50px;
+    // ? Reset items and loader height.
+    .overview-content-list {
+      > .loading {
+        &, > .loading {
+          margin: 0 auto !important;
+          height: 50px;
+        }
       }
+      // @obsolete
+      .projects-list { border: none }
     }
   }
 
@@ -2777,18 +2788,6 @@
       rect[fill^="rgb(12"] { opacity: 0.45 }
       rect[fill^="rgb(82"] { opacity: 0.70 }
       rect[fill^="rgb(37"] { opacity: 1 }
-    }
-  }
-
-  // ? Compact projects-list.
-  .compact.projects-list {
-    margin: 0 !important;
-    colors: 0, 0, t;
-    box-shadow: none !important;
-    .project-row {
-      padding: 8px;
-      &:first-child { rad: 0; }
-      &:last-child { rad: 0 0 r r; }
     }
   }
 
@@ -3021,13 +3020,6 @@
       position: absolute;
       top: 0; right: 8px;
       @media (max-width: 740px) { display: none !important; }
-    }
-    // List.
-    // ! Might need extra tweaking somewhere.
-    .content_list {
-      rad: r;
-      colors: 0, 0, bg;
-      box-shadow: inner;
     }
     // Items.
     .event-item {
