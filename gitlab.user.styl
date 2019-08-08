@@ -611,6 +611,7 @@
   // ? Forms.
   .form-control {
     colors: cm bd bg;
+    input.add-issuable-form-input { c: 0 0 t }
     &:focus, &.focus {
       c: fg blue;
       box-shadow: none;
@@ -765,7 +766,12 @@
       // ? Active state for toggles.
       ^[0].show:not(#sc) & {
         colors: fg bd bd;
+        button[aria-expanded="true"] { c: fg 0 bd }
         ^[2] ^[0]-toggle-text { colors: fg 0 0 }
+      }
+      // Active state for non-toggle buttons.
+      ^[0].show:not(#sc) {
+        button[aria-expanded="true"] { c: fg 0 bd }
       }
     }
     // Dashboard -> Dropdowns in activities.
