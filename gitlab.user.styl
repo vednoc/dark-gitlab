@@ -1174,9 +1174,18 @@
   }
   // Social icons.
   .provider-btn {
-    colors: cm, 0, bg;
-    &-group { colors: 0, bd, bg; }
-    &-image { colors: 0, bd, 0; }
+    rad: r;
+    c: fg 0 hl;
+    &-group {
+      rad: 8px;
+      border: none;
+      c: 0 t hl;
+    }
+    &-image {
+      rad: r 0 0 r;
+      height: 32px;
+      c: 0 bd bd;
+    }
   }
   // Path.
   .input-group-text {
@@ -2389,7 +2398,7 @@
     // Adjust sidebar width.
     &.right-sidebar-collapsed {
       &, .block { width: 50px }
-      .width:hover { c: 0 0 hl }
+      .block:hover { c: 0 0 hl }
       .gutter-toggle { height: 55px }
     }
     .issuable-sidebar-header { height: 55px !important }
@@ -2632,10 +2641,12 @@
   span.badge, button.badge, div.badge {
     // Remove unnecessary underline.
     &.color-label { text-decoration: none !important; }
-    // Apply everywhere except on color-label elements.
-    &:not(.badge-pill):not(.color-label) { c: white }
+    // Apply everywhere except on specific badges.
+    &:not(.badge-pill):not(.color-label):not(.badge-verification-status) {
+      c: white;
+    }
     // Hack for darkening background color.
-    &:not(.badge-pill):not(.available) {
+    &:not(.badge-pill):not(.available):not(.badge-verification-status) {
       // transition: 0.15s ease;
       box-shadow: inset 0 0 0 1rem #33333370;
       &:hover { box-shadow: none; }
@@ -3555,7 +3566,7 @@
         filter: opacity(0.75) !important;
       }
       // Selected.
-      &.active .page-link { c: fg 0 bd }
+      .page-link.active, &.active .page-link { c: fg 0 bd }
       &:hover:not(.disabled):not(.active) .page-link { c: fg 0 hl }
     }
   }
