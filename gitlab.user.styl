@@ -3072,31 +3072,6 @@
     }
   }
 
-  // * Issues -> List.
-  .issues-holder {
-    margin-top: 10px;
-    rad: r;
-    border: 1px solid bd;
-    c: 0 0 bg;
-    // Email a new issue to this project.
-    .issuable-footer {
-      padding: 10px;
-      border-top: 1px solid bd;
-    }
-    li:not(.page-item) {
-      transition: 0.15s ease;
-      &:first-child { rad: r r 0 0; }
-      &:hover { c: 0 0 bd }
-    }
-    // ? Reset pagination.
-    .gl-pagination {
-      padding: 10px;
-      margin-top: 0px !important;
-      border-top: 1px solid bd;
-      .pagination { margin: 0px; }
-    }
-  }
-
   // * Issues -> Similar issues list.
   .issue-form .list-unstyled {
     padding: 8px;
@@ -3565,20 +3540,20 @@
     // Links.
     .page-item {
       // Defaults.
-      .page-link { colors: cm, bd, bg; }
+      .page-link { c: cm bd bg }
       // Disabled.
       &.disabled .page-link {
-        colors: cm, 0, 0;
+        c: cm;
         filter: opacity(0.75) !important;
       }
       // Selected.
-      &.active .page-link { colors: ac, 0, bd; }
-      &:hover:not(.disabled):not(.active) .page-link { colors: ac, 0, 0; }
+      &.active .page-link { c: fg 0 bd }
+      &:hover:not(.disabled):not(.active) .page-link { c: fg 0 hl }
     }
   }
 
-  // * Merge Requests -> List.
-  .merge-requests-holder {
+  // * Issues/MR -> List.
+  .issues-holder, .merge-requests-holder {
     margin-top: 10px;
     rad: r;
     border: 1px solid bd;
@@ -3600,7 +3575,7 @@
       border-top: 1px solid bd;
       .pagination { margin: 0px; }
     }
-    // Email a new MR to this project.
+    // Email a new issue/MR to this project.
     .issuable-footer {
       padding: 10px;
       border-top: 1px solid bd;
