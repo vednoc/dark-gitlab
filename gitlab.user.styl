@@ -3874,34 +3874,20 @@
     color: fg;
     &:focus, &:hover { color: cm; }
   }
-  // Reactions.
-  .row-content-block.content-component-block { background-color: t; }
-  // Snippets list.
+
+  // Profile -> Snippets list.
   .snippets-list-holder {
-    margin-top: 10px;
-    border: 1px solid;
-    rad: r;
-    colors: 0, bd, bg;
-    li {
-      transition: all 0.2s ease-in-out;
-      &:first-child { rad: r r 0 0; }
-      &:last-child { rad: 0 0 r r; }
-      &.snippet-row {
-        padding: 8px !important;
-        &:hover { colors: 0, 0, bd; }
-        // Text colors.
-        .snippet-info {
-          &, time, .js-user-link { colors: cm, 0, 0; }
-        }
+    // Text colors.
+    li.snippet-row {
+      .title {
+        a[href] { c: fg }
+        .snippet-filename { c: cm }
       }
+      .snippet-info { c: fg }
     }
   }
-  // Reset styles in reaction area.
-  [data-page*="snippets:show"] .row-content-block {
-    padding: 8px 0 0 0 !important;
-    margin: 0 !important;
-    border: none !important;
-  }
+  // Snippets -> Reset block.
+  [data-page*="snippets:show"] .row-content-block { padding: 0 }
 
   // * Project :: Snippets.
   [data-page*="projects:snippets:index"] {
