@@ -224,75 +224,45 @@
 
   // * Table -> Base styles for all `table` elements.
   table:not([class]) {
-    rad: r;
     display: table !important;
-    border-style: hidden !important;
-    border-collapse: collapse !important;
+    border-collapse: unset;
+    rad: r;
     colors: 0 0 bg;
     box-shadow: inner;
     thead {
-      colors: 0 0 t;
-      th { colors: fg bd bd }
       tr:first-child {
-        th { border: none !important }
-        > th:first-child { border-top-left-radius: r; }
-        > th:last-child { border-top-right-radius: r; }
-      }
-    }
-    tbody {
-      colors: 0 bd t; // Fixes large top border in docs.
-      td {
-        word-break: break-all;
-        colors: fg bd t;
-      }
-      // AsciiDoc tables.
-      tr > th {
-        border: none !important;
-        c: fg 0 bd;
-      }
-      tr:last-child {
-        // Bottom corners look a bit off on Firefox.
-        th, td { &:first-child { border-bottom-left-radius: r; }}
-        td:last-child { border-bottom-right-radius: r; }
-      }
-    }
-  }
-  // * Table -> Found on: https://gitlab.com/help
-  *:not(.use-csslab) table[data-sourcepos][dir] {
-    > thead {
-      display: flex;
-      > tr {
-        width: 100%;
-        display: flex;
         > th {
-          flex: 1 1 100%;
-          colors: fg 0 0;
+          c: fg bd hl;
+          border-bottom: 1px solid bd !important;
+          &:not(:last-child) { border-right: none }
+          &:first-child { border-top-left-radius: r }
+          &:last-child { border-top-right-radius: r }
         }
       }
     }
-    > tbody {
-      display: flex;
-      flex-direction: column;
-      colors: 0, 0, bg;
-      > tr {
-        display: flex;
-        // Remove default border and set cell background color.
-        > td {
-          flex: 1 1 100%;
+    tbody {
+      colors: 0 0 t;
+      td {
+        word-break: break-all;
+        border: none !important;
+        border-left: 1px solid bd !important;
+        border-bottom: 1px solid bd !important;
+        colors: fg bd t;
+        &:last-child { border-right: 1px solid bd !important }
+      }
+      tr {
+        // AsciiDoc tables.
+        > th {
           border: none !important;
-          a[href] { &, > code { colors: ac, 0, 0; }}
-          &:first-child {
-            border-left: 1px solid bd !important;
-            border-bottom: 1px solid bd !important;
-          }
-          &:last-child {
-            border: 1px solid bd !important;
-            border-top: none !important;
-          }
-          &:not(:last-child):not(:first-child) {
-            border-left: 1px solid bd !important;
-            border-bottom: 1px solid bd !important;
-          }
+          border-left: 1px solid bd !important;
+          border-bottom: 1px solid bd !important;
+          c: fg 0 hl;
+        }
+        // &:hover { th, td { c: 0 0 hl }}
+        &:last-child {
+          // Bottom corners look a bit off on Firefox.
+          th, td { &:first-child { border-bottom-left-radius: r }}
+          td:last-child { border-bottom-right-radius: r }
         }
       }
     }
@@ -1161,7 +1131,10 @@
       colors: 0, 0, bd;
     }
   }
-
+  .table-striped tbody tr:nth-of-type(odd) {
+    c: 0 0 t;
+    > td { c: 0 0 hl }
+  }
 
   // * Settings -> Messages.
   .settings-message {
