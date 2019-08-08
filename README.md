@@ -46,9 +46,7 @@ This is why you should consider using Dark-GitLab!
     switch between various pre-defined color-schemes.
 
 ## Screenshots
-*Keep in mind these screenshots are taken a while ago.*
-
-Project page view with BreezeDark color-scheme from [ThemeSwitcher][switcher], max-width of 1300px and old project header design enabled.
+Preview image showcases v0.46.0 with default colors, custom width of 1440px, Inter as the UI font, and Iosevka as the mono font on 1920x1080 resolution.
 
 ![preview](./images/preview.png)
 
