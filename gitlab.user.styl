@@ -1044,6 +1044,7 @@
         rad: 0;
         c: 0 0 t;
         box-shadow: none;
+        a { line-height: 32px }
       }
     }
     // Issues/MR/Milestones.
@@ -1441,13 +1442,9 @@
         border-bottom-width: 1px !important;
         c: cm;
         ../:hover > a { c: fg bd }
-        ../.active, ../:active {
-          > a { c: fg ac }
-          .badge.badge-pill { c: fg }
-        }
+        ../.active, ../:active { > a { c: fg ac }}
         &.active { c: fg ac t }
       }
-      .badge.badge-pill { c: cm 0 bd }
     }
     // Whitespace on the right side.
     + .nav-controls {
