@@ -1525,15 +1525,13 @@
   }
 
   // Global -> Content lists.
-  ul.content-list:not(.event_commits) {
-    margin-top: 10px;
-    border: 1px solid bd;
-    rad: r;
-    c: 0 0 bg;
+  ul.content-list {
     > li {
       padding: 8px;
+      c: 0 bd;
       transition: 0.15s ease;
       &:hover { c: 0 0 hl }
+      a { c: ac }
     }
     .group-row .stats { color: cm; }
   }
@@ -1556,6 +1554,15 @@
       // Corners.
       &:first-child { rad: r r 0 0 }
       &:last-child { rad: 0 0 r r }
+    }
+  }
+  // Project -> Groups.
+  #groups, #snippets {
+    ul.content-list {
+      margin-top: 10px;
+      border: 1px solid bd;
+      rad: r;
+      c: 0 0 bg;
     }
   }
 
@@ -1715,11 +1722,6 @@
     .graph-side [class*="bar"] { colors: 0, 0, cm; }
     .graph-separator { colors: 0, 0, cm; }
     [class*="count"] { colors: fg, 0, 0; }
-  }
-  .content-list li {
-    colors: 0, bd, 0;
-    // TODO Find a better way to style this selector.
-    a:not(.btn-warning):not(.btn-danger):not(.page-link) { color: ac !important; }
   }
   // ? Active/Stale/All pages.
   [data-page="projects:branches:index"] {
