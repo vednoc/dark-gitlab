@@ -1529,10 +1529,12 @@
   }
   // Project -> Activity.
   .content_list {
-    margin-top: 10px;
-    border: 1px solid bd;
-    rad: r;
-    c: 0 0 bg;
+    &:not(.list-unstyled) {
+      margin-top: 10px;
+      border: 1px solid bd;
+      rad: r;
+      c: 0 0 bg;
+    }
     .event-item {
       padding: 8px 0 8px 56px;
       c: cm bd;
