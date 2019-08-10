@@ -1162,11 +1162,17 @@
   ul.bordered-list { &, li { colors: 0 bd 0 }}
   // * Settings -> Active sessions.
   .card .list-group {
-    border: 1px solid bd;
     rad: r;
     c: cm 0 bg;
-    &-item { colors: cm bd t }
-    &-item:hover { c: 0 0 hl }
+    // Settings -> Active sessions.
+    &-flush:not(.pages-domain-list) {
+      border: 1px solid bd;
+    }
+    &-item {
+      c: cm bd t;
+      &:hover { c: 0 0 hl }
+      &:last-child { rad: 0 0 r r }
+    }
   }
   // * Settings -> Pipeline quota.
   .pipeline-quota {
@@ -3223,6 +3229,11 @@
     }
     // Items on hover.
     > ul > li { &:hover, &.done-reversible { c: 0 0 hl }}
+    // Project -> Pages.
+    &.border-danger {
+      c: 0 red;
+      .card-header { c: 0 red hl }
+    }
   }
 
   // * Emoji menu.
