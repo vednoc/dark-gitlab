@@ -338,10 +338,12 @@
     &-secondary { colors: 0 0 bg }
   }
   .text {
-    &-white { colors: fg 0 0 }
-    &-tertiary { colors: cm 0 0 }
-    &-secondary { colors: fg 0 0 }
-    &-danger { colors: red 0 0 }
+    &-white { c: fg }
+    &-danger { c: red }
+    &-warning { c: orange }
+    &-success { c: green }
+    &-tertiary { c: cm }
+    &-secondary { c: fg }
   }
   .badge {
     &.unverified { colors: cm cm bg }
@@ -968,7 +970,7 @@
     }
     // Input/select.
     &-drop input, &-choice, &-search-choices, &-default {
-      rad: r !important;
+      rad: r;
       colors: cm, bd, bg;
     }
     &-container-multi &-choices {
@@ -990,6 +992,11 @@
     &-results &-highlighted &-result-label { c: fg 0 hl }
     // Loader.
     &-more-results { colors: 0, 0, t; }
+    // Project -> Import repositories.
+    &-container {
+      > .select2-choice { rad: 4px 0 0 4px }
+      ~ .import-slash-divider { c: 0 bd hl }
+    }
   }
 
   // Global -> GFM links.
@@ -1131,11 +1138,6 @@
     &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 sh; }
     // Remove extra margin.
     > .table { margin-bottom: 0px; }
-    // Imported projects.
-    .table-success,
-    .table-success > td {
-      colors: 0, 0, bd;
-    }
   }
   .table-striped tbody tr:nth-of-type(odd) {
     c: 0 0 t;
