@@ -223,20 +223,26 @@
   }
 
   // * Table -> Base styles for all `table` elements.
-  table:not([class]) {
+  table:not(.code) {
     display: table !important;
     border-collapse: unset;
     rad: r;
     colors: 0 0 bg;
-    box-shadow: inner;
     thead {
-      tr:first-child {
+      &, tr:first-child {
         > th {
           c: fg bd hl;
+          border-top: 1px solid bd !important;
           border-bottom: 1px solid bd !important;
-          &:not(:last-child) { border-right: none }
-          &:first-child { border-top-left-radius: r }
-          &:last-child { border-top-right-radius: r }
+          &:not(:last-child) { border-right: none !important }
+          &:first-child {
+            border-top-left-radius: r;
+            border-left: 1px solid bd;
+          }
+          &:last-child {
+            border-top-right-radius: r;
+            border-right: 1px solid bd;
+          }
         }
       }
     }
@@ -251,12 +257,13 @@
         &:last-child { border-right: 1px solid bd !important }
       }
       tr {
-        // AsciiDoc tables.
+        // AsciiDoc tables and CI/CD jobs.
         > th {
           border: none !important;
           border-left: 1px solid bd !important;
           border-bottom: 1px solid bd !important;
           c: fg 0 hl;
+          &[colspan="10"] { border-right: 1px solid bd !important }
         }
         // &:hover { th, td { c: 0 0 hl }}
         &:last-child {
@@ -265,6 +272,10 @@
           td:last-child { border-bottom-right-radius: r }
         }
       }
+    }
+    &.table-striped tbody {
+      tr:nth-of-type(odd) { c: 0 0 t }
+      tr:nth-of-type(even) > td { c: 0 0 hl }
     }
   }
   // * Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
@@ -1109,39 +1120,11 @@
       rad: r;
       colors: cm, bd, bd;
     }
-    .template-option { colors: 0, bd, 0; }
-  }
-
-  // * Table -> Old-ish table components.
-  .table-responsive, table.table {
-    rad: r;
-    colors: 0, 0, bg;
-    box-shadow: inner;
-    thead tr {
-      th {
-        border-top: none;
-        c: fg 0 hl;
-      }
-      > th:first-child { rad: r 0 0 0; }
-      > th:last-child { rad: 0 r 0 0; }
+    // Project -> Create from template.
+    .template-option {
+      c: 0 bd bg;
+      margin-top: 10px;
     }
-    tbody tr {
-      td {
-        transition: 0.15s ease;
-        colors: cm bd bg;
-      }
-      &:last-child > td:first-child { rad: 0 0 0 r; }
-      &:last-child > td:last-child { rad: 0 0 r 0; }
-      &:hover > td { c: fg 0 hl }
-    }
-    // Highlighted odd rows.
-    &.table-striped tbody tr:nth-of-type(2n + 1) { colors: 0 0 sh; }
-    // Remove extra margin.
-    > .table { margin-bottom: 0px; }
-  }
-  .table-striped tbody tr:nth-of-type(odd) {
-    c: 0 0 t;
-    > td { c: 0 0 hl }
   }
 
   // * Settings -> Messages.
@@ -1193,11 +1176,6 @@
   .pipeline-quota {
     padding: 0px !important;
     colors: 0 bd 0;
-    // Reset the table; refactor at some point.
-    + table.table {
-      border-collapse: separate;
-      border: 1px solid bd;
-    }
   }
   // Settings -> Badges.
   .settings-content {
@@ -1911,7 +1889,6 @@
   // * Project -> Various resets.
   .file-holder {
     .file-fork-suggestion { colors: 0, bd, bg; }
-    .table-responsive { rad: 0 !important; }
     .file-title a:not(.btn) { colors: fg 0 0 }
   }
 
@@ -2729,22 +2706,20 @@
 
   // * Project -> File table.
   .table-holder {
+    border: none;
     // Project -> File table.
-    .table {
-      // Hide thead borders.
-      thead tr { border: none }
-      tr.tree-item {
-        c: 0 bd;
-        // Reset borders.
-        > td {
-          border: none !important;
-          transition: 0.15s ease;
-        }
-        &:last-child { border-bottom: none }
-        &:hover, &.selected { > td { c: 0 0 hl }}
-        // All text colors.
-        * { c: fg }
+    .tree-table tr.tree-item {
+      // Reset borders.
+      > td {
+        // border: none !important;
+        transition: 0.15s ease;
+        &:not(:first-child) { border-left: none !important }
+        &:not(:last-child) { border-right: none !important }
       }
+      &:last-child { border-bottom: none }
+      &:hover, &.selected { > td { c: 0 0 hl }}
+      // All text colors.
+      * { c: fg }
     }
     // ? Fixes `pre` element on project/pages/domains page.
     tbody pre { colors: cm, bd, bg; }
@@ -4567,7 +4542,7 @@
   // * CI/CD -> Pipelines.
   .table-holder {
     margin: 10px 0 0 0;
-    .ci-table {
+    .ci-table:not(.table) {
       border-collapse: separate;
       border: 1px solid bd;
       rad: r;
@@ -4579,7 +4554,7 @@
       }
       .table-row-header {
         padding: 8px;
-        c: fg t hl;
+        c: fg bd hl;
       }
       > [class*="table-row"]:nth-last-child(2) { border-bottom: none }
       .commit {
