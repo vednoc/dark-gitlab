@@ -572,9 +572,9 @@
     color: ac !important;
   }
   .label-bold { color: fg; }
-  .cred { color: red; v: red }
-  .cblue { color: blue; v: blue }
-  .cgreen { color: green; v: green }
+  .cred { c: red; v: red }
+  .cblue { c: blue; v: blue }
+  .cgreen { c: green; v: green }
   .diff-file-changed-icon { &:not(.cgreen):not(.cred) { v: blue }}
   // ? Move to a better place.
   .option {
@@ -1132,10 +1132,6 @@
     rad: r;
     colors: fg bd bg;
   }
-  // ! Explore replacing `border` with `box-shadow` in the future.
-  .triggers-container, .coverage-report, .pipeline-status, .builds-feature {
-    .card { border: none !important }
-  }
   // Social icons.
   .provider-btn {
     rad: r;
@@ -1160,7 +1156,7 @@
   // * Settings -> Emails.
   .account-well {
     rad: r;
-    colors: cm bd bg;
+    colors: cm bd hl;
    }
   // * Settings -> Billings page.
   ul.bordered-list { &, li { colors: 0 bd 0 }}
@@ -1180,7 +1176,6 @@
   // Settings -> Badges.
   .settings-content {
     .card > .card-body {
-      padding: 0;
       > .gl-responsive-table-row { padding: 16px }
     }
     // #69
@@ -2584,19 +2579,16 @@
     // Protected branches/tags/envs.
     &-content {
       [class^="protected-"] {
-        rad: r;
-        border: 1px solid bd;
+        > .table-bordered { border: none }
         > .card-header {
           rad: r r 0 0;
-          colors: fg bd bd;
-         }
-        > .settings-message { rad: 0 0 r r }
-        .table-bordered {
-          margin: 0;
-          border: none;
-          rad: r;
-          box-shadow: none;
-          th, td { border: none }
+          colors: fg bd hl;
+          box-shadow: inner;
+          + .settings-message {
+            margin-top: -2px;
+            rad: 0 0 r r;
+            box-shadow: inner;
+          }
         }
       }
     }
