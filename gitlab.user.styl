@@ -1799,8 +1799,8 @@
   // * Global -> Modals.
   .modal, .modal-doorkeepr-auth {
     colors: 0 0 t;
-    &-backdrop.show {
-      opacity: 0.7;
+    &-backdrop.show, &-backdrop {
+      opacity: 0.9;
       colors: 0 0 bg;
     }
     .modal-content {
@@ -1808,7 +1808,6 @@
       rad: r;
       colors: 0 0 bg;
       box-shadow: inner !important;
-      // Rounded corners for the last element.
       > :last-child { rad: 0 0 r r }
     }
     .modal-header {
