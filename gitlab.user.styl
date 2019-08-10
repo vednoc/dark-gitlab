@@ -1012,7 +1012,7 @@
 
   // Global -> GFM links.
   .gfm {
-    c: fg 0 hl;
+    c: fg 0 bd;
     &&-issue, &&-merge_request, &&-epic { c: ac 0 t }
     &&-commit, &&-milestone { c: ac 0 t }
     &&-label { c: 0 0 t }
@@ -1580,14 +1580,7 @@
 
   // * Project details.
   .project-details {
-    .text-plain {
-      color: fg;
-      &:hover { color: cm; }
-    }
-  }
-  .project-stats .nav .stat-link {
-    color: fg;
-    &:hover { color: cm; }
+    .text-plain { c: fg 0 0 0 }
   }
   .user-access-role { c: fg bd bg }
 
@@ -1823,7 +1816,7 @@
       // ? MR -> Merge with CLI instructions.
       pre {
         rad: r;
-        colors: cm bd bg;
+        colors: cm bd hl;
       }
       [class*="-subheader"] { colors: 0 bd 0 }
       // ? Shortcuts modal.
@@ -2221,7 +2214,7 @@
   // Edited text color.
   .edited-text { color: cm }
 
-  // * Markdown selectors.
+  // * Markdown area.
   .md {
     colors: fg, bg, 0;
     a { colors: ac, 0, 0; }
@@ -2255,7 +2248,7 @@
     }
     caption { c: cm }
     mark { c: white 0 ac }
-    p, a, :not(pre) { > code { colors: fg bd hl }}
+    p, a, :not(pre) { > code { colors: fg bd bd }}
     blockquote:not(#sc) {
       c: cm bd;
       border-left: 4px solid;
@@ -2647,6 +2640,7 @@
   .file-holder {
     rad: r;
     colors: 0, bd, bg;
+    &.readme-holder .file-title strong { font-weight: normal }
     // ? Header.
     .file-title {
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
@@ -2660,7 +2654,7 @@
         .btn {
           font-size: inherit;
           padding: 2px 10px;
-          c: cm;
+          c: cm 0 0 0;
         }
         // Diff -> Renamed file names. #43
         .idiff {
@@ -2679,6 +2673,7 @@
   }
 
   // * Wiki.
+  // NOTE: Deprecated.
   .wiki:not(.use-csslab) {
     color: fg;
     a { color: ac !important; }
