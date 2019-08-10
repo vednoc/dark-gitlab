@@ -3336,13 +3336,33 @@
     .board-title { border-bottom-color: bd; }
   }
 
-  // * Boards :: Add issues.
+  // * Boards -> Add issues.
   .add-issues-container {
-    rad: r;
-    colors: 0, 0, bd;
+    rad: r !important;
+    c: 0 0 bg;
+    box-shadow: bsh;
+    .add-issues-list .board-card {
+      box-shadow: bsh;
+      &.is-active { c: 0 ac }
+    }
+    .issue-card-selected {
+      v: white;
+      c: 0 ac ac;
+    }
     // Reset styles.
-    .add-issues-header, .add-issues-footer {
-      colors: 0, 0, t;
+    .add-issues-header {
+      padding: 16px;
+      rad: r r 0 0;
+      c: 0 0 hl;
+    }
+    .nav-links {
+      rad: r;
+      box-shadow: inner;
+    }
+    .add-issues-footer {
+      padding: 16px;
+      rad: 0 0 r r;
+      c: 0 0 hl;
     }
   }
 
