@@ -3330,10 +3330,16 @@
     // Assignee background.
     .board-card-assignee:hover a { colors: 0, 0, t; }
   }
-  // ? When you move boards themselves.
-  .board > .board-inner {
-    colors: 0, bd, bg;
-    .board-title { border-bottom-color: bd; }
+
+  // Boards -> Resets.
+  .board {
+    // Fix issues block.
+    &.is-collapsed .issue-count-badge { c: 0 0 t }
+    // Drag'n'drop boards.
+    > .board-inner {
+      colors: 0, bd, bg;
+      .board-title { border-bottom-color: bd; }
+    }
   }
 
   // * Boards -> Add issues.
