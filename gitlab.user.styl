@@ -2166,8 +2166,13 @@
     .md-suggestion-diff { c: 0 bd }
     span > code:not([class]) { c: 0 0 bd }
     // Added/removed/changed things in discussions.
-    .idiff.addition { c: fg 0 green }
-    .idiff.deletion { c: fg 0 red }
+    .idiff {
+      padding: 0 1px;
+      rad: 3px;
+      c: 0 0 hl;
+      &.addition { c: green }
+      &.deletion { c: red }
+    }
   }
 
   // * Issues :: Conversation notes.
