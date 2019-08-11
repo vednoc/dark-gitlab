@@ -349,6 +349,7 @@
     &-secondary { colors: 0 0 bg }
   }
   .text {
+    &-info { c: blue }
     &-white { c: fg }
     &-danger { c: red }
     &-warning { c: orange }
@@ -718,7 +719,8 @@
       padding: 4px 2px 3px;
       height: unset;
       rad: r;
-      colors: cm bd bd;
+      colors: cm bd hl;
+      box-shadow: inner;
       #search { colors: cm 0 0 }
     }
     // Navbar links and buttons.
@@ -781,6 +783,8 @@
         colors: fg bd bd;
         button[aria-expanded="true"] { c: fg 0 bd }
         ^[2] ^[0]-toggle-text { colors: fg 0 0 }
+        // Navbar -> Fix search input.
+        &#search { c: 0 0 t }
       }
       // Active state for non-toggle buttons.
       ^[0].show:not(#sc) {
@@ -1004,9 +1008,9 @@
     // Loader.
     &-more-results { colors: 0, 0, t; }
     // Project -> Import repositories.
-    &-container {
+    &-container.import-namespace-select {
       > .select2-choice { rad: 4px 0 0 4px }
-      ~ .import-slash-divider { c: 0 bd hl }
+      ~ .import-slash-divider { c: 0 bd bd }
     }
   }
 
