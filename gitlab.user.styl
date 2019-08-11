@@ -3946,9 +3946,9 @@
 
   // * Editor -> Wrapper.
   .file-editor {
-    .file-title input { rad: r }
-    // Rounded corners; might remove later.
     .file-holder { rad: r; }
+    .toolbar-btn:hover svg { v: fg }
+    #preview { font-family: var(--ui-font) }
     // Fix flashing white background.
     #editor {
       rad: 0 0 r r;
@@ -3957,25 +3957,18 @@
     // Header.
     .nav-links {
       margin-bottom: 10px;
-      padding: 0 8px;
-      rad: r;
       border: 1px solid;
-      colors: 0, bd, bg;
+      c: 0 bd bg;
+      box-shadow: none;
     }
     // Branch name.
     .editor-ref { colors: 0, bd, t; }
-    // Commit or disband.
-    .form-actions {
-      padding: 8px;
-      rad: r;
-      border: 1px solid bd;
-    }
   }
 
-  // * Editor -> Template selection.
-  .template-selectors-menu {
-    colors: 0, bd, 0;
-    .text-info { colors: fg, 0, 0; }
+  // * Editor -> Templates.
+  .template-selector {
+    &s-menu { c: 0 bd }
+    &-dropdowns-wrap > div[class] { font-family: var(--ui-font) }
   }
 
   // * Ace editor.
@@ -3990,7 +3983,7 @@
       + .ace_scroller { rad: 0 0 r 0; }
     }
     // Highlighted line.
-    .ace_gutter-active-line, .ace_active-line { colors: 0, 0, bd; }
+    .ace_gutter-active-line, .ace_active-line { c: 0 0 hl }
     .ace_selected-word, .ace_selection {
       c: 0 0 blue;
       opacity: 0.6;
@@ -3998,7 +3991,7 @@
     .ace_cursor { c: ac }
     .ace_indent-guide {
       background: none;
-      box-shadow: 1px 0 0 0 cm !important;
+      box-shadow: 1px 0 0 0 bd !important;
     }
     // Wrap line.
     .ace_print-margin { colors: 0, 0, bd; }
@@ -4007,8 +4000,8 @@
       padding: 0 4px;
       margin: 10px 10px 0 0;
       border: 1px solid;
-      rad: r;
-      colors: 0, bd, bg;
+      rad: 4px;
+      c: 0 bd hl;
       box-shadow: 0 4px 8px 0 sh;
       // Inputs.
       &_field { colors: fg, 0, bg; }
