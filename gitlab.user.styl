@@ -4047,7 +4047,8 @@
 
   // * Docs :: Search results.
   .algolia-autocomplete {
-    [class*="dataset"] { colors: fg, bd, bg;
+    [class*="dataset"] {
+      c: fg bd bg;
       // Transparentize the content.
       [class*="docsearch-s"] { colors: fg, 0, t; }
     }
@@ -4105,7 +4106,7 @@
     code {
       rad: 3px;
       border: 1px solid;
-      colors: ac, bd, bg;
+      c: ac bd hl;
     }
     img {
       transition: 0.15s ease;
@@ -6017,8 +6018,9 @@
       .input-container {
         img { filter: invert(var(--bg-invert)) }
         input {
+          border: 1px solid bd;
           rad: r;
-          colors: fg 0 bd;
+          colors: fg 0 hl;
           &:focus { box-shadow: 0 4px 16px -4px sh; }
         }
       }
@@ -6071,12 +6073,6 @@
     box-shadow: 0 -1px 0 0 bd, 0 -2px 4px 0 sh;
     // Colorize icons.
     a:hover .fa { colors: ac, 0, 0; }
-    // "Created with" section.
-    .source-link {
-      border-top: 1px solid;
-      colors: cm, bd, bg;
-      a { colors: ac, 0, 0; }
-    }
   }
 
   // Logo
@@ -6149,24 +6145,37 @@
   }
 
   // * Left sidebar.
-  .global-nav {
-    colors: 0, 0, bg;
-    box-shadow: 1px 0 bd;
-    a.active { colors: cm, ac, bd; }
-    &-block-top a { color: fg; text-shadow: none; }
-    &-link {
-      color: cm;
-      box-shadow: none !important;
-      transition: all 0.15s ease-in-out;
-      &:visited { colors: voilet 0 0 }
-      &:hover, &:focus { colors: fg, 0, bd; }
-    }
-    .nav-link {
-      transition: 0.15s ease;
-      &:hover {
-        colors: 0 0 bd;
-        box-shadow: none;
+  .nav-wrapper {
+    c: 0 bd bg;
+    .global-nav {
+      c: 0 0 t;
+      a.active { c: cm ac bd }
+      &-block-top a {
+        color: fg;
+        text-shadow: none;
       }
+      &-link {
+        color: cm;
+        box-shadow: none !important;
+        transition: all 0.15s ease-in-out;
+        &:visited { colors: voilet 0 0 }
+        &:hover, &:focus { colors: fg, 0, bd; }
+      }
+      .nav-link {
+        transition: 0.15s ease;
+        &:hover {
+          colors: 0 0 bd;
+          box-shadow: none;
+        }
+      }
+    }
+    // Collapse sidebar.
+    .nav-toggle {
+      c: 0 t t;
+      box-shadow: 0 -1px bd !important;
+      &:hover { c: 0 0 hl }
+      .label { c: fg }
+      .arrow { &::before, &::after { c: 0 0 cm }}
     }
   }
 
@@ -6258,7 +6267,7 @@
     .clip-btn {
       top: 1px; right: 1px;
       rad: 0 r 0 0;
-      colors: cm, 0, bg;
+      c: cm 0 hl;
       .fa-clipboard::before { color: cm; }
     }
     // Syntax highlighting.
@@ -6272,6 +6281,13 @@
     .nt { colors: blue, 0, 0; }
     .se, .err { colors: orange, 0, 0; }
     .o { colors: cyan, 0, 0; }
+  }
+
+  // Footer -> Sources.
+  .source-link {
+    c: cm 0 bg;
+    box-shadow: 0 -1px bd;
+    a[href] { c: ac }
   }
 }
 
