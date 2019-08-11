@@ -1939,9 +1939,9 @@
     rad: r;
     c: 0 bd bg;
     box-shadow: bsh;
-    &-header { colors: 0, bd, bd; }
+    &-header { c: 0 bd hl }
     &-body {
-      padding: 0;
+      padding: 8px;
       c: fg;
       ../.blue { c: 0 0 blue }
     }
@@ -1966,7 +1966,11 @@
       .arrow::before { border-right-color: bd !important; }
       .arrow::after { border-right-color: inherit !important; }
     }
-    .gpg-popover-user-link { colors: fg, 0, 0; }
+    .gpg-popover {
+      &-icon.valid svg { c: 0 green; v: green; }
+      &-icon.invalid svg { c: 0 red; v: red; }
+      &-user-link { c: fg }
+    }
     // Milestones.
     .milestone-popover-body { colors: 0, 0, t; }
     .milestone-popover-footer { colors: 0, bd, 0; }
