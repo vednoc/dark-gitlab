@@ -4039,38 +4039,6 @@
     &_constant, &_numeric { colors: fg, 0, 0; }
   }
 
-  // * About page :: Applications.
-  // ? https://about.gitlab.com/applications
-  .applications {
-    // Search area.
-    .search-container {
-      border: 1px solid;
-      colors: fg, bd, bg;
-      input { colors: fg, 0, bg; }
-      .suggestions {
-        colors: 0, 0, bg;
-        li:hover, .hl { rad: r; }
-        li:hover { colors: 0, 0, bd; }
-        .hl { colors: 0, 0, ac; }
-      }
-    }
-    // Categories.
-    .category-name { colors: fg, 0, 0; }
-    .category-applications .tile {
-      border: 1px solid;
-      colors: 0, bd, bg;
-    }
-    // Scroll.
-    .scroll-to-top {
-      border: 1px solid;
-      colors: fg, bd, bg;
-    }
-    // Source!
-    .source-link {
-      colors: fg, 0, bd;
-      .external-source-link { colors: ac, t, 0; }
-    }
-  }
   // Footer links.
   footer.footer a {
     colors: cm, 0, 0;
@@ -5635,12 +5603,9 @@
 
   // Footer -> Sources.
   .source-link {
-    border-top: 1px solid;
-    colors: cm bd bg;
-    .external-source-link {
-      colors: cm cm 0;
-      &:hover { colors: ac t 0 }
-    }
+    c: cm 0 bg;
+    box-shadow: 0 -1px bd;
+    a[href] { c: ac cm }
   }
 
   // * Feature -> Custom logo.
@@ -5653,6 +5618,27 @@
       path:nth-child(3), path:nth-child(6) { v: ac 0 }
     }
   }
+
+  // Applications -> Search.
+  .search-container {
+    border: 1px solid bd;
+    rad: r;
+    c: fg 0 bg;
+    input { c: fg 0 bg }
+    .suggestions {
+      c: 0 0 bg;
+      li { rad: r; }
+      .selected-suggestion, li:hover { c: 0 0 hl }
+      .hl { c: 0 0 ac }
+    }
+  }
+  // Categories.
+  .category {
+    &-name { c: fg 0 0 }
+    &-applications .tile:hover { c: 0 0 hl }
+  }
+  // Scroll.
+  .scroll-to-top { c: fg 0 hl }
 }
 
 // ? Not extensively tested, mainly a refactor of old working code.
