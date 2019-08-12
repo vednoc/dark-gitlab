@@ -4107,10 +4107,10 @@
     a:hover, a:focus { text-decoration: underline; }
     .article-metadata { colors: fg, 0, 0; }
     .highlight.plaintext code { colors: fg, 0, 0; }
-    code {
+    :not(pre) > code {
       rad: 3px;
-      border: 1px solid;
-      c: ac bd hl;
+      c: fg bd hl;
+      box-shadow: inner;
     }
     img {
       transition: 0.15s ease;
@@ -6262,7 +6262,7 @@
   // * Code blocks.
   pre.highlight {
     rad: r;
-    colors: 0 bd t;
+    c: 0 bd hl;
     box-shadow: bsh;
     code {
       white-space: pre-wrap;
@@ -6278,7 +6278,7 @@
       .fa-clipboard::before { color: cm; }
     }
     // Syntax highlighting.
-    code, .na, .c { colors: cm, 0, 0; }
+    code, .na, .c, .c1 { c: cm }
     .n, .p, .nb { colors: fg, 0, 0; }
     .pi { colors: red, 0, 0; }
     .no { colors: voilet, 0, 0; }
@@ -6287,7 +6287,7 @@
     .kp, .k { colors: voilet, 0, 0; }
     .nt { colors: blue, 0, 0; }
     .se, .err { colors: orange, 0, 0; }
-    .o { colors: cyan, 0, 0; }
+    .o, .s, .ss { c: cyan }
   }
 
   // Footer -> Sources.
