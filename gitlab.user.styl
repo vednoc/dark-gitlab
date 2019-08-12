@@ -789,8 +789,8 @@
         &#search { c: 0 0 t }
       }
       // Active state for non-toggle buttons.
-      ^[0].show:not(#sc) {
-        button[aria-expanded="true"] { c: fg 0 bd }
+      ^[0].show:not(.commit-stat-summary) {
+        > button[aria-expanded="true"] { c: fg 0 bd }
       }
     }
     // Dashboard -> Dropdowns in activities.
