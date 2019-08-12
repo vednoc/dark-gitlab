@@ -6153,6 +6153,12 @@
     c: 0 bd bg;
     .global-nav {
       c: 0 0 t;
+      &-cat.active a { c: ac }
+      .collapse-toggle::after { c: 0 cm }
+      &-section.expanded {
+        c: 0 0 hl;
+        box-shadow: inset 4px 0 0 ac;
+      }
       a.active { c: cm ac bd }
       &-block-top a {
         color: fg;
@@ -6160,17 +6166,14 @@
       }
       &-link {
         color: cm;
-        box-shadow: none !important;
-        transition: all 0.15s ease-in-out;
-        &:visited { colors: voilet 0 0 }
-        &:hover, &:focus { colors: fg, 0, bd; }
+        box-shadow: none;
+        transition: 0.15s ease;
+        &:hover, &:focus { c: fg 0 bd }
+        &.active[href] { c: ac }
       }
       .nav-link {
         transition: 0.15s ease;
-        &:hover {
-          colors: 0 0 bd;
-          box-shadow: none;
-        }
+        &:hover { c: 0 0 bd }
       }
     }
     // Collapse sidebar.
