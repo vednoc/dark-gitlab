@@ -6158,9 +6158,14 @@
     .global-nav {
       c: 0 0 t;
       &-cat.active a { c: ac }
-      .collapse-toggle::after { c: 0 cm }
+      .collapse-toggle {
+        c: 0 0 t;
+        // transition: 0.15s ease;
+        &::after { c: 0 cm }
+        &.active { c: 0 0 bd }
+      }
       &-section.expanded {
-        c: 0 0 hl;
+        c: 0 0 t;
         box-shadow: inset 4px 0 0 ac;
       }
       a.active { c: cm ac bd }
@@ -6171,14 +6176,11 @@
       &-link {
         color: cm;
         box-shadow: none;
-        transition: 0.15s ease;
-        &:hover, &:focus { c: fg 0 bd }
+        transition: 0s;
+        &:hover, &:focus { &, + .collapse-toggle { c: fg 0 hl }}
         &.active[href] { c: ac }
       }
-      .nav-link {
-        transition: 0.15s ease;
-        &:hover { c: 0 0 bd }
-      }
+      .nav-link:hover { c: 0 0 hl }
     }
     // Collapse sidebar.
     .nav-toggle {
