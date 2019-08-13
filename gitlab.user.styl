@@ -1018,16 +1018,21 @@
 
   // Global -> GFM links.
   .gfm {
-    c: fg 0 bd;
-    &&-issue, &&-merge_request, &&-epic { c: ac 0 t }
-    &&-commit, &&-milestone { c: ac 0 t }
-    &&-label { c: 0 0 t }
-    &.current-user {
-      c: white 0 ac;
-      &:hover {
-        text-decoration: none;
-        colors: white 0 0;
-        opacity: 0.8;
+    c: fg;
+    &&-issue, &&-merge_request, &&-epic, &&-commit, &&-milestone { c: ac }
+    &&-commit, &&-commit_range {
+      font-family: var(--ui-font);
+      font-size: 100%;
+    }
+    &&-project_member {
+      c: ac 0 bd;
+      &.current-user {
+        c: white 0 ac;
+        &:hover {
+          text-decoration: none;
+          c: white;
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -2764,7 +2769,6 @@
     }
     // ? Reset items and loader height.
     .overview-content-list {
-      a { c: fg }
       > .loading {
         &, > .loading {
           margin: 0 auto !important;
@@ -5004,8 +5008,7 @@
     font-family: var(--mono-font) !important;
   }
   // Resets for code areas.
-  .commit-sha, .gfm-commit, .gfm-commit_range, .ref-name,
-  .git-revision-dropdown a {
+  .commit-sha, .ref-name, .git-revision-dropdown a {
     font-size: 100% !important;
     font-family: var(--ui-font) !important;
   }
