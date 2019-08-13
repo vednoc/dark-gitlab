@@ -1537,7 +1537,6 @@
       c: cm bd;
       transition: 0.15s ease;
       .event-title { c: fg }
-      .system-note-image { margin-left: 8px }
       .event-item-timestamp { margin-right: 8px }
       &:hover {  c: 0 0 hl }
       // Remove left padding on small resolution.
@@ -2845,7 +2844,7 @@
       @media (max-width: 575px) { padding-left: 8px !important }
       .system-note-image { left: 8px }
       .event-title { c: cm }
-      .event-body * { c: fg }
+      .event-body *:not(.color-label):not(.gfm) { c: fg }
       &:first-child { rad: r r 0 0 }
       &:last-child { rad: 0 0 r r }
       &:hover { c: 0 0 hl }
