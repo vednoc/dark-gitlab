@@ -5155,6 +5155,14 @@
 }
 
 @-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
+  // Hello bar.
+  .hello-bar-wrapper {
+    .hello-bar {
+      c: 0 0 bd;
+      &-content { c: white 0 violet }
+    }
+  }
+
   // * Landing page.
   .hero-container {
     background: none;
@@ -5170,7 +5178,7 @@
     img {
       opacity: 1 !important;
       &.hero-bg { filter: opacity(1) grayscale(100%) !important }
-      &.hero-thumb { filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg) !important}
+      &.hero-thumb { filter: invert(0.8) hue-rotate(180deg) !important }
     }
   }
   // * Global image reset.
@@ -5178,6 +5186,27 @@
     opacity: faded_img !important;
     transition: 0.15s ease;
     &:hover { opacity: 1 !important; }
+  }
+
+  // Merchandising widget.
+  .merchandising {
+    // &-copy-wrapper { padding: 32px }
+    &-content-container {
+      border: 1px solid bd;
+      rad: r;
+      c: 0 0 bg;
+      box-shadow: bsh;
+      .cta-text { c: ac }
+    }
+    &-image {
+      rad: r 0 0 r;
+      c: 0 bd;
+    }
+  }
+
+  // Release announcement.
+  .ten-oh-announcement {
+    h2, p, span { c: white  }
   }
 
   // * Index page for about sub-domain.
