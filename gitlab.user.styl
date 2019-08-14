@@ -5643,7 +5643,8 @@
   .source-link {
     c: cm 0 bg;
     box-shadow: 0 -1px bd;
-    a[href] { c: ac cm }
+    a[href] { c: ac ac }
+    a[href]:hover { c: 0 t }
   }
 
   // * Feature -> Custom logo.
@@ -5677,6 +5678,17 @@
   }
   // Scroll.
   .scroll-to-top { c: fg 0 hl }
+
+  // Page: https://about.gitlab.com/events/commit/
+  .commit-content {
+    #learn, #sponsor { c: 0 0 t }
+    .logos-container svg path { v: cm }
+    .highlight-background { c: 0 0 hl }
+    .dark-tabs {
+      a { c: cm t }
+      .active a, a:focus, a:hover { c: ac ac }
+    }
+  }
 }
 
 // ? Not extensively tested, mainly a refactor of old working code.
