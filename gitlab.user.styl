@@ -96,7 +96,7 @@
   orange  = var(--orange);
   red     = var(--red);
   magenta = var(--magenta);
-  voilet  = var(--violet);
+  violet  = var(--violet);
   blue    = var(--blue);
   cyan    = var(--cyan);
   green   = var(--green);
@@ -4098,7 +4098,7 @@
       }
     }
     .alert-warning { colors: 0, red, bg; }
-    .alert.alert-success { colors: 0, voilet, voilet; }
+    .alert.alert-success { colors: 0, violet, violet; }
     // Reset *introduced in...* blockquotes.
     blockquote {
       padding: 16px;
@@ -4535,7 +4535,7 @@
     .nb, .nc, .kt { color: blue; }
     .ss, .s1, .se, .gu, .nd { color: magenta; }
     .sx, .sb, .sh, .nf, .gt, .sd { color: red; }
-    .nt, .si, .mi { color: voilet; }
+    .nt, .si, .mi { color: violet; }
     .err {
       colors: 0, 0, t;
       box-shadow: inset 0 -2px red;
@@ -4936,7 +4936,7 @@
   .closed-icon svg { v: red }
   .accepted-icon svg { v: cyan }
   .deleted-icon svg { v: yellow }
-  .imported-icon svg { v: voilet }
+  .imported-icon svg { v: violet }
 
   // * Centers project header elements; old design lookalike.
   if ( p_header == 1 ) {
@@ -5046,7 +5046,7 @@
     &-title {
       c: white 0 blue;
       h3 { color: inherit !important }
-      &.secondary { c: 0 0 voilet }
+      &.secondary { c: 0 0 violet }
     }
     &-info {
       rad: 0 0 3px 3px;
@@ -5055,15 +5055,15 @@
   }
   .btn {
     &:hover { opacity: 0.8 }
-    &-gitlab.secondary { c: white voilet voilet }
+    &-gitlab.secondary { c: white violet violet }
     &-gitlab.primary {
       c: white bd blue;
       transition: 0.15s ease;
     }
   }
   .pricing-category-ruler {
-    .ruler { c: 0 0 voilet }
-    .label { c: voilet }
+    .ruler { c: 0 0 violet }
+    .label { c: violet }
     &.com {
       .ruler { c: 0 0 blue }
       .label { c: blue }
@@ -5335,7 +5335,7 @@
   .simple-header, .blank-header {
     z-index: 1;
     &, &::after {
-      background-image: linear-gradient(60deg, orange -100%, voilet 200%);
+      background-image: linear-gradient(60deg, orange -100%, violet 200%);
       background-color: bg;
     }
     h1 { text-shadow: 2.5px 2.5px 0 sh; }
@@ -6287,10 +6287,9 @@
     code, .na, .c, .c1 { c: cm }
     .n, .p, .nb { colors: fg, 0, 0; }
     .pi { colors: red, 0, 0; }
-    .no { colors: voilet, 0, 0; }
     .na { colors: cm, 0, 0; }
     .s1, .s2 { colors: green, 0, 0; }
-    .kp, .k { colors: voilet, 0, 0; }
+    .no, .kp, .k { colors: violet, 0, 0; }
     .nt { colors: blue, 0, 0; }
     .se, .err { colors: orange, 0, 0; }
     .o, .s, .ss { c: cyan }
