@@ -1616,9 +1616,9 @@
     // Header.
     .commit-header {
       display: inline-flex;
+      border: 1px solid bd;
       rad: r;
-      border: 1px solid;
-      colors: 0, bd, bg;
+      c: 0 0 bg;
       .day { padding-right: 1ch; }
       // Have some whitespace between days.
       &:not(:first-child) { margin-top: 10px; }
@@ -1629,28 +1629,21 @@
     .commits-row {
       position: relative;
       margin-bottom: 8px;
+      border: 1px solid bd;
       rad: r;
-      colors: 0, 0, bg;
-      box-shadow: inner;
+      c: 0 0 bg;
       &::before {
         content: "";
         height: 10px;
         position: absolute;
-        top: -10px; left: 28px;
+        top: -11px; left: 28px;
         border-left: 1px solid bd;
       }
     }
   }
   .commit {
     colors: 0, bd, 0;
-    & &-content {
-      div.committer {
-        colors: cm 0 0;
-        time { color: inherit }
-        // FIX: Specificity.
-        a[href]^[0]-author-link:not(#e) { color: inherit !important }
-      }
-    }
+    & &-content div.committer { c: cm }
     a {
       colors: fg, 0, 0;
       // Center avatar.
