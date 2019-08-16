@@ -1394,6 +1394,8 @@
     }
     // ../project/pipeline_schedules
     + .card { margin-top: 8px }
+    // Project -> Tag list/details.
+    &.adjust, &.multi-line { padding: 0 10px }
   }
   .top-area.group-nav-container {
     > .scrolling-tabs-container .nav a { padding: 10px 8px }
@@ -1731,27 +1733,26 @@
     }
   }
 
-  // * Project :: Tags.
+  // * Project -> Tag list.
   .tags > ul {
     margin-top: 10px;
+    border: 1px solid bd;
     rad: r;
-    colors: 0, 0, bg;
-    box-shadow: inner;
+    c: 0 0 bg;
     li.flex-row {
       padding: 10px;
-      transition: 0.2s ease;
-      .branch-commit {
-        &, .js-timeago, .commit-row-message {
-          colors: cm, 0, 0;
-        }
-      }
-      .item-title.ref-name { colors: fg, 0, 0; }
+      transition: 0.15s ease;
+      .js-timeago, .commit-row-message { c: cm }
+      .item-title.ref-name { c: fg }
     }
   }
-  // * Project :: Tags -> Details.
-  .multi-line .branch-commit {
-    .commit-row-message { colors: cm, 0, 0; }
-    .commit-sha { colors: ac, 0, 0; }
+  // * Project -> Tag details.
+  .multi-line {
+    .branch-commit {
+      .commit-row-message { c: cm }
+      .commit-sha { c: ac }
+    }
+    pre.wrap { c: 0 0 hl }
   }
 
   // * Project -> Contributors.
