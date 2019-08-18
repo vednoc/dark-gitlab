@@ -9,6 +9,7 @@
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
 @preprocessor stylus
 
+@var select   theme      "Theme colors" ["Default", "GitHub"]
 @var text     b_radius   "Custom border radius" 4px
 @var text     a_radius   "Custom avatar radius" 8px
 @var text     max_width  "Custom width for fluid/fixed layout" 100%
@@ -59,14 +60,6 @@
     --accent    : accent;
     --shadow    : shadow;
     --bshadow   : 0 2px 4px var(--shadow);
-    --yellow    : yellow;
-    --orange    : orange;
-    --red       : red;
-    --magenta   : magenta;
-    --violet    : violet;
-    --blue      : blue;
-    --cyan      : cyan;
-    --green     : green;
     --white     : white;
     --t         : transparent !important;
     --width     : max_width;
@@ -81,6 +74,41 @@
     --bg-repeat : bg_repeat;
     --bg-pos    : bg_pos;
     --background: bg_image;
+
+    if (theme == 'GitHub') {
+      --background: #282828;
+      --dark      : #181818;
+      --darken    : #202020;
+      --darker    : #404040;
+      --light     : #e6e6e6;
+      --lighter   : #bfbfbf;
+      --accent    : #4f8cc9;
+      --shadow    : #00000040;
+      --yellow    : #ffcc33;
+      --orange    : #fe9600;
+      --red       : #ff4444;
+      --magenta   : #8368aa;
+      --violet    : #6e5494;
+      --blue      : #4f8cc9;
+      --cyan      : #4d5eff;
+      --green     : #008833;
+    } else {
+      --dark      : dark;
+      --darken    : darken;
+      --darker    : darker;
+      --light     : light;
+      --lighter   : lighter;
+      --accent    : accent;
+      --shadow    : shadow;
+      --yellow    : yellow;
+      --orange    : orange;
+      --red       : red;
+      --magenta   : magenta;
+      --violet    : violet;
+      --blue      : blue;
+      --cyan      : cyan;
+      --green     : green;
+    }
   }
 
   // Overwrite existing Stylus-lang vars with CSS vars.
