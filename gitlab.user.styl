@@ -4337,14 +4337,14 @@
     .link-commit { colors: ac, 0, 0; }
   }
 
-  // * Pipelines :: Builds.
-  // TODO Buggy, info: https://gitlab.com/vednoc/dark-gitlab/issues/22
+  // * Pipelines -> Builds.
+  // https://gitlab.com/vednoc/dark-gitlab/issues/22
   .builds-container {
-    colors: fg, bd, bg;
+    c: fg bd t;
     .build-job {
-      transition: 0.2s ease;
-      a { colors: fg, 0, 0; }
-      &:hover { colors: 0, 0, bd; }
+      transition: 0.15s ease;
+      &:hover { c: 0 0 hl }
+      a { c: fg }
       // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
       &.retried { colors: 0, 0, t; }
     }
