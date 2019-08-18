@@ -2426,7 +2426,7 @@
 
   // * Markdown -> Mermaid.
   .mermaid {
-    // #21.
+    // #21 and #65.
     /:not(.file-content) > .mermaid {
       padding-bottom: 10px;
       rad: r;
@@ -2434,24 +2434,60 @@
       box-shadow: inner;
     }
     // Boxes.
-    rect.actor { v: bd, bd; }
-    text.actor { v: fg, 0; }
+    rect.actor { v: hl cm }
+    text.actor { v: fg }
     // Connectors.
-    .actor-line { v: 0, bd; }
+    .actor-line { v: 0 fg }
     // Notes.
-    .note { v: bd, ac; }
-    .noteText, .noteText tspan { v: cm, 0; }
+    .note { v: bd green }
+    .noteText { &, tspan { v: green }}
     // Lines.
     .message {
-      &Text { v: cm, 0; }
-      &Line0 { v: 0, bd; }
+      &Text { v: fg }
+      &Line0, &Line1 { v: 0 cm }
     }
-    // #65.
-    .edgePath path { v: 0 bd }
-    .edgePath .arrowheadPath { v: bd bd }
-    .node { rect, ellipse, polygon { v: bg bd }}
-    .label { c: fg; }
-    .label { rect { v: bd bd }}
+    .label {
+      c: fg;
+      text { v: fg }
+    }
+    .node {
+      rect, circle, ellipse, polygon { v: hl cm }
+    }
+    .edgePath {
+      .path { v: 0 cm }
+    }
+    .arrowheadPath, #arrowhead { v: fg }
+    rect[style="fill:#e8e8e8;"] { v: bd cm }
+    .section0 { v: blue }
+    .sectionTitle0, .titleText { v: fg }
+    .done0, .done1, .done2, .done3 { v: hl cm }
+    .doneText0, .doneText1, .doneText2, .doneText3 { &:not(#z) { v: fg }}
+    .active0, .active1, .active2, .active3 { v: cm blue }
+    .task0, .task1, .task2, .task3 { v: cyan blue }
+    .grid .tick {
+      v: fg fg;
+      line { v: 0 cm }
+      text { v: fg }
+    }
+    .cluster rect { v: hl blue }
+    .commit-id, .commit-msg, .branch-label { c: fg; v: fg }
+    .loopLine { v: 0 cm }
+    .loopText { v: cm }
+    .labelBox { v: cm cm }
+    .labelText { v: bd }
+    .classLabel {
+      .box { v: fg }
+      text { v: bd }
+    }
+    .classGroup {
+      rect { v: hl cm }
+      line { v: 0 cm }
+      text { v: fg }
+    }
+    .relation { v: 0 cm }
+    #dependency, #composition, #extension { &Start, &End { v: fg fg }}
+    #aggregationStart { v: cm fg }
+    #aggregationEnd { v: fg fg }
   }
 
   // * Project :: Project/group home panel.
