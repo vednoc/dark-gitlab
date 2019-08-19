@@ -2970,14 +2970,13 @@
     padding: 0px;
     rad: r;
     border: 0px solid bd;
-    colors: cm 0 t;
+    colors: fg 0 t;
     &.middle-block { margin-bottom: 10px }
     // Same as down below; probably outdated.
     &.white {
       border: 1px solid bd;
       background-color: bg;
     }
-    time { color: cm }
     // * Global -> *You pushed to...*
     > .event-last-push {
       padding: 8px;
@@ -2985,6 +2984,7 @@
       colors: 0 0 bg;
       // Smol button is no-no.
       .btn { padding: 8px }
+      .event-last-push-text, .btn { font-size: 14px !important }
     }
   }
   /* Sub-header found in compare branches. */
