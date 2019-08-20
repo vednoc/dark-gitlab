@@ -3085,17 +3085,18 @@
     }
     // * Skeleton.
     .dashboard-cards {
-      .bg-light { colors: 0 0 bd }
+      .bg-light { c: 0 0 hl }
       .dashboard-card-skeleton-info::after {
         background-image: linear-gradient(to right, t 0%, bg 50%, t 100%)
       }
     }
     // Modals -> Add projects.
-    #add-projects-modal .project-list-item {
-      colors: 0 0 t;
-      &:hover {
-        colors: fg 0 bd;
-        .identicon { colors: 0 0 bg }
+    /[id*="add-projects-modal"] .modal-body {
+      padding: 16px;
+      .project-list-item {
+        padding: 0;
+        margin: 0;
+        rad: r;
       }
     }
   }
