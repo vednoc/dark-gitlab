@@ -661,6 +661,14 @@
     }
     &:disabled, &[readonly] { colors: cm bd 0 }
   }
+  .label-form .form-group {
+    // Project -> New labels.
+    code {
+      c: 0 0 hl;
+      box-shadow: inner;
+    }
+    .has-tooltip { box-shadow: inset 0 0 0 2px sh }
+  }
   // ? Spinner in pipelines.
   .spinner {
     margin-bottom: -4px;
@@ -1186,9 +1194,9 @@
   }
   // Path.
   .input-group-text {
-    colors: fg, bd, 0;
+    c: fg bd 0;
     // Fix #29.
-    &:not(.label-color-preview) { colors: 0, 0, bd; }
+    &:not(.label-color-preview) { c: 0 0 hl }
   }
   // * Settings -> Emails.
   .account-well {
@@ -3464,6 +3472,7 @@
     }
     .label {
       // Badges.
+      &-description a { c: ac }
       &-badge-gray { colors: fg bd bd }
       &-badge-blue { colors: white blue blue }
       &-subscribe-button[data-toggle] {
