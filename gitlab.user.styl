@@ -3511,6 +3511,7 @@
     .label-badge {
       c: cm bd bg;
       &-gray { c: fg 0 bd }
+      &-blue { c: white 0 cyan }
     }
     // Color in relatable issues.
     &-title { colors: cm, 0, 0; }
@@ -3576,6 +3577,8 @@
     colors: 0 bd bg;
     svg path[fill='#fff'] { v: t }
   }
+  // Milestones -> Burndown chart buttons.
+  .js-burndown-data-selector .btn-inverted { c: blue blue t }
   // GitLab-Gold promotion.
   .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0; }
 
@@ -3595,7 +3598,7 @@
       text { v: fg }
     }
     .ideal.line { v: 0 cm }
-    .actual.line { v: 0 ac }
+    .actual.line { v: 0 green }
   }
   // Repository charts.
   .repo-charts {
