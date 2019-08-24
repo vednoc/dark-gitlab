@@ -1074,7 +1074,7 @@
   }
 
   // * Dashboard -> Search page hacks.
-  [data-project=""] {
+  [data-page^="search:"] {
     .top-area:not(.cover-block) {
       margin-top: 8px;
       rad: r;
@@ -1090,25 +1090,39 @@
     }
     // Issues/MR/Milestones.
     .search-results {
-      margin-top: 16px;
-      rad: r;
-      colors: 0 0 bg;
-      box-shadow: inner;
       // Bug on .../search/users tab. @upstream
-      > .content-list {
-        > li { padding: 8px }
-        &:not(:last-child) { box-shadow: 0 1px bd }
+      ul.content-list {
+        > li {
+          padding: 8px;
+          border: 1px solid bd;
+          c: 0 0 bg;
+          &:hover { c: 0 0 hl }
+        }
+        &:first-child > li { rad: r r 0 0 }
+        &:last-child > li { rad: 0 0 r r }
+        &:not(:last-child) > li { border-bottom: none }
       }
       .search-result-row {
-        padding: 8px;
+        padding: 10px;
         margin-bottom: 0;
-        colors: 0, bd, 0;
-        &:first-child { rad: r r 0 0; }
-        &:last-child { rad: 0 0 r r; }
-        h4 { margin-top: 0px; }
+        border: 1px solid bd;
+        c: 0 0 bg;
+        &:first-child { rad: r r 0 0 }
+        &:last-child { rad: 0 0 r r }
+        &:not(:last-child) { border-bottom: none }
+        h4, h5 { margin-top: 0 }
         code { c: cm 0 hl }
         pre.code { c: 0 bd hl }
+        .term > p:last-child { margin-bottom: 0 }
       }
+    }
+    // Commits.
+    .results .commit-list {
+      border: 1px solid bd;
+      rad: r;
+      c: 0 0 bg;
+      li:first-child { rad: r r 0 0 }
+      li:last-child { rad: 0 0 r r }
     }
   }
 
