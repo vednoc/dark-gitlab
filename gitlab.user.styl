@@ -1436,21 +1436,23 @@
     c: 0 0 bg;
     box-shadow: inner;
   }
-  #content-body > div[class] > .top-area:not(.cover-block) {
-    margin-top: 8px;
-    rad: r;
-    c: 0 0 bg;
-    box-shadow: inner;
-    > .nav.nav-tabs:not(#sc) {
-      a { padding: 10px 8px }
-      margin-top: 0;
-      c: 0 t t;
-      box-shadow: none;
+  #content-body > div[class], #content-body {
+    > .top-area:not(.cover-block) {
+      margin-top: 8px;
+      rad: r;
+      c: 0 0 bg;
+      box-shadow: inner;
+      > .nav.nav-tabs:not(#sc) {
+        a { padding: 10px 8px }
+        margin-top: 0;
+        c: 0 t t;
+        box-shadow: none;
+      }
+      // ../project/pipeline_schedules
+      + .card { margin-top: 8px }
+      // Project -> Tag list/details.
+      &.adjust, &.multi-line { padding: 0 10px }
     }
-    // ../project/pipeline_schedules
-    + .card { margin-top: 8px }
-    // Project -> Tag list/details.
-    &.adjust, &.multi-line { padding: 0 10px }
   }
   .top-area.group-nav-container {
     > .scrolling-tabs-container .nav a { padding: 10px 8px }
