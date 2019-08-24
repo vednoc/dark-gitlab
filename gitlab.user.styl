@@ -3040,21 +3040,14 @@
     }
     // Reset whitespace.
     > .content-list > li {
-      padding: 6px 8px 6px 6px;
+      padding: 8px 10px;
       transition: 0.15s ease;
     }
   }
-  /* Text color. */
-  .issuable-milestone,
-  .issuable-info,
-  .task-status,
-  .issuable-updated-at {
-    color: var(--light) !important;
-  }
+  /* 'x of x tasks completed' */
+  .task-status { c: fg }
   /* Email button. */
-  .issuable-email-modal-btn {
-    color: var(--accent);
-  }
+  .issuable-email-modal-btn { c: ac }
   /* Merged/closed. */
   .merge-request.merged,
   .issue.merged,
@@ -3690,6 +3683,17 @@
     }
   }
 
+  // Global -> Issuable lists.
+  .issuable {
+    &-info-container a[href] { c: fg }
+    &-updated-at { c: cm }
+    &-comments a { c: fg }
+    &-info {
+      c: cm;
+      a[href] { c: fg }
+    }
+  }
+
   // * Issues/MR -> List.
   .issues-holder, .merge-requests-holder {
     margin-top: 10px;
@@ -3699,8 +3703,7 @@
     li:not(.page-item) {
       transition: 0.15s ease;
       &:first-child { rad: r r 0 0 }
-      &:hover { c: 0 0 bd }
-      .issuable-comments a { c: fg }
+      &:hover { c: 0 0 hl }
       // Approvals.
       .text-success {
         c: green;
@@ -3718,6 +3721,7 @@
     .issuable-footer {
       padding: 10px;
       border-top: 1px solid bd;
+      c: 0 0 hl;
     }
   }
 
