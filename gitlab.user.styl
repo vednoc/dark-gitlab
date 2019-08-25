@@ -202,6 +202,7 @@
       rad: r;
       font-family: var(--mono-font);
       c: fg bd bg 0 0 0;
+      &.bg-light { c: 0 0 hl }
     }
 
     // Checkbox/radio inputs.
@@ -1118,7 +1119,10 @@
         &:last-child { rad: 0 0 r r }
         &:not(:last-child) { border-bottom: none }
         h4, h5 { margin-top: 0 }
-        code { c: cm 0 hl }
+        :not(pre) > code {
+          c: 0 0 hl;
+          box-shadow: inner;
+        }
         pre.code { c: 0 bd hl }
         .term > p:last-child { margin-bottom: 0 }
       }
@@ -3356,7 +3360,7 @@
         // Light text.
         small, .params { colors: cm 0 0 }
         // Selected.
-        &:hover, &.cur { colors: fg 0 bd }
+        &:hover, &.cur { colors: fg 0 hl }
       }
     }
   }
@@ -4399,6 +4403,7 @@
   .build-page .environment-information {
     colors: 0, bd, bg;
   }
+  .build-page .build-loader-animation .dot { c: 0 0 bd }
 
   // * Build sidebar.
   .build-sidebar {
