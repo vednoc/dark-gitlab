@@ -3753,17 +3753,15 @@
     colors: ac, 0, 0;
     + strong { colors: fg, 0, 0; }
   }
-  /* Resolved. */
-  .line-resolve-all {
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  // Resolved state icons.
-  .line-resolve-btn {
-    &.is-active svg { v: green }
-    &.is-disabled svg { v: cm }
-  }
 
+  // MR -> Resolved threads.
+  .line-resolve-all {
+    c: 0 bd bg;
+    .line-resolve-btn {
+      &.is-disabled svg { v: cm }
+      &.is-active svg { v: green }
+    }
+  }
 
   /* Merge Requests :: Notes. */
   .discussion-body .notes .note,
