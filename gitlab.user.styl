@@ -3964,6 +3964,7 @@
 
   // * MR -> Changes.
   .mr-version-controls {
+    padding-bottom: 0;
     margin: 0;
     width: 100%;
     rad: r;
@@ -4598,6 +4599,12 @@
         &:first-child, &:first-child::after { rad: 0 0 0 r; }
         &:last-child, &:last-child::after { rad: 0 0 r 0; }
       }
+    }
+    // Diff expansion added in 11.2.
+    .line_expansion {
+      c: 0 0 t;
+      td { c: 0 bd }
+      a { c: ac }
     }
     // ? Notes -> Suggested changes.
     .gd, .gi {
