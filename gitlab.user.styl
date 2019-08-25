@@ -1064,7 +1064,9 @@
       font-size: 100%;
     }
     &&-project_member {
-      c: ac 0 bd;
+      padding: 1px 3px;
+      c: ac 0 hl;
+      &:not(.current-user) { box-shadow: inner }
       &.current-user {
         c: white 0 ac;
         &:hover {
@@ -2316,7 +2318,12 @@
     }
     caption { c: cm }
     mark { c: white 0 ac }
-    p, a, :not(pre) { > code { colors: fg bd bd }}
+    p, a, :not(pre) {
+      > code {
+        c: fg bd hl;
+        box-shadow: inner;
+      }
+    }
     blockquote:not(#sc) {
       c: cm bd;
       border-left: 4px solid;
