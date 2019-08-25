@@ -2167,6 +2167,11 @@
       text-decoration: none !important;
       time { color: cm }
     }
+    // Tasks -> https://gitlab.com/gitlab-org/gitlab-ce/issues/31358
+    .system-note-message code {
+      c: 0 0 hl;
+      box-shadow: inner;
+    }
   }
 
   // Notes -> Discussion.
@@ -2279,7 +2284,11 @@
     }
     .md-preview-holder { padding: 8px }
     // When you use commands.
-    .referenced-commands { colors: 0, 0, bd; }
+    .referenced-commands {
+      border-top: 1px solid bd;
+      rad: 0;
+      c: 0 0 t;
+    }
     .comment-toolbar {
       padding: 8px;
       c: cm bd 0;
