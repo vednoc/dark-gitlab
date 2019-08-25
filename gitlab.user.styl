@@ -3101,8 +3101,19 @@
       top: 0; left: 0; bottom: 0;
     }
   }
-  // ? Rounded corners for first list item.
-  .issuable-list > li:first-child::before { rad: r 0 0 0; }
+  .issuable-list {
+    // Manual ordering added in 11.2.
+    &.manual-ordering:not(#z) {
+      c: 0 0 t;
+      > li {
+        rad: r;
+        c: 0 bd bg;
+        box-shadow: bsh;
+        transition: none;
+        &:hover, &.sortable-chosen { c: 0 0 hl }
+      }
+    }
+  }
 
   // * Dashboard -> Activity.
   .activities {
