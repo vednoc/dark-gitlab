@@ -1083,6 +1083,19 @@
 
   // * Dashboard -> Search page hacks.
   [data-page^="search:"] {
+    // Fix search button.
+    .btn-search {
+      c: white green green;
+      // Tweak text.
+      + .form-text.text-muted {
+        font-size: 0;
+        a::before {
+          font-size: 14px !important;
+          content: "ASF enabled.";
+        }
+      }
+    }
+    // Nav.
     .top-area:not(.cover-block) {
       margin-top: 8px;
       rad: r;
