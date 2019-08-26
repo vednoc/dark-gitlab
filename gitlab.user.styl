@@ -3361,7 +3361,6 @@
     }
     .card-body, .card-footer {
       pre {
-        font-family: var(--mono-font);
         rad: r;
         colors: cm bd bg;
       }
@@ -3770,6 +3769,7 @@
     .issuable-footer {
       padding: 10px;
       border-top: 1px solid bd;
+      rad: 0 0 r r;
       c: 0 0 hl;
     }
   }
@@ -5377,22 +5377,26 @@
   // * Articles.
   .blog.article {
     .overlay { background: linear-gradient(0deg, bg, t 100%); }
-    .body { colors: 0, 0, bg; }
+    .body { c: 0 0 bg }
     // Anchors.
     .content {
-      h1, h2, h3, h4, h5, h6, ul li, a {
-        // colors: ac, 0, 0;
-        a, code { colors: ac, 0, 0; }
+      .badge:not(.available) {
+        c: fg;
+        box-shadow: none !important;
       }
-      p a, p a > a { colors: ac, 0, 0; }
+      a:not(.twitter-block-link):not(.btn) { c: ac }
+      code {
+        c: 0 0 hl;
+        box-shadow: inner;
+      }
     }
     .btn {
-      &-red { colors: fg red bd }
+      // &-red { colors: fg red bd }
+      &-red:not(#z) { c: white }
       &-default { colors: fg bd 0 }
     }
-    .twitter-block .panel-body { colors: cm, 0, bd; }
     // Availability of the features.
-    .badge:not(.available) { colors: fg bd bg }
+    .badge:not(.available) { colors: fg bd hl }
     .top-row .badge.available { colors: white red red }
     .bottom-row .badge.available { colors: white orange orange }
     // Previous/next buttons.
@@ -5417,11 +5421,14 @@
   .header-link > i.fa-link { colors: cm, 0, 0; }
   // Divider between new features.
   [class$="-column"]:last-child { colors: 0, bd, 0; }
-  // Navbar.
+
+  // Try GitLab.
   .sticky-banner {
-    colors: 0, 0, bd;
-    box-shadow: 0 0 8px 0 sh;
+    c: 0 0 bg;
+    box-shadow: 0 -1px bd;
+    a:not(.btn) { c: ac }
   }
+
   .gray-section {
     colors: cm, bd, bg;
   }
@@ -5671,7 +5678,15 @@
       &:hover { opacity: 0.8 }
     }
   }
-  .panel, .panel-info > .panel-heading {
+  .panel {
+    rad: r;
+    c: 0 bd hl;
+    box-shadow: bsh;
+    &-body {
+      c: cm;
+    }
+  }
+  .panel-info > .panel-heading {
     colors: fg, bd, bd;
   }
   .panel-success > .panel-heading {
@@ -6293,23 +6308,24 @@
 
   // * Main content.
   .main {
-    border: none;
+    c: 0 bd;
     h1 { colors: 0, bd, 0; }
     img { box-shadow: none !important; }
     * > a { colors: ac, 0, 0; }
     // Help and feedback section.
     .comments {
+      padding: 16px;
       margin: 16px auto -16px auto;
       rad: r;
       border: 1px solid;
       colors: 0 bd bg;
       .nav-tabs {
         margin: 0;
-        border-color: bd;
+        c: 0 bd;
         li a {
           border-bottom: none;
-          rad: r r 0 0;
-          colors: cm bd t;
+          colors: cm t t;
+          &:first-child { rad: r 0 0 r }
           &.active { colors: fg bd bd }
         }
       }
