@@ -5255,7 +5255,6 @@
   }
 }
 
-
 @-moz-document regexp("https?://design.gitlab.com(/.*)") {
   // Loading bar.
   .nuxt-progress { colors: 0, 0, ac; }
@@ -5376,16 +5375,38 @@
 
   // * Articles.
   .blog.article {
+    .header {
+      .author a:hover { &, i { c: ac }}
+      h1, p { c: white }
+    }
     .overlay { background: linear-gradient(0deg, bg, t 100%); }
     .body { c: 0 0 bg }
     // Anchors.
     .content {
+      blockquote { c: 0 bd 0 }
       .badge:not(.available) {
         c: fg;
         box-shadow: none !important;
       }
       a:not(.twitter-block-link):not(.btn) { c: ac }
-      code {
+      .highlight {
+        rad: r;
+        c: fg bd hl;
+        > code { colors: 0 t t }
+        .err { colors: white 0 red }
+        // Syntax highlighting.
+        .na, .c, .c1 { c: cm }
+        .n, .p, .nb { c: fg }
+        .gr, .nf, .pi, .si { c: red }
+        .nn, .na { c: cm }
+        .s1, .s2 { c: green }
+        .no, .kp, .k { c: violet }
+        .nc, .nt { c: blue }
+        .se { c: orange }
+        .vi, .o, .s, .ss { c: cyan }
+        .gi { c: 0 0 green }
+      }
+      :not(pre) > code {
         c: 0 0 hl;
         box-shadow: inner;
       }
@@ -5403,18 +5424,20 @@
     .pull-left a, .pull-right a { colors: fg, bd, bg; }
     // Signup section.
     .signup {
-      max-width: 100%;
-      colors: 0, 0, bd;
-      > .panel {
-        margin: 0 auto;
-        max-width: 900px;
-      }
+      c: 0 0 t;
+      > .panel { border: 1px solid bd }
     }
     // Disqus section.
     .comments {
       rad: r;
-      border: 1px solid;
-      colors: 0, bd, bg;
+      border: 1px solid bd;
+      c: 0 0 bg;
+    }
+    // Article tags.
+    .tag {
+      c: 0 0 hl;
+      a { c: cm }
+      a:hover { c: fg }
     }
   }
   // Header anchor.
@@ -5680,11 +5703,10 @@
   }
   .panel {
     rad: r;
-    c: 0 bd hl;
+    c: cm bd hl;
     box-shadow: bsh;
-    &-body {
-      c: cm;
-    }
+    &-body { c: cm }
+    &&-newsletter-signup { padding: 16px }
   }
   .panel-info > .panel-heading {
     colors: fg, bd, bd;
@@ -5701,23 +5723,26 @@
       color: cm !important;
     }
   }
-  // Featured Posts cards
+  // Featured Posts.
   .blog.list {
-    .article-information {
-      colors: cm, sh, bd;
-      a {
-        color: ac !important;
-      }
+    .article {
+      rad: r;
+      c: cm bd hl;
+      box-shadow: inner;
+      .date { c: cm }
+      .author a { c: ac }
+      .author a:hover i { c: ac }
+      .cover { rad: r r 0 0 }
     }
     .more, .browse {
-      colors: cm, bg, bg;
-      &:hover {
-        background-color: ac !important;
-      }
+      c: cm bd bg;
+      &:hover { c: fg 0 bd }
     }
   }
-  .blog .callout, .blog .gitlab-trial {
-    colors: cm, sh, bd;
+
+  .blog {
+    &:not(.article) .wrapper { max-width: var(--width) }
+    .callout, .gitlab-trial { c: cm bd hl }
   }
 
   // * Handbook search.
