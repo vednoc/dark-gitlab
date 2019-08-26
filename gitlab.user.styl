@@ -1281,8 +1281,10 @@
   // * Global -> Progress bar.
   .progress {
     colors: 0 0 bd;
+    &-bar { c: fg }
     // Filled progress.
-    .bg-success { colors: fg 0 green }
+    .bg-success { c: 0 0 green }
+    .bg-primary { c: 0 0 blue }
   }
   // TODO: Move.
   .text-muted, .description { colors: cm 0 0 }
@@ -3282,7 +3284,6 @@
   }
   // Time tracking.
   .time_tracker {
-    .progress .bg-primary { colors: 0 0 blue }
     .compare-label { colors: cm 0 0 }
     .compare-value { colors: fg 0 0 }
     .time-tracking-help-state { colors: 0 bd bg }
@@ -3565,14 +3566,9 @@
       rad: r;
       c: fg 0 bg;
       box-shadow: inner;
-      // Text color.
-      .milestone-range { colors: fg, 0, 0; }
-      // Links.
-      .milestone-progress {
-        .light, a { colors: cm, 0, 0; }
-      }
-      // Title and reopen button.
-      strong a, .btn-reopen { colors: fg, 0, 0; }
+      &:hover { c: 0 0 bg }
+      &-range { c: cm }
+      &-progress *, strong a { c: fg }
     }
   }
   .milestone {
