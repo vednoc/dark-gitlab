@@ -197,13 +197,18 @@
       colors: 0 bd t;
     }
     img { &.transparent, &.lazy { colors: 0 bd t }}
+    kbd {
+      padding: 0.2rem 0.4rem;
+      c: fg 0 hl 0 0 0;
+      box-shadow: inner, inset 0 -3px bd;
+    }
     code { c: fg bd bg 0 0 0 }
     pre {
       rad: r;
-      font-family: var(--mono-font);
       c: fg bd bg 0 0 0;
       &.bg-light { c: 0 0 hl }
     }
+    pre, code, kbd, samp { font-family: var(--mono-font) }
 
     // Checkbox/radio inputs.
     input[type="checkbox"], input[type="radio"] {
@@ -245,7 +250,7 @@
   }
 
   // * Table -> Base styles for all `table` elements.
-  table:not(.code) {
+  table:not(.code):not(.shortcut-mappings) {
     display: table !important;
     border-collapse: unset;
     border-spacing: 0px;
@@ -1904,7 +1909,6 @@
       .shortcut-mappings {
         th { colors: fg 0 0 }
         td { colors: cm 0 0 }
-        kbd { colors: fg 0 bd }
       }
       // ? Board scope.
       .title { colors: cm, 0, 0; }
