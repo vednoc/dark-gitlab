@@ -16,6 +16,7 @@
 @var text     ui_font    "Custom UI font" "'font_name'"
 @var text     mono_font  "Custom mono font" "'font_name'"
 @var text     emoji_font "Custom emoji font" "'font_name'"
+@var text     transition "Custom transitions" 0.15s ease
 @var text     faded_img  "Fade images in md/wiki/blog" "1"
 @var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header   "Center project header elements" 0
@@ -58,6 +59,7 @@
     --width     : max_width;
     --radius    : b_radius;
     --avatar    : a_radius;
+    --ts        : transition;
     --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, var(--emoji-font);
     --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace;
     --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -124,6 +126,7 @@
   white   = var(--white);
   r       = var(--radius);
   t       = var(--t);
+  ts      = var(--ts);
   outer   = 0 0 0 1px bd;
   inner   = inset outer;
 
@@ -181,7 +184,7 @@
     h1, h2, h3, h4, h5, h6, p { c: fg }
     ul, ol { color: fg }
     a {
-      transition: 0.15s ease;
+      transition: ts;
       color: ac;
       &:hover, &:focus { color: ac }
     }
@@ -464,7 +467,7 @@
   .btn {
     // ? Base selectors.
     &, .btn-default {
-      transition: 0.15s ease;
+      transition: ts;
       c: cm bd bg 0 0 0;
       // &:hover, &:focus, &.focus {
       //   c: fg bd hl 0 0 0;
@@ -761,7 +764,7 @@
     // Navbar links and buttons.
     a, button {
       c: cm;
-      transition: 0.15s ease;
+      transition: ts;
       &:hover, &:focus { c: fg 0 hl }
     }
     // Active tab/button/menu.
@@ -806,7 +809,7 @@
   .dropdown {
     // ? Toggles.
     &-toggle, &-menu-toggle {
-      transition: 0.15s ease;
+      transition: ts;
       &:not(.search-input):not([class*="btn-"]) {
         c: cm bd bg;
         &:hover { c: fg 0 hl }
@@ -830,7 +833,7 @@
     &-toggle-text.is-default { co: cm }
     // On event.
     &-item {
-      transition: 0.15s ease;
+      transition: ts;
       &:hover, &:focus { c: fg 0 hl 0 0 0 }
     }
     // Shadow.
@@ -841,7 +844,7 @@
     .btn-group {
       > button, > a {
         c: 0 bd bg;
-        transition: 0.2s ease !important;
+        transition: ts !important;
         &:hover, &.active { c: 0 0 hl }
         &:first-child { border-radius: r 0 0 r; }
         &:last-child { border-radius: 0 r r 0; }
@@ -867,14 +870,14 @@
     &-extended-height {
       a {
         c: cm;
-        transition: 0.15s ease;
+        transition: ts;
         &:hover, &:active, &:focus { c: fg 0 hl }
         &.is-active { c: ac }
       }
       // ? Boards -> Create new board.
       .dropdown-divider ~ .dropdown-item {
         c: cm;
-        transition: 0.15s ease;
+        transition: ts;
         &:hover, &:active, &:focus { c: fg 0 hl }
       }
     }
@@ -923,7 +926,7 @@
       &:hover a, &:hover button:not(.btn-success) { c: fg 0 hl }
       a, button:not(.btn) {
         c: cm;
-        transition: 0.15s ease;
+        transition: ts;
       }
       .btn-default { c: cm }
       .is-focused, a:focus, a:active { c: fg 0 bd }
@@ -935,7 +938,7 @@
         // ? Reset due to markup being single `li` with a ton of `a` elements.
         &:hover a { c: cm 0 t }
         a {
-          transition: 0.15s ease;
+          transition: ts;
           &:hover { c: fg 0 hl }
           &.is-active { c: fg }
         }
@@ -948,7 +951,7 @@
         &:hover a { c: cm 0 t }
         a, button:not(.btn), .menu-item {
           c: cm;
-          transition: 0.15s ease;
+          transition: ts;
           &:hover { c: fg 0 hl }
         }
         .form-group label { c: fg }
@@ -956,7 +959,7 @@
     }
     // ? Project -> Notifications.
     &-large {
-      li a { transition: 0.15s ease }
+      li a { transition: ts }
     }
     // ? Snippets -> Embed menu.
     &-selectable {
@@ -994,7 +997,7 @@
       c: 0 bd;
       li:hover a { c: cm 0 t }
       li a {
-        transition: 0.15s ease;
+        transition: ts;
         &:hover { c: fg 0 hl }
       }
     }
@@ -1039,7 +1042,7 @@
     }
     // Results.
     &-results &-result-label {
-      transition: 0.15s ease;
+      transition: ts;
       c: cm;
       .group-name { color: fg; }
       .group-path { color: cm; }
@@ -1566,7 +1569,7 @@
     // Items.
     > li {
       padding: 8px;
-      transition: 0.15s ease;
+      transition: ts;
       border-bottom-color: bd;
       // On event.
       &:hover { c: 0 0 hl }
@@ -1592,7 +1595,7 @@
     > li {
       padding: 8px;
       c: fg bd;
-      transition: 0.15s ease;
+      transition: ts;
       &:hover { c: 0 0 hl }
       a { c: ac 0 0 0 0 }
     }
@@ -1613,7 +1616,7 @@
     .event-item {
       padding: 8px 0 8px 56px;
       c: cm bd;
-      transition: 0.15s ease;
+      transition: ts;
       &:hover {  c: 0 0 hl }
       .event-item-timestamp { margin-right: 8px }
       .event-user-info .author_name a { c: fg }
@@ -1650,7 +1653,7 @@
     }
     &:not(img) {
       box-shadow: inset 0 0 0 2px bd;
-      transition: 0.15s ease !important;
+      transition: ts !important;
     }
     &.identicon {
       position: relative;
@@ -1683,7 +1686,7 @@
     .fork-thumbnail {
       rad: r;
       c: 0 bd bg;
-      transition: 0.15s ease;
+      transition: ts;
       &:hover { c: 0 ac 0 }
       a > div { margin: 0 auto }
     }
@@ -1747,7 +1750,7 @@
   // Commits -> Show commit message.
   .text-expander {
     c: 0 bd bg;
-    transition: 0.15s ease;
+    transition: ts;
     &:hover { c: 0 0 bd }
     &.open {
       c: 0 ac ac;
@@ -1807,7 +1810,6 @@
       c: 0 0 bg;
       box-shadow: inner;
       li {
-        transition: 0.1s ease;
         &:hover { c: 0 0 bd }
         &:first-child { rad: r r 0 0; }
         &:last-child { rad: 0 0 r r; }
@@ -1823,7 +1825,7 @@
     c: 0 0 bg;
     li.flex-row {
       padding: 10px;
-      transition: 0.15s ease;
+      transition: ts;
       .js-timeago, .commit-row-message { c: cm }
       .item-title.ref-name { c: fg }
     }
@@ -1926,7 +1928,7 @@
 
   // * Global -> Close buttons.
   .close {
-    transition: 0.15s ease;
+    transition: ts;
     text-shadow: 0 1px 0 sh;
     &, &:hover, &:focus { c: cm }
     // Non-modal.
@@ -2132,7 +2134,7 @@
       ul li[class] {
         c: cm bd;
         text-decoration: none;
-        transition: 0.15s ease;
+        transition: ts;
         &:hover { c: fg }
         &.active { c: ac }
       }
@@ -2353,7 +2355,7 @@
     img:not(.emoji) {
       border: none;
       c: ac bd bg;
-      transition: 0.15s ease;
+      transition: ts;
       opacity: faded_img;
       &:hover { opacity: 1; }
     }
@@ -2391,13 +2393,13 @@
         box-shadow: inset 4px 0 bd, inset 1px 0 0 1px bd;
         // Group name.
         > a {
-          transition: 0.15s ease;
+          transition: ts;
           c: ac 0 0;
           svg { v: ac }
         }
         // Active list items.
         .sidebar-sub-level-items li:not(.fly-out-top-item) {
-          transition: 0.15s ease;
+          transition: ts;
           &.active, &:hover {
             c: cm 0 hl;
             box-shadow: inset 4px 0 ac;
@@ -2420,7 +2422,7 @@
       // Remove unnecessary margin on items.
       a {
         margin-right: 0;
-        transition: 0.15s ease;
+        transition: ts;
       }
     }
     // ? Resets for collapsed sidebar.
@@ -2437,11 +2439,11 @@
     .close-nav-button,
     .toggle-sidebar-button {
       width: 100%;
-      transition: 0.15s ease !important;
+      transition: ts !important;
       c: 0 bd bg;
       &:hover { c: 0 0 hl }
       .collapse-text {
-        transition: 0.15s ease;
+        transition: ts;
         c: fg;
       }
     }
@@ -2748,7 +2750,7 @@
   .blob-upload-dropzone-previews { border-color: bd; }
 
   // * Project -> Badges.
-  .project-badge { transition: 0.15s opacity ease }
+  .project-badge { transition: opacity ts }
   [src*="for-the-badge"] { rad: r; }
   span.badge, button.badge, div.badge {
     // Remove unnecessary underline.
@@ -2759,7 +2761,7 @@
     }
     // Hack for darkening background color.
     &:not(.badge-pill):not(.available):not(.badge-verification-status) {
-      // transition: 0.15s ease;
+      // transition: ts;
       box-shadow: inset 0 0 0 1rem #33333370;
       &:hover { box-shadow: none; }
       &[style*="color: #333333"] {
@@ -2840,7 +2842,7 @@
       // Reset borders.
       > td {
         // border: none !important;
-        transition: 0.15s ease;
+        transition: ts;
         &:not(:first-child) { border-left: none !important }
         &:not(:last-child) { border-right: none !important }
       }
@@ -2955,7 +2957,7 @@
     // ? Content list items.
     .event-item {
       c: cm bd;
-      transition: 0.15s ease;
+      transition: ts;
       padding: 8px 8px 8px 40px !important;
       @media (max-width: 575px) { padding-left: 8px !important }
       .system-note-image { left: 8px }
@@ -3069,7 +3071,7 @@
     // Reset whitespace.
     > .content-list > li {
       padding: 8px 10px;
-      transition: 0.15s ease;
+      transition: ts;
     }
   }
   /* 'x of x tasks completed' */
@@ -3427,7 +3429,7 @@
     padding: 10px 16px !important;
     height: calc(100vh - 134px);
     .board {
-      transition: 0.15s ease;
+      transition: ts;
       padding: 0 !important;
       &:not(:first-child) { padding-left: 8px !important }
       &-title-caret:hover { c: 0 0 bd }
@@ -3481,7 +3483,7 @@
   .board-card {
     c: 0 bd bg;
     box-shadow: 0px 1px 2px 0 sh;
-    transition: 0.15s ease;
+    transition: ts;
     &:hover {
       c: 0 ac 0;
       box-shadow: 0px 2px 4px 0 sh;
@@ -3769,7 +3771,7 @@
     border: 1px solid bd;
     c: 0 0 bg;
     li:not(.page-item) {
-      transition: 0.15s ease;
+      transition: ts;
       &:first-child { rad: r r 0 0 }
       &:hover { c: 0 0 hl }
       // Approvals.
@@ -4270,7 +4272,7 @@
       box-shadow: inner;
     }
     img {
-      transition: 0.15s ease;
+      transition: ts;
       opacity: faded_img;
       &:hover { opacity: 1; }
     }
@@ -4346,7 +4348,7 @@
 
   // Left sidebar active.
   .ide-sidebar-link {
-    transition: 0.15s ease;
+    transition: ts;
     // On event.
     &:focus, &:hover, &.active {
       c: ac bd bd;
@@ -4362,7 +4364,7 @@
       c: 0 bd bg;
       // File in the tree.
       .file-row {
-        transition: 0.15s ease;
+        transition: ts;
         &.is-active, &:hover, &:active { c: 0 0 bd }
         // File options.
         .ide-entry-dropdown-toggle { c: fg 0 bg }
@@ -4376,7 +4378,7 @@
     // Icons.
     .ide-tree-header button {
       color: cm;
-      transition: all 0.15s ease;
+      transition: all ts;
       &[aria-expanded="true"] { c: 0 0 bd }
     }
   }
@@ -4471,7 +4473,7 @@
   .builds-container {
     c: fg bd t;
     .build-job {
-      transition: 0.15s ease;
+      transition: ts;
       &:hover { c: 0 0 hl }
       a { c: fg }
       // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
@@ -4490,7 +4492,7 @@
     box-shadow: inset 0 -1px var(--darker);
     // Items.
     li {
-      transition: 0.15s ease;
+      transition: ts;
       c: cm bd t;
       &.active, &:hover { c: ac bd bd }
     }
@@ -4719,7 +4721,7 @@
       > [class*="table-row"]:nth-last-child(2) { border-bottom: none }
       .commit {
         padding: 8px;
-        transition: 0.15s ease;
+        transition: ts;
         &:hover, &:hover { c: 0 0 hl }
       }
     }
@@ -4748,7 +4750,7 @@
         a:hover, a:focus { c: fg 0 bd }
         // Pipelines where you have permissions.
         .ci-job-component {
-          transition: 0.15s ease;
+          transition: ts;
           &:hover { c: 0 0 bd }
           .mini-pipeline-graph-dropdown-item {
             c: 0 0 t;
@@ -4776,7 +4778,7 @@
     // Pipeline node.
     .build .build-content {
       c: cm bd bg;
-      transition: 0.15s ease;
+      transition: ts;
       &:hover { c: fg ac 0 }
     }
     // Triangle.
@@ -4948,7 +4950,7 @@
       &:last-child::before { c: 0 0 t }
       // Content.
       &-contents {
-        transition: 0.15s ease;
+        transition: ts;
         &:hover { c: 0 0 hl }
         // Text colors and width.
         .last-updated { c: fg }
@@ -5206,7 +5208,7 @@
     &-gitlab.secondary { c: white violet violet }
     &-gitlab.primary {
       c: white bd blue;
-      transition: 0.15s ease;
+      transition: ts;
     }
   }
   .pricing-category-ruler {
@@ -5331,7 +5333,7 @@
   // * Global image reset.
   img, .video_container {
     opacity: faded_img !important;
-    transition: 0.15s ease;
+    transition: ts;
     &:hover { opacity: 1 !important; }
   }
 
@@ -5582,7 +5584,7 @@
   .tile {
     rad: r;
     c: 0 0 bg;
-    transition: 0.15s ease;
+    transition: ts;
     box-shadow: inner, bsh;
     &:hover { box-shadow: inner, 0 4px 8px 2px sh; }
     .list { c: 0 bd }
@@ -5686,7 +5688,7 @@
     c: fg bd bd;
   }
   .cta-btn {
-    transition: 0.15s ease;
+    transition: ts;
     rad: r;
     &.orange {
       c: white orange orange;
@@ -6220,7 +6222,7 @@
         box-shadow: 0 1px 0 0 bd, bsh;
         // Items.
         .header-link {
-          transition: 0.15s ease;
+          transition: ts;
           text-decoration: none !important;
           &:hover p { c: ac }
         }
@@ -6364,7 +6366,7 @@
       &-cat.active a { c: ac }
       .collapse-toggle {
         c: 0 0 t;
-        // transition: 0.15s ease;
+        // transition: ts;
         &::after { c: 0 cm }
         &.active { c: 0 0 bd }
       }
