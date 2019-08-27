@@ -3126,6 +3126,37 @@
     }
   }
 
+  // Design (added in 11.2). #72.
+  .design-detail {
+    &::before {
+      content: '';
+      z-index: -1;
+      opacity: 0.25;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      c: 0 0 bg;
+    }
+    // Discussions.
+    .image-notes {
+      c: 0 0 bg;
+      .design-discussion {
+        c: 0 0 bg;
+        &::before { c: 0 bd }
+        .reply-wrapper { c: 0 bd }
+      }
+    }
+    // Badges.
+    .frame, .image-notes {
+      .badge-pill, .key {
+        c: white bd ac;
+        box-shadow: none;
+      }
+    }
+    // TODO: Refactor with notes.
+    .note, .discussion { &-headline-light { c: cm }}
+    .note-headline-meta .system-note-separator { c: cm }
+  }
+
   // * Dashboard -> Activity.
   .activities {
     c: 0 t;
