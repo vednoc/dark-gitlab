@@ -2170,15 +2170,6 @@
     .note-action-button { colors: 0, 0, t; }
     // Alerts -> Command alerts.
     .flash-container .flash-notice { colors: white 0 blue }
-    // Confidential issue warning.
-    .new-note .issuable-note-warning {
-      padding: 6px 8px 4px;
-      rad: r r 0 0;
-      colors: orange bd bg;
-      svg.icon { v: orange }
-      // Reset corners in confidential issues.
-      + .md-area { rad: 0 0 r r }
-    }
   }
 
   // Notes -> Note.
@@ -3770,6 +3761,16 @@
     &-info {
       c: cm;
       a[href] { c: fg }
+    }
+    // Notes -> Confidential warning.
+    &-note-warning {
+      padding: 6px 8px 4px;
+      rad: r r 0 0;
+      colors: orange bd bg;
+      svg.icon { v: orange }
+      a { &, &:hover { c: orange }}
+      // Reset corners in confidential issues.
+      + .md-area { rad: 0 0 r r !important }
     }
   }
 
