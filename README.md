@@ -17,6 +17,7 @@ This is why you should consider using Dark-GitLab!
 - **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
 - **Custom emoji font**: Use your favorite font for emojis, i.e. emojione, twemoji, etc.
 - **Custom rounded corners value**: Set your prefered border-radius for main elements (excluding buttons).
+- **Custom transitions**: Set custom transitions.
 - **Custom avatar radius**: Set your prefered border-radius for avatars.
 - **Old-design project header**: If you prefer to have project header items in the center, now you can have it back.
 - **Complete theme**: Mainly focusing on the core app but useful and often used sub-domains are also included.
