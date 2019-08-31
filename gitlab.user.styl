@@ -4517,85 +4517,79 @@
     }
   }
 
-  // * IDE :: Monaco editor.
+  // IDE -> Monaco editor.
   .monaco-editor {
     c: fg 0 bg;
-    // Background.
     &-background { c: fg 0 bg }
-    .scroll-decoration {
-      box-shadow: inset 0 2px 4px -1px bd !important;
-    }
-    // Gutter.
+    /// Gutter.
     .margin {
-      c: 0 bg bg;
+      c: 0 bd t;
       .line-numbers { c: cm }
     }
-    // Current line.
-    [class*="current-line"]  { c: 0 bd bd }
-    // Cursor.
-    .cursor { c: fg ac ac }
-    // Indent guide.
-    .lines-content [class*="cigr"] { box-shadow: inset 1px 0 ac }
-    // Command palette.
+    /// Editor features.
+    .lines-content {
+      .current-line  { c: 0 bd bd }
+      .cursor { c: fg ac ac }
+      [class*="cigr"] { box-shadow: inset 1px 0 cm }
+    }
+    .monaco-sash { c: 0 0 ac }
+    /// Command palette.
     .monaco-quick-open-widget {
+      rad: r;
       c: fg bd bg;
-      box-shadow: bsh !important;
-      // Focused.
+      box-shadow: outer, bsh !important;
+      .results-group { c: cm }
+      .label-name {
+        c: fg;
+        .highlight { c: ac }
+      }
+      /// Focused.
       .monaco-tree-row {
         &:hover, &.focused { c: ac 0 bd }
       }
     }
-    // Inspect tokens.
-    .tokens-inspect-widget { c: fg bd bg }
-    // Input.
+    /// Input.
     .monaco-inputbox {
       c: fg bd bg;
-      input { c: fg 0 bg }
+      input { c: fg 0 hl }
     }
-    // Resize.
-    .monaco-sash { c: 0 0 ac }
-    // Find palette.
+    /// Find palette.
     .find-widget {
       c: 0 0 bd;
       box-shadow: bsh;
       .button, .label { filter: invert(var(--bg-invert)); }
     }
-    // Accessibility.
+    /// Accessibility.
     .accessibilityHelpWidget {
-      c: fg bd bg;
+      c: fg bd hl;
+      box-shadow: outer, bsh;
+    }
+    /// Context menu.
+    .context-view .monaco-action-bar {
+      c: 0 0 bg;
+      box-shadow: inner, bsh !important;
+      .action-item {
+        > a { c: cm 0 t }
+        &.focused a { c: fg 0 hl }
+        &.disabled a { c: 0 bd }
+      }
+    }
+    .scroll-decoration { box-shadow: inset bsh !important }
+    .tokens-inspect-widget { c: fg bd bg }
+    .findOptionsWidget {
+      c: 0 bd bd;
       box-shadow: bsh;
     }
-    // Context menu.
-    .context-view {
-      c: 0 0 bd;
-      box-shadow: bsh;
-    }
-    // Hover popup.
-    .monaco-editor-hover { c: 0 sh bd }
-    // Selection.
-    .cslr.selected-text { background-color: bd; }
-    // Matching.
+    .monaco-editor-hover { c: 0 bd bg }
+    .cslr.selected-text { c: 0 0 bd 0 0 0 }
     .selectionHighlight { c: 0 0 bd }
-    // Suggestion.
+    /// Suggestion.
     .tree {
       c: fg bd bd;
       box-shadow: bsh;
       .focused { c: ac 0 bg }
     }
-  }
-  /* Diff view. */
-  .diffOverviewRuler { background-color: var(--dark); }
-  /* Git. */
-  .dirty-diff-added { c: 0 0 green }
-  .dirty-diff-modified { c: 0 0 blue }
-  // ? Dropdown for file finder.
-  .ide-view .dropdown-menu {
-    max-height: 500px;
-    li button.is-focused, a.active { c: 0 0 bg }
-  }
-
-  // * IDE :: Monaco syntax highlighting.
-  .monaco-editor {
+    /// Syntax highlighting.
     .mtk1, .mtk3 { color: fg; }
     .mtk10 { color: cm; }
     .mtk4, .mtk20 { color: red; }
@@ -4604,6 +4598,19 @@
     .mtk14 { color: magenta; }
     .mtk22, .mtk12 { color: cyan; }
     .mtk11 { color: orange; }
+    /// Git status.
+    .dirty-diff-added { c: 0 0 green }
+    .dirty-diff-modified { c: 0 0 blue }
+    .char-delete, .line-delete { c: white sh #ff000050 }
+    .char-insert, .line-insert { c: white sh #00ff0050 }
+  }
+  .ide-view {
+    .diffOverviewRuler { c: 0 0 hl }
+    /// Dropdown for file finder.
+    .dropdown-menu {
+      max-height: 500px;
+      li button.is-focused, a.active { c: 0 0 bg }
+    }
   }
 
   // * Project :: Code view.
