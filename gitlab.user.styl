@@ -2581,7 +2581,7 @@
   }
 
   // * Project :: Project/group home panel.
-  .project-home-panel, .group-home-panel {
+  [class $= '-home-panel'] {
     c: 0 t;
     // Text color.
     .text-secondary { c: cm }
@@ -2690,7 +2690,7 @@
       // Apply right margin to all but the last child.
       &:not(:last-child) { margin: 0 4px 0 0 !important; }
       // Crystal language color.
-      &[style$="#776791"] { background: #000000 !important; }
+      &[style$="#776791"] { c: 0 0 black }
     }
   }
 
@@ -3101,7 +3101,7 @@
     }
   }
   .issuable-list {
-    // Manual ordering added in 11.2.
+    // Issues -> Manual ordering (added in 11.2).
     &.manual-ordering:not(#z) {
       c: 0 0 t;
       > li {
@@ -4743,40 +4743,40 @@
   // Pipeline stage connectors.
   .stage-container::after { border-bottom: 1px solid cm !important }
 
-  // * Pipelines -> Mini-pipelines.
+  // Pipelines -> Mini-pipelines.
   .mini-pipeline-graph-dropdown-toggle {
     c: 0 0 bg;
     &:focus { box-shadow: 0 0 4px 1px blue !important }
-    // * Pipelines -> Stages. Old info in #22.
-    + .mini-pipeline-graph-dropdown-menu {
-      // Indicator.
-      &::after { c: 0 ac }
-      // Reset for items.
-      li {
-        &:hover a { c: cm 0 t }
-        a:hover, a:focus { c: fg 0 bd }
-        // Pipelines where you have permissions.
-        .ci-job-component {
-          transition: ts;
-          &:hover { c: 0 0 bd }
-          .mini-pipeline-graph-dropdown-item {
-            c: 0 0 t;
-            .ci-status-text { c: cm }
-            &:hover .ci-status-text { c: fg }
-          }
-          // Retry button.
-          .ci-action-icon-container {
-            c: 0 bg bd;
-            &:hover { c: 0 ac bd }
-          }
+  }
+  // Pipelines -> Mini-pipeline stages. #22.
+  .mini-pipeline-graph-dropdown-menu {
+    /// Indicator.
+    &::after { c: 0 ac }
+    /// Reset for items.
+    li {
+      &:hover a { c: cm 0 t }
+      a:hover, a:focus { c: fg 0 bd }
+      /// Pipelines where you have permissions.
+      .ci-job-component {
+        transition: ts;
+        &:hover { c: 0 0 bd }
+        .mini-pipeline-graph-dropdown-item {
+          c: 0 0 t;
+          .ci-status-text { c: cm }
+          &:hover .ci-status-text { c: fg }
+        }
+        /// Retry button.
+        .ci-action-icon-container {
+          c: 0 bg bd;
+          &:hover { c: 0 ac bd }
         }
       }
-      // ? Fix text weight.
-      .ci-build-text, .ci-status-text { font-weight: normal !important }
     }
+    /// Fix text weight.
+    .ci-build-text, .ci-status-text { font-weight: normal !important }
   }
 
-  // * CI/CD -> Pipeline details.
+  // CI/CD -> Pipeline details.
   .pipeline-graph {
     margin-top: 8px;
     rad: r;
@@ -4996,11 +4996,9 @@
     }
   }
 
-  // * Invert image icons.
-  // TODO adjust if it causes weird things.
-  img[src*="/assets/icon"] {
-    filter: invert(1);
-  }
+  // Global -> Invert image icons.
+  // Note: Tweak if weird things happen.
+  img[src*="/assets/icon"] { filter: invert(1) }
 
   // * Invert illustrations.
   .wiki .anchor,
