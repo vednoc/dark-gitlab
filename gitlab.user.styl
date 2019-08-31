@@ -4613,7 +4613,7 @@
     }
   }
 
-  // * Project :: Code view.
+  // Global -> Code sections.
   .code {
     c: fg 0 t;
     // Remove weird border around code wrapper.
@@ -4628,7 +4628,7 @@
       // ? Add left border to right section in parralel diff view.
       &:nth-child(3) { border-left: 1px solid red !darker; }
     }
-    // ? Code wrapper.
+    /// Code wrapper.
     .line_holder {
       // Lines for added/removed sections.
       .line_content {
@@ -4690,23 +4690,21 @@
     // Removed/added.
     .gd::before { c: 0 0 red }
     .gi::before { c: 0 0 green }
-  }
-
-  // * Project :: Code syntax highlighting.
-  .code.white {
-    .n, .gh, .s2, .gp { color: fg; }
-    .s, .c, .cp, .c1, .nn, .go { color: cm; }
-    .m, .nv, .na, .mf { color: cyan; }
-    .nb, .nc, .kt { color: blue; }
-    .ss, .s1, .se, .gu, .nd { color: magenta; }
-    .sx, .sb, .sh, .nf, .gt, .sd { color: red; }
-    .nt, .si, .mi { color: violet; }
-    .err {
-      c: 0 0 t;
-      box-shadow: inset 0 -2px red;
+    /// Syntax highlighting.
+    &.white {
+      .n, .gh, .s2, .gp { color: fg }
+      .s, .c, .cp, .c1, .nn, .go { color: cm }
+      .m, .nv, .na, .mf { color: cyan }
+      .nb, .nc, .kt { color: blue }
+      .ss, .s1, .se, .gu, .nd { color: magenta }
+      .sx, .sb, .sh, .nf, .gt, .sd { color: red }
+      .nt, .si, .mi { color: violet }
+      .err {
+        c: 0 0 t;
+        box-shadow: inset 0 -2px red;
+      }
     }
   }
-
 
   // * CI/CD -> Pipelines.
   .table-holder {
