@@ -3928,104 +3928,71 @@
     }
   }
 
-  // * Merge Requests :: New MR.
-  // TODO Refactor needed to simplify styles.
+  // MR -> Widgets.
   .mr-state-widget {
-    // ! Temporary fix for #64.
-    .report-block-container {
-      padding: 0;
-      c: 0 bd t;
-      .failed svg { v: red 0 }
-    }
-    .mr-source-target {
-      padding: 8px;
-      min-height: auto;
-      c: 0 bd bg;
-    }
-    // Description container.
-    .mr-section-container {
+    /// Merge/headings.
+    .mr-source-target, .mr-widget-heading {
       rad: r;
-      border: 1px solid;
-      c: 0 bd bg;
-      .mr-widget-section {
-        // padding: 12px 8px;
-        rad: 0 !important;
+      c: fg bd bg;
+    }
+    /// Collapse.
+    .mr-widget-extension {
+      c: 0 bd hl;
+      &:last-child { rad: 0 0 r r }
+    }
+    /// Global widgets.
+    .mr-section-container {
+      border: 1px solid bd !important;
+      rad: r;
+      c: 0 0 bg;
+      &::before { c: 0 bd }
+      /// Ready to be merged.
+      > .mr-widget-section {
+        rad: 0;
         c: 0 bd;
-        // MR you can merge.
-        > div > .media { padding: 8px }
-        .border-top { c: 0 bd }
-        // MR you can't merge.
-        > .mr-widget-body { padding: 8px }
-        > .mr-widget-info { padding: 0 8px }
-        .danger_message { c: red red bd }
       }
-      // Remove extra padding.
-      .media-section > .media { padding: 0px !important; }
-      .mr-widget-footer .mr-widget-help {
-        padding: 0 4px;
-        c: cm;
+      /// Help.
+      .mr-widget-help { c: cm }
+      /// Empty MR notice.
+      .mr-widget-empty-state { c: fg }
+    }
+    /// Tweaks for borders.
+    .mr-widget {
+      &-footer, &-workflow > :first-child { border-top: none }
+      &-workflow::before, &-border-top { c: 0 bd }
+    }
+    /// Reports. #64.
+    .report-block {
+      &-container {
+        c: 0 bd hl;
+        .failed svg { v: red }
       }
-      // Align the CI icon.
-      .media > .space-children { margin-left: 4px !important; }
-      // Rounded corners.
-      > section:first-child { rad: r r 0 0; }
-      > div:last-child { rad: 0 0 r r; }
+      &-list-issue-parent { c: 0 bd hl }
     }
-    // Borders.
-    .media-section,
-    .mr-widget-heading,
-    .mr-widget-footer {
-      padding: 8px;
-      c: 0 bd bg;
+    /// Reset tables.
+    .border-top {
+      c: 0 bd;
+      .table {
+        margin: -1px !important;
+        width: calc(100% + 2px);
+        > :not(:last-child) tr > * { rad: 0 !important }
+      }
     }
-    // Rounded corners.
-    .mr-source-target, .mr-widget-heading { rad: r; }
-    // Circle icon thing.
-    .circle-icon-container { c: fg bd }
-    .mr-widget-extension { c: 0 bd bg }
-    // ? Fixes approved merge request element.
-    // TODO Rewrite this entire section at some point.
-    .mr-widget-content {
-      padding: 0 !important;
-      .js-mr-approvals { padding: 0 !important; }
-    }
-    .mr-widget-workflow {
-      // Connector.
-      &::before { border-left-color: bd; }
-      // Remove the double-border forming on first child.
-      > .mr-widget-border-top:first-child,
-      > .mr-widget-section:first-child { border-top: none; }
-    }
-    // Branch name.
+    /// Branch/pipeline name resets.
     .label-branch, .pipeline-number {
       color: fg;
       font-size: inherit;
-      font-weight: inherit;
+      font-weight: normal;
       font-family: var(--ui-font);
-      &.label-truncate > a { line-height: 1.2 }
+      &.label-truncate > a { line-height: 1.1 }
     }
-    // Found on: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3023
-    .ci-widget { c: cm }
+    /// Text colors.
+    .bold, .report-block, .media-body { c: fg }
+    .diverged-commits-count, .coverage, .code-text { c: cm }
+    /// Icon resets. @legacy
+    .circle-icon-container { c: fg bd }
+    .git-merge-icon-container { c: fg bd bd }
   }
-  .mr-widget-workflow::before,
-  .mr-widget-heading:not(.deploy-heading)::before {
-    left: 24px !important;
-    border-left: 1px solid var(--darker);
-  }
-  // Text color.
-  .mr-state-widget {
-    c: fg;
-    .bold { c: fg }
-    .font-weight-bold, .code-text, .coverage, .diverged-commits-count {
-      c: cm;
-      a {
-        font-weight: bold;
-        color: inherit;
-      }
-    }
-  }
-  // Icon color.
-  .git-merge-icon-container { c: fg bd bd }
 
   // * MR -> Changes.
   .mr-version-controls {
@@ -4830,7 +4797,7 @@
       &[class*="ci-status-icon-"] {
         width: 24px;
         height: @width;
-        c: 0 0 bd;
+        c: 0 0 bg;
         ../:hover > svg { margin: 0 }
       }
     }
