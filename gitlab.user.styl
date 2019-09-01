@@ -348,10 +348,10 @@
   // ? Remove underline from `label-link` selectors.
   .label-link { text-decoration: none !important; }
 
-  // * Icons!
+  // Icons.
   svg {
     v: cm;
-    // Diff icons.
+    /// Diff icons.
     &.ic-file-addition { &, &-solid { v: green }}
     &.ic-file-modified { &, &-solid { v: blue }}
     &.ic-file-deletion { &, &-solid { v: red }}
@@ -359,6 +359,8 @@
   .fa {
     c: cm;
     &[class*="online"] { c: green }
+    /// Assignee can't merge.
+    &-exclamation-triangle { c: orange }
   }
   // * Icons -> Global icons that don't work without `path`.
   // ? Calendar, add reaction, commit icon.
