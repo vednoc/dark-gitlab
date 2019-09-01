@@ -4663,7 +4663,7 @@
     }
   }
 
-  // * CI/CD -> Pipelines.
+  // CI/CD -> Pipelines.
   .table-holder {
     margin: 10px 0 0 0;
     .ci-table:not(.table) {
@@ -4688,47 +4688,94 @@
       }
     }
   }
-  /* Pipeline commit. */
-  .commit a,
-  .generic_cimmit_status a,
-  .pipelines .ci-table .pipeline-id,
-  .ci-table .branch-commit .commit-sha {
-    color: var(--light);
-  }
-  // Pipeline stage connectors.
-  .stage-container::after { border-bottom: 1px solid cm !important }
 
-  // Pipelines -> Mini-pipelines.
-  .mini-pipeline-graph-dropdown-toggle {
-    c: 0 0 bg;
-    &:focus { box-shadow: 0 0 4px 1px blue !important }
+  // Pipelines.
+  .pipeline {
+    /// Fix thin font. @upstream
+    &-graph .dropdown-counter-badge {
+      top: 10px;
+      font-weight: 300;
+    }
+    /// Pipelines -> Pipeline ID.
+    &s .pipeline-id { c: fg }
   }
-  // Pipelines -> Mini-pipeline stages. #22.
-  .mini-pipeline-graph-dropdown-menu {
-    /// Indicator.
-    &::after { c: 0 ac }
-    /// Reset for items.
-    li {
-      &:hover a { c: cm 0 t }
-      a:hover, a:focus { c: fg 0 bd }
-      /// Pipelines where you have permissions.
-      .ci-job-component {
-        transition: ts;
-        &:hover { c: 0 0 bd }
-        .mini-pipeline-graph-dropdown-item {
-          c: 0 0 t;
-          .ci-status-text { c: cm }
-          &:hover .ci-status-text { c: fg }
-        }
-        /// Retry button.
-        .ci-action-icon-container {
-          c: 0 bg bd;
-          &:hover { c: 0 ac bd }
+
+  // Pipelines -> Build.
+  .build {
+    // Build page.
+    &-page {
+      /// Header.
+      .top-bar {
+        margin-left: 0px;
+        border-left: 1px solid bd !important;
+        rad: r r 0 0;
+        c: cm bd hl;
+        .btn { c: 0 0 t }
+      }
+      /// Build log.
+      .build-trace {
+        margin-left: 0px;
+        border: 1px solid bd;
+        border-top: none;
+        rad: 0 0 r r;
+        c: fg 0 bg;
+        code { c: cm }
+        .term-fg-red { c: red }
+        .term-fg-l-green { c: green }
+      }
+      .environment-information { c: 0 bd bg }
+      .build-loader-animation .dot { c: 0 0 bd }
+    }
+    // Build sidebar. #22.
+    &-sidebar {
+      .link-commit { c: ac }
+      .builds-container {
+        c: fg bd t;
+        .build-job {
+          transition: ts;
+          &:hover { c: 0 0 hl }
+          a { c: fg }
+          // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
+          &.retried { c: 0 0 t }
         }
       }
     }
-    /// Fix text weight.
-    .ci-build-text, .ci-status-text { font-weight: normal !important }
+  }
+
+  // Pipelines -> Mini-pipelines.
+  .mini-pipeline-graph-dropdown {
+    &-toggle {
+      c: 0 0 bg;
+      &:focus { box-shadow: 0 0 4px 1px ac !important }
+    }
+    &-menu {
+      /// Indicator.
+      &::after { c: 0 ac }
+      /// Reset for items.
+      li {
+        &:hover a { c: cm 0 t }
+        a:hover, a:focus { c: fg 0 bd }
+        /// Pipelines where you have permissions.
+        .ci-job-component {
+          transition: ts;
+          &:hover { c: 0 0 bd }
+          .mini-pipeline-graph-dropdown-item {
+            c: 0 0 t;
+            .ci-status-text { c: cm }
+            &:hover .ci-status-text { c: fg }
+          }
+          /// Retry button.
+          .ci-action-icon-container {
+            c: 0 bg bd;
+            &:hover { c: 0 ac bd }
+          }
+        }
+      }
+      /// Fix text weight.
+      .ci-build-text, .ci-status-text { font-weight: normal !important }
+    }
+    /// Mini-pipeline connectors.
+    /.stage-container::after { c: 0 gray }
   }
 
   // CI/CD -> Pipeline details.
