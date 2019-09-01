@@ -4330,192 +4330,152 @@
     }
   }
 
-
-  // * IDE!
+  // IDE.
   .ide {
-    // Text color.
-    .ide-view {
-      c: fg;
-      // Left sidebar title.
-      .context-header > a,
-      .ide-review-sub-header { c: fg }
-    }
-    // Status bar.
-    .ide-activity-bar, .ide-status-bar { c: 0 bd bg }
-    // Resize.
-    .drag-handle { c: 0 0 bg }
-  }
-  // File templates.
-  #ide .ide-file-templates { c: 0 bd bg }
-
-  // Left sidebar active.
-  .ide-sidebar-link {
-    transition: ts;
-    // On event.
-    &:focus, &:hover, &.active {
-      c: ac bd bd;
-      box-shadow: inset 3px 0 ac !important;
-    }
-    &::after { c: 0 0 bg }
-  }
-
-  // * IDE :: File explorer.
-  .ide {
-    // Tree.
-    .multi-file-commit-panel-inner-content {
-      c: 0 bd bg;
-      // File in the tree.
-      .file-row {
-        transition: ts;
-        &.is-active, &:hover, &:active { c: 0 0 bd }
-        // File options.
-        .ide-entry-dropdown-toggle { c: fg 0 bg }
+    /// Panels.
+    &-view {
+      c: red;
+      /// Panels.
+      .multi-file-commit-panel {
+        c: 0 bd hl;
+        strong { c: fg }
+        &:not([class *= 'right']) { padding-right: 0 }
+        .ide-review-sub-header { c: cm }
       }
-    }
-    // Commit.
-    .multi-file-commit-form {
-      c: 0 bd bg;
-      > .commit-form-compact { border-top-color: bd; }
-    }
-    // Icons.
-    .ide-tree-header button {
-      color: cm;
-      transition: all ts;
-      &[aria-expanded="true"] { c: 0 0 bd }
-    }
-  }
-
-  // * IDE :: Merge Requests / Branches.
-  .ide-tree-header {
-    border-bottom-color: var(--darker);
-    // Branch popup.
-    .ide-nav-form {
-      // Separator.
-      .tab-links { c: 0 bg }
-      // Inactive tab.
-      .nav-links li a:not(.active) { c: 0 0 bd }
-      .border-bottom { c: 0 bg }
-      // Search container.
-      .filtered-search-wrapper {
+      /// Commit message.
+      .multi-file-commit-form {
         c: 0 bd bg;
-        input { c: 0 0 t }
+        > form, > .commit-form-compact { c: 0 bd }
+        .ide-commit-message-field { c: 0 0 t }
+        textarea {
+          padding: 8px;
+          c: fg;
+          font-family: var(--mono-font);
+        }
       }
-      // Project metadata.
-      .ide-merge-request-project-path { color: cm; }
+      /// Edit area.
+      .multi-file-edit-pane {
+        c: 0 bd;
+        /// Navigation.
+        .multi-file-tabs {
+          c: 0 0 hl;
+          box-shadow: inset 0 -1px bd;
+          li {
+            c: cm bd hl;
+            &.active {
+              border-bottom-color: bg !important;
+              c: fg 0 bg;
+            }
+          }
+        }
+        /// Tabs/templates.
+        ../../-mode-tabs { c: 0 bd bg }
+        ../../-file-templates { c: fg bd bg }
+        /// Commit view.
+        ../../-commit-editor-header {
+          c: fg bd bg;
+          box-shadow: inset 0 -1px bd;
+        }
+      }
+      /// Background after you push a commit.
+      .multi-file-commit-panel-success-message { c: 0 0 bg }
+      /// Diff minimap.
+      .diffOverviewRuler { c: 0 0 hl }
+      /// File finder maximum height.
+      .dropdown-menu { max-height: 500px }
     }
-    // Branch on hover.
-    button:hover { c: fg 0 bd }
-  }
-  /* Selected. */
-  .ide-file-list .file:hover,
-  .ide-file-list .file.file-active,
-  .multi-file-commit-list-path:hover,
-  .multi-file-commit-list-path.is-active {
-    background-color: var(--darker);
-  }
-
-  // * IDE :: Commit section.
-  .ide-view {
-    // Borders.
-    .ide-commit-list-container.is-first,
-    .multi-file-commit-panel-header { c: 0 bd }
-    // Remove background on buttons.
-    .ide-staged-action-btn { c: 0 0 t }
-    // Commit message.
-    .ide-commit-message-field {
-      c: cm 0 t;
-      textarea { c: fg }
+    // .multi-file-commit-panel-success-message { c: 0 0 hl }
+    /// Panel header.
+    &-context-header {
+      c: fg;
+      .sidebar-context-title { c: fg }
     }
-    // Background after you push a commit.
-    .multi-file-commit-panel-success-message { c: 0 0 bg }
-  }
-
-  // * IDE :: Right sidebar.
-  .ide-view .multi-file-commit-panel {
-    border-color: var(--darker);
-    background-color: var(--dark);
-  }
-  /* Jobs. */
-  .ide-view .card-header,
-  .ide-view .ide-job-item:not(:last-child) {
-    border-color: var(--darker);
-  }
-  /* Build header. */
-  .build-page .top-bar {
-    rad: r r 0 0;
-    c: cm bd bg;
-    // ? Fix terminal controls header, bug on upstream.
-    &.sidebar-expanded { margin-right: 0 !important; }
-  }
-  // ? Hotfix for the header.
-  .build-page > header > .build-header.top-area { margin-bottom: 10px; }
-  /* Build log. */
-  .build-page .build-trace {
-    rad: 0 0 r r;
-    color: var(--light);
-    border: 1px solid var(--darker);
-    border-top-color: transparent;
-    background-color: var(--dark);
-    > code {
-      c: cm;
-      .term-fg-l-green { c: green }
-      .term-fg-red { c: red }
+    /// Left sidebar.
+    &-activity-bar {
+      c: 0 0 hl;
+      button {
+        &::after { c: 0 0 bg }
+        &:hover, &:focus { c: 0 0 bd }
+        &.active {
+          c: 0 bd bg;
+          box-shadow: inset 3px 0 ac !important;
+        }
+        /// Reset file icons.
+        svg[class*='ic-file-'] { v: cm }
+      }
     }
-  }
-  .build-page .environment-information { c: 0 bd bg }
-  .build-page .build-loader-animation .dot { c: 0 0 bd }
-
-  // * Build sidebar.
-  .build-sidebar {
-    .link-commit { c: ac }
-  }
-
-  // * Pipelines -> Builds.
-  // https://gitlab.com/vednoc/dark-gitlab/issues/22
-  .builds-container {
-    c: fg bd t;
-    .build-job {
-      transition: ts;
-      &:hover { c: 0 0 hl }
-      a { c: fg }
-      // ? https://gitlab.com/gitlab-org/gitlab-ce/-/jobs/141718266
-      &.retried { c: 0 0 t }
+    /// Merge Requests / Branches.
+    &-tree-header {
+      /// Dropdown.
+      .ide-nav-form {
+        .tab-links { c: 0 bd }
+        /// Tabs.
+        .nav-links {
+          li { margin: 0 }
+          li a:not(.active) { c: 0 0 hl }
+        }
+        /// Search container.
+        .filtered-search-wrapper {
+          c: 0 bd bg;
+          input { c: 0 0 t }
+        }
+        /// Project metadata.
+        .ide-merge-request-project-path { color: cm }
+      }
     }
-  }
-
-  // * IDE :: Edit area.
-  .multi-file-edit-pane {
-   c: 0 bd bg;
-   .ide-mode-tabs { c: 0 bd bd }
-  }
-  /* Tabs. */
-  .multi-file-tabs {
-    background-color: var(--dark);
-    box-shadow: inset 0 -1px var(--darker);
-    // Items.
-    li {
-      transition: ts;
-      c: cm bd t;
-      &.active, &:hover { c: ac bd bd }
+    /// File tree.
+    &-context-body .multi-file-commit {
+      &-list-path { &:hover, &.is-active { c: 0 0 bd }}
+      &-panel-inner-content, &-form { c: 0 bd bg }
+      &-panel-inner-content {
+        c: 0 bd bg;
+        .ide-tree-header { c: fg bd }
+        // Tree items.
+        .file-row {
+          c: cm;
+          &:hover { c: 0 0 hl }
+          &.is-active, &:active { c: 0 0 bd }
+          .ide-entry-dropdown-toggle { c: fg 0 bg }
+        }
+      }
     }
-  }
-  // Commit header.
-  .ide-commit-editor-header {
-    c: fg bd bg;
-    box-shadow: inset 0 -1px var(--darker);
-  }
-  // Git additions/deletions.
-  .monaco-diff-editor {
-    .line-delete {
-      border-color: transparent !important;
-      background-color: rgba(200, 49, 49, 0.3) !important;
+    /// Right sidebar.
+    &-right-sidebar {
+      .multi-file-commit-panel {
+        c: 0 bd bg;
+      }
+      .ide-activity-bar {
+        c: 0 bd;
+        button.active { box-shadow: inset -3px 0 ac !important }
+      }
     }
-    .char-delete, .char-insert {
-      background-color: rgba(0, 0, 0, 0.15) !important;
+    /// Left -> Panel separators.
+    &-commit-list-container { &, > header { c: 0 bd }}
+    /// Left -> Fix button background.
+    &-staged-action-btn { c: 0 0 t }
+    /// Right -> Pipelines.
+    &-right-sidebar {
+      .ide-pipeline-header {
+        padding: 8px;
+        margin: 0;
+        c: 0 bd;
+      }
+      .ide-pipeline-list {
+        .nav-links { c: 0 bd }
+        .nav-links li { margin: 0 }
+      }
     }
-    .line-insert {
-      border-color: transparent !important;
-      background-color: rgba(149, 200, 99, 0.3) !important;
+    /// Callouts.
+    .bs-callout { c: 0 0 hl }
+    /// Resize.
+    .drag-handle {
+      &:hover { c: 0 0 bd }
+      &.is-dragging { c: 0 0 ac }
+    }
+    /// Status bar.
+    &-status-bar {
+      c: 0 bd bg;
+      button { c: 0 0 t }
     }
   }
 
@@ -4587,9 +4547,9 @@
     .selectionHighlight { c: 0 0 bd }
     /// Suggestion.
     .tree {
-      c: fg bd bd;
+      c: cm bd hl;
       box-shadow: bsh;
-      .focused { c: ac 0 bg }
+      .focused { c: fg 0 bd }
     }
     /// Syntax highlighting.
     .mtk1, .mtk3 { color: fg; }
@@ -4603,16 +4563,11 @@
     /// Git status.
     .dirty-diff-added { c: 0 0 green }
     .dirty-diff-modified { c: 0 0 blue }
+    .inline-deleted-margin-view-zone { c: 0 0 #ff000050 }
+    .inline-added-margin-view-zone { c: 0 0 #00ff0050 }
     .char-delete, .line-delete { c: white sh #ff000050 }
     .char-insert, .line-insert { c: white sh #00ff0050 }
-  }
-  .ide-view {
-    .diffOverviewRuler { c: 0 0 hl }
-    /// Dropdown for file finder.
-    .dropdown-menu {
-      max-height: 500px;
-      li button.is-focused, a.active { c: 0 0 bg }
-    }
+    .current-line-margin { c: 0 bd bd }
   }
 
   // Global -> Code sections.
