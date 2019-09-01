@@ -563,7 +563,7 @@
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
     c: 0 0 t;
-    .btn:focus { co: 0 0 bd }
+    .btn:focus { c: 0 0 bd }
   }
   // ? Reaction buttons.
   .award-control {
@@ -830,7 +830,7 @@
       }
     }
     // Dashboard -> Dropdowns in activities.
-    &-toggle-text.is-default { co: cm }
+    &-toggle-text.is-default { c: cm }
     // On event.
     &-item {
       transition: ts;
@@ -1031,6 +1031,7 @@
       rad: r;
       c: cm bd bg;
     }
+    &-choice:hover { c: 0 0 hl }
     &-container-multi &-choices {
       rad: r;
       c: cm bd bg;
@@ -1803,6 +1804,8 @@
   }
   // ? Active/Stale/All pages.
   [data-page="projects:branches:index"] {
+    .nav-links li { margin: 0 }
+    .nav-controls { padding: 0 }
     .row-content-block + .all-branches,
     .top-area.adjust + .all-branches {
       margin-top: 10px !important;
