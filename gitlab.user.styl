@@ -4987,7 +4987,7 @@
   }
 
   // Global -> Invert image icons.
-  // Note: Tweak if weird things happen.
+  // NOTE: Tweak if weird things happen.
   img[src*="/assets/icon"] { filter: invert(1) }
 
   // * Invert illustrations.
@@ -5009,16 +5009,14 @@
     background: white;
   }
 
-  // * Feature -> Invert icons in Shadow DOM.
-  @supports not (-moz-user-select: none) {
-    if ( invert_ic == 1 ) {
+  // Feature -> Invert icons in Shadow DOM.
+  if ( invert_ic == 1 ) {
+    @supports not (-moz-user-select: none) {
+      .shortcuts-operations svg,
       .created-icon, .opened-icon,
-      .ci-status-icon > svg,
-      [class*="ci-status"] svg.s24,
-      [class*="ci-status"]:not(#stageDropdown) svg.s16,
-      a[class*="ci-status"] svg, svg.ic-upload {
-        // ? Does not work with ThemeSwitcher.
-        filter: invert(calc(var(--bg-invert) - 0.2)) hue-rotate(180deg);
+      svg.ic-upload, .ci-status-icon > svg,
+      [class*="ci-status"] svg {
+        filter: invert(0.8) hue-rotate(180deg);
       }
     }
   }
