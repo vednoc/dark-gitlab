@@ -372,6 +372,7 @@
     &-info { c: 0 0 bd }
     &-light { c: 0 0 bg }
     &-secondary { c: 0 0 bg }
+    &-gray-light { c: 0 0 bg }
   }
   .text {
     &-info { c: blue }
@@ -559,6 +560,8 @@
       padding: 8px 10px;
       &.btn-primary { c: white 0 ac }
     }
+    /// Operations -> New flag.
+    &.clear-search-input { c: 0 0 t }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
@@ -1985,6 +1988,13 @@
       rad: r;
       border: 1px solid bd;
     }
+  }
+
+  // Project -> Container Registry.
+  .registry-placeholder {
+    .container-image { c: 0 bd }
+    .container-image-tags { margin-bottom: 16px }
+    .table.tags td.action-buttons { opacity: 1 }
   }
 
   // * Project -> Various resets.
