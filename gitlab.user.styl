@@ -417,7 +417,8 @@
   .bs-callout {
     rad: 4px;
     position: relative;
-    c: fg bd bg;
+    c: fg bd hl;
+    box-shadow: inner;
     &.gcp-signup-offer { border-left-color: blue !important }
     &.help-callout, &.shared-runners-description {
       border-left: none;
@@ -574,8 +575,7 @@
     &.active { c: fg blue hl }
   }
 
-  // * Project notifications.
-  // TODO move to appropriate section.
+  // Global -> Project toggles.
   .project-feature-toggle {
     c: 0 0 bd;
     &.is-checked { c: 0 0 ac }
@@ -2379,6 +2379,7 @@
       c: cm bd;
       border-left: 4px solid;
       &[dir] p, > div p { c: cm }
+      > ul, > ol { margin-bottom: 0; c: cm }
     }
     img:not(.emoji) {
       border: none;
