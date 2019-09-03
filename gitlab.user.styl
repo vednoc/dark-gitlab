@@ -820,7 +820,7 @@
       // ? Add missing top margin to the dropdown on group page. @upstream
       + ul.show { margin-top: 10px !important; }
       // ? Active state for toggles.
-      ^[0].show:not(#sc) & {
+      ^[0].show:not(#z) & {
         c: fg bd bd;
         button[aria-expanded="true"] { c: fg 0 bd }
         ^[2] ^[0]-toggle-text { c: fg }
@@ -1468,7 +1468,7 @@
       rad: r;
       c: 0 0 bg;
       box-shadow: inner;
-      > .nav.nav-tabs:not(#sc) {
+      > .nav.nav-tabs:not(#z) {
         a { padding: 10px 8px }
         margin-top: 0;
         c: 0 t t;
@@ -2032,8 +2032,8 @@
   }
 
   // * GPG button.
-  // TODO: Remove #sc after refactoring content lists.
-  .gpg-status-box:not(#sc) {
+  // TODO: Remove #z after refactoring content lists.
+  .gpg-status-box:not(#z) {
     &.valid {
       c: green green bg;
       &:hover { c: white 0 green }
@@ -2188,7 +2188,7 @@
     // Entry borders.
     .timeline-entry-inner { c: 0 bd }
     // Highlighted entry.
-    &:target, &.target { &:not(#sc) { c: 0 0 hl }}
+    &:target, &.target { &:not(#z) { c: 0 0 hl }}
     // Fix button background.
     .note-action-button { c: 0 0 t }
     // Alerts -> Command alerts.
@@ -2375,7 +2375,7 @@
         box-shadow: inner;
       }
     }
-    blockquote:not(#sc) {
+    blockquote:not(#z) {
       c: cm bd;
       border-left: 4px solid;
       &[dir] p, > div p { c: cm }
@@ -4288,7 +4288,7 @@
       }
     }
     // WIP: Fixed layout.
-    .container-limited:not(#sc) {
+    .container-limited:not(#z) {
       max-width: var(--width);
       .user-callout-copy { max-width: unset }
     }
