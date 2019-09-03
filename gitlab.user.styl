@@ -4581,8 +4581,6 @@
     // Gutters in file view/diff.
     .line-numbers, .diff-line-num {
       &, a { c: cm 0 t }
-      // ? Add left border to right section in parralel diff view.
-      &:nth-child(3) { border-left: 1px solid red !darker; }
     }
     /// Code wrapper.
     .line_holder {
@@ -4606,7 +4604,7 @@
         z-index: 1;
         border-right: none;
         padding-right: 11px;
-        box-shadow: inset -1px 0 bd;
+        box-shadow: inset -1px 0 bd, -1px 0 bd;
         &.old::after, &.new::after {
           content: "";
           z-index: -1;
