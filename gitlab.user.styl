@@ -1703,7 +1703,7 @@
     .commit-list {
       .commit {
         padding: 8px;
-        a:not(.gpg-status-box) { c: fg }
+        a { c: fg }
       }
     }
     // Header.
@@ -2033,16 +2033,15 @@
     .vertical-align-middle { vertical-align: middle }
   }
 
-  // * GPG button.
-  // TODO: Remove #z after refactoring content lists.
-  .gpg-status-box:not(#z) {
+  // Buttons -> GPG status.
+  .gpg-status-box {
     &.valid {
       c: green green bg;
       &:hover { c: white 0 green }
     }
     &.invalid, &.invalid:focus {
       c: cm bd bg;
-      &:hover { c: 0 0 bd }
+      &:hover { c: 0 0 hl }
     }
   }
 
