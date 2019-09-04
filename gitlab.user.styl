@@ -2220,8 +2220,9 @@
       rad: 0;
       &:target, &.target {
         c: 0 0 hl;
-        box-shadow: inset 0 1px bd, inset 0 -1px bd;
-        &:nth-last-child(2) { box-shadow: inset 0 1px bd }
+        &:nth-child(3) { box-shadow: inset 0 -1px bd }
+        &:nth-child(n+4) { box-shadow: inset 0 -1px bd, 0 -1px bd }
+        &:nth-last-child(2) { box-shadow: 0 -1px bd }
         .code { c: 0 0 bg }
       }
       &:first-child { rad: r r 0 0 }
