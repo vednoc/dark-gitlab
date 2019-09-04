@@ -171,6 +171,8 @@
       height: calc(100% - 41px);
       .navbar-empty { c: 0 bd bg }
     }
+    /// Shop navbar.
+    header.site-header { c: 0 bd bg }
     // Footer.
     .footer-fixed {
       c: 0 bd bg;
@@ -5338,6 +5340,13 @@
     transition: ts;
     &:hover { opacity: 1 !important; }
   }
+  /// Question?
+  .simple-cta {
+    c: fg 0 bg;
+    box-shadow: inner, bsh;
+  }
+  /// Contact sales.
+  .contact-sales-container { c: white 0 violet }
 
   // Merchandising widget.
   .merchandising {
@@ -5378,12 +5387,20 @@
   }
   a.feature-more { c: ac 0 0 }
 
-  // * Blog resources.
+  /// Challenges.
+  .challenge-box {
+    rad: r;
+    c: fg 0 bg;
+    box-shadow: inner, bsh !important;
+    .box-image { rad: r r 0 0 }
+    .box-link a { c: ac }
+  }
+  /// Blog resources.
   .tile-resource {
     rad: r;
     c: 0 0 bg;
-    box-shadow: bsh, inner;
-    .tile-info  { c: 0 0 t }
+    box-shadow: inner, bsh;
+    .tile-info { c: 0 0 t }
   }
 
   // * Articles.
@@ -5514,7 +5531,7 @@
       a, .search-icon i {
         rad: r;
         c: fg;
-        &:hover:not(.fa), &:focus { c: ac 0 bg }
+        &:hover:not(.fa), &:focus { c: fg 0 bg }
       }
       .dropdown {
         rad: r;
@@ -5522,8 +5539,8 @@
         c: cm bd bg;
         a {
           rad: r;
-          c: cm;
-          &:hover { c: ac 0 bd }
+          c: ac;
+          &:hover { c: ac 0 hl }
         }
       }
       // Active page indicator.
@@ -5692,7 +5709,7 @@
   .cta-btn {
     transition: ts;
     rad: r;
-    &.orange {
+    &.orange, &.orange-light {
       c: white orange orange;
       &:hover { opacity: 0.8 }
     }
