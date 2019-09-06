@@ -3998,7 +3998,7 @@
     }
     /// Tweaks for borders.
     .mr-widget {
-      &-footer, &-workflow > :first-child { border-top: none }
+      &-workflow > :first-child { border-top: none }
       &-workflow::before, &-border-top { c: 0 bd }
     }
     /// Reports. #64.
@@ -4018,6 +4018,16 @@
         > :not(:last-child) tr > * { rad: 0 !important }
       }
     }
+    /// Fix 'WIP status' for users that can't merge it. @upstream
+    .mr-widget-body.media {
+      .square + button { margin-right: 10px }
+      .bold { margin-left: 0; c: cm }
+    }
+    /// Footers.
+    .mr-widget-footer {
+      c: 0 bd;
+      .btn-link { c: ac }
+    }
     /// Branch/pipeline name resets.
     .label-branch, .pipeline-number {
       color: fg;
@@ -4027,8 +4037,8 @@
       &.label-truncate > a { line-height: 1.1 }
     }
     /// Text colors.
-    .bold, .report-block, .media-body { c: fg }
-    .diverged-commits-count, .coverage, .code-text { c: cm }
+    .bold, .report-block, .media-body, .code-text { c: fg }
+    .diverged-commits-count, .coverage { c: cm }
     /// Icon resets. @legacy
     .circle-icon-container { c: fg bd }
     .git-merge-icon-container { c: fg bd bd }
