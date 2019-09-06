@@ -4195,8 +4195,7 @@
   // * Ace editor -> Syntax highlighting.
   .ace {
     &_line { c: cm }
-    &_support&_function { c: bd }
-    &_support&_type { c: cm }
+    &_support { ~/_type&, ~/_function& { c: cm }}
     &_meta&_tag { c: blue }
     &_string, &_comment { c: green }
     &_heading, &_storage, &_keyword { c: blue }
