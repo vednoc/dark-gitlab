@@ -4113,95 +4113,82 @@
     .member a.member-group-link { c: fg }
   }
 
-  // * Editor -> Wrapper.
+  // File editor.
   .file-editor {
     .file-holder { rad: r; }
     .toolbar-btn:hover svg { v: fg }
-    #preview { font-family: var(--ui-font) }
-    // Fix flashing white background.
+    /// Fix fonts.
+    .btn, .encoding-selector, #preview { font-family: var(--ui-font) }
+    /// Fix flashing on init.
     #editor {
       rad: 0 0 r r;
-      c: 0 0 t;
+      c: fg 0 bg;
     }
-    // Header.
+    /// Header.
     .nav-links {
       margin-bottom: 10px;
-      border: 1px solid;
+      border: none;
       c: 0 bd bg;
-      box-shadow: none;
     }
-    // Branch name.
+    /// Branch name.
     .editor-ref { c: 0 bd t }
+    /// GitLab templates.
+    /.template-selector {
+      &s-menu { c: 0 bd }
+      &-dropdowns-wrap > div[class] { font-family: var(--ui-font) }
+    }
   }
 
-  // * Editor -> Templates.
-  .template-selector {
-    &s-menu { c: 0 bd }
-    &-dropdowns-wrap > div[class] { font-family: var(--ui-font) }
-  }
-
-  // * Ace editor.
-  .ace-tm {
-    c: fg 0 bg;
-    // Gutter.
-    .ace_gutter {
+  // Ace editor.
+  .ace {
+    /// Gutter.
+    &_gutter {
       rad: 0 0 0 r;
       c: cm 0 bg;
       box-shadow: 1px 0 bd;
-      .ace_gutter-cell { c: 0 0 t }
-      + .ace_scroller { rad: 0 0 r 0; }
+      ~/_gutter-cell { c: 0 0 t }
+      + .ace_scroller { rad: 0 0 r 0 }
     }
-    // Highlighted line.
-    .ace_gutter-active-line, .ace_active-line { c: 0 0 hl }
-    .ace_selected-word, .ace_selection {
+    /// Highlighted line/selection.
+    &_gutter-active-line, &_active-line { c: 0 0 hl }
+    &_selected-word, &_selection {
       c: 0 0 blue;
-      opacity: 0.6;
+      opacity: 0.3;
     }
-    .ace_cursor { c: ac }
-    .ace_indent-guide {
+    &_cursor { c: ac }
+    /// Guides.
+    &_indent-guide {
       background: none;
-      box-shadow: 1px 0 0 0 bd !important;
+      box-shadow: inset -1px 0 bd;
     }
-    // Wrap line.
-    .ace_print-margin { c: 0 0 bd }
-    // Search/replace popout.
-    .ace_search {
-      padding: 0 4px;
-      margin: 10px 10px 0 0;
-      border: 1px solid;
-      rad: 4px;
+    &_print-margin { c: 0 0 bd }
+    /// Search/replace popout.
+    &_search {
       c: 0 bd hl;
-      box-shadow: 0 4px 8px 0 sh;
-      // Inputs.
+      box-shadow: bsh;
       &_field { c: fg 0 bg }
-      .ace_search_form, .ace_replace_form { c: 0 bd }
-      .ace_searchbtn, .ace_replacebtn { c: 0 bd bd }
+      [action] { c: fg bd hl }
     }
-    // Options.
-    .ace_search_options {
-      margin: 4px 0 0 0;
+    /// Options.
+    &_search_options {
+      margin: 4px 0 0 -2px;
       text-align: left;
       .ace_button {
-        padding: 5px;
-        border-radius: 3px;
-        c: cm t bg;
-        &:hover, &.checked { c: ac 0 t }
+        padding: 4px;
+        rad: 3px;
+        c: cm bd bg;
+        &:hover, &.checked { c: fg 0 bd }
       }
     }
-    // Scroller.
-    .ace_scroller.ace_scroll-left { box-shadow: inset 17px 0 16px -16px bg; }
-  }
-
-  // * Ace editor -> Syntax highlighting.
-  .ace {
-    &_line { c: cm }
-    &_support { ~/_type&, ~/_function& { c: cm }}
-    &_meta&_tag { c: blue }
-    &_string, &_comment { c: green }
-    &_heading, &_storage, &_keyword { c: blue }
+    /// Scroller shadow.
+    &_scroller&_scroll-left { box-shadow: inset 17px 0 16px -16px sh }
+    /// Syntax highlighting.
+    &_url { c: ac }
     &_list { c: magenta }
-    &_variable { c: green }
-    &_constant, &_numeric { c: fg }
+    &_line, &_constant, &_numeric { c: fg }
+    &_support { ~/_type&, ~/_function& { c: cm }}
+    &_variable, &_string, &_comment { c: green }
+    &_heading, &_storage, &_keyword, &_meta&_tag { c: blue }
   }
 
   // Footer links.
