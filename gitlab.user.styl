@@ -2168,6 +2168,10 @@
         &.active { c: ac }
       }
     }
+    /// https://gitlab.com/veloren/veloren/merge_requests/478/diffs
+    .file-container { c: 0 0 t }
+    /// HACK: Resolves conflicts with 'global' badges.
+    /:not(#z) span.label-lfs { c: fg bd bg }
   }
   // * Diff -> Add note.
   .note-container {
