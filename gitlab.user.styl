@@ -2207,13 +2207,17 @@
     // Profile links.
     .note-headline-light { c: cm }
     .note-headline-meta .system-note-separator {
+      c: fg;
       text-decoration: none !important;
       time { color: cm }
     }
-    // Tasks -> https://gitlab.com/gitlab-org/gitlab-ce/issues/31358
-    .system-note-message code {
-      c: 0 0 hl;
-      box-shadow: inner;
+    .system-note-message {
+      p { c: cm }
+      // Tasks -> https://gitlab.com/gitlab-org/gitlab-ce/issues/31358
+      code {
+        c: 0 0 hl;
+        box-shadow: inner;
+      }
     }
   }
 
@@ -2260,7 +2264,6 @@
       + table.code { rad: 0 0 r r; }
     }
     .md-suggestion-diff { c: 0 bd }
-    span > code:not([class]) { c: 0 0 bd }
     // Added/removed/changed things in discussions.
     .idiff {
       padding: 0 1px;
