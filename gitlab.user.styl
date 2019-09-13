@@ -3349,6 +3349,15 @@
     .compare-value { c: fg }
     .time-tracking-help-state { c: 0 bd bg }
   }
+  // Epics -> Ancestors.
+  .ancestor-tree {
+    .vertical-timeline {
+      &::before { c: 0 cm }
+      &-icon { c: 0 0 bg }
+    }
+    .opened svg { v: green }
+    .closed svg { v: blue }
+  }
   // Edited.
   // ? Contains styles for milestone elements; find a better place.
   .detail-page-description {
