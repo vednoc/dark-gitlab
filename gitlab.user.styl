@@ -603,6 +603,7 @@
   // * Global -> Random styles.
   [class*="committer-link"],
   [class*="author-link"],
+  .ci-table .commit-sha,
   .ci-table .ref-name,
   .js-user-link,
   .author_name a {
@@ -3120,8 +3121,6 @@
   }
   /* 'x of x tasks completed' */
   .task-status { c: fg }
-  /* Email button. */
-  .issuable-email-modal-btn { c: ac }
   /* Merged/closed. */
   .merge-request.merged,
   .issue.merged,
@@ -3261,7 +3260,7 @@
     }
   }
 
-  // * Dashboard :: Todos page.
+  // * Dashboard -> To-do list.
   .js-todos-all .card {
     margin-top: 10px;
     rad: r;
@@ -3269,8 +3268,8 @@
     // List wrapper.
     .todos-list {
       rad: r;
-      border: 1px solid;
-      c: 0 bd bg;
+      border: 1px solid bd;
+      c: 0 0 bg;
       // List items.
       .todo {
         border: none;
@@ -3815,6 +3814,8 @@
       // Reset corners in confidential issues.
       + .md-area { rad: 0 0 r r !important }
     }
+    /// Email a new issue/mr.
+    &-email-modal-btn { c: ac }
   }
 
   // * Issues/MR -> List.
