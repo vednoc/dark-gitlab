@@ -1331,11 +1331,17 @@
       &[style*="background-color: #f4f4f4"] { c: fg 0 bd }
     }
   }
-  // Found in IDE when page doesn't load properly.
+  // Alerts -> Flash alerts.
   .flash-container {
-    .flash-alert {
-      c: white 0 red;
-      .flash-action { c: white }
+    margin-top: 8px !important;
+    svg { v: white }
+    .flash {
+      &-action { c: white }
+      &-alert { c: white 0 red }
+      &-notice { c: white 0 blue }
+      &-success { c: white 0 green }
+      &-warning { c: white 0 yellow }
+      ../.sticky .flash-content { box-shadow: bsh }
     }
   }
   // Green alerts.
