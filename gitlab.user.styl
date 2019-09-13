@@ -1705,59 +1705,58 @@
     }
   }
 
-  // * Project :: Commits.
+  // Project -> Commits page.
   #commits-list {
-    .commit-list {
-      .commit {
-        padding: 8px;
-        a { c: fg }
+    .commit {
+      padding: 8px;
+      /// Headers.
+      &-header {
+        display: inline-flex;
+        border: 1px solid bd;
+        rad: r;
+        c: 0 0 bg;
+        .day { padding-right: 1ch }
+        /// Whitespace between days.
+        &:not(:first-child) { margin-top: 16px }
+        /// Separate list from the header.
+        + .commits-row { margin-top: 8px }
       }
-    }
-    // Header.
-    .commit-header {
-      display: inline-flex;
-      border: 1px solid bd;
-      rad: r;
-      c: 0 0 bg;
-      .day { padding-right: 1ch; }
-      // Have some whitespace between days.
-      &:not(:first-child) { margin-top: 10px; }
-      // Separate every first commit from the header.
-      + .commits-row { margin-top: 10px; }
-    }
-    // List.
-    .commits-row {
-      position: relative;
-      margin-bottom: 8px;
-      border: 1px solid bd;
-      rad: r;
-      c: 0 0 bg;
-      &::before {
-        content: "";
-        height: 10px;
-        position: absolute;
-        top: -11px; left: 28px;
-        border-left: 1px solid bd;
+      /// List.
+      &s-row {
+        position: relative;
+        margin-bottom: 8px;
+        border: 1px solid bd;
+        rad: r;
+        c: 0 0 bg;
+        /// Connector.
+        &::before {
+          content: "";
+          height: 8px;
+          position: absolute;
+          top: -9px; left: 28px;
+          border-left: 1px solid bd;
+        }
+        ul > li:first-child { rad: r r 0 0 }
+        ul > li:last-child { rad: 0 0 r r }
       }
     }
   }
   .commit {
     c: 0 bd;
-    & &-content div.committer { c: cm }
-    a {
-      c: fg;
-      // Center avatar.
-      img { margin: 2px 0 0 2px }
+    img { margin: 1px 0 0 1px }
+    &-content {
+      div.committer { c: cm }
+      a { c: fg }
+      /// Description.
+      .commit-row-description {
+        font-family: var(--ui-font);
+        font-size: inherit;
+        border-width: 4px;
+        c: cm bd 0;
+      }
     }
-    // Commit sha.
-    > .commit-detail { align-items: center; }
-    // Commit description.
-    [class*="-description"] {
-      border-width: 4px;
-      font-size: inherit;
-      font-family: var(--ui-font);
-      c: cm bd 0;
-    }
+    /// Align SHA vertically.
+    > .commit-detail { align-items: center }
   }
 
   // Commits -> Show commit message.
