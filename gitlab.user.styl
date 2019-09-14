@@ -808,12 +808,15 @@
     }
   }
 
-  // * Navbar -> Projects/Groups.
-  .frequent-items-dropdown-menu {
-    rad: r;
-    .section-header { c: fg }
-    .section-empty, [class*="namespace"] { c: cm }
-    [class*="dropdown-sidebar"] { c: 0 bd }
+  // Navbar -> Projects and groups dropdown.
+  .frequent-items-dropdown {
+    &-container { height: 350px }
+    &-menu {
+      rad: r;
+      .section-header { c: fg }
+      .section-empty, [class*="namespace"] { c: cm }
+      [class*="dropdown-sidebar"] { c: 0 bd }
+    }
   }
 
   // * Dropdown.
