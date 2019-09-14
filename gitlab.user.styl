@@ -3021,37 +3021,26 @@
     }
   }
 
-  // * Project :: Cycle Analytics.
+  // Project -> Cycle Analytics.
   #cycle-analytics {
-    // Introduction.
+    /// Introduction.
     .landing { c: 0 bd bg }
-    // Colors.
+    .card-header { border-bottom: 1px solid bd !important }
+    /// Navigation.
     .stage-nav {
-      .stage-nav-item {
-        position: relative;
+      margin-top: 4px;
+      &-item {
         c: fg bd bg;
-        // Indicator.
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0; left: 0; bottom: 0;
-          width: 4px;
-          ../:last-child::before { rad: 0 0 0 r }
+        &.active { box-shadow: inset 4px 0 ac !important }
+        &:hover:not(.active) {
+          c: 0 0 hl;
+          box-shadow: none !important;
         }
-        // Hover event.
-        &:hover:not(.active), &.active {
-          c: 0 bd bg;
-          box-shadow: none;
-          &::before { c: 0 0 ac }
-        }
-        // Hide double borders.
-        &, &.active, &:hover:not(.active) { border-top-color: t !important }
-        // Median.
-        .stage-empty, .not-available { color: cm; }
-        &:last-child { rad: 0 0 0 r !important }
+        /// Text.
+        .stage-empty, .not-available { c: cm }
       }
     }
-    // Related issues.
+    /// Related issues.
     .stage-event-item {
       c: cm bd;
       .total-time { &, span { c: cm }}
