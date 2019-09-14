@@ -60,9 +60,14 @@
     --radius    : b_radius;
     --avatar    : a_radius;
     --ts        : transition;
-    --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, var(--emoji-font);
-    --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace;
-    --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
+      var(--emoji-font), sans-serif;
+    --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
+      'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono',
+      'lucida console', monospace;
+    --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
     --bg-invert : bg_invert;
     --bg-filter : bg_filter;
     --bg-size   : bg_size;
@@ -1145,7 +1150,8 @@
           box-shadow: inner;
         }
         pre.code { c: 0 bd hl }
-        .term > p:last-child { margin-bottom: 0 }
+        /// Remove extra margin.
+        .term > *:last-child { margin-bottom: 0 }
       }
     }
     // Commits.
@@ -3613,13 +3619,13 @@
     c: 0 0 t;
     // Items.
     .milestone {
-      padding: 8px;
+      padding: 16px;
       rad: r;
       c: fg 0 bg;
       box-shadow: inner;
       &:hover { c: 0 0 bg }
       &-range { c: cm }
-      &-progress *, strong a { c: fg }
+      a[href] { c: ac }
     }
   }
   .milestone {
