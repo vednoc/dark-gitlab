@@ -1229,11 +1229,6 @@
     }
   }
 
-  // * Settings -> Messages.
-  .settings-message {
-    rad: r;
-    c: fg bd bg;
-  }
   // Social icons.
   .provider-btn {
     rad: r;
@@ -2745,11 +2740,14 @@
     }
   }
 
-  // * Project :: Settings.
+  // Project -> Settings.
   .settings {
-    border-bottom-color: bd;
-    // ? Fix border colors.
-    + .settings { c: 0 bd }
+    c: 0 bd;
+    /// Deploy keys.
+    &-message {
+      rad: r;
+      c: fg bd hl;
+    }
     // ? Standalone sections i.e. under Advanced.
     .sub-section {
       rad: r;
