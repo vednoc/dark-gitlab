@@ -20,6 +20,7 @@
 @var text     faded_img  "Fade images in md/wiki/blog" "1"
 @var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header   "Center project header elements" 0
+@var checkbox md_center  "Readme: Center and limit content max width" 1
 @var checkbox dark_logo  "Switch to our darker logo" 0
 @var checkbox navbar_c   "Navbar: Theme navbar color" 1
 @var checkbox navbar_n   "Navbar: Show 'next' badge" 1
@@ -2822,11 +2823,20 @@
     }
   }
 
-   // * Project -> Readme.
+   // Project -> Readme.
   .file-holder {
     rad: r;
     c: 0 bd bg;
-    &.readme-holder .file-title strong { font-weight: normal }
+    &.readme-holder {
+      .file-title strong { font-weight: normal }
+      /// Feature -> Center and limit readme content.
+      if ( md_center == 1 ) {
+        .file-content:not(#z) {
+          margin: 0 auto;
+          max-width: 950px !important;
+        }
+      }
+    }
     // ? Header.
     .file-title {
       // @upstream https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/25648
