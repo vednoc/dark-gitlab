@@ -2417,81 +2417,77 @@
     }
   }
 
-  // * Left sidebar.
+  // Global -> Left sidebar.
   .nav-sidebar {
+    border-right: 1px solid bd;
     c: 0 0 bg;
-    box-shadow: 1px 0 0 0 bd;
+    box-shadow: none;
     .divider { c: 0 bd }
-    // Hide scrollbar.
-    ::-webkit-scrollbar { display: none !important; }
-    // Links.
-    li a, .context-header > a {
-      c: fg;
-      &:hover, &:focus { c: 0 0 hl }
+    .context-header {
+      > a, > button {
+        c: fg;
+        transition: ts;
+        &:hover { c: 0 0 hl }
+      }
     }
-    // ? Fix overflow and height on Firefox.
+    /// Reset items.
+    li {
+      a { c: cm }
+      /// NOTE: Causes flashes.
+      // &, a { transition: ts }
+      &:hover, &.active { .badge.badge-pill { c: fg }}
+      .badge.badge-pill { min-width: 20px }
+    }
+    /// Nav.
+    .sidebar-top-level-items > li {
+      &:hover {
+        c: 0 0 hl;
+        a { c: fg }
+      }
+      /// Active sub-level-items.
+      &.active {
+        c: 0 0 hl;
+        box-shadow: inset 4px 0 ac !important;
+        a { c: fg }
+        > ul li:hover {
+          c: 0 0 bd;
+          box-shadow: inset 4px 0 ac !important;
+        }
+      }
+      /// Don't apply styles to fly-out menu.
+      &:not(.is-over) > ul li.active {
+        c: 0 0 bd;
+        box-shadow: inset 4px 0 ac !important;
+        > a { c: ac 0 t }
+      }
+      /// Fly-out menu.
+      &.is-over > ul {
+        c: 0 bd bg;
+        box-shadow: bsh;
+        a {
+          c: cm;
+          &:hover, &:focus { c: fg 0 hl }
+        }
+      }
+    }
+    /// Fix overflow/height on Firefox.
     .nav-sidebar-inner-scroll {
       height: calc(100% - 48px);
       overflow-x: hidden !important;
-      > ul.sidebar-top-level-items { margin-bottom: 0; }
+      > ul.sidebar-top-level-items { margin-bottom: 0 }
     }
-    // ? Styles for submenus.
-    .nav-sidebar-inner-scroll > ul.sidebar-top-level-items {
-      // Active submenu.
-      > li.active:not(.fly-out-top-item) {
-        c: 0 0 t;
-        box-shadow: inset 4px 0 bd, inset 1px 0 0 1px bd;
-        // Group name.
-        > a {
-          transition: ts;
-          c: ac 0 0;
-          svg { v: ac }
-        }
-        // Active list items.
-        .sidebar-sub-level-items li:not(.fly-out-top-item) {
-          transition: ts;
-          &.active, &:hover {
-            c: cm 0 hl;
-            box-shadow: inset 4px 0 ac;
-            // Remove unnecessary background.
-            a { c: fg 0 t }
-          }
-        }
-      }
-      // Fly-out menu.
-      > li:not(.fly-out-top-item).is-showing-fly-out .sidebar-sub-level-items {
-        rad: 0 r r 0;
-        c: 0 bd bg;
-        box-shadow: 2px 2px 2px 0 sh;
-      }
-      > li {
-        &.is-over > a { c: 0 0 hl }
-        &:hover, &.active { .badge.badge-pill { c: fg }}
-        .badge.badge-pill { min-width: 20px }
-      }
-      // Remove unnecessary margin on items.
-      a {
-        margin-right: 0;
-        transition: ts;
-      }
-    }
-    // ? Resets for collapsed sidebar.
+    /// Resets for collapsed sidebar.
     &.sidebar-collapsed-desktop {
-      ul.sidebar-top-level-items > li.active:not(.fly-out-top-item) {
-        c: 0 0 bd;
-        box-shadow: inset 4px 0 ac !important;
-      }
-      ul.sidebar-sub-level-items > li:not(.fly-out-top-item) {
+      .sidebar-top-level-items > li.active {
         box-shadow: none !important;
       }
     }
-    // ? Collapse button.
-    .close-nav-button,
-    .toggle-sidebar-button {
+    /// Collapse button.
+    .close-nav-button, .toggle-sidebar-button {
       width: 100%;
       transition: ts !important;
-      c: 0 bd bg;
-      &:hover { c: 0 0 hl }
+      c: 0 bd t;
+      &:hover { c: 0 0 bd }
       .collapse-text {
         transition: ts;
         c: fg;
