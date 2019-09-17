@@ -408,6 +408,16 @@
       &.merge-requests-count { c: white 0 orange }
       &.todos-count { c: white 0 blue }
     }
+    /// HACK: Reset colored labels.
+    &.color-label {
+      text-decoration: none !important;
+      box-shadow: inset 0 0 0 1rem #33333370;
+      &:hover { box-shadow: none !important }
+      &[style *= 'color: #333333'] {
+        c: black;
+        box-shadow: inset 0 0 0 1rem #33333325;
+      }
+    }
   }
   // Text colors.
   .danger-title { c: red }
@@ -2803,27 +2813,9 @@
   /* Dropzone! */
   .blob-upload-dropzone-previews { border-color: bd; }
 
-  // * Project -> Badges.
+  // Project -> Badges.
   .project-badge { transition: opacity ts }
-  [src*="for-the-badge"] { rad: r; }
-  span.badge, button.badge, div.badge {
-    // Remove unnecessary underline.
-    &.color-label { text-decoration: none !important; }
-    // Apply everywhere except on specific badges.
-    &:not(.badge-pill):not(.color-label):not(.badge-verification-status) {
-      c: white;
-    }
-    // Hack for darkening background color.
-    &:not(.badge-pill):not(.available):not(.badge-verification-status) {
-      // transition: ts;
-      box-shadow: inset 0 0 0 1rem #33333370;
-      &:hover { box-shadow: none; }
-      &[style*="color: #333333"] {
-        color: #000000 !important;
-        box-shadow: inset 0 0 0 1rem #33333325;
-      }
-    }
-  }
+  [src *= 'for-the-badge'], [data-canonical-src *= 'for-the-badge'] { rad: 4px }
 
    // Project -> Readme.
   .file-holder {
