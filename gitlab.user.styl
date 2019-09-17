@@ -1497,10 +1497,13 @@
       &.adjust, &.multi-line { padding: 0 10px }
     }
   }
+  // Reset nav.
   .top-area.group-nav-container {
     > .scrolling-tabs-container .nav a { padding: 10px 8px }
     > .nav-controls > div:last-child { padding-right: 8px }
   }
+  [data-page ^= 'projects:forks:'] { .top-area { padding: 0 8px }}
+  [data-page ^= 'projects:labels:'] { .top-area { padding: 0 !important }}
   // Remove bottom border.
   .top-area, .wiki-page-header {
     &, .nav-links.mobile-separator { border-bottom: none }
@@ -1512,7 +1515,7 @@
     border-bottom: none;
     box-shadow: inner;
     c: 0 0 bg;
-    .cover-block ^[0] {
+    .cover-block & {
       rad: 0;
       c: 0 0 t;
       box-shadow: none;
