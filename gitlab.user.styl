@@ -425,12 +425,6 @@
   .cgray, .committed_ago, .hint, .help-block { c: cm }
   .light, .description-block, .task-list-item { c: fg }
   .account-btn-link, [class*="settings-sidebar"] a { c: ac 0 0 0 }
-  // Warnings.
-  .warning_message {
-    rad: 0 r r 0;
-    border-left-color: ac;
-    c: fg 0 bd;
-  }
 
   // * Global -> Alerts.
   .bs-callout {
@@ -4020,7 +4014,9 @@
     .report-block {
       &-container {
         c: 0 bd hl;
-        /.failed svg { v: red }
+        /.failed > svg { v: red }
+        /.neutral > svg { v: cm }
+        /.success > svg { v: green }
       }
       &-list-issue-parent { c: 0 bd hl }
     }
@@ -5090,6 +5086,10 @@
         svg { v: cm }
       }
     }
+    /// Warnings/alerts.
+    /.danger_message { c: fg red hl }
+    /.error-message { c: white 0 red }
+    /.warning_message { c: fg yellow hl }
   }
   // * Icons -> Borderless CI status icons.
   .ic-status {
