@@ -4834,6 +4834,11 @@
       &::before, &::after { c: 0 bd }
     }
     .ci-build-txt, .ci-status-text { font-weight: normal; }
+    /// v11.3 -> Full-width graph reset.
+    /.tab-pane.position-absolute.w-100 {
+      left: 1px !important;
+      .pipeline-graph { rad: 0 }
+    }
   }
 
   // * Pipelines -> Mini pipelines in notes.
