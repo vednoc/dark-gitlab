@@ -1604,7 +1604,11 @@
       // ? Round corners on first and last child.
       &:first-child { rad: r r 0 0; }
       &:last-child { rad: 0 0 r r; }
-      &.project-row { padding: 8px }
+      &.project-row {
+        padding: 8px;
+        /// v11.3 -> Move CI status to the end.
+        .pipeline-status { order: 1 }
+      }
     }
     // Profile -> Compact list.
     &.compact {
