@@ -1888,15 +1888,15 @@
     }
   }
 
-  // * Project -> Graph.
+  // Project -> Graph.
   .project-network {
+    margin: 0 -16px;
     overflow: hidden;
     rad: r;
     c: 0 bd;
-    .controls { c: 0 bd bd }
+    .controls { c: 0 bd hl }
     // Graph background.
     .network-graph {
-      v: red;
       c: 0 0 bg;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
@@ -1909,7 +1909,7 @@
       // Sidebar.
       > svg rect[width*="40"], > svg rect[width*="30"] {
         stroke-width: 0;
-        v: bd bd 0 0;
+        v: hl hl 0 0;
       }
     }
   }
