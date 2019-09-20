@@ -4151,11 +4151,6 @@
     .toolbar-btn:hover svg { v: fg }
     /// Fix fonts.
     .btn, .encoding-selector, #preview { font-family: var(--ui-font) }
-    /// Fix flashing on init.
-    #editor {
-      rad: 0 0 r r;
-      c: fg 0 bg;
-    }
     /// Header.
     .nav-links {
       margin-bottom: 10px;
@@ -4173,6 +4168,11 @@
 
   // Ace editor.
   .ace {
+    /// Wrapper. #75.
+    &-tm {
+      rad: 0 0 r r !important;
+      c: fg 0 bg;
+    }
     /// Gutter.
     &_gutter {
       rad: 0 0 0 r;
