@@ -590,7 +590,7 @@
   // ? Reaction buttons.
   .award-control {
     &.user-authored { c: fg bd bg }
-    &.active { c: fg blue hl }
+    &.active { c: fg blue bd }
   }
 
   // Global -> Project toggles.
@@ -2420,7 +2420,7 @@
     blockquote:not(#z) {
       c: cm bd;
       border-left: 4px solid;
-      &[dir] p, > div p { c: cm }
+      &[dir] p, p { c: cm }
       > ul, > ol { margin-bottom: 0; c: cm }
     }
     img:not(.emoji) {
@@ -3461,6 +3461,7 @@
     rad: r;
     c: 0 bd bg;
     box-shadow: 0 4px 8px 0 sh;
+    input { c: 0 0 hl }
   }
 
   // * Auto-complete menu.
@@ -3924,7 +3925,7 @@
     margin-top: 10px;
     padding: 8px 0;
     rad: r;
-    c: fg bd bg;
+    c: fg bd hl;
     a[href] { color: ac }
     [class*="warning"] { c: orange t t }
   }
