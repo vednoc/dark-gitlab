@@ -5361,6 +5361,15 @@
       &.hero-thumb { filter: invert(0.8) hue-rotate(180deg) !important }
     }
   }
+  /// Landing -> Logos.
+  .logos-container svg {
+    path {
+      v: fg;
+      &.st3 { v: bg }
+      &.st4 { v: cm }
+    }
+    &:hover { opacity: 1 }
+  }
   // * Global image reset.
   img, .video_container {
     opacity: faded_img !important;
