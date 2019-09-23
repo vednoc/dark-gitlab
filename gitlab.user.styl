@@ -625,7 +625,10 @@
   .author_name a {
     color: ac !important;
   }
+  .ci-table .build-link,
+  .ci-table .pipeline-id,
   .label-bold { color: fg; }
+  .ci-table .duration { c: 0 0 bd }
   .cred { c: red; v: red }
   .cblue { c: blue; v: blue }
   .cgreen { c: green; v: green }
@@ -5081,6 +5084,7 @@
       c: blue blue;
       svg { v: blue }
     }
+    &.ci-failed-with-warnings,
     &.ci-success-with-warnings, &-icon-failed-with-warnings,
     &-icon-pending, &-icon-warning, &-icon-success-with-warnings {
       c: orange orange;
