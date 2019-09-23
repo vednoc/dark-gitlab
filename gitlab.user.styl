@@ -1086,10 +1086,13 @@
   // Global -> GFM links.
   .gfm {
     c: fg;
-    &&-issue, &&-merge_request, &&-epic, &&-commit, &&-milestone { c: ac }
-    &&-commit, &&-commit_range {
-      font-family: var(--ui-font);
-      font-size: 100%;
+    &&-issue, &&-merge_request, &&-epic, &&-milestone { c: ac }
+    &&-commit {
+      &, &_range {
+        font-family: var(--ui-font);
+        font-size: 100%;
+      }
+      &, &_range > code { c: ac }
     }
     &&-project_member {
       padding: 1px 3px;
