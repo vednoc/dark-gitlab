@@ -8,7 +8,7 @@ For roadmap see %1.
 This is why you should consider using Dark-GitLab!
 
 - **Custom colors**: All color variables are easily customizable through Stylus popup menu. Both light and dark color-schemes are fully supported.
-- **Custom background**: Gives you the full control of the background image.
+- **Custom background**: Gives you the full control of the `background` property.
 - **Custom regex**: OOTB support for known public self-hosted GitLab instances.
   - Add your own by editing the `@-moz-document regexp(...)` locally.
   - :warning: **Note**: Editing locally prevents auto-updating, but you can always force an update to get the newest version and re-do the regex.
