@@ -1665,7 +1665,7 @@
       .event-user-info .author_name a { c: fg }
       .event-title {
         c: fg;
-        .pushed { &, ~ .event-scope { c: cm }}
+        .pushed, .commented, .opened { &, ~ span { c: cm }}
       }
       .system-note-image { left: 8px }
       .event-body a[href] { c: ac }
@@ -3027,6 +3027,7 @@
       .system-note-image { left: 8px }
       .event-title { c: cm }
       .event-body *:not(.color-label):not(.gfm) { c: fg }
+      .author_name a { c: fg }
       &:first-child { rad: r r 0 0 }
       &:last-child { rad: 0 0 r r }
       &:hover { c: 0 0 hl }
