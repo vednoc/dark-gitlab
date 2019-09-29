@@ -5401,10 +5401,10 @@
   // Merchandising widget.
   .merchandising {
     // &-copy-wrapper { padding: 32px }
-    &-content-container {
+    &-content-container:not(#z) {
       border: 1px solid bd;
       rad: r;
-      c: 0 0 bg;
+      c: fg 0 hl;
       box-shadow: bsh;
       .cta-text { c: ac }
     }
@@ -5421,9 +5421,9 @@
 
   // * Index page for about sub-domain.
   .sdlc-table {
+    border: 1px solid bd;
     rad: r !important;
     c: 0 0 bg;
-    box-shadow: inner !important;
     .sdlc-column:not(:last-child) {
       border-right-color: bd !important;
     }
@@ -5463,7 +5463,7 @@
     .body { c: 0 0 bg }
     // Anchors.
     .content {
-      blockquote { c: 0 bd 0 }
+      blockquote { c: cm bd }
       .badge:not(.available) {
         c: fg;
         box-shadow: none !important;
@@ -5773,7 +5773,10 @@
     c: cm bd hl;
     box-shadow: bsh;
     &-body { c: cm }
-    &&-newsletter-signup { padding: 16px }
+    &&-newsletter-signup {
+      border: 1px solid bd;
+      padding: 16px;
+    }
   }
   .panel-info > .panel-heading {
     c: fg bd bd;
@@ -5799,7 +5802,10 @@
       .date { c: cm }
       .author a { c: ac }
       .author a:hover i { c: ac }
-      .cover { rad: r r 0 0 }
+      .cover {
+        &, .overlay { rad: r r 0 0 }
+        .overlay { background: linear-gradient(153deg, t, bd) }
+      }
     }
     .more, .browse {
       c: cm bd bg;
