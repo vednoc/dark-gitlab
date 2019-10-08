@@ -1641,7 +1641,10 @@
     }
     li {
       c: fg 0 0 0;
-      a[href] { c: ac 0 0 0 }
+      a[href] {
+        color: ac;
+        &.btn { color: fg }
+      }
     }
     .group-row .stats { color: cm; }
   }
