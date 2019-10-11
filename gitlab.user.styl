@@ -135,6 +135,7 @@
   ts      = var(--ts);
   outer   = 0 0 0 1px bd;
   inner   = inset outer;
+  i       = !important;
 
   // Color mixin.
   /// All colors: `c: fg bd bg;`
@@ -1634,15 +1635,22 @@
 
   // Global -> Content lists.
   ul.content-list {
+    /// Project -> Members.
+    &.members-list:not(.qa-members-list) {
+      margin-top: 10px;
+      border: 1px solid bd;
+      rad: r;
+      > li { padding: 8px i }
+    }
     > li {
       padding: 8px;
       c: fg bd;
       transition: ts;
       &:hover { c: 0 0 hl }
-      a { c: ac 0 0 0 0 }
+      a { color: ac }
     }
     li {
-      c: fg 0 0 0;
+      color: fg;
       a[href] {
         color: ac;
         &.btn { color: fg }
