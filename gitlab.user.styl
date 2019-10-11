@@ -3413,6 +3413,7 @@
   // Badges.
   .issue-count-badge, .mr-count-badge { c: 0 bd bg }
   .related-items-list {
+    > li:last-child { rad: 0 0 r r }
     .path-id-text, .item-path-id { c: fg }
     .open { v: green }
     .closed { v: red }
@@ -3442,6 +3443,7 @@
     .card-header {
       rad: r r 0 0;
       c: fg bd hl;
+      &:first-child:last-child { rad: r }
       .badge-pill { c: 0 0 bg }
     }
     .card-body {
