@@ -3113,6 +3113,7 @@
       .event-last-push-text, .btn { font-size: 14px !important }
     }
   }
+  .content-block { c: 0 bd }
   /* Sub-header found in compare branches. */
   .sub-header-block {
     border-color: bd;
@@ -3395,7 +3396,7 @@
       // Link to the issue.
       a.sortable-link { c: fg }
       // Milestone/weight/etc.
-      .item-weight span, .path-id-text { c: cm }
+      /.item-weight span, .path-id-text { c: cm }
     }
     // Search Box
     input { c: fg 0 bg }
@@ -3416,8 +3417,16 @@
     .open { v: green }
     .closed { v: red }
   }
-  // Epic Related Issues
-  .sortable-container { background-color: bd; }
+  /// Epics -> Related issues.
+  .related-items {
+    &-tree { border-top: 1px solid bd i }
+  }
+  // Epics -> Sortable issues.
+  .sortable {
+    &-container { c: 0 0 t }
+    &-chosen .card { c: 0 0 hl }
+    &-link { c: fg }
+  }
 
   // Notes.
   .note-text pre {
