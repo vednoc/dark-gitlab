@@ -689,6 +689,8 @@
       &:hover { box-shadow: none }
     }
     &:disabled, &[readonly] { c: cm bd }
+    /// #80.
+    &[id] + button { c: 0 bd }
   }
   .label-form .form-group {
     // Project -> New labels.
