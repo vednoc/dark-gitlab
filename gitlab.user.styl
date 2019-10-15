@@ -2190,8 +2190,9 @@
     &-expanded { & > td, & + :not(&) > td { c: 0 bd 0 }}
   }
 
-  // * Diff -> Image.
+  // Diff.
   .diff-file {
+    /// Images.
     .image { c: 0 0 t }
     .frame {
       c: 0 0 bd;
@@ -2218,6 +2219,38 @@
     .file-container { c: 0 0 t }
     /// HACK: Resolves conflicts with 'global' badges.
     /:not(#z) span.label-lfs { c: fg bd bg }
+    /// MR -> Resolve conflicts. #82
+    &.conflict {
+      border-top: none;
+      .head, .origin {
+        position: relative;
+        &::before {
+          content: '';
+          opacity: 0.25;
+          position: absolute;
+          pointer-events: none;
+          top: 0; right: 0; bottom: 0; left: 0;
+        }
+      }
+      /// Modes.
+      .line_content:not(.header) {
+        &.head::before, &.origin::before { opacity: 0.35 }
+        &.selected::before { opacity: 0.35 i }
+      }
+      .unselected {
+        &:not(#z)::before { c: 0 0 bd }
+        .btn { opacity: 0.5 }
+      }
+      .selected::before { opacity: 0.5 i }
+      .head { &::before, > .btn { c: 0 green green }}
+      .origin { &::before, > .btn { c: 0 blue blue }}
+      /// Fix corners.
+      tr.line_holder:last-child > td {
+        &:first-child::before { rad: 0 0 0 r }
+        &:last-child::before { rad: 0 0 r 0 }
+      }
+      .editor-wrap.saved .editor { c: 0 green }
+    }
   }
   // * Diff -> Add note.
   .note-container {
