@@ -208,10 +208,10 @@
       c: fg 0 hl 0 0 0;
       box-shadow: inner, inset 0 -3px bd;
     }
-    code { c: fg bd bg 0 0 0 }
+    code { c: fg bd hl 0 0 0 }
     pre {
       rad: r;
-      c: fg bd bg 0 0 0;
+      c: fg bd hl 0 0 0;
       &.bg-light { c: 0 0 hl }
     }
     pre, code, kbd, samp { font-family: var(--mono-font) }
@@ -2302,7 +2302,7 @@
 
   // Notes -> Discussion.
   .discussion {
-    &-header { c: 0 yellow } // Seems to no longer be necessary.
+    &-header { c: 0 bd } // Found within snippets.
     &-headline-light { c: cm }
     .timeline-entry {
       rad: 0;
@@ -4734,12 +4734,12 @@
     .gi::before { c: 0 0 green }
     /// Syntax highlighting.
     &.white {
-      .n, .gh, .s2, .gp { color: fg }
+      .n, .gh, .gp { color: fg }
       .s, .c, .cp, .c1, .nn, .go { color: cm }
       .m, .nv, .na, .mf { color: cyan }
-      .nb, .nc, .kt { color: blue }
+      .no, .nb, .nc, .kt { color: blue }
       .ss, .s1, .se, .gu, .nd { color: magenta }
-      .sx, .sb, .sh, .nf, .gt, .sd { color: red }
+      .s2, .sx, .sb, .sh, .nf, .gt, .sd { color: red }
       .nt, .si, .mi { color: violet }
       .err {
         c: red 0 t;
