@@ -584,16 +584,22 @@
     }
     /// Operations -> New flag.
     &.clear-search-input { c: 0 0 t }
+    /// Notes -> Actions.
+    &-sm, &-group-sm > .btn {
+      padding: 7px 10px i;
+      font-size: 15px i;
+    }
+    // Notes -> Reactions.
+    &.award-control {
+      padding: 5px 10px;
+      &.user-authored { c: fg bd bg }
+      &.active { c: fg blue bd }
+    }
   }
   // ? Button groups.
   .input-group-btn, .input-group-prepend, .input-group-append {
     c: 0 0 t;
     .btn:focus { c: 0 0 bd }
-  }
-  // ? Reaction buttons.
-  .award-control {
-    &.user-authored { c: fg bd bg }
-    &.active { c: fg blue bd }
   }
 
   // Global -> Project toggles.
