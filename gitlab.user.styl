@@ -589,17 +589,19 @@
       padding: 7px 10px i;
       font-size: 15px i;
     }
-    // Notes -> Reactions.
+    /// Notes -> Reactions.
     &.award-control {
       padding: 5px 10px;
       &.user-authored { c: fg bd bg }
       &.active { c: fg blue bd }
     }
   }
-  // ? Button groups.
-  .input-group-btn, .input-group-prepend, .input-group-append {
-    c: 0 0 t;
-    .btn:focus { c: 0 0 bd }
+  // Button groups.
+  .input-group {
+    &-btn, &-prepend, &-append {
+      c: 0 0 t;
+      .btn:focus { c: 0 0 bd }
+    }
   }
 
   // Global -> Project toggles.
