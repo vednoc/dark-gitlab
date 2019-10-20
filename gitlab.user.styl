@@ -581,7 +581,7 @@
     // Project -> Download source code.
     &&-xs, &-xs.stat-text {
       padding: 8px 10px;
-      &.btn-primary { c: white 0 ac }
+      &.btn-primary { c: fg 0 hl }
     }
     /// Operations -> New flag.
     &.clear-search-input { c: 0 0 t }
@@ -3155,7 +3155,10 @@
       .event-last-push-text, .btn { font-size: 14px !important }
     }
   }
-  .content-block { c: 0 bd }
+  .content-block {
+    margin-bottom: 10px;
+    c: fg bd;
+  }
   /* Sub-header found in compare branches. */
   .sub-header-block {
     border-color: bd;
@@ -3388,16 +3391,16 @@
     .filtered-search-token > .name { c: fg 0 bd }
   }
 
-  // * Issues :: Details.
+  // Issues -> Details.
   .detail-page-header { c: fg bd }
-  .issuable-details .content-block { c: fg t }
 
   // * Epics -> Wrapper.
   .epic-page-container {
     // Remove extra padding.
     .issuable-details {
       padding: 0;
-      c: 0 t;
+      margin-bottom: 10px;
+      c: 0 bd;
       // Remove margin.
       .card-slim { margin-bottom: 0px; }
     }
