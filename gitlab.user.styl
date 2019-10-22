@@ -2513,6 +2513,8 @@
         c: 0 0 hl;
         a { c: fg }
       }
+      /// Remove right margin.
+      > a { margin-right: 0px }
       /// Active sub-level-items.
       &.active {
         c: 0 0 hl;
@@ -2522,6 +2524,8 @@
           c: 0 0 bd;
           box-shadow: inset 4px 0 ac !important;
         }
+        /// Item highlighting.
+        li > a:hover { c: 0 0 bd }
       }
       /// Don't apply styles to fly-out menu.
       &:not(.is-over) > ul li.active {
@@ -2538,6 +2542,8 @@
           &:hover, &:focus { c: fg 0 hl }
         }
       }
+      /// Item highlighting.
+      &.active > a:hover, &.is-over > a { c: 0 0 bd }
     }
     /// Fix overflow/height on Firefox.
     .nav-sidebar-inner-scroll {
