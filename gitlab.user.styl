@@ -5445,6 +5445,7 @@
     transition: ts;
     &:hover { opacity: 1 !important; }
   }
+  img.image-border { opacity: 0.2 i }
   /// Question?
   .simple-cta {
     c: fg 0 bg;
@@ -5988,6 +5989,15 @@
       .active a, a:focus, a:hover { c: ac ac }
     }
   }
+}
+
+// #27
+@-moz-document regexp("^https?://about.gitlab.com/releases/$") {
+  h2 {
+    c: 0 0 orange;
+    a { c: white }
+  }
+  h3:not(#z) { c: white 0 violet }
 }
 
 // ? Not extensively tested, mainly a refactor of old working code.
