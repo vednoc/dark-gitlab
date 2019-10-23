@@ -4352,8 +4352,6 @@
         border-left: 4px solid blue;
       }
     }
-    .alert-warning { c: 0 red bg }
-    .alert.alert-success { c: 0 violet violet }
     // Reset *introduced in...* blockquotes.
     blockquote {
       padding: 16px;
@@ -6502,6 +6500,15 @@
   .badge-small:hover::after {
     c: ac sh bd;
     box-shadow: bsh !important;
+  }
+
+  // Alerts.
+  .alert {
+    &-info { c: blue }
+    &-warning { c: orange orange hl }
+    &-success { c: green 0 hl }
+    &-danger { c: red 0 hl }
+    &-gray { c: fg bd hl }
   }
 
   // * Left sidebar.
