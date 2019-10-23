@@ -2016,7 +2016,14 @@
         bottom: 0;
         width: 4px;
       }
+      /// Whitespace between avatar/content.
+      .commit > a[href] > img { margin-right: 10px }
+      /// Background.
+      &:not(#z), & + .line-numbers { c: 0 0 hl }
     }
+    /// Text.
+    .cdark { c: fg }
+    .commit-sha { c: ac }
     // ? Custom colors!
     for i in 0..9 {
       .legend-box-{i},
