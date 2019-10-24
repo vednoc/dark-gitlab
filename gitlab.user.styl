@@ -5275,15 +5275,13 @@
     font-family: var(--ui-font) !important;
   }
 
-  // * Feature -> Fix alignment of icons from GitLab icons extension.
+  // Feat -> Fix alignment of icons from GitLab icons extension.
   if ( gl_icons == 1 ) {
-    .tree-item-file-name {
-      > span, > .fa {
-        width: 18px;
-        display: inline-flex;
-        justify-content: center;
-        margin-right: 2px !important;
-      }
+    .tree-item-file-name > [class *= '-icon'] {
+      margin: 0 i;
+      width: 18px;
+      display: inline-flex;
+      justify-content: center;
     }
   }
 
