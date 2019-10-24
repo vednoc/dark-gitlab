@@ -313,8 +313,11 @@
       tr:nth-of-type(odd) { c: 0 0 t }
       tr:nth-of-type(even) > td { c: 0 0 hl }
     }
+    /// #88 @upstream
+    /// Who cares about semantic HTML anyways?
+    td.d-sm-block { display: table-cell i }
   }
-  // * Table -> Reported in: https://gitlab.com/vednoc/dark-gitlab/issues/41
+  // Table. #41
   table[frame="void"] {
     c: cm;
     box-shadow: none;
