@@ -2531,8 +2531,6 @@
           c: 0 0 bd;
           box-shadow: inset 4px 0 ac !important;
         }
-        /// Item highlighting.
-        li > a:hover { c: 0 0 bd }
       }
       /// Don't apply styles to fly-out menu.
       &:not(.is-over) > ul li.active {
@@ -2561,7 +2559,7 @@
     /// Resets for collapsed sidebar.
     &.sidebar-collapsed-desktop {
       .sidebar-top-level-items > li.active {
-        box-shadow: none !important;
+        box-shadow: inset 4px 0 bd i;
       }
     }
     /// Collapse button.
