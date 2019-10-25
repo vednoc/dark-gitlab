@@ -173,7 +173,7 @@
     c: fg 0 t;
     font-family: var(--ui-font);
     // Fixes content shift when modal is open.
-    &.modal-open { padding-right: 0px !important }
+    &.modal-open { padding-right: 0px i }
     // Empty navbar.
     &.navless {
       c: fg 0 t;
@@ -220,18 +220,18 @@
     // Checkbox/radio inputs.
     input[type="checkbox"], input[type="radio"] {
       &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
-        -webkit-appearance: none !important;
-        -moz-appearance: none !important;
-        appearance: none !important;
-        height: 1em !important;
-        width: 1em !important;
-        border: 1px solid !important;
+        -webkit-appearance: none i;
+        -moz-appearance: none i;
+        appearance: none i;
+        height: 1em i;
+        width: 1em i;
+        border: 1px solid i;
         c: fg bd bd;
       }
-      &:hover { box-shadow: 0 0 2px 1px cm !important }
+      &:hover { box-shadow: 0 0 2px 1px cm i }
     }
     input[type="radio"] {
-      border-radius: 100% !important;
+      border-radius: 100% i;
       &:checked { c: 0 sh ac }
     }
     input[type="checkbox"] {
@@ -243,22 +243,22 @@
   // Custom icons for checkbox/radio inputs.
   @css {
     input[type="radio"]:checked {
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
-      background-size: cover !important;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') i;
+      background-size: cover i;
     }
     input[type="checkbox"]:checked {
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
-      background-size: cover !important;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') i;
+      background-size: cover i;
     }
     input[type="checkbox"]:indeterminate {
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') !important;
-      background-size: cover !important;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') i;
+      background-size: cover i;
     }
   }
 
   // * Table -> Base styles for all `table` elements.
   table:not(.code):not(.shortcut-mappings) {
-    display: table !important;
+    display: table i;
     border-collapse: unset;
     border-spacing: 0px;
     rad: r;
@@ -268,9 +268,9 @@
       &, tr:first-child {
         > th {
           c: fg bd hl;
-          border-top: 1px solid bd !important;
-          border-bottom: 1px solid bd !important;
-          &:not(:last-child) { border-right: none !important }
+          border-top: 1px solid bd i;
+          border-bottom: 1px solid bd i;
+          &:not(:last-child) { border-right: none i }
           &:first-child {
             border-top-left-radius: r;
             border-left: 1px solid bd;
@@ -286,20 +286,20 @@
       c: 0 0 t;
       td {
         word-break: break-all;
-        border: none !important;
-        border-left: 1px solid bd !important;
-        border-bottom: 1px solid bd !important;
+        border: none i;
+        border-left: 1px solid bd i;
+        border-bottom: 1px solid bd i;
         c: fg bd t;
-        &:last-child { border-right: 1px solid bd !important }
+        &:last-child { border-right: 1px solid bd i }
       }
       tr {
         // AsciiDoc tables and CI/CD jobs.
         > th {
-          border: none !important;
-          border-left: 1px solid bd !important;
-          border-bottom: 1px solid bd !important;
+          border: none i;
+          border-left: 1px solid bd i;
+          border-bottom: 1px solid bd i;
           c: fg 0 hl;
-          &[colspan="10"] { border-right: 1px solid bd !important }
+          &[colspan="10"] { border-right: 1px solid bd i }
         }
         // &:hover { th, td { c: 0 0 hl }}
         &:last-child {
@@ -324,7 +324,7 @@
     > tbody {
       c: 0 0 bg;
       tr th {
-        border-bottom-width: 1px !important;
+        border-bottom-width: 1px i;
         c: fg bd bd;
       }
     }
@@ -335,11 +335,11 @@
     c: 0 bd;
     > .table {
       thead th {
-        padding: 8px !important;
+        padding: 8px i;
         c: fg bd hl;
       }
       tbody td {
-        padding: 8px !important;
+        padding: 8px i;
         c: fg bd bg;
       }
     }
@@ -348,10 +348,10 @@
   // * Emojis -> Fix emojis being cropped.
   gl-emoji {
     font-size: 1.25em;
-    font-family: var(--emoji-font) !important;
+    font-family: var(--emoji-font) i;
     // ? An attempt to fix emoji positioning on *fox-based browsers.
     @supports (-moz-user-select: none) {
-      vertical-align: text-top !important;
+      vertical-align: text-top i;
     }
   }
   .user-status-emoji { display: inline-flex }
@@ -417,9 +417,9 @@
     }
     /// HACK: Reset colored labels.
     &.color-label {
-      text-decoration: none !important;
+      text-decoration: none i;
       box-shadow: inset 0 0 0 1rem #33333370;
-      &:hover { box-shadow: none !important }
+      &:hover { box-shadow: none i }
       &[style *= 'color: #333333'] {
         c: black;
         box-shadow: inset 0 0 0 1rem #33333325;
@@ -439,7 +439,7 @@
     position: relative;
     c: fg bd hl;
     box-shadow: inner;
-    &.gcp-signup-offer { border-left-color: blue !important }
+    &.gcp-signup-offer { border-left-color: blue i }
     &.help-callout, &.shared-runners-description {
       border-left: none;
       box-shadow: inner;
@@ -485,8 +485,8 @@
   .scoped-label {
     .fa-question-circle {
       c: 0 0 t;
-      &[style*="color: #FFFFFF"]  { color: #ffffff !important }
-      &[style*="color: #333333"]  { color: #000000 !important }
+      &[style*="color: #FFFFFF"]  { color: #ffffff i }
+      &[style*="color: #333333"]  { color: #000000 i }
     }
   }
 
@@ -498,7 +498,7 @@
       c: cm bd bg 0 0 0;
       // &:hover, &:focus, &.focus {
       //   c: fg bd hl 0 0 0;
-      //   box-shadow: none !important;
+      //   box-shadow: none i;
       // }
     }
     &:not(:disabled):not(.disabled) {
@@ -509,7 +509,7 @@
     }
     &.active, &.is-active {
       c: fg bd bd;
-      box-shadow: none !important;
+      box-shadow: none i;
       svg { v: fg }
     }
     &-secondary {
@@ -526,7 +526,7 @@
     &.comment-btn, .comment-btn, .commit-btn {
       c: white green green;
       &:hover { opacity: 0.75 }
-      .fa { color: inherit !important }
+      .fa { color: inherit i }
     }
     // Blue buttons.
     &-info, &-primary, &-register {
@@ -576,7 +576,7 @@
     // Disabled buttons.
     &.disabled, &[disabled] {
       &, &:hover {
-        opacity: 0.6 !important;
+        opacity: 0.6 i;
         c: cm bd bg;
       }
       i[class] { c: cm }
@@ -633,7 +633,7 @@
   .ci-table .ref-name,
   .js-user-link,
   .author_name a {
-    color: ac !important;
+    c: ac;
   }
   .ci-table .build-link,
   .ci-table .pipeline-id,
@@ -780,11 +780,11 @@
   // * Navbar.
   .navbar {
     c: 0 bd;
-    box-shadow: bsh !important;
+    box-shadow: bsh i;
     // ? Feature -> Theme navbar color.
     if ( navbar_c == 1 ) { c: 0 0 bg }
     // ? Feature -> Show 'next' badge.
-    if ( navbar_n != 1 ) { .canary-badge { display: none !important }}
+    if ( navbar_n != 1 ) { .canary-badge { display: none i }}
     .canary-badge .badge.badge-pill { c: white green green }
     // Logo text color.
     .logo-text svg, svg.nav-logo .wordmark { v: fg }
@@ -813,13 +813,13 @@
     }
     // Separator.
     &-toggler {
-      margin: 4px -7px 4px 0 !important;
-      border-left-color: bd !important;
+      margin: 4px -7px 4px 0 i;
+      border-left-color: bd i;
     }
     // ? Avatars -> Reset.
     .header-user-avatar {
       radius: 50%;
-      border: none !important;
+      border: none i;
       c: cm 0 t;
     }
     // ? Shows theme version in the user dropdown.
@@ -878,12 +878,12 @@
     // Shadow.
     &-content-faded-mask::after { background: none }
     // Color boxes.
-    &-label-box { border-color: inherit !important }
+    &-label-box { border-color: inherit i }
     // Button groups.
     .btn-group {
       > button, > a {
         c: 0 bd bg;
-        transition: ts !important;
+        transition: ts i;
         &:hover, &.active { c: 0 0 hl }
         &:first-child { border-radius: r 0 0 r }
         &:last-child { border-radius: 0 r r 0 }
@@ -924,7 +924,7 @@
     &.js-insights-dropdown {
       padding-left: 0;
       button.dropdown-toggle {
-        box-shadow: none !important;
+        box-shadow: none i;
         &:focus, ../.show .dropdown-toggle { c: fg bd bd }
       }
     }
@@ -935,7 +935,7 @@
     box-shadow: 0 4px 8px 0 sh;
     // ? Height reset.
     &-selectable.show { max-height: unset i }
-    &, &-nav { max-height: 352px !important }
+    &, &-nav { max-height: 352px i }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { c: fg bd }
     .dropdown-bold-header, &-inner-title { c: fg }
@@ -1009,10 +1009,10 @@
     }
     // ? Issue boards -> Add list.
     &-tabs {
-      // max-height: 400px !important;
+      // max-height: 400px i;
       .dropdown-tabs-list {
         c: 0 0 bg;
-        box-shadow: 0 1px 0 0 bd !important;
+        box-shadow: 0 1px 0 0 bd i;
         .dropdown-tab-item {
           c: 0 bd;
           a { c: fg 0 bg }
@@ -1022,7 +1022,7 @@
     }
     // ? Diff -> File finder.
     &.diff-file-changes {
-      min-width: 500px !important;
+      min-width: 500px i;
       .diff-changed-file {
         [class*="path"] { c: cm }
         &.is-focused, &:focus {
@@ -1078,7 +1078,7 @@
     }
     // ? Fix for flashing input.
     &-container-multi &-choices &-search-field input&-active {
-      background: none !important;
+      background: none i;
     }
     // Results.
     &-results &-result-label {
@@ -1134,7 +1134,7 @@
       + .form-text.text-muted {
         font-size: 0;
         a::before {
-          font-size: 14px !important;
+          font-size: 14px i;
           content: "ASF enabled.";
         }
       }
@@ -1197,9 +1197,9 @@
 
   // * Dashboard -> Welcome page.
   .section-welcome {
-    padding: 0 !important;
+    padding: 0 i;
     .container {
-      max-width: var(--width) !important;
+      max-width: var(--width) i;
       // Fix odd spacing.
       .blank-state-row { justify-content: space-between }
       // Cards.
@@ -1243,8 +1243,8 @@
     c: 0 bd bg;
     // 'Create from template' area.
     .card-slim {
-      padding: 8px !important;
-      margin: 0 16px 8px !important;
+      padding: 8px i;
+      margin: 0 16px 8px i;
     }
     // Inputs.
     [class*="input-group"] {
@@ -1302,7 +1302,7 @@
   }
   // * Settings -> Pipeline quota.
   .pipeline-quota {
-    padding: 0px !important;
+    padding: 0px i;
     c: 0 bd;
   }
   // Settings -> Badges.
@@ -1335,7 +1335,7 @@
     > nav { order: 999 }
     // Alert main reset.
     [class*="flash-"] {
-      margin-bottom: 0px !important;
+      margin-bottom: 0px i;
       // ? Align notice with main content.
       .flash-notice > div {
         max-width: var(--width);
@@ -1375,7 +1375,7 @@
       &-notice { c: white 0 blue }
       &-success { c: white 0 green }
       &-warning { c: white 0 yellow }
-      &-content { margin-top: 8px !important }
+      &-content { margin-top: 8px i }
       ../.sticky .flash-content { box-shadow: bsh }
     }
   }
@@ -1396,7 +1396,7 @@
       padding: 0 10px;
       margin-top: 10px;
       rad: r;
-      border: 1px solid bd !important;
+      border: 1px solid bd i;
       c: 0 0 bg;
     }
     &-list a { c: cm }
@@ -1406,8 +1406,8 @@
     &-links { c: cm bd 0 }
     // ? Reset epics-roadmap page.
     &.group-epics-roadmap {
-      border-bottom: none !important;
-      max-width: 100% !important;
+      border-bottom: none i;
+      max-width: 100% i;
     }
   }
   .breadcrumb {
@@ -1430,17 +1430,17 @@
       .filtered-search-wrapper { display: flex }
     }
     .row-content-block {
-      margin-top: 0px !important;
-      padding: 8px !important;
-      rad: 0 !important;
+      margin-top: 0px i;
+      padding: 8px i;
+      rad: 0 i;
     }
     .alert-wrapper .breadcrumbs.container-fluid.group-epics-roadmap {
-      padding: 0px !important;
-      max-width: 100% !important;
+      padding: 0px i;
+      max-width: 100% i;
       .breadcrumbs-container {
-        margin-top: 0px !important;
-        rad: 0px !important;
-        border: none !important;
+        margin-top: 0px i;
+        rad: 0px i;
+        border: none i;
       }
     }
   }
@@ -1533,13 +1533,13 @@
     > .nav-controls > div:last-child { padding-right: 8px }
   }
   [data-page ^= 'projects:forks:'] { .top-area { padding: 0 8px }}
-  [data-page ^= 'projects:labels:'] { .top-area { padding: 0 !important }}
+  [data-page ^= 'projects:labels:'] { .top-area { padding: 0 i }}
   // Remove bottom border.
   .top-area, .wiki-page-header {
     &, .nav-links.mobile-separator { border-bottom: none }
   }
   .nav.nav-tabs {
-    padding: 0 !important;
+    padding: 0 i;
     margin-top: 8px;
     rad: r;
     border-bottom: none;
@@ -1557,7 +1557,7 @@
       &:last-child { margin-right: 8px }
       a[class], a[href] {
         line-height: 32px;
-        border-bottom-width: 1px !important;
+        border-bottom-width: 1px i;
         c: cm;
         ../:hover > a { c: fg bd }
         ../.active, ../:active { > a { c: fg ac }}
@@ -1711,13 +1711,13 @@
   .avatar {
     c: cm;
     &, &-circle, &-container, &-tile {
-      rad: var(--avatar) !important;
-      border: none !important;
+      rad: var(--avatar) i;
+      border: none i;
       c: fg t t;
     }
     &:not(img) {
       box-shadow: inset 0 0 0 2px bd;
-      transition: ts !important;
+      transition: ts i;
     }
     &.identicon {
       position: relative;
@@ -1870,7 +1870,7 @@
     .nav-controls { padding: 0 }
     .row-content-block + .all-branches,
     .top-area.adjust + .all-branches {
-      margin-top: 10px !important;
+      margin-top: 10px i;
       rad: r;
       c: 0 0 bg;
       box-shadow: inner;
@@ -1932,7 +1932,7 @@
       c: 0 0 bg;
       // Hover over commit.
       > svg rect[rx*="4"][ry*="4"] {
-        fill-opacity: 1 !important;
+        fill-opacity: 1 i;
         v: bd t;
       }
       [d^="M165"], [d^="M185"], [d^="M195"] { v: bd 0 0 }
@@ -1957,7 +1957,7 @@
       border: none;
       rad: r;
       c: 0 0 bg;
-      box-shadow: inner !important;
+      box-shadow: inner i;
       > :last-child { rad: 0 0 r r }
     }
     .modal-header {
@@ -1984,7 +1984,7 @@
       .form-actions {
         rad: 0;
         c: 0 0 t;
-        border: none !important;
+        border: none i;
         box-shadow: 0 -1px bd;
       }
     }
@@ -2014,7 +2014,7 @@
     }
     .blame-commit {
       position: relative;
-      border-left: none !important;
+      border-left: none i;
       &::before {
         content: "";
         position: absolute;
@@ -2157,7 +2157,7 @@
     c: 0 0 bg;
     box-shadow: inner, 0 4px 8px 0 sh;
     .avatar {
-      rad: 50% !important;
+      rad: 50% i;
       c: 0 0 bd;
       box-shadow: inner;
     }
@@ -2219,7 +2219,7 @@
       &.added { c: 0 green }
       // Broken image.
       img {
-        background: none !important;
+        background: none i;
         c: fg t 0;
       }
     }
@@ -2279,9 +2279,7 @@
     .new-note, .discussion-notes { c: 0 t }
   }
   /* Text color. */
-  .branch-info > span {
-    color: fg !important;
-  }
+  .branch-info > span { c: fg }
 
   // * Timeline content.
   .timeline-entry {
@@ -2305,7 +2303,7 @@
     .note-headline-light { c: cm }
     .note-headline-meta .system-note-separator {
       c: fg;
-      text-decoration: none !important;
+      text-decoration: none i;
       time { color: cm }
     }
     .system-note-message {
@@ -2349,7 +2347,7 @@
     c: 0 0 t;
     // Connectors.
     &::before {
-      border-left-width: 1px !important;
+      border-left-width: 1px i;
       c: 0 bd;
     }
     // Overwriten by user-link styles.
@@ -2374,7 +2372,7 @@
     // ? Note background, avoid system notes and forms.
     .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
       border-radius: r;
-      background-color: bg !important;
+      c: 0 0 bg;
     }
     // Icon.
     .system-note .timeline-icon {
@@ -2397,13 +2395,13 @@
     c: 0 bd bg;
     &.is-focused {
       c: 0 ac;
-      box-shadow: none !important;
+      box-shadow: none i;
     }
     // Header.
     .md-header {
       &-tab {
         button[class] {
-          border-width: 1px !important;
+          border-width: 1px i;
           c: cm bd;
           &:hover { c: fg ac }
           ../.active button { c: fg ac }
@@ -2412,7 +2410,7 @@
       > ul.nav-links {
         rad: 0;
         margin: 0;
-        padding: 8px 0 0 0 !important;
+        padding: 8px 0 0 0 i;
         border-bottom: none;
         c: 0 bd t;
         box-shadow: inset 0 -1px bd;
@@ -2458,7 +2456,7 @@
     kbd {
       border: 1px solid;
       c: cm bd bd;
-      box-shadow 0 1px 0 sh, inset 0 0 0 2px bg !important;
+      box-shadow 0 1px 0 sh, inset 0 0 0 2px bg i;
     }
     pre {
       &:not([class]) {
@@ -2492,7 +2490,7 @@
       opacity: faded_img;
       &:hover { opacity: 1 }
     }
-    ul, ol { ul, ol { margin-bottom: 0 !important }}
+    ul, ol { ul, ol { margin-bottom: 0 i }}
     // Fullscreen mode.
     &-area .zen-backdrop.fullscreen {
       c: 0 0 bg;
@@ -2532,17 +2530,17 @@
       /// Active sub-level-items.
       &.active {
         c: 0 0 hl;
-        box-shadow: inset 4px 0 ac !important;
+        box-shadow: inset 4px 0 ac i;
         a { c: fg }
         > ul li:hover {
           c: 0 0 bd;
-          box-shadow: inset 4px 0 ac !important;
+          box-shadow: inset 4px 0 ac i;
         }
       }
       /// Don't apply styles to fly-out menu.
       &:not(.is-over) > ul li.active {
         c: 0 0 bd;
-        box-shadow: inset 4px 0 ac !important;
+        box-shadow: inset 4px 0 ac i;
         > a { c: ac 0 t }
       }
       /// Fly-out menu.
@@ -2560,7 +2558,7 @@
     /// Fix overflow/height on Firefox.
     .nav-sidebar-inner-scroll {
       height: calc(100% - 48px);
-      overflow-x: hidden !important;
+      overflow-x: hidden i;
       > ul.sidebar-top-level-items { margin-bottom: 0 }
     }
     /// Resets for collapsed sidebar.
@@ -2572,7 +2570,7 @@
     /// Collapse button.
     .close-nav-button, .toggle-sidebar-button {
       width: 100%;
-      transition: ts !important;
+      transition: ts i;
       c: 0 bd t;
       &:hover { c: 0 0 bd }
       .collapse-text {
@@ -2614,7 +2612,7 @@
       .block:hover { c: 0 0 hl }
       .gutter-toggle { height: 55px }
     }
-    .issuable-sidebar-header { height: 55px !important }
+    .issuable-sidebar-header { height: 55px i }
     // Expanded state should take more available space.
     &.right-sidebar-expanded .issuable-sidebar {
       padding: 0 16px;
@@ -2815,7 +2813,7 @@
   }
   // Language bar.
   .progress.repository-languages-bar {
-    background-color: t !important;
+    c: 0 0 t;
     .progress-bar {
       rad: 8px;
       // ? Fixes buggy bar in `.../vednoc/better-comments` repo.
@@ -2900,7 +2898,7 @@
       /// Feature -> Center and limit readme content.
       if ( md_limit == 1 ) {
         .file-content:not(#z) {
-          max-width: 950px !important;
+          max-width: 950px i;
           if ( md_center == 1 ) { margin: 0 auto }
         }
       }
@@ -2970,10 +2968,10 @@
     .tree-table tr.tree-item {
       // Reset borders.
       > td {
-        // border: none !important;
+        // border: none i;
         transition: ts;
-        &:not(:first-child) { border-left: none !important }
-        &:not(:last-child) { border-right: none !important }
+        &:not(:first-child) { border-left: none i }
+        &:not(:last-child) { border-right: none i }
       }
       &:last-child { border-bottom: none }
       &:hover, &.selected { > td { c: 0 0 hl }}
@@ -3019,7 +3017,7 @@
     .overview-content-list {
       > .loading {
         &, > .loading {
-          margin: 0 auto !important;
+          margin: 0 auto i;
           height: 50px;
         }
       }
@@ -3061,7 +3059,7 @@
         margin-top: 0;
         h4, h5 {
           font-weight: normal;
-          font-size: 1rem !important;
+          font-size: 1rem i;
         }
       }
       // ! @obsolete
@@ -3087,8 +3085,8 @@
     .event-item {
       c: cm bd;
       transition: ts;
-      padding: 8px 8px 8px 40px !important;
-      @media (max-width: 575px) { padding-left: 8px !important }
+      padding: 8px 8px 8px 40px i;
+      @media (max-width: 575px) { padding-left: 8px i }
       .system-note-image { left: 8px }
       .event-title { c: cm }
       .event-body *:not(.color-label):not(.gfm) { c: fg }
@@ -3099,7 +3097,7 @@
     }
     // Contributions for the selected day.
     .user-calendar {
-      padding: 8px !important;
+      padding: 8px i;
       &-activities {
         .bordered-list li { padding: 8px }
         h4 { &, & + p { padding: 8px }}
@@ -3111,16 +3109,16 @@
   #cycle-analytics {
     /// Introduction.
     .landing { c: 0 bd bg }
-    .card-header { border-bottom: 1px solid bd !important }
+    .card-header { border-bottom: 1px solid bd i }
     /// Navigation.
     .stage-nav {
       margin-top: 4px;
       &-item {
         c: fg bd bg;
-        &.active { box-shadow: inset 4px 0 ac !important }
+        &.active { box-shadow: inset 4px 0 ac i }
         &:hover:not(.active) {
           c: 0 0 hl;
-          box-shadow: none !important;
+          box-shadow: none i;
         }
         /// Text.
         .stage-empty, .not-available { c: cm }
@@ -3147,7 +3145,7 @@
 
   // * Dashboard -> Sub-nav block.
   .row-content-block {
-    margin-top: 10px !important;
+    margin-top: 10px i;
     padding: 0px;
     rad: r;
     border: 0px solid bd;
@@ -3165,7 +3163,7 @@
       c: 0 0 bg;
       // Smol button is no-no.
       .btn { padding: 8px }
-      .event-last-push-text, .btn { font-size: 14px !important }
+      .event-last-push-text, .btn { font-size: 14px i }
     }
   }
   .content-block {
@@ -3178,12 +3176,12 @@
     background-color: transparent;
     // Commits list.
     + .card {
-      border-radius: r !important;
+      border-radius: r i;
       ul > li:last-child { rad: 0 0 r r }
     }
   }
   // Sticky file name.
-  .diff-file .is-compare { top: calc(91px - var(--radius)) !important }
+  .diff-file .is-compare { top: calc(91px - var(--radius)) i }
   // * Project -> Compare.
   [class*="card"] {
     // Nothing to compare.
@@ -3324,7 +3322,7 @@
     c: 0 t t;
     // List.
     .issuable-list {
-      margin-top: 10px !important;
+      margin-top: 10px i;
       rad: r;
       border: 1px solid;
       c: 0 bd bg;
@@ -3488,9 +3486,7 @@
   }
 
   // Notes.
-  .note-text pre {
-    rad: r !important;
-  }
+  .note-text pre { rad: r i }
   // ? Fixes missing bottom border for code.
   .notes .note-text > p:last-child { padding-bottom: 1px i }
 
@@ -3509,7 +3505,7 @@
       c: 0 0 t;
       .text-plain { c: cm }
       // Reset actions on `user/project/pages` page.
-      .form-actions { margin: 0 !important }
+      .form-actions { margin: 0 i }
     }
     .card-footer {
       padding: 8px;
@@ -3567,16 +3563,16 @@
 
   // * Boards -> Wrapper resets.
   .boards-list {
-    padding: 10px 16px !important;
+    padding: 10px 16px i;
     height: calc(100vh - 134px);
     .board {
       transition: ts;
-      padding: 0 !important;
-      &:not(:first-child) { padding-left: 8px !important }
+      padding: 0 i;
+      &:not(:first-child) { padding-left: 8px i }
       &-title-caret:hover { c: 0 0 bd }
       // Whitespace for the last card.
-      .board-card:last-child { margin-bottom: 8px !important }
-      &-inner.rounded { rad: r !important }
+      .board-card:last-child { margin-bottom: 8px i }
+      &-inner.rounded { rad: r i }
       // Welcome/promos.
       &-blank-state, &-promotion-state {
         rad: 0 0 r r;
@@ -3649,7 +3645,7 @@
 
   // * Boards -> Add issues.
   .add-issues-container {
-    rad: r !important;
+    rad: r i;
     c: 0 0 bg;
     box-shadow: bsh;
     .add-issues-list .board-card {
@@ -3684,8 +3680,8 @@
     // List.
     .manage-labels-list > li:not(.empty-message) {
       &:not(.no-border) {
-        border: 1px solid bd !important;
-        box-shadow: none !important;
+        border: 1px solid bd i;
+        box-shadow: none i;
       }
       &:not(.is-not-draggable) {
         margin-bottom: 8px;
@@ -3761,17 +3757,17 @@
   // * Promotional.
   .user-callout {
     // Reset extra margins on the side.
-    margin: 20px 0 10px !important;
+    margin: 20px 0 10px i;
     &.promotion-callout {
       .bordered-box {
-        padding: 8px !important;
+        padding: 8px i;
         rad: r;
         c: 0 bd bg;
       }
     }
     // ? Found in: .../repo/pipeline_schedules
     .bordered-box.content-block {
-      padding: 8px !important;
+      padding: 8px i;
       rad: r;
       c: 0 bd bg;
     }
@@ -3881,7 +3877,7 @@
       // Disabled.
       &.disabled .page-link {
         c: cm;
-        filter: opacity(0.75) !important;
+        filter: opacity(0.75) i;
       }
       // Selected.
       .page-link.active, &.active .page-link { c: fg 0 bd }
@@ -3906,7 +3902,7 @@
       svg.icon { v: orange }
       a { &, &:hover { c: orange }}
       // Reset corners in confidential issues.
-      + .md-area { rad: 0 0 r r !important }
+      + .md-area { rad: 0 0 r r i }
     }
     /// Email a new issue/mr.
     &-email-modal-btn { c: ac }
@@ -3934,7 +3930,7 @@
     // ? Reset pagination.
     .gl-pagination {
       padding: 10px;
-      margin-top: 0px !important;
+      margin-top: 0px i;
       border-top: 1px solid bd;
       .pagination { margin: 0px }
     }
@@ -3987,12 +3983,12 @@
   }
   /* Reply. */
   .discussion-form {
-    background-color: transparent !important;
+    background-color: transparent i;
   }
   // ? Discussion within diff section.
   .diffs {
     .notes {
-      border-top: none !important;
+      border-top: none i;
       &::before { border-left: 1px solid bd i }
     }
     .note.timeline-entry {
@@ -4020,14 +4016,14 @@
   /* Text color. */
   .timeline .system-note .note-text,
   .notes .note-body .note-text {
-    color: var(--light) !important;
+    color: var(--light) i;
   }
   .notes .system-note .system-note-commit-list-toggler {
-    color: var(--accent) !important;
+    color: var(--accent) i;
   }
   // 'Toggle commit list' background.
   .notes .system-note .note-body .note-text:not(.hide-shade)::after {
-    background: none !important;
+    background: none i;
   }
 
   // * Merge Requests -> Review.
@@ -4040,7 +4036,7 @@
     // ! Might not need this line anymore.
     .notes_line {
       c: fg bg bg;
-      border-right-color: bd !important;
+      border-right-color: bd i;
     }
     // Note border/background colors.
     .notes-content { c: 0 bd t }
@@ -4092,7 +4088,7 @@
     }
     /// Global widgets.
     .mr-section-container {
-      border: 1px solid bd !important;
+      border: 1px solid bd i;
       rad: r;
       c: 0 0 bg;
       &::before { c: 0 bd }
@@ -4125,9 +4121,9 @@
     .border-top {
       c: 0 bd;
       .table {
-        margin: -1px !important;
+        margin: -1px i;
         width: calc(100% + 2px);
-        > :not(:last-child) tr > * { rad: 0 !important }
+        > :not(:last-child) tr > * { rad: 0 i }
       }
     }
     /// Fix 'WIP status' for users that can't merge it. @upstream
@@ -4162,12 +4158,12 @@
     margin: 0;
     width: 100%;
     rad: r;
-    border: 1px solid !important;
+    border: 1px solid i;
     c: fg bd bg;
     // Reset the width when file tree is open. @upstream
     &.is-fileTreeOpen {
-      margin: 0 !important;
-      width: 100% !important;
+      margin: 0 i;
+      width: 100% i;
     }
     > div { border-bottom: none }
   }
@@ -4267,7 +4263,7 @@
   .ace {
     /// Wrapper. #75.
     &-tm {
-      rad: 0 0 r r !important;
+      rad: 0 0 r r i;
       c: fg 0 bg;
     }
     /// Gutter.
@@ -4352,8 +4348,8 @@
 
   // * Main content.
   .main {
-    background-color: transparent !important;
-    box-shadow: none !important;
+    background-color: transparent i;
+    box-shadow: none i;
     // TOC.
     // Remove sidebar.
     *::-webkit-scrollbar { display: none i }
@@ -4399,7 +4395,7 @@
     // Fluid layout.
     .container-fluid {
       &:not(.container-limited):not(.js-focus-mode-board) {
-        max-width: var(--width) !important;
+        max-width: var(--width) i;
       }
     }
     // WIP: Fixed layout.
@@ -4426,7 +4422,7 @@
       .issuable-details .mr-state-widget,
       .issuable-details .merge-manually,
       .file-content {
-        max-width: unset !important;
+        max-width: unset i;
         // outline-offset: -1px;
         // outline: 1px solid yellow;
       }
@@ -4441,7 +4437,7 @@
     .toggle-sidebar-button,
     .close-nav-button,
     .nav-sidebar a {
-      transition-duration: 0s !important;
+      transition-duration: 0s i;
     }
   }
 
@@ -4478,7 +4474,7 @@
           li {
             c: cm bd hl;
             &.active {
-              border-bottom-color: bg !important;
+              border-bottom-color: bg i;
               c: fg 0 bg;
             }
           }
@@ -4513,7 +4509,7 @@
         &:hover, &:focus { c: 0 0 bd }
         &.active {
           c: 0 bd bg;
-          box-shadow: inset 3px 0 ac !important;
+          box-shadow: inset 3px 0 ac i;
         }
         /// Reset file icons.
         svg[class*='ic-file-'] { v: cm }
@@ -4561,7 +4557,7 @@
       }
       .ide-activity-bar {
         c: 0 bd;
-        button.active { box-shadow: inset -3px 0 ac !important }
+        button.active { box-shadow: inset -3px 0 ac i }
       }
     }
     /// Left -> Panel separators.
@@ -4614,7 +4610,7 @@
     .monaco-quick-open-widget {
       rad: r;
       c: fg bd bg;
-      box-shadow: outer, bsh !important;
+      box-shadow: outer, bsh i;
       .results-group { c: cm }
       .label-name {
         c: fg;
@@ -4644,14 +4640,14 @@
     /// Context menu.
     .context-view .monaco-action-bar {
       c: 0 0 bg;
-      box-shadow: inner, bsh !important;
+      box-shadow: inner, bsh i;
       .action-item {
         > a { c: cm 0 t }
         &.focused a { c: fg 0 hl }
         &.disabled a { c: 0 bd }
       }
     }
-    .scroll-decoration { box-shadow: inset bsh !important }
+    .scroll-decoration { box-shadow: inset bsh i }
     .tokens-inspect-widget { c: fg bd bg }
     .findOptionsWidget {
       c: 0 bd bd;
@@ -4820,7 +4816,7 @@
       /// Header.
       .top-bar {
         margin-left: 0px;
-        border-left: 1px solid bd !important;
+        border-left: 1px solid bd i;
         rad: r r 0 0;
         c: cm bd hl;
         .btn { c: 0 0 t }
@@ -4859,7 +4855,7 @@
   .mini-pipeline-graph-dropdown {
     &-toggle {
       c: 0 0 bg;
-      &:focus { box-shadow: 0 0 4px 1px ac !important }
+      &:focus { box-shadow: 0 0 4px 1px ac i }
     }
     &-menu {
       /// Indicator.
@@ -4885,7 +4881,7 @@
         }
       }
       /// Fix text weight.
-      .ci-build-text, .ci-status-text { font-weight: normal !important }
+      .ci-build-text, .ci-status-text { font-weight: normal i }
     }
     /// Mini-pipeline connectors.
     /.stage-container::after { c: 0 gray }
@@ -4905,14 +4901,14 @@
     }
     // Triangle.
     .cross-project-triangle {
-      margin-top: 10px !important;
+      margin-top: 10px i;
       border-left-color: bd;
     }
     // Linked pipeline?
     // ? https://gitlab.com/gitlab-org/gitlab-ce/pipelines/31973329
     .linked-pipeline {
       &-content {
-        rad: 10px !important;
+        rad: 10px i;
         c: fg bd bg;
         &:hover { c: 0 0 bd }
       }
@@ -4931,7 +4927,7 @@
     .ci-build-txt, .ci-status-text { font-weight: normal }
     /// v11.3 -> Full-width graph reset.
     /.tab-pane.position-absolute.w-100 {
-      left: 1px !important;
+      left: 1px i;
       .pipeline-graph { rad: 0 }
     }
   }
@@ -4941,7 +4937,7 @@
   .linked-pipeline-mini-list {
     .arrow-icon { margin-top: 2px }
     .linked-pipeline-mini-item {
-      margin-top: 5px !important;
+      margin-top: 5px i;
       > svg { margin: 1px 0 0 1px }
       // Fix size and on-hover event.
       &[class*="ci-status-icon-"] {
@@ -5014,10 +5010,10 @@
       }
       // Remove borders.
       tr {
-        border: none !important;
+        border: none i;
         td {
-          border: none !important;
-          border-top: 1px solid bd !important;
+          border: none i;
+          border-top: 1px solid bd i;
         }
       }
       // Item text color.
@@ -5050,7 +5046,7 @@
   }
   // * Group body.
   .groups-list-tree-container > ul.group-list-tree {
-    margin-top: 10px !important;
+    margin-top: 10px i;
     border: 1px solid bd;
     rad: r;
     c: 0 0 bg;
@@ -5122,7 +5118,7 @@
   .billing-plan-logo > svg,
   img[src*="/assets/illustrations/"],
   #subgroups_and_projects .empty-state svg {
-    filter: opacity(0.9) invert(0.9) hue-rotate(180deg) !important;
+    filter: opacity(0.9) invert(0.9) hue-rotate(180deg) i;
   }
 
   // ! Trick for #44. @upstream
@@ -5215,7 +5211,7 @@
       > div { max-width: 100% }
     }
     .project-home-panel .project-badges {
-      flex-direction: row !important;
+      flex-direction: row i;
       justify-content: center;
     }
     // Up until v11.5 (I think).
@@ -5238,14 +5234,14 @@
     // Separate buttons from the header and the description.
     .project-repo-buttons {
       margin-top: 10px;
-      justify-content: center !important;
+      justify-content: center i;
     }
   }
 
   // Switch to our version of GitLab logo.
   if ( dark_logo == 1 ) {
     .tanuki-logo {
-      filter: brightness(095%) drop-shadow(0px 1px 1px sh) !important;
+      filter: brightness(095%) drop-shadow(0px 1px 1px sh) i;
       .tanuki { &-right-eye, &-left-eye { v: ac t }}
       .tanuki-right { &-cheek, &-ear { v: bg t }}
       .tanuki-left { &-cheek, &-ear { v: bg t }}
@@ -5276,12 +5272,12 @@
   [class*="monospace"], .ref-name,
   .diff-line-num, .diff-line-num a,
   #editor, .monaco-editor * {
-    font-family: var(--mono-font) !important;
+    font-family: var(--mono-font) i;
   }
   // Resets for code areas.
   .commit-sha, .ref-name, .git-revision-dropdown a {
-    font-size: 100% !important;
-    font-family: var(--ui-font) !important;
+    font-size: 100% i;
+    font-family: var(--ui-font) i;
   }
 
   // Feat -> Fix alignment of icons from GitLab icons extension.
@@ -5313,7 +5309,7 @@
   .list {
     &-title {
       c: white 0 blue;
-      h3 { color: inherit !important }
+      h3 { color: inherit i }
       &.secondary { c: 0 0 violet }
     }
     &-info {
@@ -5361,7 +5357,7 @@
       // Results.
       .chosen-drop {
         c: 0 bd bd;
-        box-shadow: none !important;
+        box-shadow: none i;
         .chosen-results {
           c: fg;
           .highlighted {
@@ -5375,8 +5371,8 @@
         min-height: 34px;
         line-height: 34px;
         c: fg bd bd;
-        background-image: none !important;
-        box-shadow: none !important;
+        background-image: none i;
+        box-shadow: none i;
         // Caret position.
         b { background-position: 0px 6px i }
       }
@@ -5404,7 +5400,7 @@
       c: cm;
       &.nuxt-link-exact-active {
         c: fg 0 bd;
-        box-shadow: inset 4px 0 ac !important;
+        box-shadow: inset 4px 0 ac i;
       }
     }
   }
@@ -5443,9 +5439,9 @@
       background-image: linear-gradient(160deg, yellow -50%, ac 200%);
     }
     img {
-      opacity: 1 !important;
-      &.hero-bg { filter: opacity(1) grayscale(100%) !important }
-      &.hero-thumb { filter: invert(0.8) hue-rotate(180deg) !important }
+      opacity: 1 i;
+      &.hero-bg { filter: opacity(1) grayscale(100%) i }
+      &.hero-thumb { filter: invert(0.8) hue-rotate(180deg) i }
     }
   }
   /// Landing -> Logos.
@@ -5459,9 +5455,9 @@
   }
   // * Global image reset.
   img, .video_container {
-    opacity: faded_img !important;
+    opacity: faded_img i;
     transition: ts;
-    &:hover { opacity: 1 !important }
+    &:hover { opacity: 1 i }
   }
   img.image-border { opacity: 0.2 i }
   /// Question?
@@ -5496,13 +5492,13 @@
   // * Index page for about sub-domain.
   .sdlc-table {
     border: 1px solid bd;
-    rad: r !important;
+    rad: r i;
     c: 0 0 bg;
     .sdlc-column:not(:last-child) {
-      border-right-color: bd !important;
+      border-right-color: bd i;
     }
     .stage-container, .solutions-container {
-      border-bottom-color: bd !important;
+      border-bottom-color: bd i;
     }
     .devops-tool-logo-container {
       rad: 0 0 r r;
@@ -5515,7 +5511,7 @@
   .challenge-box {
     rad: r;
     c: fg 0 bg;
-    box-shadow: inner, bsh !important;
+    box-shadow: inner, bsh i;
     .box-image { rad: r r 0 0 }
     .box-link a { c: ac }
   }
@@ -5540,7 +5536,7 @@
       blockquote { c: cm bd }
       .badge:not(.available) {
         c: fg;
-        box-shadow: none !important;
+        box-shadow: none i;
       }
       a:not(.twitter-block-link):not(.btn) { c: ac }
       .highlight {
@@ -5618,11 +5614,11 @@
     // Transparentize header.
     &.navbar-header-transparent {
       c: 0 0 t;
-      box-shadow: none !important;
+      box-shadow: none i;
     }
     // Search.
     .search-box {
-      background: none !important;
+      background: none i;
       c: fg 0 bg;
       box-shadow: inset 0 -1px bd;
       &-large, .search-input { c: fg t t }
@@ -5692,7 +5688,7 @@
     img {
       pointer-events: none;
       &.hero-image-small {
-        opacity: 1 !important;
+        opacity: 1 i;
         filter: drop-shadow(0 4px 4px sh);
       }
     }
@@ -5807,10 +5803,10 @@
   // Front page
   .sdlc-container .sdlc-table {
     td:not(:last-child), td:not(:last-child), tr:not(:last-child) {
-      border-color: bd !important;
+      border-color: bd i;
     }
     .competitor-logo-container {
-      background-color: bd !important;
+      background-color: bd i;
     }
   }
 
@@ -5819,7 +5815,7 @@
   .testimonials-container .testimonials-row .testimonial, .forrester-graphic-title,
   .feature, .integrated-teams {
     border: 1px solid;
-    rad: r !important;
+    rad: r i;
     c: fg bd bg;
     box-shadow: bsh;
   }
@@ -5857,15 +5853,11 @@
   }
   .panel-success > .panel-heading {
     c: cm green green;
-    .panel-title {
-      color: cm !important;
-    }
+    .panel-title { c: cm }
   }
   .panel-warning > .panel-heading {
     c: cm orange orange;
-    .panel-title {
-      color: cm !important;
-    }
+    .panel-title { c: cm }
   }
   // Featured Posts.
   .blog.list {
@@ -5896,13 +5888,13 @@
   .st-ui {
     &-autocomplete, &-slide-autocomplete {
       > div[class] {
-        rad: r !important;
+        rad: r i;
         c: fg bd bg;
         box-shadow: bsh;
       }
     }
     &-result[href] {
-      border-color: bd !important;
+      border-color: bd i;
       &:hover { c: fg bd bd }
       .st-ui-type-heading {
         c: ac;
@@ -5926,9 +5918,7 @@
     c: cm bd bg;
     .st-ui-header, .st-ui-footer {
       c: cm bd bg;
-      input[type="text"] {
-        color: cm !important;
-      }
+      input[type="text"] { c: cm }
     }
   }
   a.st-ui-close-button {
@@ -5942,9 +5932,9 @@
   .distro-content .display-extra-links li {
     a {
       c: ac bd;
-      background: t !important;
-      text-shadow: none !important;
-      text-decoration: none !important;
+      background: t i;
+      text-shadow: none i;
+      text-decoration: none i;
     }
     &:not(:last-child)::before { c: 0 0 bd }
   }
@@ -6050,7 +6040,7 @@
     c: cm bd bg;
     &:focus {
       c: fg ac;
-      box-shadow: none !important;
+      box-shadow: none i;
     }
   }
 
@@ -6081,7 +6071,7 @@
   .select-kit {
     .is-focused {
       c: 0 ac;
-      box-shadow: none !important;
+      box-shadow: none i;
     }
     .is-highlighted { c: fg 0 bd }
     .combo-box-header { c: fg bd bg }
@@ -6185,7 +6175,7 @@
   }
   .quote-button {
     c: cm bd fg;
-    box-shadow: bsh !important;
+    box-shadow: bsh i;
   }
   aside.quote .title { c: fg ac bd }
 
@@ -6194,7 +6184,7 @@
   .badge-card {
     c: 0 bd bg;
     .badge-contents .badge-info {
-      border: none !important;
+      border: none i;
       c: cm 0 t;
       h3 { c: ac }
     }
@@ -6248,7 +6238,7 @@
   .open .grippie { c: 0 0 ac }
   #reply-control {
     c: fg bd bg;
-    box-shadow: none !important;
+    box-shadow: none i;
     .reply-to .action-title, #draft-status, #file-uploading { c: fg }
     .save-or-cancel .cancel { c: red }
   }
@@ -6339,7 +6329,7 @@
     &-header { c: fg bd }
     &-inner-container {
       c: fg bd bg;
-      box-shadow: bsh !important;
+      box-shadow: bsh i;
     }
     .modal-body label { c: cm }
     // History.
@@ -6381,7 +6371,7 @@
         // Items.
         .header-link {
           transition: ts;
-          text-decoration: none !important;
+          text-decoration: none i;
           &:hover p { c: ac }
         }
       }
@@ -6401,7 +6391,7 @@
       rad: r;
       border: 1px solid;
       c: 0 bd bg;
-      box-shadow: 0 4px 16px -4px sh !important;
+      box-shadow: 0 4px 16px -4px sh i;
     }
     // Most popular topics.
     .topic h4 { c: 0 bd }
@@ -6435,7 +6425,7 @@
 
   // Cards
   .main-topics li .wrapper h2 {
-    border-color: bd !important;
+    border-color: bd i;
   }
 
   // Footer
@@ -6449,10 +6439,10 @@
   // Logo
   if ( dark_logo == 1 ) {
     .landing .landing-header-top .logo, .header img {
-      height: 0 !important;
-      width: 0 !important;
-      padding: 40px 0 0 40px !important;
-      background-image: url("https://gitlab.com/vednoc/dark-gitlab/raw/master/images/docs_logo.png") !important;
+      height: 0 i;
+      width: 0 i;
+      padding: 40px 0 0 40px i;
+      background-image: url("https://gitlab.com/vednoc/dark-gitlab/raw/master/images/docs_logo.png") i;
       background-size: 40px 40px;
       background-repeat: no-repeat;
     }
@@ -6500,7 +6490,7 @@
       // Buttons.
       .comments-filter a.comments-holder {
         c: 0 bd bg;
-        box-shadow: none !important;
+        box-shadow: none i;
       }
       .tab-content .row {
         margin-top: 16px;
@@ -6513,7 +6503,7 @@
   }
   .badge-small:hover::after {
     c: ac sh bd;
-    box-shadow: bsh !important;
+    box-shadow: bsh i;
   }
 
   // Alerts.
@@ -6558,7 +6548,7 @@
     // Collapse sidebar.
     .nav-toggle {
       c: 0 t t;
-      box-shadow: 0 -1px bd !important;
+      box-shadow: 0 -1px bd i;
       &:hover { c: 0 0 hl }
       .label { c: fg }
       .arrow { &::before, &::after { c: 0 0 cm }}
@@ -6718,7 +6708,7 @@
     c: 0 bd;
     .incident_time { c: fg }
     .timelineMajor h2 {
-      background-image: none !important;
+      background-image: none i;
       &::after {
         content: "";
         position: absolute;
@@ -6769,7 +6759,7 @@
 
 @-moz-document domain("next.gitlab.com") {
   body {
-    background: none !important;
+    background: none i;
     .wrapper > img.bg { opacity: 0 }
   }
   .white-box {
