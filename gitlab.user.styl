@@ -1388,31 +1388,35 @@
   .alert-danger { c: white red red }
   .alert-info { c: 0 blue bg }
 
-  // * Bootstrap breadcrumbs.
-  .breadcrumbs {
-    c: fg;
-    // Wrapper.
-    .breadcrumbs-container {
-      padding: 0 10px;
-      margin-top: 10px;
-      rad: r;
-      border: 1px solid bd i;
-      c: 0 0 bg;
-    }
-    &-list a { c: cm }
-    // Highlighted link.
-    &-sub-title a { c: fg }
-    // Separator.
-    &-links { c: cm bd 0 }
-    // ? Reset epics-roadmap page.
-    &.group-epics-roadmap {
-      border-bottom: none i;
-      max-width: 100% i;
-    }
-  }
+  // Global -> Breadcrumbs.
   .breadcrumb {
-    .breadcrumb-item a { c: cm }
-    &.repo-breadcrumb > li + li::before { c: cm }
+    /// Project-nav.
+    &.repo-breadcrumb > li {
+      a, + li::before { c: cm }
+      strong { c: fg }
+    }
+    /// Top-nav.
+    &s {
+      c: fg;
+      /// Wrapper.
+      & &-container {
+        padding: 0 10px;
+        margin-top: 10px;
+        rad: r;
+        border: 1px solid bd i;
+        c: 0 0 bg;
+      }
+      &-list a { c: cm }
+      /// Highlighted link.
+      &-sub-title a { c: fg }
+      /// Separator.
+      &-links { c: cm bd 0 }
+      /// Reset on epics-roadmap page.
+      &.group-epics-roadmap {
+        border-bottom: none i;
+        max-width: 100% i;
+      }
+    }
   }
 
   // * Epics -> Resets!
