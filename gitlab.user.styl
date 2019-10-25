@@ -161,19 +161,19 @@
     html { scrollbar-color: bd bg }
     ::-webkit-scrollbar {
       width: 12px;
-      &-track { background: bg; }
-      &-thumb { background: bd; }
+      &-track { background: bg }
+      &-thumb { background: bd }
     }
   }
   // Input placeholder.
-  ::placeholder { color: cm !important; }
-  ::-webkit-input-placeholder { color: cm !important; }
+  ::placeholder { c: cm }
+  ::-webkit-input-placeholder { c: cm }
 
   body {
     c: fg 0 t;
     font-family: var(--ui-font);
     // Fixes content shift when modal is open.
-    &.modal-open { padding-right: 0px !important; }
+    &.modal-open { padding-right: 0px !important }
     // Empty navbar.
     &.navless {
       c: fg 0 t;
@@ -354,9 +354,9 @@
       vertical-align: text-top !important;
     }
   }
-  .user-status-emoji { display: inline-flex; }
+  .user-status-emoji { display: inline-flex }
   // ? Remove underline from `label-link` selectors.
-  .label-link { text-decoration: none !important; }
+  .label-link { text-decoration: none i }
 
   // Icons.
   svg {
@@ -525,19 +525,19 @@
     &-success, &-register, &-new, &-create, &-save,
     &.comment-btn, .comment-btn, .commit-btn {
       c: white green green;
-      &:hover { opacity: 0.75; }
+      &:hover { opacity: 0.75 }
       .fa { color: inherit !important }
     }
     // Blue buttons.
     &-info, &-primary, &-register {
       c: white blue blue;
-      &:hover { opacity: 0.75; }
+      &:hover { opacity: 0.75 }
     }
     &-primary&-inverted { c: ac ac bg }
     // Orange buttons.
     &-warning {
       c: white orange orange;
-      &:hover { opacity: 0.75; }
+      &:hover { opacity: 0.75 }
     }
     // Close buttons.
     &-close, &-close-color {
@@ -546,14 +546,14 @@
     }
     &-close-color.dropdown-toggle {
       c: red red bg;
-      .fa { color: inherit !important; }
+      .fa { color: inherit i }
       &:hover { c: white 0 red }
     }
     // Remove buttons.
     &-danger, &-remove, &-red, &-inverted.btn-remove {
       c: white red red;
       .fa { c: white }
-      &:hover { opacity: 0.75; }
+      &:hover { opacity: 0.75 }
     }
     // Blank buttons.
     &-cancel, &-retry {
@@ -637,7 +637,7 @@
   }
   .ci-table .build-link,
   .ci-table .pipeline-id,
-  .label-bold { color: fg; }
+  .label-bold { color: fg }
   .cred { c: red; v: red }
   .cblue { c: blue; v: blue }
   .cgreen { c: green; v: green }
@@ -679,8 +679,8 @@
   // ? Pipelines: Fix table corners and item borders.
   .gl-responsive-table-row {
     &:not(:last-child) { border-bottom: 1px solid bd }
-    &:first-child { rad: r r 0 0; }
-    &:last-child { rad: 0 0 r r; }
+    &:first-child { rad: r r 0 0 }
+    &:last-child { rad: 0 0 r r }
   }
   // ? 404 page.
   img[alt="404"] + .container {
@@ -761,13 +761,13 @@
     // Show/hide details button.
     [id*="DetailsWrapper"] {
       c: ac bg ac;
-      a { color: fg; }
+      a { color: fg }
     }
     // Show details.
     [id*="DialogDetail"] {
       border-width: 1px;
       c: fg bg bd;
-      [id*="BodyContentTabs"] { border-color: red; }
+      [id*="BodyContentTabs"] { border-color: red }
       a {
         c: ac bg;
         &:hover, &[class*="Selected"] { c: 0 0 bg }
@@ -854,7 +854,7 @@
         &:hover { c: fg 0 hl }
       }
       // ? Add missing top margin to the dropdown on group page. @upstream
-      + ul.show { margin-top: 10px !important; }
+      + ul.show { margin-top: 10px i }
       // ? Active state for toggles.
       ^[0].show:not(#z) & {
         c: fg bd bd;
@@ -885,8 +885,8 @@
         c: 0 bd bg;
         transition: ts !important;
         &:hover, &.active { c: 0 0 hl }
-        &:first-child { border-radius: r 0 0 r; }
-        &:last-child { border-radius: 0 r r 0; }
+        &:first-child { border-radius: r 0 0 r }
+        &:last-child { border-radius: 0 r r 0 }
       }
     }
     a:active { c: fg 0 bd }
@@ -934,7 +934,7 @@
     c: 0 bd bg;
     box-shadow: 0 4px 8px 0 sh;
     // ? Height reset.
-    &-selectable.show { max-height: unset !important; }
+    &-selectable.show { max-height: unset i }
     &, &-nav { max-height: 352px !important }
     // ? Header/Title.
     .dropdown-header, .dropdown-title { c: fg bd }
@@ -960,7 +960,7 @@
     }
     li {
       // ? Reset avatar padding.
-      .dropdown-menu-user-link:not(.is-active) { padding-left: 8px; }
+      .dropdown-menu-user-link:not(.is-active) { padding-left: 8px }
       // ? Base styles.
       &:hover a, &:hover button:not(.btn-success) { c: fg 0 hl }
       a, button:not(.btn) {
@@ -1043,7 +1043,7 @@
     // ? Loader.
     [class*="-loading"] {
       c: 0 0 bg;
-      .fa-spinner:before { color: cm; }
+      .fa-spinner:before { color: cm }
     }
     &.big-pipeline-graph-dropdown-menu {
       &::after { c: 0 t }
@@ -1084,8 +1084,8 @@
     &-results &-result-label {
       transition: ts;
       c: cm;
-      .group-name { color: fg; }
-      .group-path { color: cm; }
+      .group-name { color: fg }
+      .group-path { color: cm }
     }
     &-results &-highlighted &-result-label { c: fg 0 hl }
     // Loader.
@@ -1201,7 +1201,7 @@
     .container {
       max-width: var(--width) !important;
       // Fix odd spacing.
-      .blank-state-row { justify-content: space-between; }
+      .blank-state-row { justify-content: space-between }
       // Cards.
       .blank-state-link {
         rad: r;
@@ -1332,7 +1332,7 @@
     display: flex;
     flex-direction: column;
     // Move breadcrumbs to the last spot.
-    > nav { order: 999; }
+    > nav { order: 999 }
     // Alert main reset.
     [class*="flash-"] {
       margin-bottom: 0px !important;
@@ -1359,7 +1359,7 @@
     .alert-link { c: white }
     // ? Broadcasts found on `git.synz.io`.
     .broadcast-message {
-      p, .fa { color: inherit !important; }
+      p, .fa { color: inherit i }
       &[style*="background-color: #004275"] { c: white 0 blue }
       &[style*="background-color: #00bd7f"] { c: white 0 green }
       &[style*="background-color: #e75e40"] { c: white 0 orange }
@@ -1452,7 +1452,7 @@
       c: cm bd bg;
       box-shadow: inset -1px 0 bd;
       &::before { c: 0 bd }
-      &::after { background: linear-gradient(to right, sh 0%, t 100%); }
+      &::after { background: linear-gradient(to right, sh 0%, t 100%) }
     }
     // Timeline items.
     .timeline-header-item {
@@ -1468,7 +1468,7 @@
       .epic-details-cell {
         c: 0 bd bg;
         box-shadow: inset -1px 0 bd;
-        &::after { background: linear-gradient(to right, sh 0%, t 100%); }
+        &::after { background: linear-gradient(to right, sh 0%, t 100%) }
         .epic-url { c: fg }
         .epic-timeframe { c: cm }
       }
@@ -1478,12 +1478,16 @@
         // ? Bars.
         .timeline-bar {
           c: 0 0 blue;
-          &.start-date-undefined { background: linear-gradient(
-            to right, #55555510 0%, #55555530 50%, blue 100%
-          ) !important; }
-          &.end-date-undefined { background: linear-gradient(
-            to right, blue 0%, #55555530 50%, #55555510 100%
-          ) !important; }
+          &.start-date-undefined {
+            background: linear-gradient(
+              to right, #55555510 0%, #55555530 50%, blue 100%
+            ) i
+          }
+          &.end-date-undefined {
+            background: linear-gradient(
+              to right, blue 0%, #55555530 50%, #55555510 100%
+            ) i
+          }
         }
       }
     }
@@ -1493,9 +1497,9 @@
   .page-title-holder {
     border: none;
     margin-top: 10px;
-    .page-title { margin: 0; }
+    .page-title { margin: 0 }
     // Found on: .../dashboard/milestones
-    .project-item-select-holder { overflow: unset; }
+    .project-item-select-holder { overflow: unset }
   }
 
   // Dashboard -> Navigation.
@@ -1624,8 +1628,8 @@
       // On event.
       &:hover { c: 0 0 hl }
       // ? Round corners on first and last child.
-      &:first-child { rad: r r 0 0; }
-      &:last-child { rad: 0 0 r r; }
+      &:first-child { rad: r r 0 0 }
+      &:last-child { rad: 0 0 r r }
       &.project-row { padding: 8px }
     }
     // Profile -> Compact list.
@@ -1663,7 +1667,7 @@
         &.btn { color: fg }
       }
     }
-    .group-row .stats { color: cm; }
+    .group-row .stats { color: cm }
   }
   // Project -> Activity.
   .content_list {
@@ -1733,7 +1737,7 @@
     }
   }
   // ? Drop some shadow; use transparent avatars for best results.
-  img.avatar { filter: drop-shadow(1px 1px 2px sh); }
+  img.avatar { filter: drop-shadow(1px 1px 2px sh) }
 
   // * Project details.
   .project-details {
@@ -1872,8 +1876,8 @@
       box-shadow: inner;
       li {
         &:hover { c: 0 0 bd }
-        &:first-child { rad: r r 0 0; }
-        &:last-child { rad: 0 0 r r; }
+        &:first-child { rad: r r 0 0 }
+        &:last-child { rad: 0 0 r r }
       }
     }
   }
@@ -1975,7 +1979,7 @@
       }
       // ? Board scope.
       .title { c: cm }
-      .block + .block { border-top-color: bd; }
+      .block + .block { border-top-color: bd }
       // Actions in auth.
       .form-actions {
         rad: 0;
@@ -2123,24 +2127,24 @@
       ../.blue .arrow { c: blue }
     }
     &[class*="-top"] {
-      .arrow::before { border-top-color: bd !important; }
-      .arrow::after { border-top-color: inherit !important; }
+      .arrow::before { border-top-color: bd i }
+      .arrow::after { border-top-color: inherit i }
     }
     &[class*="-bottom"] {
-      .arrow::before { border-bottom-color: bd !important; }
-      .arrow::after { border-bottom-color: inherit !important; }
+      .arrow::before { border-bottom-color: bd i }
+      .arrow::after { border-bottom-color: inherit i }
     }
     &[class*="-left"] {
-      .arrow::before { border-left-color: bd !important; }
-      .arrow::after { border-left-color: inherit !important; }
+      .arrow::before { border-left-color: bd i }
+      .arrow::after { border-left-color: inherit i }
     }
     &[class*="-right"] {
-      .arrow::before { border-right-color: bd !important; }
-      .arrow::after { border-right-color: inherit !important; }
+      .arrow::before { border-right-color: bd i }
+      .arrow::after { border-right-color: inherit i }
     }
     .gpg-popover {
-      &-icon.valid svg { c: 0 green; v: green; }
-      &-icon.invalid svg { c: 0 red; v: red; }
+      &-icon.valid svg { c: 0 green; v: green }
+      &-icon.invalid svg { c: 0 red; v: red }
       &-user-link { c: fg }
     }
     // Milestones.
@@ -2178,7 +2182,7 @@
     > .files-changed-inner {
       // Hide buttons on small resolution.
       .inline-parallel-buttons {
-        @media (max-width: 885px) { display: none !important; }
+        @media (max-width: 885px) { display: none i }
       }
       // ? Git stats.
       .commit-stat-summary { c: 0 0 t }
@@ -2194,7 +2198,7 @@
       box-shadow: 0 -1px 0 0 bd;
       .btn-link { c: ac }
       // Gems/Packages/etc.
-      .code .line a { color: ac; }
+      .code .line a { color: ac }
       // Inline diffs.
       .idiff { c: fg }
       .new .idiff, .idiff.addition { c: 0 0 green }
@@ -2354,7 +2358,7 @@
     .md-suggestion-header {
       rad: r r 0 0;
       c: fg bd bg;
-      + table.code { rad: 0 0 r r; }
+      + table.code { rad: 0 0 r r }
     }
     .md-suggestion-diff { c: 0 bd }
     // Added/removed/changed things in discussions.
@@ -2486,7 +2490,7 @@
       c: ac bd bg;
       transition: ts;
       opacity: faded_img;
-      &:hover { opacity: 1; }
+      &:hover { opacity: 1 }
     }
     ul, ol { ul, ol { margin-bottom: 0 !important }}
     // Fullscreen mode.
@@ -2630,9 +2634,11 @@
   [data-page*="wikis:show"] #content-body {
     // Wiki sidebar.
     .right-sidebar.wiki-sidebar {
-      a { color: fg; }
-      a:hover { color: ac; }
-      .active > a { color: ac; }
+      a {
+        color: fg;
+        &:hover { color: ac }
+      }
+      .active > a { color: ac }
     }
     // Text colors.
     .wiki-last-edit-by {
@@ -2724,8 +2730,8 @@
     .home-panel-topic-list {
       c: 0 bd;
       // Fix line height.
-      .text-nowrap { line-height: 22px !important; }
-      svg.icon { margin-top: 4px !important; }
+      .text-nowrap { line-height: 22px i }
+      svg.icon { margin-top: 4px i }
       .badge:hover { c: fg 0 bd }
     }
     // ? Repo stats.
@@ -2736,7 +2742,7 @@
     }
     // ? Repo buttons.
     .project-repo-buttons {
-      .count-badge, .btn-xs { height: 34px; }
+      .count-badge, .btn-xs { height: 34px }
       .count-badge {
         .star-count, .count { c: fg }
         &-count { c: 0 bd hl }
@@ -2771,8 +2777,8 @@
   // ? Old GitLab design.
   .count-with-arrow {
     .count { c: 0 bd bg }
-    .arrow::before { border-right-color: bd !important; }
-    .arrow::after { border-right-color: bg !important; }
+    .arrow::before { border-right-color: bd i }
+    .arrow::after { border-right-color: bg i }
   }
   // * Remove unnecessary whitespace.
   .project-home-panel {
@@ -2788,16 +2794,16 @@
       }
     }
     // Project description.
-    .project-home-desc, .project-description > div > p { margin: 0 0 10px 0 !important; }
+    .project-home-desc, .project-description > div > p { margin: 0 0 10px 0 i }
     // Buttons under badges.
     .project-repo-buttons {
       // Reset margins on all items.
-      > div { margin: 0; }
+      > div { margin: 0 }
       // Apply margins on the child elements.
       // ? Inline is needed for specificity.
-      > div > div:not(:last-child), > div > .inline { margin: 0 8px 8px 0 !important; }
+      > div > div:not(:last-child), > div > .inline { margin: 0 8px 8px 0 i }
       // Right margin for buttons.
-      .project-action-button { margin: 0 !important; }
+      .project-action-button { margin: 0 i }
     }
   }
   // * Separator.
@@ -2815,7 +2821,7 @@
       // ? Fixes buggy bar in `.../vednoc/better-comments` repo.
       flex-grow: 1;
       // Apply right margin to all but the last child.
-      &:not(:last-child) { margin: 0 4px 0 0 !important; }
+      &:not(:last-child) { margin: 0 4px 0 0 i }
       // Crystal language color.
       &[style$="#776791"] { c: 0 0 black }
     }
@@ -2877,9 +2883,9 @@
     background-color: bg;
   }
   /* Fix background in upload files. */
-  .commit-message-container { background: none; }
+  .commit-message-container { background: none }
   /* Dropzone! */
-  .blob-upload-dropzone-previews { border-color: bd; }
+  .blob-upload-dropzone-previews { border-color: bd }
 
   // Project -> Badges.
   .project-badge { transition: opacity ts }
@@ -2934,9 +2940,9 @@
   // NOTE: Deprecated.
   .wiki:not(.use-csslab) {
     color: fg;
-    a { color: ac !important; }
+    a { c: ac }
     h1, h2 { c: cm bd }
-    > p > code { border: 1px solid bd !important; }
+    > p > code { border: 1px solid bd i }
     blockquote, .blockquote {
       padding: 8px 16px;
       border-left-width: 4px;
@@ -2944,7 +2950,7 @@
       // Second rule solves blockquote weirdness in issues.
       p, * > p { c: cm }
     }
-    pre { rad: r; }
+    pre { rad: r }
     pre, code { c: cm bd bg }
     img:not(.emoji) {
       border: none;
@@ -2979,7 +2985,7 @@
   }
 
   // Text dividers.
-  .middle-dot-divider::after { color: cm; }
+  .middle-dot-divider::after { color: cm }
   /* Fix master/history/find file/web ide section when low-resolution. */
   @media (max-width: 740px) {
     .nav-block {
@@ -3004,9 +3010,9 @@
     // ? Overview -> Adjust whitespace between panes.
     .row {
       @media (min-width: 980px) {
-        .col-12 .append-bottom-default { margin-bottom: 0; }
-        .col-lg-6:first-child { padding-right: 3px; }
-        .col-lg-6:last-child { padding-left: 3px; }
+        .col-12 .append-bottom-default { margin-bottom: 0 }
+        .col-lg-6:first-child { padding-right: 3px }
+        .col-lg-6:last-child { padding-left: 3px }
       }
     }
     // ? Reset items and loader height.
@@ -3173,7 +3179,7 @@
     // Commits list.
     + .card {
       border-radius: r !important;
-      ul > li:last-child { rad: 0 0 r r; }
+      ul > li:last-child { rad: 0 0 r r }
     }
   }
   // Sticky file name.
@@ -3269,23 +3275,23 @@
       right: 8px;
       margin: 14px -2px 0 0;
       position: absolute;
-      @media (max-width: 740px) { display: none !important; }
+      @media (max-width: 740px) { display: none i }
     }
   }
 
   // * Dashboard :: Operations.
   .operations-dashboard {
     // Remove extra padding.
-    > nav, > div { padding: 0 !important; }
+    > nav, > div { padding: 0 i }
     // "Search your projects" margin fix.
     .page-title-holder {
       margin-top: 16px;
-      .append-bottom-default { margin-bottom: 0px !important; }
+      .append-bottom-default { margin-bottom: 0px i }
     }
     // Add projects.
     .tokenized-input-wrapper {
       rad: r;
-      &.focus { box-shadow: 0 0 1px 1px ac !important; }
+      &.focus { box-shadow: 0 0 1px 1px ac i }
       .tokenized-input { c: fg 0 t }
       .input-token, .tokenized-input-token-remove { c: 0 0 bd }
     }
@@ -3293,7 +3299,7 @@
     .card {
       rad: r;
       box-shadow: inner;
-      .card-header { rad: r r 0 0; }
+      .card-header { rad: r r 0 0 }
     }
     // * Skeleton.
     .dashboard-cards {
@@ -3324,11 +3330,11 @@
       c: 0 bd bg;
       // Round corners.
       li {
-        &:first-child { border-radius: r r 0 0; }
-        &:last-child { border-radius: 0 0 r r; }
+        &:first-child { border-radius: r r 0 0 }
+        &:last-child { border-radius: 0 0 r r }
       }
       // Remove right padding on issues/merge requests page.
-      .issuable-info-container { padding-right: 0; }
+      .issuable-info-container { padding-right: 0 }
     }
   }
 
@@ -3346,9 +3352,9 @@
       .todo {
         border: none;
         // Reset borders and round corners.
-        &:not(:first-child) { border-top: 1px solid bd; }
-        &:first-child { border-radius: r r 0 0; }
-        &:last-child { border-radius: 0 0 r r; }
+        &:not(:first-child) { border-top: 1px solid bd }
+        &:first-child { border-radius: r r 0 0 }
+        &:last-child { border-radius: 0 0 r r }
       }
     }
   }
@@ -3370,7 +3376,7 @@
   .filtered-search-box {
     rad: r;
     c: 0 bd bg;
-    &.focus { &, &:hover { c: 0 blue; box-shadow: none; }}
+    &.focus { &, &:hover { c: 0 blue; box-shadow: none }}
     // Fix corners.
     [class*="history-dropdown-toggle-button"] { rad: r 0 0 r }
     &-input-container .filtered-search { rad: 0 r r 0 }
@@ -3378,7 +3384,7 @@
     // Search field.
     .form-control { c: fg t }
     // Search field words.
-    .name { color: fg; }
+    .name { color: fg }
     // Search field button.
     .clear-search {
       rad: r;
@@ -3409,7 +3415,7 @@
       margin-bottom: 10px;
       c: 0 bd;
       // Remove margin.
-      .card-slim { margin-bottom: 0px; }
+      .card-slim { margin-bottom: 0px }
     }
     // Reactions wrapper.
     + .content-block { c: 0 t }
@@ -3486,7 +3492,7 @@
     rad: r !important;
   }
   // ? Fixes missing bottom border for code.
-  .notes .note-text > p:last-child { padding-bottom: 1px !important; }
+  .notes .note-text > p:last-child { padding-bottom: 1px i }
 
   // * Global -> Cards.
   .card, .card-slim {
@@ -3609,7 +3615,7 @@
     // Fix sidebar gutter close svg. #46 @upstream
     .gutter-toggle {
       padding-right: 10px;
-      svg { width: 11px; }
+      svg { width: 11px }
     }
   }
 
@@ -3624,8 +3630,8 @@
       box-shadow: 0px 2px 4px 0 sh;
     }
     // Text color.
-    .board-card-title a { color: fg; }
-    .board-card-number { color: cm; }
+    .board-card-title a { color: fg }
+    .board-card-number { color: cm }
     // Assignee background.
     .board-card-assignee:hover a { c: 0 0 t }
   }
@@ -3637,7 +3643,7 @@
     // Drag'n'drop boards.
     > .board-inner {
       c: 0 bd bg;
-      .board-title { border-bottom-color: bd; }
+      .board-title { border-bottom-color: bd }
     }
   }
 
@@ -3726,7 +3732,7 @@
     }
     // Color in relatable issues.
     &-title { c: cm }
-    &-banner-link { padding: 2px !important; }
+    &-banner-link { padding: 2px i }
     // Reset for boards.
     &-content {
       .card-header {
@@ -3791,7 +3797,7 @@
   // Milestones -> Burndown chart buttons.
   .js-burndown-data-selector .btn-inverted { c: blue blue t }
   // GitLab-Gold promotion.
-  .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0; }
+  .container-fluid > #content-body > .container-fluid.pt-1 { padding: 0 }
 
   // * Milestones -> Burndown chart.
   .burndown-chart {
@@ -3819,15 +3825,15 @@
   // Repository charts.
   .repo-charts {
     // Brings back the language color.
-    .fa { color: inherit !important; }
+    .fa { color: inherit i }
     canvas:not(#languages-chart) { c: 0 0 bg }
   }
   // ? Found in: .../repo/pipelines/charts
   [data-page="projects:pipelines:charts"] {
     .legend {
-      &-success .fa { color: inherit !important; }
+      &-success .fa { color: inherit i }
       &-all { c: cm }
-      &-all > i { color: inherit !important; }
+      &-all > i { color: inherit i }
     }
     canvas {
       rad: r;
@@ -3930,7 +3936,7 @@
       padding: 10px;
       margin-top: 0px !important;
       border-top: 1px solid bd;
-      .pagination { margin: 0px; }
+      .pagination { margin: 0px }
     }
     // Email a new issue/MR to this project.
     .issuable-footer {
@@ -3987,7 +3993,7 @@
   .diffs {
     .notes {
       border-top: none !important;
-      &::before { border-left: 1px solid bd !important; }
+      &::before { border-left: 1px solid bd i }
     }
     .note.timeline-entry {
       c: 0 0 bg;
@@ -3997,7 +4003,7 @@
   .discussion-body, .diff-file {
     .discussion-reply-holder {
       c: 0 bd t;
-      &:last-child { rad: 0 0 r r !important; }
+      &:last-child { rad: 0 0 r r i }
       &.is-replying { c: 0 0 hl }
       + .new-note { c: 0 bd }
     }
@@ -4163,7 +4169,7 @@
       margin: 0 !important;
       width: 100% !important;
     }
-    > div { border-bottom: none; }
+    > div { border-bottom: none }
   }
 
   // * File Diff :: Expanded view.
@@ -4201,7 +4207,7 @@
     // Fix file title height.
     .js-file-title  .file-header-content {
       line-height: 30px;
-      .btn { padding: 8px 7px 2px 8px; }
+      .btn { padding: 8px 7px 2px 8px }
     }
   }
   // Edit button.
@@ -4212,7 +4218,7 @@
   // Toggle discussion.
   .note-action-button {
     color: fg;
-    &:focus, &:hover { color: cm; }
+    &:focus, &:hover { color: cm }
   }
 
   // Profile -> Snippets list.
@@ -4231,14 +4237,14 @@
 
   // * Project :: Members.
   .members-list {
-    li.member { padding: 8px; }
+    li.member { padding: 8px }
     .cgray time { c: cm }
     .member a.member-group-link { c: fg }
   }
 
   // File editor.
   .file-editor {
-    .file-holder { rad: r; }
+    .file-holder { rad: r }
     .toolbar-btn:hover svg { v: fg }
     /// Fix fonts.
     .btn, .encoding-selector, #preview { font-family: var(--ui-font) }
@@ -4341,7 +4347,7 @@
     // Selected.
     [class$="--content"]:hover { c: 0 0 bd }
     // Matching result.
-    [class*="highlight"] { box-shadow: inset 0 -2px ac !important; }
+    [class*="highlight"] { box-shadow: inset 0 -2px ac i }
   }
 
   // * Main content.
@@ -4350,7 +4356,7 @@
     box-shadow: none !important;
     // TOC.
     // Remove sidebar.
-    *::-webkit-scrollbar { display: none !important; }
+    *::-webkit-scrollbar { display: none i }
     // Alerts.
     blockquote {
       position: relative;
@@ -4368,12 +4374,12 @@
       padding: 16px;
       rad: r;
       box-shadow: inner;
-      > p { margin: 0; }
+      > p { margin: 0 }
     }
     // Border colors.
     h2, h3, h4, h5, h6, .edit-on, .comments { c: 0 bd }
     // Text colors.
-    a:hover, a:focus { text-decoration: underline; }
+    a:hover, a:focus { text-decoration: underline }
     .article-metadata { c: fg }
     .highlight.plaintext code { c: fg }
     :not(pre) > code {
@@ -4384,7 +4390,7 @@
     img {
       transition: ts;
       opacity: faded_img;
-      &:hover { opacity: 1; }
+      &:hover { opacity: 1 }
     }
   }
 
@@ -4628,7 +4634,7 @@
     .find-widget {
       c: 0 0 bd;
       box-shadow: bsh;
-      .button, .label { filter: invert(var(--bg-invert)); }
+      .button, .label { filter: invert(var(--bg-invert)) }
     }
     /// Accessibility.
     .accessibilityHelpWidget {
@@ -4661,14 +4667,14 @@
       .focused { c: fg 0 bd }
     }
     /// Syntax highlighting.
-    .mtk1, .mtk3 { color: fg; }
-    .mtk10 { color: cm; }
-    .mtk4, .mtk20 { color: red; }
-    .mtk7, .mtk8 { color: green; }
-    .mtk5, .mtk6, .mtk23 { color: blue; }
-    .mtk14 { color: magenta; }
-    .mtk22, .mtk12 { color: cyan; }
-    .mtk11 { color: orange; }
+    .mtk1, .mtk3 { color: fg }
+    .mtk10 { color: cm }
+    .mtk4, .mtk20 { color: red }
+    .mtk7, .mtk8 { color: green }
+    .mtk5, .mtk6, .mtk23 { color: blue }
+    .mtk14 { color: magenta }
+    .mtk22, .mtk12 { color: cyan }
+    .mtk11 { color: orange }
     /// Git status.
     .dirty-diff-added { c: 0 0 green }
     .dirty-diff-modified { c: 0 0 blue }
@@ -4683,7 +4689,7 @@
   .code {
     c: fg 0 t;
     // Remove weird border around code wrapper.
-    code { border: none; }
+    code { border: none }
     // Highlighted line.
     span.line.hll { c: 0 0 bd }
     // Gutter border.
@@ -4727,8 +4733,8 @@
       }
       // Rounded corners.
       &:last-child > td {
-        &:first-child, &:first-child::after { rad: 0 0 0 r; }
-        &:last-child, &:last-child::after { rad: 0 0 r 0; }
+        &:first-child, &:first-child::after { rad: 0 0 0 r }
+        &:last-child, &:last-child::after { rad: 0 0 r 0 }
       }
     }
     // Diff expansion added in 11.2.
@@ -4911,7 +4917,7 @@
         &:hover { c: 0 0 bd }
       }
       // Connector line.
-      &::before { margin-top: 2px; }
+      &::before { margin-top: 2px }
     }
     // Actions.
     .ci-action-icon-container {
@@ -4922,7 +4928,7 @@
     .build, .stage-column .curve {
       &::before, &::after { c: 0 bd }
     }
-    .ci-build-txt, .ci-status-text { font-weight: normal; }
+    .ci-build-txt, .ci-status-text { font-weight: normal }
     /// v11.3 -> Full-width graph reset.
     /.tab-pane.position-absolute.w-100 {
       left: 1px !important;
@@ -4981,13 +4987,13 @@
       margin: 4px 0;
       color: cm;
       a { color: fg;
-        &:hover { color: ac; }
+        &:hover { color: ac }
       }
     }
     // Job details.
-    &-light-text { color: cm; }
+    &-light-text { color: cm }
     // Job on hover.
-    &s-container a:hover { color: ac !important; }
+    &s-container a:hover { color: ac i }
   }
 
   // * Jobs :: Browse artifacts.
@@ -4996,14 +5002,14 @@
       rad: r;
       box-shadow: inner;
       thead {
-        tr, tr > th { border-top: none; }
-        th:first-child { rad: r 0 0 0; }
-        th:last-child { rad: 0 r 0 0; }
+        tr, tr > th { border-top: none }
+        th:first-child { rad: r 0 0 0 }
+        th:last-child { rad: 0 r 0 0 }
       }
       tbody {
         tr:last-child {
-          td:first-child { rad: 0 0 0 r; }
-          td:last-child { rad: 0 0 r 0; }
+          td:first-child { rad: 0 0 0 r }
+          td:last-child { rad: 0 0 r 0 }
         }
       }
       // Remove borders.
@@ -5051,9 +5057,8 @@
     // On event.
     > .group-row {
       // Rounded corners.
-      &:first-child > div { rad: r r 0 0; }
-      &:last-child > div { rad: 0 0 r r; }
-      // &.has-children .group-list-tree { margin-left: 42px !important; }
+      &:first-child > div { rad: r r 0 0 }
+      &:last-child > div { rad: 0 0 r r }
     }
     .group-row {
       // Keep fake border even when sub-group is open.
@@ -5066,7 +5071,7 @@
         c: 0 bd;
       }
       // Remove top-border from the first item.
-      &:first-child { border-top: none !important; }
+      &:first-child { border-top: none i }
       // Fix last item background.
       &:last-child::before { c: 0 0 t }
       // Content.
@@ -5076,7 +5081,7 @@
         // Text colors and width.
         .last-updated { c: fg }
         .stats { c: cm }
-        &.has-more-items { padding: 10px; }
+        &.has-more-items { padding: 10px }
       }
     }
   }
@@ -5207,7 +5212,7 @@
   if ( p_header == 1 ) {
     // Necessary in v11.6 (I think).
     .project-home-panel .project-header {
-      > div { max-width: 100%; }
+      > div { max-width: 100% }
     }
     .project-home-panel .project-badges {
       flex-direction: row !important;
@@ -5223,7 +5228,7 @@
         text-align: center;
       }
     }
-    .project-stats .nav { justify-content: center; }
+    .project-stats .nav { justify-content: center }
     // Center the description.
     .project-description,
     .home-panel-title-row,
@@ -5241,10 +5246,10 @@
   if ( dark_logo == 1 ) {
     .tanuki-logo {
       filter: brightness(095%) drop-shadow(0px 1px 1px sh) !important;
-      .tanuki { &-right-eye, &-left-eye { v: ac t; }}
-      .tanuki-right { &-cheek, &-ear { v: bg t; }}
-      .tanuki-left { &-cheek, &-ear { v: bg t; }}
-      .tanuki-nose { v: bg t; }
+      .tanuki { &-right-eye, &-left-eye { v: ac t }}
+      .tanuki-right { &-cheek, &-ear { v: bg t }}
+      .tanuki-left { &-cheek, &-ear { v: bg t }}
+      .tanuki-nose { v: bg t }
     }
   }
 
@@ -5298,7 +5303,7 @@
   // ! What.
   // ? Fixes weird pseudoelements.
   .diff-file .file-title {
-    &::before, &-flex-parent::before { display: none !important; }
+    &::before, &-flex-parent::before { display: none i }
   }
 }
 
@@ -5373,7 +5378,7 @@
         background-image: none !important;
         box-shadow: none !important;
         // Caret position.
-        b { background-position: 0px 6px !important; }
+        b { background-position: 0px 6px i }
       }
     }
   }
@@ -5404,7 +5409,7 @@
     }
   }
   // Fix color details.
-  .palette:not(.neutral) > .color { background-color: bd; }
+  .palette:not(.neutral) > .color { background-color: bd }
   .todo { c: 0 bd bg }
   table {
     c: fg bd bg;
@@ -5413,7 +5418,7 @@
     td.header, th.header { c: 0 bd bd }
   }
   // Typography spacing.
-  .baseline--typography:after { background-image: linear-gradient(bd 1px, t 0); }
+  .baseline--typography:after { background-image: linear-gradient(bd 1px, t 0) }
 }
 
 @-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
@@ -5456,7 +5461,7 @@
   img, .video_container {
     opacity: faded_img !important;
     transition: ts;
-    &:hover { opacity: 1 !important; }
+    &:hover { opacity: 1 !important }
   }
   img.image-border { opacity: 0.2 i }
   /// Question?
@@ -5528,7 +5533,7 @@
       .author a:hover { &, i { c: ac }}
       h1, p { c: white }
     }
-    .overlay { background: linear-gradient(0deg, bg, t 100%); }
+    .overlay { background: linear-gradient(0deg, bg, t 100%) }
     .body { c: 0 0 bg }
     // Anchors.
     .content {
@@ -5682,7 +5687,7 @@
       background-image: linear-gradient(60deg, orange -100%, violet 200%);
       background-color: bg;
     }
-    h1 { text-shadow: 2.5px 2.5px 0 sh; }
+    h1 { text-shadow: 2.5px 2.5px 0 sh }
     // Prevent custom opacity on these images.
     img {
       pointer-events: none;
@@ -5713,7 +5718,7 @@
       a { c: ac }
       a code { c: ac }
     }
-    p.date { font-weight: bold; }
+    p.date { font-weight: bold }
     .breadcrumb { c: 0 0 bd }
     .breadcrumb > li + li::before { c: cm }
   }
@@ -5724,7 +5729,7 @@
     c: 0 0 bg;
     transition: ts;
     box-shadow: inner, bsh;
-    &:hover { box-shadow: inner, 0 4px 8px 2px sh; }
+    &:hover { box-shadow: inner, 0 4px 8px 2px sh }
     .list { c: 0 bd }
     .list > a { c: 0 bd }
   }
@@ -5755,7 +5760,7 @@
   .plan-row .plan {
     c: cm orange bg;
     box-shadow: inner;
-    li > a { color: ac; }
+    li > a { color: ac }
     .btn-pricing { c: ac ac }
     .plan-name, .all-features { c: fg bd }
   }
@@ -5979,7 +5984,7 @@
     input { c: fg 0 bg }
     .suggestions {
       c: 0 0 bg;
-      li { rad: r; }
+      li { rad: r }
       .selected-suggestion, li:hover { c: 0 0 hl }
       .hl { c: 0 0 ac }
     }
@@ -6158,7 +6163,7 @@
 
   // Remove animation.
   .topic-body {
-    &, &.highlighted { animation: 0s !important; }
+    &, &.highlighted { animation: 0s i }
   }
   // Pinned topics
   .names span a { c: cm }
@@ -6387,7 +6392,7 @@
           border: 1px solid bd;
           rad: r;
           c: fg 0 hl;
-          &:focus { box-shadow: 0 4px 16px -4px sh; }
+          &:focus { box-shadow: 0 4px 16px -4px sh }
         }
       }
     }
@@ -6473,7 +6478,7 @@
   .main {
     c: 0 bd;
     h1 { c: 0 bd }
-    img { box-shadow: none !important; }
+    img { box-shadow: none i }
     * > a { c: ac }
     // Help and feedback section.
     .comments {
@@ -6649,7 +6654,7 @@
       top: 1px; right: 1px;
       rad: 0 r 0 0;
       c: cm 0 hl;
-      .fa-clipboard::before { color: cm; }
+      .fa-clipboard::before { color: cm }
     }
     // Syntax highlighting.
     code, .na, .c, .c1 { c: cm }
@@ -6683,7 +6688,7 @@
       float: left;
       width: 100%;
       max-width: 400px;
-      &::before, &::after { clear: both; }
+      &::before, &::after { clear: both }
     }
   }
 
@@ -6747,18 +6752,18 @@
   // * Rounded corners.
   .make_round {
     rad: r;
-    &.make_round_bottom_only { rad: 0 0 r r; }
-    &.panel-heading { rad: r r 0 0; }
+    &.make_round_bottom_only { rad: 0 0 r r }
+    &.panel-heading { rad: r r 0 0 }
   }
   .component {
-    &_first { rad: r r 0 0; }
-    &_last { rad: 0 0 r r; }
+    &_first { rad: r r 0 0 }
+    &_last { rad: 0 0 r r }
   }
 
   // * Footer.
   #bottom_menu {
     a { c: ac }
-    strong a { text-decoration: underline; }
+    strong a { text-decoration: underline }
   }
 }
 
