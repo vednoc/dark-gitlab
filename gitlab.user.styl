@@ -54,7 +54,7 @@
 
 @-moz-document regexp("^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|custom.domain)).*|your.custom.domain|invent.kde.org|git.pleroma.social|code.videolan.org|gitgud.io|salsa.debian.org|framagit.org|source.joinmastodon.org|repo.getmonero.org|git.gnu.io|git.synz.io|git.drupalcode.org)(/.*)?$") {
   :root {
-    --note      : "Dark-GitLab v0.53.8";
+    --note      : 'Dark-GitLab v0.53.8';
     --bshadow   : 0 2px 4px var(--shadow);
     --t         : transparent !important;
     --white     : white;
@@ -222,7 +222,7 @@
     pre, code, kbd, samp { font-family: var(--mono-font) }
 
     // Checkbox/radio inputs.
-    input[type="checkbox"], input[type="radio"] {
+    input[type = 'checkbox'], input[type = 'radio'] {
       &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
         -webkit-appearance: none i;
         -moz-appearance: none i;
@@ -234,11 +234,11 @@
       }
       &:hover { box-shadow: 0 0 2px 1px cm i }
     }
-    input[type="radio"] {
+    input[type = 'radio'] {
       border-radius: 100% i;
       &:checked { c: 0 sh ac }
     }
-    input[type="checkbox"] {
+    input[type = 'checkbox'] {
       &:checked { c: 0 sh ac }
       &:indeterminate { c: 0 sh red }
     }
@@ -246,16 +246,16 @@
 
   // Custom icons for checkbox/radio inputs.
   @css {
-    input[type="radio"]:checked {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') i;
+    input[type = 'radio']:checked {
       background-size: cover i;
     }
-    input[type="checkbox"]:checked {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') i;
+    input[type = 'checkbox']:checked {
       background-size: cover i;
     }
-    input[type="checkbox"]:indeterminate {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') i;
+    input[type = 'checkbox']:indeterminate {
       background-size: cover i;
     }
   }
@@ -303,7 +303,7 @@
           border-left: 1px solid bd i;
           border-bottom: 1px solid bd i;
           c: fg 0 hl;
-          &[colspan="10"] { border-right: 1px solid bd i }
+          &[colspan = '10'] { border-right: 1px solid bd i }
         }
         // &:hover { th, td { c: 0 0 hl }}
         &:last-child {
@@ -322,7 +322,7 @@
     td.d-sm-block { display: table-cell i }
   }
   // Table. #41
-  table[frame="void"] {
+  table[frame = 'void'] {
     c: cm;
     box-shadow: none;
     > tbody {
@@ -372,7 +372,7 @@
   }
   .fa {
     c: cm;
-    &[class*="online"] { c: green }
+    &[class *= 'online'] { c: green }
     /// Assignee can't merge.
     &-exclamation-triangle { c: orange }
   }
@@ -435,7 +435,7 @@
   .warning-title { c: orange }
   .cgray, .committed_ago, .hint, .help-block { c: cm }
   .light, .description-block, .task-list-item { c: fg }
-  .account-btn-link, [class*="settings-sidebar"] a { c: ac 0 0 0 }
+  .account-btn-link, [class *= 'settings-sidebar'] a { c: ac 0 0 0 }
 
   // * Global -> Alerts.
   .bs-callout {
@@ -448,7 +448,7 @@
       border-left: none;
       box-shadow: inner;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; left: 0; bottom: 0;
         rad: 4px 0 0 4px;
@@ -459,7 +459,7 @@
       border: none;
       box-shadow: inset 0 0 0 1px blue;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; left: 0; bottom: 0;
         rad: 4px 0 0 4px;
@@ -471,7 +471,7 @@
       box-shadow: inset 0 0 0 1px orange;
       a { c: ac }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; left: 0; bottom: 0;
         rad: 4px 0 0 4px;
@@ -489,8 +489,8 @@
   .scoped-label {
     .fa-question-circle {
       c: 0 0 t;
-      &[style*="color: #FFFFFF"]  { color: #ffffff i }
-      &[style*="color: #333333"]  { color: #000000 i }
+      &[style *= 'color: #FFFFFF']  { c: white }
+      &[style *= 'color: #333333']  { c: black }
     }
   }
 
@@ -631,8 +631,8 @@
   }
 
   // * Global -> Random styles.
-  [class*="committer-link"],
-  [class*="author-link"],
+  [class *= 'committer-link'],
+  [class *= 'author-link'],
   .ci-table .commit-sha,
   .ci-table .ref-name,
   .js-user-link,
@@ -687,7 +687,7 @@
     &:last-child { rad: 0 0 r r }
   }
   // ? 404 page.
-  img[alt="404"] + .container {
+  img[alt = '404'] + .container {
     margin-bottom: 1em;
     c: 0 bd;
   }
@@ -761,20 +761,20 @@
     c: fg 0 bd;
     box-shadow: 0 0 4px 0 sh;
     // Buttons.
-    [id*="ButtonsSelectPane"] { c: 0 bg bg }
+    [id *= 'ButtonsSelectPane'] { c: 0 bg bg }
     // Show/hide details button.
-    [id*="DetailsWrapper"] {
+    [id *= 'DetailsWrapper'] {
       c: ac bg ac;
       a { color: fg }
     }
     // Show details.
-    [id*="DialogDetail"] {
+    [id *= 'DialogDetail'] {
       border-width: 1px;
       c: fg bg bd;
-      [id*="BodyContentTabs"] { border-color: red }
+      [id *= 'BodyContentTabs'] { border-color: red }
       a {
         c: ac bg;
-        &:hover, &[class*="Selected"] { c: 0 0 bg }
+        &:hover, &[class *= 'Selected'] { c: 0 0 bg }
       }
       thead th { c: fg bg bg }
       tbody td { c: fg bg t }
@@ -843,8 +843,8 @@
     &-menu {
       rad: r;
       .section-header { c: fg }
-      .section-empty, [class*="namespace"] { c: cm }
-      [class*="dropdown-sidebar"] { c: 0 bd }
+      .section-empty, [class *= 'namespace'] { c: cm }
+      [class *= 'dropdown-sidebar'] { c: 0 bd }
     }
   }
 
@@ -853,7 +853,7 @@
     // ? Toggles.
     &-toggle, &-menu-toggle {
       transition: ts;
-      &:not(.search-input):not([class*="btn-"]) {
+      &:not(.search-input):not([class *= 'btn-']) {
         c: cm bd bg;
         &:hover { c: fg 0 hl }
       }
@@ -862,14 +862,14 @@
       // ? Active state for toggles.
       ^[0].show:not(#z) & {
         c: fg bd bd;
-        button[aria-expanded="true"] { c: fg 0 bd }
+        button[aria-expanded = 'true'] { c: fg 0 bd }
         ^[2] ^[0]-toggle-text { c: fg }
         // Navbar -> Fix search input.
         &#search { c: 0 0 t }
       }
       // Active state for non-toggle buttons.
       ^[0].show:not(.commit-stat-summary) {
-        > button[aria-expanded="true"] { c: fg 0 bd }
+        > button[aria-expanded = 'true'] { c: fg 0 bd }
       }
     }
     // Dashboard -> Dropdowns in activities.
@@ -955,7 +955,7 @@
     }
     // ? Body/Content.
     .dropdown-info-note { c: fg }
-    [class*="divider"] { c: 0 bd t }
+    [class *= 'divider'] { c: 0 bd t }
     .dropdown-item {
       c: cm;
       &:focus, &:active { c: 0 0 bd }
@@ -975,7 +975,7 @@
       .is-focused, a:focus, a:active { c: fg 0 bd }
       &.droplab-item-active .btn { c: fg 0 bd }
     }
-    // ? MR -> "Created date" dropdown.
+    // ? MR -> 'Created date' dropdown.
     &-sort {
       li {
         // ? Reset due to markup being single `li` with a ton of `a` elements.
@@ -1028,10 +1028,10 @@
     &.diff-file-changes {
       min-width: 500px i;
       .diff-changed-file {
-        [class*="path"] { c: cm }
+        [class *= 'path'] { c: cm }
         &.is-focused, &:focus {
           c: 0 0 bd;
-          [class*="file-name"] { c: fg }
+          [class *= 'file-name'] { c: fg }
         }
       }
     }
@@ -1045,7 +1045,7 @@
       }
     }
     // ? Loader.
-    [class*="-loading"] {
+    [class *= '-loading'] {
       c: 0 0 bg;
       .fa-spinner:before { color: cm }
     }
@@ -1130,7 +1130,7 @@
   }
 
   // * Dashboard -> Search page hacks.
-  [data-page^="search:"] {
+  [data-page ^= 'search:'] {
     // Fix search button.
     .btn-search {
       c: white green green;
@@ -1139,7 +1139,7 @@
         font-size: 0;
         a::before {
           font-size: 14px i;
-          content: "ASF enabled.";
+          content: 'ASF enabled.';
         }
       }
     }
@@ -1251,7 +1251,7 @@
       margin: 0 16px 8px i;
     }
     // Inputs.
-    [class*="input-group"] {
+    [class *= 'input-group'] {
       rad: r;
       c: cm bd bd;
     }
@@ -1338,7 +1338,7 @@
     // Move breadcrumbs to the last spot.
     > nav { order: 999 }
     // Alert main reset.
-    [class*="flash-"] {
+    [class *= 'flash-'] {
       margin-bottom: 0px i;
       // ? Align notice with main content.
       .flash-notice > div {
@@ -1364,10 +1364,10 @@
     // ? Broadcasts found on `git.synz.io`.
     .broadcast-message {
       p, .fa { color: inherit i }
-      &[style*="background-color: #004275"] { c: white 0 blue }
-      &[style*="background-color: #00bd7f"] { c: white 0 green }
-      &[style*="background-color: #e75e40"] { c: white 0 orange }
-      &[style*="background-color: #f4f4f4"] { c: fg 0 bd }
+      &[style *= 'd-color: #004275'] { c: white 0 blue }
+      &[style *= 'd-color: #00bd7f'] { c: white 0 green }
+      &[style *= 'd-color: #e75e40'] { c: white 0 orange }
+      &[style *= 'd-color: #f4f4f4'] { c: fg 0 bd }
     }
   }
   // Alerts -> Flash alerts.
@@ -1424,11 +1424,11 @@
   }
 
   // * Epics -> Resets!
-  [data-page*="groups:epics:"] {
+  [data-page *= 'groups:epics:'] {
     // @upstream
     .filtered-search-wrapper { display: flex }
   }
-  [data-page*="groups:roadmap:"] {
+  [data-page *= 'groups:roadmap:'] {
     .empty-state { margin: 0 }
     .epics-filters {
       border-top: 1px solid bd;
@@ -1597,7 +1597,7 @@
 
   // * Settings -> Billings.
   .billing-plans {
-    [class*="card"] {
+    [class *= 'card'] {
       c: 0 0 bg;
       .card-header {
         rad: r r 0 0;
@@ -1725,7 +1725,7 @@
     &.identicon {
       position: relative;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         opacity: 0.5;
@@ -1784,7 +1784,7 @@
         c: 0 0 bg;
         /// Connector.
         &::before {
-          content: "";
+          content: '';
           height: 8px;
           position: absolute;
           top: -9px; left: 28px;
@@ -1835,7 +1835,7 @@
     rad: r;
     c: 0 0 bg;
     box-shadow: inner;
-    [class*="-description"] {
+    [class *= '-description'] {
       border-width: 4px;
       c: cm bd;
     }
@@ -1863,12 +1863,12 @@
   }
   // Graph color.
   .divergence-graph {
-    .graph-side [class*="bar"] { c: 0 0 cm }
+    .graph-side [class *= 'bar'] { c: 0 0 cm }
     .graph-separator { c: 0 0 cm }
-    [class*="count"] { c: fg }
+    [class *= 'count'] { c: fg }
   }
   // ? Active/Stale/All pages.
-  [data-page="projects:branches:index"] {
+  [data-page = 'projects:branches:index'] {
     .nav-links li { margin: 0 }
     .nav-controls { padding: 0 }
     .row-content-block + .all-branches,
@@ -1908,7 +1908,7 @@
   }
 
   // * Project -> Contributors.
-  [id*="contributors"] {
+  [id *= 'contributors'] {
     .person .spark, .tint-box {
       rad: r;
       c: fg 0 bg;
@@ -1934,15 +1934,15 @@
     .network-graph {
       c: 0 0 bg;
       // Hover over commit.
-      > svg rect[rx*="4"][ry*="4"] {
+      > svg rect[rx *= '4'][ry *= '4'] {
         fill-opacity: 1 i;
         v: bd t;
       }
-      [d^="M165"], [d^="M185"], [d^="M195"] { v: bd 0 0 }
+      [d ^= 'M165'], [d ^= 'M185'], [d ^= 'M195'] { v: bd 0 0 }
       // Text color.
       > svg text { v: fg 0 0 }
       // Sidebar.
-      > svg rect[width*="40"], > svg rect[width*="30"] {
+      > svg rect[width *= '40'], > svg rect[width *= '30'] {
         stroke-width: 0;
         v: hl hl 0 0;
       }
@@ -1974,7 +1974,7 @@
         rad: r;
         c: cm bd hl;
       }
-      [class*="-subheader"] { c: 0 bd }
+      [class *= '-subheader'] { c: 0 bd }
       // ? Shortcuts modal.
       .shortcut-mappings {
         th { c: fg }
@@ -2007,7 +2007,7 @@
   }
 
   // * Project -> Blame.
-  [data-page*="projects:blame"] {
+  [data-page *= 'projects:blame'] {
     .file-blame-legend { c: 0 bd bg }
     .blame table {
       rad: none;
@@ -2019,7 +2019,7 @@
       position: relative;
       border-left: none i;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -2039,7 +2039,7 @@
       .legend-box-{i},
       .blame-commit-age-{i}::before {
         c: 0 0 green;
-        opacity: s(("0.%s99"), i);
+        opacity: s(('0.%s99'), i);
       }
     }
   }
@@ -2129,19 +2129,19 @@
       color: bg;
       ../.blue .arrow { c: blue }
     }
-    &[class*="-top"] {
+    &[class *= '-top'] {
       .arrow::before { border-top-color: bd i }
       .arrow::after { border-top-color: inherit i }
     }
-    &[class*="-bottom"] {
+    &[class *= '-bottom'] {
       .arrow::before { border-bottom-color: bd i }
       .arrow::after { border-bottom-color: inherit i }
     }
-    &[class*="-left"] {
+    &[class *= '-left'] {
       .arrow::before { border-left-color: bd i }
       .arrow::after { border-left-color: inherit i }
     }
-    &[class*="-right"] {
+    &[class *= '-right'] {
       .arrow::before { border-right-color: bd i }
       .arrow::after { border-right-color: inherit i }
     }
@@ -2371,7 +2371,7 @@
   }
 
   // * Issues :: Conversation notes.
-  [id^="notes"] {
+  [id ^= 'notes'] {
     // ? Note background, avoid system notes and forms.
     .notes.timeline > .timeline-entry:not(.system-note):not(.note-form) {
       border-radius: r;
@@ -2452,7 +2452,7 @@
         margin: 0 0 0 -10px;
         position: relative;
         font-size: 1rem;
-        &::after { content: "#" }
+        &::after { content: '#' }
       }
     }
     hr { c: 0 bd }
@@ -2592,8 +2592,8 @@
     .btn-link {
       line-height: 16px;
       text-transform: capitalize;
-      &[class*="-date-"] { margin-top: -2px }
-      &[class*="-remove"] { c: red }
+      &[class *= '-date-'] { margin-top: -2px }
+      &[class *= '-remove'] { c: red }
     }
     abbr.value-type-dynamic {
       c: cm;
@@ -2632,7 +2632,7 @@
   }
 
   // * Project :: Wiki.
-  [data-page*="wikis:show"] #content-body {
+  [data-page *= 'wikis:show'] #content-body {
     // Wiki sidebar.
     .right-sidebar.wiki-sidebar {
       a {
@@ -2681,7 +2681,7 @@
       .path { v: 0 cm }
     }
     .arrowheadPath, #arrowhead { v: fg }
-    rect[style="fill:#e8e8e8;"] { v: bd cm }
+    rect[style = 'fill:#e8e8e8;'] { v: bd cm }
     .section0 { v: blue }
     .sectionTitle0, .titleText { v: fg }
     .done0, .done1, .done2, .done3 { v: hl cm }
@@ -2766,7 +2766,7 @@
     // margin: 0;
     .nav {
       .btn { margin-top: 10px }
-      // "Auto DevOps enabled" and possibly other buttons.
+      // 'Auto DevOps enabled' and possibly other buttons.
       .stat-text {
         margin-top: 10px;
         c: cm bd bg;
@@ -2824,7 +2824,7 @@
       // Apply right margin to all but the last child.
       &:not(:last-child) { margin: 0 4px 0 0 i }
       // Crystal language color.
-      &[style$="#776791"] { c: 0 0 black }
+      &[style $= '#776791'] { c: 0 0 black }
     }
   }
 
@@ -2851,7 +2851,7 @@
     }
     // Protected branches/tags/envs.
     &-content {
-      [class^="protected-"] {
+      [class ^= 'protected-'] {
         > .table-bordered { border: none }
         > .card-header {
           rad: r r 0 0;
@@ -3000,7 +3000,7 @@
     .cover-block {
       c: 0 0 bg;
       box-shadow: inset 0 -1px bd;
-      [class*="fade-"] { border: none }
+      [class *= 'fade-'] { border: none }
       .cover {
         &-title, &-desc { c: fg }
         &-status { padding: 8px 0 4px }
@@ -3035,11 +3035,11 @@
     svg.contrib-calendar > g {
       text { v: fg }
       rect { v: ac }
-      rect[fill="#ededed"] { opacity: 0.05 }
-      rect[fill^="rgb(17"] { opacity: 0.20 }
-      rect[fill^="rgb(12"] { opacity: 0.45 }
-      rect[fill^="rgb(82"] { opacity: 0.70 }
-      rect[fill^="rgb(37"] { opacity: 1 }
+      rect[fill = '#ededed'] { opacity: 0.05 }
+      rect[fill ^= 'rgb(17'] { opacity: 0.20 }
+      rect[fill ^= 'rgb(12'] { opacity: 0.45 }
+      rect[fill ^= 'rgb(82'] { opacity: 0.70 }
+      rect[fill ^= 'rgb(37'] { opacity: 1 }
     }
   }
 
@@ -3052,7 +3052,7 @@
   // * Profile -> Overview.
   .user-profile {
     // Sections.
-    [class*="col-"] > [class*="-block"] {
+    [class *= 'col-'] > [class *= '-block'] {
       margin-top: 16px;
       border: 1px solid bd;
       rad: r;
@@ -3066,11 +3066,11 @@
         }
       }
       // ! @obsolete
-      > [class*="-block"] {
+      > [class *= '-block'] {
         padding: 0.1px;
         h4, h5 { padding: 0 8px }
         + .prepend-top-10 { padding: 0 8px }
-        // Hide "activity" border.
+        // Hide 'activity' border.
         &:first-child { c: 0 t }
       }
       // Improve empty list.
@@ -3186,7 +3186,7 @@
   // Sticky file name.
   .diff-file .is-compare { top: calc(91px - var(--radius)) i }
   // * Project -> Compare.
-  [class*="card"] {
+  [class *= 'card'] {
     // Nothing to compare.
     &.bg-light {
       c: 0 0 bg;
@@ -3214,7 +3214,7 @@
     box-shadow: none;
     &:hover { c: 0 0 bd }
     &::before {
-      content: "";
+      content: '';
       border-left: 4px solid ac;
       position: absolute;
       top: 0; left: 0; bottom: 0;
@@ -3284,7 +3284,7 @@
   .operations-dashboard {
     // Remove extra padding.
     > nav, > div { padding: 0 i }
-    // "Search your projects" margin fix.
+    // 'Search your projects' margin fix.
     .page-title-holder {
       margin-top: 16px;
       .append-bottom-default { margin-bottom: 0px i }
@@ -3310,7 +3310,7 @@
       }
     }
     // Modals -> Add projects.
-    /[id*="add-projects-modal"] .modal-body {
+    /[id *= 'add-projects-modal'] .modal-body {
       padding: 16px;
       .project-list-item {
         padding: 0;
@@ -3321,7 +3321,7 @@
   }
 
   // * Dashboard :: Issues/MR page.
-  [class$="-filters"] + .card {
+  [class $= '-filters'] + .card {
     c: 0 t t;
     // List.
     .issuable-list {
@@ -3379,7 +3379,7 @@
     c: 0 bd bg;
     &.focus { &, &:hover { c: 0 blue; box-shadow: none }}
     // Fix corners.
-    [class*="history-dropdown-toggle-button"] { rad: r 0 0 r }
+    [class *= 'history-dropdown-toggle-button'] { rad: r 0 0 r }
     &-input-container .filtered-search { rad: 0 r r 0 }
     .btn-link { c: cm }
     // Search field.
@@ -3604,7 +3604,7 @@
       // Board header.
       .board-title { c: fg bd }
       // Empty, default boards.
-      [class$="-state"] { c: fg 0 bg }
+      [class $= '-state'] { c: fg 0 bg }
       // Showing all issues.
       .board { &-list-count, &-title-sub-text { c: cm }}
     }
@@ -3791,7 +3791,7 @@
   .content-block.burndown-hint {
     rad: r;
     c: 0 bd bg;
-    svg path[fill='#fff'] { v: t }
+    svg path[fill = '#fff'] { v: t }
   }
   // Milestones -> Burndown chart buttons.
   .js-burndown-data-selector .btn-inverted { c: blue blue t }
@@ -3828,7 +3828,7 @@
     canvas:not(#languages-chart) { c: 0 0 bg }
   }
   // ? Found in: .../repo/pipelines/charts
-  [data-page="projects:pipelines:charts"] {
+  [data-page = 'projects:pipelines:charts'] {
     .legend {
       &-success .fa { color: inherit i }
       &-all { c: cm }
@@ -3854,7 +3854,7 @@
       c: 0 bd 0;
       .pika-day {
         c: fg 0 bg;
-        &:hover, ../[class^="is-"] .pika-day { c: ac 0 bd }
+        &:hover, ../[class ^= 'is-'] .pika-day { c: ac 0 bd }
       }
       &.is-disabled .pika-day { c: cm 0 t }
     }
@@ -4014,7 +4014,7 @@
     rad: r;
     c: fg bd hl;
     a[href] { color: ac }
-    [class*="warning"] { c: orange t t }
+    [class *= 'warning'] { c: orange t t }
   }
   /* Text color. */
   .timeline .system-note .note-text,
@@ -4232,7 +4232,7 @@
     }
   }
   // Snippets -> Reset block.
-  [data-page*="snippets:show"] .row-content-block { padding: 0 }
+  [data-page *= 'snippets:show'] .row-content-block { padding: 0 }
 
   // * Project :: Members.
   .members-list {
@@ -4327,10 +4327,10 @@
 
   // * Docs :: Search results.
   .algolia-autocomplete {
-    [class*="dataset"] {
+    [class *= 'dataset'] {
       c: fg bd bg;
       // Transparentize the content.
-      [class*="docsearch-s"] { c: fg 0 t }
+      [class *= 'docsearch-s'] { c: fg 0 t }
     }
     // Remove shadow.
     .ds-dropdown-menu {
@@ -4339,14 +4339,14 @@
       &:before { c: 0 bd bg }
     }
     // Header.
-    [class*="header"] { c: cm bd }
+    [class *= 'header'] { c: cm bd }
     // Separator.
     .algolia-docsearch-suggestion--subcategory-column::before,
     .algolia-docsearch-suggestion--content::before { c: 0 0 bd }
     // Selected.
-    [class$="--content"]:hover { c: 0 0 bd }
+    [class $= '--content']:hover { c: 0 0 bd }
     // Matching result.
-    [class*="highlight"] { box-shadow: inset 0 -2px ac i }
+    [class *= 'highlight'] { box-shadow: inset 0 -2px ac i }
   }
 
   // * Main content.
@@ -4361,7 +4361,7 @@
       position: relative;
       c: 0 t bg;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; left: 0; bottom: 0;
         rad: r 0 0 r;
@@ -4515,7 +4515,7 @@
           box-shadow: inset 3px 0 ac i;
         }
         /// Reset file icons.
-        svg[class*='ic-file-'] { v: cm }
+        svg[class *= 'ic-file-'] { v: cm }
       }
     }
     /// Merge Requests / Branches.
@@ -4606,7 +4606,7 @@
     .lines-content {
       .current-line  { c: 0 bd bd }
       .cursor { c: fg ac ac }
-      [class*="cigr"] { box-shadow: inset 1px 0 cm }
+      [class *= 'cigr'] { box-shadow: inset 1px 0 cm }
     }
     .monaco-sash { c: 0 0 ac }
     /// Command palette.
@@ -4705,7 +4705,7 @@
         c: fg 0 t;
         &.new::before, &.old::before { c: cm }
         &.old::after, &.new::after {
-          content: "";
+          content: '';
           z-index: -1;
           opacity: 0.25;
           top: 0; right: 0; bottom: 0; left: 0;
@@ -4721,7 +4721,7 @@
         padding-right: 11px;
         box-shadow: inset -1px 0 bd, -1px 0 bd;
         &.old::after, &.new::after {
-          content: "";
+          content: '';
           z-index: -1;
           opacity: 0.25;
           top: 0; right: 0; bottom: 0; left: 0;
@@ -4749,7 +4749,7 @@
       c: fg 0 t;
       // Fake element.
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         opacity: 0.25;
@@ -4792,7 +4792,7 @@
         padding: 8px;
         c: fg bd hl;
       }
-      > [class*="table-row"]:nth-last-child(2) { border-bottom: none }
+      > [class *= 'table-row']:nth-last-child(2) { border-bottom: none }
       .commit {
         padding: 8px;
         transition: ts;
@@ -4943,7 +4943,7 @@
       margin-top: 5px i;
       > svg { margin: 1px 0 0 1px }
       // Fix size and on-hover event.
-      &[class*="ci-status-icon-"] {
+      &[class *= 'ci-status-icon-'] {
         width: 24px;
         height: @width;
         c: 0 0 bg;
@@ -4996,7 +4996,7 @@
   }
 
   // * Jobs :: Browse artifacts.
-  [data-page="projects:artifacts:browse"] {
+  [data-page = 'projects:artifacts:browse'] {
     .tree-table {
       rad: r;
       box-shadow: inner;
@@ -5025,13 +5025,13 @@
   }
 
   // * CI/CD :: Schedules.
-  [data-page^="projects:pipeline_schedules"] {
+  [data-page ^= 'projects:pipeline_schedules'] {
     .ref-name, .next-run-cell { c: fg }
     .pipeline-schedule-table-row a { c: fg }
   }
 
   // * Skeleton.
-  .animation-container [class^="skeleton-line-"] {
+  .animation-container [class ^= 'skeleton-line-'] {
     background-color: bd;
     &::after {
       background-image: linear-gradient(to right, bd 0%, bg 100%)
@@ -5103,14 +5103,14 @@
       rect {
         v: t;
         &.bar-rect { v: bd blue }
-        &[fill="#fff" i] { v: bg 0 }
+        &[fill = '#fff' i] { v: bg 0 }
       }
     }
   }
 
   // Global -> Invert image icons.
   // NOTE: Tweak if weird things happen.
-  img[src*="/assets/icon"] { filter: invert(1) }
+  img[src *= '/assets/icon'] { filter: invert(1) }
 
   // * Invert illustrations.
   .wiki .anchor,
@@ -5119,13 +5119,13 @@
   .commits-empty > svg,
   .artwork svg,
   .billing-plan-logo > svg,
-  img[src*="/assets/illustrations/"],
+  img[src *= '/assets/illustrations/'],
   #subgroups_and_projects .empty-state svg {
     filter: opacity(0.9) invert(0.9) hue-rotate(180deg) i;
   }
 
   // ! Trick for #44. @upstream
-  img[src$="acc9ec5b5.svg"] {
+  img[src $= 'acc9ec5b5.svg'] {
     margin: -6px -16px 0 0;
     clip-path: circle(34px at 50% 48%);
     background: white;
@@ -5136,7 +5136,7 @@
     @supports not (-moz-user-select: none) {
       .created-icon, .opened-icon,
       svg.ic-upload, .ci-status-icon > svg,
-      [class*="ci-status"] svg {
+      [class *= 'ci-status'] svg {
         filter: invert(0.8) hue-rotate(180deg);
       }
     }
@@ -5145,9 +5145,9 @@
   // * Icons -> CI status icons.
   .ci-status {
     c: 0 0 bg;
-    &[class*="ci-"]:hover { c: 0 0 bd }
+    &[class *= 'ci-']:hover { c: 0 0 bd }
     // Replace icon's main fill color.
-    ../ symbol[id^="status_"] { path[fill='#FFF' i] { v: bg }}
+    ../ symbol[id ^= 'status_'] { path[fill = '#FFF' i] { v: bg }}
     // Colors!
     &.ci-success,
     &-icon-success, &-icon-passed {
@@ -5257,7 +5257,7 @@
   body:not(.dark)::before {
     position: fixed;
     z-index: -1;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     right: 0;
@@ -5272,7 +5272,7 @@
   // * Code font.
   .diff-file table,
   code, .code, pre.code code,
-  [class*="monospace"], .ref-name,
+  [class *= 'monospace'], .ref-name,
   .diff-line-num, .diff-line-num a,
   #editor, .monaco-editor * {
     font-family: var(--mono-font) i;
@@ -5306,7 +5306,7 @@
   }
 }
 
-@-moz-document regexp("https?://customers.gitlab.com(/.*)") {
+@-moz-document regexp('https?://customers.gitlab.com(/.*)') {
   h1, h2 { font-weight: normal }
   .times { c: cm }
   .list {
@@ -5383,7 +5383,7 @@
   }
 }
 
-@-moz-document regexp("https?://design.gitlab.com(/.*)") {
+@-moz-document regexp('https?://design.gitlab.com(/.*)') {
   // Loading bar.
   .nuxt-progress { c: 0 0 ac }
   // Contribute section.
@@ -5420,7 +5420,7 @@
   .baseline--typography:after { background-image: linear-gradient(bd 1px, t 0) }
 }
 
-@-moz-document regexp("^https?://about.gitlab.com(/.*)$") {
+@-moz-document regexp('^https?://about.gitlab.com(/.*)$') {
   // Hello bar.
   .hello-bar-wrapper {
     .hello-bar {
@@ -5436,7 +5436,7 @@
     c: cm bd bg;
     &::before {
       opacity: 0.6;
-      content: "";
+      content: '';
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
       background-image: linear-gradient(160deg, yellow -50%, ac 200%);
@@ -5595,7 +5595,7 @@
   // Header anchor.
   .header-link > i.fa-link { c: cm }
   // Divider between new features.
-  [class$="-column"]:last-child { c: 0 bd }
+  [class $= '-column']:last-child { c: 0 bd }
 
   // Try GitLab.
   .sticky-banner {
@@ -5921,7 +5921,7 @@
     c: cm bd bg;
     .st-ui-header, .st-ui-footer {
       c: cm bd bg;
-      input[type="text"] { c: cm }
+      input[type = 'text'] { c: cm }
     }
   }
   a.st-ui-close-button {
@@ -6003,7 +6003,7 @@
 }
 
 // #27
-@-moz-document regexp("^https?://about.gitlab.com/releases/$") {
+@-moz-document regexp('^https?://about.gitlab.com/releases/$') {
   h2 {
     c: 0 0 orange;
     a { c: white }
@@ -6012,7 +6012,7 @@
 }
 
 // ? Not extensively tested, mainly a refactor of old working code.
-@-moz-document regexp("^https?://forum.gitlab.com(/.*)$") {
+@-moz-document regexp('^https?://forum.gitlab.com(/.*)$') {
   // Top bar.
   nav#bar {
     c: 0 0 bd;
@@ -6325,7 +6325,7 @@
 
   // Upload image.
   .uploaded-image-preview { color: 0 0 bd }
-  .upload-selector .radios .inputs input[type="file"] { c: fg }
+  .upload-selector .radios .inputs input[type = 'file'] { c: fg }
 
   // Modals.
   .modal {
@@ -6360,7 +6360,7 @@
   #login-form a { c: fg }
 }
 
-@-moz-document regexp("https?://docs.gitlab.com(/.*)") {
+@-moz-document regexp('https?://docs.gitlab.com(/.*)') {
   // * Landing page.
   .landing {
     // Search container.
@@ -6411,7 +6411,7 @@
         rad: r;
         c: cm 0 bd;
       }
-      input[type="text"] {
+      input[type = 'text'] {
         padding: 2px 11px 2px 28px;
         line-height: 30px;
         rad: r;
@@ -6445,7 +6445,7 @@
       height: 0 i;
       width: 0 i;
       padding: 40px 0 0 40px i;
-      background-image: url("https://gitlab.com/vednoc/dark-gitlab/raw/master/images/docs_logo.png") i;
+      background-image: url('https://gitlab.com/vednoc/dark-gitlab/raw/master/images/docs_logo.png') i;
       background-size: 40px 40px;
       background-repeat: no-repeat;
     }
@@ -6669,7 +6669,7 @@
   }
 }
 
-@-moz-document domain("status.gitlab.com") {
+@-moz-document domain('status.gitlab.com') {
   // * Header.
   #statusio_header {
     margin: 0;
@@ -6686,10 +6686,10 @@
   }
 
   // * Status bar.
-  [style*="background:#C44031"] { c: 0 0 red }
-  [style*="background:#27AE60"] { c: 0 0 green }
-  [style*="background:#00AAF0"] { c: 0 0 blue }
-  [style*="background:#FFA837"] { c: 0 0 yellow }
+  [style *= 'd:#C44031'] { c: 0 0 red }
+  [style *= 'd:#27AE60'] { c: 0 0 green }
+  [style *= 'd:#00AAF0'] { c: 0 0 blue }
+  [style *= 'd:#FFA837'] { c: 0 0 yellow }
 
   // * About section.
   .section_border_1 {
@@ -6713,7 +6713,7 @@
     .timelineMajor h2 {
       background-image: none i;
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         margin-top: 20px;
         left: 16px;
@@ -6726,7 +6726,7 @@
       background: none;
       .open, .closed { c: cm }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         margin-top: 20px;
         left: 0px;
@@ -6760,7 +6760,7 @@
   }
 }
 
-@-moz-document domain("next.gitlab.com") {
+@-moz-document domain('next.gitlab.com') {
   body {
     background: none i;
     .wrapper > img.bg { opacity: 0 }
