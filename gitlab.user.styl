@@ -2561,6 +2561,8 @@
       /// Item highlighting.
       &.active > a:hover, &.is-over > a { c: 0 0 bd }
     }
+    /// Remove highlight. Replaced by the `li.active > ul li:hover`.
+    .sidebar-sub-level-items > li a:hover { c: 0 0 t }
     /// Fix overflow/height on Firefox.
     .nav-sidebar-inner-scroll {
       height: calc(100% - 48px);
