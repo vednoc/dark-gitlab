@@ -3507,7 +3507,7 @@
       .badge-pill { c: 0 0 bg }
     }
     .card-body {
-      padding: 8px;
+      padding: 16px;
       c: 0 0 t;
       .text-plain { c: cm }
       // Reset actions on `user/project/pages` page.
@@ -3538,6 +3538,13 @@
     &.border-danger {
       c: 0 red;
       .card-header { c: 0 red hl }
+    }
+  }
+  .card {
+    /// Groups -> Members table.
+    &-without-border {
+      c: 0 0 t;
+      > ul.content-list { c: 0 0 bg }
     }
   }
 
