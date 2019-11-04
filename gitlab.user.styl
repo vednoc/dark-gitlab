@@ -1359,8 +1359,11 @@
     .flash-notice { c: white blue blue }
     .flash-alert { c: white red red }
     .flash-success { c: white green green }
-    .alert-warning { c: white orange orange }
-    .alert-link { c: white }
+    /.alert {
+      &-warning { c: white orange orange }
+      &-primary { c: blue }
+      &-link { c: white }
+    }
     // ? Broadcasts found on `git.synz.io`.
     .broadcast-message {
       p, .fa { color: inherit i }
