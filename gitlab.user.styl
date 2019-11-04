@@ -3628,21 +3628,21 @@
     }
   }
 
-  // * Boards -> Cards.
-  // ? They turn into a tooltip once dragged so we must style them here.
+  // Boards -> Cards.
+  /// They turn into a tooltip on drag event.
   .board-card {
-    c: 0 bd bg;
-    box-shadow: 0px 1px 2px 0 sh;
+    c: 0 bd hl;
+    box-shadow: 0px 1px 2px sh;
     transition: border-color ts;
     &:hover {
       c: 0 ac;
       box-shadow: 0px 2px 4px 0 sh;
     }
     // Text color.
-    .board-card-title a { color: fg }
-    .board-card-number { color: cm }
+    &-title a { color: fg }
+    &-number { color: cm }
     // Assignee background.
-    .board-card-assignee:hover a { c: 0 0 t }
+    &-assignee:hover a { c: 0 0 t }
   }
 
   // Boards -> Resets.
