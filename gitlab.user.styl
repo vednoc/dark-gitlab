@@ -261,7 +261,7 @@
   }
 
   // * Table -> Base styles for all `table` elements.
-  table:not(.code):not(.shortcut-mappings) {
+  table:not(.code):not(.shortcut-mappings):not(.pika-table) {
     display: table i;
     border-collapse: unset;
     border-spacing: 0px;
@@ -3872,6 +3872,14 @@
     }
     // Shadow.
     &.is-bound { box-shadow: bsh }
+    /// Global -> GitLab's wrapper around pika.
+    /.gl-datepicker-theme {
+      font-family: var(--ui-font) i;
+      .pika-lendar:not(#z) {
+        rad: r;
+        box-shadow: inner;
+      }
+    }
   }
 
   // * Pagination.
