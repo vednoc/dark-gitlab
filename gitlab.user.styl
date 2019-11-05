@@ -1547,7 +1547,11 @@
   // Reset nav.
   .top-area.group-nav-container {
     > .scrolling-tabs-container .nav a { padding: 10px 8px }
-    > .nav-controls > div:last-child { padding-right: 8px }
+    > .nav-controls > div:last-child {
+      padding-right: 8px;
+      /// Groups -> Remove extra padding.
+      &.append-right-10 { padding-right: 0 }
+    }
   }
   [data-page ^= 'projects:forks:'] { .top-area { padding: 0 8px }}
   [data-page ^= 'projects:labels:'] { .top-area { padding: 0 i }}
