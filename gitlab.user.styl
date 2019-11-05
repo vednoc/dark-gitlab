@@ -971,6 +971,12 @@
         c: cm;
         transition: ts;
       }
+      /// #92
+      .menu-item {
+        c: cm 0 t;
+        transition: ts;
+        &:hover { c: fg 0 bd }
+      }
       .btn-default { c: cm }
       .is-focused, a:focus, a:active { c: fg 0 bd }
       &.droplab-item-active .btn { c: fg 0 bd }
