@@ -2221,8 +2221,8 @@
       .code .line a { color: ac }
       // Inline diffs.
       .idiff { c: fg }
-      .new .idiff, .idiff.addition { c: 0 0 green }
-      .old .idiff, .idiff.deletion { c: 0 0 red }
+      .new .idiff, /.idiff.addition { c: 0 0 green }
+      .old .idiff, /.idiff.deletion { c: 0 0 red }
     }
     // ? Fix borders on expanded sections.
     &-expanded { & > td, & + :not(&) > td { c: 0 bd 0 }}
