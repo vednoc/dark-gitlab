@@ -1,26 +1,38 @@
+# Dark-GitLab
+
 [![Install directly with Stylus][badge]][style]
 
-Dark-GitLab is opinionated, dark and light, very customizable [Stylus][stylus] userstyle for Gitlab and self-hosted GitLab instances.
+Dark-GitLab is opinionated, dark and light, very customizable [Stylus][stylus]
+userstyle for Gitlab and self-hosted GitLab instances.
 
 For roadmap see %1.
 
 ## Features
 This is why you should consider using Dark-GitLab!
 
-- **Custom colors**: All color variables are easily customizable through Stylus popup menu. Both light and dark color-schemes are fully supported.
-- **Custom background**: Gives you the full control of the `background` property.
+- **Custom colors**: All color variables are easily customizable through Stylus
+  popup menu. Both light and dark color-schemes are fully supported.
+- **Custom background**: Full control of the `background` rule.
 - **Custom regex**: OOTB support for known public self-hosted GitLab instances.
   - Add your own by editing the `@-moz-document regexp(...)` locally.
-  - :warning: **Note**: Editing locally prevents auto-updating, but you can always force an update to get the newest version and re-do the regex.
-- **Custom image opacity**: Lower the opacity of images until you hover over them.
-- **Custom UI font**: Use your favorite font for the entire UI except code/emoji sections.
-- **Custom code font**: Use your favorite font for code sections, i.e. FiraCode, Operator Mono, Iosevka, etc.
-- **Custom emoji font**: Use your favorite font for emojis, i.e. emojione, twemoji, etc.
-- **Custom rounded corners value**: Set your prefered border-radius for main elements (excluding buttons).
+  - :warning: **Note**: Editing locally prevents auto-updating, but you can
+    always force an update to get the newest version and re-do the regex.
+- **Custom image opacity**: Lower the opacity of images until you hover over
+  them.
+- **Custom UI font**: Use your favorite font for the entire UI except code/emoji
+  sections.
+- **Custom code font**: Use your favorite font for code sections, i.e. FiraCode,
+  Operator Mono, Iosevka, etc.
+- **Custom emoji font**: Use your favorite font for emojis, i.e. joypixels,
+  twemoji, etc.
+- **Custom rounded corners value**: Set your prefered border-radius for main
+  elements (excluding buttons).
 - **Custom transitions**: Set custom transitions.
 - **Custom avatar radius**: Set your prefered border-radius for avatars.
-- **Old-design project header**: If you prefer to have project header items in the center, now you can have it back.
-- **Complete theme**: Mainly focusing on the core app but useful and often used sub-domains are also included.
+- **Old-design project header**: If you prefer to have project header items in
+  the center, now you can have it back.
+- **Complete theme**: Mainly focusing on the core app but useful and often used
+  sub-domains are also included.
 - Anything else you'd like to see added? Feel free to make a [suggestion][new].
 
 ## Installation
@@ -47,12 +59,15 @@ This is why you should consider using Dark-GitLab!
     switch between various pre-defined color-schemes.
 
 ## Screenshots
-Preview image showcases v0.46.0 with default colors, custom width of 1440px, Inter as the UI font, and Iosevka as the mono font on 1920x1080 resolution.
+Preview image showcases v0.46.0 with default colors, custom width of 1440px,
+Inter as the UI font, and Iosevka as the mono font on 1920x1080 resolution.
 
 ![preview](./images/preview.png)
 
 ## Contributing
-Any contribution is greatly appreciated. If you really like the project and would like to tip me then you can buy me a coffee over at [ko-fi](https://ko-fi.com/vednoc).
+Any contribution is greatly appreciated. If you really like the project and
+would like to tip me then you can buy me a coffee over at
+[ko-fi](https://ko-fi.com/vednoc).
 
 ## Contributors
 - [vednoc](https://gitlab.com/vednoc) - creator, maintainer
