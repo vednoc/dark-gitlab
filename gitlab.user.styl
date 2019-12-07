@@ -4456,7 +4456,9 @@
       margin: 0 auto;
       max-width: var(--width);
     }
-    &.breadcrumbs { padding: 0 }
+    /[data-page ^= 'projects:merge_requests'] {
+      .breadcrumbs.limit-container-width { padding: 0 }
+    }
     &.breadcrumbs,
     &.container-limited,
     .merge-request-tabs-container,
