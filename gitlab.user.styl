@@ -711,6 +711,11 @@
     &:disabled, &[readonly] { c: cm bd }
     /// #80.
     &[id] + button { c: 0 bd }
+    /// Rewrite inputs now that they are native components.
+    /.gl-form-input {
+      font-family: var(--ui-font) i;
+      box-shadow: inner i;
+    }
   }
   .label-form .form-group {
     // Project -> New labels.
