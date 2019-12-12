@@ -2427,9 +2427,9 @@
   }
 
   // * Global -> Markdown input area.
-  .common-note-form .md-area {
-    padding: 0;
-    rad: r;
+  .md-area {
+    padding: 0 i;
+    rad: r i;
     c: 0 bd bg;
     &.is-focused {
       c: 0 ac;
@@ -2470,6 +2470,11 @@
     .comment-toolbar {
       padding: 8px;
       c: cm bd 0;
+    }
+    /// Project -> Release edit page.
+    /label[for = 'release-notes'] + .bordered-box {
+      padding: 0 i;
+      > .md-area { margin: 0 }
     }
   }
   // Edited text color.
