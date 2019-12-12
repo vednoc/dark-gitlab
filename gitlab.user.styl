@@ -4466,19 +4466,17 @@
       margin: 0 auto;
       max-width: var(--width);
     }
-    /[data-page ^= 'projects:merge_requests'] {
-      .breadcrumbs.limit-container-width { padding: 0 }
+    /[data-page ^= 'projects:merge_requests:'] {
+      .detail-page-header.pb-0.pt-0 { padding: 10px 0 i }
     }
     &.breadcrumbs,
     &.container-limited,
     .merge-request-tabs-container,
     .epic-tabs-container,
-    .merge-request-details .emoji-list-container,
-    .issuable-details .detail-page-description,
-    .issuable-details .mr-source-target,
-    .issuable-details .mr-state-widget,
-    .issuable-details .merge-manually,
-    .file-content,
+    .file-content {
+      max-width: var(--width) i;
+    }
+    .emoji-list-container,
     .detail-page-header,
     .page-content-header,
     .commit-box,
@@ -4487,7 +4485,16 @@
     .files-changed-inner,
     .limited-header-width,
     .limited-width-notes {
-      max-width: var(--width) i;
+      max-width: calc(var(--width) - 32px) i;
+    }
+    .issuable-details {
+      &:not(.merge-request-details) {
+        max-width: calc(var(--width) - 32px) i;
+      }
+      .detail-page-description, .mr-source-target,
+      .mr-state-widget, .merge-manually {
+        max-width: calc(var(--width) - 32px) i;
+      }
     }
   }
 
