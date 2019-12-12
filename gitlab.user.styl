@@ -5105,12 +5105,14 @@
     .pipeline-schedule-table-row a { c: fg }
   }
 
-  // * Skeleton.
+  // Global -> Skeleton.
   .animation-container [class ^= 'skeleton-line-'] {
     background-color: bd;
     &::after {
       background-image: linear-gradient(to right, bd 0%, bg 100%)
     }
+    /.mr-widget { &-heading, &-workflow::before { c: 0 bd }}
+    /svg.gl-skeleton-loader rect { v: bd }
   }
 
   // * Groups.
