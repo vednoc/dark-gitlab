@@ -5357,10 +5357,12 @@
     background-color: var(--dark);
   }
 
-  // ! What.
-  // ? Fixes weird pseudoelements.
+  // Diffs.
   .diff-file .file-title {
+    /// Fixes weird pseudoelements.
     &::before, &-flex-parent::before { display: none i }
+    /// @upstream gitlab-org/gitlab/ffb01a13
+    &, &-flex-parent { box-shadow: none }
   }
 }
 
