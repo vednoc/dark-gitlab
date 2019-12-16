@@ -220,6 +220,8 @@
       &.bg-light { c: 0 0 hl }
     }
     pre, code, kbd, samp { font-family: var(--mono-font) }
+    /// Reset background for raw files.
+    > pre:not([class]) { c: 0 0 t }
 
     // Checkbox/radio inputs.
     input[type = 'checkbox'], input[type = 'radio'] {
