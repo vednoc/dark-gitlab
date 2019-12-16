@@ -4460,16 +4460,12 @@
 
   // Feature -> Custom width for fixed layout.
   .layout-page .limit-container-width {
-    // .merge-request-tabs-holder,
-    &.diff-files-holder {
-      padding: 0 i;
-      margin: 0 auto;
-      max-width: var(--width);
-    }
     /[data-page ^= 'projects:merge_requests:'] {
       .detail-page-header.pb-0.pt-0 { padding: 10px 0 i }
+      .mr-version-menus-container { margin-bottom: 0 }
     }
     &.breadcrumbs,
+    /.container-limited,
     &.container-limited,
     .merge-request-tabs-container,
     .epic-tabs-container,
