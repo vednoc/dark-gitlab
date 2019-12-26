@@ -23,6 +23,7 @@
 @var checkbox md_limit   "Readme: Limit content max-width" 1
 @var checkbox md_center  "Readme: Center the content" 1
 @var checkbox dark_logo  "Switch to our darker logo" 0
+@var checkbox navbar_s   "Navbar: Match custom layout width" 0
 @var checkbox navbar_c   "Navbar: Theme navbar color" 1
 @var checkbox navbar_n   "Navbar: Show 'next' badge" 1
 @var checkbox invert_ic  "Icons: Invert in Chromium-based browsers" 1
@@ -812,11 +813,19 @@ domain('custom.domain') {
   .navbar {
     c: 0 bd;
     box-shadow: bsh i;
-    // ? Feature -> Theme navbar color.
+    /// Feat-> Theme navbar color.
     if ( navbar_c == 1 ) { c: 0 0 bg }
-    // ? Feature -> Show 'next' badge.
+    /// Feat -> Show 'next' badge.
     if ( navbar_n != 1 ) { .canary-badge { display: none i }}
     .canary-badge .badge.badge-pill { c: white green green }
+    /// Feat -> Shrink navigation.
+    if ( navbar_s == 1 ) {
+      > .container-fluid { max-width: calc(var(--width) - 32px) }
+      /// Reset logo margin.
+      .header-content .title a { margin-left: 0 i }
+      /// Shrink search bar.
+      .search form { width: 240px }
+    }
     // Logo text color.
     .logo-text svg, svg.nav-logo .wordmark { v: fg }
     // Search.
