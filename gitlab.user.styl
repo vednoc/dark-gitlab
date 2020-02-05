@@ -2421,11 +2421,14 @@ domain('custom.domain') {
     }
     // Overwriten by user-link styles.
     a, a:hover { c: ac }
-    // ? MR -> Notes -> Suggestions.
-    .md-suggestion-header {
+    /// MR -> Suggestions. #100
+    /.md-suggestion-header {
       rad: r r 0 0;
-      c: fg bd bg;
-      + table.code { rad: 0 0 r r }
+      c: fg bd hl;
+      + table.code {
+        rad: 0 0 r r;
+        c: 0 bd;
+      }
     }
     .md-suggestion-diff { c: 0 bd }
     // Added/removed/changed things in discussions.
