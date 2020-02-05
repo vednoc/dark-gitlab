@@ -4133,9 +4133,15 @@ domain('custom.domain') {
     background: none i;
   }
 
-  // * Merge Requests -> Review.
-  .draft-note-component { c: 0 0 t }
-  .review-bar-component { c: 0 bd bg }
+  // MR -> Review mode.
+  .draft {
+    &-note-component { c: 0 0 t }
+    &s-count-component { c: white 0 green }
+  }
+  .review-bar-component {
+    c: 0 bd bg;
+    .drafts-count-component { c: 0 0 sh }
+  }
 
   // * Merge Requests :: Discussions in file diff.
   .diff-file .notes_holder {
