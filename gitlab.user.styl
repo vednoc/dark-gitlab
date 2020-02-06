@@ -1280,14 +1280,17 @@ domain('custom.domain') {
       > .nav-item { margin: 0 }
     }
     li[class ^= 'nav-'] {
-      c: 0 bd;
+      c: 0 bd hl;
       &:first-child { margin: 0 }
       a {
         rad: 0;
         ../:first-child a { rad: r 0 0 0 }
         ../:last-child a { rad: 0 r 0 0 }
-        ../.active a.nav-link { c: fg ac }
         ../:hover a.nav-link { c: fg t }
+        &.active.nav-link {
+          margin-bottom: -1px;
+          c: fg bg bg;
+        }
       }
     }
   }
