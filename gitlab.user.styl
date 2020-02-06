@@ -3024,6 +3024,51 @@ domain('custom.domain') {
     }
   }
 
+  // Readme -> Swagger UI. #101
+  .swagger-ui {
+    .scheme-container {
+      c: fg 0 bg;
+      box-shadow: 0 -1px bd, 0 1px bd;
+    }
+    .link a { c: ac }
+    button.btn { c: fg bd hl }
+    input, textarea {
+      &[disabled] { c: cm bd hl; opacity: 0.6 }
+    }
+    select {
+      c: fg bd hl;
+      box-shadow: bsh
+    }
+    div + h4 + table:not(#z) { &, * { c: 0 t }}
+    .model-toggle::after { filter: invert(1) }
+    .opblock-summary {
+      &-path, &-operation-id, &-path__deprecated { c: fg }
+      &-description { c: cm }
+    }
+    .opblock-section {
+      &-header {
+        c: 0 0 hl;
+      }
+    }
+    [class *= 'brace-'] { c: cm }
+    .model-title { c: fg }
+    .prop-format { c: cm }
+    .prop-type { c: violet }
+    .parameter {
+      &__name { c: fg }
+      &__name::after { c: red }
+      &__type { c: cm }
+    }
+    table:not(#z) {
+      padding: 0;
+      &, th, td { c: fg t t }
+      span { &[class = ''], &:not([class]) { c: cm }}
+    }
+    pre.microlight { c: fg bd hl }
+    a.tablinks { c: fg }
+    .tab li::after { c: 0 0 cm }
+  }
+
   // * Wiki.
   // NOTE: Deprecated.
   .wiki:not(.use-csslab) {
