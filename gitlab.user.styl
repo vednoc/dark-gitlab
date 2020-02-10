@@ -3037,18 +3037,20 @@ domain('custom.domain') {
     }
     select {
       c: fg bd hl;
-      box-shadow: bsh
+      box-shadow: bsh;
     }
-    div + h4 + table:not(#z) { &, * { c: 0 t }}
     .model-toggle::after { filter: invert(1) }
     .opblock-summary {
       &-path, &-operation-id, &-path__deprecated { c: fg }
       &-description { c: cm }
     }
-    .opblock-section {
-      &-header {
-        c: 0 0 hl;
-      }
+    .opblock {
+      &-tag { c: 0 bd }
+      &-section-header { c: 0 0 hl }
+    }
+    .models {
+      c: 0 bd;
+      > h4 { c: 0 bd hl }
     }
     [class *= 'brace-'] { c: cm }
     .model-title { c: fg }
