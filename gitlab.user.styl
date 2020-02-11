@@ -1163,19 +1163,29 @@ domain('custom.domain') {
       &, &_range > code { c: ac }
     }
     &&-project_member {
-      padding: 1px 3px;
-      c: ac 0 hl;
-      &:not(.current-user) { box-shadow: inner }
+      z-index: 1;
+      position: relative;
+      text-decoration: none;
+      transition: 0.2s ease;
+      font-weight: 500;
+      c: ac 0 t;
+      &::before {
+        z-index: -1;
+        content: '';
+        opacity: 0.2;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        transition: 0.2s ease;
+        rad: inherit;
+        c: 0 0 ac;
+      }
+      &:hover::before { opacity: 0.4 }
       &.current-user {
         c: white 0 ac;
-        &:hover {
-          text-decoration: none;
-          c: white;
-          opacity: 0.8;
-        }
+        &:hover { opacity: 0.7 }
       }
     }
-    // #71.
+    /// Color chips. #71
     &-color_chip > span { c: 0 t }
   }
 
