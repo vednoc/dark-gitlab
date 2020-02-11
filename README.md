@@ -5,7 +5,7 @@
 Dark-GitLab is opinionated, dark and light, very customizable [Stylus][stylus]
 userstyle for Gitlab and self-hosted GitLab instances.
 
-For roadmap see %1.
+Roadmap to v1: [dark-gitlab/milestones/1][milestone]
 
 ## Features
 This is why you should consider using Dark-GitLab!
@@ -84,3 +84,4 @@ would like to tip me then you can buy me a coffee over at
 [stylus]: https://github.com/openstyles/stylus
 [switcher]: https://gitlab.com/vednoc/theme_switcher
 [style-uso]: https://userstyles.org/styles/164877
+[milestone]: https://gitlab.com/vednoc/dark-gitlab/-/milestones/1
