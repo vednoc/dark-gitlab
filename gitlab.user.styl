@@ -4393,6 +4393,21 @@ domain('custom.domain') {
         box-shadow: inset -1px 0 bd i;
       }
     }
+    /// Better idiff styles.
+    .idiff:not(#z) {
+      position: relative;
+      c: 0 0 t;
+      ../ .old .idiff:not(#z)::before { c: 0 0 red }
+      ../ .new .idiff:not(#z)::before { c: 0 0 green }
+      &::before {
+        z-index: -1;
+        content: '';
+        opacity: 0.5;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        rad: inherit;
+      }
+    }
   }
   /* Text colors. */
   .diff-stats-summary-toggler { c: blue }
