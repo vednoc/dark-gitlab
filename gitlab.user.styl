@@ -4385,8 +4385,14 @@ domain('custom.domain') {
     &:not(.parallel):hover, &.parallel td.is-over { c: 0 0 bd }
     // Highlight syntax line in parallel view.
     > td.is-over + .parallel { c: 0 0 bd }
-    // Divider for right pane in side-by-side mode.
-    &.parallel > td:nth-child(3) { box-shadow: -1px 0 bd }
+    // Right pane divider in side-by-side mode.
+    &.parallel {
+      > td:nth-child(2) { border-right: 1px solid bd i }
+      > td:nth-child(3) {
+        border-right: none i;
+        box-shadow: inset -1px 0 bd i;
+      }
+    }
   }
   /* Text colors. */
   .diff-stats-summary-toggler { c: blue }
@@ -4895,7 +4901,7 @@ domain('custom.domain') {
         &.old::after, &.new::after {
           content: '';
           z-index: -1;
-          opacity: 0.25;
+          opacity: 0.20;
           top: 0; right: 0; bottom: 0; left: 0;
           position: absolute;
         }
@@ -4907,11 +4913,11 @@ domain('custom.domain') {
         z-index: 1;
         border-right: none;
         padding-right: 11px;
-        box-shadow: inset -1px 0 bd, -1px 0 bd;
+        box-shadow: inset -1px 0 bd;
         &.old::after, &.new::after {
           content: '';
           z-index: -1;
-          opacity: 0.25;
+          opacity: 0.30;
           top: 0; right: 0; bottom: 0; left: 0;
           position: absolute;
         }
