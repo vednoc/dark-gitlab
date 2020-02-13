@@ -12,18 +12,19 @@ Check [[https://gitlab.com/vednoc/dark-gitlab/-/milestones/1][dark-gitlab/milest
 
 #+HTML: <img src="https://gitlab.com/vednoc/dark-gitlab/-/raw/master/images/preview.png" width="100%"/>
 
-/Preview image showcases v0.46.0 with default colors, custom width of 1440px,/
-/Inter as the UI font, and Iosevka as the mono font on 1920x1080 resolution./
+/Preview image showcases v0.46.0 with default colors, custom width of 1440px,
+Inter as the UI font, and Iosevka as the monospace font on 1920x1080 resolution./
 
 #+HTML: </div>
 
 ** Features
+
 This is why you should consider using Dark-GitLab!
 
 - Fully customizable color-scheme through Stylus configuration menu
   - Supports dark and light color-schemes, and works great with [[https://gitlab.com/vednoc/dark-switcher/][dark-switcher]].
 - Custom regex and included support for well-known public GitLab instances
-  - Easy to add your private GitLab instance. :warning: Editing the code locally
+  - Easy to add your private GitLab instance. ⚠ Editing the code locally
     will prevent auto-update from working. See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more information.
   - Found a public instance that's not already on the list? Make a MR!
 - Custom background image
@@ -38,27 +39,34 @@ You have to install [[https://add0n.com/stylus.html][Stylus]] and then click on 
 
 [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
 
-*** Base configuration
-- Change [[https://gitlab.com/profile/preferences][GitLab preferences]] because Dark-GitLab is meant to be used both when
-  the user is signed in and signed out. Therefore, for the best experience set
-  the following in preferences:
+*** Initial configuration
+
+Dark-GitLab works best with /default/ settings as it tries to be uniform across
+all instances that you might find on the web. Therefore, for the best experience
+set the following in the [[https://gitlab.com/profile/preferences][preferences]] on instances you're logged in:
   - Set syntax highlighting theme set to =white=
   - Set navigation theme to =indigo=
   - Set layout to =fixed= if want to use "custom width for fixed layout" option
-- Further customization:
-  - Open the Stylus extension popup while you're on any page this userstyle is
-    active or from the Manage page in Stylus, click on the cogwheel icon and
-    that'll open up a menu from which you can customize userstyle options.
+
+To customize colors and/or other features, follow these instructions:
+  - Open the Stylus extension popup while you're on any page Dark-GitLab is
+    active on, or from the Manage page in Stylus. Click on the cogwheel icon and
+    that'll open up a menu from which you can customize the available options.
   - Additionally, install [[https://gitlab.com/vednoc/dark-switcher/][dark-switcher]] if you'd like to quickly switch between
     various pre-defined color-schemes.
 
 *** Other ways to install this userstyle
+
+Supported but _not recommended_.
+
 **** /Stylish/ is only supported through /[[https://userstyles.org/styles/164877][userstyles.org]]/
+
 USo is still the largest repository for themes despite all the issues. Don't
 use this version unless you /absolutely/ have to.
 
 It only has core functionality, is (likely) outdated, has no support, and needs
 to be /manually/ compiled for every single update.
+
 ** Contributions
 
 Any contribution is greatly appreciated. If you really like the project and
