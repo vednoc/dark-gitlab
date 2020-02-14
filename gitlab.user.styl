@@ -244,6 +244,17 @@
         }
     }
 
+    // Global -> Forms.
+    .form-control, .search form {
+        c: fg 0 bg;
+        border: 1px solid bd i;
+        /// Navbar -> Fix 'search' dropdown. @upstream
+        #search {
+            c: 0 0 t;
+            ~ [class *= 'dropdown-menu'] .is-active { c: cm }
+        }
+    }
+
     // Global -> Left sidebar.
     /// TODO: Improve item styles.
     .nav-sidebar {
