@@ -174,7 +174,7 @@
         .gl-link { color: ac }
         .text-secondary, .help-block { c: cm }
 
-    // Navbar.
+    // Global -> Navbar.
     .navbar {
         /// Wrapper.
         &-gitlab { c: 0 bd hl }
@@ -189,6 +189,34 @@
                     > a, [data-toggle] { c: fg 0 bd }
                     svg { v: fg }
                 }
+            }
+        }
+
+    // Global -> Dropdowns.
+    [class *= 'dropdown-menu'] {
+        c: 0 bd hl;
+        /// Header -> User menu.
+        .btn.menu-item {
+            c: cm 0 t;
+            &:hover { c: fg 0 bd }
+        }
+        /// Misc elements.
+        span[class *= '-text'] { c: cm }
+        [class *= 'input-field'] { c: fg bd bg }
+        .dropdown-title, [class *= '-header'] { c: fg bd }
+        /// Items.
+        li {
+            a {
+                c: cm;
+                /// TODO: Figure out `active/focus` states.
+                &:hover, &:active, &:focus { c: fg 0 bd }
+                &.is-active { c: ac }
+            }
+            &.divider { c: 0 bd }
+            /// Navbar -> User.
+            &.current-user {
+                c: cm;
+                .bold, .user-status { c: fg }
             }
         }
     }
