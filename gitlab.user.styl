@@ -173,6 +173,24 @@
         }
         .gl-link { color: ac }
         .text-secondary, .help-block { c: cm }
+
+    // Navbar.
+    .navbar {
+        /// Wrapper.
+        &-gitlab { c: 0 bd hl }
+        /// Logo text color.
+        .logo-text svg { fill: fg }
+        /// Lists.
+        &-sub-nav, &-nav {
+            c: cm;
+            li {
+                &:hover [data-toggle] { c: 0 0 bg }
+                &.active, &.show {
+                    > a, [data-toggle] { c: fg 0 bd }
+                    svg { v: fg }
+                }
+            }
+        }
     }
 }
 
