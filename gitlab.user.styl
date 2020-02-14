@@ -228,6 +228,53 @@
                 .bold, .user-status { c: fg }
             }
         }
+
+    // Global -> Left sidebar.
+    /// TODO: Improve item styles.
+    .nav-sidebar {
+        c: 0 0 hl;
+        box-shadow: inset -1px 0 bd;
+        .context-header > * {
+            c: fg;
+            &:hover { c: 0 0 bd }
+            [class *= 'avatar'] { c: 0 t t }
+        }
+        /// Collapse buttons.
+        .toggle-sidebar-button, .close-nav-button {
+            c: 0 bd hl;
+            span { c: fg }
+            &:hover { c: 0 0 bd }
+        }
+        .divider { c: 0 bd }
+        .sidebar-top-level-items {
+            > li {
+                a { c: cm }
+                &.active {
+                    c: 0 0 bd;
+                    box-shadow: inset 4px 0 ac i;
+                    > a { c: ac }
+                    > .fly-out-list > li.active > a {
+                        c: fg 0 hl;
+                        box-shadow: inset 4px 0 ac i;
+                    }
+                }
+            }
+            /// Remove indicators.
+            > li.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
+            /// TODO: Figure out styles for active item's hover background. (=
+        }
+        /// Flyout menus.
+        .is-over.is-showing-fly-out {
+            > a { c: fg 0 bd }
+            ul {
+                c: 0 bd hl;
+                box-shadow: bsh;
+                li {
+                    a { c: fg }
+                    &:hover a { c: 0 0 bd }
+                }
+            }
+        }
     }
 }
 
