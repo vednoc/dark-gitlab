@@ -55,7 +55,109 @@
 
 @-moz-document regexp("^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$") {
     /// Hello, friend.
+    :root {
+        --note      : 'Dark-GitLab v0.99.9';
+        --bshadow   : 0 2px 4px var(--shadow);
+        --t         : transparent !important;
+        --white     : white;
+        --width     : max_width;
+        --radius    : b_radius;
+        --avatar    : a_radius;
+        --ts        : transition;
+        --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+            Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
+            var(--emoji-font), sans-serif;
+        --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
+            'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono',
+            'lucida console', monospace;
+        --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol', 'Noto Color Emoji';
+        --bg-invert : bg_invert;
+        --bg-filter : bg_filter;
+        --bg-size   : bg_size;
+        --bg-repeat : bg_repeat;
+        --bg-pos    : bg_pos;
+        --background: bg_image;
+        if (theme == 'GitHub') {
+            --background: #282828;
+            --dark      : #181818;
+            --darken    : #202020;
+            --darker    : #404040;
+            --light     : #e6e6e6;
+            --lighter   : #bfbfbf;
+            --accent    : #4f8cc9;
+            --shadow    : #00000040;
+            --yellow    : #ffcc33;
+            --orange    : #fe9600;
+            --red       : #ff4444;
+            --magenta   : #8368aa;
+            --violet    : #6e5494;
+            --blue      : #4f8cc9;
+            --cyan      : #4d5eff;
+            --green     : #008833;
+        } else {
+            --dark      : dark;
+            --darken    : darken;
+            --darker    : darker;
+            --light     : light;
+            --lighter   : lighter;
+            --accent    : accent;
+            --shadow    : shadow;
+            --yellow    : yellow;
+            --orange    : orange;
+            --red       : red;
+            --magenta   : magenta;
+            --violet    : violet;
+            --blue      : blue;
+            --cyan      : cyan;
+            --green     : green;
+        }
+    }
+
+    // Overwrite existing Stylus-lang vars with CSS vars.
+    bg      = var(--dark);
+    hl      = var(--darken);
+    bd      = var(--darker);
+    fg      = var(--light);
+    cm      = var(--lighter);
+    ac      = var(--accent);
+    sh      = var(--shadow);
+    bsh     = var(--bshadow);
+    yellow  = var(--yellow);
+    orange  = var(--orange);
+    red     = var(--red);
+    magenta = var(--magenta);
+    violet  = var(--violet);
+    blue    = var(--blue);
+    cyan    = var(--cyan);
+    green   = var(--green);
+    white   = var(--white);
+    r       = var(--radius);
+    t       = var(--t);
+    ts      = var(--ts);
+    outer   = 0 0 0 1px bd;
+    inner   = inset outer;
+    i       = !important;
+
+    // Color mixin.
+    /// All colors: `c: fg bd bg;`
+    /// Only border-color: `c: 0 bd;`
+    c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+        i = !important;
+        if x is a 'call' or x is a 'rgba' {            color: xi is 0? x : x i }
+        if y is a 'call' or y is a 'rgba' {     border-color: yi is 0? y : y i }
+        if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
+    }
+    // SVG colors.
+    v(x, y = 0, xi = 1, yi = 1) {
+        i = !important;
+        if x is a 'call' or x is a 'rgba' {   fill: xi is 0? x : x i }
+        if y is a 'call' or y is a 'rgba' { stroke: yi is 0? y : y i }
+    }
+    // Border radius mixin.
+    rad() { border-radius: arguments }
 }
+
 @-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
 domain('invent.kde.org'),
 domain('git.pleroma.social'),
