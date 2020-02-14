@@ -228,6 +228,21 @@
                 .bold, .user-status { c: fg }
             }
         }
+        /// Navbar -> Projects/groups.
+        /.frequent-items-dropdown {
+            &-sidebar {
+                c: 0 bd;
+                a { c: fg }
+                a:hover { c: 0 0 bd }
+            }
+            &-content {
+                .section-header { c: cm }
+                ul li:hover a { c: 0 0 bd }
+                [class *= '-item-title'] { c: fg }
+                [class *= '-namespace'] { c: cm }
+            }
+        }
+    }
 
     // Global -> Left sidebar.
     /// TODO: Improve item styles.
