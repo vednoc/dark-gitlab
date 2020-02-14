@@ -156,6 +156,24 @@
     }
     // Border radius mixin.
     rad() { border-radius: arguments }
+
+    // Base styles.
+    body {
+        c: fg 0 bg;
+        a { color: ac }
+        hr { border-color: bd }
+        h1, h2, h3, h4, h5, h6 { color: fg }
+        time { color: cm }
+        :not(pre) > code {
+            c: fg 0 hl 0 0 0;
+            box-shadow: inner;
+        }
+        pre {
+            c: fg bd hl 0 0 0;
+        }
+        .gl-link { color: ac }
+        .text-secondary, .help-block { c: cm }
+    }
 }
 
 @-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
