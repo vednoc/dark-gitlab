@@ -53,7 +53,10 @@
 @var color shadow  "Color: Shadow       " #00000025
 ==/UserStyle== */
 
-@-moz-document regexp('^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
+@-moz-document regexp("^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$") {
+    /// Hello, friend.
+}
+@-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
 domain('invent.kde.org'),
 domain('git.pleroma.social'),
 domain('code.videolan.org'),
@@ -5528,7 +5531,7 @@ domain('custom.domain') {
   }
 }
 
-@-moz-document regexp('https?://customers.gitlab.com(/.*)') {
+@-moz-document regexp('_https?://customers.gitlab.com(/.*)') {
   h1, h2 { font-weight: normal }
   .times { c: cm }
   .list {
@@ -5605,7 +5608,7 @@ domain('custom.domain') {
   }
 }
 
-@-moz-document regexp('https?://design.gitlab.com(/.*)') {
+@-moz-document regexp('_https?://design.gitlab.com(/.*)') {
   // Loading bar.
   .nuxt-progress { c: 0 0 ac }
   // Contribute section.
@@ -5642,7 +5645,7 @@ domain('custom.domain') {
   .baseline--typography:after { background-image: linear-gradient(bd 1px, t 0) }
 }
 
-@-moz-document regexp('^https?://about.gitlab.com(/.*)$') {
+@-moz-document regexp('_^https?://about.gitlab.com(/.*)$') {
   // Hello bar.
   .hello-bar-wrapper {
     .hello-bar {
@@ -6225,7 +6228,7 @@ domain('custom.domain') {
 }
 
 // #27
-@-moz-document regexp('^https?://about.gitlab.com/releases/$') {
+@-moz-document regexp('_^https?://about.gitlab.com/releases/$') {
   h2 {
     c: 0 0 orange;
     a { c: white }
@@ -6234,7 +6237,7 @@ domain('custom.domain') {
 }
 
 // ? Not extensively tested, mainly a refactor of old working code.
-@-moz-document regexp('^https?://forum.gitlab.com(/.*)$') {
+@-moz-document regexp('_^https?://forum.gitlab.com(/.*)$') {
   // Top bar.
   nav#bar {
     c: 0 0 bd;
@@ -6582,7 +6585,7 @@ domain('custom.domain') {
   #login-form a { c: fg }
 }
 
-@-moz-document regexp('https?://docs.gitlab.com(/.*)') {
+@-moz-document regexp('_https?://docs.gitlab.com(/.*)') {
   // * Landing page.
   .landing {
     // Search container.
@@ -6891,7 +6894,7 @@ domain('custom.domain') {
   }
 }
 
-@-moz-document domain('status.gitlab.com') {
+@-moz-document domain('_status.gitlab.com') {
   // * Header.
   #statusio_header {
     margin: 0;
@@ -6982,7 +6985,7 @@ domain('custom.domain') {
   }
 }
 
-@-moz-document domain('next.gitlab.com') {
+@-moz-document domain('_next.gitlab.com') {
   body {
     background: none i;
     .wrapper > img.bg { opacity: 0 }
