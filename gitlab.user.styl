@@ -191,6 +191,15 @@
                 }
             }
         }
+        /// Embed theme version in the help menu.
+        .header-help li:first-child::before {
+            content: '🌚 ' var(--note);
+            display: block;
+            padding: 4px 12px 6px;
+            border-bottom: 1px solid bd;
+            color: fg;
+        }
+    }
 
     // Global -> Dropdowns.
     [class *= 'dropdown-menu'] {
