@@ -337,6 +337,17 @@
         }
     }
 
+    // Project -> Latest commit.
+    .info-well {
+        c: fg bd hl;
+        .well-segment {
+            .commit a { c: fg }
+            .committer { c: cm }
+            /// Center the SHA-value box.
+            .commit-actions { align-self: center }
+        }
+    }
+
     // Project -> Readme.
     .readme-holder {
         c: 0 bd bg;
