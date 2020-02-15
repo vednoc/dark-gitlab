@@ -319,6 +319,24 @@
         }
     }
 
+    // Global -> Pagination.
+    .pagination {
+        .page-link {
+            c: fg bd hl;
+            &:not(.active):hover {
+                c: 0 0 bd;
+                box-shadow: none;
+            }
+            ../ .disabled .page-link {
+                opacity: 0.6;
+                c: cm 0 hl;
+            }
+            ../ .active .page-link {
+                c: ac 0 bd;
+            }
+        }
+    }
+
     // Profile -> Cover.
     .cover {
         &-block { c: 0 0 hl }
