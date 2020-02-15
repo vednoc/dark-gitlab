@@ -302,6 +302,25 @@
             }
         }
     }
+
+    // Profile -> Cover.
+    .cover {
+        &-block { c: 0 0 hl }
+        &-title, &-status, &-desc { c: fg }
+        /// Activity.
+        /.calendar {
+            &-hint { c: cm }
+            svg.contrib-calendar > g {
+            text { v: fg }
+            rect { v: ac }
+            rect[fill = '#ededed'] { opacity: 0.06 }
+            rect[fill ^= 'rgb(17'] { opacity: 0.20 }
+            rect[fill ^= 'rgb(12'] { opacity: 0.45 }
+            rect[fill ^= 'rgb(82'] { opacity: 0.70 }
+            rect[fill ^= 'rgb(37'] { opacity: 1 }
+            }
+        }
+    }
 }
 
 @-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
