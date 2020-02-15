@@ -303,6 +303,22 @@
         }
     }
 
+    // Global -> Page title.
+    .page-title {
+        c: fg;
+        &-holder { c: 0 bd }
+    }
+
+    // Global -> Breadcrumbs.
+    .breadcrumb {
+        &-item a { c: cm }
+        &s {
+            &-list a { c: cm }
+            &-container { c: 0 bd }
+            &-sub-title a { c: fg }
+        }
+    }
+
     // Profile -> Cover.
     .cover {
         &-block { c: 0 0 hl }
