@@ -337,6 +337,21 @@
         }
     }
 
+    // Project -> Readme.
+    .readme-holder {
+        c: 0 bd bg;
+        /// Header.
+        [class *= 'file-title'] {
+            c: 0 bd hl;
+            rad: 3px 3px 0 0;
+            a:not(.btn) { c: fg }
+        }
+        /// Body.
+        .file-content {
+            c: 0 0 t;
+        }
+    }
+
     // Profile -> Cover.
     .cover {
         &-block { c: 0 0 hl }
