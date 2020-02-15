@@ -337,6 +337,36 @@
         }
     }
 
+    // Global -> Markdown area.
+    .md {
+        c: fg;
+        h1, h2 { c: fg bd }
+        p { c: fg }
+        a { c: ac }
+        blockquote, .blockquote {
+            border-left-width: 5px;
+            c: cm bd;
+            p { c: cm }
+        }
+        img.lazy { c: 0 0 hl }
+        img:not(.emoji) {
+            c: 0 bd;
+            /// TODO: Implement an option for image opacity.
+            md_img = 1;
+            md_img_opacity = 0.6;
+            opacity: md_img ? md_img_opacity : 1;
+            transition: opacity 0.2s ease;
+            &:hover {
+                transition-delay: 0.5s;
+                opacity: 1;
+            }
+        }
+        pre.code {
+            rad: 4px i;
+            border: 1px solid bd; /// TODO: Might break things.
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
