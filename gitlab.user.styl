@@ -303,6 +303,29 @@
         }
     }
 
+    // Global -> Avatars.
+    .avatar {
+        /// TODO: Add an option to set custom avatar radius.
+        &, &-circle, &-container {
+            rad: 35%;
+            c: white t;
+        }
+        &:not(.identicon) { c: 0 t t }
+        &.s48 { line-height: 46px }
+        &[class *= 'bg'] {
+            rad: 35%;
+            box-shadow: inset 0 0 0 0.15em sh;
+        }
+        &.bg0 { c: 0 0 red }
+        &.bg1 { c: 0 0 green }
+        &.bg2 { c: 0 0 blue }
+        &.bg3 { c: 0 0 yellow }
+        &.bg4 { c: 0 0 magenta }
+        &.bg5 { c: 0 0 cyan }
+        &.bg6 { c: 0 0 purple }
+        &.bg7 { c: 0 0 orange }
+    }
+
     // Global -> Page title.
     .page-title {
         c: fg;
