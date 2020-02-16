@@ -424,6 +424,23 @@
         /// Body.
         .file-content {
             c: 0 0 t;
+            /// HACK: GitHub-alike styles.
+            [dir][align='left'] { text-align: left }
+            [dir][align='right'] { text-align: right }
+            [dir][align='center'] { text-align: center }
+            a img:not(.emoji) {
+                box-sizing: content-box;
+                margin: 0 i;
+                c: 0 0 bg;
+                &[align='left'] { padding-right: 20px }
+                &[align='right'] { padding-left: 20px }
+            }
+            h1, h2, h3, h4, h5, h6 { position: unset }
+            &::before, &::after {
+                content: '';
+                display: table;
+            }
+            &::after { clear: both }
         }
     }
 
