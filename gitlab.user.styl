@@ -320,6 +320,19 @@
         /.loading { c: cm }
     }
 
+    // Global -> Cards.
+    .card {
+        c: 0 bd hl;
+        .user-info .user { c: fg }
+        .cgray { c: cm }
+        &.border-0 {
+            border: 1px solid bd i;
+            .card-header { c: 0 0 bd }
+            .card-body { rad: 0 0 3px 3px }
+            /.bg-secondary { c: 0 0 hl }
+        }
+    }
+
     // Global -> Avatars.
     .avatar {
         /// TODO: Add an option to set custom avatar radius.
