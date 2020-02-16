@@ -401,6 +401,28 @@
         /.new-gl-button { box-shadow: inner }
     }
 
+    // Pajamas -> Alerts.
+    .gl-alert {
+        &-warning &-body {
+            margin: 0 auto;
+            padding: 0 1rem;
+            max-width: 80rem;
+        }
+        &-warning {
+            z-index: 1;
+            c: orange 0 hl;
+            &::before {
+                z-index: -1;
+                content: '';
+                opacity: 0.15;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                c: 0 0 orange;
+            }
+            a { text-decoration: underline }
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
