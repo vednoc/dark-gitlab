@@ -285,6 +285,11 @@
         &.issues-count { c: 0 0 green }
         &.merge-requests-count { c: 0 0 orange }
         &.todos-count { c: 0 0 blue }
+        /// Project -> Header stats.
+        &&-pill&-secondary {
+            c: cm 0 bd;
+            &:hover { c: fg }
+        }
     }
 
     // Global -> Forms.
@@ -386,6 +391,8 @@
                         &, a, button { c: fg bd }
                         .badge.badge-pill { c: fg 0 bd }
                     }
+                    /// Project -> Header stats.
+                    strong { c: fg }
                 }
             }
         }
