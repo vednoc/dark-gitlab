@@ -173,6 +173,10 @@
         }
         .gl-link { color: ac }
         .text-secondary, .help-block { c: cm }
+        /// Global color reset.
+        .cgray { c: cm }
+        .text-plain { c: fg }
+        .bg-secondary { c: 0 0 hl }
 
     // Global -> Navbar.
     .navbar {
@@ -309,8 +313,6 @@
             c: 0 bd;
             .description { c: cm }
             /.user-access-role { c: cm bd hl }
-            /// TODO: Move to global styles.
-            .text-plain { c: fg }
         }
         /// Profile -> Personal projects.
         &.compact {
@@ -324,12 +326,13 @@
     .card {
         c: 0 bd hl;
         .user-info .user { c: fg }
-        .cgray { c: cm }
         &.border-0 {
             border: 1px solid bd i;
-            .card-header { c: 0 0 bd }
+            .card-header {
+                c: 0 0 bd;
+                a { c: fg }
+            }
             .card-body { rad: 0 0 3px 3px }
-            /.bg-secondary { c: 0 0 hl }
         }
     }
 
