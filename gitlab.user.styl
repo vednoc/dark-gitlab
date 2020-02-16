@@ -489,8 +489,15 @@
     .md {
         c: fg;
         h1, h2 { c: fg bd }
+        hr { c: 0 bd }
         p { c: fg }
-        a { c: ac }
+        a {
+            c: ac;
+            > code {
+                padding: 0.375em 0.25em;
+                color: inherit;
+            }
+        }
         blockquote, .blockquote {
             border-left-width: 5px;
             c: cm bd;
@@ -512,7 +519,9 @@
         pre.code {
             rad: 4px i;
             border: 1px solid bd; /// TODO: Might break things.
+            c: fg 0 hl;
         }
+        code { font-family: var(--mono-font) i }
     }
 
     // Pajamas -> Banners.
