@@ -250,6 +250,7 @@
 
     // Global -> Forms.
     .form-control, .search form {
+        height: 35px;
         c: fg 0 bg;
         border: 1px solid bd i;
         /// Navbar -> Fix 'search' dropdown. @upstream
@@ -307,6 +308,27 @@
         }
     }
 
+    /// Global -> Navigation.
+    .top-area {
+        c: 0 bd;
+        /// Global -> Nav links.
+        /.nav-links {
+            &:not(.quick-links) { c: 0 bd }
+            li {
+                .badge.badge-pill { c: cm 0 bd }
+                a, button {
+                    c: cm;
+                    ../:hover a, button { c: fg hl }
+                    ../.active {
+                        &, a, button { c: fg bd }
+                        .badge.badge-pill { c: fg 0 bd }
+                    }
+                }
+            }
+        }
+        /// Global -> Search.
+        .form-control { c: 0 0 hl }
+    }
     // Global -> Projects list.
     .projects-list {
         > li {
