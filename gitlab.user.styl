@@ -260,6 +260,21 @@
         }
     }
 
+    // Global -> Lists.
+    ul.content-list {
+        li {
+            c: cm bd;
+            a { c: fg }
+            /.item-meta * { c: cm }
+            /// Groups -> Hover event.
+            .group-row-contents {
+                &:hover { c: 0 0 hl }
+                .metadata { span, div { c: cm }}
+                /.has-no-search-results { c: cm }
+            }
+        }
+    }
+
     // Global -> Left sidebar.
     /// TODO: Improve item styles.
     .nav-sidebar {
