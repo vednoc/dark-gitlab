@@ -303,6 +303,23 @@
         }
     }
 
+    // Global -> Projects list.
+    .projects-list {
+        > li {
+            c: 0 bd;
+            .description { c: cm }
+            /.user-access-role { c: cm bd hl }
+            /// TODO: Move to global styles.
+            .text-plain { c: fg }
+        }
+        /// Profile -> Personal projects.
+        &.compact {
+            .avatar { line-height: 38px i }
+        }
+        /// TODO: Move to preloaders.
+        /.loading { c: cm }
+    }
+
     // Global -> Avatars.
     .avatar {
         /// TODO: Add an option to set custom avatar radius.
