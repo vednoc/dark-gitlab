@@ -389,6 +389,29 @@
         }
     }
 
+    // Project -> Files.
+    .table-holder {
+        c: 0 0 bg;
+        &.bordered-box { c: 0 bd }
+        table {
+            thead tr, th { border-top: none i }
+            thead tr th { c: fg 0 hl }
+            tbody {
+                td { c: 0 bd }
+                tr {
+                    border-bottom: none i;
+                    &:hover td { c: 0 0 hl }
+                    &:last-child td { border-bottom: none i }
+                }
+            }
+            /// Files.
+            /.tree {
+                &-item-file-name { &, a, i { c: fg }}
+                &-commit { &, &-link { c: cm }}
+            }
+        }
+    }
+
     // Project -> Readme.
     .readme-holder {
         c: 0 bd bg;
