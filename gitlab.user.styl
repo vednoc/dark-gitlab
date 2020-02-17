@@ -656,6 +656,44 @@
         }
     }
 
+    // Pajamas -> Popover.
+    .gl-popover {
+        font-family: var(--ui-font);
+        rad: r;
+        c: 0 bd bg;
+        box-shadow: bsh;
+        &-header { c: 0 bd hl }
+        &-body {
+            padding: 8px;
+            c: fg;
+            ../.blue { c: 0 0 blue }
+        }
+        /// Blue popouts.
+        .arrow {
+            color: bg;
+            ../.blue .arrow { c: blue }
+        }
+        /// Arrows.
+        &[class *= '-top'] {
+            .arrow::before { border-top-color: bd i }
+            .arrow::after { border-top-color: inherit i }
+        }
+        &[class *= '-bottom'] {
+            .arrow::before { border-bottom-color: bd i }
+            .arrow::after { border-bottom-color: inherit i }
+        }
+        &[class *= '-left'] {
+            .arrow::before { border-left-color: bd i }
+            .arrow::after { border-left-color: inherit i }
+        }
+        &[class *= '-right'] {
+            .arrow::before { border-right-color: bd i }
+            .arrow::after { border-right-color: inherit i }
+        }
+        /// Status.
+        .js-user-status { c: cm }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
