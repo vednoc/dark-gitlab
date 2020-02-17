@@ -273,6 +273,8 @@
     // Global -> Dropdowns.
     [class *= 'dropdown-menu'] {
         c: 0 bd hl;
+        /// Active state.
+        &.show { box-shadow: bsh }
         /// Header -> User menu.
         .btn.menu-item {
             c: cm 0 t;
