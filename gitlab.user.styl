@@ -24,9 +24,9 @@
 @var checkbox md_center  "Readme: Center the content" 1
 @var checkbox dark_logo  "Switch to our darker logo" 0
 @var checkbox nb_height  'Navbar: Increase height' 1
+@var checkbox nb_canary  'Navbar: Show canary badge' 1
 @var checkbox navbar_s   "Navbar: Match custom layout width" 0
 @var checkbox navbar_c   "Navbar: Theme navbar color" 1
-@var checkbox navbar_n   "Navbar: Show 'next' badge" 1
 @var checkbox invert_ic  "Icons: Invert in Chromium-based browsers" 1
 @var checkbox sb_enable  'Enable theme scrollbars' 1
 @var checkbox bg_invert  "Background invert colors" 0
@@ -224,6 +224,12 @@
         &-gitlab, &&-empty { c: 0 bd hl }
         /// Logo text color.
         .logo-text svg { fill: fg }
+        /// Feat -> Show navbar canary badge.
+        if ( nb_canary != 1 ) {
+            .canary-badge { display: none i }
+        } else {
+            .canary-badge > .badge { c: white green green }
+        }
         /// Lists.
         &-sub-nav, &-nav {
             c: cm;
