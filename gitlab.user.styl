@@ -228,10 +228,14 @@
         &-sub-nav, &-nav {
             c: cm;
             li {
-                &:hover [data-toggle] { c: 0 0 bg }
                 &.active, &.show {
                     > a, [data-toggle] { c: fg 0 bd }
                     svg { v: fg }
+                }
+                a, button[type] {
+                    c: cm;
+                    transition: 0.2s ease;
+                    &:hover { c: fg 0 bg }
                 }
             }
         }
@@ -243,6 +247,8 @@
             border-bottom: 1px solid bd;
             color: fg;
         }
+        /// Sign in / register.
+        .btn-sign-in { &, &:hover { c: cm 0 bg }}
         /// Feat -> Increase navbar height.
         if (nb_height == 1) {
             min-height: 50px;
