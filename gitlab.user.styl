@@ -186,6 +186,7 @@
         .cgray { c: cm }
         .text-plain { c: fg }
         .bg-secondary { c: 0 0 hl }
+        .border-bottom { c: 0 bd }
         /// Scrollbars.
         if ( sb_enable == 1 ) {
             /html { scrollbar-color: #88888830 #88888815 }
@@ -412,6 +413,16 @@
         }
         /// TODO: Move to preloaders.
         /.loading { c: cm }
+    }
+
+    // Global -> Event lists.
+    .event {
+        &-item {
+            c: cm bd;
+            .commit { &, &s-stat { c: fg }}
+            [href], [href *= '/compare/'] { c: ac }
+        }
+        &-user-info a[href] { c: fg }
     }
 
     // Global -> Cards.
