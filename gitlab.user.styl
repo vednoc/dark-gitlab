@@ -328,9 +328,11 @@
 
     // Global -> Forms.
     .form-control, .search form {
-        height: 35px;
-        c: fg 0 bg;
+        c: fg 0 hl;
         border: 1px solid bd i;
+        /// Overwrites for navbar and top nav.
+        /.navbar & { c: 0 0 bg }
+        /.top-area & { height: 35px }
         /// Navbar -> Fix 'search' dropdown. @upstream
         #search {
             c: 0 0 t;
