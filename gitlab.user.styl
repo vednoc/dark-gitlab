@@ -628,6 +628,34 @@
         }
     }
 
+    // Pajamas -> GFM.
+    .gfm {
+        &&-project_member {
+            z-index: 1;
+            padding: 2px 4px;
+            position: relative;
+            text-decoration: none;
+            transition: 0.2s ease;
+            font-weight: 500;
+            c: ac 0 t;
+            &::before {
+                z-index: -1;
+                content: '';
+                opacity: 0.2;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                transition: inherit;
+                rad: inherit;
+                c: 0 0 ac;
+            }
+            &:hover::before { opacity: 0.4 }
+            &.current-user {
+                c: white 0 ac;
+                &:hover { opacity: 0.7 }
+            }
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
