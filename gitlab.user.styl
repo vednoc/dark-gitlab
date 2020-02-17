@@ -196,12 +196,32 @@
                 &-thumb { background: #88888830 }
             }
         }
+        /// Login page.
+        .page-wrap {
+            c: 0 0 t;
+            .brand-holder p { c: cm }
+            /// Footer styles.
+            hr.footer-fixed {
+                padding-top: 24px;
+                margin-bottom: 0;
+                c: 0 0 hl;
+                + .footer-container { c: 0 0 t }
+            }
+            /// Login.
+            .login-box, .signup-box, .omniauth-container {
+                rad: 4px;
+                c: 0 bd hl;
+                box-shadow: inner i;
+                .omniauth-btn { c: 0 0 bg }
+                .omniauth-divider { &::before, &::after { c: 0 bd }}
+            }
+        }
     }
 
     // Global -> Navbar.
     .navbar {
         /// Wrapper.
-        &-gitlab { c: 0 bd hl }
+        &-gitlab, &&-empty { c: 0 bd hl }
         /// Logo text color.
         .logo-text svg { fill: fg }
         /// Lists.
