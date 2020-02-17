@@ -697,12 +697,9 @@
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
-        .well-segment {
-            .commit a { c: fg }
-            .committer { c: cm }
-            /// Center the SHA-value box.
-            .commit-actions { align-self: center }
-        }
+        .commit-row-message, .committer a { c: fg }
+        /// Center the SHA-value box.
+        .commit-actions { align-self: center }
     }
 
     // Project -> Files.
