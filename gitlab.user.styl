@@ -497,7 +497,7 @@
     // Global -> Avatars.
     .avatar {
         &, &-circle, &-container {
-            rad: var(--avatar);
+            rad: var(--avatar) i;
             c: white t;
         }
         &:not(.identicon) { c: 0 t t }
@@ -506,6 +506,7 @@
             rad: var(--avatar);
             box-shadow: inset 0 0 0 0.15em sh;
         }
+        /// Default colors.
         &.bg0 { c: 0 0 red }
         &.bg1 { c: 0 0 green }
         &.bg2 { c: 0 0 blue }
