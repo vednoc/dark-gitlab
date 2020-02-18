@@ -223,8 +223,14 @@
     .navbar {
         /// Wrapper.
         &-gitlab, &&-empty { c: 0 bd hl }
-        /// Logo text color.
-        .logo-text svg { fill: fg }
+        /// Logo.
+        .title {
+            > a {
+                margin: 4px 2px 4px -8px i;
+                &:hover { c: 0 0 bg }
+            }
+            .logo-text svg { fill: fg }
+        }
         /// Feat -> Show navbar canary badge.
         if ( nb_canary != 1 ) {
             .canary-badge { display: none i }
