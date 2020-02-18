@@ -160,8 +160,10 @@
 
     // Base styles.
     body {
-        c: fg 0 bg;
-        a { color: ac }
+        font-family: var(--ui-font) i;
+        &, &.navless { c: fg 0 bg }
+        /// Browser styles.
+        a { &, &:hover { color: ac }}
         hr { border-color: bd }
         h1, h2, h3, h4, h5, h6 { color: fg }
         time { color: cm }
@@ -176,6 +178,11 @@
                 font-size: 0.875rem;
                 c: cm bd;
             }
+        }
+        kbd {
+            font-family: var(--mono-font);
+            c: fg 0 bd;
+            rad: 4px;
         }
         .gl-link { color: ac }
         .text-secondary, .help-block { c: cm }
