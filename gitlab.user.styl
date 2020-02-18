@@ -11,7 +11,7 @@
 
 @var select   theme      "Theme colors" ["Default", "GitHub"]
 @var text     b_radius   "Custom border radius" 4px
-@var text     a_radius   "Custom avatar radius" 8px
+@var text     a_radius   'Avatars: Custom border radius' 8px
 @var text     max_width  "Custom width for fixed layout" 1280px
 @var text     ui_font    "Custom UI font" "'font_name'"
 @var text     mono_font  "Custom mono font" "'font_name'"
@@ -264,7 +264,7 @@
         .header-user-avatar {
             border: none i;
             c: cm 0 t;
-            rad: 35%;
+            rad: var(--avatar);
         }
         /// Sign in / register.
         .btn-sign-in { &, &:hover { c: cm 0 bg }}
@@ -496,15 +496,14 @@
 
     // Global -> Avatars.
     .avatar {
-        /// TODO: Add an option to set custom avatar radius.
         &, &-circle, &-container {
-            rad: 35%;
+            rad: var(--avatar);
             c: white t;
         }
         &:not(.identicon) { c: 0 t t }
         &.s48 { line-height: 46px }
         &[class *= 'bg'] {
-            rad: 35%;
+            rad: var(--avatar);
             box-shadow: inset 0 0 0 0.15em sh;
         }
         &.bg0 { c: 0 0 red }
