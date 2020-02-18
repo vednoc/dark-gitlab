@@ -677,6 +677,28 @@
         }
     }
 
+    // Pajamas -> Modals.
+    /// NOTE: There is a `gl-modal` selector but it's not widely used.
+    .modal {
+        c: 0 0 t;
+        .modal-content {
+            c: blue bd bg;
+            .modal-header {
+                c: 0 bd hl;
+                .close { c: cm }
+            }
+            .modal-body {
+                c: 0 0 t;
+                /// Shortcuts.
+                table th { c: fg }
+                table td { c: cm }
+            }
+            .modal-footer { c: 0 bd hl }
+        }
+        /// Fix body content shift when modal is open. @upstream
+        /body.modals-open { padding-right: 0px i }
+    }
+
     // Pajamas -> Popover.
     .gl-popover {
         font-family: var(--ui-font);
