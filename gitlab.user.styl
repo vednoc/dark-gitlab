@@ -192,6 +192,7 @@
         /// Global color reset.
         .cgray, .description-block { c: cm }
         .text-plain, .light { c: fg }
+        .bg-light { c: 0 0 bd }
         .bg-secondary { c: 0 0 hl }
         .bg-white, .bg-gray-light { c: 0 0 bg }
         .border-bottom, .bordered-box { c: 0 bd }
@@ -524,6 +525,19 @@
                 rad: 3px 3px 0 0;
             }
             ul li { c: 0 0 t }
+        }
+    }
+
+    // Global -> Skeleton.
+    .animation-container {
+        [class *= 'skeleton-line-'] {
+            c: 0 0 bd;
+            &::after { background-image: linear-gradient(90deg, hl, bd 80%) }
+        }
+        /.gl-spinner {
+            &&-dark {
+                c: 0 bd; border-top-color: ac i
+            }
         }
     }
 
