@@ -353,8 +353,11 @@
         /// Navbar -> Fix 'search' dropdown. @upstream
         #search {
             c: 0 0 t;
+            box-shadow: none i;
             ~ [class *= 'dropdown-menu'] .is-active { c: cm }
         }
+        /// Fix icon color.
+        .search-icon { v: cm }
     }
 
     // Global -> Lists.
