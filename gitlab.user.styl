@@ -354,6 +354,16 @@
         }
         /// Commits -> Details.
         &&-gray { c: fg 0 bg }
+        /// HACK: Reset colored labels.
+        &.color-label {
+            text-decoration: none i;
+            box-shadow: inset 0 0 0 1rem #33333370;
+            &:hover { box-shadow: none i }
+            &[style *= 'color: #333333'] {
+                c: black;
+                box-shadow: inset 0 0 0 1rem #33333325;
+            }
+        }
     }
 
     // Global -> Forms.
