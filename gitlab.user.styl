@@ -756,7 +756,7 @@
     .modal {
         c: 0 0 t;
         .modal-content {
-            c: blue bd bg;
+            c: fg bd bg;
             .modal-header {
                 c: 0 bd hl;
                 .close { c: cm }
@@ -770,7 +770,7 @@
             .modal-footer { c: 0 bd hl }
         }
         /// Fix body content shift when modal is open. @upstream
-        /body.modals-open { padding-right: 0px i }
+        /body.modal-open { padding-right: 0px i }
     }
 
     // Pajamas -> Popover.
