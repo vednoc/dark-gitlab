@@ -340,6 +340,10 @@
         &&-monospace {
             c: fg bd bd;
         }
+        /// Issues/MRs/Epics -> Scoped labels.
+        &.scoped-label .fa-question-circle { c: 0 0 t }
+        /// Remove badge underline.
+        &-link { &, .badge { text-decoration: none i }}
     }
 
     // Global -> Badges.
@@ -356,7 +360,6 @@
         &&-gray { c: fg 0 bg }
         /// HACK: Reset colored labels.
         &.color-label {
-            text-decoration: none i;
             box-shadow: inset 0 0 0 1rem #33333370;
             &:hover { box-shadow: none i }
             &[style *= 'color: #333333'] {
@@ -411,7 +414,7 @@
             }
             .closed, .merged { c: 0 0 t }
             .issuable {
-                ../ .fa, ../ .task-status { c: cm }
+                ../ .fa:not(.fa-question-circle), ../ .task-status { c: cm }
                 &-milestone, &-info, &-updated-at { c: cm }
             }
             /// Unmerged MR icon color. @upstream
