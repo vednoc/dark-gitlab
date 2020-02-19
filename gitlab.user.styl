@@ -335,6 +335,15 @@
         }
     }
 
+    // Global -> Buttons.
+    .btn {
+        &[data-toggle = 'dropdown'], &-default {
+            c: fg bd hl;
+            svg { fill: cm }
+        }
+        &.active { c: fg bd bd }
+    }
+
     // Global -> Labels.
     .label {
         &&-monospace {
