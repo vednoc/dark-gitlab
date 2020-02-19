@@ -185,7 +185,7 @@
             rad: 4px;
         }
         .gl-link { color: ac }
-        .text-secondary, .help-block { c: cm }
+        .text-secondary, .text-muted, .help-block { c: cm }
         /// Global -> Progress bar.
         .repository-languages-bar { c: 0 0 t }
         .progress-bar { rad: 4px }
@@ -355,7 +355,7 @@
 
     // Global -> Forms.
     .form-control, .search form {
-        c: fg 0 hl;
+        c: fg bd hl;
         border: 1px solid bd i;
         /// Overwrites for navbar and top nav.
         /.navbar & { c: 0 0 bg }
@@ -880,6 +880,21 @@
         &-description {
             .title { c: fg }
             small { c: cm }
+        }
+    }
+
+    // Project -> Settings.
+    .project {
+        /// Grouped options.
+        &-visibility-setting, &-feature-settings, /.sub-section {
+            c: 0 bd hl;
+        }
+        /// Sections.
+        /.settings {
+            c: 0 bd;
+            ../-feature-row .form-control { c: 0 0 bg }
+            &-message { c: orange orange hl }
+            .account-well { c: 0 bd hl }
         }
     }
 
