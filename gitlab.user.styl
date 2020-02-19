@@ -383,6 +383,27 @@
                 /.has-no-search-results { c: cm }
             }
         }
+        /// Project -> Issues / Merge Requests.
+        &.issuable-list {
+            .issue.today {
+                position: relative;
+                c: 0 0 t;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    c: 0 0 green;
+                    opacity: 0.1;
+                }
+            }
+            .closed, .merged { c: 0 0 t }
+            .issuable {
+                ../ .fa, ../ .task-status { c: cm }
+                &-milestone, &-info, &-updated-at { c: cm }
+            }
+            /// Unmerged MR icon color. @upstream
+            /.icon-merge-request-unmerged { filter: invert(0.7) }
+        }
     }
 
     // Global -> Left sidebar.
@@ -897,6 +918,15 @@
         &-description {
             .title { c: fg }
             small { c: cm }
+        }
+        /// Search/filter results.
+        /.filtered-search-box {
+            c: 0 bd t;
+            ul { padding: 0 i }
+            input {
+                padding-left: 12px i;
+                border: none i;
+            }
         }
     }
 
