@@ -807,7 +807,7 @@
         /body.modal-open { padding-right: 0px i }
     }
 
-    // Pajamas -> Popover.
+    // Pajamas -> Popovers.
     .gl-popover {
         font-family: var(--ui-font);
         rad: r;
@@ -841,6 +841,15 @@
             .arrow::before { border-right-color: bd i }
             .arrow::after { border-right-color: inherit i }
         }
+        /// Signed commits.
+        .gpg-popover {
+            &-icon.valid svg { c: 0 green; v: green }
+            &-icon.invalid svg { c: 0 red; v: red }
+            &-user-link { c: fg }
+        }
+        /// Milestones.
+        .milestone-popover-body { c: 0 0 t }
+        .milestone-popover-footer { c: 0 bd 0 }
         /// Status.
         .js-user-status { c: cm }
     }
