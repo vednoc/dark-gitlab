@@ -342,6 +342,18 @@
             svg { fill: cm }
         }
         &.active { c: fg bd bd }
+        /// Project -> Header buttons.
+        /.project-repo-buttons {
+            .btn { padding: 6px 10px }
+            .count {
+                c: fg;
+                &-badge-count { c: 0 bd bd }
+                &-badge, ../ .btn-xs {
+                    height: 32px i;
+                    font-size: 14px i;
+                }
+            }
+        }
     }
 
     // Global -> Labels.
