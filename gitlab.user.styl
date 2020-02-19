@@ -173,8 +173,8 @@
         }
         pre {
             c: fg bd hl 0 0 0;
-            /// Commits -> Messages.
-            &.commit-row-description {
+            /// Commits -> Messages / Details.
+            &[class *= 'description'] {
                 font-size: 0.875rem;
                 c: cm bd;
             }
@@ -185,6 +185,7 @@
             rad: 4px;
         }
         .gl-link { color: ac }
+        pre, code, kbd, samp { font-family: var(--mono-font) i }
         .text-secondary, .text-muted, .help-block { c: cm }
         /// Global -> Progress bar.
         .repository-languages-bar { c: 0 0 t }
