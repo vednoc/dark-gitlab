@@ -233,7 +233,17 @@
         }
         /// Global -> Icons.
         .fa { c: cm }
-        svg { &.s16, &.icon { v: cm }}
+        /svg {
+            &.s16, &.s24, &.icon { v: cm }
+            /.deleted-icon > svg { v: orange }
+            /.closed-icon svg { v: red }
+            /.created-icon svg { v: cyan }
+            /.opened-icon svg { v: green }
+            /.accepted-icon svg { v: cyan }
+            /.deleted-icon svg { v: yellow }
+            /.imported-icon svg { v: violet }
+            /.commented-on-icon svg { v: blue }
+        }
     }
 
     // Global -> Navbar.
@@ -345,7 +355,8 @@
     .btn {
         &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
-            svg { fill: cm }
+            svg { v: cm }
+            &:hover svg { v: fg }
         }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
