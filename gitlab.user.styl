@@ -530,10 +530,15 @@
 
     // Global -> Skeleton.
     .animation-container {
+        sk_gradient = linear-gradient(90deg, bd 0%, hl 50%, bd);
+        /// File table.
         [class *= 'skeleton-line-'] {
             c: 0 0 bd;
-            &::after { background-image: linear-gradient(90deg, hl, bd 80%) }
+            &::after { background-image: sk_gradient }
         }
+        /// Operations dashboard.
+        /[class *= 'card-skeleton-']::after { background-image: sk_gradient }
+        /// Spinners.
         /.gl-spinner {
             &&-dark {
                 c: 0 bd; border-top-color: ac i
