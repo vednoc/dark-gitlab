@@ -494,13 +494,30 @@
     .card {
         c: 0 bd hl;
         .user-info .user { c: fg }
-        &-body { rad: 0 0 3px 3px i }
+        &-header {
+            c: 0 bd bd;
+            /// Project settings -> Pages.
+            &.bg-info { c: blue 0 bd }
+            &.bg-danger { c: red 0 bd }
+            + ul > .list-group-item { c: 0 bd t }
+            /// Project settings -> Card borders.
+            ../.border {
+                &-info { c: 0 blue }
+                &-danger { c: 0 red }
+            }
+        }
+        &-body {
+            > .form-actions {
+                c: 0 bd hl;
+                ../, & { rad: 0 0 3px 3px i }
+            }
+            /// TODO: Refactor later.
+            /.alert-primary { c: blue bd t }
+        }
+        /// Dashboard -> Operations.
         &.border-0 {
             border: 1px solid bd i;
-            .card-header {
-                c: 0 0 bd;
-                a { c: fg }
-            }
+            .card-header a { c: fg }
         }
         /// Notes -> Related issues.
         /.related-issues-block .card {
