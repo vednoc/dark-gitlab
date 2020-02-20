@@ -817,6 +817,19 @@
 
     // Pajamas -> GFM.
     .gfm {
+        c: fg;
+        /// Links.
+        &&-issue, &&-merge_request, &&-epic, &&-milestone { c: ac }
+        &&-commit {
+            &, &_range {
+                font-family: var(--ui-font);
+                font-size: 100%;
+            }
+            &, &_range > code { c: ac }
+        }
+        /// Color chips. #71
+        &-color_chip > span { c: 0 t }
+        /// Members annd mentions.
         &&-project_member {
             z-index: 1;
             padding: 2px 4px;
