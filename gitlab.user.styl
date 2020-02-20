@@ -1043,6 +1043,24 @@
             }
         }
     }
+
+    // Notes -> Input-box.
+    .note-form {
+        c: 0 0 t;
+        /// Editor.
+        .md-area {
+            c: red bd hl;
+            .toolbar-btn svg {
+                v: cm;
+                &:hover { v: fg }
+            }
+            .markdown-selector { c: ac }
+            .markdown-area { c: red 0 t }
+            .comment-toolbar { c: cm bd }
+        }
+        /// Reset background.
+        .timeline-icon { c: 0 0 t }
+    }
 }
 
 @-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
