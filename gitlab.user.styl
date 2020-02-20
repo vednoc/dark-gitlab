@@ -1044,6 +1044,36 @@
         }
     }
 
+    // Issues/MR/Epics -> Notes.
+    .notes {
+        /// Visual line.
+        &::before { c: 0 hl }
+        /// Timeline icons.
+        .timeline-icon {
+            c: 0 bd hl;
+            svg { v: cm }
+        }
+        /// Note styles.
+        &.timeline > .timeline-entry {
+            c: 0 bd;
+            .edited-text { &, .author-link { c: cm }}
+            /// Exclude system events and input form.
+            &:not(.system-note):not(.note-form) { c: 0 0 hl }
+            /// Active note.
+            &.target { c: 0 blue hl }
+        }
+        /[class *= 'author-name'] { c: fg }
+        /[class *= 'headline-light'] { c: cm }
+        /// Reactions.
+        /[class *= 'award-control-'] {
+            &, svg { v: cm }
+            &:hover svg { v: fg }
+            &.is-active svg { v: ac }
+        }
+        /// Reactions / user role.
+        .award-control, .user-access-role { c: 0 0 bd }
+    }
+
     // Notes -> Input-box.
     .note-form {
         c: 0 0 t;
