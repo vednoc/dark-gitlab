@@ -1056,6 +1056,7 @@
 
     // Project -> File viewer.
     .file-holder {
+        c: 0 bd;
         /// Header.
         .file-title {
             &-flex-parent {
@@ -1122,6 +1123,10 @@
             }
             /// White box-shadow on top. @upstream
             &-title-flex-parent { box-shadow: none i }
+            /// Increase top offset when nb_height is enabled.
+            if ( nb_height == 1 ) {
+                &-title, &-title-flex-parent { &.is-commit { top: 86px }}
+            }
         }
         /// Content.
         .diff-content {
@@ -1166,6 +1171,9 @@
             }
             /.cred { c: red }
             /.cgreen { c: green }
+            [class *= 'summary-toggle'] { c: blue }
+            /// Increase top offset when nb_height is enabled.
+            if ( nb_height == 1 ) { top: 49px }
         }
     }
 
