@@ -379,6 +379,15 @@
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
         &.active { c: fg bd bd }
+        /// Notes -> Issue status.
+        /.status-box {
+            c: white;
+            &-issue-closed, &-mr-merged { c: 0 0 blue }
+            &-closed, &-mr-closed { c: 0 0 red }
+            &-expired { c: 0 0 orange }
+            &-upcoming { c: fg 0 bd }
+            &-open { c: 0 0 green }
+        }
         /// Project -> Header buttons.
         /.project-repo-buttons {
             .btn { padding: 6px 10px }
