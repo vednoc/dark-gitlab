@@ -750,13 +750,20 @@
 
     // Pajamas -> Banners.
     .gl-banner {
-        c: 0 bd bg;
+        c: fg bd hl;
         .close {
             c: cm;
             text-shadow: none;
         }
         /img[src *= 's/illustrations/'] { filter: invert(0.8) hue-rotate(180deg) }
-        /.new-gl-button { box-shadow: inner }
+        /.new-gl-button {
+            c: 0 0 bd;
+            box-shadow: inner;
+            &:hover {
+                opacity: 0.8;
+                box-shadow: inner;
+            }
+        }
     }
 
     // Pajamas -> Alerts.
