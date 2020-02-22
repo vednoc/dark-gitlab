@@ -455,6 +455,21 @@
         .search-icon { v: cm }
     }
 
+    // Global -> Auto-complete menu.
+    .atwho-view {
+        c: cm bd bg;
+        box-shadow: bsh;
+        .atwho-view-ul li {
+            c: fg;
+            /// Matching text.
+            strong { c: ac }
+            /// Light text.
+            small, .params { c: cm }
+            /// Selected.
+            &:hover, &.cur { c: fg 0 hl }
+        }
+    }
+
     // Global -> Lists.
     ul.content-list {
         li {
