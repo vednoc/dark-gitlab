@@ -1052,6 +1052,32 @@
         }
     }
 
+    // Project -> File viewer.
+    .file-holder {
+        /// Header.
+        .file-title {
+            &-flex-parent {
+                c: fg bd hl;
+                /// Remove pseudo element. @upstream
+                &::before { content: none }
+                /// Header buttons.
+                .btn {
+                    svg { v: cm }
+                    &.active { c: 0 0 bd }
+                    &-default { c: 0 0 bg }
+                    &-primary {
+                        c: white ac ac;
+                        &.btn-inverted { c: ac ac bg }
+                    }
+                }
+            }
+            &-name { c: fg }
+        }
+        .file-content {
+            c: 0 0 t;
+        }
+    }
+
     // Profile -> Cover.
     .cover {
         &-block { c: 0 0 hl }
