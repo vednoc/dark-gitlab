@@ -1076,6 +1076,35 @@
         .file-content {
             c: 0 0 t;
         }
+        /.code.white {
+            /// Gutters.
+            .line-numbers, .diff-line-num {
+                c: 0 0 hl;
+                a {
+                    font-family: var(--mono-font);
+                    c: cm;
+                }
+            }
+            /// Code.
+            pre.code {
+                c: fg bd bg;
+                code > span:hover { c: 0 0 hl}
+                /// Syntax highlighting.
+                /.code.white {
+                    .err { c: white 0 red }
+                    .c, .gh, .nn { c: cm }
+                    .n, .cp { c: fg }
+                    .na, .nv { c: cyan }
+                    .s, .s2, .sx, .s1 { c: red }
+                    .nt, .m, .mi { c: blue }
+                    // .nf { c: red; filter: brightness(0.85) }
+                    .nb { c: cyan; filter: hue-rotate(30deg) }
+                    .nc { c: blue; filter: hue-rotate(30deg) }
+                    .nf, .ss { c: magenta }
+                    .ni { c: violet }
+                }
+            }
+        }
     }
 
     // Profile -> Cover.
