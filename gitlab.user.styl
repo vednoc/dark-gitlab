@@ -946,6 +946,8 @@
         /// Commits -> Info.
         .branch-info { c: 0 bd }
         svg path { v: cm }
+        /// Diff -> More info.
+        .well-segment { c: 0 bd }
     }
 
     // Project -> Files.
@@ -1124,9 +1126,33 @@
         /// Content.
         .diff-content {
             c: fg 0 bg;
+            /// Collapsed diff.
             .nothing-here-block {
                 c: cm;
                 .click-to-expand { c: ac t t }
+            }
+            /// Image diff.
+            .image {
+                c: 0 0 bg;
+                .frame {
+                    c: 0 0 t;
+                    &.added { c: 0 green }
+                    &.deleted { c: 0 red }
+                    img {
+                        grad = 45deg, bd 25%, t 25%, t 75%, bd 75%, bd 100%;
+                        background-image: linear-gradient(grad), linear-gradient(grad);
+                        c: 0 bd;
+                        &:-moz-broken::before { content: 'broken image' }
+                    }
+                }
+                &-info { c: cm }
+                ~ .note-container { c: 0 t t }
+            }
+            /// Image preview modes.
+            .view-modes {
+                c: 0 0 t;
+                li { c: cm bd }
+                .active { c: fg }
             }
         }
         /// Diff -> Change summary.
