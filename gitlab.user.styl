@@ -1263,15 +1263,16 @@
     .note-form {
         c: 0 0 t;
         /// Editor.
-        .md-area {
-            c: red bd hl;
+        /.md-area {
+            c: fg bd hl;
             .toolbar-btn svg {
                 v: cm;
                 &:hover { v: fg }
             }
             .markdown-selector { c: ac }
-            .markdown-area { c: red 0 t }
+            .markdown-area { c: fg 0 t }
             .comment-toolbar { c: cm bd }
+            textarea { font-family: var(--mono-font) }
         }
         /// Reset background.
         .timeline-icon { c: 0 0 t }
