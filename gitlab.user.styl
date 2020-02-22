@@ -1107,6 +1107,42 @@
         }
     }
 
+
+    /// Project -> Diff viewer.
+    .diff-file {
+        /// Header.
+        .file {
+            &-actions {
+                .view-file {
+                    c: cm 0 bg;
+                    &:hover { c: fg 0 bd }
+                }
+            }
+            /// White box-shadow on top. @upstream
+            &-title-flex-parent { box-shadow: none i }
+        }
+        /// Content.
+        .diff-content {
+            c: fg 0 bg;
+            .nothing-here-block {
+                c: cm;
+                .click-to-expand { c: ac t t }
+            }
+        }
+        /// Diff -> Change summary.
+        &s-changed {
+            padding: 16px;
+            c: 0 bd bg;
+            > div > .dropdown {
+                margin-left: 0;
+                padding-left: 0;
+                c: 0 0 t;
+            }
+            /.cred { c: red }
+            /.cgreen { c: green }
+        }
+    }
+
     // Profile -> Cover.
     .cover {
         &-block { c: 0 0 hl }
