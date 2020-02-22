@@ -353,10 +353,28 @@
 
     // Global -> Buttons.
     .btn {
+        position: relative;
         &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
             &:hover svg { v: fg }
+        }
+        /// NOTE: Definitely not a great idea, but let us see what happens!
+        &::before {
+            opacity: 0.15;
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            transition: 0.2s ease;
+            rad: inherit;
+            ../:hover::before { opacity: 0.35 }
+        }
+        &&-close-color {
+            c: orange orange t;
+            &::before { content: ''; c: 0 0 orange }
+        }
+        &&-success {
+            c: green green t;
+            &::before { content: ''; c: 0 0 green }
         }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
