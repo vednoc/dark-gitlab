@@ -1196,7 +1196,7 @@
         }
     }
 
-    // Issues/MR/Epics -> Notes.
+    // Issues/MRs/Epics -> Notes.
     .notes {
         /// Visual line.
         &::before { c: 0 hl }
@@ -1224,6 +1224,12 @@
         }
         /// Reactions / user role.
         .award-control, .user-access-role { c: 0 0 bd }
+        /// Global -> Emoji picker.
+        /.emoji-menu {
+            c: 0 bd hl;
+            box-shadow: bsh;
+            input { c: 0 0 bg }
+        }
     }
 
     // Notes -> Input-box.
