@@ -275,7 +275,10 @@
                 a, button[type] {
                     c: cm;
                     transition: 0.2s ease;
-                    &:hover { c: fg 0 bg }
+                    /// Exclude active states.
+                    ../:not(.active):not(.show):hover {
+                        a, button[type] { c: fg 0 bg }
+                    }
                 }
             }
         }
