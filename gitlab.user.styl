@@ -598,11 +598,15 @@
         .form-control { c: 0 0 hl }
         /// Groups -> Navigation.
         /.content-block {
-            c: 0 bd hl;
+            c: 0 bd t;
             p { c: fg }
+            &.landing {
+                c: 0 0 hl;
+                .svg-container { filter: invert(0.8) }
+            }
         }
         /// Misc.
-        /.nav-block { c: 0 green }
+        /.nav-block { c: 0 bd }
         /.row-content-block {
             c: fg bd t;
             .event-last-push-text { font-size: 14px }
