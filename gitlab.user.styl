@@ -272,12 +272,12 @@
                     > a, [data-toggle] { c: fg 0 bd }
                     svg { v: fg }
                 }
-                a, button[type] {
+                > a, > button[type] {
                     c: cm;
                     transition: 0.2s ease;
                     /// Exclude active states.
                     ../:not(.active):not(.show):hover {
-                        a, button[type] { c: fg 0 bg }
+                        > a, > button[type] { c: fg 0 bd }
                     }
                 }
             }
