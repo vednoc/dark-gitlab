@@ -382,6 +382,8 @@
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
         &.active { c: fg bd bd }
+        /// Transparent buttons.
+        &-transparent:not(#z) { c: 0 t t }
         /// Notes -> Issue status.
         /.status-box {
             c: white;
@@ -1366,10 +1368,19 @@
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 hl }
             /// Active note.
-            &.target { c: 0 blue hl }
+            &.target { c: 0 blue #88888815 }
         }
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] { c: cm }
+        /// Replies.
+        .replies-toggle {
+            c: cm bd hl;
+            &:not(.expanded) { border-bottom: 0 }
+            &.collapsed { rad: 0 0 3px 3px }
+            &.expanded { c: 0 0 bd }
+            .btn-link { c: ac }
+            span { c: cm }
+        }
         /// Reactions.
         /[class *= 'award-control-'] {
             &, svg { v: cm }
@@ -1383,6 +1394,19 @@
             c: 0 bd hl;
             box-shadow: bsh;
             input { c: 0 0 bg }
+        }
+    }
+
+    /// Issue/MRs/Epics -> Discussions.
+    .discussion {
+        .timeline-entry {
+            c: fg 0 hl;
+            &.target { c: 0 0 #88888815 }
+        }
+        /// Reply...
+        /&-reply-holder {
+            c: 0 bd hl;
+            .btn-text-field { c: fg bd bg }
         }
     }
 
