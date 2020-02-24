@@ -675,6 +675,18 @@
             }
             ul li { c: 0 0 t }
         }
+        /// Dashboard -> Issues/MRs/Todos.
+        /[class *= '-filters'] {
+            + div[class] {
+                &, .card { c: 0 0 t }
+                li {
+                    border-top: none;
+                    c: fg;
+                    &:hover { c: 0 0 hl }
+                    [class *= 'todo-'] > a, [class *= '-link'] > * { c: ac }
+                }
+            }
+        }
     }
 
     // Global -> Skeleton.
