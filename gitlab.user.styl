@@ -1078,6 +1078,17 @@
         .js-user-status { c: cm }
     }
 
+    // Project -> 'No repository' header.
+    .slead {
+        c: cm;
+        + hr + .no-repo-actions {
+            .btn-primary {
+                c: ac ac t;
+                &::before { content: ''; c: 0 0 ac }
+            }
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
