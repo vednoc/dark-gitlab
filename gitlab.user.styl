@@ -597,6 +597,65 @@
         /// Global -> Search.
         .form-control { c: 0 0 hl }
     }
+
+    /// Global -> Tabbed navigation.
+    .gitlab-tabs {
+        rad: 4px 4px 0 0;
+        c: 0 bd t;
+        &.nav.nav-tabs.nav-links {
+            rad: 4px 4px 0 0;
+            border-bottom: 1px solid;
+            box-shadow: none;
+            > .nav-item { margin: 0 }
+        }
+        li[class ^= 'nav-'] {
+            c: 0 bd bd;
+            &:first-child { margin: 0 }
+            a {
+                rad: 0;
+                ../:first-child a { rad: 3px 0 0 0 }
+                ../:last-child a { rad: 0 3px 0 0 }
+                ../:hover a.nav-link { c: fg t }
+                &:not(.active) { c: 0 0 bg }
+                &.active.nav-link {
+                    margin-bottom: -1px;
+                    c: fg hl hl;
+                }
+            }
+        }
+        /// Tab content.
+        + .gitlab-tab-content {
+            rad: 0 0 4px 4px;
+            c: 0 bd hl;
+            /// Inputs.
+            .form-control { c: 0 0 bg }
+            [class *= 'input-group'] {
+                rad: 4px;
+                c: cm bd bd;
+                /// TODO: Refactor `select2` dropdown.
+                .select2-choice { c: cm bd bg }
+            }
+            /// Visibility level.
+            .option {
+                &-title { c: fg }
+                &-description { c: cm }
+            }
+            /// 'Create from template' area.
+            .template-option { c: 0 bd }
+            .card-slim { c: 0 0 bg }
+            /// NOTE: Obsolete tabs?
+            /.nav-tabs .nav-link.active { c: 0 ac t }
+            /// Button reset.
+            .btn {
+                &[class *= 'gitea'] svg {
+                    path { v: cm }
+                    rect { v: bg }
+                }
+                &-cancel, &-default, &[class *= 'import'] { c: 0 0 bg }
+            }
+        }
+    }
+
     // Global -> Projects list.
     .projects-list {
         > li {
