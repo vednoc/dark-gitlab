@@ -1097,6 +1097,20 @@
         .milestone-popover-footer { c: 0 bd 0 }
         /// Status.
         .js-user-status { c: cm }
+        /// Old tooltips.
+        /.tooltip {
+            &.show { opacity: 1 }
+            &-inner {
+                c: fg 0 bg;
+                border: 1px solid bd;
+                box-shadow: bsh;
+                [class *= 'scoped-label'] { c: ac }
+            }
+            &[class *= 'bottom'] .arrow::before { border-bottom-color: bd }
+            &[class *= 'right'] .arrow::before { border-right-color: bd }
+            &[class *= 'left'] .arrow::before { border-left-color: bd }
+            &[class *= 'top'] .arrow::before { border-top-color: bd }
+        }
     }
 
     // Project -> 'No repository' header.
