@@ -1428,7 +1428,10 @@
             &-title-flex-parent { box-shadow: none i }
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) {
-                &-title, &-title-flex-parent { &.is-commit { top: 86px }}
+                &-title, &-title-flex-parent {
+                    top: 165px;
+                    &.is-commit { top: 86px }
+                }
             }
         }
         /// Content.
@@ -1598,6 +1601,16 @@
         /.referenced-commands { c: cm 0 bd }
         /// Zen mode.
         /.zen-backdrop.fullscreen { c: 0 0 bg }
+    }
+
+    // MRs -> Changes.
+    [class *= '-tabs-holder'] {
+        c: 0 bd bg;
+        if ( nb_height == 1  ) { top: 50px }
+        /.mr-version-controls {
+            c: fg bd bg;
+            if ( nb_height == 1  ) { top: 98px }
+        }
     }
 }
 
