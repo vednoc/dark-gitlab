@@ -1410,9 +1410,12 @@
             }
         }
         /// Fix missing border-top style. @upstream
-        border-top: 1px solid bd i;
-        rad: 4px 4px 0 0;
-        /.file-title-flex-parent { border-top: none i }
+        /.file-title {
+            &, &-flex-parent {
+                border-top: 1px solid bd i;
+                rad: 4px 4px 0 0;
+            }
+        }
     }
 
     /// Project -> Diff viewer.
@@ -1420,9 +1423,9 @@
         /// Header.
         .file {
             &-actions {
-                .view-file {
+                .btn-md {
                     c: cm 0 bg;
-                    &:hover { c: fg 0 bd }
+                    &:not(.disabled):hover { c: fg 0 bd }
                 }
             }
             /// White box-shadow on top. @upstream
@@ -1430,7 +1433,7 @@
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) {
                 &-title, &-title-flex-parent {
-                    top: 162px;
+                    top: 165px;
                     &.is-commit { top: 86px }
                 }
             }
@@ -1439,7 +1442,7 @@
         .diff-content {
             c: fg 0 bg;
             /// Collapsed diff.
-            .nothing-here-block {
+            /.nothing-here-block {
                 c: cm;
                 .click-to-expand { c: ac t t }
             }
