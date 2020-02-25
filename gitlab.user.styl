@@ -1352,9 +1352,6 @@
             c: 0 bd hl;
             /// Search -> Code.
             a:not(.btn) { c: fg }
-            /// Fix missing border-top style. @upstream
-            border-top: 1px solid bd i;
-            rad: 4px 4px 0 0;
             &-flex-parent {
                 c: fg bd hl;
                 /// Remove pseudo element. @upstream
@@ -1412,6 +1409,10 @@
                 }
             }
         }
+        /// Fix missing border-top style. @upstream
+        border-top: 1px solid bd i;
+        rad: 4px 4px 0 0;
+        /.file-title-flex-parent { border-top: none i }
     }
 
     /// Project -> Diff viewer.
@@ -1429,7 +1430,7 @@
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) {
                 &-title, &-title-flex-parent {
-                    top: 165px;
+                    top: 162px;
                     &.is-commit { top: 86px }
                 }
             }
