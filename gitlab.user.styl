@@ -1284,6 +1284,11 @@
             c: fg bd hl;
             &:first-child { border-top-width: 1px }
         }
+        /// Edit file -> Commit message.
+        &-message-container {
+            c: 0 0 t;
+            &, /.ref-name { font-family: var(--mono-font) }
+        }
     }
 
     // Project -> Issues/MR/Epics.
