@@ -442,6 +442,13 @@
             &-upcoming { c: fg 0 bd }
             &-open { c: 0 0 green }
         }
+        /// Button groups.
+        /.input-group {
+            &-append, &-prepend {
+                c: 0 0 t;
+                > [class *= '-text'] { c: cm bd bd }
+            }
+        }
         /// Project -> Header buttons.
         /.project-repo-buttons {
             .btn { padding: 6px 10px }
