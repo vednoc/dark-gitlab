@@ -314,6 +314,50 @@
         }
     }
 
+    // Global -> Tables.
+    table:not(#zzz) {
+        R = 4px;
+        display: table;
+        border-spacing: 0;
+        border-collapse: unset;
+        border-radius: R;
+        c: fg 0 bg;
+        /// Shorthand.
+        flc = 'not(:first-child):not(last-child)';
+        thead {
+            tr {
+                &:first-child th:first-child { rad: R 0 0 0 }
+                &:first-child th:last-child { rad: 0 R 0 0 }
+                th {
+                    c: fg bd hl;
+                    border-bottom-width: 0px;
+                    &:{ flc } {
+                        border-left: none;
+                        // c: 0 green;
+                    }
+                }
+            }
+        }
+        tbody {
+            c: 0 0 t;
+            tr {
+                &:{ flc } td {
+                    border-top: none;
+                    // c: 0 red;
+                }
+                td {
+                    c: cm bd t; /// NOTE: Remove `t` if it breaks things.
+                    &:{ flc } {
+                        border-left: none;
+                        // c: 0 yellow;
+                    }
+                }
+                &:last-child td:first-child { rad: 0 0 0 R }
+                &:last-child td:last-child { rad: 0 0 R 0 }
+            }
+        }
+    }
+
     // Global -> Dropdowns.
     [class *= 'dropdown-menu'] {
         c: 0 bd hl;
