@@ -690,7 +690,7 @@
         /// Misc.
         /.nav-block { c: 0 bd }
         /.row-content-block {
-            c: fg bd t;
+            c: fg bd hl;
             .event-last-push-text { font-size: 14px }
         }
     }
@@ -1337,6 +1337,12 @@
         c: 0 bd;
         /// Header.
         .file-title {
+            c: 0 bd hl;
+            /// Search -> Code.
+            a:not(.btn) { c: fg }
+            /// Fix missing border-top style. @upstream
+            border-top: 1px solid bd i;
+            rad: 4px 4px 0 0;
             &-flex-parent {
                 c: fg bd hl;
                 /// Remove pseudo element. @upstream
