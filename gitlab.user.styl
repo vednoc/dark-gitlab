@@ -529,50 +529,77 @@
     }
 
     // Global -> Left sidebar.
-    /// TODO: Improve item styles.
     .nav-sidebar {
+        border-right: 1px solid bd;
         c: 0 0 hl;
-        box-shadow: inset -1px 0 bd;
+        box-shadow: none;
+        /// Header.
         .context-header > * {
             c: fg;
             &:hover { c: 0 0 bd }
-            .project-avatar { c: 0 t t }
+            .avatar-container { c: 0 t t }
         }
-        /// Collapse buttons.
-        .toggle-sidebar-button, .close-nav-button {
-            c: 0 bd hl;
-            span { c: fg }
-            &:hover { c: 0 0 bd }
-        }
+        /// Items.
         .divider { c: 0 bd }
-        .sidebar-top-level-items {
-            > li {
-                a { c: cm }
-                &.active {
+        .sidebar-top-level-items > li {
+            &:hover { c: 0 0 bd }
+            &.active {
+                c: 0 0 #88888810;
+                box-shadow: inset 4px 0 ac i;
+                /// Level name.
+                > a {
+                    c: fg;
+                    svg { v: fg }
+                }
+                /// Active item.
+                &:not(.is-over) > ul > li.active > a {
                     c: 0 0 bd;
                     box-shadow: inset 4px 0 ac i;
-                    > a { c: ac }
-                    > .fly-out-list > li.active > a {
-                        c: fg 0 hl;
-                        box-shadow: inset 4px 0 ac i;
-                    }
+                }
+                .badge-pill { c: fg }
+            }
+            a {
+                c: cm;
+                &:hover { c: 0 0 t }
+            }
+            .badge-pill { c: cm 0 bd }
+            /// Remove borders from sub-level items.
+            &.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
+        }
+        .sidebar-sub-level-items {
+            > li {
+                &:hover {
+                    c: 0 0 bd;
+                    box-shadow: inset 4px 0 ac i;
+                }
+                &.active {
+                    box-shadow: inset 4px 0 ac i;
+                    a { c: ac }
                 }
             }
-            /// Remove indicators.
-            > li.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
-            /// TODO: Figure out styles for active item's hover background. (=
         }
         /// Flyout menus.
         .is-over.is-showing-fly-out {
             > a { c: fg 0 bd }
             ul {
                 c: 0 bd hl;
-                box-shadow: bsh;
+                box-shadow: none;
                 li {
-                    a { c: fg }
-                    &:hover a { c: 0 0 bd }
+                    a { c: cm }
+                    &:hover a { c: fg 0 bd }
                 }
             }
+        }
+        /// Collapsed state.
+        &[class *= 'collapsed'] {
+            .sidebar-top-level-items > li.active { c: 0 0 bd }
+        }
+        /// Collapse buttons.
+        .toggle-sidebar-button, .close-nav-button {
+            c: 0 bd hl;
+            svg { c: cm }
+            span { c: fg }
+            &:hover { c: 0 0 bd }
         }
     }
 
