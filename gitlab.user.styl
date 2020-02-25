@@ -170,7 +170,7 @@
         h1, h2, h3, h4, h5, h6 { color: fg }
         time { color: cm }
         :not(pre) > code {
-            c: fg 0 hl 0 0 0;
+            c: fg 0 bd 0 0 0;
             box-shadow: inner;
         }
         pre {
@@ -1410,6 +1410,8 @@
             /pre.code {
                 c: fg bd hl;
                 code > span:hover { c: 0 0 hl}
+                /// Code areas.
+                &.highlight { c: 0 0 bg }
                 /// Syntax highlighting.
                 /.code.white {
                     .err { c: white 0 red }
@@ -1422,7 +1424,7 @@
                     .nb { c: cyan; filter: hue-rotate(30deg) }
                     .nc { c: blue; filter: hue-rotate(30deg) }
                     .nf, .ss { c: magenta }
-                    .ni { c: violet }
+                    .ni, .gu { c: violet }
                 }
             }
         }
