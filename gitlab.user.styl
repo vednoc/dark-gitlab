@@ -1021,23 +1021,33 @@
     // Pajamas -> Alerts.
     .gl-alert {
         padding: 1rem 0rem;
-        &-warning &-body {
-            margin: 0 auto;
+        &-body, &-actions {
+            margin-left: auto;
+            margin-right: auto;
             padding: 0 1rem;
-            max-width: 80rem;
+            max-width: var(--width);
+            a {
+                font-weight: bold;
+                color: currentColor i;
+            }
         }
+        /// Close button.
+        .js-close {
+            color: currentColor;
+            svg { fill: currentColor i }
+        }
+        /// States.
         &-warning {
             z-index: 1;
             c: orange 0 hl;
             &::before {
                 z-index: -1;
                 content: '';
-                opacity: 0.2;
+                opacity: 0.15;
                 position: absolute;
                 top: 0; right: 0; bottom: 0; left: 0;
                 c: 0 0 orange;
             }
-            a { text-decoration: underline }
         }
         /// Global -> Old alerts.
         /.flash-container {
