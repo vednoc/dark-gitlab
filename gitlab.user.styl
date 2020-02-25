@@ -814,7 +814,7 @@
             rad: var(--avatar) i;
             c: white t;
         }
-        &:not(.identicon) { c: 0 t t }
+        &:not(.identicon) { c: 0 t hl }
         &.s48 { line-height: 46px }
         &[class *= 'bg'] {
             rad: var(--avatar);
@@ -1381,6 +1381,21 @@
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) { top: 49px }
         }
+    }
+
+    /// Groups -> Explore.
+    .group-list-tree {
+        &::before { c: 0 bd }
+        .folder-caret, .item-type-icon { c: cm }
+        .group-row {
+            &::before { c: 0 bd }
+            &:last-child::before { c: 0 0 bg }
+            .metadata { margin-right: 10px }
+            .description p { c: cm }
+            /// Fix wrong line-height for avatars. @upstream
+            .identicon.s40 { line-height: 30px }
+        }
+        .folder-caret { margin-left: 10px }
     }
 
     // Profile -> Cover.
