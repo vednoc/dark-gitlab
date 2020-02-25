@@ -426,7 +426,11 @@
             c: fg bd bd;
         }
         /// Issues/MRs/Epics -> Scoped labels.
-        &.scoped-label .fa-question-circle { c: 0 0 t }
+        &.scoped-label .fa-question-circle {
+            c: 0 0 t;
+            &[style *= '#FFFFFF'] { c: white }
+            &[style *= '#333333'] { c: black }
+        }
         /// Remove badge underline.
         &-link { &, .badge { text-decoration: none i }}
     }
