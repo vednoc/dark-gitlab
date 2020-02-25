@@ -189,6 +189,11 @@
         .gl-link { color: ac }
         pre, code, kbd, samp { font-family: var(--mono-font) i }
         .text-secondary, .text-muted, .help-block { c: cm }
+        .text-danger {
+            c: red;
+            /// Due date.
+            &.s16 { v: red }
+        }
         /// Global -> Progress bar.
         .repository-languages-bar { c: 0 0 t }
         .progress-bar { rad: 4px }
@@ -740,7 +745,15 @@
                 rad: 0 0 3px 3px;
             }
             /// Related issues.
-            ul > li { c: 0 0 hl }
+            ul > li {
+                c: 0 0 hl;
+                /// Rounded corners. @upstream
+                &:first-child { rad: 3px 3px 0 0 }
+                &:last-child {
+                    border-bottom-left-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                }
+            }
         }
         /// Notes -> Related merge requests.
         /#merge-requests {
@@ -750,6 +763,14 @@
                 rad: 3px 3px 0 0;
             }
             ul li { c: 0 0 t }
+        }
+        /// Related issues/MRs -> Assignees.
+        /.item-assignees:not(#z) .avatar {
+            c: 0 hl;
+            &-counter {
+                c: fg 0 bd;
+                rad: var(--avatar);
+            }
         }
         /// Dashboard -> Issues/MRs/Todos.
         /[class *= '-filters'] {
