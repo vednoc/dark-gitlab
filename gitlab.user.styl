@@ -1379,9 +1379,17 @@
                     c: cm;
                 }
             }
+            /// Show unchanged lines.
+            .line_expansion {
+                c: 0 0 hl;
+                a, span { c: cm }
+            }
+            /// Diffs.
+            .new .idiff { c: white 0 green }
+            .old .idiff { c: white 0 red }
             /// Code.
-            pre.code {
-                c: fg bd bg;
+            /pre.code {
+                c: fg bd hl;
                 code > span:hover { c: 0 0 hl}
                 /// Syntax highlighting.
                 /.code.white {
@@ -1400,7 +1408,6 @@
             }
         }
     }
-
 
     /// Project -> Diff viewer.
     .diff-file {
