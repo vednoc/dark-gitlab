@@ -327,6 +327,7 @@
         border-collapse: unset;
         border-radius: R;
         c: fg 0 bg;
+        &.table-bordered { c: 0 bd }
         /// Shorthand.
         flc = 'not(:first-child):not(last-child)';
         thead {
@@ -1273,11 +1274,13 @@
         &.bordered-box { c: 0 bd }
         table {
             thead tr, th { border-top: none i }
-            thead tr th { c: fg 0 hl }
             tbody {
                 td { c: 0 bd }
                 tr {
-                    border-bottom: none i;
+                    > td {
+                        border-top: 1px solid bd i;
+                        border-bottom: none i;
+                    }
                     &:hover td { c: 0 0 hl }
                     &:last-child td { border-bottom: none i }
                 }
