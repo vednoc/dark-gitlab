@@ -17,7 +17,7 @@
 @var text     mono_font  "Custom mono font" "'font_name'"
 @var text     emoji_font "Custom emoji font" "'font_name'"
 @var text     transition "Custom transitions" 0.15s ease
-@var text     faded_img  "Fade images in md/wiki/blog" "1"
+@var range    md_img_o   'Default image opacity in Markdown areas' [1, 0.0, 1, 0.01]
 @var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header   "Center project header elements" 0
 @var checkbox md_limit   "Readme: Limit content max-width" 1
@@ -1003,14 +1003,14 @@
         img.lazy { c: 0 0 hl }
         img:not(.emoji) {
             c: 0 bd;
-            /// TODO: Implement an option for image opacity.
-            md_img = 1;
-            md_img_opacity = 0.6;
-            opacity: md_img ? md_img_opacity : 1;
-            transition: opacity 0.2s ease;
-            &:hover {
-                transition-delay: 0.5s;
-                opacity: 1;
+            /// Feat -> Default image opacity.
+            if ( md_img_o < 1 ) {
+                opacity: md_img_o;
+                transition: opacity 0.5s ease;
+                &:hover {
+                    transition-delay: 0.5s;
+                    opacity: 1;
+                }
             }
             /[src *= 'style=for-the-badge'],
             &[data-canonical-src *= 'style=for-the-badge'] {
