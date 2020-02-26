@@ -1737,6 +1737,62 @@
         /// Override colors.
         input, .btn, .select2-choice { c: 0 0 bg }
         .btn[class *= 'active'] { c: 0 0 bd }
+        // Editor -> Ace editor.
+        /.ace {
+            /// Wrapper. #75
+            &-tm {
+                rad: 0 0 3px 3px i;
+                c: fg 0 bg;
+            }
+            /// Gutter.
+            &_gutter {
+                rad: 0 0 0 3px;
+                c: cm 0 hl;
+                box-shadow: 1px 0 bd;
+                ~/_gutter-cell { c: 0 0 t }
+                + .ace_scroller { rad: 0 0 3px 0 }
+            }
+            /// Highlighted line/selection.
+            &_gutter-active-line, &_active-line { c: 0 0 hl }
+            &_selected-word, &_selection {
+                c: 0 0 blue;
+                opacity: 0.3;
+            }
+            &_cursor { c: ac }
+            /// Guides.
+            &_indent-guide {
+                background: none;
+                box-shadow: inset -1px 0 bd;
+            }
+            &_print-margin { c: 0 0 bd }
+            /// Search/replace popout.
+            &_search {
+                c: 0 bd hl;
+                box-shadow: bsh;
+                &_form, &_field { c: fg bd bg }
+                [action] { c: fg bd hl }
+            }
+            /// Options.
+            &_search_options {
+                margin: 4px 0 0 -2px;
+                text-align: left;
+                .ace_button {
+                    padding: 4px;
+                    rad: 3px;
+                    c: cm bd bg;
+                    &:hover, &.checked { c: fg 0 bd }
+                }
+            }
+            /// Scroller shadow.
+            &_scroller&_scroll-left { box-shadow: inset 17px 0 16px -16px sh }
+            /// Syntax highlighting.
+            &_url { c: ac }
+            &_list { c: magenta }
+            &_line, &_constant, &_numeric { c: fg }
+            &_support { ~/_type&, ~/_function& { c: cm }}
+            &_variable, &_string, &_comment { c: green }
+            &_heading, &_storage, &_keyword, &_meta&_tag { c: blue }
+        }
     }
 }
 
