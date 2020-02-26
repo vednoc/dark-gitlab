@@ -1389,7 +1389,6 @@
         .file-title {
             c: 0 bd hl;
             /// Search -> Code.
-            a:not(.btn) { c: fg }
             &-flex-parent {
                 c: fg bd hl;
                 /// Remove pseudo element. @upstream
@@ -1404,6 +1403,8 @@
                         &.btn-inverted { c: ac ac bg }
                     }
                 }
+                /// Fix anchors for both cases.
+                ../, & { a:not(.btn) { c: fg }}
             }
             &-name { c: fg }
         }
@@ -1463,6 +1464,7 @@
         /// Header.
         .file {
             &-actions {
+                .btn.view-file,
                 .btn-md {
                     c: cm 0 bg;
                     &:not(.disabled):hover { c: fg 0 bd }
