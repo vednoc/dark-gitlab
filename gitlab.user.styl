@@ -690,7 +690,7 @@
         .edit-link, .lock-edit, .no-value { c: cm }
     }
 
-    /// Global -> Navigation.
+    // Global -> Navigation.
     .top-area {
         c: 0 bd;
         /// Global -> Nav links.
@@ -729,7 +729,7 @@
         }
     }
 
-    /// Global -> Tabbed navigation.
+    // Global -> Tabbed navigation.
     .gitlab-tabs {
         rad: 4px 4px 0 0;
         c: 0 bd t;
@@ -816,6 +816,7 @@
     .card {
         c: 0 bd hl;
         .user-info .user { c: fg }
+        /// Default styles.
         &-header {
             c: 0 bd bd;
             /// Project settings -> Pages.
@@ -838,7 +839,6 @@
         }
         &-footer {
             c: 0 bd bg;
-            /[id *= 'addition-solid'] { v: green }
         }
         /// Dashboard -> Operations.
         &.border-0 {
@@ -1134,7 +1134,7 @@
         }
         /// Color chips. #71
         &-color_chip > span { c: 0 t }
-        /// Members annd mentions.
+        /// Members and mentions.
         &&-project_member {
             z-index: 1;
             padding: 2px 4px;
@@ -1169,7 +1169,7 @@
     }
 
     // Pajamas -> Modals.
-    /// NOTE: There is a `gl-modal` selector but it's not widely used.
+    /// NOTE: The `gl-modal` exists, but it's not widely used.
     .modal {
         c: 0 0 t;
         .modal-content {
@@ -1202,7 +1202,7 @@
             c: fg;
             ../.blue { c: 0 0 blue }
         }
-        /// Blue popouts.
+        /// Blue popovers.
         .arrow {
             color: bg;
             ../.blue .arrow { c: blue }
@@ -1478,7 +1478,7 @@
         }
     }
 
-    /// Project -> Diff viewer.
+    // Project -> Diff viewer.
     .diff-file {
         /// Header.
         .file {
@@ -1548,7 +1548,7 @@
         }
     }
 
-    /// Groups -> Explore.
+    // Groups -> Explore.
     .group-list-tree {
         &::before { c: 0 bd }
         .folder-caret, .item-type-icon { c: cm }
@@ -1639,7 +1639,7 @@
         }
     }
 
-    /// Issue/MRs/Epics -> Discussions.
+    // Issue/MRs/Epics -> Discussions.
     .discussion {
         .timeline-entry {
             c: fg 0 hl;
@@ -1712,7 +1712,7 @@
         }
     }
 
-    /// Project -> File editor.
+    // Project -> File editor.
     .file {
         /// Fix rounded corners.
         &-holder { &&-bottom-radius { rad: 0 0 4px 4px }}
