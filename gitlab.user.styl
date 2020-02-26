@@ -1711,6 +1711,33 @@
             }
         }
     }
+
+    /// Project -> File editor.
+    .file {
+        /// Fix rounded corners.
+        &-holder { &&-bottom-radius { rad: 0 0 4px 4px }}
+        &-editor {
+            /// Top navigation.
+            .nav-links {
+                c: 0 bd hl;
+                rad: 4px 4px 0 0;
+            }
+            .file-title { rad: 0 }
+        }
+        .toolbar-btn:hover svg { v: fg }
+        /// Fix fonts.
+        .btn, .encoding-selector, #preview { font-family: var(--ui-font) }
+        /// Branch name.
+        .editor-ref { c: 0 bd t }
+        /// GitLab templates.
+        /.template-selector {
+            &s-menu { c: 0 bd }
+            &-dropdowns-wrap > div[class] { font-family: var(--ui-font) }
+        }
+        /// Override colors.
+        input, .btn, .select2-choice { c: 0 0 bg }
+        .btn[class *= 'active'] { c: 0 0 bd }
+    }
 }
 
 @-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
