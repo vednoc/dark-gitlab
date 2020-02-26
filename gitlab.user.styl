@@ -248,6 +248,7 @@
             /.deleted-icon svg { v: yellow }
             /.imported-icon svg { v: violet }
             /.commented-on-icon svg { v: blue }
+            &[id *= 'addition-solid'] { v: green }
         }
     }
 
@@ -432,7 +433,7 @@
         &.gl-link[href] { c: fg }
         &.active { c: fg bd bd }
         /// Transparent buttons.
-        &-transparent:not(#z) { c: 0 t t }
+        &-transparent:not(#z) { c: cm t t 0 }
         /// Notes -> Issue status.
         /.status-box {
             c: white;
@@ -829,6 +830,10 @@
             }
             /// TODO: Refactor later.
             /.alert-primary { c: blue bd t }
+        }
+        &-footer {
+            c: 0 bd bg;
+            /[id *= 'addition-solid'] { v: green }
         }
         /// Dashboard -> Operations.
         &.border-0 {
@@ -1656,6 +1661,33 @@
         /.mr-version-controls {
             c: fg bd bg;
             if ( nb_height == 1  ) { top: 98px }
+        }
+    }
+
+    // Notes -> Design. #72
+    .design-detail {
+        c: 0 0 t;
+        &::before {
+            content: '';
+            z-index: -1;
+            opacity: 0.9;
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            c: 0 0 hl;
+        }
+        header { border-bottom: 1px solid bd }
+        .image-notes {
+            border-left: 1px solid bd;
+            c: 0 0 bg;
+            .design-discussion {
+                c: 0 0 hl;
+                &::before, .reply-wrapper { c: 0 bd }
+                .btn-text-field { c: 0 0 bg }
+            }
+            .badge-pill, .key {
+                c: white ac ac;
+                box-shadow: none;
+            }
         }
     }
 }
