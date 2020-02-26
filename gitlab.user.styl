@@ -1599,6 +1599,13 @@
             &:not(.system-note):not(.note-form) { c: 0 0 hl }
             /// Active note.
             &.target { c: 0 blue #88888815 }
+            /// Commit list.
+            .note-text {
+                c: cm;
+                &::after { background: linear-gradient(t -100px, bg 100%) i }
+                /// 'Toggle commit list' button.
+                + .flex-list div[class *= 'toggle'] { c: ac }
+            }
         }
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] { c: cm }
