@@ -1559,6 +1559,50 @@
         }
     }
 
+    // Project -> Code area.
+    .code {
+        .line_holder {
+            /// Override default text color.
+            &:not(#z) > td { c: fg }
+            /// Line numbers.
+            .diff-line-num {
+                z-index: 1;
+                padding-right: 11px;
+                border-right: none i;
+                box-shadow: inset -1px 0 bd;
+                &.new, &.old {
+                    &::after {
+                        content: '';
+                        z-index: -1;
+                        opacity: 0.3;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        position: absolute;
+                    }
+                }
+                &.old::after { c: 0 0 red }
+                &.new::after { c: 0 0 green }
+                /// HACK: Work around specificity conflict with table styles.
+                /:not(#z) &:not(.new):not(.old) { c: 0 0 hl }
+            }
+            /// Added/removed lines.
+            .line_content {
+                z-index: 1;
+                &.new, &.old {
+                    &::before { c: green }
+                    &::after {
+                        content: '';
+                        z-index: -1;
+                        opacity: 0.2;
+                        position: absolute;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                    }
+                }
+                &.old::after { c: 0 0 red }
+                &.new::after { c: 0 0 green }
+            }
+        }
+    }
+
     // Groups -> Explore.
     .group-list-tree {
         &::before { c: 0 bd }
