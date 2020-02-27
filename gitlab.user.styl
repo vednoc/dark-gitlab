@@ -1187,6 +1187,13 @@ domain('custom.domain') {
     }
     /// Color chips. #71
     &-color_chip > span { c: 0 t }
+    /// Labels. #103
+    /.gl-label {
+        c: 0 0 hl;
+        &-label-link { c: 0 0 t }
+        &-text&-text-light { text-shadow: 1px 1px 0 sh }
+        &-link, ../-label { &:not(#z) { color: inherit i }}
+    }
   }
 
   // * Dashboard -> Search page hacks.
