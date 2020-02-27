@@ -592,13 +592,14 @@
         &.issuable-list {
             .issue.today {
                 position: relative;
-                c: 0 0 t;
+                &:not(:hover) { c: 0 0 t }
                 &::before {
                     content: '';
+                    opacity: 0.6;
                     position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    c: 0 0 green;
-                    opacity: 0.1;
+                    top: 0; bottom: 0; left: 0;
+                    width: 4px;
+                    c: 0 0 ac;
                 }
             }
             .closed, .merged { c: 0 0 t }
