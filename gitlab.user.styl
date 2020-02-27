@@ -1443,6 +1443,8 @@
             .line_expansion {
                 c: 0 0 hl;
                 a, span { c: cm }
+                /// Add missing top border.
+                &:not(:first-of-type) > td { border-top: 1px solid bd i }
             }
             /// Diffs.
             .new .idiff { c: white 0 green }
