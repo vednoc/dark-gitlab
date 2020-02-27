@@ -899,7 +899,10 @@
                     border-top: none;
                     c: fg;
                     &:hover { c: 0 0 hl }
-                    [class *= 'todo-'] > a, [class *= '-link'] > * { c: ac }
+                    [class *= 'todo-'] > a, [class *= '-link'] > * {
+                        /// Fix conflict with `gl-label` styles.
+                        &:not(.gl-label-text) { c: ac }
+                    }
                 }
             }
         }
@@ -1169,8 +1172,8 @@
         /.gl-label {
             c: 0 0 hl;
             &-label-link { c: 0 0 t }
-            &-text { text-shadow: 1px 1px 0 sh }
-            &-link, ../-label { color: inherit i }
+            &-text&-text-light { text-shadow: 1px 1px 0 sh }
+            &-link, ../-label { &:not(#z) { color: inherit i }}
         }
     }
 
