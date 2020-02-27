@@ -575,12 +575,17 @@
         li {
             c: cm bd;
             a { c: fg }
+            /// Metadata.
             /.item-meta * { c: cm }
             /// Groups -> Hover event.
             .group-row-contents {
                 &:hover { c: 0 0 hl }
                 .metadata { span, div { c: cm }}
                 /.has-no-search-results { c: cm }
+            }
+            /// Hover animation.
+            &.issue, &.merge-request, &[id *= 'epic'] {
+                &:hover { c: 0 0 hl }
             }
         }
         /// Project -> Issues / Merge Requests.
