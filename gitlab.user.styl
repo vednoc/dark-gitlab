@@ -841,11 +841,23 @@
             /.user-access-role { c: cm bd hl }
         }
         /// Profile -> Personal projects.
-        &.compact {
-            .avatar { line-height: 38px i }
-        }
-        /// TODO: Move to preloaders.
+        &.compact .avatar { line-height: 38px i }
+        /// Loading icon.
         /.loading { c: cm }
+        /// NOTE: Experimental styles.
+        &:not(.compact) {
+            margin-top: 10px;
+            padding: 8px;
+            c: 0 0 hl;
+            rad: 4px;
+            > li {
+                margin-bottom: 8px;
+                padding: 8px i;
+                border: 1px solid bd;
+                c: 0 0 bg;
+                rad: 4px;
+            }
+        }
     }
 
     // Global -> Event lists.
