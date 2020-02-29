@@ -368,8 +368,16 @@
                         // c: 0 yellow;
                     }
                 }
-                &:last-child td:first-child { rad: 0 0 0 R }
-                &:last-child td:last-child { rad: 0 0 R 0 }
+                &:last-child td {
+                    &:last-child { rad: 0 0 R 0 }
+                    &:first-child { rad: 0 0 0 R }
+                    /// Diff -> Last expansion line.
+                    &:last-child:first-child {
+                        border-bottom: none i;
+                        rad: 0 0 R R;
+                    }
+                }
+                // &:hover > td { c: 0 0 hl }
             }
         }
     }
