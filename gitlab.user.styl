@@ -1466,22 +1466,20 @@
                 &:not(:first-of-type) > td { border-top: 1px solid bd i }
             }
             /// Diffs.
-            .new .idiff { c: white 0 green }
-            .old .idiff { c: white 0 red }
+            .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem #44bb4444 }
+            .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem #bb444444 }
             /// Code.
             /pre.code {
                 c: fg bd hl;
                 code > span:hover { c: 0 0 hl}
-                /// Code areas.
-                &.highlight { c: 0 0 bg }
                 /// Syntax highlighting.
                 /.code.white {
                     .err { c: white 0 red }
-                    .c, .gh, .nn { c: cm }
+                    .c, .c1, .gh, .nn { c: cm }
                     .n, .cp { c: fg }
                     .na, .nv { c: cyan }
                     .s, .s2, .sx, .s1 { c: red }
-                    .nt, .m, .mi { c: blue }
+                    .nt, .m, .mi, .mh { c: blue }
                     // .nf { c: red; filter: brightness(0.85) }
                     .nb { c: cyan; filter: hue-rotate(30deg) }
                     .nc { c: blue; filter: hue-rotate(30deg) }
@@ -1576,17 +1574,17 @@
             &:not(#z) > td { c: fg }
             /// Line numbers.
             .diff-line-num {
-                z-index: 1;
                 padding-right: 11px;
                 border-right: none i;
                 box-shadow: inset -1px 0 bd;
                 &.new, &.old {
                     &::after {
                         content: '';
-                        z-index: -1;
+                        z-index: 0;
                         opacity: 0.3;
                         top: 0; right: 0; bottom: 0; left: 0;
                         position: absolute;
+                        pointer-events: none;
                     }
                 }
                 &.old::after { c: 0 0 red }
