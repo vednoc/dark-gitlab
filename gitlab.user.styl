@@ -514,6 +514,16 @@
         }
         /// Remove badge underline.
         &-link { &, .badge { text-decoration: none i }}
+        /// Project -> Lables.
+        &-badge {
+            c: fg;
+            &-blue { c: white 0 blue }
+            &-gray { c: cm 0 hl }
+        }
+        &-links a { c: ac }
+        &-action svg { v: cm }
+        /// Project labels -> Subscribe buttons. @upstream
+        &-subscribe-button { font-weight: 400 }
     }
 
     // Global -> Badges.
@@ -1875,6 +1885,16 @@
             &_support { ~/_type&, ~/_function& { c: cm }}
             &_variable, &_string, &_comment { c: green }
             &_heading, &_storage, &_keyword, &_meta&_tag { c: blue }
+        }
+    }
+
+    /// Project -> Labels/Milestones.
+    .labels-container, .milestones {
+        c: 0 0 hl;
+        /.manage-labels-list, /.milestones > ul {
+            > li:not(.empty-message):not(.no-border) {
+                c: 0 bd bg;
+            }
         }
     }
 }
