@@ -170,7 +170,7 @@
         h1, h2, h3, h4, h5, h6 { color: fg }
         time { color: cm }
         :not(pre) > code {
-            c: fg 0 bd 0 0 0;
+            c: fg 0 hl 0 0 0;
             box-shadow: inner;
         }
         pre {
@@ -1007,8 +1007,8 @@
         a { c: ac }
         a, p {
             > code {
-                padding: 0.25em 0.25em;
-                color: inherit;
+                padding: 2px 4px;
+                color: inherit i;
             }
         }
         blockquote, .blockquote {
@@ -1373,11 +1373,14 @@
         &-header {
             c: cm bd;
             .author { c: fg }
+            /// MRs -> Editor button.
+            a { color: cm }
         }
         /// Description.
         &-description {
             .title { c: fg }
             small { c: cm }
+            .edited-text .author-link { c: cm }
         }
         /// Notes/Dashboard -> Search/filter results.
         /.filtered-search {
@@ -1664,7 +1667,7 @@
             &.target { c: 0 blue #88888815 }
             /// Commit list.
             .note-text {
-                c: cm;
+                &.md { c: fg }
                 &::after { background: linear-gradient(t -100px, bg 100%) i }
                 /// 'Toggle commit list' button.
                 + .flex-list div[class *= 'toggle'] { c: ac }
