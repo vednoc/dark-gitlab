@@ -384,7 +384,7 @@
 
     // Global -> Dropdowns.
     [class *= 'dropdown-menu'] {
-        c: 0 bd hl;
+        c: fg bd hl;
         /// Active state.
         &.show { box-shadow: bsh }
         /// Header -> User menu.
@@ -411,6 +411,10 @@
                 c: cm;
                 .bold, .user-status { c: fg }
             }
+        }
+        button {
+            c: cm;
+            &:not(.disable-hover):hover { c: fg 0 bd }
         }
         /// Navbar -> Projects/groups.
         /.frequent-items-dropdown {
@@ -1908,6 +1912,86 @@
             > li:not(.empty-message):not(.no-border) {
                 c: 0 bd bg;
             }
+        }
+    }
+
+    // Components -> IDE.
+    .ide {
+        &-view { c: fg }
+        /// Sidebars.
+        &-activity-bar {
+            svg.s16 { v: cm }
+            button.active {
+                c: fg bd bg;
+                box-shadow: inset 3px 0 ac i;
+                &::after { c: 0 0 t }
+                svg.s16 { v: fg }
+            }
+        }
+        &-right-sidebar {
+            .ide-activity-bar { c: fg bd }
+            .multi-file-commit-panel-inner { c: 0 bd }
+        }
+        &-sidebar-link:hover { c: fg 0 bd }
+        /// Panels.
+        .multi-file {
+            &-commit-panel { c: 0 0 hl }
+            &-edit-pane { c: 0 bd }
+            /// Left -> Code.
+            &-commit-panel-inner-content {
+                c: 0 bd bg;
+            }
+            &-commit-form {
+                c: fg bd bg;
+                > .commit-form-compact { c: 0 bd }
+            }
+            /// Main -> Editor.
+            &-edit-pane {
+                c: 0 bd;
+                /// File name / Preview Markdown.
+                &-content > .ide-mode-tabs { c: 0 bd }
+                /// TODO: Refactor later.
+                /.monaco-editor {
+                    .margin { c: 0 0 hl }
+                    &, &-background, .inputarea.ime-input { c: 0 0 t }
+                }
+            }
+            /// Editor tabs.
+            &-tabs {
+                 c: 0 0 hl;
+                 box-shadow: none;
+                 li {
+                    c: cm hl hl;
+                    &:hover { c: 0 0 #88888815 }
+                    &.active { c: fg bg bg }
+                 }
+                 ../-tab-close {
+                    c: cm;
+                    &:not([disabled]):hover { c: 0 0 bd }
+                }
+            }
+        }
+        /// File tree.
+        &-file-list {
+            .ide-tree-header { c: 0 bd }
+            .ide-tree-body {
+                .file-row {
+                    &:hover, &.is-active { c: 0 0 hl }
+                }
+                .ide-entry-dropdown-toggle {
+                    c: fg 0 bd;
+                }
+            }
+        }
+        /// Resize handle.
+        .drag-handle {
+            &:hover { c: 0 0 bd }
+            &.is-dragging { c: 0 0 ac }
+        }
+        /// Footer.
+        &-status-bar {
+            c: fg bd hl;
+            .ide-status-avatar { filter: brightness(1) invert(1) }
         }
     }
 }
