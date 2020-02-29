@@ -440,6 +440,8 @@
             svg { v: cm }
             &:hover svg { v: fg }
         }
+        /// Releases -> Source code.
+        &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
         &::before {
             opacity: 0.15;
@@ -553,6 +555,7 @@
             c: cm 0 bd;
             &:hover { c: fg }
         }
+        &-pill { c: cm 0 bd }
         /// Commits -> Details.
         &&-gray { c: fg 0 bg }
         /// Notes -> Related issues/MRs.
@@ -942,6 +945,12 @@
                     }
                 }
             }
+        }
+        /// Project -> Releases.
+        &.linked-card, &.release-block {
+            &::after { c: 0 hl }
+            > .card-header { c: 0 0 hl }
+            > .card-body { c: 0 0 bg }
         }
     }
 
