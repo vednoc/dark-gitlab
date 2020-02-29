@@ -1028,8 +1028,14 @@
                     opacity: 1;
                 }
             }
+            /// Shields.io badges.
             /[src *= 'style=for-the-badge'],
             &[data-canonical-src *= 'style=for-the-badge'] {
+                rad: 4px;
+            }
+            /// Image frames.
+            ../:not(.md-file) ^[1..1] {
+                c: 0 0 hl;
                 rad: 4px;
             }
         }
@@ -1665,9 +1671,16 @@
             &:not(.system-note):not(.note-form) { c: 0 0 hl }
             /// Active note.
             &.target { c: 0 blue #88888815 }
-            /// Commit list.
+            /// Markdown area.
             .note-text {
-                &.md { c: fg }
+                &.md {
+                    c: fg;
+                    /// Use `bg` color in the notes.
+                    > pre.code,
+                    > :not(pre) > code,
+                    > p > a > img:not(.emoji) { c: 0 0 bg }
+                }
+                /// Commit list gradient.
                 &::after { background: linear-gradient(t -100px, bg 100%) i }
                 /// 'Toggle commit list' button.
                 + .flex-list div[class *= 'toggle'] { c: ac }
