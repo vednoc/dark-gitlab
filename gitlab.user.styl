@@ -182,14 +182,11 @@
             }
         }
         kbd {
-            font-family: var(--mono-font);
             c: fg 0 bd;
             rad: 4px;
         }
         .gl-link { color: ac }
         pre, code, kbd, samp { font-family: var(--mono-font) i }
-        .text-secondary, .text-muted, .text-tertiary { c: cm }
-        .help-block { c: cm }
         .text-danger {
             c: red;
             /// Due date.
@@ -206,12 +203,17 @@
             &.repository-languages-bar { c: 0 0 t }
         }
         /// Global color reset.
-        .cgray, .description-block { c: cm }
-        .text-plain, .light { c: fg }
-        .bg-light { c: 0 0 bd }
-        .bg-secondary { c: 0 0 hl }
-        .bg-success { c: 0 0 green }
-        .bg-white, .bg-gray-light { c: 0 0 bg }
+        .text {
+            &-plain, /.light { c: fg }
+            &-secondary, &-muted, &-tertiary { c: cm }
+            /.cgray, /.description-block, /.help-block { c: cm }
+        }
+        .bg {
+            &-light { c: 0 0 bd }
+            &-secondary { c: 0 0 hl }
+            &-success { c: 0 0 green }
+            &-white, &-gray-light { c: 0 0 bg }
+        }
         .border-bottom, .bordered-box { c: 0 bd }
         /// Scrollbars.
         if ( sb_enable == 1 ) {
