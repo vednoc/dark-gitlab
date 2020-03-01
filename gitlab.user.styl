@@ -437,6 +437,7 @@
 
     // Global -> Buttons.
     .btn {
+        z-index: 1;
         position: relative;
         &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
@@ -447,10 +448,10 @@
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
         &::before {
+            z-index: -1;
             opacity: 0.15;
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
-            transition: 0.2s ease;
             rad: inherit;
             ../:hover::before { opacity: 0.35 }
         }
@@ -467,6 +468,18 @@
         &.active { c: fg bd bd }
         /// Transparent buttons.
         &-transparent:not(#z) { c: cm t t 0 }
+        /// Reactions.
+        &.award-control {
+            c: cm bd hl;
+            &:hover {
+                c: fg blue;
+                &::before { content: ''; c: 0 0 blue }
+            }
+            &.active, &.is-active {
+                c: ac ac hl;
+                &::before { content: ''; c: 0 0 ac }
+            }
+        }
         /// Notes -> Issue status.
         /.status-box {
             c: white;
@@ -1768,8 +1781,8 @@
             &:hover svg { v: fg }
             &.is-active svg { v: ac }
         }
-        /// Reactions / User role.
-        .award-control, .user-access-role { c: 0 0 bd }
+        /// User role.
+        .user-access-role { c: 0 0 bd }
         /// Global -> Emoji picker.
         /.emoji-menu {
             c: 0 bd hl;
