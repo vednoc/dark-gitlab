@@ -904,8 +904,6 @@
                 c: 0 bd hl;
                 ../, & { rad: 0 0 3px 3px i }
             }
-            /// TODO: Refactor later.
-            /.alert-primary { c: blue bd t }
         }
         &-footer {
             c: 0 bd bg;
@@ -1197,6 +1195,10 @@
                 c: red 0 t;
                 &::before { c: 0 0 red }
             }
+            .flash-warning {
+                c: orange 0 t;
+                &::before { c: 0 0 orange }
+            }
             .flash-notice {
                 c: blue 0 t;
                 &::before { c: 0 0 blue }
@@ -1205,6 +1207,14 @@
                 c: green 0 t;
                 &::before { c: 0 0 green }
             }
+        }
+        /.alert {
+            &&-info, &&-primary { c: blue blue hl }
+            &&-warning { c: orange orange hl }
+            &&-success { c: green green hl }
+            &&-secondary { c: cm bd hl }
+            &&-danger { c: red red hl }
+            &&-light { c: fg bd hl }
         }
     }
 
