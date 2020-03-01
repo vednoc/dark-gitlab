@@ -246,7 +246,10 @@
             }
         }
         /// Global -> Icons.
-        .fa { c: cm }
+        /.fa {
+            c: cm;
+            &&-triangle { c: orange }
+        }
         /svg {
             &.s16, &.s24, &.icon { v: cm }
             /.deleted-icon > svg { v: orange }
