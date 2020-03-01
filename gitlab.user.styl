@@ -307,13 +307,21 @@
             &:hover a { c: cm 0 t }
             > a:hover { c: fg 0 bd }
         }
-        /// Embed theme version in the help menu.
-        .header-help li:first-child::before {
-            content: '🌚 ' var(--note);
-            display: block;
-            padding: 4px 12px 6px;
-            border-bottom: 1px solid bd;
-            color: fg;
+        /// Help menu.
+        .header-help {
+            /// Embed theme version.
+            li:first-child::before {
+                content: '🌚 ' var(--note);
+                display: block;
+                padding: 4px 12px 6px;
+                border-bottom: 1px solid bd;
+                color: fg;
+            }
+            /// Fix conflict with lists.
+            &.dropdown:not(#z) li {
+                &:hover > a { c: 0 0 t }
+                > a:hover { c: 0 0 bd }
+            }
         }
         /// User menu -> Reset avatar.
         .header-user-avatar {
