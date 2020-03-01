@@ -1121,6 +1121,7 @@
 
     // Pajamas -> Alerts.
     .gl-alert {
+        z-index: 1;
         padding: 1rem 0rem;
         &-body, &-actions {
             margin-left: auto;
@@ -1137,18 +1138,33 @@
             color: currentColor;
             svg { fill: currentColor i }
         }
+        /// Background.
+        &::before {
+            z-index: -1;
+            opacity: 0.15;
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+        }
         /// States.
         &-warning {
-            z-index: 1;
             c: orange 0 hl;
-            &::before {
-                z-index: -1;
-                content: '';
-                opacity: 0.15;
-                position: absolute;
-                top: 0; right: 0; bottom: 0; left: 0;
-                c: 0 0 orange;
-            }
+            &::before { content: ''; c: 0 0 orange }
+        }
+        &-danger {
+            c: red 0 hl;
+            &::before { content: ''; c: 0 0 red }
+        }
+        &-success {
+            c: green 0 hl;
+            &::before {content: ''; c: 0 0 green }
+        }
+        &-info {
+            c: blue 0 hl;
+            &::before { content: ''; c: 0 0 blue }
+        }
+        &-tip {
+            c: fg 0 hl;
+            &::before { content: ''; c: 0 0 cm }
         }
         /// Global -> Old alerts.
         /.flash-container {
