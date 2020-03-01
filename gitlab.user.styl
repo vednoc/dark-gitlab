@@ -1430,7 +1430,7 @@
         /// Header.
         &-header {
             c: cm bd;
-            .author { c: fg }
+            /.author { c: fg }
             /// MRs -> Editor button.
             a { color: cm }
         }
@@ -1438,7 +1438,7 @@
         &-description {
             .title { c: fg }
             small { c: cm }
-            .edited-text .author-link { c: cm }
+            /.edited-text { &, .author-link { c: cm }}
         }
         /// Notes/Dashboard -> Search/filter results.
         /.filtered-search {
@@ -1772,8 +1772,12 @@
 
     // Issue/MRs/Epics -> Discussions.
     .discussion {
+        &-header { c: 0 bd }
+        &-actions button { c: cm }
+        /// Discussion notes.
         .timeline-entry {
             c: fg 0 hl;
+            rad: 0;
             &.target { c: 0 0 #88888815 }
         }
         /// Reply...
@@ -1934,6 +1938,13 @@
                 c: 0 bd bg;
             }
         }
+    }
+
+    /// User -> Snippets.
+    [data-page ^= 'snippets:'] {
+        .snippet-header h2 { c: fg }
+        .file-holder pre.code.highlight { c: 0 0 bg }
+        .row-content-block.content-component-block { c: 0 0 t }
     }
 
     // Components -> IDE.
