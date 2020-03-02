@@ -824,7 +824,7 @@
             rad: 0 0 4px 4px;
             c: 0 bd hl;
             /// Inputs.
-            .form-control { c: 0 0 bg }
+            .form-control, .info-well { c: 0 0 bg }
             [class *= 'input-group'] {
                 rad: 4px;
                 c: cm bd bd;
@@ -832,9 +832,9 @@
                 .select2-choice { c: cm bd bg }
             }
             /// Visibility level.
-            .option {
+            /.option {
                 &-title { c: fg }
-                &-description { c: cm }
+                &-description, &-disabled-reason { c: cm }
             }
             /// 'Create from template' area.
             .template-option { c: 0 bd }
@@ -1890,13 +1890,18 @@
     .file {
         /// Fix rounded corners.
         &-holder { &&-bottom-radius { rad: 0 0 4px 4px }}
+        /// Editor styles.
         &-editor {
             /// Top navigation.
             .nav-links {
                 c: 0 bd hl;
                 rad: 4px 4px 0 0;
             }
-            .file-title { rad: 0 }
+            .file-title {
+                rad: 0;
+                /// Snippets -> File name.
+                &-flex-parent > .form-control { c: 0 0 bg }
+            }
         }
         .toolbar-btn:hover svg { v: fg }
         /// Fix fonts.
@@ -1923,7 +1928,7 @@
                 rad: 0 0 0 3px;
                 c: cm 0 hl;
                 box-shadow: 1px 0 bd;
-                ~/_gutter-cell { c: 0 0 t }
+                &-cell { c: 0 0 t }
                 + .ace_scroller { rad: 0 0 3px 0 }
             }
             /// Highlighted line/selection.
