@@ -1329,7 +1329,7 @@
     .gl-popover {
         font-family: var(--ui-font);
         rad: r;
-        c: 0 bd bg;
+        c: 0 bd hl;
         box-shadow: bsh;
         &-header { c: 0 bd hl }
         &-body {
@@ -1338,29 +1338,29 @@
             ../.blue { c: 0 0 blue }
         }
         /// Blue popovers.
-        .arrow {
-            color: bg;
+        /.arrow {
+            color: hl;
             ../.blue .arrow { c: blue }
         }
         /// Arrows.
-        &[class *= '-top'] {
+        /[class *= '-top'] {
             .arrow::before { border-top-color: bd i }
             .arrow::after { border-top-color: inherit i }
         }
-        &[class *= '-bottom'] {
+        /[class *= '-bottom'] {
             .arrow::before { border-bottom-color: bd i }
             .arrow::after { border-bottom-color: inherit i }
         }
-        &[class *= '-left'] {
+        /[class *= '-left'] {
             .arrow::before { border-left-color: bd i }
             .arrow::after { border-left-color: inherit i }
         }
-        &[class *= '-right'] {
+        /[class *= '-right'] {
             .arrow::before { border-right-color: bd i }
             .arrow::after { border-right-color: inherit i }
         }
         /// Signed commits.
-        .gpg-popover {
+        /.gpg-popover {
             &-icon.valid svg { c: 0 green; v: green }
             &-icon.invalid svg { c: 0 red; v: red }
             &-user-link { c: fg }
@@ -1374,15 +1374,26 @@
         /.tooltip {
             &.show { opacity: 1 }
             &-inner {
-                c: fg 0 bg;
+                c: fg 0 hl;
                 border: 1px solid bd;
                 box-shadow: bsh;
+                [class *= 'share'] { c: cm }
                 [class *= 'scoped-label'] { c: ac }
             }
             &[class *= 'bottom'] .arrow::before { border-bottom-color: bd }
             &[class *= 'right'] .arrow::before { border-right-color: bd }
             &[class *= 'left'] .arrow::before { border-left-color: bd }
             &[class *= 'top'] .arrow::before { border-top-color: bd }
+        }
+        /// Old popovers.
+        /.popover {
+            border: 1px solid bd;
+            c: fg 0 hl;
+            box-shadow: bsh;
+            &-header {
+                c: 0 bd bd;
+            }
+            &-body { c: fg }
         }
     }
 
