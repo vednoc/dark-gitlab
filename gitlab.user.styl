@@ -288,24 +288,14 @@
         &-sub-nav, &-nav {
             c: cm;
             li {
-                &.active, &.show {
-                    > a, [data-toggle] { c: fg 0 bg }
-                    svg { v: fg }
-                }
-                > a, > button[type] {
-                    c: cm;
+                > button, > a {
                     transition: 0.2s ease;
-                    /// Exclude active states.
-                    ../:not(.active):not(.show):hover {
-                        > a, > button[type] { c: fg 0 bd }
-                    }
+                    &[data-toggle] { c: cm }
+                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
                 }
+                &.active, &.show { > button, > a { c: fg 0 bg }}
+                .caret-down { v: cm }
             }
-        }
-        /// Fix items in 'More' dropdown menu. @upstream
-        .header-more:not(#z) li {
-            &:hover a { c: cm 0 t }
-            > a:hover { c: fg 0 bd }
         }
         /// Help menu.
         .header-help {
@@ -316,11 +306,6 @@
                 padding: 4px 12px 6px;
                 border-bottom: 1px solid bd;
                 color: fg;
-            }
-            /// Fix conflict with lists.
-            &.dropdown:not(#z) li {
-                &:hover > a { c: 0 0 t }
-                > a:hover { c: 0 0 bd }
             }
         }
         /// User menu -> Reset avatar.
@@ -452,8 +437,9 @@
         &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
-            &:hover svg { v: fg }
         }
+        /// Dropdowns -> Active state.
+        /.active, /.show { > [data-toggle = 'dropdown'] svg { v: fg }}
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
