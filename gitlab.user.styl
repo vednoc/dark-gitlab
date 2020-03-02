@@ -1784,10 +1784,14 @@
     .notes {
         /// Visual line.
         &::before { c: 0 hl }
-        /// Timeline icons.
-        .system-note .timeline-icon {
-            c: 0 bd hl;
-            svg { v: cm }
+        .system-note {
+            /// Timeline icons.
+            .timeline-icon {
+                c: 0 bd hl;
+                svg { v: cm }
+            }
+            /// Links.
+            a:not(.gl-link) { c: ac }
         }
         /// Note styles.
         &.timeline > .timeline-entry {
