@@ -658,6 +658,8 @@
             .issuable {
                 ../ .fa:not(.fa-question-circle), ../ .task-status { c: cm }
                 &-milestone, &-info, &-updated-at { c: cm }
+                /// Email a new issue/MR to this project.
+                /^[-1..-1]-email-modal-btn { c: ac }
             }
             /// Unmerged MR icon color. @upstream
             /.icon-merge-request-unmerged { filter: invert(0.7) }
@@ -784,6 +786,9 @@
         /.row-content-block {
             c: fg bd hl;
             .event-last-push-text { font-size: 14px }
+            /// Switch to `bg` color for child elements.
+            .btn { &, &-default { &:not(#z) { c: 0 0 bg }}}
+            .filtered-search-box { &:not(#z) { c: 0 0 bg }}
         }
     }
 
