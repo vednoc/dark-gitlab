@@ -664,6 +664,8 @@
             /// Unmerged MR icon color. @upstream
             /.icon-merge-request-unmerged { filter: invert(0.7) }
         }
+        /// Dashboard -> Snippets.
+        .snippet { &-filename, &-info { c: cm }}
     }
 
     // Global -> Left sidebar.
@@ -861,8 +863,8 @@
         &.compact .avatar { line-height: 38px i }
         /// Loading icon.
         /.loading { c: cm }
-        /// NOTE: Experimental styles.
-        &:not(.compact) {
+        /// NOTE: Experimental styles for projects/snippets.
+        &:not(.compact), /.snippets-list-holder > ul {
             margin-top: 10px;
             padding: 8px;
             c: 0 0 hl;
