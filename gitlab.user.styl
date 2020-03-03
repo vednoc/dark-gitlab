@@ -497,6 +497,7 @@
         &&-remove, &&-danger {
             c: red red t;
             &::before { content: ''; c: 0 0 red }
+            .fa { c: red }
         }
         &&-close-color {
             c: orange orange t;
@@ -705,6 +706,10 @@
             &.issue, &.merge-request, &[id *= 'epic'] {
                 &:hover { c: 0 0 hl }
             }
+        }
+        /// Project -> Branches.
+        &.all-branches {
+            .graph { &-side .bar, &-separator { c: 0 0 bd }}
         }
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
