@@ -398,6 +398,28 @@
                 }
             }
         }
+        /// AsciiDoc-specific styles.
+        &.grid-all {
+            > caption { c: cm }
+            > thead > tr {
+                > th:first-child { border-left: 1px solid bd i }
+                > th:last-child { border-right: 1px solid bd i }
+            }
+            > tbody > tr {
+                /// Reset cells.
+                > th:first-child {
+                    border-top: none i;
+                    border-bottom: 1px solid bd i;
+                    c: 0 bd hl;
+                }
+                /// Add border-right to the last cell.
+                > td:last-child { border-right: 1px solid bd i }
+                /// Add border-top to the first cell.
+                &:first-child > th { border-top: 1px solid bd i }
+                /// Rounded bottom left corner.
+                &:last-child > th { rad: 0 0 0 4px }
+            }
+        }
     }
 
     // Global -> Dropdowns.
