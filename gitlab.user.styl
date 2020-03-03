@@ -254,6 +254,7 @@
         }
         /svg {
             &.s16, &.s24, &.icon { v: cm }
+            /// Activity icons.
             /.deleted-icon > svg { v: orange }
             /.closed-icon svg { v: red }
             /.created-icon svg { v: cyan }
@@ -263,6 +264,8 @@
             /.imported-icon svg { v: violet }
             /.commented-on-icon svg { v: blue }
             &[id *= 'addition-solid'] { v: green }
+            /// Misc.
+            /.commit-icon svg { v: cm }
         }
         // Global -> Callouts.
         .bs-callout {
