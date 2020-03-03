@@ -1788,7 +1788,6 @@
             .line_content {
                 z-index: 1;
                 &.new, &.old {
-                    &::before { c: green }
                     &::after {
                         content: '';
                         z-index: -1;
@@ -1797,8 +1796,14 @@
                         top: 0; right: 0; bottom: 0; left: 0;
                     }
                 }
-                &.old::after { c: 0 0 red }
-                &.new::after { c: 0 0 green }
+                &.old {
+                    &::before { c: red }
+                    &::after { c: 0 0 red }
+                }
+                &.new {
+                    &::before { c: green }
+                    &::after { c: 0 0 green }
+                }
             }
         }
     }
