@@ -515,6 +515,16 @@
         &.active { c: fg bd bd }
         /// Transparent buttons.
         &-transparent:not(#z) { c: cm t t 0 }
+        /// Disabled.
+        &[disabled], &.disabled {
+            &:not(#z) {
+                &, &:hover {
+                    opacity: 0.5 i;
+                    c: cm bd bg;
+                }
+                .fa { c: cm }
+            }
+        }
         /// Reactions.
         &.award-control {
             c: cm bd hl;
