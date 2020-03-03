@@ -1928,7 +1928,7 @@
     // Project -> File editor.
     .file {
         /// Fix rounded corners.
-        &-holder { &&-bottom-radius { rad: 0 0 4px 4px }}
+        &-holder { &&-bottom-radius { rad: 4px }}
         /// Editor styles.
         &-editor {
             /// Top navigation.
@@ -1937,9 +1937,10 @@
                 rad: 4px 4px 0 0;
             }
             .file-title {
-                rad: 0;
+                rad: 4px 4px 0 0;
                 /// Snippets -> File name.
                 &-flex-parent > .form-control { c: 0 0 bg }
+                [data-toggle = 'dropdown'] { c: 0 0 bg }
             }
         }
         .toolbar-btn:hover svg { v: fg }
