@@ -427,19 +427,22 @@
         c: fg bd hl;
         /// Active state.
         &.show { box-shadow: bsh }
+        /// Loading.
+        &.is-loading > .dropdown-loading { c: 0 0 #88888815 }
         /// Header -> User menu.
         .btn.menu-item {
             c: cm 0 t;
             &:hover { c: fg 0 bd }
         }
         /// Misc elements.
+        strong, .bold { c: fg }
         span[class *= '-text'] { c: cm }
         [class *= 'input-field'] { c: fg bd bg }
         .dropdown-title, [class *= '-header'] { c: fg bd }
         [class *= 'divider'], .separator { c: 0 bd bd }
         /// Items.
         li {
-            a {
+            a, button {
                 c: cm;
                 /// TODO: Figure out `active/focus` states.
                 &:hover, &:active, &:focus { c: fg 0 bd }
