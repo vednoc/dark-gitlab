@@ -387,6 +387,16 @@
                 }
                 // &:hover > td { c: 0 0 hl }
             }
+            /// Fix top rounded corners for head-less tables.
+            &:first-child > tr:first-child {
+                > td:first-child { rad: 4px 0 0 0 }
+                > td:last-child { rad: 0 4px 0 0 }
+                /// Single-row.
+                &:last-child {
+                    > td:first-child { rad: 4px 0 0 4px }
+                    > td:last-child { rad: 0 4px 4px 0 }
+                }
+            }
         }
     }
 
