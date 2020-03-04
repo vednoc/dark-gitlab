@@ -1570,6 +1570,13 @@
             /.author { c: fg }
             /// MRs -> Editor button.
             a { color: cm }
+            /// Notes -> Locked issue.
+            &-body .issuable {
+                &-warning-icon {
+                    c: 0 0 bd;
+                    svg { v: orange }
+                }
+            }
         }
         /// Description.
         &-description {
@@ -1905,7 +1912,7 @@
             &.is-active svg { v: ac }
         }
         /// User role.
-        .user-access-role { c: 0 0 bd }
+        .user-access-role { c: fg 0 bd }
         /// Global -> Emoji picker.
         /.emoji-menu {
             c: 0 bd hl;
@@ -1923,6 +1930,7 @@
     .discussion {
         &-header { c: 0 bd }
         &-actions button { c: cm }
+        &-headline-light a { c: ac }
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 hl;
