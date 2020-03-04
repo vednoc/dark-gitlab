@@ -1934,6 +1934,16 @@
             c: 0 bd hl;
             .btn-text-field { c: fg bd bg }
         }
+        /// Disabled comments.
+        /.disabled-comment {
+            c: cm bd hl;
+            a:not(.learn-more) { c: ac }
+            /// Locked state.
+            .issuable-note-warning {
+                c: orange t t;
+                svg { v: orange }
+            }
+        }
     }
 
     // Notes -> Input-box.
