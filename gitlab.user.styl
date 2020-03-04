@@ -962,6 +962,17 @@
             [href], [href *= '/compare/'] { c: ac }
         }
         &-user-info a[href] { c: fg }
+        /// Dashboard -> Activities.
+        /div.content_list {
+            margin-top: 10px;
+            padding: 10px;
+            c: 0 0 hl;
+            rad: 4px;
+            > .event-item {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
     }
 
     // Global -> Cards.
