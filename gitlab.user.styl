@@ -1769,8 +1769,10 @@
     // Project -> Code area.
     .code {
         .line_holder {
-            /// Override default text color.
+            /// Override the default text color.
             &:not(#z) > td { c: fg }
+            /// Unfold lines.
+            .unfold:not(#z) { c: cm }
             /// Line numbers.
             .diff-line-num {
                 padding-right: 11px;
