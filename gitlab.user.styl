@@ -487,6 +487,7 @@
         &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
+            &:hover { c: 0 0 #88888820 }
         }
         /// Dropdowns -> Active state.
         /.active, /.show { > [data-toggle = 'dropdown'] svg { v: fg }}
@@ -507,17 +508,19 @@
             &::before { content: ''; c: 0 0 red }
             .fa { c: red }
         }
-        &&-close-color {
+        &&-close, &&-close-color {
             c: orange orange t;
             &::before { content: ''; c: 0 0 orange }
+            svg { v: orange }
         }
         &&-success {
             c: green green t;
             &::before { content: ''; c: 0 0 green }
         }
-        &&-primary {
+        &&-primary, &&-info {
             c: blue blue t;
             &::before { content: ''; c: 0 0 blue }
+            svg { v: blue }
         }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
@@ -527,6 +530,7 @@
         /// Disabled.
         &[disabled], &.disabled {
             &:not(#z) {
+                &::before { content: unset }
                 &, &:hover {
                     opacity: 0.5 i;
                     c: cm bd bg;
