@@ -1706,7 +1706,9 @@
             if ( nb_height == 1 ) {
                 &-title, &-title-flex-parent {
                     top: 165px;
-                    &.is-commit { top: 86px }
+                    &.is-commit, &.is-compare { top: 117px }
+                    /// Commit details inconsistency. @upstream
+                    /.sticky-placeholder + div .is-commit { top: 86px i }
                 }
             }
         }
@@ -1744,7 +1746,6 @@
         }
         /// Diff -> Change summary.
         &s-changed {
-            padding: 16px;
             c: 0 bd bg;
             > div > .dropdown {
                 margin-left: 0;
