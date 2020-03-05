@@ -842,6 +842,14 @@
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value { c: cm }
+        /// Pajamas -> Drawer.
+        /.gl-drawer {
+            c: fg 0 bg;
+            box-shadow: -1px 0 bd, bsh;
+            &-header, &-body > * { c: 0 bd }
+            /// Increase top offset when nb_height is enabled.
+            if ( nb_height == 1 ) { top: 50px i }
+        }
     }
 
     // Global -> Navigation.
