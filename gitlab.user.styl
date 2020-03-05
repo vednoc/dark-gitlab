@@ -457,7 +457,7 @@
         }
         /// Misc elements.
         strong, .bold { c: fg }
-        span[class *= '-text'] { c: cm }
+        span[class *= '-text'] { z-index: 1; c: fg }
         [class *= 'input-field'] { c: fg bd bg }
         .dropdown-title, [class *= '-header'] { c: fg bd }
         [class *= 'divider'], .separator { c: 0 bd bd }
@@ -526,7 +526,7 @@
     .btn {
         z-index: 1;
         position: relative;
-        &, &[data-toggle = 'dropdown'], &-default {
+        &, /[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
             &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
@@ -536,8 +536,8 @@
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
-        &::before {
-            z-index: -1;
+        &::before, /[data-toggle = 'dropdown']::before {
+            z-index: 0;
             opacity: 0.15;
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
