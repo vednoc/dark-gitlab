@@ -2063,6 +2063,10 @@
             &-header a { c: fg }
             &-number { c: cm }
         }
+        /// Delete icon.
+        &-delete:not(:hover) { opacity: 0.6 }
+        /// Focused mode.
+        /.issue-boards-content.is-focused { c: 0 0 bb }
     }
 
     // MRs -> Changes.
