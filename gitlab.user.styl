@@ -118,6 +118,7 @@
     }
 
     // Overwrite existing Stylus-lang vars with CSS vars.
+    bb      = lighten(dark, 1%);
     bg      = var(--dark);
     hl      = var(--darken);
     bd      = var(--darker);
@@ -164,6 +165,14 @@
     body {
         font-family: var(--ui-font) i;
         &, &.navless { c: fg 0 bg }
+        /// App background.
+        &::before {
+            content: '';
+            z-index: -1;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            c: 0 0 bb;
+        }
         /// Browser styles.
         a { &, &:hover { color: ac }}
         hr { border-color: bd }
@@ -1774,7 +1783,7 @@
         }
         /// Diff -> Change summary.
         &s-changed {
-            c: 0 bd bg;
+            c: 0 bd bb;
             > div > .dropdown {
                 margin-left: 0;
                 padding-left: 0;
@@ -1904,7 +1913,7 @@
                     > p > a > img:not(.emoji) { c: 0 0 bg }
                 }
                 /// Commit list gradient.
-                &::after { background: linear-gradient(t -100px, bg 100%) i }
+                &::after { background: linear-gradient(t -100px, bb 100%) i }
                 /// 'Toggle commit list' button.
                 + .flex-list div[class *= 'toggle'] { c: ac }
             }
@@ -1955,7 +1964,7 @@
         /// Reply...
         /&-reply-holder {
             c: 0 bd hl;
-            .btn-text-field { c: fg bd bg }
+            .btn { c: fg bd bg }
         }
         /// Disabled comments.
         /.disabled-comment {
@@ -1994,7 +2003,7 @@
 
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
-        c: 0 bd bg;
+        c: 0 bd bb;
         if ( nb_height == 1  ) { top: 50px }
         /.mr-version-controls {
             c: fg bd bg;
