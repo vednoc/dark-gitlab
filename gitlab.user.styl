@@ -441,8 +441,6 @@
         c: fg bd hl;
         /// Active state.
         &.show { box-shadow: bsh }
-        /// Loading.
-        &.is-loading > .dropdown-loading { c: 0 0 #88888815 }
         /// Header -> User menu.
         .btn.menu-item {
             c: cm 0 t;
@@ -472,6 +470,24 @@
         button {
             c: cm;
             &:not(.disable-hover):hover { c: fg 0 bd }
+        }
+        /// Base elements.
+        .dropdown {
+            &-tab {
+                &s-list { box-shadow: none i }
+                &-item {
+                    padding: 0 i;
+                    c: 0 bd;
+                    a {
+                        border-width: 1px i;
+                        c: 0 bd bg;
+                        &:hover { c: fg 0 t }
+                        &.active { c: fg t hl }
+                    }
+                }
+            }
+            &-footer { c: 0 bd }
+            &-loading { c: 0 0 #88888815 }
         }
         /// Navbar -> Projects/groups.
         /.frequent-items-dropdown {
