@@ -503,6 +503,14 @@
                 [class *= '-namespace'] { c: cm }
             }
         }
+        /// Issues -> Boards -> Add list.
+        &[class *= '-tabs'] {
+            p { c: cm }
+            .btn-link:not(#z) {
+                c: 0 0 t;
+                &:hover { c: 0 0 bd }
+            }
+        }
     }
 
     // Global -> Buttons.
