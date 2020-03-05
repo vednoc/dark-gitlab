@@ -526,10 +526,10 @@
     .btn {
         z-index: 1;
         position: relative;
-        &[data-toggle = 'dropdown'], &-default {
+        &, &[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
-            &:hover { c: 0 0 #88888820 }
+            &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
         }
         /// Dropdowns -> Active state.
         /.active, /.show { > [data-toggle = 'dropdown'] svg { v: fg }}
