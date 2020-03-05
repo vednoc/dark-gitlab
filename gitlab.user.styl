@@ -434,6 +434,15 @@
                 &:last-child > th { rad: 0 0 0 4px }
             }
         }
+        /// Pajamas -> Tables.
+        &.gl-table {
+            border: 1px solid bd;
+            tbody {
+                > tr:first-child > td { border-top: 1px solid bd }
+                > tr:last-child > td { border-bottom: none }
+                > tr:hover > td { c: 0 0 hl }
+            }
+        }
     }
 
     // Global -> Dropdowns.
