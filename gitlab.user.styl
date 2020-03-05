@@ -1577,6 +1577,44 @@
                 &-commit { &, &-link { c: cm }}
             }
         }
+        /// Project -> File -> Blame.
+        /.blame {
+            /// Fix table cell borders.
+            tr:not(:first-child) > td { border-top: 1px solid bd i }
+            /// Legend box.
+            /.file-blame-legend { c: 0 bd hl }
+            /// Commits.
+            &-commit {
+                position: relative;
+                padding-left: 12px i;
+                border-left: none i;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0; bottom: 0;
+                    width: 4px;
+                }
+                /// Whitespace between avatar and content.
+                .commit > a[href] > img { margin-right: 10px }
+                /// Background for table cells.
+                &:not(#z) { c: 0 0 hl }
+                + .line-numbers:not(#z) {
+                    border-left: 1px solid bd i;
+                    c: 0 0 hl;
+                    rad: 0;
+                }
+            }
+            /// Text colors.
+            .commit-author-link, .cdark { c: fg }
+            .commit-sha { c: ac }
+            /// Custom legend/age colors..
+            for i in 0..9 {
+                /.legend-box-{ i }, &-commit-age-{ i }::before {
+                    c: 0 0 green;
+                    opacity: s(('0.%s99'), i);
+                }
+            }
+        }
     }
 
     // Project -> Readme.
