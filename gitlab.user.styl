@@ -2001,6 +2001,29 @@
         /.zen-backdrop.fullscreen { c: 0 0 bg }
     }
 
+    // Issues -> Boards.
+    .board {
+        &-inner {
+            c: 0 bd bg;
+            /// Header.
+            ~/-title {
+                c: 0 bd;
+                &-caret:hover { c: 0 0 hl }
+            }
+            /// Fix badge/input background.
+            ~/ .issue-count-badge { c: 0 0 t }
+            ~/ .form-control { c: 0 0 bg }
+        }
+        /// Cards.
+        &-card {
+            border-top: 1px solid bd i;
+            c: 0 bd hl;
+            box-shadow: none;
+            &-header a { c: fg }
+            &-number { c: cm }
+        }
+    }
+
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
         c: 0 bd bb;
