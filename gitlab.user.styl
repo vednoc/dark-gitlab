@@ -2035,6 +2035,14 @@
             &.addition { c: green 0 t }
             &.deletion { c: red 0 t }
         }
+        /// Notes -> Resolved discussions. #79
+        /.line-resolve {
+            &-all { c: 0 bd hl }
+            &-btn {
+                &.is-disabled svg { v: cm }
+                &.is-active svg { v: green }
+            }
+        }
     }
 
     // Issue/MRs/Epics -> Discussions.
