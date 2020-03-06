@@ -628,6 +628,8 @@
                     height: 32px i;
                     font-size: 14px i;
                 }
+                /// Remove margin from the last badge.
+                &-badge:last-child { margin-right: 0 i }
             }
         }
         /// Commits -> Toggle message.
@@ -1451,6 +1453,11 @@
         }
         /// Fix body content shift when modal is open. @upstream
         /body.modal-open { padding-right: 0px i }
+        /// Project -> Drag'n'drop preview.
+        /.dropzone {
+            &-previews { c: 0 bd }
+            /.markdown-selector { color: ac }
+        }
     }
 
     // Pajamas -> Popovers.
