@@ -1761,7 +1761,9 @@
             &-name { c: fg }
         }
         .file-content {
-            c: 0 0 t;
+            c: 0 0 bg;
+            /// Fix code area background.
+            pre.code.highlight:not([lang]) { c: 0 0 bg }
         }
         /.code.white {
             /// Gutters.
