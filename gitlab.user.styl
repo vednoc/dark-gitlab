@@ -198,11 +198,6 @@
         }
         .gl-link { color: ac }
         pre, code, kbd, samp { font-family: var(--mono-font) i }
-        .text-danger {
-            c: red;
-            /// Due date.
-            &.s16 { v: red }
-        }
         /// Settings -> Account.
         .warning-title { c: yellow }
         .danger-title { c: red }
@@ -215,6 +210,8 @@
         }
         /// Global color reset.
         .text {
+            &-danger { c: red }
+            &-success { c: green }
             &-plain, /.light { c: fg }
             &-secondary, &-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
@@ -279,6 +276,8 @@
             &[id *= 'addition-solid'] { v: green }
             /// Misc.
             /.commit-icon svg { v: cm }
+            &.text-success { v: green } /// Green checkmark.
+            &.text-danger { v: red } /// Due date.
         }
         // Global -> Callouts.
         .bs-callout {
