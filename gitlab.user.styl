@@ -129,11 +129,13 @@
     bsh     = var(--bshadow);
     yellow  = var(--yellow);
     orange  = var(--orange);
+    lred    = transparentify(red, #fff, 65%);
     red     = var(--red);
     magenta = var(--magenta);
     violet  = var(--violet);
     blue    = var(--blue);
     cyan    = var(--cyan);
+    lgreen  = transparentify(green, #fff, 75%);
     green   = var(--green);
     white   = var(--white);
     r       = var(--radius);
@@ -1778,8 +1780,8 @@
                 &:not(:first-of-type) > td { border-top: 1px solid bd i }
             }
             /// Diffs.
-            .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem #44bb4444 }
-            .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem #bb444444 }
+            .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lgreen }
+            .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lred }
             /// Code.
             /pre.code {
                 c: fg bd hl;
