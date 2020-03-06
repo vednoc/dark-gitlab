@@ -1874,7 +1874,11 @@
             }
             /.cred { c: red }
             /.cgreen { c: green }
-            [class *= 'summary-toggle'] { c: blue }
+            [class *= 'summary-toggle'] {
+                c: blue 0 t;
+                /// Reset hover styles.
+                &::before { content: unset }
+            }
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) { top: 49px }
         }
