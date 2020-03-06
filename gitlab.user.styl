@@ -558,6 +558,7 @@
         &&-success {
             c: green green t;
             &::before { content: ''; c: 0 0 green }
+            svg { v: green }
         }
         &&-primary, &&-info {
             c: blue blue t;
@@ -1743,11 +1744,7 @@
                 .btn {
                     svg { v: cm }
                     &.active { c: 0 0 bd }
-                    &-default { c: 0 0 bg }
-                    &-primary {
-                        c: white ac ac;
-                        &.btn-inverted { c: ac ac bg }
-                    }
+                    &, &-default { c: 0 0 bg }
                 }
                 /// Fix anchors for both cases.
                 ../, & { a:not(.btn) { c: fg }}
