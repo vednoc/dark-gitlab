@@ -1268,6 +1268,22 @@
             font-size: 1em;
             font-family: var(--emoji-font);
         }
+        /// Notes -> Suggested change.
+        &-suggestion {
+            &-header {
+                c: 0 bd hl;
+            }
+            &-diff {
+                font-family: var(--mono-font) i;
+                rad: 0 0 4px 4px i;
+                c: 0 bd;
+            }
+            /// Fix rounded corners.
+            tr:last-child > td {
+                &:first-child::after { rad: 0 0 0 3px }
+                &:last-child::after { rad: 0 0 3px 0 }
+            }
+        }
     }
 
     // Pajamas -> Banners.
