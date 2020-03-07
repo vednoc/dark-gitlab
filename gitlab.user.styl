@@ -2171,8 +2171,14 @@
 
     // Project -> File editor.
     .file {
-        /// Fix rounded corners.
-        &-holder { &&-bottom-radius { rad: 4px }}
+        /// File wrapper.
+        &-holder {
+            c: 0 0 bg;
+            /// Fix rounded corners.
+            &&-bottom-radius { rad: 4px }
+            /// Fork suggestion.
+            ../-fork-suggestion { c: 0 bd hl }
+        }
         /// Editor styles.
         &-editor {
             /// Top navigation.
