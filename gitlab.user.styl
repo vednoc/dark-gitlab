@@ -1954,6 +1954,14 @@
                     &::after { c: 0 0 green }
                 }
             }
+            /// Diff -> Comments.
+            .diff-comment {
+                &-avatar, &s-more-count { c: 0 bg }
+                &s-more-count, /.diff-notes-collapse {
+                    rad: var(--avatar);
+                    c: fg bd hl;
+                }
+            }
         }
     }
 
@@ -2066,6 +2074,15 @@
             font-family: var(--ui-font) i;
             > td, .notes { c: 0 0 t }
             [class *= 'reply-holder'] { margin-bottom: -1px }
+            /// Diff -> Comments.
+            .timeline-entry.note {
+                c: fg 0 t;
+                /// Add missing borders. @upstream
+                .replies-toggle,
+                [class *= 'reply-holder'] {
+                    border-bottom: 1px solid bd;
+                }
+            }
         }
     }
 
