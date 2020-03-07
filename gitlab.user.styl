@@ -569,6 +569,8 @@
         }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
+        /// Notes -> Links.
+        &-link { c: ac t t }
         &.active { c: fg bd bd }
         /// Transparent buttons.
         &-transparent:not(#z) { c: cm t t 0 }
@@ -1992,18 +1994,12 @@
             c: 0 bd;
             .edited-text { &, .author-link { c: cm }}
             /// Exclude system events and input form.
-            &:not(.system-note):not(.note-form) { c: 0 0 hl }
+            &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target { c: 0 blue #88888815 }
+            &.target:not(#z) { c: 0 blue hl }
             /// Markdown area.
             .note-text {
-                &.md {
-                    c: fg;
-                    /// Use `bg` color in the notes.
-                    > pre.code,
-                    > :not(pre) > code,
-                    > p > a > img:not(.emoji) { c: 0 0 bg }
-                }
+                &.md { c: fg }
                 /// Commit list gradient.
                 &::after { background: linear-gradient(t -100px, bb 100%) i }
                 /// 'Toggle commit list' button.
@@ -2014,12 +2010,11 @@
         /[class *= 'headline-light'] { c: cm }
         /// Replies.
         .replies-toggle {
-            c: cm bd hl;
+            c: fg bd hl;
             &:not(.expanded) { border-bottom: 0 }
             &.collapsed { rad: 0 0 3px 3px }
-            &.expanded { c: 0 0 bd }
-            .btn-link { c: ac }
-            span { c: cm }
+            &.expanded { c: 0 0 hl }
+            span { c: fg }
         }
         /// Reactions.
         /[class *= 'award-control-'] {
@@ -2028,7 +2023,7 @@
             &.is-active svg { v: ac }
         }
         /// User role.
-        .user-access-role { c: fg 0 bd }
+        .user-access-role { c: fg 0 hl }
         /// Global -> Emoji picker.
         /.emoji-menu {
             c: 0 bd hl;
@@ -2057,9 +2052,10 @@
         &-headline-light a { c: ac }
         /// Discussion notes.
         .timeline-entry {
-            c: fg 0 hl;
-            rad: 0;
-            &.target { c: 0 0 #88888815 }
+            c: fg 0 bg;
+            &.target { c: 0 0 hl }
+            /// Don't remove rounded corners from the first child.
+            &:not(:first-child) { rad: 0 }
         }
         /// Reply...
         /&-reply-holder {
