@@ -1922,6 +1922,7 @@
             .line_content {
                 z-index: 1;
                 &.new, &.old {
+                    c: 0 0 t;
                     &::after {
                         content: '';
                         z-index: -1;
@@ -1992,7 +1993,6 @@
         /// Note styles.
         &.timeline > .timeline-entry {
             c: 0 bd;
-            .edited-text { &, .author-link { c: cm }}
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
@@ -2005,6 +2005,10 @@
                 /// 'Toggle commit list' button.
                 + .flex-list div[class *= 'toggle'] { c: ac }
             }
+            /// Edited text.
+            .edited-text { &, .author-link { c: cm }}
+            /// Code discussion divider.
+            .notes-content { c: 0 bd }
         }
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] { c: cm }
@@ -2042,6 +2046,12 @@
                 &.is-disabled svg { v: cm }
                 &.is-active svg { v: green }
             }
+        }
+        /// Reset code discussions.
+        &_holder {
+            font-family: var(--ui-font) i;
+            > td, .notes { c: 0 0 t }
+            [class *= 'reply-holder'] { margin-bottom: -1px }
         }
     }
 
