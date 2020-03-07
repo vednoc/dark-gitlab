@@ -1808,17 +1808,24 @@
                 code > span:hover { c: 0 0 hl}
                 /// Syntax highlighting.
                 /.code.white {
+                    /// Package links.
                     .line > a { c: blue }
+                    /// Errors.
                     .err { c: white 0 red }
-                    .c, .c1, .gh, .nn { c: cm }
-                    .n, .cp { c: fg }
+                    /// Additions/deletions.
+                    .gi { c: green 0 bb }
+                    .gd { c: red 0 bb }
+                    /// Tokens.
+                    .c, .c1, .gh, .nn, .go { c: cm }
+                    .n, .cp, .gp { c: fg }
                     .no, .na, .nv { c: cyan }
-                    .s, .s2, .sx, .s1 { c: red }
+                    .s, .s2, .sx, .s1, .se { c: red }
+                    .sr, .vi { c: green }
                     .nt, .m, .mi, .mh { c: blue }
                     .nb { c: cyan; filter: hue-rotate(30deg) }
                     .nc { c: blue; filter: hue-rotate(30deg) }
-                    .nf, .ss { c: magenta }
-                    .ni, .gu { c: violet }
+                    .nf, .ss, .si { c: magenta }
+                    .ni, .gu, .sb { c: violet }
                 }
             }
         }
