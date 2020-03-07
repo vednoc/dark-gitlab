@@ -189,6 +189,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: fg bd hl 0 0 0;
             /// Commits -> Messages / Details.
             &[class *= 'description'] {
+                border-left-width: 4px;
                 font-size: 0.875rem;
                 c: cm bd;
             }
@@ -198,7 +199,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: fg 0 hl;
             box-shadow: inner;
         }
-        .gl-link { color: ac }
+        .gl-link, .author-link { color: ac }
         pre, code, kbd, samp { font-family: var(--mono-font) i }
         /// Settings -> Account.
         .warning-title { c: yellow }
@@ -257,6 +258,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 box-shadow: inner i;
                 .omniauth-btn { c: 0 0 bg }
                 .omniauth-divider { &::before, &::after { c: 0 bd }}
+                input.form-control { c: 0 0 bg }
             }
         }
         /// Global -> Icons.
@@ -344,7 +346,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Sign in / register.
         .btn-sign-in { &, &:hover { c: cm 0 bg }}
         /// Feat -> Increase navbar height.
-        if (nb_height == 1) {
+        if ( nb_height == 1 ) {
             min-height: 50px;
             /.nav-sidebar { top: 50px }
             /.layout-page { margin-top: 50px }
@@ -736,6 +738,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Fix icon color.
         .search-icon { v: cm }
+        /// Snippets -> New.
+        /.form-actions { c: 0 bd t }
     }
 
     // Global -> Auto-complete menu.
@@ -774,6 +778,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Project -> Branches.
         &.all-branches {
             .graph { &-side .bar, &-separator { c: 0 0 bd }}
+            .commit-sha { c: ac }
+            .cgray { c: cm }
         }
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
@@ -1572,9 +1578,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .limit-box {
             c: red 0 bg;
             /// Icon position. @upstream
-            .s12 { margin-top: 2px }
+            ../ .branches .s12 { margin-top: 2px }
         }
-        /// Diff -> More info.
+        /// Diff -> More info / Code owners..
         .well-segment { c: 0 bd }
     }
 
@@ -1776,6 +1782,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         .file-content {
             c: 0 0 bg;
+            rad: 0 0 3px 3px;
             /// Fix code area background.
             pre.code.highlight:not([lang]) { c: 0 0 bg }
         }
@@ -1853,7 +1860,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Content.
         .diff-content {
             c: fg 0 bg;
-            /// Collapsed diff.
+            /// Collapsed diff / Empty files.
             /.nothing-here-block {
                 c: cm;
                 .click-to-expand { c: ac t t }
@@ -2143,7 +2150,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Reset background.
         .timeline-icon { c: 0 0 t }
         /// Commands.
-        /.referenced-commands { c: cm 0 bd }
+        /.referenced-commands { c: fg 0 bd }
         /// Zen mode.
         /.zen {
             &-control svg { v: cm }
@@ -2252,7 +2259,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Override colors.
         input, .btn, .select2-choice { c: 0 0 bg }
         .btn[class *= 'active'] { c: 0 0 bd }
-        // Editor -> Ace editor.
+        /// Editor -> Ace editor.
         /.ace {
             /// Wrapper. #75
             &-tm {
@@ -2330,6 +2337,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     // Components -> IDE.
     .ide {
         &-view { c: fg }
+        /// Header area.
+        .sidebar-context-title { c: fg }
+        .avatar-container { c: 0 0 t }
         /// Sidebars.
         &-activity-bar {
             svg.s16 { v: cm }
