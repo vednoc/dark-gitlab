@@ -1270,9 +1270,7 @@
         }
         /// Notes -> Suggested change.
         &-suggestion {
-            &-header {
-                c: 0 bd hl;
-            }
+            &-header { c: 0 bd hl }
             &-diff {
                 font-family: var(--mono-font) i;
                 rad: 0 0 4px 4px i;
@@ -2082,6 +2080,8 @@
             &.target { c: 0 0 hl }
             /// Don't remove rounded corners from the first child.
             &:not(:first-child) { rad: 0 }
+            /// Reset background for line numbers.
+            ../-body:not(#z) .diff-line-num { c: 0 0 bg }
         }
         /// Reply...
         /&-reply-holder {
