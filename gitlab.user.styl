@@ -2125,7 +2125,10 @@
         /// Commands.
         /.referenced-commands { c: cm 0 bd }
         /// Zen mode.
-        /.zen-backdrop.fullscreen { c: 0 0 bg }
+        /.zen {
+            &-control svg { v: cm }
+            &-backdrop.fullscreen { c: 0 0 bg }
+        }
     }
 
     // Issues -> Boards.
