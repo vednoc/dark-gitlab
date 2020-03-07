@@ -1047,11 +1047,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
 
     // Global -> Cards.
     .card {
-        c: 0 bd hl;
+        c: 0 bd bg;
         .user-info .user { c: fg }
         /// Default styles.
         &-header {
-            c: 0 bd bd;
+            c: 0 bd hl;
             /// Project settings -> Pages.
             &.bg-info { c: blue 0 bd }
             &.bg-danger { c: red 0 bd }
@@ -1064,7 +1064,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         &-body {
             > .form-actions {
-                c: 0 bd hl;
+                c: 0 bd bg;
                 ../, & { rad: 0 0 3px 3px i }
             }
         }
