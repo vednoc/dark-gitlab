@@ -1425,6 +1425,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: green 0 t;
                 &::before { c: 0 0 green }
             }
+            /// Increase top offset when nb_height is enabled.
+            if ( nb_height == 1 ) {
+                &.sticky { top: 58px i }
+            }
         }
         /.alert {
             &&-info, &&-primary { c: blue blue hl }
