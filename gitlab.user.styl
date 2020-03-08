@@ -1137,6 +1137,18 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Help -> Quick help links.
         &.links-card a { c: ac }
+        /// Issues/MRs/Epics -> Sortable list.
+        /.sortable {
+            /// Wrapper.
+            &-container {
+                c: 0 0 hl;
+                &[class *= 'body'] { rad: 0 0 4px 4px }
+            }
+            /// Items.
+            &-row &-link { c: ac }
+        }
+        /// Epics -> Separator.
+        /.epic-discussion-separator { c: 0 bd }
     }
 
     // Global -> Skeleton.
