@@ -535,6 +535,22 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:hover { c: 0 0 bd }
             }
         }
+        /// Global -> Select2 component.
+        /.select2 {
+            &-highlighted &-result-label { c: fg 0 bd }
+            &-result-label { c: cm }
+            &-choice { c: cm bd hl }
+            &-arrow::after { c: cm }
+            &-match { c: ac }
+            &-drop {
+                c: cm bd hl;
+                box-shadow: bsh;
+            }
+            &-input {
+                font-family: var(--ui-font) i;
+                c: fg bd t;
+            }
+        }
     }
 
     // Global -> Buttons.
