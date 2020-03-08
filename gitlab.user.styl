@@ -439,6 +439,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:last-child > th { rad: 0 0 0 4px }
             }
         }
+        /// Settings -> Striped tables.
+        &.table-striped {
+            border: 1px solid bd;
+            thead > tr > th { border-top: none }
+            tbody tr {
+                &:nth-of-type(2n + 1) { c: 0 0 bb }
+                > td { border-top: 1px solid bd i }
+            }
+        }
         /// Pajamas -> Tables.
         &.gl-table {
             border: 1px solid bd;
