@@ -535,6 +535,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: fg bd hl;
             svg { v: cm }
             &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
+            ../.active > .fa { c: fg }
         }
         /// Dropdowns -> Active state.
         /.active, /.show { > [data-toggle = 'dropdown'] svg { v: fg }}
@@ -564,6 +565,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: green green t;
             &::before { content: ''; c: 0 0 green }
             svg { v: green }
+            .fa { c: green }
         }
         &&-primary, &&-info {
             c: blue blue t;
@@ -982,7 +984,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .form-control, .info-well { c: 0 0 bg }
             [class *= 'input-group'] {
                 rad: 4px;
-                c: cm bd bd;
+                c: fg bd bd;
                 /// TODO: Refactor `select2` dropdown.
                 .select2-choice { c: cm bd bg }
             }
