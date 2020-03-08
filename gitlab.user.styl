@@ -591,10 +591,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Reactions.
         &.award-control {
             c: cm bd hl;
-            &:hover {
-                c: fg blue;
-                &::before { content: ''; c: 0 0 blue }
-            }
             &.active, &.is-active {
                 c: ac ac hl;
                 &::before { content: ''; c: 0 0 ac }
