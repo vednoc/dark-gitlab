@@ -202,8 +202,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .gl-link, .author-link { color: ac }
         pre, code, kbd, samp { font-family: var(--mono-font) i }
         /// Settings -> Account.
-        .warning-title { c: yellow }
         .danger-title { c: red }
+        .warning-title { c: orange }
+        .account-well { c: fg bd hl }
         /// Global -> Progress bar.
         .progress {
             c: 0 0 bd;
@@ -440,7 +441,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
         }
         /// Settings -> Striped tables.
-        &.table-striped {
+        &.table-striped, &.active-tokens, &.pipeline-project-metrics {
             border: 1px solid bd;
             thead > tr > th { border-top: none }
             tbody tr {
