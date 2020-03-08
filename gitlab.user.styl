@@ -1072,11 +1072,13 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &.bg-info { c: blue 0 bd }
             &.bg-danger { c: red 0 bd }
             + ul > .list-group-item { c: 0 bd t }
-            /// Project settings -> Card borders.
+            /// Project -> Settings -> Card borders.
             ../.border {
                 &-info { c: 0 blue }
                 &-danger { c: 0 red }
             }
+            /// Settings -> Active Sessions.
+            /.list-group { & > &-item { c: 0 bd bg }}
         }
         &-body {
             > .form-actions {
