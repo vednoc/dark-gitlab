@@ -1038,8 +1038,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             [class *= 'input-group'] {
                 rad: 4px;
                 c: fg bd bd;
-                /// TODO: Refactor `select2` dropdown.
-                .select2-choice { c: cm bd bg }
+                /// Reset background color.
+                .select2-choice { c: 0 0 bg }
             }
             /// Visibility level.
             /.option {
