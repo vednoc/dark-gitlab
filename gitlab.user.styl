@@ -1791,6 +1791,23 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
+    /// Project -> Pipelines.
+    .pipeline-graph {
+        /// Pipelines -> Tab background.
+        &.pipeline-tab-content { c: 0 0 hl }
+        /// Pipelines -> Stages.
+        .build {
+            &-content {
+                c: 0 bd bg;
+                &:hover { c: 0 0 bb }
+            }
+            /// Connectors.
+            ../ .curve, &:not(first-child), /.stage-container {
+                &::before, &::after { c: 0 bd }
+            }
+        }
+    }
+
     // Project -> Issues/MR/Epics.
     .detail-page {
         /// Header.
