@@ -1654,8 +1654,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .commit-row-message, .committer a { c: fg }
         /// Center the SHA-value box.
         .commit-actions { align-self: center }
-        /// Commits -> Info.
-        .branch-info { c: 0 bd }
+        /// Diff -> Commit info.
+        .branch-info {
+            c: 0 red;
+            /// 'Parent commit' text color.
+            .cgray { c: fg }
+        }
         svg path { v: cm }
         /// Commits -> Branches.
         .limit-box {
