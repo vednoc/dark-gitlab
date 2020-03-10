@@ -98,6 +98,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             --cyan      : #4d5eff;
             --green     : #008833;
         } else {
+            --bb        : lighten(dark, 1.5%);
             --dark      : dark;
             --darken    : darken;
             --darker    : darker;
@@ -119,7 +120,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     }
 
     // Overwrite existing Stylus-lang vars with CSS vars.
-    bb      = lighten(dark, 1%);
+    bb      = var(--bb);
     bg      = var(--dark);
     hl      = var(--darken);
     bd      = var(--darker);
