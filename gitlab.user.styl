@@ -1788,6 +1788,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
+        /// Issues/Jobs -> Header -> Author link.
+        /.page-content-header {
+            [class *= '-link'] { c: fg }
+        }
         /// Description.
         &-description {
             .title { c: fg }
