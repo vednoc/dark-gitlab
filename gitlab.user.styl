@@ -285,6 +285,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /.commit-icon svg { v: cm }
             &.text-success { v: green } /// Green checkmark.
             &.text-danger { v: red } /// Due date.
+            /// Notes -> Related isses/MRs/epics.
+            &.issue-token-state-icon {
+                &-open { v: green }
+                &-closed { v: blue }
+            }
+            &.merge-request-status {
+                &.open { c: green; v: green }
+                &.closed { c: red; v: red }
+            }
         }
         // Global -> Callouts.
         .bs-callout {
