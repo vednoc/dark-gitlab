@@ -371,8 +371,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         flc = 'not(:first-child):not(last-child)';
         thead {
             tr {
-                &:first-child th:first-child { rad: R 0 0 0 }
-                &:first-child th:last-child { rad: 0 R 0 0 }
+                &:first-child th:first-child { border-top-left-radius: R }
+                &:first-child th:last-child { border-top-right-radius: R }
                 th {
                     c: fg bd hl;
                     border-bottom-width: 0px;
@@ -405,6 +405,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                         border-bottom: none i;
                         rad: 0 0 R R;
                     }
+                }
+                /// Single-row table body.
+                &:first-child:last-child:not(#z) > td {
+                    border-bottom: 1px solid bd i;
                 }
                 // &:hover > td { c: 0 0 hl }
             }
