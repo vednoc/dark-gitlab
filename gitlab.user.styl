@@ -1805,6 +1805,13 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             ../ .curve, &:not(first-child), /.stage-container {
                 &::before, &::after { c: 0 bd }
             }
+            /.ci {
+                /// Fix CI job text weight/color.
+                &-build-text, &-status-text {
+                    font-weight: normal i;
+                    c: fg;
+                }
+            }
         }
     }
 
