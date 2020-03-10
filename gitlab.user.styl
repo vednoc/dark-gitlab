@@ -482,21 +482,22 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: red 0 bg;
             rad: 4px;
             > [class *= 'header'] {
-                padding: 16px;
+                padding: 8px 16px;
                 c: fg bd hl;
                 rad: 3px 3px 0 0;
             }
             > [class $= 'table-row'] {
-                padding: 16px;
+                padding: 8px 16px;
                 c: fg bd bg;
                 &:nth-last-child(2) {
                     border-bottom: none i;
                     rad: 0 0 3px 3px;
                 }
+                &:hover { c: 0 0 hl }
             }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
-            .pipeline-id { c: fg }
+            .pipeline-id, .table-mobile-header { c: fg }
             .duration {
                 c: cm;
                 svg path { v: cm }
