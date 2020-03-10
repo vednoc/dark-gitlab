@@ -285,6 +285,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /.commit-icon svg { v: cm }
             &.text-success { v: green } /// Green checkmark.
             &.text-danger { v: red } /// Due date.
+            /// CI -> Default background.
+            /[id *= 'status_'] [fill = '#FFF'] { v: hl }
             /// Notes -> Related isses/MRs/epics.
             &.issue-token-state-icon {
                 &-open { v: green }
@@ -1810,6 +1812,73 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &-build-text, &-status-text {
                     font-weight: normal i;
                     c: fg;
+                }
+            }
+            /// CI -> Icons.
+            &-status {
+                c: fg bd bg 1 0;
+                /// CI Status.
+                &.ci {
+                    &-success {
+                        c: green green;
+                    }
+                    &-info, &-running {
+                        c: blue blue;
+                    }
+                    &-failed {
+                        c: red red;
+                    }
+                    &-pending,
+                    &-waiting-for-resource,
+                    &-failed-with-warnings,
+                    &-success-with-warnings {
+                        c: orange orange;
+                    }
+                    &-created,
+                    &-skipped {
+                        c: fg fg;
+                    }
+                    &-canceled,
+                    &-disabled,
+                    &-scheduled,
+                    &-manual {
+                        c: cm cm;
+                    }
+                }
+                /// CI stage icons.
+                &-icon {
+                    &-success {
+                        &[class *= 'dropdown'] { c: 0 green bg }
+                        svg { v: green }
+                    }
+                    &-running,
+                    &-preparing {
+                        &[class *= 'dropdown'] { c: 0 blue bg }
+                        svg { v: blue }
+                    }
+                    &-failed {
+                        &[class *= 'dropdown'] { c: 0 red bg }
+                        svg { v: red }
+                    }
+                    &-pending,
+                    &-waiting-for-resource,
+                    &-success-with-warnings {
+                        &[class *= 'dropdown'] { c: 0 orange bg }
+                        svg { v: orange }
+                    }
+                    &-created,
+                    &-skipped {
+                        &[class *= 'dropdown'] { c: 0 fg bg }
+                        svg { v: fg }
+                    }
+                    &-manual,
+                    &-canceled,
+                    &-disabled,
+                    &-scheduled,
+                    &-not-found {
+                        &[class *= 'dropdown'] { c: 0 cm bg }
+                        svg { v: cm }
+                    }
                 }
             }
         }
