@@ -1878,7 +1878,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
-    /// Project -> Pipelines.
+    // Project -> Pipelines.
     .pipeline-graph {
         /// Pipelines -> Tab background.
         &.pipeline-tab-content { c: 0 0 hl }
@@ -1899,6 +1899,37 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     c: fg;
                 }
             }
+        }
+    }
+
+    // Project -> Pipelines -> Build page.
+    .build-page {
+        .top-bar {
+            z-index: 99;
+            c: fg bd hl;
+            rad: 4px 4px 0 0;
+            if ( nb_height == 1  ) { top: 49px i }
+        }
+        .job-log {
+            border: 1px solid bd;
+            border-top: none;
+            c: fg 0 bg;
+            box-shadow: none;
+            rad: 0 0 4px 4px;
+        }
+        .line-number { c: cm }
+        .collapsible-line {
+            .log-duration-badge { c: 0 0 bd }
+            &:hover { c: 0 0 hl }
+        }
+        /// Terminal text colors.
+        .term {
+            &-fg-l-red { c: red }
+            &-fg-l-blue { c: blue }
+            &-fg-l-cyan { c: cyan }
+            &-fg-l-green { c: green }
+            &-fg-l-yellow { c: yellow }
+            &-fg-l-magenta { c: magenta }
         }
     }
 
