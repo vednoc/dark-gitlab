@@ -1039,6 +1039,19 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) { top: 50px i }
         }
+        /// Jobs -> Builds container.
+        &.build-sidebar {
+            .builds-container {
+                c: fg bd bg;
+                .build-job:hover {
+                    c: 0 0 bb;
+                    a { c: fg }
+                }
+            }
+            /// Reset colors.
+            .blocks-container { a, .btn-link { &:not(.btn) { c: ac }}}
+            .btn, [data-toggle = 'dropdown'] { c: 0 0 bg }
+        }
     }
 
     // Global -> Navigation.
