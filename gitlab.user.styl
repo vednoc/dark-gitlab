@@ -568,10 +568,17 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
-            .pipeline-id, .table-mobile-header { c: fg }
+            .pipeline-id, .table-mobile-header, .build-link { c: fg }
             .duration {
                 c: cm;
                 svg path { v: cm }
+            }
+            /// Jobs -> Pipelines.
+            &.pipeline tbody {
+                > tr > th {
+                    c: fg bd bb;
+                }
+                > tr > td { border-top: 1px solid bd i }
             }
         }
         /// Project -> File table.
@@ -1790,7 +1797,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
 
     // Project -> Files.
     .table-holder {
-        c: 0 0 bg;
         /// Remove border.
         &.bordered-box { border: none i }
         /// Project -> File -> Blame.
