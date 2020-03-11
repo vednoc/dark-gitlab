@@ -334,36 +334,36 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 /// Stage icons.
                 &-icon {
                     &-success {
-                        &[class *= 'dropdown'] { c: 0 green bg }
-                        svg { v: green }
+                        &[class *= 'dropdown'] { c: 0 green hl }
+                        &, &[data-toggle] { svg { v: green }}
                     }
                     &-running,
                     &-preparing {
-                        &[class *= 'dropdown'] { c: 0 blue bg }
-                        svg { v: blue }
+                        &[class *= 'dropdown'] { c: 0 blue hl }
+                        &, &[data-toggle] { svg { v: blue }}
                     }
                     &-failed {
-                        &[class *= 'dropdown'] { c: 0 red bg }
-                        svg { v: red }
+                        &[class *= 'dropdown'] { c: 0 red hl }
+                        &, &[data-toggle] { svg { v: red }}
                     }
                     &-pending,
                     &-waiting-for-resource,
                     &-success-with-warnings {
-                        &[class *= 'dropdown'] { c: 0 orange bg }
-                        svg { v: orange }
+                        &[class *= 'dropdown'] { c: 0 orange hl }
+                        &, &[data-toggle] { svg { v: orange }}
                     }
                     &-created,
                     &-skipped {
-                        &[class *= 'dropdown'] { c: 0 fg bg }
-                        svg { v: fg }
+                        &[class *= 'dropdown'] { c: 0 fg hl }
+                        &, &[data-toggle] { svg { v: fg }}
                     }
                     &-manual,
                     &-canceled,
                     &-disabled,
                     &-scheduled,
                     &-not-found {
-                        &[class *= 'dropdown'] { c: 0 cm bg }
-                        svg { v: cm }
+                        &[class *= 'dropdown'] { c: 0 cm hl }
+                        &, &[data-toggle] { svg { v: cm }}
                     }
                 }
             }
