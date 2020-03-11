@@ -564,7 +564,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     border-bottom: none i;
                     rad: 0 0 3px 3px;
                 }
-                &:hover { c: 0 0 hl }
+                &:hover { c: 0 0 bb }
             }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
@@ -572,6 +572,27 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .duration {
                 c: cm;
                 svg path { v: cm }
+            }
+        }
+        /// Project -> File table.
+        &.tree-table {
+            border: 1px solid bd;
+            thead tr, th { border-top: none i }
+            tbody {
+                td { c: 0 bd }
+                tr {
+                    > td {
+                        border-top: 1px solid bd i;
+                        border-bottom: none i;
+                    }
+                    &:hover:not(#z) td { c: 0 0 bb }
+                    &:last-child td { border-bottom: none i }
+                }
+            }
+            /// Files.
+            /.tree {
+                &-item-file-name { &, a, i { c: fg }}
+                &-commit { &, &-link { c: cm }}
             }
         }
     }
@@ -1770,26 +1791,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     // Project -> Files.
     .table-holder {
         c: 0 0 bg;
-        &.bordered-box { c: 0 bd }
-        table {
-            thead tr, th { border-top: none i }
-            tbody {
-                td { c: 0 bd }
-                tr {
-                    > td {
-                        border-top: 1px solid bd i;
-                        border-bottom: none i;
-                    }
-                    &:hover:not(#z) td { c: 0 0 hl }
-                    &:last-child td { border-bottom: none i }
-                }
-            }
-            /// Files.
-            /.tree {
-                &-item-file-name { &, a, i { c: fg }}
-                &-commit { &, &-link { c: cm }}
-            }
-        }
+        /// Remove border.
+        &.bordered-box { border: none i }
         /// Project -> File -> Blame.
         /.blame {
             /// Fix table cell borders.
