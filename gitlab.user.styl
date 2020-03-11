@@ -568,7 +568,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
-            .pipeline-id, .table-mobile-header, .build-link { c: fg }
+            .pipeline-id, .table-mobile-header,
+            .build-link, .build-name a {
+                c: fg;
+            }
             .duration {
                 c: cm;
                 svg path { v: cm }
@@ -1939,6 +1942,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &-fg-l-green { c: green }
             &-fg-l-yellow { c: yellow }
             &-fg-l-magenta { c: magenta }
+        }
+        /// Jobs -> Failed jobs.
+        .build-trace {
+            border: 1px solid bd;
+            c: fg 0 hl;
+            &-container { padding-right: 16px i }
         }
     }
 
