@@ -285,6 +285,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /.commit-icon svg { v: cm }
             &.text-success { v: green } /// Green checkmark.
             &.text-danger { v: red } /// Due date.
+            /// Diff -> Git status icons.
+            &.ic-file-addition { &, &-solid { v: green }}
+            &.ic-file-modified { &, &-solid { v: blue }}
+            &.ic-file-deletion { &, &-solid { v: red }}
             /// CI -> Default background.
             /[id *= 'status_'] [fill = '#FFF'] { v: hl }
             /// Notes -> Related isses/MRs/epics.
