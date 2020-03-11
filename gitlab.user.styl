@@ -264,11 +264,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 input.form-control { c: 0 0 bg }
             }
         }
-        /// Global -> Icons.
+        /// Global -> FA icons.
         /.fa {
             c: cm;
             &&-triangle { c: orange }
         }
+        /// Global -> SVG icons.
         /svg {
             &.s16, &.s24, &.icon { v: cm }
             /// Activity icons.
@@ -583,6 +584,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
                 > tr > td { border-top: 1px solid bd i }
             }
+            /// Icons -> Fix background.
+            path[fill = '#FFF'] { v: hl }
         }
         /// Project -> File table.
         &.tree-table {
