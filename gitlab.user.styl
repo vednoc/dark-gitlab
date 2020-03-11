@@ -2006,6 +2006,24 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
+    // Project -> MRs -> Widgets.
+    .mr-state-widget {
+        /// Code quality and other reports. #64
+        /.report-block {
+            &-list-issue {
+                &-parent { c: 0 bd bg }
+                &-description { c: fg }
+            }
+            &-container {
+                c: 0 bd bb;
+                /// Icons.
+                /.failed > svg { v: red }
+                /.neutral > svg { v: cm }
+                /.success > svg { v: green }
+            }
+        }
+    }
+
     // Project -> Settings.
     .project {
         /// Grouped options.
