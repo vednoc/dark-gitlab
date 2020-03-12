@@ -201,7 +201,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             box-shadow: inner;
         }
         .gl-link, .author-link { color: ac }
-        pre, code, kbd, samp { font-family: var(--mono-font) i }
+        /// Custom monospace font.
+        pre, code, kbd, samp, .monospace, .ref-name {
+            font-family: var(--mono-font) i;
+        }
         .container { c: 0 bd }
         /// Settings -> Account.
         .danger-title { c: red }
@@ -839,9 +842,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
 
     // Global -> Labels.
     .label {
-        &&-monospace {
-            c: fg bd bd;
-        }
+        &&-monospace { c: fg bd bb }
         /// Issues/MRs/Epics -> Scoped labels.
         &.scoped-label .fa-question-circle {
             c: 0 0 t;
@@ -1903,8 +1904,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Edit file -> Commit message.
         &-message-container {
+            font-family: var(--mono-font);
             c: 0 0 t;
-            &, /.ref-name { font-family: var(--mono-font) }
         }
     }
 
