@@ -734,10 +734,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: red red t;
             &::before { content: ''; c: 0 0 red }
             .fa { c: red }
+            svg { v: red }
         }
-        &&-close, &&-close-color {
+        &&-close, &&-close-color, &&-warning {
             c: orange orange t;
             &::before { content: ''; c: 0 0 orange }
+            .fa { c: orange }
             svg { v: orange }
         }
         &&-success {
@@ -749,6 +751,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &&-primary, &&-info {
             c: blue blue t;
             &::before { content: ''; c: 0 0 blue }
+            .fa { c: blue }
             svg { v: blue }
         }
         /// No link-buttons! Reference: fbe1cde1
