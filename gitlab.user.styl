@@ -1997,9 +1997,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
-        /// Issues/Jobs -> Page header -> Author link.
         /.page-content-header {
+            /// Issues/Jobs -> Page header -> Author link.
             time, [class *= '-link'] { c: fg }
+            /// Jobs -> Browse artifacts -> Page header.
+            .header-content a { c: fg }
         }
         /// Description.
         &-description {
