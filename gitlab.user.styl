@@ -716,8 +716,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
             ../.active > .fa { c: fg }
         }
-        /// Dropdowns -> Active state.
-        /.active, /.show { > [data-toggle = 'dropdown'] svg { v: fg }}
+        /// Dropdowns -> Active state; exclude CI status icons.
+        /.active, /.show {
+            > [data-toggle = 'dropdown']:not([class *= 'ci-status']) svg { v: fg }
+        }
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
