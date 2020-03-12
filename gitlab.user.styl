@@ -704,14 +704,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.select2 {
             &-highlighted &-result-label { c: fg 0 bd }
             &-result-label { c: cm }
-            &-choice { c: cm bd hl }
+            &-choice { &, &s { c: cm bd hl }}
             &-arrow::after { c: cm }
             &-match { c: ac }
             &-drop {
                 c: cm bd hl;
                 box-shadow: bsh;
             }
-            &-input {
+            &-input:not(#z) {
                 font-family: var(--ui-font) i;
                 c: fg bd t;
             }
@@ -1190,7 +1190,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             rad: 0 0 4px 4px;
             c: 0 bd hl;
             /// Inputs.
-            .form-control, .info-well { c: 0 0 bg }
+            .form-control, .info-well, .select2-choices { c: 0 0 bg }
             [class *= 'input-group'] {
                 rad: 4px;
                 c: fg bd bd;
