@@ -611,6 +611,18 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &-commit { &, &-link { c: cm }}
             }
         }
+        /// Project -> Settings -> MR approvals.
+        &.table.m-0 {
+            margin-bottom: 8px i;
+            border: 1px solid bd;
+            /// Remove bottom border.
+            tbody > tr:last-child:not(#z) > td { border-bottom: none i }
+        }
+        /// Project -> Settings -> Badges.
+        /.gl-responsive-table-row {
+            c: cm;
+            &:not(:last-child) { c: 0 bd }
+        }
     }
 
     // Global -> Dropdowns.
