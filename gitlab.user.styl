@@ -207,8 +207,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         .container { c: 0 bd }
         /// Settings -> Account.
-        .danger-title { c: red }
+        .danger-title, .gl-field-error, .invalid-feedback { c: red }
         .warning-title { c: orange }
+        .valid-feedback { c: green }
         .account-well { c: fg bd hl }
         /// Global -> Progress bar.
         .progress {
