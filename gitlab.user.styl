@@ -2708,11 +2708,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: 0 bd;
                 /// File name / Preview Markdown.
                 &-content > .ide-mode-tabs { c: 0 bd }
-                /// TODO: Refactor later.
-                /.monaco-editor {
-                    .margin { c: 0 0 hl }
-                    &, &-background, .inputarea.ime-input { c: 0 0 t }
-                }
             }
             /// Editor tabs.
             &-tabs {
@@ -2750,6 +2745,47 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &-status-bar {
             c: fg bd hl;
             .ide-status-avatar { filter: brightness(1) invert(1) }
+        }
+    }
+
+    // Global -> Monaco Editor.
+    .monaco-editor {
+        c: 0 0 bg;
+        /// Line numbers.
+        .margin {
+            c: 0 0 t;
+            * { font-family: var(--mono-font) i }
+            ../ .line-numbers {
+                opacity: 0.6;
+                c: cm;
+            }
+            /// Highlight the entire line.
+            ../ .current-line {
+                c: 0 0 hl;
+                ~ .line-numbers {
+                    opacity: 1;
+                    c: fg;
+                }
+            }
+        }
+        /// Reset backgrounds.
+        &-background, .inputarea.ime-input { c: 0 0 t }
+        /// Highlights.
+        .cigr { &, &a { box-shadow: inset 1px 0 bd i }}
+        .view-overlays .current-line { c: 0 t hl }
+        .cursor { c: bg bg fg }
+        .scroll-decoration { box-shadow: inset 0 6px 6px -6px bg }
+        /// Syntax highlighting.
+        /// TODO: Add missing tokens.
+        .mtk {
+            &1 { c: fg }
+            &3 { c: cm }
+            &6 { c: blue }
+            &7 { c: cyan }
+            &8 { c: green }
+            &15 { c: red }
+            &20 { c: magenta }
+            &23 { c: cyan }
         }
     }
 }
