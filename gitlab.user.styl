@@ -2094,6 +2094,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .mr-widget-extension {
             c: fg bd hl;
             &:last-child { rad: 0 0 3px 3px }
+            /// Reset approvers table.
+            + .border-top > table:not(#z) {
+                margin-bottom: 0px i;
+                border: none i;
+                rad: 0 0 3px 3px i;
+                thead > tr > th { c: 0 0 bb }
+            }
+        }
         /// Global widgets.
         .mr-section-container {
             border: 1px solid bd i;
@@ -2129,6 +2137,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 /.neutral > svg { v: cm }
                 /.success > svg { v: green }
             }
+        }
+        /// Reset tables.
+        .border-top {
+            c: 0 bd;
+            .table tr:not(:first-child) > td { border-top: 1px solid bd i }
         }
         /// Fix 'WIP status' for users that cannot merge. @upstream
         .mr-widget-body.media {
