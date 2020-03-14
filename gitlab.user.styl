@@ -202,7 +202,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         .gl-link, .author-link { color: ac }
         /// Custom monospace font.
-        pre, code, kbd, samp, .monospace, .ref-name {
+        pre, code, kbd, samp, .monospace, .ref-name,
+        .commit-sha, .pipeline-number, .label-branch,
+        [class *= 'git-commit'] {
             font-family: var(--mono-font) i;
         }
         .container { c: 0 bd }
