@@ -274,6 +274,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.fa {
             c: cm;
             &&-triangle { c: orange }
+            /// Issues -> Export issues.
+            &.checkmark { c: green }
         }
         /// Global -> SVG icons.
         /svg {
@@ -1739,6 +1741,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             .modal-body {
                 c: 0 0 t;
+                .modal-subheader { c: 0 bd }
                 /// Shortcuts.
                 table th { c: fg }
                 table td { c: cm }
