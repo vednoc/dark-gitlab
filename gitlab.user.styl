@@ -873,6 +873,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: 0 bd bd;
             }
         }
+        /// Global -> Disable pseudo-element for some buttons.
+        &-link, &-blank, &-clipboard { &::before { content: unset i }}
     }
 
     // Global -> Labels.
@@ -2168,8 +2170,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Text colors.
         .bold, .media-body, .code-text, .label-branch { c: fg }
         .diverged-commits-count, .coverage { c: cm }
-        /// Reset background hack for buttons.
-        .btn { &-link, &-blank, &-clipboard { &::before { content: unset }}}
     }
 
     // Project -> Settings.
