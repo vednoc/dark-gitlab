@@ -2427,6 +2427,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     .cover {
         &-block { c: 0 0 hl }
         &-title, &-status, &-desc { c: fg }
+        /// Buttons.
+        &-controls .btn { c: 0 0 bg }
         /// Activity.
         /.calendar {
             &-hint { c: cm }
