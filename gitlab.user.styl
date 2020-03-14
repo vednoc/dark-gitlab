@@ -1232,10 +1232,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// NOTE: Experimental styles for projects/snippets.
         &:not(.compact), /.snippets-list-holder > ul {
             margin-top: 10px;
-            padding: 10px;
+            padding: 12px;
             c: 0 0 hl;
             rad: 4px;
-            > li { padding: 10px i }
+            > li {
+                padding: 12px 0 i;
+                &:first-child { padding-top: 0 i }
+                &:last-child { padding-bottom: 0 i }
+            }
         }
     }
 
