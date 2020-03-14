@@ -730,8 +730,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: fg bd t;
             }
         }
-        /// Pipelines -> Mini pipelines.
-        &[class *= 'mini-pipe'] { &::before, &::after { c: 0 ac }}
+        /// Pipelines -> Pipeline menus.
+        &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
+        &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
+        [class *= 'counter-badge'] { font-weight: normal; c: cm }
     }
 
     // Global -> Buttons.
