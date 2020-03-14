@@ -1349,6 +1349,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     border-top: none;
                     c: fg;
                     &:hover { c: 0 0 hl }
+                    /// Text colors.
+                    .author-link:not(#z) .author { c: fg }
                     [class *= 'todo-'] > a, [class *= '-link'] > * {
                         /// Fix conflict with `gl-label` styles.
                         &:not(.gl-label-text) { c: ac }
