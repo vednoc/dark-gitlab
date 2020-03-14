@@ -375,9 +375,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
-        // Global -> Callouts.
+        /// Global -> Callouts.
         .bs-callout {
             rad: 3px;
+            c: 0 0 bd;
             a { c: ac }
             strong { color: inherit i }
             &-warning { c: fg orange bd }
@@ -719,6 +720,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: fg bd t;
             }
         }
+        /// Pipelines -> Mini pipelines.
+        &[class *= 'mini-pipe'] { &::before, &::after { c: 0 ac }}
     }
 
     // Global -> Buttons.
@@ -2238,6 +2241,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /.cred { c: red }
             /.cgreen { c: green }
+            /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
                 c: blue 0 t;
                 /// Reset hover styles.
@@ -2246,6 +2250,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) { top: 49px }
         }
+        /// Diff -> Active file.
+        &.is-active { box-shadow: bsh i }
     }
 
     // Project -> Code area.
@@ -2284,6 +2290,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Added/removed lines.
             .line_content {
                 z-index: 1;
+                c: 0 0 t;
                 &.new, &.old {
                     c: 0 0 t;
                     &::after {
@@ -2666,7 +2673,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
-    /// User -> Snippets.
+    /// Dashboard -> Snippets.
     [data-page ^= 'snippets:'] {
         .snippet-header h2 { c: fg }
         .file-holder pre.code.highlight { c: 0 0 bg }
