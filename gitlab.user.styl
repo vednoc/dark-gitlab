@@ -1621,6 +1621,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &&-danger { c: red red hl }
             &&-light { c: fg bd hl }
         }
+        /// Issues -> Reset issue template.
+        /[role = 'alert'] {
+            &[class *= '_message'] { rad: 4px }
+            &.warning_message { c: orange orange hl }
+            &.danger_message { c: red red hl }
+        }
     }
 
     // Pajamas -> Toggles.
