@@ -347,26 +347,31 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     &-success {
                         &[class *= 'dropdown'] { c: 0 green hl }
                         &, &[data-toggle] { svg { v: green }}
+                        svg { c: 0 green }
                     }
                     &-running,
                     &-preparing {
                         &[class *= 'dropdown'] { c: 0 blue hl }
                         &, &[data-toggle] { svg { v: blue }}
+                        svg { c: 0 blue }
                     }
                     &-failed {
                         &[class *= 'dropdown'] { c: 0 red hl }
                         &, &[data-toggle] { svg { v: red }}
+                        svg { c: 0 red }
                     }
                     &-pending,
                     &-waiting-for-resource,
                     &-success-with-warnings {
                         &[class *= 'dropdown'] { c: 0 orange hl }
                         &, &[data-toggle] { svg { v: orange }}
+                        svg { c: 0 orange }
                     }
                     &-created,
                     &-skipped {
                         &[class *= 'dropdown'] { c: 0 fg hl }
                         &, &[data-toggle] { svg { v: fg }}
+                        svg { c: 0 fg }
                     }
                     &-manual,
                     &-canceled,
@@ -375,6 +380,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     &-not-found {
                         &[class *= 'dropdown'] { c: 0 cm hl }
                         &, &[data-toggle] { svg { v: cm }}
+                        svg { c: 0 cm }
                     }
                 }
             }
