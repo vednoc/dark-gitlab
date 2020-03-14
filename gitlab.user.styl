@@ -194,6 +194,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 font-size: 0.875rem;
                 c: cm bd;
             }
+            /// Global -> Reset raw file content.
+            ../ > pre:not([class]) { c: 0 0 t }
         }
         kbd {
             rad: 4px;
