@@ -2086,8 +2086,38 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
 
     // Project -> MRs -> Widgets.
     .mr-state-widget {
+        /// Merge target.
+        .mr-source-target { c: fg bd bg }
+        /// Headings.
+        /.mr-widget-heading { c: fg bd bg }
+        /// Collapse.
+        .mr-widget-extension {
+            c: fg bd hl;
+            &:last-child { rad: 0 0 3px 3px }
+        /// Global widgets.
+        .mr-section-container {
+            border: 1px solid bd i;
+            c: 0 0 bg;
+            &::before { c: 0 hl }
+            /// Ready to be merged.
+            > .mr-widget-section { rad: 0; c: 0 bd }
+            /// Help.
+            .mr-widget-help { c: cm }
+            /// Empty MR notice.
+            .mr-widget-empty-state { c: fg }
+        }
+        /// Tweaks for borders.
+        .mr-widget {
+            /.mr-widget-workflow {
+                &::before { border-width: 2px; c: 0 hl }
+                > :first-child { border-top: none }
+            }
+            &-border-top { c: 0 bd }
+            &-info { c: fg }
+        }
         /// Code quality and other reports. #64
         /.report-block {
+            c: fg;
             &-list-issue {
                 &-parent { c: 0 bd bg }
                 &-description { c: fg }
@@ -2100,6 +2130,21 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 /.success > svg { v: green }
             }
         }
+        /// Fix 'WIP status' for users that cannot merge. @upstream
+        .mr-widget-body.media {
+            .square + button { margin-right: 10px }
+            .bold { margin-left: 0; c: cm }
+        }
+        /// Footer.
+        .mr-widget-footer {
+            c: 0 bd;
+            .btn-link { c: ac }
+        }
+        /// Text colors.
+        .bold, .media-body, .code-text, .label-branch { c: fg }
+        .diverged-commits-count, .coverage { c: cm }
+        /// Reset background hack for buttons.
+        .btn { &-link, &-blank, &-clipboard { &::before { content: unset }}}
     }
 
     // Project -> Settings.
