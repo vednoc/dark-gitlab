@@ -2226,6 +2226,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     c: cm;
                 }
             }
+            /// NOTE: Inconsistent use of line-num parent element.
+            .line-numbers > .diff-line-num { c: 0 0 t }
             /// Show unchanged lines.
             .line_expansion {
                 c: 0 0 hl;
