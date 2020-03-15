@@ -986,6 +986,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &.issue, &.merge-request, &[id *= 'epic'] {
                 &:hover { c: 0 0 hl }
             }
+            /// Project -> Compare -> List items.
+            &.commit:hover { c: 0 0 bb }
         }
         /// Project -> Branches.
         &.all-branches {
