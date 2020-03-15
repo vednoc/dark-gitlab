@@ -294,8 +294,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &[id *= 'addition-solid'] { v: green }
             /// Misc.
             /.commit-icon svg { v: cm }
-            &.text-success { v: green } /// Green checkmark.
-            &.text-danger { v: red } /// Due date.
+            &.ic-eye-slash { v: orange }          /// Confidential issues.
+            &.text-success { v: green }           /// Green checkmark.
+            &.text-danger { v: red }              /// Due date.
             /// Diff -> Git status icons.
             &.ic-file-addition { &, &-solid { v: green }}
             &.ic-file-modified { &, &-solid { v: blue }}
@@ -2587,6 +2588,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .markdown-area { c: fg 0 t }
             .comment-toolbar { c: cm bd }
             textarea { font-family: var(--mono-font) }
+        }
+        /// Confidential issues.
+        .issuable-note-warning {
+            c: orange bd hl;
+            a { c: orange }
         }
         /// Reset background.
         .timeline-icon { c: 0 0 t }
