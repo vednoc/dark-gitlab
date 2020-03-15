@@ -1460,6 +1460,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &-sub-title a { c: fg }
             &-links img { c: 0 hl hl }
         }
+        /// Project -> File path.
+        &.repo-breadcrumb > li + li::before { c: cm }
     }
 
     // Global -> Pagination.
