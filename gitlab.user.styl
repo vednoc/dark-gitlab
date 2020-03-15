@@ -2580,6 +2580,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     // Notes -> Input-box.
     .note-form {
         c: 0 0 t;
+        /// Confidential issues.
+        /.issuable-note-warning {
+            c: orange bd hl;
+            a { c: orange }
+        }
         /// Editor.
         /.md-area {
             c: fg bd hl;
@@ -2591,11 +2596,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .markdown-area { c: fg 0 t }
             .comment-toolbar { c: cm bd }
             textarea { font-family: var(--mono-font) }
-        }
-        /// Confidential issues.
-        .issuable-note-warning {
-            c: orange bd hl;
-            a { c: orange }
         }
         /// Reset background.
         .timeline-icon { c: 0 0 t }
