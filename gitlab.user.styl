@@ -2762,7 +2762,44 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
-    /// Dashboard -> Snippets.
+    /// Project -> Graphs.
+    [data-page *= 'network:show'] {
+        .row-content-block {
+            c: 0 0 t;
+            + div { padding: 0 }
+        }
+        .project-network {
+            margin-top: 16px;
+            c: 0 bd;
+            rad: 4px;
+            .controls {
+                rad: 3px 3px 0 0;
+                c: fg bd hl;
+                input { c: 0 0 bg }
+            }
+            .network-graph {
+                c: 0 0 bg;
+            }
+        }
+        text { v: fg }
+        rect {
+            /// Sidebars.
+            &[fill = '#222222'] { v: hl t }
+            &[fill = '#444444'] { v: bb t }
+            /// Commit info.
+            &[transform = 'matrix(1\,0\,0\,1\,20\,20)'] { v: hl bd }
+        }
+        rect, path {
+            /// Anchors.
+            &[style = 'fill-opacity: 0.5;'] {
+                v: ac;
+               + text[style] { v: white }
+            }
+        /// Text elements.
+        [style *= 'Monaco'] { font-family: var(--mono-font) i }
+    }
+
+    // Dashboard -> Snippets.
     [data-page ^= 'snippets:'] {
         .snippet-header h2 { c: fg }
         .file-holder pre.code.highlight { c: 0 0 bg }
