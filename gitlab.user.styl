@@ -701,10 +701,13 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 a:hover { c: 0 0 bd }
             }
             &-content {
-                .section-header { c: cm }
                 ul li:hover a { c: 0 0 bd }
                 [class *= '-item-title'] { c: fg }
                 [class *= '-namespace'] { c: cm }
+            }
+            &-container {
+                /// Text colors for header and no results.
+                .section { &-header, &-empty { c: cm }}
             }
         }
         /// Issues -> Boards -> Add list.
