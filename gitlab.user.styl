@@ -431,9 +431,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
         }
         /// Help menu.
-        .header-help {
+        .header-help li:first-child {
+            /// Divider-like margin.
+            > a { margin-top: 0.25rem }
             /// Embed theme version.
-            li:first-child::before {
+            &::before {
                 content: '🌚 ' var(--note);
                 display: block;
                 padding: 4px 12px 6px;
