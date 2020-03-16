@@ -279,6 +279,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &&-triangle { c: orange }
             /// Issues -> Export issues.
             &.checkmark { c: green }
+            /// MRs -> First contribution.
+            &&-certificate { c: ac }
         }
         /// Global -> SVG icons.
         /svg {
