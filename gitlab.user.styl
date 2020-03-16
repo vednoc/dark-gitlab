@@ -408,7 +408,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .title {
             > a {
                 margin: 4px 2px 4px -8px i;
-                &[href = '/']:hover { c: 0 0 bg }
+                &[href = '/'] { &:hover, &:focus { c: 0 0 bd }}
             }
             .logo-text svg { fill: fg }
         }
