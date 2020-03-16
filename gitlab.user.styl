@@ -18,6 +18,7 @@
 @var text     emoji_font "Custom emoji font" "'font_name'"
 @var text     transition "Custom transitions" 0.15s ease
 @var range    md_img_o   'Default image opacity in Markdown areas' [1, 0.0, 1, 0.01]
+@var checkbox img_invert 'Invert illustrations to dark colors' 1
 @var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
 @var checkbox p_header   "Center project header elements" 0
 @var checkbox md_limit   "Readme: Limit content max-width" 1
@@ -1573,7 +1574,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: cm;
             text-shadow: none;
         }
-        /img[src *= 's/illustrations/'] { filter: invert(0.8) hue-rotate(180deg) }
+        /// New button.
         /.new-gl-button {
             c: 0 0 bd;
             box-shadow: inner;
@@ -1581,6 +1582,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 opacity: 0.8;
                 box-shadow: inner;
             }
+        }
+        /// Feat -> Invert illustrations.
+        if ( img_invert == 1 ) {
+            /.empty-state .svg-content > svg,
+            /img[src *= 's/illustrations/'] { filter: invert(0.8) hue-rotate(180deg) }
+        } else {
+            /.empty-state .svg-content > svg,
+            /img[src *= 's/illustrations/'] { filter: invert(0.1) hue-rotate(0deg) }
         }
     }
 
