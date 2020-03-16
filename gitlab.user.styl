@@ -1054,7 +1054,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Items.
         .divider { c: 0 bd }
         .sidebar-top-level-items > li {
-            &:hover { c: 0 0 bd }
+            &:hover { c: 0 0 #88888810 }
             &.active {
                 c: 0 0 #88888810;
                 box-shadow: inset 4px 0 ac i;
@@ -1083,6 +1083,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:hover {
                     c: 0 0 bd;
                     box-shadow: inset 4px 0 ac i;
+                    a { c: fg }
                 }
                 &.active {
                     box-shadow: inset 4px 0 ac i;
@@ -1092,13 +1093,13 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Flyout menus.
         .is-over.is-showing-fly-out {
-            > a { c: fg 0 bd }
+            > a { c: fg 0 #88888810 }
             ul {
                 c: 0 bd hl;
                 box-shadow: none;
                 li {
                     a { c: cm }
-                    &:hover a { c: fg 0 bd }
+                    &:hover a { c: fg 0 #88888810 }
                 }
             }
         }
