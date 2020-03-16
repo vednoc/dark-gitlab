@@ -426,9 +426,17 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     &[data-toggle] { c: cm }
                     &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
                 }
-                &.active, &.show { > button, > a { c: fg 0 bg }}
+                /// Active menus.
+                &.active, &.show {
+                    > button, > a {
+                        c: fg 0 bg;
+                        box-shadow: bsh;
+                    }
+                }
                 .caret-down { v: cm }
             }
+            /// Reset background hack.
+            [data-toggle = 'dropdown']::before { content: unset i }
         }
         /// Help menu.
         .header-help li:first-child {
