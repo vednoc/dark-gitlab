@@ -1159,6 +1159,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 .badge.badge-pill { c: cm 0 bd }
                 a, button {
                     c: cm;
+                    &:focus { c: 0 bd }
                     ../:hover { a, button { c: fg bd }}
                     ../.active {
                         &, a, button { c: fg ac }
