@@ -2508,6 +2508,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 /// Updated note description.
                 + .description-version > pre.wrapper { rad: 4px }
             }
+            /// Buttons -> Reset hover styles.
+            .note-actions-item > [class *= 'button']:hover {
+                &::before { content: unset i }
+                svg { v: fg }
+            }
             /// Edited text.
             .edited-text { &, .author-link { c: cm }}
             /// Code discussion divider.
