@@ -2107,12 +2107,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
                 .clear-search {
                     rad: 4px;
-                    c: 0 0 hl;
+                    c: 0 0 bg;
                 }
             }
             /// Dashboard -> Issues/MRs.
             &-token, &-term {
-                .name { c: cm 0 bd }
+                .name { c: fg 0 hl }
                 .operator, .value-container { c: fg 0 bd }
                 ../-token:first-child { margin-left: 5px }
             }
