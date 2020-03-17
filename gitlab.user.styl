@@ -686,7 +686,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         button {
             c: cm;
-            &:not(.disable-hover):hover { c: fg 0 bd }
+            /// Notes -> Fix a couple of context menu items.
+            &:not(#z):not(.disable-hover):hover { c: fg 0 bd }
         }
         /// Base elements.
         .dropdown {
