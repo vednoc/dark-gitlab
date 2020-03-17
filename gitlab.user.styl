@@ -1546,10 +1546,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 rad: 4px;
             }
         }
-        pre.code {
+        pre {
             rad: 4px i;
-            border: 1px solid bd; /// TODO: Might break things.
-            c: fg 0 hl;
+            &.code {
+                border: 1px solid bd;
+                c: fg 0 hl;
+            }
         }
         code { font-family: var(--mono-font) i }
         /// Emojis.
