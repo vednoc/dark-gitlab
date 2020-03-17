@@ -2836,6 +2836,31 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 v: ac;
                + text[style] { v: white }
             }
+            /// Avatars.
+            &[stroke = '#cc7a7a'] { v: 0 fg }
+            &[stroke = '#cccccc'] { v: 0 cm }
+            &[stroke = '#cc0000'] { v: 0 red }
+            &[stroke = '#00cc8f'] { v: 0 cyan }
+            &[stroke = '#5283cc'] { v: 0 blue }
+            &[stroke = '#49cc29'] { v: 0 green }
+            &[stroke = '#7a29cc'] { v: 0 orange }
+            &[stroke = '#ccc052'] { v: 0 yellow }
+            &[stroke = '#cc007a'] { v: 0 violet }
+            &[stroke = '#b8a3cc'] { v: 0 magenta }
+        }
+        circle {
+            /// Paths.
+            &[fill = '#cc7a7a'] { v: fg }
+            &[fill = '#cccccc'] { v: cm }
+            &[fill = '#cc0000'] { v: red }
+            &[fill = '#00cc8f'] { v: cyan }
+            &[fill = '#5283cc'] { v: blue }
+            &[fill = '#49cc29'] { v: green }
+            &[fill = '#7a29cc'] { v: orange }
+            &[fill = '#ccc052'] { v: yellow }
+            &[fill = '#cc007a'] { v: violet }
+            &[fill = '#b8a3cc'] { v: magenta }
+        }
         /// Text elements.
         [style *= 'Monaco'] { font-family: var(--mono-font) i }
     }
