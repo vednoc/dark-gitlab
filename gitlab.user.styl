@@ -2504,6 +2504,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &::after { background: linear-gradient(t -100px, bb 100%) i }
                 /// 'Toggle commit list' button.
                 + .flex-list div[class *= 'toggle'] { c: ac }
+                /// Updated note description.
+                + .description-version > pre.wrapper { rad: 4px }
             }
             /// Edited text.
             .edited-text { &, .author-link { c: cm }}
@@ -2585,6 +2587,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Disabled comments.
         /.disabled-comment {
+            padding: 8px 0;
             c: cm bd hl;
             a:not(.learn-more) { c: ac }
             /// Locked state.
