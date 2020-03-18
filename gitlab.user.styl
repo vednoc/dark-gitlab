@@ -2598,6 +2598,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Reset background for line numbers.
             ../-body:not(#z) .diff-line-num { c: 0 0 bg }
         }
+        /// Increase top offset when nb_height is enabled.
+        if ( nb_height == 1 ) {
+            &-body .file-title { top: 98px i }
+        }
         /// Reply...
         /&-reply-holder {
             c: 0 bd hl;
