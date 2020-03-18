@@ -1019,6 +1019,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Project -> Branches.
         &.all-branches {
             .graph { &-side .bar, &-separator { c: 0 0 bd }}
+            .branch-item:hover { c: 0 0 bb }
             .commit-sha { c: ac }
             .cgray { c: cm }
         }
