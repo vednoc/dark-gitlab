@@ -2886,6 +2886,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .row-content-block.content-component-block { c: 0 0 t }
     }
 
+    // Search -> Results.
+    .search-result {
+        &s &-row {
+            c: 0 bd;
+            .author { c: ac }
+            pre.code { rad: 4px }
+        }
+    }
+
     // Components -> IDE.
     .ide {
         &-view { c: fg }
