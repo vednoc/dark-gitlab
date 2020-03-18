@@ -757,6 +757,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
         &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
+        /// Reset dropdown heights. @upstream
+        /[data-page ^= 'search:'], /[data-page ^= 'projects:'] {
+            .dropdown-menu-selectable { max-height: 360px i }
+        }
     }
 
     // Global -> Buttons.
