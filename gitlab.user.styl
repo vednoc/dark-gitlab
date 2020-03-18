@@ -2400,6 +2400,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /// Unfold lines.
             .unfold:not(#z) { c: cm }
+            /// 'No newline at end of file.'
+            &.new-nonewline:not(#z) {
+                c: 0 0 hl;
+                .line_content { c: cm }
+            }
             /// Line numbers.
             .diff-line-num {
                 padding-right: 11px;
