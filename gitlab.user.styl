@@ -419,7 +419,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             .logo-text svg { fill: fg }
         }
-        /// Feat -> Show navbar canary badge.
+        /// Feat -> Show canary badge.
         if ( nb_canary != 1 ) {
             .canary-badge { display: none i }
         } else {
@@ -2598,7 +2598,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .timeline-entry {
             c: fg 0 bg;
             &.target { c: 0 0 hl }
-            /// Don't remove rounded corners from the first child.
+            /// Do not remove rounded corners from the first child.
             &:not(:first-child) { rad: 0 }
             /// Reset background for line numbers.
             ../-body:not(#z) .diff-line-num { c: 0 0 bg }
@@ -2820,7 +2820,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
     }
 
-    /// Project -> Labels/Milestones.
+    // Project -> Labels/Milestones.
     .labels-container, .milestones {
         c: 0 0 hl;
         /.manage-labels-list, /.milestones > ul {
