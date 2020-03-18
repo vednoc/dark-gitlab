@@ -221,7 +221,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: 0 0 bd;
             &-bar { c: fg; rad: 4px }
             /// Project -> Languages bar.
-            &.repository-languages-bar { c: 0 0 t }
+            &.repository-languages-bar {
+                c: 0 0 t;
+                /// Override language colors. @upstream
+                [style *= '#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
+                [style *= '#776791'] { c: 0 0 #000100 } /// Crystal.
+            }
         }
         /// Global color reset.
         .text {
