@@ -1909,14 +1909,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .commit-actions { align-self: center }
         /// Diff -> Commit info.
         .branch-info {
-            c: 0 red;
+            c: 0 bd;
+            .badge { c: 0 0 bd }
             /// 'Parent commit' text color.
             .cgray { c: fg }
         }
         svg path { v: cm }
-        /// Commits -> Branches.
+        /// Commits -> Unavailable branches.
         .limit-box {
-            c: red 0 bg;
+            c: white 0 red;
             /// Icon position. @upstream
             ../ .branches .s12 { margin-top: 2px }
         }
