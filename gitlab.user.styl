@@ -1897,6 +1897,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &::before { content: ''; c: 0 0 ac }
             }
         }
+        /// Request access.
+        /.access-request-link { c: 0 bd }
     }
 
     // Project -> Latest commit.
