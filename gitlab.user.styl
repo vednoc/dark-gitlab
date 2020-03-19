@@ -2442,6 +2442,24 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &.new::after { c: 0 0 green }
                 /// HACK: Work around specificity conflict with table styles.
                 /:not(#z) &:not(.new):not(.old) { c: 0 0 hl }
+                /// Diff -> Fix parallel view.
+                ../.parallel {
+                    > td.line-coverage {
+                        position: relative;
+                        &.new, &.old {
+                            &::after {
+                                content: '';
+                                z-index: 11;
+                                opacity: 0.18;
+                                top: 0; right: 0; bottom: 0; left: 0;
+                                position: absolute;
+                                pointer-events: none;
+                            }
+                        }
+                        &.old::after { c: 0 0 red }
+                        &.new::after { c: 0 0 green }
+                    }
+                }
             }
             /// Added/removed lines.
             .line_content {
