@@ -2389,6 +2389,20 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Diff -> Active file.
         &.is-active { box-shadow: bsh i }
+        /// Diff -> File tree.
+        /.diff-tree-list {
+            if ( nb_height == 1 ) { top: 165px i }
+            /// Resize handle.
+            .drag-handle {
+                &:hover { c: 0 0 hl }
+                &.is-dragging { c: 0 0 bd }
+            }
+            /// Items.
+            .file-row {
+                &:hover, &:focus { c: 0 0 hl }
+                &-header.bg-white { c: 0 0 bb }
+            }
+        }
     }
 
     // Project -> Code area.
