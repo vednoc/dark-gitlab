@@ -1809,7 +1809,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 table th { c: fg }
                 table td { c: cm }
             }
-            .modal-footer { c: 0 bd hl }
+            .modal-footer {
+                c: 0 bd hl;
+                .btn { c: 0 0 bg }
+            }
         }
         /// Fix body content shift when modal is open. @upstream
         /body.modal-open { padding-right: 0px i }
