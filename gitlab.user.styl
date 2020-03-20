@@ -1814,6 +1814,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: 0 bd hl;
                 .btn { c: 0 0 bg }
             }
+            /// Project -> Reset 'Email a new issue/MR' buttons.
+            .btn {
+                &-clipboard:not(#z) { c: 0 bd hl }
+                /// 1px height mismatch. @upstream
+                &[href *= 'mailto:'] { height: 34px }
+            }
         }
         /// Background.
         &-backdrop {
