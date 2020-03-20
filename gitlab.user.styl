@@ -1134,8 +1134,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value { c: cm }
-        /// The 'inherit' was added and broke things. @upstream
-        .gl-label-text:hover { color: initial i }
         /// Pajamas -> Drawer.
         /.gl-drawer {
             c: fg 0 bg;
