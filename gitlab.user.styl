@@ -2033,6 +2033,13 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: 0 bd bg;
                 &:hover { c: 0 0 bb }
             }
+            /// Downstream.
+            .linked-pipeline-content {
+                c: 0 bd bg;
+                rad: 8px i;
+                &::before { content: unset i }
+                &:hover { c: 0 0 bb }
+            }
             /// Connectors.
             ../ .curve, &:not(first-child), /.stage-container {
                 &::before, &::after { c: 0 bd }
