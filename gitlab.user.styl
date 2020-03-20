@@ -1209,6 +1209,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Switch to `bg` color for child elements.
             .btn { &, &-default { &:not(#z) { c: 0 0 bg }}}
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
+            /// Dashboard -> Todos.
+            &.issues-details-filters button { c: 0 0 bg }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
@@ -1403,6 +1405,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                         /// Fix conflict with `gl-label` styles.
                         &:not(.gl-label-text) { c: ac }
                     }
+                    /// Fix buttons.
+                    .js-add-todo:not(#z) { c: fg 0 bg }
                 }
             }
         }
