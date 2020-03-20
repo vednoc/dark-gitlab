@@ -1014,7 +1014,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:hover { c: 0 0 hl }
             }
             /// Project -> Compare -> List items.
-            &.commit:hover { c: 0 0 bb }
+            ../:not(.event_commits) > li.commit:hover { c: 0 0 bb }
         }
         /// Project -> Branches.
         &.all-branches {
