@@ -1921,6 +1921,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.access-request-link { c: 0 bd }
     }
 
+    // Project -> Empty repository.
+    .git-empty {
+        h5 { c: fg }
+        pre.bg-light {
+            c: 0 0 hl;
+            rad: 4px;
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
