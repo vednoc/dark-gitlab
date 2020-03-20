@@ -2556,6 +2556,16 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             rect[fill ^= 'rgb(37'] { opacity: 1 }
             }
         }
+        /.user-profile {
+            /// Profile -> Add background to lists.
+            .projects, .activities {
+                &-block {
+                    padding: 0 12px;
+                    c: 0 0 hl;
+                    rad: 4px;
+                }
+            }
+        }
     }
 
     // Issues/MRs/Epics -> Notes.
