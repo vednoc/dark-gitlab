@@ -757,7 +757,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
         &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
-        /// Reset dropdown heights. @upstream
+        /// Project -> Reset items in 'notification settings' menu.
+        .dropdown-menu-inner {
+            &-title, &-content { c: 0 0 t }
+            &-content { c: cm }
+        }
+        /// Reset dropdown height. @upstream
         /[data-page ^= 'search:'], /[data-page ^= 'projects:'] {
             .dropdown-menu-selectable { max-height: 360px i }
         }
