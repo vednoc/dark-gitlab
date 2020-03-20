@@ -1303,6 +1303,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: cm bd;
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
+            /// Dashboard -> Activities -> Fix icons.
+            .joined, .pushed-to { &-icon svg { v: cm }}
         }
         &-user-info a[href] { c: fg }
         /// Dashboard -> Activities.
