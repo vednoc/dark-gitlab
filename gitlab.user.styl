@@ -1796,6 +1796,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     /// NOTE: The `gl-modal` exists, but it's not widely used.
     .modal {
         c: 0 0 t;
+        /// Content.
         .modal-content {
             c: fg bd bg;
             .modal-header {
@@ -1813,6 +1814,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 c: 0 bd hl;
                 .btn { c: 0 0 bg }
             }
+        }
+        /// Background.
+        &-backdrop {
+            opacity: 0.85 i;
+            c: 0 0 bb;
         }
         /// Fix body content shift when modal is open. @upstream
         /body.modal-open { padding-right: 0px i }
