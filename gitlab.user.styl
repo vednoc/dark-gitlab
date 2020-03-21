@@ -286,6 +286,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &.checkmark { c: green }
             /// MRs -> First contribution.
             &&-certificate { c: ac }
+            /// Settings -> CI/CD runners.
+            &[class *= 'paused'] { c: red }
+            &[class *= 'online'] { c: green }
         }
         /// Global -> SVG icons.
         /svg {
@@ -397,13 +400,20 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Global -> Callouts.
         .bs-callout {
             rad: 3px;
-            c: 0 0 bd;
+            c: 0 0 hl;
             a { c: ac }
             strong { color: inherit i }
-            &-warning { c: fg orange bd }
-            &-success { c: fg green bd }
-            &-danger { c: fg red bd }
-            &-info { c: fg blue bd }
+            &-warning { c: fg orange hl }
+            &-success { c: fg green hl }
+            &-danger { c: fg red hl }
+            &-info { c: fg blue hl }
+            /// Project -> Settings -> CI/CD.
+            &.help-callout,
+            &.shared-runners-description {
+                c: fg bd hl;
+                /// Reset background color.
+                code, .btn-default { c: 0 0 bg }
+            }
         }
         input {
             /// Checkbox/radio inputs.
@@ -1410,6 +1420,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /// Settings -> Active Sessions.
             /.list-group { & > &-item { c: 0 bd bg }}
+            /// Reset background colors.
+            input, [class *= 'dropdown-menu'] { c: 0 0 bg }
         }
         &-body {
             > .form-actions {
@@ -2598,6 +2610,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
+        /// Project -> Settings -> Status/Report tables.
+        &.white { c: fg 0 t 0 0 0 }
     }
 
     // Groups -> Explore.
