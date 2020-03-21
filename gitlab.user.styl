@@ -1588,6 +1588,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:last-child::after { rad: 0 0 3px 0 }
             }
         }
+        /// Heading anchors.
+        .anchor::after {
+            content: '\00a7' i;
+            c: fg;
+        }
     }
 
     // Pajamas -> Banners.
@@ -2024,7 +2029,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &[align='left'] { padding-right: 20px }
                 &[align='right'] { padding-left: 20px }
             }
-            h1, h2, h3, h4, h5, h6 { position: unset }
+            h1, h2, h3, h4, h5, h6 { position: relative }
             &::before, &::after {
                 content: '';
                 display: table;
