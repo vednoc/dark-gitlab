@@ -1365,7 +1365,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /.user-access-role { c: cm bd #88888815 }
         }
         /// Profile -> Personal projects.
-        &.compact .avatar { line-height: 38px i }
+        &.compact {
+            .user-access-role { line-height: 18px }
+            .avatar { line-height: 38px i }
+        }
         /// Loading icon.
         /.loading { c: cm }
         /// NOTE: Experimental styles for projects/snippets.
