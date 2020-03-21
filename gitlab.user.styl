@@ -428,6 +428,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:indeterminate { c: 0 red red }
             }
         }
+        /// Project -> Settings -> Pages.
+        .border-section { c: 0 bd }
     }
 
     // Global -> Custom checkbox/radio inputs.
@@ -1397,9 +1399,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Default styles.
         &-header {
             c: 0 bd hl;
-            /// Project settings -> Pages.
-            &.bg-info { c: blue 0 bd }
-            &.bg-danger { c: red 0 bd }
+            /// Project -> Settings -> Pages.
+            &.bg-info { c: blue blue hl }
+            &.bg-danger { c: red red hl }
             + ul > .list-group-item { c: 0 bd t }
             /// Project -> Settings -> Card borders.
             ../.border {
@@ -1415,7 +1417,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 ../, & { rad: 0 0 3px 3px i }
             }
         }
-        &-footer { c: 0 bd bg }
+        &-footer {
+            c: 0 bd bg;
+            /// Project -> Settings -> Pages.
+            &.alert-primary { c: blue 0 hl }
+        }
         /// Dashboard -> Operations.
         &.border-0 {
             border: 1px solid bd i;
