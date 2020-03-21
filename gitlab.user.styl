@@ -414,6 +414,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 /// Reset background color.
                 code, .btn-default { c: 0 0 bg }
             }
+            /// Project -> Settings -> MR promotion.
+            /.user-callout.promotion-callout { c: 0 0 hl }
         }
         input {
             /// Checkbox/radio inputs.
@@ -1016,7 +1018,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         &-pill { c: cm 0 bd }
         /// Commits -> Details.
-        &&-gray { c: fg 0 bg }
+        &&-gray { c: fg 0 hl }
         /// Notes -> Related issues/MRs.
         /.issue, /.mr { &-count-badge { &, + button { c: fg bd bg }}}
         /// HACK: Reset colored labels.
@@ -1751,6 +1753,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         if ( img_invert == 1 ) {
             /.mermaid,
             /.empty-state .svg-content > svg,
+            /.svg-container > svg,
             /img[src ^= 'img/'],
             /img[src ^= 'help/img/'],
             /img[src *= 's/illustrations/'] {
@@ -2410,6 +2413,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Grouped options.
         &-visibility-setting, &-feature-settings, /.sub-section {
             c: 0 bd hl;
+            .bs-callout { c: 0 0 bd }
         }
         /// Sections.
         /.settings {
