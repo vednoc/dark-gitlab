@@ -405,6 +405,45 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &-danger { c: fg red bd }
             &-info { c: fg blue bd }
         }
+        input {
+            /// Checkbox/radio inputs.
+            &[type = 'checkbox'], &[type = 'radio'] {
+                &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
+                    -webkit-appearance: none i;
+                    -moz-appearance: none i;
+                    appearance: none i;
+                    height: 1em i;
+                    width: 1em i;
+                    border: 1px solid i;
+                    c: fg bd bd;
+                }
+                &:hover { box-shadow: 0 0 2px 1px sh i }
+            }
+            &[type = 'radio'] {
+                border-radius: 100% i;
+                &:checked { c: 0 ac ac }
+            }
+            &[type = 'checkbox'] {
+                &:checked { c: 0 ac ac }
+                &:indeterminate { c: 0 red red }
+            }
+        }
+    }
+
+    // Global -> Custom checkbox/radio inputs.
+    @css {
+        input[type = 'radio']:checked {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
+            background-size: cover !important;
+        }
+        input[type = 'checkbox']:checked {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
+            background-size: cover !important;
+        }
+        input[type = 'checkbox']:indeterminate {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') !important;
+            background-size: cover !important;
+        }
     }
 
     // Global -> Navbar.
