@@ -675,6 +675,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
                 &:hover { c: 0 0 bb }
             }
+            /// Project -> Jobs -> Fix icons and table cells. #98
+            .sprite { v: cm }
+            > tbody > .build {
+                > td { border-top: 1px solid bd i }
+                &:hover { c: 0 0 bb }
+            }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
             .pipeline-id, .table-mobile-header,
@@ -731,7 +737,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         button {
             c: cm;
             /// Notes -> Fix a couple of context menu items.
-            &:not(#z):not(.disable-hover):hover { c: fg 0 bd }
+            &:not(#z):not(.disable-hover):not(.disabled):hover { c: fg 0 bd }
         }
         /// Base elements.
         .dropdown {
