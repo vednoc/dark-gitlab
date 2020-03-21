@@ -2234,6 +2234,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Dropdowns -> Focused menu toggle.
             /[class *= 'mini-pipe']:focus { box-shadow: 0 0 4px 0px ac i }
         }
+        /// Fix top offset for 'retry' button.
+        /.ci-action-icon { &-container&-wrapper svg { top: 2px i }}
     }
 
     // Project -> Pipelines -> Build page.
