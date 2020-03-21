@@ -830,6 +830,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &-title, &-content { c: 0 0 t }
             &-content { c: cm }
         }
+        /// Project -> Settings -> Members.
+        /.user { &-name, &-username { c: 0 0 t }}
         /// Reset dropdown height. @upstream
         /[data-page ^= 'search:'], /[data-page ^= 'projects:'] {
             .dropdown-menu-selectable { max-height: 420px i }
@@ -1326,12 +1328,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             rad: 0 0 4px 4px;
             c: 0 bd hl;
             /// Inputs.
-            .form-control, .info-well, .select2-choices { c: 0 0 bg }
+            .form-control, .info-well { c: 0 0 bg }
+            .select2-choice { &, &s { c: 0 0 bg }}
             [class *= 'input-group'] {
                 rad: 4px;
                 c: fg bd bd;
-                /// Reset background color.
-                .select2-choice { c: 0 0 bg }
             }
             /// Visibility level.
             /.option {
