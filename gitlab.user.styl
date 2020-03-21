@@ -1541,6 +1541,58 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /svg.gl-skeleton-loader rect { v: bd }
     }
 
+    // Global -> Calendar.
+    .pika-single {
+        margin-top: 10px;
+        c: fg bd hl;
+        rad: 4px;
+        .pika {
+            /// Header.
+            &-label { c: fg 0 t }
+            /// Custom prev/next buttons.
+            &-prev, &-next {
+                c: fg;
+                text-indent: 0;
+                background: none;
+                &::before {
+                    display: inline-block;
+                    width: 20px;
+                }
+            }
+            &-prev::before { content: '\2190' }
+            &-next::before { content: '\2192' }
+            /// Table.
+            &-table {
+                border: 1px solid bd;
+                /// Cells.
+                th:not(#z) {
+                    border-top: none i;
+                    c: fg t bg;
+                }
+                td {
+                    c: 0 bd;
+                    .pika-day {
+                        c: fg 0 bb;
+                        &:hover, ../[class ^= 'is-'] .pika-day { c: ac 0 hl }
+                    }
+                    &.is-disabled .pika-day { c: cm 0 t }
+                }
+                /// Remove border on the bottom.
+                tr:last-child > td { border-bottom: none i }
+            }
+        }
+        /// Shadow.
+        &.is-bound { box-shadow: bsh }
+        /// Global -> Pajamas wrapper.
+        /.gl-datepicker-theme {
+            font-family: var(--ui-font) i;
+            .pika-lendar:not(#z) {
+                rad: r;
+                box-shadow: inner;
+            }
+        }
+    }
+
     // Global -> Avatars.
     .avatar {
         &, &-circle, &-container {
