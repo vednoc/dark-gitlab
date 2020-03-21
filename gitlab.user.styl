@@ -701,6 +701,17 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Icons -> Fix background.
             path[fill = '#FFF'] { v: hl }
         }
+        /// Project -> Settings -> Webhooks.
+        /[class *= 'col-'] > table.table {
+            border: 1px solid bd;
+            thead tr th { border-top: none }
+            tbody {
+                tr td { border-top: 1px solid bd i }
+                tr:hover { c: 0 0 bb }
+            }
+        }
+        /// Who cares about semantic HTML anyways? #88 @upstream
+        td.d-sm-block { display: table-cell i }
     }
 
     // Global -> Dropdowns.
