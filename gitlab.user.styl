@@ -1091,6 +1091,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Unmerged MR icon color. @upstream
             /.icon-merge-request-unmerged { filter: invert(0.7) }
         }
+        /// Project -> Members.
+        &.members-list {
+            li {
+                c: 0 0 bb;
+                &:hover { c: 0 0 hl }
+            }
+            /// Fix search icon. #80
+            /input.form-control + button { c: 0 bd }
+        }
         /// Dashboard -> Snippets.
         .snippet { &-filename, &-info { c: cm }}
     }
