@@ -852,7 +852,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
         }
         /// Reset dropdown height. @upstream
-        /[data-page ^= 'search:'], /[data-page ^= 'projects:'] {
+        /[data-page ^= 'search:'],
+        /[data-page ^= 'projects:'],
+        /[data-page ^= 'dashboard:'] {
             .dropdown-menu-selectable { max-height: 420px i }
         }
     }
