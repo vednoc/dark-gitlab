@@ -1271,6 +1271,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .blocks-container { a, .btn-link { &:not(.btn) { c: ac }}}
             .btn, [data-toggle = 'dropdown'] { c: 0 0 bg }
         }
+        /// Collapsed state.
+        &&-collapsed {
+            .sidebar-collapsed-icon {
+                c: fg;
+                svg { v: cm }
+            }
+            .block:hover { c: 0 0 #88888810 }
+        }
     }
 
     // Global -> Navigation.
