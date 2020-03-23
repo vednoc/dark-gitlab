@@ -1244,6 +1244,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value { c: cm }
+        if ( nb_height == 1 ) { top: 50px i }
         /// Pajamas -> Drawer.
         /.gl-drawer {
             c: fg 0 bg;
@@ -1251,6 +1252,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             &-header, &-body > * { c: 0 bd }
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) { top: 50px i }
+        }
+        /// Issues -> Sidebar.
+        .issuable-sidebar {
+            overflow-y: auto i;
+            .gutter-toggle { c: 0 bd }
         }
         /// Jobs -> Builds container.
         &.build-sidebar {
