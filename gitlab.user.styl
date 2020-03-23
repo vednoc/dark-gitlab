@@ -1100,11 +1100,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             a { c: fg }
             /// Metadata.
             /.item-meta * { c: cm }
-            /// Groups -> Hover event.
+            /// Groups -> Hover animation.
             .group-row-contents {
                 &:hover { c: 0 0 hl }
                 .metadata { span, div { c: cm }}
                 /.has-no-search-results { c: cm }
+            }
+            /// Profile -> Groups.
+            &.group-row {
+                .description p, .stats { c: cm }
             }
             /// Hover animation.
             &.issue, &.merge-request, &[id *= 'epic'] {
@@ -1391,8 +1395,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Loading icon.
         /.loading { c: cm }
-        /// NOTE: Experimental styles for projects/snippets.
-        &:not(.compact), /.snippets-list-holder > ul {
+        /// NOTE: Experimental list styles.
+        /// Global -> Projects/Snippets | Profile -> Groups.
+        &:not(.compact),
+        /.snippets-list-holder > ul,
+        /#groups > ul {
             margin-top: 10px;
             padding: 12px;
             c: 0 0 hl;
