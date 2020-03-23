@@ -1436,7 +1436,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
         }
         &-footer {
-            c: 0 bd bg;
+            c: 0 bd hl;
             /// Project -> Settings -> Pages.
             &.alert-primary { c: blue 0 hl }
         }
@@ -1988,6 +1988,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.dropzone {
             &-previews { c: 0 bd }
             /.markdown-selector { color: ac }
+            /// Issues -> Design -> Card text color. @upstream
+            /.design-dropzone-card .text-center { c: fg }
         }
     }
 
