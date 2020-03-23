@@ -733,11 +733,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         c: fg bd hl;
         /// Active state.
         &.show { box-shadow: bsh }
-        /// Header -> User menu.
-        .btn.menu-item {
-            c: cm 0 t;
-            &:hover { c: fg 0 bd }
-        }
         /// Misc elements.
         strong, .bold { c: fg }
         span[class *= '-text'] { z-index: 1; c: fg }
@@ -827,13 +822,24 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
         &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
-        /// Project -> Reset items in 'notification settings' menu.
-        .dropdown-menu-inner {
-            &-title, &-content { c: 0 0 t }
-            &-content { c: cm }
+        /// Misc resets.
+        /.dropdown-menu {
+            /// Project -> Reset items in 'notification settings' menu.
+            &-inner {
+                &-title, &-content { c: 0 0 t }
+                &-content { c: cm }
+            }
+            /// Dashboard -> Todos.
+            &-user {
+                &-link:not(:hover) { strong, span { c: cm }}
+                &-name, &-full-name, &-username { c: 0 0 t }
+            }
+            /// Close buttons.
+            ../:not(#z) .dropdown-menu-close {
+                &, &:hover { c: 0 0 t }
+                &-icon { c: 0 0 t }
+            }
         }
-        /// Project -> Settings -> Members.
-        /.user { &-name, &-username { c: 0 0 t }}
         /// Reset dropdown height. @upstream
         /[data-page ^= 'search:'], /[data-page ^= 'projects:'] {
             .dropdown-menu-selectable { max-height: 420px i }
