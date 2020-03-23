@@ -1062,6 +1062,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     .form-control, .search form {
         c: fg bd hl;
         border: 1px solid bd i;
+        &[disabled = 'disabled']:not(#z) { opacity: 0.5 }
         /// Overwrites for navbar and top nav.
         /.navbar & { c: 0 0 bg }
         /.top-area & { height: 35px }
@@ -1894,6 +1895,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &-input { box-shadow: none i }
         /// Select menu.
         /.custom-select { c: fg bd hl }
+        /// Project -> Releases -> Edit release.
+        &-group {
+            .bordered-box { c: 0 0 bg }
+            .gl-form-input { c: 0 0 bg }
+        }
     }
 
     // Pajamas -> GFM.
@@ -1957,6 +1963,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             &-link, ../-label { &:not(#z) { color: inherit i }}
             &-icon[href ^= '/help'] { > .fa, > svg { c: cm }}
+        }
+        /// Project -> Releases -> New release resets.
+        &-form[action $= 'tags'] {
+           .form-control, .dropdown-menu-toggle { c: 0 0 bg }
         }
     }
 
