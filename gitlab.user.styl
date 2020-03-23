@@ -230,8 +230,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Global color reset.
         .text {
-            &-danger { c: red }
-            &-success { c: green }
+            &-danger:not(#z) { c: red }
+            &-success:not(#z) { c: green }
             &-plain, /.light { c: fg }
             &-secondary, &-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
