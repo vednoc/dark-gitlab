@@ -757,7 +757,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         button {
             c: cm;
             /// Notes -> Fix a couple of context menu items.
-            &:not(#z):not(.disable-hover):not(.disabled):hover { c: fg 0 bd }
+            &[class *= '-note-']:not(#z):hover { c: 0 0 bd }
+            &[class *= 'note-delete']::before { content: none }
+            &:not(#z):not([class *= 'disable']):hover { c: fg 0 bd 0 0 0 }
         }
         /// Base elements.
         .dropdown {
@@ -822,6 +824,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
         &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
+        /// Issues -> 'Create MR' button.
+        /.droplab-dropdown {
+            .form-control { c: 0 0 bg }
+            .menu-item:not(.disable-hover) {
+                c: cm;
+                &:hover { c: fg 0 bd }
+            }
+            [class *= 'selected'] .menu-item { &, .fa { c: fg }}
+        }
         /// Misc resets.
         /.dropdown-menu {
             /// Project -> Reset items in 'notification settings' menu.
