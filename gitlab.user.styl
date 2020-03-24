@@ -2500,6 +2500,30 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .diverged-commits-count, .coverage { c: cm }
     }
 
+    // Project -> Wiki.
+    .wiki {
+        /// Page title.
+        &-last-edit-by {
+            c: cm;
+            strong { c: fg }
+        }
+        /// Sidebar -> Navigation.
+        &-sidebar.right-sidebar {
+            a { c: cm }
+            .active a { c: ac }
+            .btn { c: 0 0 bg }
+        }
+        /// New page -> Reset inputs.
+        &-form .form-control { c: 0 0 bg }
+        /// Page history -> Tweak tables.
+        &-page-header + .table-holder > table {
+            margin-top: 10px;
+            border: 1px solid bd;
+            thead > tr > th { border-top: none }
+            tbody > tr:hover { c: 0 0 bb }
+        }
+    }
+
     // Project -> Settings.
     .project {
         /// Grouped options.
