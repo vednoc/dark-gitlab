@@ -282,7 +282,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Global -> FA icons.
         /.fa {
             c: cm;
-            &&-triangle { c: orange }
+            &&-triangle, &.merge-icon { c: orange }
             /// Issues -> Export issues.
             &.checkmark { c: green }
             /// MRs -> First contribution.
@@ -735,7 +735,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Active state.
         &.show { box-shadow: bsh }
         /// Misc elements.
-        strong, .bold { c: fg }
+        strong, .bold, .text { c: fg }
         span[class *= '-text'] { z-index: 1; c: fg }
         [class *= 'input-field'] { c: fg bd bg }
         .dropdown-title, [class *= '-header'] { c: fg bd }
@@ -1245,6 +1245,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value { c: cm }
+        /// Fix top offset.
         if ( nb_height == 1 ) { top: 50px i }
         /// Pajamas -> Drawer.
         /.gl-drawer {
@@ -1258,6 +1259,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .issuable-sidebar {
             overflow-y: auto i;
             .gutter-toggle { c: 0 bd }
+            &-header, .dropdown { button { c: 0 0 bg }}
         }
         /// Time tracking. #49
         .time_tracker {
@@ -2122,6 +2124,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 box-shadow: bsh;
                 [class *= 'share'] { c: cm }
                 [class *= 'scoped-label'] { c: ac }
+                /// Issues -> Assignee.
+                .text-white-50 { c: cm; opacity: 0.5 }
             }
             &[class *= 'bottom'] .arrow::before { border-bottom-color: bd }
             &[class *= 'right'] .arrow::before { border-right-color: bd }
