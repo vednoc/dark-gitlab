@@ -1271,9 +1271,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &.build-sidebar {
             .builds-container {
                 c: fg bd bg;
-                .build-job:hover {
-                    c: 0 0 bb;
-                    a { c: fg }
+                .build-job {
+                    &.retried { c: 0 0 t }
+                    &:hover {
+                        c: 0 0 bb;
+                        a { c: fg }
+                    }
                 }
             }
             /// Reset colors.
