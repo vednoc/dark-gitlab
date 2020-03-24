@@ -740,7 +740,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         [class *= 'input-field'] { c: fg bd bg }
         .dropdown-title, [class *= '-header'] { c: fg bd }
         [class *= 'divider'], .separator { c: 0 bd bd }
-        /// Items.
+        .border-top { c: 0 bd }
         li {
             a, button {
                 c: cm;
@@ -873,6 +873,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Dropdowns -> Active state; exclude CI status icons.
         /.active, /.show {
             > [data-toggle = 'dropdown']:not([class *= 'ci-status']) svg { v: fg }
+        }
+        /// Project -> Download source code.
+        &&-xs, &-xs.stat-text {
+            padding: 8px 10px;
+            c: 0 0 bg;
+            &:not(#z).btn-primary { c: white ac ac }
         }
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
