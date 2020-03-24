@@ -220,6 +220,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .progress {
             c: 0 0 bd;
             &-bar { c: fg; rad: 4px }
+            &-bar.bg-primary { c: 0 0 ac }
             /// Project -> Languages bar.
             &.repository-languages-bar {
                 c: 0 0 t;
@@ -1257,6 +1258,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .issuable-sidebar {
             overflow-y: auto i;
             .gutter-toggle { c: 0 bd }
+        }
+        /// Time tracking. #49
+        .time_tracker {
+            .compare-label { c: cm }
+            .compare-value { c: fg }
+            .time-tracking-help-state { c: 0 bd bg }
         }
         /// Jobs -> Builds container.
         &.build-sidebar {
