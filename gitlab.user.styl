@@ -1333,6 +1333,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
             /// Dashboard -> Todos.
             &.issues-details-filters button { c: 0 0 bg }
+            /// Epics -> Roadmap filters.
+            [class *= 'filter-dropdown'] button { c: 0 0 bg }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
@@ -1506,6 +1508,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:last-child {
                     border-bottom-left-radius: 3px;
                     border-bottom-right-radius: 3px;
+                }
+            }
+        }
+        /// Epics -> Epics and issues.
+        /.related-items-list {
+            .item-body {
+                &.item-closed {
+                    c: 0 0 bb;
+                    rad: 3px i;
                 }
             }
         }
@@ -1890,7 +1901,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
-            &[class *= '_message'] { rad: 4px }
+            &[class *= '_message']:not([class *= 'epic']) { rad: 4px }
             &.warning_message { c: orange orange hl }
             &.danger_message { c: red red hl }
         }
@@ -2770,6 +2781,63 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
+    }
+
+    // Epics -> Roadmap.
+    .roadmap-container {
+        border-top: 1px solid bd;
+        .timeline {
+            &-header-blank, &-header-item { c: 0 bd bb }
+            &-header-blank::before {
+                c: 0 bd;
+                box-shadow: none;
+            }
+            &-header-item .item {
+                &-label { c: fg bd }
+                &-sublabel .sublabel-value { c: cm }
+                &-sublabel .label-bold { c: fg }
+            }
+        }
+        .milestone {
+            &s-list-title {
+                c: 0 0 bb;
+                &::after {
+                    width: 4px;
+                    right: -4px;
+                    background: linear-gradient(to right, sh 0%, t 100%);
+                }
+            }
+            &-timeline-cell { c: 0 0 bg }
+            &-item-details {
+                c: fg;
+                .timeline-bar {
+                    &, &::before { c: 0 0 cm }
+                    &::after { c: 0 cm fg }
+                }
+            }
+        }
+        .epic {
+            &-bar { c: 0 0 blue }
+            &-details-cell { c: 0 bd bb }
+            &-timeline-cell {
+                c: fg bd bg;
+                ../s-list-item:hover > .epic-timeline-cell { c: 0 0 bb }
+            }
+            &-group-timeframe { c: cm }
+            &-title a { c: fg }
+        }
+        /// Tweak gradients.
+        .timeline-header-blank,
+        .milestones-list-title,
+        .epic-details-cell {
+            &::after {
+                width: 4px;
+                right: -4px;
+                background: linear-gradient(to right, sh 0%, t 100%);
+            }
+        }
+        /// Day indicator.
+        .current-day-indicator { &, &-header { c: 0 0 ac }}
     }
 
     // Issues/MRs/Epics -> Notes.
