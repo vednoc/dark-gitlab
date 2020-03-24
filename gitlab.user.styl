@@ -1278,6 +1278,19 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .blocks-container { a, .btn-link { &:not(.btn) { c: ac }}}
             .btn, [data-toggle = 'dropdown'] { c: 0 0 bg }
         }
+        /// Epics -> Start/due date.
+        .is-option-selected > span { c: cm }
+        /// Epics -> Ancestors.
+        .vertical-timeline {
+            &::before { c: 0 cm }
+            &-icon {
+                c: 0 0 hl;
+                &.opened svg { v: green }
+                &.closed svg { v: blue }
+            }
+            /// Fix link hover event.
+            &-content a:hover { c: ac }
+        }
         /// Collapsed state.
         &&-collapsed {
             .sidebar-collapsed-icon {
