@@ -2588,8 +2588,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Search -> Code.
             &-flex-parent {
                 c: fg bd hl;
-                /// Remove pseudo element. @upstream
-                &::before { content: none }
+                /// Diff -> Hide comment toggle/avatars.
+                &::before {
+                    c: 0 0 bb;
+                    box-shadow: 1px 0 bd;
+                }
                 /// Header buttons.
                 .btn {
                     svg { v: cm }
