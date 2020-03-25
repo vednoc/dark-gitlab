@@ -3128,6 +3128,26 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.issue-boards-content.is-focused { c: 0 0 bb }
     }
 
+    // Issues -> Milestones.
+    .milestone {
+        /// List whitespace.
+        &s &:not(:last-child) { margin-bottom: 8px }
+        .label-badge-gray { c: fg }
+        /// Reset lists.
+        &-content {
+            .card-header {
+                c: 0 t;
+            }
+            li.issuable-row {
+                c: 0 0 bg;
+                &:first-child { border-top: 1px solid bd i }
+                &:last-child { rad: 0 0 r r }
+                .issuable-number { c: cm }
+            }
+        }
+        /.manage-labels-list li { c: 0 0 t }
+    }
+
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
         c: 0 bd bb;
