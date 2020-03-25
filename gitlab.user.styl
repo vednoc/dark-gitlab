@@ -885,6 +885,11 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: 0 0 bg;
             &:not(#z).btn-primary { c: white ac ac }
         }
+        /// Project -> Clone repository.
+        /.git-clone-holder .form-control {
+            font-family: var(--mono-font) i;
+            c: 0 0 bg;
+        }
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
         /// NOTE: Definitely not a great idea, but let us see what happens!
