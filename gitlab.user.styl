@@ -651,7 +651,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                         border-bottom: none i;
                     }
                     &:hover:not(#z) td { c: 0 0 bb }
-                    &:last-child td { border-bottom: none i }
+                    &:last-child {
+                        /// Last element globally / Single element in artifacts.
+                        &, &:first-child { td:not(#z) { border-bottom: none i }}
+                    }
                 }
             }
             /// Files.
