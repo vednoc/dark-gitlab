@@ -1448,11 +1448,9 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Loading icon.
         /.loading { c: cm }
         /// NOTE: Experimental list styles.
-        /// Global -> Projects/Snippets.
-        /// Profile -> Calendar/Groups.
+        /// Global -> Projects/Snippets | Profile -> Groups.
         &:not(.compact),
         /.snippets-list-holder > ul,
-        /.user-calendar-activities,
         /#groups > ul {
             margin-top: 10px;
             padding: 12px;
@@ -1464,11 +1462,17 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 &:last-child { padding-bottom: 0 i }
             }
         }
-        /// Profile -> Consistent heading styles.
-        /.user-calendar-activities h4 {
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid bd;
+        /// Profile -> Contributions list.
+        /// The `d-sm-block` overrides `d-none`. @upstream
+        /.user-calendar-activities {
+            c: 0 0 hl;
+            rad: 4px;
+            h4 {
+                margin: 10px 12px 0;
+                padding: 10px 0;
+                border-bottom: 1px solid bd;
+            }
+            ul li { margin: 0 12px i }
         }
     }
 
