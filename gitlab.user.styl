@@ -3137,6 +3137,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &-content {
             .card-header {
                 c: 0 t;
+                &.bg-primary { c: ac }
             }
             li.issuable-row {
                 c: 0 0 bg;
@@ -3146,6 +3147,49 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
         }
         /.manage-labels-list li { c: 0 0 t }
+        /// Milestones -> Burndown chart.
+        /.burndown-chart {
+            c: 0 0 bg;
+            rad: 4px;
+            box-shadow: inner;
+            text { v: fg }
+            .axis {
+                &-label text { v: fg }
+                &-label line, line, path { v: 0 cm }
+            }
+            .line {
+                &.ideal { v: 0 cm }
+                &.actual { v: 0 green }
+            }
+            /// Legends. #83
+            .legend {
+                rect { v: 0 cm }
+                text { v: fg }
+                /.gl-legend { c: fg }
+            }
+            /// Gray elements.
+            [style *= '221\, 221\, 221'] { v: bd }
+            [stroke = '#ddd'],
+            [stroke = '#dfdfdf'],
+            [stroke = '#919191'] {
+                v: 0 bd;
+            }
+            /// Blue elements.
+            [stroke = '#1f78d1'] { v: 0 blue }
+            [fill = '#1f78d1'],
+            [fill *= '34\,132\,229'],
+            [style *= '31\, 120\, 209'] {
+                v: blue;
+            }
+            /// Burndown chart hint.
+            /.content-block.burndown-hint {
+                c: 0 bd hl;
+                rad: 4px;
+                svg path[fill = '#fff'] { v: t }
+                /// Buttons -> Selected chart.
+                /.js-burndown-data-selector .btn-primary { c: white blue blue }
+            }
+        }
     }
 
     // MRs -> Changes.
