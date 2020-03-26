@@ -3249,7 +3249,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         &-holder {
             c: 0 0 bg;
             /// Fix rounded corners.
-            &&-bottom-radius { rad: 4px }
+            &&-bottom-radius {
+                rad: 0 0 4px 4px;
+                .file-title { rad: 0 }
+            }
             /// Fork suggestion.
             ../-fork-suggestion { c: 0 bd hl }
         }
