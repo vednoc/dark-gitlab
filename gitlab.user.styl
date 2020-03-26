@@ -2443,6 +2443,10 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
             }
         }
+        /// Milestones -> Details.
+        &-description {
+            &, .title { c: 0 bd }
+        }
         /.page-content-header {
             /// Issues/Jobs -> Page header -> Author link.
             time, [class *= '-link'] { c: fg }
