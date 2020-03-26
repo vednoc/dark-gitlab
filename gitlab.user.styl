@@ -418,7 +418,15 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 code, .btn-default { c: 0 0 bg }
             }
             /// Project -> Settings -> MR promotion.
-            /.user-callout.promotion-callout { c: 0 0 hl }
+            /.user-callout.promotion-callout {
+                c: 0 0 hl;
+                /// Project -> Settings -> Audit events.
+                &.center {
+                    padding-bottom: 10px;
+                    border: 1px solid bd;
+                    rad: 4px;
+                }
+            }
         }
         input {
             /// Checkbox/radio inputs.
@@ -1097,6 +1105,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         .search-icon { v: cm }
         /// Snippets -> New.
         /.form-actions { c: 0 bd t }
+        /// Settings -> Reset background.
+        &.select-control { c: 0 0 bg }
     }
 
     // Global -> Auto-complete menu.
@@ -2013,6 +2023,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             .bordered-box { c: 0 0 bg }
             .gl-form-input { c: 0 0 bg }
         }
+        /// Settings -> Reset background.
+        &-input.form-control { c: 0 0 bg }
     }
 
     // Pajamas -> GFM.
