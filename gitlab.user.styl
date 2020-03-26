@@ -590,10 +590,6 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                         rad: 0 0 R R;
                     }
                 }
-                /// Single-row table body.
-                &:first-child:last-child:not(#z) > td {
-                    border-bottom: 1px solid bd i;
-                }
                 // &:hover > td { c: 0 0 hl }
             }
             /// Fix top rounded corners for head-less tables.
@@ -690,7 +686,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             c: red 0 bg;
             rad: 4px;
             > [class *= 'header'] {
-                padding: 8px 16px;
+                padding: 12px 16px;
                 c: fg bd hl;
                 rad: 3px 3px 0 0;
             }
@@ -703,6 +699,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                 }
                 &:hover { c: 0 0 bb }
             }
+            .pipeline-actions { padding-right: 16px }
+            /.js-run-mr-pipeline { margin-right: 16px }
             /// Project -> Jobs -> Fix icons and table cells. #98
             .sprite { v: cm }
             > tbody > .build {
@@ -721,9 +719,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             }
             /// Jobs -> Pipelines.
             &.pipeline tbody {
-                > tr > th {
-                    c: fg bd bb;
-                }
+                > tr > th { c: fg bd bb }
                 > tr > td { border-top: 1px solid bd i }
             }
             /// Icons -> Fix background.
