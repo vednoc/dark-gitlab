@@ -1117,7 +1117,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
     // Global -> Lists.
     ul.content-list {
         li {
-            c: cm bd;
+            c: fg bd;
             a { c: fg }
             /// Metadata.
             /.item-meta * { c: cm }
@@ -1383,6 +1383,16 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
+        /// Project -> Packages.
+        /.gl-tab {
+            &s-nav { c: 0 bd }
+            &-nav-item {
+                c: cm;
+                &-active { c: fg }
+                &:hover { box-shadow: inset 0 -0.125rem bd }
+                &.active { box-shadow: inset 0 -0.125rem ac }
+            }
+        }
     }
 
     // Global -> Tabbed navigation.
