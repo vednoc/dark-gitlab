@@ -283,6 +283,8 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /.fa {
             c: cm;
             &&-triangle, &.merge-icon { c: orange }
+            /// Global -> Menu icon.
+            &&-bars:not(#z) { c: fg }
             /// Issues -> Export issues.
             &.checkmark { c: green }
             /// MRs -> First contribution.
@@ -443,6 +445,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         }
         /// Project -> Settings -> Pages.
         .border-section { c: 0 bd }
+        /// Global -> Mobile resolution.
+        .scrolling-tabs-container {
+            .fade-right { background: linear-gradient(to left, hl 45%, t) }
+            .fade-left { background: linear-gradient(to right, hl 45%, t) }
+        }
+        .toggle-mobile-nav + .breadcrumbs-links { c: 0 bd }
     }
 
     // Global -> Custom checkbox/radio inputs.
