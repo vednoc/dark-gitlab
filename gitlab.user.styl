@@ -482,7 +482,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
         /// Lists.
         &-sub-nav, &-nav {
             c: cm;
-            li {
+            > li {
                 > button, > a {
                     transition: 0.2s ease;
                     &[data-toggle] { c: cm }
