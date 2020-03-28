@@ -2675,16 +2675,14 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
                     .gi { c: green 0 bb }
                     .gd { c: red 0 bb }
                     /// Tokens.
-                    .c, .cm, .c1, .gh, .nn, .go { c: cm }
-                    .n, .cp, .gp, .s { c: fg }
-                    .no, .na, .nv { c: cyan }
-                    .s2, .sx, .s1, .se, .sh { c: red }
+                    .c, .cm, .c1, .gh, .nn, .go, .gt { c: cm }
+                    .n, .cp, .gp, .s, .s1, .s2 { c: fg }
+                    .no, .na, .nv, .nb { c: cyan }
+                    .sx, .se, .sh { c: red }
                     .sr, .vi, .mf, .ne { c: green }
                     .nt, .m, .mi, .mh { c: blue }
-                    .nb { c: cyan; filter: hue-rotate(30deg) }
-                    .nc, .kt { c: blue; filter: hue-rotate(30deg) }
-                    .nf, .ss, .si { c: magenta }
-                    .ni, .gu, .sb { c: violet }
+                    .nf, .ss, .si, .nc { c: magenta }
+                    .ni, .gu, .sb, .kt { c: violet }
                 }
             }
         }
