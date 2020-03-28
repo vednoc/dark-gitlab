@@ -1885,7 +1885,7 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /.group-empty-state > .icon,
             /.empty-state .svg-content > svg,
             /.svg-container > svg,
-            /img[src ^= 'img/'],
+            /img[src ^= 'img/']:not([src *= 'logo']),
             /img[src ^= 'help/img/'],
             /img[src *= 's/illustrations/'] {
                 filter: invert(0.8) brightness(110%) hue-rotate(180deg);
