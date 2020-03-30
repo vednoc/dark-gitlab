@@ -1027,7 +1027,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > [class *= '-text'] {
                     c: fg bd;
                     // Project -> Edit labels. #29
-                    &:not(.label-color-preview) { c: 0 0 bd }
+                    &:not(.label-color-preview) { c: 0 0 bb }
                 }
             }
         }
@@ -1311,12 +1311,12 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Global -> Right sidebar.
-    /// TODO: Improve item styles.
     .right-sidebar {
         c: 0 bd hl;
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value { c: cm }
+        a, .btn-link { &:not(.btn):hover { color: ac }}
         /// Fix top offset.
         if ( nb_height == 1 ) { top: 50px i }
         /// Pajamas -> Drawer.
@@ -1339,7 +1339,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .compare-value { c: fg }
             .time-tracking-help-state { c: 0 bd bg }
         }
-        /// Jobs -> Builds container.
+        /// Jobs -> Builds container. #22
         &.build-sidebar {
             .builds-container {
                 c: fg bd bg;
@@ -1486,8 +1486,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .form-control, .info-well { c: 0 0 bg }
             .select2-choice { &, &s { c: 0 0 bg }}
             [class *= 'input-group'] {
-                rad: 4px;
-                c: fg bd bd;
+                rad: 3px 0 0 3px;
+                c: fg bd bb;
             }
             /// Visibility level.
             /.option {
@@ -2144,7 +2144,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Pajamas -> Modals.
-    /// NOTE: The `gl-modal` exists, but it's not widely used.
+    /// NOTE: The `gl-modal` exists, but it is not widely used.
     .modal {
         c: 0 0 t;
         /// Content.
@@ -2467,6 +2467,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-fg-l-yellow { c: yellow }
             &-fg-l-magenta { c: magenta }
         }
+        /// Remove right padding. @upstream
+        div.build-trace-container { padding-right: 0 i }
         /// Jobs -> Failed jobs.
         .build-trace {
             border: 1px solid bd;
@@ -2712,7 +2714,6 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Code.
             /pre.code {
                 c: fg bd hl;
-                code > span:hover { c: 0 0 hl}
                 /// Syntax highlighting.
                 /.code.white {
                     /// Package links.
@@ -3396,6 +3397,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Syntax highlighting.
             &_url { c: ac }
             &_list { c: magenta }
+            &_name&_function { c: violet }
             &_line, &_constant, &_numeric { c: fg }
             &_support { ~/_type&, ~/_function& { c: cm }}
             &_variable, &_string, &_comment { c: green }
