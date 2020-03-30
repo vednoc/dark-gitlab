@@ -290,6 +290,25 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .omniauth-btn { c: 0 0 bg }
                 .omniauth-divider { &::before, &::after { c: 0 bd }}
                 input.form-control { c: 0 0 bg }
+                .btn { &-success, &-register { c: white green green }}
+            }
+            /// Buttons -> Sign in/Register.
+            .new-session-tabs {
+                border: 1px solid bd i;
+                border-bottom: none i;
+                box-shadow: none i;
+                c: 0 0 bg;
+                li {
+                    &:not(.active) {
+                        &, &:hover a:not(.active) { c: 0 t t }
+                    }
+                    a.active {
+                        rad: 0;
+                        c: 0 t hl;
+                        box-shadow: 0 1px hl;
+                    }
+                }
+                + .tab-content > div { rad: 0 0 4px 4px i }
             }
         }
         /// Global -> FA icons.
