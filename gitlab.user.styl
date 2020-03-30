@@ -242,8 +242,10 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global color reset.
         .text {
+            &-info:not(#z) { c: blue }
             &-danger:not(#z) { c: red }
             &-success:not(#z) { c: green }
+            &-warning:not(#z) { c: orange }
             &-plain, /.light { c: fg }
             &-secondary, &-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
@@ -752,6 +754,16 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 tr td { border-top: 1px solid bd i }
                 tr:hover { c: 0 0 bb }
             }
+        }
+        /// Project -> Import.
+        &.import-table {
+            border: 1px solid bd i;
+            thead th { border: none i; c: 0 0 hl }
+            tbody {
+                tr:hover td { c: 0 0 bb }
+                td { border-top: 1px solid bd i }
+            }
+            /.import-slash-divider { c: 0 bd bb }
         }
         /// Who cares about semantic HTML anyways? #88 @upstream
         td.d-sm-block { display: table-cell i }
