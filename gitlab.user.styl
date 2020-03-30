@@ -1386,6 +1386,12 @@ regexp('^https?://(www\.)?(gitlab\.(?!(io)).*)(/.*)?$') {
             /// Switch to `bg` color for child elements.
             .btn { &, &-default { &:not(#z) { c: 0 0 bg }}}
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
+            /// Dashboard -> 'You pushed to...' alert.
+            &.top-block {
+                padding: 16px 0;
+                c: 0 0 bb;
+                .btn-sm { padding: 6px 10px i }
+            }
             /// Dashboard -> Todos.
             &.issues-details-filters button { c: 0 0 bg }
             /// Epics -> Roadmap filters.
