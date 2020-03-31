@@ -3655,19 +3655,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 }
 
-@-moz-document regexp('_^https?://(www\.)?([A-Za-z0-9]+\.)?(gitlab\.(?!(io|biterg.io|exclude.domain)).*|include.domain)(/.*)?$'),
-domain('invent.kde.org'),
-domain('git.pleroma.social'),
-domain('code.videolan.org'),
-domain('gitgud.io'),
-domain('salsa.debian.org'),
-domain('framagit.org'),
-domain('source.joinmastodon.org'),
-domain('repo.getmonero.org'),
-domain('git.gnu.io'),
-domain('git.synz.io'),
-domain('git.drupalcode.org'),
-domain('custom.domain') {
+@-moz-document domain('old.custom.domain') {
   :root {
     --note      : 'Dark-GitLab v0.57.0';
     --bshadow   : 0 2px 4px var(--shadow);
