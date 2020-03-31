@@ -1745,7 +1745,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.gl-datepicker-theme {
             font-family: var(--ui-font) i;
             .pika-lendar:not(#z) {
-                rad: r;
+                rad: 4px;
                 box-shadow: inner;
             }
         }
@@ -2175,9 +2175,9 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Pajamas -> Popovers.
     .gl-popover {
         font-family: var(--ui-font);
-        rad: r;
+        rad: 4px;
         c: 0 bd hl;
-        box-shadow: bsh;
+        box-shadow: bsh i;
         &-header { c: 0 bd hl }
         &-body {
             padding: 8px;
@@ -2644,6 +2644,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-message { c: orange orange hl }
             .account-well { c: 0 bd hl }
         }
+        /// Project -> Header -> Badges.
+        &-badge { rad: 4px }
     }
 
     // Project -> File viewer.
