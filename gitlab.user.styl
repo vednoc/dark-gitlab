@@ -2675,11 +2675,9 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Search -> Code.
             &-flex-parent {
                 c: fg bd hl;
+                box-shadow: -1px 0 bd i;
                 /// Diff -> Hide comment toggle/avatars.
-                &::before {
-                    c: 0 0 bb;
-                    box-shadow: 1px 0 bd;
-                }
+                &::before { c: 0 0 bb }
                 /// Header buttons.
                 .btn {
                     svg { v: cm }
@@ -2779,8 +2777,6 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     .diff-file {
         /// Header.
         .file {
-            /// White box-shadow on top. @upstream
-            &-title-flex-parent { box-shadow: none i }
             /// Increase top offset when nb_height is enabled.
             if ( nb_height == 1 ) {
                 &-title, &-title-flex-parent {
