@@ -1854,9 +1854,16 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         pre {
             rad: 4px i;
-            &.code {
+            &.code.white {
                 border: 1px solid bd;
                 c: fg 0 hl;
+            }
+            /// Feat -> Set 'none' syntax colors to use theme colors.
+            if ( c_hl_none == 1 ) {
+                &.code.none {
+                    c: fg 0 hl;
+                    .line span { c: fg }
+                }
             }
         }
         code { font-family: var(--mono-font) i }
@@ -2709,7 +2716,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Code area.
             /pre.code {
                 /// Resets colors when syntax is set to white.
-                /.code.white & { c: fg bd hl }
+                /.code.white & { c: fg bd bg }
                 /// Feat -> Set 'none' syntax colors to use theme colors.
                 if ( c_hl_none == 1 ) {
                     /.code.none & {
