@@ -9,34 +9,14 @@
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
 @preprocessor stylus
 
-@var select   theme      "Theme colors" ["Default", "GitHub"]
-@var text     b_radius   "Custom border radius" 4px
+@var select   theme      'Color-scheme' ['Default', 'GitHub-Dark']
 @var text     a_radius   'Avatars: Custom border radius' 8px
-@var text     max_width  "Custom width for fixed layout" 1280px
-@var text     ui_font    "Custom UI font" "'font_name'"
-@var text     mono_font  "Custom mono font" "'font_name'"
-@var text     emoji_font "Custom emoji font" "'font_name'"
-@var text     transition "Custom transitions" 0.15s ease
-@var range    md_img_o   'Default image opacity in Markdown areas' [1, 0.0, 1, 0.01]
+@var range    md_img_o   'Markdown: Default image opacity' [1, 0.0, 1, 0.01]
 @var checkbox img_invert 'Invert illustrations to dark colors' 1
-@var checkbox gl_icons   "GitLab Icons [Add-on]: Fix icon alignment" 0
-@var checkbox p_header   "Center project header elements" 0
-@var checkbox md_limit   "Readme: Limit content max-width" 1
-@var checkbox md_center  "Readme: Center the content" 1
-@var checkbox dark_logo  "Switch to our darker logo" 0
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
-@var checkbox navbar_s   "Navbar: Match custom layout width" 0
-@var checkbox navbar_c   "Navbar: Theme navbar color" 1
-@var checkbox invert_ic  "Icons: Invert in Chromium-based browsers" 1
-@var checkbox c_hl_none  'Use theme colors for "none" syntax highlighting theme' 1
-@var checkbox sb_enable  'Enable theme scrollbars' 1
-@var checkbox bg_invert  "Background invert colors" 0
-@var text     bg_image   "Background URL/base64" "#00000025"
-@var text     bg_filter  "Background filter" opacity(1) invert(var(--bg-invert))
-@var text     bg_size    "Background size" cover
-@var text     bg_repeat  "Background repeat" repeat
-@var text     bg_pos     "Background position" center
+@var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
+@var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 
 @var color dark    "Color: Primary bg   " #292929
 @var color darken  "Color: Highlight bg " #333333
@@ -93,7 +73,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --bg-repeat : bg_repeat;
         --bg-pos    : bg_pos;
         --background: bg_image;
-        if (theme == 'GitHub') {
+        if ( theme == 'GitHub-Dark' ) {
             --bb        : #222222;
             --dark      : #181818;
             --darken    : #202020;
