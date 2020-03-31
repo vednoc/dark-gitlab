@@ -18,22 +18,22 @@
 @var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 
-@var color dark    "Color: Primary bg   " #292929
-@var color darken  "Color: Highlight bg " #333333
-@var color darker  "Color: Secondary bg " #424242
-@var color light   "Color: Primary fg   " #e6e6e6
-@var color lighter "Color: Secondary fg " #bababa
-@var color accent  "Color: Accent       " #bf692b
-@var color yellow  "Color: Yellow       " #f0c674
-@var color orange  "Color: Orange       " #d98245
-@var color red     "Color: Red          " #a54242
-@var color magenta "Color: Magenta      " #b294bb
-@var color violet  "Color: Violet       " #85678f
-@var color blue    "Color: Blue         " #54738c
-@var color cyan    "Color: Cyan         " #5e8d87
-@var color green   "Color: Green        " #7b823a
-@var color white   "Color: White        " #ffffff
-@var color shadow  "Color: Shadow       " #00000025
+@var color    dark       'Color: Primary bbackground  ' #292929
+@var color    darken     'Color: Highlight bbackground' #333333
+@var color    darker     'Color: Secondary bbackground' #424242
+@var color    light      'Color: Primary foreground   ' #e6e6e6
+@var color    lighter    'Color: Secondary foreground ' #bababa
+@var color    accent     'Color: Accent               ' #bf692b
+@var color    yellow     'Color: Yellow               ' #f0c674
+@var color    orange     'Color: Orange               ' #d98245
+@var color    red        'Color: Red                  ' #a54242
+@var color    magenta    'Color: Magenta              ' #b294bb
+@var color    violet     'Color: Violet               ' #85678f
+@var color    blue       'Color: Blue                 ' #54738c
+@var color    cyan       'Color: Cyan                 ' #5e8d87
+@var color    green      'Color: Green                ' #7b823a
+@var color    white      'Color: White                ' #ffffff
+@var color    shadow     'Color: Shadow               ' #00000025
 ==/UserStyle== */
 
 @-moz-document domain('custom.domain'),
@@ -54,11 +54,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --note      : 'Dark-GitLab v0.99.9';
         --bshadow   : 0 2px 4px var(--shadow);
         --t         : transparent !important;
-        --white     : white;
-        --width     : max_width;
-        --radius    : b_radius;
         --avatar    : a_radius;
-        --ts        : transition;
         --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
             Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
             var(--emoji-font), sans-serif;
@@ -67,12 +63,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             'lucida console', monospace;
         --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol', 'Noto Color Emoji';
-        --bg-invert : bg_invert;
-        --bg-filter : bg_filter;
-        --bg-size   : bg_size;
-        --bg-repeat : bg_repeat;
-        --bg-pos    : bg_pos;
-        --background: bg_image;
+        --white     : white;
         if ( theme == 'GitHub-Dark' ) {
             --bb        : #222222;
             --dark      : #181818;
@@ -133,9 +124,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     lgreen  = transparentify(green, #fff, 75%);
     green   = var(--green);
     white   = var(--white);
-    r       = var(--radius);
     t       = var(--t);
-    ts      = var(--ts);
     outer   = 0 0 0 1px bd;
     inner   = inset outer;
     i       = !important;
