@@ -2711,6 +2711,20 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Add missing top border.
                 &:not(:first-of-type) > td { border-top: 1px solid bd i }
             }
+            /// Highlighted line.
+            pre .hll {
+                z-index: 1 i;
+                position: relative;
+                c: 0 0 t;
+                &::before {
+                    content: '';
+                    z-index: -1 i;
+                    opacity: 0.20;
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    c: 0 0 yellow;
+                }
+            }
             /// Diffs.
             .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lgreen }
             .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lred }
