@@ -178,6 +178,9 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Border radius mixin.
     rad() { border-radius: arguments }
 
+    /// Feat -> Set 'none' syntax preset to use theme colors.
+    if ( c_hl_none == 1 ) { c-hl-none = ', .code.none' }
+
     // Base styles.
     body {
         font-family: var(--ui-font) i;
@@ -584,7 +587,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Global -> Tables.
-    table:not(#zzz) {
+    table:not(.code) {
         R = 4px;
         display: table;
         border-spacing: 0;
@@ -2694,10 +2697,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix code area background.
             pre.code.highlight.white:not([lang]) { c: 0 0 bg }
         }
-        /// Feat -> Set 'none' syntax preset to use theme colors.
-        if ( c_hl_none == 1 ) { thing = ', .code.none' }
         /// Global -> Code styles.
-        /.code.white { thing } {
+        /.code.white { c-hl-none } {
             /// Gutters.
             .line-numbers, .diff-line-num {
                 c: 0 0 hl;
@@ -2738,7 +2739,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /.code.white & { c: fg bd hl }
                 /// Feat -> Set 'none' syntax colors to use theme colors.
                 if ( c_hl_none == 1 ) {
-                    /.code.none & { c: fg bd hl }
+                    /.code.none & {
+                        c: fg bd hl;
+                        /// Tokens are still there in the file viewer.
+                        .line span { c: fg }
+                    }
                 }
                 /// Syntax highlighting.
                 /.code.white {
@@ -2856,12 +2861,13 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Project -> Code area.
-    .code {
+    .code.white { c-hl-none } {
+        c: fg 0 bg 0 0 0;
         .line_holder {
             /// Override the default text color.
             &:not(#z) > td { c: fg }
             /// Buttons -> Add new note.
-            .add-diff-note {
+            /.add-diff-note {
                 padding: 0 0 1px 1px;
                 c: fg bd bg;
                 &:hover { c: 0 0 hl }
@@ -2890,8 +2896,19 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         pointer-events: none;
                     }
                 }
+                &.is-over {
+                    &::before {
+                        content: '';
+                        z-index: 0;
+                        opacity: 0.45;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        position: absolute;
+                        pointer-events: none;
+                    }
+                }
                 &.old::after { c: 0 0 red }
                 &.new::after { c: 0 0 green }
+                &.is-over::before { c: 0 0 bd }
                 /// HACK: Work around specificity conflict with table styles.
                 /:not(#z) &:not(.new):not(.old) { c: 0 0 hl }
             }
@@ -2920,12 +2937,14 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
             /// Diff -> Comments.
-            .diff-comment {
+            /.diff-comment {
                 &-avatar, &s-more-count { c: 0 bg }
                 &s-more-count, /.diff-notes-collapse {
                     rad: var(--avatar);
                     c: fg bd hl;
                 }
+                /// New discussion block.
+                /.js-temp-notes-holder td { c: 0 bd }
             }
         }
         /// Project -> Settings -> Status/Report tables.
