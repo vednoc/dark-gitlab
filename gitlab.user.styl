@@ -2710,6 +2710,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Show unchanged lines.
             .line_expansion {
                 c: 0 0 hl;
+                td { c: 0 bd }
                 a, span { c: cm }
                 /// Add missing top border.
                 &:not(:first-of-type) > td { border-top: 1px solid bd i }
