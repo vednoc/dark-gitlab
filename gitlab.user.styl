@@ -335,77 +335,77 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.open { c: green; v: green }
                 &.closed { c: red; v: red }
             }
-            /// CI -> Icons.
-            /.ci-status {
-                c: fg bd bg 1 0;
-                /// Status icons.
-                &.ci {
-                    &-success {
-                        c: green green;
-                    }
-                    &-info, &-running {
-                        c: blue blue;
-                    }
-                    &-failed {
-                        c: red red;
-                    }
-                    &-pending,
-                    &-waiting-for-resource,
-                    &-failed-with-warnings,
-                    &-success-with-warnings {
-                        c: orange orange;
-                    }
-                    &-created,
-                    &-skipped {
-                        c: fg fg;
-                    }
-                    &-canceled,
-                    &-disabled,
-                    &-scheduled,
-                    &-manual {
-                        c: cm cm;
-                    }
+        }
+        /// CI -> Icons.
+        /.ci-status {
+            c: fg bd bg 1 0;
+            /// Status icons.
+            &.ci {
+                &-success {
+                    c: green green;
                 }
-                /// Stage icons.
-                &-icon {
-                    &-success {
-                        &[class *= 'dropdown'] { c: 0 green hl }
-                        &:not(#z), &[data-toggle] { svg { v: green }}
-                        svg { c: 0 green }
-                    }
-                    &-running,
-                    &-preparing {
-                        &[class *= 'dropdown'] { c: 0 blue hl }
-                        &:not(#z), &[data-toggle] { svg { v: blue }}
-                        svg { c: 0 blue }
-                    }
-                    &-failed {
-                        &[class *= 'dropdown'] { c: 0 red hl }
-                        &:not(#z), &[data-toggle] { svg { v: red }}
-                        svg { c: 0 red }
-                    }
-                    &-pending,
-                    &-waiting-for-resource,
-                    &-success-with-warnings {
-                        &[class *= 'dropdown'] { c: 0 orange hl }
-                        &:not(#z), &[data-toggle] { svg { v: orange }}
-                        svg { c: 0 orange }
-                    }
-                    &-created,
-                    &-skipped {
-                        &[class *= 'dropdown'] { c: 0 fg hl }
-                        &:not(#z), &[data-toggle] { svg { v: fg }}
-                        svg { c: 0 fg }
-                    }
-                    &-manual,
-                    &-canceled,
-                    &-disabled,
-                    &-scheduled,
-                    &-not-found {
-                        &[class *= 'dropdown'] { c: 0 cm hl }
-                        &:not(#z), &[data-toggle] { svg { v: cm }}
-                        svg { c: 0 cm }
-                    }
+                &-info, &-running {
+                    c: blue blue;
+                }
+                &-failed {
+                    c: red red;
+                }
+                &-pending,
+                &-waiting-for-resource,
+                &-failed-with-warnings,
+                &-success-with-warnings {
+                    c: orange orange;
+                }
+                &-created,
+                &-skipped {
+                    c: fg cm;
+                }
+                &-canceled,
+                &-disabled,
+                &-scheduled,
+                &-manual {
+                    c: cm cm;
+                }
+            }
+            /// Stage icons.
+            &-icon {
+                &-success {
+                    &[class *= 'dropdown'] { c: 0 green hl }
+                    &:not(#z), &[data-toggle] { svg { v: green }}
+                    svg { c: 0 green }
+                }
+                &-running,
+                &-preparing {
+                    &[class *= 'dropdown'] { c: 0 blue hl }
+                    &:not(#z), &[data-toggle] { svg { v: blue }}
+                    svg { c: 0 blue }
+                }
+                &-failed {
+                    &[class *= 'dropdown'] { c: 0 red hl }
+                    &:not(#z), &[data-toggle] { svg { v: red }}
+                    svg { c: 0 red }
+                }
+                &-pending,
+                &-waiting-for-resource,
+                &-success-with-warnings {
+                    &[class *= 'dropdown'] { c: 0 orange hl }
+                    &:not(#z), &[data-toggle] { svg { v: orange }}
+                    svg { c: 0 orange }
+                }
+                &-created,
+                &-skipped {
+                    &[class *= 'dropdown'] { c: 0 cm hl }
+                    &:not(#z), &[data-toggle] { svg { v: fg }}
+                    svg { c: 0 fg }
+                }
+                &-manual,
+                &-canceled,
+                &-disabled,
+                &-scheduled,
+                &-not-found {
+                    &[class *= 'dropdown'] { c: 0 cm hl }
+                    &:not(#z), &[data-toggle] { svg { v: cm }}
+                    svg { c: 0 cm }
                 }
             }
         }
