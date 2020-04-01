@@ -15,6 +15,7 @@
 @var text     emoji_font 'Custom emoji font' '"font_name"'
 @var text     a_radius   'Avatars: Custom border radius' 8px
 @var range    md_img_o   'Markdown: Default image opacity' [1, 0.0, 1, 0.01]
+@var checkbox ic_invert  'Invert icons in Shadow DOM' 1
 @var checkbox img_invert 'Invert illustrations to dark colors' 1
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
@@ -405,6 +406,15 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         &:not(#z), &[data-toggle] { svg { v: cm }}
                         svg { c: 0 cm }
                     }
+                }
+            }
+        }
+        /// Feat -> Invert icons in Shadow DOM.
+        if ( ic_invert == 1 ) {
+            @supports not (-moz-user-select: none) {
+                .created-icon, .opened-icon, .ic-upload,
+                [class *= 'ci-status'] svg {
+                    filter: invert(0.8) hue-rotate(180deg);
                 }
             }
         }
