@@ -569,7 +569,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Global -> Tables.
-    table:not(.code) {
+    table:not(.code):not(#z) {
         R = 4px;
         display: table;
         border-spacing: 0;
