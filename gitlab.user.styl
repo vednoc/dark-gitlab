@@ -904,7 +904,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /[data-page ^= 'search:'],
         /[data-page ^= 'projects:'],
         /[data-page ^= 'dashboard:'] {
-            .dropdown-menu-selectable { max-height: 420px i }
+            .dropdown-menu[class *= 'select'] { max-height: 420px i }
         }
     }
 
