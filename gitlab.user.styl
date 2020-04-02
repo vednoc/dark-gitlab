@@ -606,6 +606,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         border-left: none;
                         // c: 0 yellow;
                     }
+                    a { color: ac }
                 }
                 &:last-child td {
                     &:last-child { rad: 0 0 R 0 }
@@ -711,12 +712,12 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border: 1px solid bd;
             c: red 0 bg;
             rad: 4px;
-            > [class *= 'header'] {
+            [class *= 'header'] {
                 padding: 12px 16px;
                 c: fg bd hl;
                 rad: 3px 3px 0 0;
             }
-            > [class $= 'table-row'] {
+            [class $= 'table-row'] {
                 padding: 8px 16px;
                 c: fg bd bg;
                 &:nth-last-child(2) {
