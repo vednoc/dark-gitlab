@@ -2352,8 +2352,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Header.
         [class *= 'file-title'] {
             padding: 10px 16px;
-            c: 0 bd hl;
-            rad: 3px 3px 0 0;
+            rad: 4px 4px 0 0;
             strong { font-weight: normal }
             a:not(.btn) { c: fg }
         }
@@ -3165,7 +3164,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Disabled comments.
         /.disabled-comment {
             padding: 8px 0;
-            c: cm bd hl;
+            c: cm bd bg;
             a:not(.learn-more) { c: ac }
             /// Locked state.
             .issuable-note-warning {
