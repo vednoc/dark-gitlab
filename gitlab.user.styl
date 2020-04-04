@@ -669,7 +669,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             tbody {
                 > tr:first-child > td { border-top: 1px solid bd }
                 > tr:last-child > td { border-bottom: none }
-                > tr:hover > td { c: 0 0 hl }
+                > tr:hover > td { c: 0 0 bb }
             }
         }
         /// Project -> File table.
@@ -783,6 +783,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Active state.
         &.show { box-shadow: bsh }
         /// Misc elements.
+        .dropdown-info-note { c: cm }
         strong, .bold, .text { c: fg }
         span[class *= '-text'] { z-index: 1; c: fg }
         [class *= 'input-field'] { c: fg bd bg }
@@ -1412,7 +1413,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
             /// Switch to `bg` color for child elements.
-            .btn { &, &-default { &:not(#z) { c: 0 0 bg }}}
+            .btn { &, &-default { &:not(.btn-link) { c: 0 0 bg }}}
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
@@ -1421,9 +1422,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .btn-sm { padding: 6px 10px i }
             }
             /// Dashboard -> Todos.
-            &.issues-details-filters button { c: 0 0 bg }
-            /// Epics -> Roadmap filters.
-            [class *= 'filter-dropdown'] button { c: 0 0 bg }
+            &.issues-details-filters [class *= 'toggle'] { c: 0 0 bg }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
