@@ -2664,9 +2664,6 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Search -> Code.
             &-flex-parent {
                 c: fg bd hl;
-                box-shadow: -1px 0 bd i;
-                /// Diff -> Hide comment toggle/avatars.
-                &::before { c: 0 0 bb }
                 /// Header buttons.
                 .btn {
                     svg { v: cm }
@@ -2771,10 +2768,18 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             if ( nb_height == 1 ) {
                 &-title, &-title-flex-parent {
                     top: 165px;
+                    ~/.conflict ^[-1..-2] { top: 49px i }
                     &.is-commit, &.is-compare { top: 117px }
                     /// Commit details inconsistency. @upstream
                     /.sticky-placeholder + div .is-commit { top: 86px i }
                 }
+            }
+            &-title, &-title-flex-parent {
+                // border-top: none i;
+                box-shadow: none i;
+                .btn:not(.active) { c: 0 0 bg }
+                /// Diff -> Hide comment toggle/avatars.
+                &::before { c: 0 0 bb }
             }
         }
         /// Content.
@@ -2843,6 +2848,34 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover, &:focus { c: 0 0 hl }
                 &-header.bg-white { c: 0 0 bb }
             }
+        }
+        /// MR -> Resolve conflicts. #82
+        &.conflict {
+            border-top: none i;
+            .head, .origin {
+                position: relative;
+                &::before {
+                    content: '';
+                    opacity: 0.35;
+                    position: absolute;
+                    pointer-events: none;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                }
+            }
+            /// Modes.
+            .line_content:not(.header) {
+                &.head::before, &.origin::before { opacity: 0.25 }
+                &.selected::before { opacity: 0.25 i }
+            }
+            .unselected {
+                &:not(#z)::before { c: 0 0 bd }
+                .btn { opacity: 0.5 }
+            }
+            .selected::before { opacity: 0.5 i }
+            .head { &::before, > .btn { c: 0 green green }}
+            .origin { &::before, > .btn { c: 0 blue blue }}
+            /// Edit inline.
+            .editor-wrap.saved .editor { c: 0 green }
         }
     }
 
