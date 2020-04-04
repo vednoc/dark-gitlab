@@ -3135,6 +3135,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
         }
+        /// Notes -> Specific activity in the feed.
+        &.timeline > .discussion-filter-note {
+            c: fg;
+            .timeline-icon { c: 0 bd hl }
+        }
     }
 
     // Issue/MRs/Epics -> Discussions.
