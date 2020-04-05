@@ -3649,10 +3649,10 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Monaco Editor.
     .monaco-editor {
-        c: 0 0 bg;
+        c: fg 0 bg;
         /// Line numbers.
         .margin {
-            c: 0 0 t;
+            c: 0 bd t;
             * { font-family: var(--mono-font) i }
             ../ .line-numbers {
                 opacity: 0.6;
@@ -3678,13 +3678,14 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// TODO: Add missing tokens.
         .mtk {
             &1 { c: fg }
-            &3 { c: cm }
-            &6 { c: blue }
+            &3, &10 { c: cm }
+            &5, &6, &23 { c: blue }
             &7 { c: cyan }
             &8 { c: green }
-            &15 { c: red }
-            &20 { c: magenta }
-            &23 { c: cyan }
+            &11 { c: orange }
+            &4, &15, &20 { c: red }
+            &14, &20 { c: magenta }
+            &12, &22, &23 { c: cyan }
         }
     }
 }
