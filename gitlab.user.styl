@@ -3636,7 +3636,14 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Footer.
         &-status-bar {
             c: fg bd hl;
-            .ide-status-avatar { filter: brightness(1) invert(1) }
+            .ide-status-avatar[src *= 'png;base64'] { filter: invert(0.8) }
+        }
+        /// Review code.
+        .diffOverview {
+            c: 0 bd bb;
+            if ( img_invert == 1 ) {
+                &Ruler { filter: invert(0.8) hue-rotate(180deg) }
+            }
         }
     }
 
