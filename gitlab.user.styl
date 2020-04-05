@@ -3574,13 +3574,21 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             button.active {
                 c: fg bd bg;
                 box-shadow: inset 3px 0 ac i;
+                &.is-right { box-shadow: inset -3px 0 ac i }
                 &::after { c: 0 0 t }
                 svg.s16 { v: fg }
             }
         }
-        &-right-sidebar {
+        & &-right-sidebar {
             .ide-activity-bar { c: fg bd }
-            .multi-file-commit-panel-inner { c: 0 bd }
+            .ide-pipeline-header {
+                margin: 0;
+                padding: 16px i;
+            }
+            .multi-file-commit-panel {
+                &-inner { c: 0 bd bg }
+                .card-body { c: 0 0 bb }
+            }
         }
         &-sidebar-link:hover { c: fg 0 bd }
         /// Panels.
@@ -3592,8 +3600,13 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > .ide-context-body { margin-right: -1px }
                 /// Commits.
                 &-header, ../-commit-form > form { c: 0 bd }
+                /// Discard all changes.
+                &-header .ide-staged-action-btn { c: 0 0 t }
             }
-            &-commit-list-path { &:hover, &:focus { c: 0 0 hl }}
+            &-commit-list-path {
+                &:hover, &:focus { c: 0 0 hl }
+                &.is-active { c: 0 0 bd }
+            }
             &-edit-pane { c: 0 bd }
             /// Left -> Code.
             &-commit-panel-inner-content {
@@ -3666,7 +3679,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-nav-form {
             li a:not(.active) { c: 0 0 t }
             ul > li { width: 100% }
-            ../-tree-header svg {
+        }
+        /// Headers
+        &-tree-header {
+            c: 0 bd;
+            svg {
                 c: cm;
                 &:hover { c: ac }
             }
