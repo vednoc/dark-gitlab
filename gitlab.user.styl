@@ -3585,7 +3585,15 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-sidebar-link:hover { c: fg 0 bd }
         /// Panels.
         .multi-file {
-            &-commit-panel { c: 0 0 hl }
+            &-commit-panel {
+                c: 0 0 hl;
+                .ic-git-merge { c: cm }
+                /// Fix 1px of missing space.
+                > .ide-context-body { margin-right: -1px }
+                /// Commits.
+                &-header, ../-commit-form > form { c: 0 bd }
+            }
+            &-commit-list-path { &:hover, &:focus { c: 0 0 hl }}
             &-edit-pane { c: 0 bd }
             /// Left -> Code.
             &-commit-panel-inner-content {
@@ -3615,6 +3623,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:not([disabled]):hover { c: 0 0 bd }
                 }
             }
+            /// File templates.
+            ../-file-templates {
+                c: 0 bd hl;
+                [class *= 'menu-toggle'] { c: 0 0 bg }
+            }
         }
         /// File tree.
         &-file-list {
@@ -3626,6 +3639,36 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .ide-entry-dropdown-toggle {
                     c: fg 0 bd;
                 }
+            }
+        }
+        /// Review.
+        &-review {
+            &-sub-header { c: cm }
+            &-header a { c: ac }
+        }
+        /// Commit.
+        &-commit {
+            &-editor-header {
+                c: 0 0 hl;
+                box-shadow: inset 0 -1px bd;
+            }
+            &-list-container.is-first { c: 0 bd }
+            &-message-field {
+                c: 0 0 t;
+                .md-area { c: 0 0 hl }
+            }
+            &-message-textarea-container .note-textarea {
+                font-family: var(--mono-font) i;
+                c: fg;
+            }
+        }
+        /// Branches.
+        &-nav-form {
+            li a:not(.active) { c: 0 0 t }
+            ul > li { width: 100% }
+            ../-tree-header svg {
+                c: cm;
+                &:hover { c: ac }
             }
         }
         /// Resize handle.
@@ -3729,7 +3772,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             box-shadow: outer, bsh;
         }
         /// Context menu.
-        .context-view {
+        /.monaco-menu-container {
             .monaco-scrollable-element { box-shadow: bsh i }
             .monaco-action-bar {
                 c: 0 0 bg;
