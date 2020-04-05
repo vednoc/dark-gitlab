@@ -3687,6 +3687,83 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &14, &20 { c: magenta }
             &12, &22, &23 { c: cyan }
         }
+        /// Lines.
+        .lines-content {
+            .cursor { c: fg ac ac }
+            .current-line  { c: 0 bd hl }
+            ../ .selected-text { c: 0 0 blue }
+            ../ .selectionHighlight { c: 0 0 bd }
+            [class *= 'cigr'] { box-shadow: inset 1px 0 cm }
+        }
+        /// Command palette.
+        .monaco-quick-open-widget {
+            rad: r;
+            c: fg bd bg;
+            box-shadow: outer, bsh i;
+            .results-group { c: cm }
+            .label-name {
+                c: fg;
+                .highlight { c: ac }
+            }
+            /// Focused.
+            .monaco-tree-row {
+                &:hover, &.focused { c: ac 0 bd }
+            }
+        }
+        /// Input.
+        .monaco-inputbox {
+            c: fg bd bg;
+            input { c: fg 0 hl }
+        }
+        /// Find palette.
+        .find-widget {
+            c: fg ac hl;
+            box-shadow: bsh;
+            .button, .label { filter: invert(1) hue-rotate(180deg) }
+            ../ .monaco-sash { c: 0 0 bd }
+            textarea { c: fg 0 bg }
+        }
+        /// Accessibility.
+        .accessibilityHelpWidget {
+            c: fg bd hl;
+            box-shadow: outer, bsh;
+        }
+        /// Context menu.
+        .context-view {
+            .monaco-scrollable-element { box-shadow: bsh i }
+            .monaco-action-bar {
+                c: 0 0 bg;
+                box-shadow: inner, bsh i;
+                .action-item {
+                    > a { c: cm 0 t }
+                    &.focused a { c: fg 0 hl }
+                    &.disabled a { c: 0 bd }
+                }
+            }
+        }
+        .scroll-decoration { box-shadow: inset bsh i }
+        .tokens-inspect-widget { c: fg bd bg }
+        .findOptionsWidget {
+            c: 0 bd bd;
+            box-shadow: bsh;
+        }
+        .monaco-editor-hover { c: 0 bd bg }
+        .cslr.selected-text { c: 0 0 bd 0 0 0 }
+        .selectionHighlight { c: 0 0 bd }
+        /// Suggestion.
+        .tree {
+            c: cm bd hl;
+            box-shadow: bsh;
+            .focused { c: fg 0 bd }
+        }
+        /// Git status.
+        .dirty-diff-added { c: 0 0 green }
+        .dirty-diff-modified { c: 0 0 blue }
+        .inline-deleted-margin-view-zone, .char-delete { c: 0 0 #ff000050 }
+        .inline-added-margin-view-zone, .char-insert { c: 0 0 #00ff0050 }
+        .line-delete { c: white sh lred }
+        .line-insert { c: white sh lgreen }
+        .current-line-margin { c: 0 bd bd }
     }
 }
 
