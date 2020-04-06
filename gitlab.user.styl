@@ -37,7 +37,7 @@
 @var color    cyan       'Color: Cyan                 ' #5e8d87
 @var color    green      'Color: Green                ' #7b823a
 @var color    white      'Color: White                ' #ffffff
-@var color    shadow     'Color: Shadow               ' #00000025
+@var color    shadow     'Color: Shadow               ' #00000035
 ==/UserStyle== */
 
 @-moz-document domain('custom.domain'),
@@ -479,6 +479,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .fade-left { background: linear-gradient(to right, hl 45%, t) }
         }
         .toggle-mobile-nav + .breadcrumbs-links { c: 0 bd }
+        /// Forks.
+        /.fork-thumbnail { &:hover:not(.disabled), &.forked { c: 0 0 hl }}
     }
 
     // Global -> Custom checkbox/radio inputs.
@@ -525,12 +527,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
                 }
                 /// Active menus.
-                &.active, &.show {
-                    > button, > a {
-                        c: fg 0 bg;
-                        box-shadow: bsh;
-                    }
-                }
+                &.active, &.show { > button, > a { c: fg 0 bg }}
                 .caret-down { v: cm }
             }
             /// Reset background hack.
@@ -3560,6 +3557,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .author { c: ac }
             pre.code { rad: 4px }
         }
+        /// Search -> Code.
+        &s .blob-result { margin: 16px 0 }
     }
 
     // Components -> IDE.
