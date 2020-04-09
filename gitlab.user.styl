@@ -872,6 +872,10 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 font-family: var(--ui-font) i;
                 c: fg bd t;
             }
+            &-container-disabled {
+                > a { c: 0 0 bd }
+                .select2-arrow { c: 0 0 t }
+            }
         }
         /// Pipelines -> Pipeline menus.
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
@@ -2660,8 +2664,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.settings {
             c: 0 bd;
             ../-feature-row .form-control { c: 0 0 bg }
-            &-message { c: orange orange hl }
+            &-message { c: orange orange bg }
             .account-well { c: 0 bd hl }
+            /// Protected branches/tags.
+            .protected-branches-list > .table-bordered { border: none i }
+            .protected-tags-list { border: 1px solid bd i; rad: 4px }
         }
         /// Project -> Header -> Badges.
         &-badge { rad: 4px }
