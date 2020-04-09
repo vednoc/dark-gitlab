@@ -234,6 +234,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         .bg {
             &-light { c: 0 0 bd }
+            &-danger { c: 0 0 red }
             &-secondary { c: 0 0 hl }
             &-success { c: 0 0 green }
             &-white, &-gray-light { c: 0 0 bg }
@@ -1066,6 +1067,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global -> Disable pseudo-element for some buttons.
         &-link, &-blank, &-clipboard { &::before { content: unset i }}
+        /// Global -> Transparent buttons.
+        &.bg-transparent { c: 0 0 t }
     }
 
     // Global -> Labels.
@@ -1145,7 +1148,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Snippets -> New.
         /.form-actions { c: 0 bd t }
         /// Settings -> Reset background.
-        &.select-control { c: 0 0 bg }
+        &.select-control { c: 0 0 hl }   
     }
 
     // Global -> Auto-complete menu.
@@ -1420,7 +1423,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
             /// Switch to `bg` color for child elements.
-            .btn { &, &-default { &:not(.btn-link) { c: 0 0 bg }}}
+            .btn { &, &-default { &:not(.btn-link):not(.btn-success) { c: 0 0 bg }}}
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
@@ -1429,7 +1432,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .btn-sm { padding: 6px 10px i }
             }
             /// Dashboard -> Todos.
-            &.issues-details-filters [class *= 'toggle'] { c: 0 0 bg }
+            &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
@@ -1664,6 +1667,8 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:hover { c: 0 0 hl }
                 }
             }
+            /// Epics -> Reset dropdowns.
+            &.epics-filters [class *= '-toggle'] { c: 0 0 bg }
         }
         /// Project -> Releases.
         &.linked-card, &.release-block {
@@ -2162,7 +2167,7 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             .modal-footer {
                 c: 0 bd hl;
-                .btn { c: 0 0 bg }
+                .btn-secondary { c: 0 0 bg }
             }
             /// Project -> Reset 'Email a new issue/MR' buttons.
             .btn {
