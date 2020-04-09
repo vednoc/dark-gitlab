@@ -1378,7 +1378,10 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: fg;
                 svg { v: cm }
             }
-            .block:hover { c: 0 0 #88888810 }
+            .gutter-toggle {
+                c: 0 0 hl;
+                &, ../ .block { &:hover { c: 0 0 #88888810 }}
+            }
         }
     }
 
