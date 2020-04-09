@@ -204,6 +204,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .warning-title { c: orange }
         .valid-feedback { c: green }
         .account-well { c: fg bd hl }
+        /// Settings -> Fix QR code. #108
+        [class *= 'two-factor-auth'] svg {
+            c: 0 0 white;
+            box-shadow: 0 0 0 4px white;
+        }
         /// Global -> Progress bar.
         .progress {
             c: 0 0 bd;
@@ -943,26 +948,31 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             rad: inherit;
             ../:hover::before { opacity: 0.35 }
         }
+        /// Colored buttons.
         &&-remove, &&-danger {
-            c: red red t;
+            c: white red red;
+            &.btn-inverted { c: red red t }
             &::before { content: ''; c: 0 0 red }
             .fa { c: red }
             svg { v: red }
         }
         &&-close, &&-close-color, &&-warning {
-            c: orange orange t;
+            c: white orange orange;
+            &.btn-inverted { c: orange orange t }
             &::before { content: ''; c: 0 0 orange }
             .fa { c: orange }
             svg { v: orange }
         }
         &&-success {
-            c: green green t;
+            c: white green green;
+            &.btn-inverted { c: green green t }
             &::before { content: ''; c: 0 0 green }
             svg { v: green }
             .fa { c: green }
         }
         &&-primary, &&-info {
-            c: blue blue t;
+            c: white blue blue;
+            &.btn-inverted { c: blue blue t }
             &::before { content: ''; c: 0 0 blue }
             .fa { c: blue }
             svg { v: blue }
