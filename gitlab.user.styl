@@ -3033,7 +3033,10 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Epics -> Roadmap.
     .roadmap-container {
-        border-top: 1px solid bd;
+        .roadmap-shell {
+            c: 0 bd;
+            border-top: 1px solid bd;
+        }
         .timeline {
             &-header-blank, &-header-item { c: 0 bd bb }
             &-header-blank::before {
@@ -3065,7 +3068,15 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         .epic {
-            &-bar { c: 0 0 blue }
+            &-bar {
+                c: 0 0 blue;
+                /// gitlab-org/-/epics/2904
+                &-child-epic {
+                    c: 0 blue bb;
+                    p, svg { c: blue }
+                    .progress-bar { c: 0 0 blue }
+                }
+            }
             &-details-cell { c: 0 bd bb }
             &-timeline-cell {
                 c: fg bd bg;
