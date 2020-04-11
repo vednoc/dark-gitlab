@@ -2007,22 +2007,27 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// States.
         &-warning {
             c: orange 0 hl;
+            .gl-alert-icon { v: orange }
             &::before { content: ''; c: 0 0 orange }
         }
         &-danger {
             c: red 0 hl;
+            .gl-alert-icon { v: red }
             &::before { content: ''; c: 0 0 red }
         }
         &-success {
             c: green 0 hl;
+            .gl-alert-icon { v: green }
             &::before {content: ''; c: 0 0 green }
         }
         &-info {
             c: blue 0 hl;
+            .gl-alert-icon { v: blue }
             &::before { content: ''; c: 0 0 blue }
         }
         &-tip {
             c: fg 0 hl;
+            .gl-alert-icon { v: fg }
             &::before { content: ''; c: 0 0 cm }
         }
         /// Global -> Old alerts.
