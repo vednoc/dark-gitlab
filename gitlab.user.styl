@@ -3257,10 +3257,11 @@ regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         if ( nb_height == 1 ) {
             &-body .file-title { top: 98px i }
         }
-        /// Reply...
+        /// Reply bar.
         /&-reply-holder {
             c: 0 bd hl;
-            .btn { c: fg bd bg }
+            /// Exclude 'Start a review' button.
+            .btn:not(.btn-success) { c: fg bd bg }
         }
         /// Disabled comments.
         /.disabled-comment {
