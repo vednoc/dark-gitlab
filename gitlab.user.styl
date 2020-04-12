@@ -52,7 +52,7 @@ domain('repo.getmonero.org'),
 domain('git.gnu.io'),
 domain('git.synz.io'),
 domain('git.drupalcode.org'),
-regexp('^https?://(next\.|www\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
+regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     /// Hello, friend.
     :root {
         --note      : 'Dark-GitLab v0.99.9';
