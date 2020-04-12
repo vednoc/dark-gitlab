@@ -3611,6 +3611,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Text elements.
         [style *= 'Monaco'] { font-family: var(--mono-font) i }
+        /// Project -> Graphs.
+        [class *= '-chart'] {
+            text tspan, [fill = '#2e2e2e'] { fill: fg }
+            [fill = '#919191'] { fill: cm }
+            [fill = '#dbdbdb'] { fill: bd }
+            [fill = '#dbdbdb'] { fill: bd }
+            [stroke = '#bfbfbf'] { stroke: bd }
+            .gl-series-label { c: fg }
+            .gl-legend-series { c: cm }
+        }
     }
 
     // Dashboard -> Snippets.
