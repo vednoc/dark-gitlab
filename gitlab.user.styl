@@ -3635,7 +3635,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Text elements.
         [style *= 'Monaco'] { font-family: var(--mono-font) i }
         /// Project -> Graphs.
-        [class *= '-chart'] {
+        [class *= '-chart'], /[_echarts_instance_ *= 'ec'] {
             text tspan, [fill = '#2e2e2e'] { fill: fg }
             [fill = '#919191'] { fill: cm }
             [fill = '#dbdbdb'] { fill: bd }
