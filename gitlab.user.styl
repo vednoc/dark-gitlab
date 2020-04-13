@@ -1276,7 +1276,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Items.
         .divider { c: 0 bd }
         .sidebar-top-level-items > li {
-            &:hover { c: 0 0 #88888810 }
+            &:hover {
+                c: 0 0 #88888810;
+                > a { c: fg }
+            }
             &.active {
                 c: 0 0 #88888810;
                 box-shadow: inset 4px 0 ac i;
