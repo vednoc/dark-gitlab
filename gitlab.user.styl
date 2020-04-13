@@ -1465,6 +1465,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Dashboard -> Todos.
             &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
+            /// Search -> Results header.
+            span > code, form > div > button { c: 0 0 bg }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
