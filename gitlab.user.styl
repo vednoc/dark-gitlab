@@ -3250,10 +3250,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .timeline-entry {
             c: fg 0 bg;
             &.target { c: 0 0 hl }
-            /// Do not remove rounded corners from the first child.
-            &:not(:first-child) { rad: 0 }
-            /// Reset background for line numbers.
-            ../-body:not(#z) .diff-line-num { c: 0 0 bg }
+        }
+        /// Fix rounded corners in discussions. @upstream
+        &-body {
+            .notes_holder li.note,
+            .notes li.note:not(:first-child) {
+                rad: 0;
+            }
         }
         /// Increase top offset when nb_height is enabled.
         if ( nb_height == 1 ) {
