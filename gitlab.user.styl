@@ -2879,6 +2879,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 li { c: cm bd }
                 .active { c: fg }
             }
+            /// Notes -> Code discussion borders.
+            .notes_holder td { border-top-color: bd i }
+            .notes_holder td, .diff-discussions {
+                border-bottom-color: hl i;
+            }
         }
         /// Diff -> Change summary.
         &s-changed {
