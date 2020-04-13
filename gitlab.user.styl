@@ -1537,6 +1537,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
+    // Global -> Welcome page.
+    .section-welcome {
+        /// Cards.
+        .container .blank-state-link {
+            c: cm bd bg;
+            &:hover { c: fg 0 hl }
+        }
+    }
+
     // Global -> Projects list.
     .projects-list {
         > li {
