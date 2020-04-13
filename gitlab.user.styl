@@ -1912,6 +1912,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.code.white {
                 border: 1px solid bd;
                 c: fg 0 hl;
+                &.highlight { c: 0 0 hl }
             }
             /// Feat -> Set 'none' syntax colors to use theme colors.
             if ( c_hl_none == 1 ) {
@@ -3161,7 +3162,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target:not(#z) { c: 0 blue hl }
+            &.target:not(#z) { c: 0 blue bb }
             /// Markdown area.
             .note-text {
                 &.md { c: fg }
@@ -3183,7 +3184,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .notes-content { c: 0 bd }
         }
         /[class *= 'author-name'] { c: fg }
-        /[class *= 'headline-light'] { c: cm }
+        /[class *= 'headline-light'] {
+            &, [class *= 'separator'] { c: cm }
+            a:hover { &, time { c: ac }}
+        }
         /// Replies.
         .replies-toggle {
             c: fg bd hl;
@@ -3226,7 +3230,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             [class *= 'reply-holder'] { margin-bottom: -1px }
             /// Diff -> Comments.
             .timeline-entry.note {
-                c: fg 0 t;
+                c: fg 0 bg;
                 /// Add missing borders. @upstream
                 .replies-toggle,
                 [class *= 'reply-holder'] {
@@ -3249,7 +3253,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 bg;
-            &.target { c: 0 0 hl }
+            &.target { c: 0 0 bb }
         }
         /// Fix rounded corners in discussions. @upstream
         &-body {
