@@ -1715,6 +1715,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:hover { c: 0 0 hl }
                 }
             }
+            /// Dashboard -> Done todos. #110
+            /.done-reversible {
+                border-top: none i;
+                opacity: 0.6;
+                c: 0 0 t;
+            }
             /// Epics -> Reset dropdowns.
             &.epics-filters [class *= '-toggle'] { c: 0 0 bg }
         }
