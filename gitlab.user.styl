@@ -444,12 +444,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> Settings -> MR promotion.
             /.user-callout.promotion-callout {
                 c: 0 0 hl;
+                .bordered-box { c: 0 0 hl }
                 /// Project -> Settings -> Audit events.
                 &.center {
                     padding-bottom: 10px;
                     border: 1px solid bd;
                     rad: 4px;
                 }
+                /// Fix GitLab Gold trial.
+                &.js-gold-trial-callout > div { margin: 0 -16px }
             }
             /// Project -> Ooperations -> K8s.
             &.gcp-signup-offer { c: fg blue }
