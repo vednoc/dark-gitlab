@@ -1659,6 +1659,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.list-group { & > &-item { c: 0 bd bg }}
             /// Reset background colors.
             input, [class *= 'dropdown-menu'] { c: 0 0 bg }
+            /// Linked issues.
+            .card-title { c: fg }
         }
         &-body {
             > .form-actions {
