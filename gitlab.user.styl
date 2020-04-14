@@ -1450,7 +1450,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.content-block {
             c: 0 bd t;
             p { c: fg }
-            &.landing { c: 0 0 hl }
+            &.landing {
+                c: 0 0 hl;
+                h4 { c: fg }
+            }
             /// Issues -> Show activity / Create MR menu.
             .new-branch-col {
                 .btn {
@@ -3666,6 +3669,37 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             [stroke = '#bfbfbf'] { stroke: bd }
             .gl-series-label { c: fg }
             .gl-legend-series { c: cm }
+            /// Analytics -> Issues.
+            /.issues-analytics-legend { c: cm }
+        }
+        /// Project -> Analytics -> Value Stream.
+        /#cycle-analytics {
+            h4 { c: fg }
+            .empty-stage, .no-access-stage { c: cm }
+            .card-header { border-bottom: 1px solid bd i }
+            /// Navigation.
+            .stage-nav {
+                margin-top: 4px;
+                &-item {
+                    c: fg bd bb;
+                    &.active {
+                        c: 0 ac hl;
+                        box-shadow: inset 4px 0 ac i;
+                    }
+                    &:hover:not(.active) {
+                        c: 0 0 hl;
+                        box-shadow: none i;
+                    }
+                    .stage-empty, .not-available { c: cm }
+                }
+            }
+            /// Related issues.
+            .stage-event-item {
+                c: cm bd;
+                .total-time { &, span { c: cm }}
+                .issue-date, .build-date { c: cm }
+                .issue { &-author-link, &-title, &-link { c: fg }}
+            }
         }
     }
 
