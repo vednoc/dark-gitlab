@@ -18,7 +18,6 @@ Inter as the UI font, and Iosevka as the monospace font on 1920x1080 resolution.
 #+HTML: </div>
 
 ** Features
-
 This is why you should consider using Dark-GitLab!
 
 - Fully customizable color-scheme through Stylus configuration menu
@@ -27,26 +26,21 @@ This is why you should consider using Dark-GitLab!
   - Easy to add your private GitLab instance. ⚠ Editing the code locally
     will prevent auto-update from working. See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more information.
   - Found a public instance that's not already on the list? Make a MR!
-- Custom background image
-- Custom image opacity
+- Custom image opacity in Markdown areas
+- Custom rounded corners for avatars
 - Custom UI/code/emoji fonts
-- Custom transitions for small elements
-- Custom rounded corners for elements and avatars
 
 ** Installation
-
 You have to install [[https://add0n.com/stylus.html][Stylus]] and then click on the install link below.
 
 [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
 
 *** Initial configuration
-
 Dark-GitLab works best with /default/ settings as it tries to be uniform across
 all instances that you might find on the web. Therefore, for the best experience
 set the following in the [[https://gitlab.com/profile/preferences][preferences]] on instances you're logged in:
   - Set syntax highlighting theme set to =white=
   - Set navigation theme to =indigo=
-  - Set layout to =fixed= if want to use "custom width for fixed layout" option
 
 To customize colors and/or other features, follow these instructions:
   - Open the Stylus extension popup while you're on any page Dark-GitLab is
@@ -56,11 +50,12 @@ To customize colors and/or other features, follow these instructions:
     various pre-defined color-schemes.
 
 *** Other ways to install this userstyle
-
 Supported but _not recommended_.
 
-**** /Stylish/ is only supported through /[[https://userstyles.org/styles/164877][userstyles.org]]/
+**** Userstyle managers that don't support stylus-lang but support UserCSS
+Just install from =gitlab.user.css= file using [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css][this link]].
 
+**** /Stylish/ is only supported through /[[https://userstyles.org/styles/164877][userstyles.org]]/
 USo is still the largest repository for themes despite all the issues. Don't
 use this version unless you /absolutely/ have to.
 
@@ -68,11 +63,10 @@ It only has core functionality, is (likely) outdated, has no support, and needs
 to be /manually/ compiled for every single update.
 
 ** Contributions
+Any contribution is greatly appreciated.
 
-Any contribution is greatly appreciated. If you really like the project and
-would like to tip me then you can buy me a coffee over at [[https://ko-fi.com/vednoc][ko-fi]].
+If you really like the project and would like to tip me for my work, then you
+can buy me a coffee over at [[https://ko-fi.com/vednoc][ko-fi]] or support me over at [[https://liberapay.com/vednoc][LiberaPay]].
 
 ** License
-
 Code released under the [[license][MIT]] license.
-
