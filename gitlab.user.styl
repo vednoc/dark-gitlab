@@ -4040,3 +4040,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 }
+
+@-moz-document domain('next.gitlab.com') {
+    .wrapper {
+        h1, p { c: fg }
+        a { c: ac }
+        /// Tweak background images.
+        .bg { filter: grayscale(1) invert(0.5) opacity(0.2) }
+        /// Fix box content.
+        [class *= 'box'] {
+            c: 0 0 bg;
+            rad: 4px;
+            box-shadow: inner, bsh;
+            .text-switch { c: cm }
+            [class *= 'toggle'] {
+                + label { c: 0 0 bd }
+                + label::after { c: 0 0 bd }
+                + label::before { c: 0 0 bg }
+                &:checked + label::before { c: 0 0 blue }
+            }
+        }
+    }
+}
