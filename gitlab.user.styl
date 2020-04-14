@@ -2352,6 +2352,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &-body { c: fg }
         }
+        /// Onboarding. NOTE: Untested with v1.0 code.
+        /.onboarding-helper-container {
+            c: 0 0 bg;
+            box-shadow: inner, 0 4px 8px 0 sh;
+            .avatar {
+                rad: 50% i;
+                c: 0 0 bd;
+                box-shadow: inner;
+            }
+            .progress { c: 0 0 bd }
+            .bg-info { c: 0 0 blue }
+            .text-info { c: blue }
+            .active { c: 0 0 bd }
+            .qa-toggle-btn {
+                c: 0 0 t;
+                &:hover svg { v: fg }
+            }
+        }
     }
 
     // Project -> 'No repository' header.
