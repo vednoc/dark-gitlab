@@ -1480,7 +1480,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
             /// Switch to `bg` color for child elements.
-            .btn { &, &-default { &:not(.btn-link):not(.btn-success) { c: 0 0 bg }}}
+            .btn {
+                &:not(.btn-link):not(.btn-success):not(.btn-danger),
+                ../ .btn-default {
+                    c: 0 0 bg;
+                }
+            }
             .filtered-search-box { &:not(#z) { c: 0 0 bg }}
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
