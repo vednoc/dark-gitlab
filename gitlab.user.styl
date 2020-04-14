@@ -20,6 +20,7 @@
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
 @var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
+@var checkbox dgl_alerts 'Profile: Enable Dark-GitLab announcements' 1
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 
 @var color    dark       'Color: Primary bbackground  ' #292929
@@ -3993,6 +3994,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .line-delete { c: white sh lred }
         .line-insert { c: white sh lgreen }
         .current-line-margin { c: 0 bd bd }
+    }
+
+    // Feat -> Dark-GitLab announcements.
+    if ( dgl_alerts == 1 ) {
+        [data-page='users:show'] .user-profile .cover-block {
+            padding-top: 80px;
+            .cover-controls { top: 80px }
+            &::before {
+                padding: 16px;
+                z-index: 999;
+                content: 'v1.0 is finally here! 🎉 🥳 I published an update about my userstyles a while ago, you can read it here: https://vednoc.me/blog/the-end-of-an-era';
+                position: absolute;
+                top: 0; right: 0; left: 0;
+                min-height: 52px;
+                max-height: 208px;
+                text-align: center;
+                c: fg 0 bd;
+            }
+        }
     }
 }
 
