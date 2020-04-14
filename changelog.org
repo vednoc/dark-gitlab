@@ -1,0 +1,17 @@
+#+STARTUP: nofold
+
+* Changelog
+** 1.0.0 [2020-04-14]
+The rewrite is complete.
+
+This update removes styles for all sub-domains except =next.gitlab.com=, and some
+of the custom options. There are too many things to cover, so I'm not going to
+do that, but you can go through all 489 commits in [[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/30][!30]] if you're interested.
+
+Going forward, I'll explore adding some sub-domains/pages back. I rarely use
+them to justify putting a lot of effort into making them dark, and DarkReader
+will do a decent job anyways.
+
+Finally, I want to take this opportunity to thank everyone for using this
+userstyle and helping out with the project. Things wouldn't have been the same
+without your help.
