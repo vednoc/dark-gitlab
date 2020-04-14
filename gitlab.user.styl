@@ -2757,7 +2757,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .btn {
                     svg { v: cm }
                     &.active { c: 0 0 bd }
-                    &, &-default { c: 0 0 bg }
+                    &, &-default { &:not(.btn-primary) { c: 0 0 bg }}
                 }
                 /// Fix anchors for both cases.
                 ../, & { a:not(.btn) { c: fg }}
