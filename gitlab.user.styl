@@ -1866,7 +1866,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Breadcrumbs.
     .breadcrumb {
-        &-item a { c: cm }
+        &-item a {
+            c: cm;
+            /// Project -> File location.
+            strong { c: fg }
+        }
         &s {
             &-list a { c: cm }
             &-list-angle { v: cm }
@@ -1874,7 +1878,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-sub-title a { c: fg }
             &-links img { c: 0 hl hl }
         }
-        /// Project -> File path.
+        /// Project -> File path divider.
         &.repo-breadcrumb > li + li::before { c: cm }
     }
 
