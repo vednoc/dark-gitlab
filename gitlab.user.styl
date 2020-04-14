@@ -1461,6 +1461,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     line-height: 20px i;
                     font-size: 0.875rem;
                 }
+                /// Notes -> Tweak large buttons to fit in emoji block.
+                /.emoji-block .col-lg-6 {
+                    flex: unset;
+                    width: unset;
+                    max-width: unset;
+                    &:first-child { max-width: 50% }
+                    &:last-child { flex: 1 1 auto i }
+                }
             }
         }
         /// Misc.
