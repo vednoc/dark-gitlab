@@ -1481,7 +1481,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.footer-block { c: 0 0 t }
             /// Switch to `bg` color for child elements.
             .btn {
-                &:not(.btn-link):not(.btn-success):not(.btn-danger),
+                &:not(.btn-link):not(.btn-success):not(.btn-danger):not(.btn-info),
                 ../ .btn-default {
                     c: 0 0 bg;
                 }
