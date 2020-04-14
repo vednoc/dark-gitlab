@@ -681,7 +681,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> File table.
         &.tree-table {
             border: 1px solid bd;
-            thead tr, th { border-top: none i }
+            thead tr {
+                &, th { border-top: none i }
+                > th:first-child { border-top-left-radius: 3px i }
+                > th:last-child { border-top-right-radius: 3px i }
+            }
             tbody {
                 td { c: 0 bd }
                 tr {
