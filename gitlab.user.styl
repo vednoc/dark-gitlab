@@ -693,12 +693,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         border-top: 1px solid bd i;
                         border-bottom: none i;
                     }
-                    &:hover:not(#z) td { c: 0 0 bb }
+                    &.selected td { c: 0 0 hl }
+                    &:hover:not(.selected) td { c: 0 0 bb }
                     &:last-child {
                         /// Last element globally / Single element in artifacts.
                         &, &:first-child { td:not(#z) { border-bottom: none i }}
                     }
                 }
+                /// Remove top border tweak in find file table.
+                &:first-child > tr:first-child td { border-top: none i }
             }
             /// Files.
             /.tree {
