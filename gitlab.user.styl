@@ -979,17 +979,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         &&-close, &&-close-color, &&-warning {
-            c: white orange orange;
-            &:not(.btn-inverted) {
-                transition: opacity 0.2s ease;
-                .fa { c: white } svg { v: white }
-                &:hover { opacity: 0.8 }
-            }
-            &.btn-inverted {
-                c: orange orange bg;
-                &::before { content: ''; c: 0 0 orange }
-                .fa { c: orange } svg { v: orange }
-            }
+            c: orange orange bg;
+            &::before { content: ''; c: 0 0 orange }
+            .fa { c: orange } svg { v: orange }
         }
         &&-success {
             c: white green green;
