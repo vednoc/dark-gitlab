@@ -1609,7 +1609,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding: 10px 0;
                 border-bottom: 1px solid bd;
             }
-            ul li { margin: 0 12px i }
+            ul li, > p {
+                margin: 0 12px i;
+                padding: 10px 0 i;
+            }
         }
     }
 
