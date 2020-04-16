@@ -3342,7 +3342,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Reply bar.
         /&-reply-holder {
-            c: 0 bd hl;
+            c: 0 bd bb;
+            /// MR -> Review -> Reset colors.
+            > .discussion-notes {
+                c: 0 0 t;
+                box-shadow: none i;
+            }
             /// Exclude 'Start a review' button.
             .btn:not(.btn-success) { c: fg bd bg }
         }
@@ -3362,6 +3367,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 bd bg;
             box-shadow: inset 0 1px bd;
         }
+        /// MR -> Review.
+        /.draft-note-component { c: 0 0 t }
+        /.review-bar-component { c: 0 bd bg }
     }
 
     // Notes -> Input-box.
