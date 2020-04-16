@@ -1997,6 +1997,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             content: '\00a7' i;
             c: fg;
         }
+        /// Fix task lists. #111
+        /.task-list { c: fg }
     }
 
     // Pajamas -> Banners.
