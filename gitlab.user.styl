@@ -196,7 +196,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Browser styles.
         a { &, &:hover { color: ac }}
         hr { border-color: bd }
-        h1, h2, h3, h4, h5, h6 { color: fg }
+        h, .h { &1, &2, &3, &4, &5, &6 { color: fg }}
         time { color: cm }
         :not(pre) > code {
             c: fg 0 hl 0 0 0;
