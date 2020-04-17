@@ -258,6 +258,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-plain, /.light { c: fg }
             &-secondary, &-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
+            /[class *= 'gl-text-gray-'] { c: cm }
         }
         .bg {
             &-light { c: 0 0 bd }
