@@ -918,6 +918,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
         &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
+        /// Commits -> Author dropdown.
+        /.gl-new-dropdown .btn {
+            box-shadow: inner i;
+            + ul [class *= 'text-pri'] { c: fg }
+            + ul [class *= 'text-sec'] { c: cm }
+        }
         /// Issues -> 'Create MR' button.
         /.droplab-dropdown {
             .form-control { c: 0 0 bg }
