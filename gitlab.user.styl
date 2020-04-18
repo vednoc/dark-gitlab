@@ -2038,6 +2038,78 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.task-list { c: fg }
     }
 
+    // Global -> Swagger UI. #101
+    .swagger-ui {
+        /// Header.
+        .info {
+            .title { c: fg }
+            & a, ../ link a { c: ac }
+        }
+        /// Base resets.
+        button.btn {
+            c: fg bd hl;
+            ../ .arrow { v: fg }
+            &.execute { c: white blue blue }
+            ../ .download-contents { c: fg 0 bd }
+        }
+        input, textarea {
+            c: fg bd hl;
+            &[disabled] {c: cm bd hl; opacity: 0.6 }
+        }
+        &, h3, h4, h5 { c: fg }
+        select { c: fg bd hl; box-shadow: none i }
+        /// Blocks.
+        .opblock {
+            &-tag { c: fg bd }
+            &-section p { c: cm }
+            &-title, &-section-header h4 { c: fg }
+            &-section-header {
+                c: 0 0 hl;
+                box-shadow: 0 1px bd, 0 -1px bd i;
+            }
+            &-summary {
+                &-path, &-operation-id, &-path__deprecated { c: fg }
+                &-description { c: cm }
+            }
+        }
+        .model {
+            c: fg;
+            &-title { c: fg }
+            &-toggle::after { filter: invert(1) }
+            &s {
+                c: 0 bd;
+                > h4 { c: 0 bd hl }
+            }
+        }
+        .prop {
+            &-format { c: cm }
+            &-type { c: violet }
+        }
+        .parameter {
+            &__name { c: fg }
+            &__name::after { c: red }
+            &__in, &__type { c: cm }
+        }
+        pre.microlight {
+            c: fg bd hl;
+            span:not(#z) { c: fg }
+        }
+        .scheme-container {
+            c: fg 0 bg;
+            box-shadow: 0 -1px bd, 0 1px bd;
+        }
+        /// Reset table elements.
+        table:not(#z) {
+            padding: 0;
+            &, th:not(#z), td { c: fg t t }
+            span { &[class = ''], &:not([class]) { c: cm }}
+        }
+        /// Reset various colors.
+        .tab li::after { c: 0 0 cm }
+        a.tablinks, [class *= 'brace-'] { c: fg }
+        :not(#z) [style *= 'color: red']:not(#z) { c: red }
+    }
+
     // Pajamas -> Banners.
     .gl-banner {
         c: fg bd hl;
