@@ -611,8 +611,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         border-spacing: 0;
         border-collapse: unset;
         border-radius: R;
-        c: fg 0 bg;
-        &.table-bordered { c: 0 bd }
+        c: fg bd bg;
         /// Shorthand.
         flc = 'not(:first-child):not(last-child)';
         thead {
@@ -743,6 +742,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border: 1px solid bd;
             /// Remove bottom border.
             tbody > tr:last-child:not(#z) > td { border-bottom: none i }
+        }
+        /// Project -> Settings -> Mirrored repositories.
+        &.push-pull-table {
+            border: 1px solid bd;
+            thead tr th { border-top: none i }
         }
         /// Project -> Settings -> Badges.
         /.gl-responsive-table-row {
