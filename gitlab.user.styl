@@ -2482,8 +2482,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 /// Whitespace between avatar and content.
                 .commit > a[href] > img { margin-right: 10px }
-                /// Background for table cells.
-                &:not(#z) { c: 0 0 hl }
+                /// Background for commit details.
+                /^[1] &:not(#z) { c: 0 0 hl }
                 + .line-numbers:not(#z) {
                     border-left: 1px solid bd i;
                     c: 0 0 hl;
