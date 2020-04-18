@@ -2040,6 +2040,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Swagger UI. #101
     .swagger-ui {
+        position: relative;
+        z-index: 1;
         /// Header.
         .info {
             .title { c: fg }
@@ -2058,6 +2060,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         &, h3, h4, h5 { c: fg }
         select { c: fg bd hl; box-shadow: none i }
+        /// Mixin for `method_colors` styles.
+        method_colors(method, color) {
+            &-{ method } {
+                c: 0 color t;
+                position: relative;
+                &::before { content: ''; c: 0 0 color }
+                .tab-item.active h4 span::after,
+                .opblock-summary-method {
+                    c: 0 0 color;
+                }
+            }
+        }
         /// Blocks.
         .opblock {
             &-tag { c: fg bd }
@@ -2071,6 +2085,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &-path, &-operation-id, &-path__deprecated { c: fg }
                 &-description { c: cm }
             }
+            /// Theme colors for methods.
+            &::before {
+                z-index: -1;
+                opacity: 0.1;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+            }
+            method_colors(get, blue);
+            method_colors(put, orange);
+            method_colors(post, green);
+            method_colors(patch, cyan);
+            method_colors(delete, red);
         }
         .model {
             c: fg;
