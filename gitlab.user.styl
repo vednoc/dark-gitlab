@@ -2906,7 +2906,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 bd;
             ../-feature-row .form-control { c: 0 0 bg }
             &-message { c: orange orange bg }
-            .account-well { c: 0 bd hl }
+            .account-well {
+                c: 0 bd hl;
+                /// Project -> Settings -> Mirroring repositories.
+                li > code { c: 0 0 bg }
+            }
             /// Protected branches/tags.
             .protected-branches-list > .table-bordered { border: none i }
             .protected-tags-list { border: 1px solid bd i; rad: 4px }
