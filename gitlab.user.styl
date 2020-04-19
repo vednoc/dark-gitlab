@@ -1520,7 +1520,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.top-block {
                 padding: 16px 0;
                 c: 0 0 bb;
-                .btn-sm { padding: 6px 10px i }
+                .btn-sm {
+                    padding: 6px 10px i;
+                    line-height: 1.5 i;
+                    font-size: 14px i;
+                }
             }
             /// Dashboard -> Todos.
             &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
