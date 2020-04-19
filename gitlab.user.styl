@@ -1660,7 +1660,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
             /// Dashboard -> Activities -> Fix icons.
-            .joined, .pushed-to { &-icon svg { v: cm }}
+            .joined, .pushed-new, .pushed-to { &-icon svg { v: cm }}
         }
         &-user-info a[href] { c: fg }
         /// Dashboard -> Activities.
