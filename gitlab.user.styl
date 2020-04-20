@@ -1749,8 +1749,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /.issue-token {
                     &-reference { c: fg 0 bd }
                     &-remove-button { c: red 0 bd }
-                    /// Input focus.
-                    /.add-issuable-form-input-wrapper.focus { c: 0 blue }
+                    /// MR -> New MR dependencies. #112
+                    /.add-issuable-form-input {
+                        c: fg 0 hl;
+                        &-wrapper.focus { c: 0 blue }
+                    }
                 }
                 /// Rounded corners. @upstream
                 &:first-child { rad: 3px 3px 0 0 }
