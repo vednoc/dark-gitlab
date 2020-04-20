@@ -1739,7 +1739,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Related issues.
             ul > li {
-                &, &[class *= 'input'] > input { c: 0 0 hl }
+                /// Input area.
+                &, &[class *= 'input'] > input { c: fg 0 hl }
+                /// Issue tokens. #112
+                /.issue-token {
+                    &-reference { c: fg 0 bd }
+                    &-remove-button { c: red 0 bd }
+                    /// Input focus.
+                    /.add-issuable-form-input-wrapper.focus { c: 0 blue }
+                }
                 /// Rounded corners. @upstream
                 &:first-child { rad: 3px 3px 0 0 }
                 &:last-child {
