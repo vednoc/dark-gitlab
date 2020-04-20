@@ -3410,11 +3410,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Replies.
         .replies-toggle {
-            c: fg bd hl;
+            c: cm bd hl;
             &:not(.expanded) { border-bottom: 0 }
             &.collapsed { rad: 0 0 3px 3px }
             &.expanded { c: 0 0 hl }
-            span { c: fg }
+            span, a { c: fg }
         }
         /// Reactions.
         /[class *= 'award-control-'] {
