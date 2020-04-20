@@ -937,6 +937,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: fg 0 bd }
             }
             [class *= 'selected'] .menu-item { &, .fa { c: fg }}
+            /// Active items. #35
+            /.droplab-item-active:not(#z) button { c: fg 0 bd }
         }
         /// Misc resets.
         /.dropdown-menu {
