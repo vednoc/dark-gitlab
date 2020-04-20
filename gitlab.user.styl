@@ -1271,7 +1271,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.issuable-list {
             .issue.today {
                 position: relative;
-                &:not(:hover) { c: 0 0 t }
+                &:hover {
+                    c: 0 0 t;
+                    &::before { opacity: 0.12 }
+                    ../:not(:hover) { c: 0 0 t }
+                }
                 &::before {
                     content: '';
                     z-index: -1;
@@ -2789,6 +2793,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     rad: 4px;
                     c: 0 0 bg;
                 }
+                &.focus { c: 0 blue }
             }
             /// Dashboard -> Issues/MRs.
             &-token, &-term {
