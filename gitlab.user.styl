@@ -1851,8 +1851,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     width: 20px;
                 }
             }
-            &-prev::before { content: '\2190' }
-            &-next::before { content: '\2192' }
+            &-prev::before { content: '←' }
+            &-next::before { content: '→' }
             /// Table.
             &-table {
                 border: 1px solid bd;
@@ -2035,7 +2035,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Heading anchors.
         .anchor::after {
-            content: '\00a7' i;
+            content: '§' i;
             c: fg;
         }
         /// Fix task lists. #111

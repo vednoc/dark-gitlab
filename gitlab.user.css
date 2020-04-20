@@ -2638,10 +2638,10 @@
     width: 20px;
   }
   .pika-single .pika-prev::before {
-    content: '\2190';
+    content: '←';
   }
   .pika-single .pika-next::before {
-    content: '\2192';
+    content: '→';
   }
   .pika-single .pika-table {
     border: 1px solid var(--darker);
@@ -2873,7 +2873,7 @@
     border-radius: 0 0 3px 0;
   }
   .md .anchor::after {
-    content: '\00a7' !important;
+    content: '§' !important;
     color: var(--light) !important;
   }
   .gl-banner {
