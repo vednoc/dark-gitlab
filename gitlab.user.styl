@@ -534,6 +534,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') !important;
             background-size: cover !important;
         }
+        [aria-sort = 'ascending'] {
+            background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none"%3e%3cpath fill="orange" d="M51 1l25 23 24 22H1l25-22z"/%3e%3cpath fill="gray" opacity=".6" d="M51 101l25-23 24-22H1l25 22z"/%3e%3c/svg%3e') !important;
+        }
+        [aria-sort = 'descending'] {
+            background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none"%3e%3cpath fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/%3e%3cpath fill="orange" d="M51 101l25-23 24-22H1l25 22z"/%3e%3c/svg%3e') !important;
+        }
     }
 
     // Global -> Navbar.
@@ -807,6 +813,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 tr td { border-top: 1px solid bd i }
                 tr:hover { c: 0 0 bb }
             }
+        }
+        /// Project -> CI/CD -> Variables.
+        /.ci-variable-table table {
+            colgroup col:nth-child(7) { width: 50px i }
+            tr th, tr td { &:first-child { padding-left: 16px }}
         }
         /// Project -> Import.
         &.import-table {
