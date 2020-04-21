@@ -3592,6 +3592,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-delete:not(:hover) { opacity: 0.6 }
         /// Focused mode.
         /.issue-boards-content.is-focused { c: 0 0 bb }
+        /// Fix blank state. #113
+        &-blank-state {
+            c: 0 0 t;
+            /// Fix height of headers. @upstream
+            ../-inner > header h3 { min-height: 51px i }
+        }
     }
 
     // Issues -> Milestones.
