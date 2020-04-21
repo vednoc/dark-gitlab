@@ -1715,8 +1715,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-header {
             c: 0 bd hl;
             /// Project -> Settings -> Pages.
-            &.bg-info { c: blue blue hl }
-            &.bg-danger { c: red red hl }
+            &.bg-info { c: white blue blue }
+            &.bg-danger { c: white red red }
             + ul > .list-group-item { c: 0 bd t }
             /// Project -> Settings -> Card borders.
             ../.border {
@@ -2302,6 +2302,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &&-secondary { c: cm bd hl }
             &&-danger { c: red red hl }
             &&-light { c: fg bd hl }
+            h4 { color: inherit i }
             /// Broadcast messages found on `git.synz.io`.
             &-wrapper div {
                 p, .fa { color: inherit i }
