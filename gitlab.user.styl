@@ -1536,6 +1536,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
             /// Search -> Results header.
             span > code, form > div > button { c: 0 0 bg }
+            /// Issues -> Board scope.
+            .block {
+                c: 0 bd;
+                .title { c: fg }
+                /// Reset dropdown colors.
+                button.dropdown {
+                    &-toggle[id]:not(#z), &-menu-toggle { c: 0 0 hl }
+                }
+            }
         }
         /// Project -> Compare.
         /.sub-header-block { c: 0 bd t }
@@ -1791,7 +1800,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Dashboard -> Issues/MRs/Todos.
         /[class *= '-filters'] {
-            + div[class] {
+            + div[class]:not([class *= 'boards']) {
                 &, .card { c: 0 0 t }
                 li {
                     border-top: none;
