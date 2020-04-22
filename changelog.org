@@ -1,6 +1,39 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.1.0 [2020-04-22]
+A ton of polish in this update, and some new things as well.
+
+Thanks to everyone that contributed!
+
+*** Added
+- More self-hosted instances ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/33][!33]])
+- And refined styles for Swagger UI ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/101][#101]])
+
+*** Improved
+- A few syntax highlighting tokens
+- Added whitespace for 'no contributions'
+- Background opacity for issues made today
+- CI variables table and sort images ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/107][#107]])
+- Border color and background for forms
+- Colorized cards in 'project pages' area
+- Similar URLs are combined into regex rules
+- An empty 'activity block' by adding fake content to it
+
+*** Fixed
+- A lot of styles for tables, menus, buttons, alerts
+- Default text color for task lists ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/111][#111]])
+- Default colors for 'review merge request' mode
+- Unicode code now uses symbols ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/34][!34]])
+- Active item state for droplab menus ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/35][!35]])
+- Issue tokens and inputs for linked issues ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/112][#112]])
+- Inputs for 'new merge dependencies' ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/112][#112]])
+- Blank and promo states for issue boards ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/113][#113]])
+- Board scope modal and its item conflicts
+- Colors for default callout alerts ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/114][#114]])
+- Colors for broadcast notifications ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/115][#115]])
+- Hover background for requirements
+
 ** 1.0.0 [2020-04-14]
 The rewrite is complete.
 
