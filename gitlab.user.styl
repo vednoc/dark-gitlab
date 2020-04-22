@@ -1,13 +1,14 @@
 /* ==UserStyle==
 @name         Dark-GitLab
 @namespace    gitlab.com/vednoc/dark-gitlab
-@version      1.0.0
 @description  Dark and light theme for GitLab and self-hosted GitLab instances.
 @author       vednoc <vednoc@pm.me> (https://gitlab.com/vednoc)
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
 @preprocessor stylus
+@version      1.0.0
+@license      MIT
 
 @var select   theme      'Color-scheme' ['Default', 'GitHub-Dark']
 @var text     ui_font    'Custom UI font' '"font_name"'
@@ -949,7 +950,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: fg 0 bd }
             }
             [class *= 'selected'] .menu-item { &, .fa { c: fg }}
-            /// Active items. #35
+            /// Active items. !31
             /.droplab-item-active:not(#z) button { c: fg 0 bd }
         }
         /// Misc resets.
