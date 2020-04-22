@@ -2305,6 +2305,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &[style *= 'd-color: #e75e40'] { c: white 0 orange }
                 &[style *= 'd-color: #f4f4f4'] { c: fg 0 bd }
             }
+            /// Broadcast notifications. #115
+            /.broadcast-notification-message {
+                c: 0 bd hl;
+                box-shadow: bsh;
+                .btn { c: fg }
+            }
         }
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
