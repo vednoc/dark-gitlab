@@ -1301,6 +1301,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Unmerged MR icon color. @upstream
             /.icon-merge-request-unmerged { filter: invert(0.7) }
         }
+        /// Project -> Requirements -> Remove hover bg.
+        &.requirements-list > li:hover { c: 0 0 t }
         /// Project -> Members.
         &.members-list {
             li {
