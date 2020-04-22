@@ -3330,6 +3330,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     rad: 4px;
                 }
             }
+            /// Profile -> Activity -> Fix an empty list. @upstream
+            .activities-block [data-href] {
+                min-height: 40px;
+                .hide:first-child:last-child {
+                    display: flex i;
+                    justify-content: center;
+                    > div { display: none }
+                    &::before {
+                        content: 'No recent activities';
+                        font-size: 15px;
+                        c: fg;
+                    }
+                }
+            }
         }
     }
 
