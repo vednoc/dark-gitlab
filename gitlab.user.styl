@@ -455,13 +455,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Global -> Callouts.
         .bs-callout {
             rad: 3px;
-            c: 0 0 hl;
+            c: fg bd hl;
             a { c: ac }
             strong { color: inherit i }
-            &-warning { c: fg orange hl }
-            &-success { c: fg green hl }
-            &-danger { c: fg red hl }
-            &-info { c: fg blue hl }
+            &-warning { c: 0 orange hl }
+            &-success { c: 0 green hl }
+            &-danger { c: 0 red hl }
+            &-info { c: 0 blue hl }
+            .btn-default, li > code { c: 0 0 bg }
             /// Project -> Settings -> CI/CD.
             &.help-callout,
             &.shared-runners-description {
@@ -482,7 +483,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Fix GitLab Gold trial.
                 &.js-gold-trial-callout > div { margin: 0 -16px }
             }
-            /// Project -> Ooperations -> K8s.
+            /// Project -> Operations -> K8s.
             &.gcp-signup-offer { c: fg blue }
         }
         input {
