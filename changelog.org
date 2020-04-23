@@ -1,6 +1,19 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.1.1 [2020-04-23]
+Small tweaks and some fixes for the latest GitLab update.
+
+*** Improved
+- Author menu in project commits
+- Time text color for 'you pushed to...' block
+
+*** Fixed
+- Unreadable fast-forward merge status ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/116][#116]])
+- Dark-on-dark text for some updated labels
+- Initial styles for 'health status' labels
+- Faded gradient for dropdown menus
+
 ** 1.1.0 [2020-04-22]
 A ton of polish in this update, and some new things as well.
 
