@@ -3521,6 +3521,31 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg;
             .timeline-icon { c: 0 bd hl }
         }
+        /// Epics -> Health status.
+        /.epic-tabs-content {
+            .card-header .issue-count-badge { c: 0 0 t }
+            /// Labels.
+            /.status {
+                /// TODO: Improve colors.
+                &-at-risk { c: red 0 #ff006620 }
+                &-on-track { c: green 0 #00ff6620 }
+                &-needs-attention { c: orange 0 #ff660020 }
+                &-at-risk, &-on-track, &-needs-attention {
+                    > .gl-label-text { color: inherit i }
+                }
+                /// Dividers.
+                /.bullet-separator { c: cm }
+                /// Remove shadows.
+                /.gl-label[class *= 'status-'] {
+                    > .gl-label-text { box-shadow: none i }
+                }
+            }
+            /// Remove bg/shadow while dragging an epic.
+            /.sortable-drag {
+                c: 0 0 t;
+                box-shadow: none i;
+            }
+        }
     }
 
     // Issue/MRs/Epics -> Discussions.
