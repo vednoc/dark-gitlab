@@ -930,9 +930,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         [class *= 'counter-badge'] { font-weight: normal; c: cm }
         /// Commits -> Author dropdown.
         /.gl-new-dropdown .btn {
-            box-shadow: inner i;
-            + ul [class *= 'text-pri'] { c: fg }
-            + ul [class *= 'text-sec'] { c: cm }
+            box-shadow: none i;
+            &.dropdown-toggle { padding: 8px 8px 8px 10px i }
+            + ul {
+                [class *= 'text-pri'] { c: fg }
+                [class *= 'text-sec'] { c: cm }
+                .gl-form-input { c: 0 0 bg }
+            }
         }
         /// Issues -> 'Create MR' button.
         /.droplab-dropdown {
