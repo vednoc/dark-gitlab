@@ -564,7 +564,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
                 }
                 /// Active menus.
-                &.active, &.show { > button, > a { c: fg 0 bg }}
+                &.active, &.active:hover, &.show { > button, > a { c: fg 0 bg }}
                 .caret-down { v: cm }
             }
             /// Reset background hack.
@@ -1043,6 +1043,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &::before { content: ''; c: 0 0 green }
                 .fa { c: green } svg { v: green }
             }
+            /// Project -> Override 'New release' color.
+            &.js-new-release-btn:not(#z) { c: white }
         }
         &&-primary, &&-info {
             c: white blue blue;
@@ -2853,6 +2855,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg bd hl;
             box-shadow: 0 1px bd i;
             &:last-child { rad: 0 0 3px 3px }
+            .label-branch { c: 0 0 bg }
             /// Reset approvers table.
             + .border-top > table:not(#z) {
                 margin-bottom: 0px i;
