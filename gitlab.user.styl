@@ -1523,7 +1523,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.nav-block { c: 0 bd }
         /.row-content-block {
             c: fg bd hl;
-            .event-last-push-text { font-size: 14px }
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
             /// Switch to `bg` color for child elements.
@@ -1538,6 +1537,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.top-block {
                 padding: 16px 0;
                 c: 0 0 bb;
+                .event-last-push {
+                    time { c: fg }
+                    &-text { font-size: 14px }
+                }
                 .btn-sm {
                     padding: 6px 10px i;
                     line-height: 1.5 i;
