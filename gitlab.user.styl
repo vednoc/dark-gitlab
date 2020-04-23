@@ -1224,6 +1224,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg 0 t;
             box-shadow: none i;
             ~ [class *= 'dropdown-menu'] .is-active { c: fg }
+            /// Search -> Gradient. NOTE: Type 's' to see it.
+            /.dropdown-content-faded-mask::after {
+                background: linear-gradient(to top, hl, t) i;
+            }
         }
         /// Fix icon color.
         .search-icon { v: cm }
