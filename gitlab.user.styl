@@ -221,6 +221,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .container { c: 0 bd }
         /// Settings -> Account.
         .danger-title, .gl-field-error, .invalid-feedback { c: red }
+        [class *= 'price-per-'] { c: blue }
         .warning-title { c: orange }
         .valid-feedback { c: green }
         .account-well { c: fg bd hl }
@@ -1860,6 +1861,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Epics -> Separator.
         /.epic-discussion-separator { c: 0 bd }
+        /// Account -> Billing.
+        /.flex-grid {
+            .grid { &-row, &-cell { c: 0 bd }}
+            .property-label { c: cm }
+            .property-value { c: fg }
+        }
     }
 
     // Global -> Skeleton.
