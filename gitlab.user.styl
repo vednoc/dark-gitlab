@@ -2980,6 +2980,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Protected branches/tags.
             .protected-branches-list > .table-bordered { border: none i }
             .protected-tags-list { border: 1px solid bd i; rad: 4px }
+            /// General -> Advanced section.
+            &-content .sub-section {
+                rad: 4px;
+                .btn-default, .form-control, .select2-choice { c: 0 0 bg }
+                /// Buttons -> Archive project/Change path.
+                .btn-warning {
+                    transition: opacity 0.2s ease;
+                    c: white 0 orange;
+                    &:hover { opacity: 0.8 }
+                    &::before { content: unset i }
+                }
+            }
         }
         /// Project -> Header -> Badges.
         &-badge { rad: 4px }
