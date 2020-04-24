@@ -3673,9 +3673,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-delete:not(:hover) { opacity: 0.6 }
         /// Focused mode.
         /.issue-boards-content.is-focused { c: 0 0 bb }
-        /// Fix blank state. #113
-        &-blank-state {
+        /// Fix blank/promotion states. #113
+        &-blank-state, &-promotion-state {
             c: 0 0 t;
+            /// 'Upgrade your plan' whitespace. @upsteam
+            /.top-space #hide-btn { margin-top: 15px }
             /// Fix height of headers. @upstream
             ../-inner > header h3 { min-height: 51px i }
         }
