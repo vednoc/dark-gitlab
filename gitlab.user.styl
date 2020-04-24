@@ -848,6 +848,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.is-focused { c: fg 0 bd }
                 &.is-active { c: ac }
             }
+            /// Notes -> Reset 'Create MR' button.
+            .btn-success:hover { c: white 0 green }
             /// Navbar -> User.
             &.current-user {
                 c: cm;
