@@ -1066,6 +1066,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &::before { content: ''; c: 0 0 blue }
                 .fa { c: blue } svg { v: blue }
             }
+            /// Project settings -> Integration.
+            &.new-gl-button { box-shadow: none i }
         }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
@@ -2377,6 +2379,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Project -> Settings -> Operations.
         &-input.form-control { c: 0 0 hl }
+        /// Project -> Reset search bar background.
+        &-input[placeholder] { c: 0 0 bg }
+        /// Project -> Settings -> Integrations.
+        /.help-form .form-group {
+            form, .form-control, code { c: 0 0 bg }
+        }
     }
 
     // Pajamas -> GFM.
@@ -2630,7 +2638,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             ../ .branches .s12 { margin-top: 2px }
         }
         /// Diff -> More info / Code owners..
-        .well-segment { c: 0 bd }
+        .well-segment {
+            c: 0 bd;
+            /// Project settings -> Integrations.
+            > p > code:not([class]) { c: 0 0 bg }
+        }
     }
 
     // Project -> Files.
