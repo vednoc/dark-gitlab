@@ -985,8 +985,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &, /[data-toggle = 'dropdown'], &-default {
             c: fg bd hl;
             svg { v: cm }
-            &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
             ../.active > .fa { c: fg }
+            &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
+            /// MR -> Fix conflict with 'description templates' in title area.
+            &[id *= 'promotion'] {
+                c: 0 0 t;
+                &::before { content: unset i }
+            }
         }
         /// Dropdowns -> Active state; exclude CI status icons.
         /.active, /.show {
