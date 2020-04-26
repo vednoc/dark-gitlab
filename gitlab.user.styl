@@ -511,8 +511,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .fade-left { background: linear-gradient(to right, hl 45%, t) }
         }
         .toggle-mobile-nav + .breadcrumbs-links { c: 0 bd }
-        /// Forks.
-        /.fork-thumbnail { &:hover:not(.disabled), &.forked { c: 0 0 hl }}
+        /// Project -> Forks.
+        /.fork-thumbnail {
+            c: 0 0 bg;
+            &:hover:not(.disabled), &.forked { c: 0 0 hl }
+        }
     }
 
     // Global -> Custom checkbox/radio inputs.
