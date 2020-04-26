@@ -1224,7 +1224,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     .form-control, .search form {
         c: fg bd hl;
         border: 1px solid bd i;
-        &:focus { c: 0 blue }
+        &:focus, &.focus {
+            c: 0 blue;
+            box-shadow: 0 0 0.4rem -0.2rem blue i;
+        }
         &[disabled = 'disabled']:not(#z) { opacity: 0.5 }
         /// Overwrites for navbar and top nav.
         /.navbar & { c: 0 0 bg }
@@ -1790,10 +1793,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &-reference { c: fg 0 bd }
                     &-remove-button { c: red 0 bd }
                     /// MR -> New MR dependencies. #112
-                    /.add-issuable-form-input {
-                        c: fg 0 hl;
-                        &-wrapper.focus { c: 0 blue }
-                    }
+                    /.add-issuable-form-input { c: fg 0 hl }
                 }
                 /// Rounded corners. @upstream
                 &:first-child { rad: 3px 3px 0 0 }
@@ -2226,6 +2226,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.group-empty-state > .icon,
             /.empty-state .svg-content > svg,
             /.svg-container > svg,
+            /.commits-empty > svg,
             /img[src ^= 'img/']:not([src *= 'logo']),
             /img[src ^= 'help/img/'],
             /img[src *= 's/illustrations/'] {
