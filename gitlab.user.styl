@@ -938,7 +938,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             + ul {
                 [class *= 'text-pri'] { c: fg }
                 [class *= 'text-sec'] { c: cm }
-                .gl-form-input { c: 0 0 bg }
             }
         }
         /// Issues -> 'Create MR' button.
@@ -1069,6 +1068,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project settings -> Integration.
             &.new-gl-button { box-shadow: none i }
         }
+        /// Account -> Billing.
+        &&-inverted-secondary {
+            c: ac ac;
+            &::before { content: ''; c: 0 0 ac }
+        }
+        /// Boards -> Switch board.
+        &&-secondary {
+            &:focus, &.focus { box-shadow: 0 0 0 0.2rem #88888810 i }
+        }
         /// No link-buttons! Reference: fbe1cde1
         &.gl-link[href] { c: fg }
         /// Notes -> Links.
@@ -1125,7 +1133,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .btn { padding: 6px 10px }
             .count {
                 c: fg;
-                &-badge-count { c: 0 bd bd }
+                &-badge-count { c: 0 bd hl }
                 &-badge, ../ .btn-xs {
                     height: 32px i;
                     font-size: 14px i;
