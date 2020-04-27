@@ -2346,12 +2346,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &&-light { c: fg bd hl }
             h4 { color: inherit i }
             /// Broadcast messages found on `git.synz.io`.
-            &-wrapper div {
-                p, .fa { color: inherit i }
-                &[style *= 'd-color: #004275'] { c: white 0 blue }
-                &[style *= 'd-color: #00bd7f'] { c: white 0 green }
-                &[style *= 'd-color: #e75e40'] { c: white 0 orange }
-                &[style *= 'd-color: #f4f4f4'] { c: fg 0 bd }
+            /[class *= 'broadcast-banner'] {
+                svg { v: white }
+                .fa { c: white }
             }
             /// Broadcast notifications. #115
             /.broadcast-notification-message {
