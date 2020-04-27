@@ -650,13 +650,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:last-child td {
                     &:last-child { rad: 0 0 R 0 }
                     &:first-child { rad: 0 0 0 R }
-                    /// Diff -> Last expansion line.
-                    &:last-child:first-child {
-                        border-bottom: none i;
-                        rad: 0 0 R R;
-                    }
+                    &:first-child:last-child { rad: 0 0 R R }
                 }
                 // &:hover > td { c: 0 0 hl }
+            }
+            /// Org-mode appears to render TH inside of TBODY. @upstream
+            > tr:first-child {
+                > th {
+                    border-bottom-width: 1px i;
+                    c: 0 bd hl;
+                    &:{ flc } {
+                        border-left: none;
+                        // c: 0 green;
+                    }
+                    &:first-child { rad: R 0 0 0 }
+                    &:last-child { rad: 0 R 0 0 }
+                    &:first-child:last-child { rad: R R 0 0 }
+                }
             }
             /// Fix top rounded corners for head-less tables.
             &:first-child > tr:first-child {
