@@ -842,7 +842,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .dropdown-info-note { c: cm }
         strong, .bold, .text { c: fg }
         span[class *= '-text'] { z-index: 1; c: fg }
-        [class *= 'input-field'] { c: fg bd bg }
+        [class *= 'input-field'] {
+            c: fg bd bg;
+            &:focus { c: 0 blue }
+        }
         .dropdown-title, [class *= '-header'] { c: fg bd }
         [class *= 'divider'], .separator { c: 0 bd bd }
         .border-top { c: 0 bd }
@@ -3681,6 +3684,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.toolbar-btn svg {
                 v: cm;
                 &:hover { v: fg }
+            }
+            &.is-focused {
+                c: 0 blue;
+                box-shadow: 0 0 0.4rem -0.2rem blue i;
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
