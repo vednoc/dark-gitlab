@@ -6,9 +6,10 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.1.1
+@version      1.2.0
 @license      MIT
 ==/UserStyle== */
+
 @-moz-document domain('custom.domain'),
 domain('invent.kde.org'),
 domain('git.pleroma.social'),
@@ -41,7 +42,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab v1.1.1 Lite';
+    --note: 'Dark-GitLab Lite v1.2.0';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -157,6 +158,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   body .gl-field-error,
   body .invalid-feedback {
     color: var(--red) !important;
+  }
+  body [class *= 'price-per-'] {
+    color: var(--blue) !important;
   }
   body .warning-title {
     color: var(--orange) !important;
@@ -600,7 +604,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--darken) !important;
   }
   body .bs-callout .btn-default,
-  body .bs-callout li > code {
+  body .bs-callout code:not([class]) {
     background-color: var(--dark) !important;
   }
   body .bs-callout.help-callout,
@@ -683,6 +687,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   body .toggle-mobile-nav + .breadcrumbs-links {
     border-color: var(--darker) !important;
+  }
+  .fork-thumbnail {
+    background-color: var(--dark) !important;
   }
   .fork-thumbnail:hover:not(.disabled),
   .fork-thumbnail.forked {
@@ -860,9 +867,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   table:not(.code):not(#z) tbody tr:last-child td:first-child {
     border-radius: 0 0 0 4px;
   }
-  table:not(.code):not(#z) tbody tr:last-child td:last-child:first-child {
-    border-bottom: none !important;
+  table:not(.code):not(#z) tbody tr:last-child td:first-child:last-child {
     border-radius: 0 0 4px 4px;
+  }
+  table:not(.code):not(#z) tbody > tr:first-child > th {
+    border-bottom-width: 1px !important;
+    border-color: var(--darker) !important;
+    background-color: var(--darken) !important;
+  }
+  table:not(.code):not(#z) tbody > tr:first-child > th:not(:first-child):not(last-child) {
+    border-left: none;
+  }
+  table:not(.code):not(#z) tbody > tr:first-child > th:first-child {
+    border-radius: 4px 0 0 0;
+  }
+  table:not(.code):not(#z) tbody > tr:first-child > th:last-child {
+    border-radius: 0 4px 0 0;
+  }
+  table:not(.code):not(#z) tbody > tr:first-child > th:first-child:last-child {
+    border-radius: 4px 4px 0 0;
   }
   table:not(.code):not(#z) tbody:first-child > tr:first-child > td:first-child {
     border-radius: 4px 0 0 0;
@@ -1098,6 +1121,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--darker) !important;
     background-color: var(--bb) !important;
   }
+  .save-project-loader {
+    color: var(--lighter) !important;
+  }
   table:not(.code):not(#z) td.d-sm-block {
     display: table-cell !important;
   }
@@ -1125,6 +1151,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  [class *= 'dropdown-menu'] [class *= 'input-field']:focus {
+    border-color: var(--blue) !important;
   }
   [class *= 'dropdown-menu'] .dropdown-title,
   [class *= 'dropdown-menu'] [class *= '-header'] {
@@ -1160,6 +1189,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   [class *= 'dropdown-menu'] li a.is-active,
   [class *= 'dropdown-menu'] li button.is-active {
     color: var(--accent) !important;
+  }
+  [class *= 'dropdown-menu'] li .btn-success:hover {
+    color: var(--white) !important;
+    background-color: var(--green) !important;
   }
   [class *= 'dropdown-menu'] li.current-user {
     color: var(--lighter) !important;
@@ -1301,9 +1334,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-new-dropdown .btn + ul [class *= 'text-sec'] {
     color: var(--lighter) !important;
   }
-  .gl-new-dropdown .btn + ul .gl-form-input {
-    background-color: var(--dark) !important;
-  }
   .droplab-dropdown .form-control {
     background-color: var(--dark) !important;
   }
@@ -1366,14 +1396,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .btn-default svg {
     fill: var(--lighter) !important;
   }
+  .btn.active > .fa {
+    color: var(--light) !important;
+  }
   .btn:hover::before,
   [data-toggle = 'dropdown']:hover::before,
   .btn-default:hover::before {
     content: '';
     background-color: rgba(136,136,136,0.188);
   }
-  .btn.active > .fa {
-    color: var(--light) !important;
+  .btn[id *= 'promotion'],
+  [data-toggle = 'dropdown'][id *= 'promotion'],
+  .btn-default[id *= 'promotion'] {
+    background-color: var(--t) !important;
+  }
+  .btn[id *= 'promotion']::before,
+  [data-toggle = 'dropdown'][id *= 'promotion']::before,
+  .btn-default[id *= 'promotion']::before {
+    content: unset !important;
   }
   .active > [data-toggle = 'dropdown']:not([class *= 'ci-status']) svg,
   .show > [data-toggle = 'dropdown']:not([class *= 'ci-status']) svg {
@@ -1553,6 +1593,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .btn.btn-info.btn-inverted svg {
     fill: var(--blue) !important;
   }
+  .btn.btn-primary.new-gl-button,
+  .btn.btn-info.new-gl-button {
+    box-shadow: none !important;
+  }
+  .btn.btn-inverted-secondary {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+  }
+  .btn.btn-inverted-secondary::before {
+    content: '';
+    background-color: var(--accent) !important;
+  }
+  .btn.btn-secondary:focus,
+  .btn.btn-secondary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(136,136,136,0.063) !important;
+  }
   .btn.gl-link[href] {
     color: var(--light) !important;
   }
@@ -1656,7 +1712,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .project-repo-buttons .count-badge-count {
     border-color: var(--darker) !important;
-    background-color: var(--darker) !important;
+    background-color: var(--darken) !important;
   }
   .project-repo-buttons .count-badge,
   .project-repo-buttons .btn-xs {
@@ -1830,8 +1886,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border: 1px solid var(--darker) !important;
   }
   .form-control:focus,
-  .search form:focus {
+  .search form:focus,
+  .form-control.focus,
+  .search form.focus {
     border-color: var(--blue) !important;
+    box-shadow: 0 0 0.4rem -0.2rem var(--blue) !important;
   }
   .form-control[disabled = 'disabled']:not(#z),
   .search form[disabled = 'disabled']:not(#z) {
@@ -2530,6 +2589,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  .event-note pre.code {
+    border: 1px solid var(--darker) !important;
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }
   .card {
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
@@ -2632,9 +2696,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--light) !important;
     background-color: var(--darken) !important;
   }
-  .add-issuable-form-input-wrapper.focus {
-    border-color: var(--blue) !important;
-  }
   .related-issues-block .card ul > li:first-child {
     border-radius: 3px 3px 0 0;
   }
@@ -2710,6 +2771,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .epic-discussion-separator {
     border-color: var(--darker) !important;
+  }
+  .flex-grid .grid-row,
+  .flex-grid .grid-cell {
+    border-color: var(--darker) !important;
+  }
+  .flex-grid .property-label {
+    color: var(--lighter) !important;
+  }
+  .flex-grid .property-value {
+    color: var(--light) !important;
   }
   .animation-container [class *= 'skeleton-line-'] {
     background-color: var(--darker) !important;
@@ -3232,6 +3303,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .group-empty-state > .icon,
   .empty-state .svg-content > svg,
   .svg-container > svg,
+  .commits-empty > svg,
   img[src ^= 'img/']:not([src *= 'logo']),
   img[src ^= 'help/img/'],
   img[src *= 's/illustrations/'] {
@@ -3398,25 +3470,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .alert h4 {
     color: inherit !important;
   }
-  .alert-wrapper div p,
-  .alert-wrapper div .fa {
-    color: inherit !important;
+  [class *= 'broadcast-banner'] svg {
+    fill: var(--white) !important;
   }
-  .alert-wrapper div[style *= 'd-color: #004275'] {
+  [class *= 'broadcast-banner'] .fa {
     color: var(--white) !important;
-    background-color: var(--blue) !important;
-  }
-  .alert-wrapper div[style *= 'd-color: #00bd7f'] {
-    color: var(--white) !important;
-    background-color: var(--green) !important;
-  }
-  .alert-wrapper div[style *= 'd-color: #e75e40'] {
-    color: var(--white) !important;
-    background-color: var(--orange) !important;
-  }
-  .alert-wrapper div[style *= 'd-color: #f4f4f4'] {
-    color: var(--light) !important;
-    background-color: var(--darker) !important;
   }
   .broadcast-notification-message {
     border-color: var(--darker) !important;
@@ -3478,6 +3536,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .gl-form-input.form-control {
     background-color: var(--darken) !important;
+  }
+  .gl-form-input[placeholder] {
+    background-color: var(--dark) !important;
+  }
+  .help-form .form-group form,
+  .help-form .form-group .form-control,
+  .help-form .form-group code {
+    background-color: var(--dark) !important;
   }
   .gfm {
     color: var(--light) !important;
@@ -3828,6 +3894,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .info-well .well-segment {
     border-color: var(--darker) !important;
+  }
+  .info-well .well-segment code:not([class]) {
+    background-color: var(--dark) !important;
   }
   .table-holder.bordered-box {
     border: none !important;
@@ -4357,6 +4426,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border: 1px solid var(--darker) !important;
     border-radius: 4px;
   }
+  .settings-content .sub-section {
+    border-radius: 4px;
+  }
+  .settings-content .sub-section .btn-default,
+  .settings-content .sub-section .form-control,
+  .settings-content .sub-section .select2-choice {
+    background-color: var(--dark) !important;
+  }
+  .settings-content .sub-section .btn-warning {
+    transition: opacity 0.2s ease;
+    color: var(--white) !important;
+    background-color: var(--orange) !important;
+  }
+  .settings-content .sub-section .btn-warning:hover {
+    opacity: 0.8;
+  }
+  .settings-content .sub-section .btn-warning::before {
+    content: unset !important;
+  }
   .project-badge {
     border-radius: 4px;
   }
@@ -4860,6 +4948,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .js-temp-notes-holder td {
     border-color: var(--darker) !important;
   }
+  .code.white .line_holder.diff-expanded > .line_content,
+  .code.none .line_holder.diff-expanded > .line_content {
+    background-color: var(--darken) !important;
+  }
+  .code.white .line_holder.diff-expanded > .diff-line-num,
+  .code.none .line_holder.diff-expanded > .diff-line-num {
+    box-shadow: none !important;
+  }
+  .code.white .line_holder.diff-expanded > td,
+  .code.none .line_holder.diff-expanded > td,
+  .code.white .line_holder.diff-expanded + :not(.diff-expanded) > td,
+  .code.none .line_holder.diff-expanded + :not(.diff-expanded) > td {
+    border-color: var(--darker) !important;
+  }
   .code.white.white,
   .code.none.white {
     color: var(--light);
@@ -5303,6 +5405,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .toolbar-btn svg:hover {
     fill: var(--light) !important;
   }
+  .md-area.is-focused {
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 0.4rem -0.2rem var(--blue) !important;
+  }
   .md-area .markdown-selector {
     color: var(--accent) !important;
   }
@@ -5367,8 +5473,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .issue-boards-content.is-focused {
     background-color: var(--bb) !important;
   }
-  .board-blank-state {
+  .board-blank-state,
+  .board-promotion-state {
     background-color: var(--t) !important;
+  }
+  .top-space #hide-btn {
+    margin-top: 15px;
   }
   .board-inner > header h3 {
     min-height: 51px !important;
