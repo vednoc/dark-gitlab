@@ -3361,6 +3361,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// New discussion block.
                 /.js-temp-notes-holder td { c: 0 bd }
             }
+            /// Diff -> Expanded sections.
+            &.diff-expanded {
+                > .line_content { c: 0 0 hl }
+                > .diff-line-num { box-shadow: none i }
+                &, & + :not(.diff-expanded) { > td { c: 0 bd }}
+            }
         }
         /// Project -> Settings -> Status/Report tables.
         &.white { c: fg 0 t 0 0 0 }
