@@ -456,7 +456,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-success { c: 0 green hl }
             &-danger { c: 0 red hl }
             &-info { c: 0 blue hl }
-            .btn-default, li > code { c: 0 0 bg }
+            .btn-default, code:not([class]) { c: 0 0 bg }
             /// Project -> Settings -> CI/CD.
             &.help-callout,
             &.shared-runners-description {
@@ -826,6 +826,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 td { border-top: 1px solid bd i }
             }
             /.import-slash-divider { c: 0 bd bb }
+            /// Project -> Import in progress.
+            /.save-project-loader { c: cm }
         }
         /// Who cares about semantic HTML anyways? #88 @upstream
         td.d-sm-block { display: table-cell i }
@@ -2653,7 +2655,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .well-segment {
             c: 0 bd;
             /// Project settings -> Integrations.
-            > p > code:not([class]) { c: 0 0 bg }
+            code:not([class]) { c: 0 0 bg }
         }
     }
 
