@@ -1,6 +1,25 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.2.0 [2020-04-27]
+More polishing and fixing small bugs.
+
+*** Improved
+- A bunch of elements inside of 'advanced' area in settings
+- Focus state shadow and border colors for inputs
+- Colors for code blocks inside of callouts
+- Colors for expanded code sections in diffs
+
+*** Fixed
+- Broken colors for board-promotion-state ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/113][#113]])
+- Another table and price colors on billing page
+- A conflict with 'description templates' in MRs
+- Secondary button styles and repository buttons
+- A bunch of styles for 'integrations' page in settings
+- Hardcoded values for broadcast banners
+- Bad colors for org-mode table headers
+- Colors for code blocks in event lists
+
 ** 1.1.1 [2020-04-23]
 Small tweaks and some fixes for the latest GitLab update.
 
