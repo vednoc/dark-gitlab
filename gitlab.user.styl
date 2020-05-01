@@ -2377,8 +2377,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
             &[class *= '_message']:not([class *= 'epic']) { rad: 4px }
-            &.warning_message { c: orange orange hl }
-            &.danger_message { c: red red hl }
+            &.warning_message:not(#z) { c: orange orange hl }
+            &.danger_message:not(#z) { c: red red hl }
         }
     }
 
@@ -3452,7 +3452,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-header-blank, &-header-item { c: 0 bd bb }
             &-header-blank::before {
                 c: 0 bd;
-                box-shadow: none;
+                box-shadow: none i;
+                background: linear-gradient(to bottom, sh 0%, t 100%) i;
             }
             &-header-item .item {
                 &-label { c: fg bd }
@@ -3469,12 +3470,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     background: linear-gradient(to right, sh 0%, t 100%);
                 }
             }
+            &s-list-section {
+                ../-start-and-end { c: 0 bd }
+            }
             &-timeline-cell { c: 0 0 bg }
             &-item-details {
-                c: fg;
+                c: cm;
                 .timeline-bar {
                     &, &::before { c: 0 0 cm }
                     &::after { c: 0 cm fg }
+                    ../../-url { c: cm }
+                }
+                &:hover {
+                    .timeline-bar { &, &::before { c: 0 0 fg }}
+                    .milestone-url { c: fg }
                 }
             }
         }
@@ -3494,7 +3503,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 ../s-list-item:hover > .epic-timeline-cell { c: 0 0 bb }
             }
             &-group-timeframe { c: cm }
-            &-title a { c: fg }
+            &-title { &, > a { c: fg }}
         }
         /// Tweak gradients.
         .timeline-header-blank,
