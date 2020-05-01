@@ -2889,6 +2889,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     padding-left: 12px i;
                     border: none i;
                     c: 0 0 t;
+                    &:focus { box-shadow: none i }
                 }
                 .clear-search {
                     rad: 4px;
@@ -2898,8 +2899,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Dashboard -> Issues/MRs.
             &-token, &-term {
-                .name { c: fg 0 hl }
-                .operator, .value-container { c: fg 0 bd }
+                .name, .operator, .value-container { c: fg 0 bd }
                 ../-token:first-child { margin-left: 5px }
             }
         }
