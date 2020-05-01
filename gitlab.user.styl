@@ -571,8 +571,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.active, &.active:hover, &.show { > button, > a { c: fg 0 bg }}
                 .caret-down { v: cm }
             }
-            /// Reset background hack.
-            [data-toggle = 'dropdown']::before { content: unset i }
+            /// Reset backgrounds.
+            [data-toggle = 'dropdown'], button.menu-item {
+                &::before { content: unset i }
+            }
         }
         /// Help menu.
         .header-help li:first-child {
