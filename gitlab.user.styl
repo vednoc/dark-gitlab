@@ -3217,7 +3217,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Notes -> Code discussion borders.
             .notes_holder td { border-top-color: bd i }
             .notes_holder td, .diff-discussions {
-                border-bottom-color: hl i;
+                border-bottom-color: bd i;
             }
         }
         /// Diff -> Change summary.
@@ -3694,10 +3694,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Code -> Add new note.
-        &-form {
-            c: 0 bd bg;
-            box-shadow: inset 0 1px bd;
-        }
+        &-form { c: 0 bd bb }
         /// MR -> Review.
         /.draft-note-component { c: 0 0 t }
         /.review-bar-component { c: 0 bd bg }
