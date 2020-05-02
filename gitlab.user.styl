@@ -4097,15 +4097,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .row-content-block.content-component-block { c: 0 0 t }
     }
 
-    // Search -> Results.
-    .search-result {
-        &s &-row {
+    // Dashboard -> Search results.
+    .search-results {
+        &-row {
             c: 0 bd;
             .author { c: ac }
             pre.code { rad: 4px }
         }
         /// Search -> Code.
-        &s .blob-result { margin: 16px 0 }
+        .blob-result { margin: 16px 0 }
+        /// Search -> Comments.
+        .code.highlight.white { c: 0 0 hl }
     }
 
     // Components -> IDE.
