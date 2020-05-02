@@ -2030,6 +2030,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-container { c: 0 bd }
             &-sub-title a { c: fg }
             &-links img { c: 0 hl hl }
+            /// Epics -> Roadmap.
+            &.group-epics-roadmap { c: 0 bd }
         }
         /// Project -> File path divider.
         &.repo-breadcrumb > li + li::before { c: cm }
