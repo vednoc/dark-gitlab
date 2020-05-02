@@ -3381,6 +3381,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Project -> Settings -> Status/Report tables.
         &.white { c: fg 0 t 0 0 0 }
+        /// Diff -> Fix border for 'Show unchanged lines'. @upstream
+        tbody > tr.line_expansion.match:last-child > td {
+            border-bottom: none i;
+        }
     }
 
     // Groups -> Landing page.
