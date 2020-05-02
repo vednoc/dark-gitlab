@@ -1,6 +1,20 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.2.1 [2020-05-02]
+Small fixes and tweaks for the latest GitLab update.
+
+*** Improved
+- Borders and backgrounds for notes in discussions
+- Badge colors in design area
+
+*** Fixed
+- Missing styles for roadmap page in epics
+- A couple of new selectors for image inversion
+- Colors for left side of parallel view in diffs
+- Double border for 'show unchanged lines' in diffs
+- Code blocks in search results area
+
 ** 1.2.0 [2020-04-27]
 More polishing and fixing small bugs.
 
