@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.2.0
+@version      1.2.1
 @license      MIT
 ==/UserStyle== */
 
@@ -42,7 +42,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.2.0';
+    --note: 'Dark-GitLab Lite v1.2.1';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -780,7 +780,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     fill: var(--lighter) !important;
   }
   .navbar-sub-nav [data-toggle = 'dropdown']::before,
-  .navbar-nav [data-toggle = 'dropdown']::before {
+  .navbar-nav [data-toggle = 'dropdown']::before,
+  .navbar-sub-nav button.menu-item::before,
+  .navbar-nav button.menu-item::before {
     content: unset !important;
   }
   .navbar .header-help li:first-child > a {
@@ -2945,6 +2947,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--darken) !important;
     background-color: var(--darken) !important;
   }
+  .breadcrumbs.group-epics-roadmap {
+    border-color: var(--darker) !important;
+  }
   .breadcrumb.repo-breadcrumb > li + li::before {
     color: var(--lighter) !important;
   }
@@ -3302,6 +3307,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .artwork,
   .group-empty-state > .icon,
   .empty-state .svg-content > svg,
+  .devops-empty > div > svg,
+  .blank-state-icon > svg,
   .svg-container > svg,
   .commits-empty > svg,
   img[src ^= 'img/']:not([src *= 'logo']),
@@ -3487,12 +3494,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   [role = 'alert'][class *= '_message']:not([class *= 'epic']) {
     border-radius: 4px;
   }
-  [role = 'alert'].warning_message {
+  [role = 'alert'] .warning_message:not(#z),
+  .warning_message:not(#z) {
     color: var(--orange) !important;
     border-color: var(--orange) !important;
     background-color: var(--darken) !important;
   }
-  [role = 'alert'].danger_message {
+  [role = 'alert'] .danger_message:not(#z),
+  .danger_message:not(#z) {
     color: var(--red) !important;
     border-color: var(--red) !important;
     background-color: var(--darken) !important;
@@ -4212,6 +4221,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border: none !important;
     background-color: var(--t) !important;
   }
+  .filtered-search-box input:focus {
+    box-shadow: none !important;
+  }
   .filtered-search-box .clear-search {
     border-radius: 4px;
     background-color: var(--dark) !important;
@@ -4220,10 +4232,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--blue) !important;
   }
   .filtered-search-token .name,
-  .filtered-search-term .name {
-    color: var(--light) !important;
-    background-color: var(--darken) !important;
-  }
+  .filtered-search-term .name,
   .filtered-search-token .operator,
   .filtered-search-term .operator,
   .filtered-search-token .value-container,
@@ -4716,7 +4725,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .diff-file .diff-content .notes_holder td,
   .diff-file .diff-content .diff-discussions {
-    border-bottom-color: var(--darken) !important;
+    border-bottom-color: var(--darker) !important;
   }
   .diff-files-changed {
     border-color: var(--darker) !important;
@@ -4892,22 +4901,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :not(#z) .code.none .line_holder .diff-line-num:not(.new):not(.old) {
     background-color: var(--darken) !important;
   }
-  .code.white .line_holder [class ^= 'line'],
-  .code.none .line_holder [class ^= 'line'] {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']),
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']) {
     position: relative;
     z-index: 1;
     background-color: var(--t) !important;
   }
-  .code.white .line_holder [class ^= 'line'].new,
-  .code.none .line_holder [class ^= 'line'].new,
-  .code.white .line_holder [class ^= 'line'].old,
-  .code.none .line_holder [class ^= 'line'].old {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).new,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).new,
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).old,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).old {
     background-color: var(--t) !important;
   }
-  .code.white .line_holder [class ^= 'line'].new::after,
-  .code.none .line_holder [class ^= 'line'].new::after,
-  .code.white .line_holder [class ^= 'line'].old::after,
-  .code.none .line_holder [class ^= 'line'].old::after {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).new::after,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).new::after,
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).old::after,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).old::after {
     content: '';
     z-index: -1;
     opacity: 0.18;
@@ -4918,20 +4927,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     bottom: 0;
     left: 0;
   }
-  .code.white .line_holder [class ^= 'line'].old::before,
-  .code.none .line_holder [class ^= 'line'].old::before {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).old::before,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).old::before {
     color: var(--red) !important;
   }
-  .code.white .line_holder [class ^= 'line'].old::after,
-  .code.none .line_holder [class ^= 'line'].old::after {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).old::after,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).old::after {
     background-color: var(--red) !important;
   }
-  .code.white .line_holder [class ^= 'line'].new::before,
-  .code.none .line_holder [class ^= 'line'].new::before {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).new::before,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).new::before {
     color: var(--green) !important;
   }
-  .code.white .line_holder [class ^= 'line'].new::after,
-  .code.none .line_holder [class ^= 'line'].new::after {
+  .code.white .line_holder > [class *= 'line']:not([class *= 'num']).new::after,
+  .code.none .line_holder > [class *= 'line']:not([class *= 'num']).new::after {
     background-color: var(--green) !important;
   }
   .diff-comment-avatar,
@@ -4966,6 +4975,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .code.none.white {
     color: var(--light);
     background-color: var(--t);
+  }
+  .code.white tbody > tr.line_expansion.match:last-child > td,
+  .code.none tbody > tr.line_expansion.match:last-child > td {
+    border-bottom: none !important;
   }
   .group-list-tree::before {
     border-color: var(--darker) !important;
@@ -5069,7 +5082,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .roadmap-container .timeline-header-blank::before {
     border-color: var(--darker) !important;
-    box-shadow: none;
+    box-shadow: none !important;
+    background: linear-gradient(to bottom, var(--shadow) 0%, var(--t) 100%) !important;
   }
   .roadmap-container .timeline-header-item .item-label {
     color: var(--light) !important;
@@ -5089,11 +5103,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     right: -4px;
     background: linear-gradient(to right, var(--shadow) 0%, var(--t) 100%);
   }
+  .roadmap-container .milestone-start-and-end {
+    border-color: var(--darker) !important;
+  }
   .roadmap-container .milestone-timeline-cell {
     background-color: var(--dark) !important;
   }
   .roadmap-container .milestone-item-details {
-    color: var(--light) !important;
+    color: var(--lighter) !important;
   }
   .roadmap-container .milestone-item-details .timeline-bar,
   .roadmap-container .milestone-item-details .timeline-bar::before {
@@ -5102,6 +5119,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .roadmap-container .milestone-item-details .timeline-bar::after {
     border-color: var(--lighter) !important;
     background-color: var(--light) !important;
+  }
+  .roadmap-container .milestone-url {
+    color: var(--lighter) !important;
+  }
+  .roadmap-container .milestone-item-details:hover .timeline-bar,
+  .roadmap-container .milestone-item-details:hover .timeline-bar::before {
+    background-color: var(--light) !important;
+  }
+  .roadmap-container .milestone-item-details:hover .milestone-url {
+    color: var(--light) !important;
   }
   .roadmap-container .epic-bar {
     background-color: var(--blue) !important;
@@ -5132,7 +5159,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .roadmap-container .epic-group-timeframe {
     color: var(--lighter) !important;
   }
-  .roadmap-container .epic-title a {
+  .roadmap-container .epic-title,
+  .roadmap-container .epic-title > a {
     color: var(--light) !important;
   }
   .roadmap-container .timeline-header-blank::after,
@@ -5373,8 +5401,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .discussion-form {
     border-color: var(--darker) !important;
-    background-color: var(--dark) !important;
-    box-shadow: inset 0 1px var(--darker);
+    background-color: var(--bb) !important;
   }
   .draft-note-component {
     background-color: var(--t) !important;
@@ -5598,6 +5625,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .design-detail header {
     border-bottom: 1px solid var(--darker);
   }
+  .design-detail .frame .badge-pill {
+    color: var(--white) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--accent) !important;
+  }
   .design-detail .image-notes {
     border-left: 1px solid var(--darker);
     background-color: var(--dark) !important;
@@ -5615,7 +5647,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .design-detail .image-notes .badge-pill,
   .design-detail .image-notes .key {
     color: var(--white) !important;
-    border-color: var(--accent) !important;
+    border-color: var(--darker) !important;
     background-color: var(--accent) !important;
     box-shadow: none;
   }
@@ -5990,17 +6022,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   [data-page ^= 'snippets:'] .row-content-block.content-component-block {
     background-color: var(--t) !important;
   }
-  .search-results .search-result-row {
+  .search-results-row {
     border-color: var(--darker) !important;
   }
-  .search-results .search-result-row .author {
+  .search-results-row .author {
     color: var(--accent) !important;
   }
-  .search-results .search-result-row pre.code {
+  .search-results-row pre.code {
     border-radius: 4px;
   }
   .search-results .blob-result {
     margin: 16px 0;
+  }
+  .search-results .code.highlight.white {
+    background-color: var(--darken) !important;
   }
   .ide-view {
     color: var(--light) !important;
