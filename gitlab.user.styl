@@ -3097,6 +3097,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: cm;
                 }
             }
+            /// Hover state.
+            code > span.line:hover { c: 0 0 hl }
             /// NOTE: Inconsistent use of line-num parent element.
             .line-numbers > .diff-line-num { c: 0 0 t }
             /// Show unchanged lines.
@@ -3303,7 +3305,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: 0 0 hl }
             }
             /// Unfold lines.
-            .unfold:not(#z) { c: cm }
+            .unfold:not(#z) {
+                c: cm;
+                /// Hide hover.
+                &::before { content: unset }
+            }
             /// Matching and 'No newline at end of file' lines.
             &.match, &.new-nonewline {
                 &:not(#z) {
@@ -3313,13 +3319,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Line numbers.
             .diff-line-num {
+                z-index: 1;
                 padding-right: 11px;
                 border-right: none i;
                 box-shadow: inset -1px 0 bd;
                 &.new, &.old {
                     &::after {
                         content: '';
-                        z-index: 0;
+                        z-index: -1;
                         opacity: 0.25;
                         top: 0; right: 0; bottom: 0; left: 0;
                         position: absolute;
@@ -3329,7 +3336,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.is-over {
                     &::before {
                         content: '';
-                        z-index: 0;
+                        z-index: -1;
                         opacity: 0.45;
                         top: 0; right: 0; bottom: 0; left: 0;
                         position: absolute;
@@ -3382,6 +3389,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > .line_content { c: 0 0 hl }
                 > .diff-line-num { box-shadow: none i }
                 &, & + :not(.diff-expanded) { > td { c: 0 bd }}
+            }
+            /// Highlight hovered lines.
+            &[class *= 'holder']:not(.new):not(.old):hover > td[class *= 'line'] {
+                &::before {
+                    content: '';
+                    z-index: -1;
+                    opacity: 0.50;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    c: 0 0 bd;
+                }
+            }
+            &.old, &.new {
+                &:hover > .diff-line-num::after { opacity: 0.30 i }
+                &:hover > td[class *= 'line'] {
+                    &:not([class *= 'num'])::after { opacity: 0.30 i }
+                }
             }
         }
         /// Project -> Settings -> Status/Report tables.
