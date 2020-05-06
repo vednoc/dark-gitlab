@@ -16,7 +16,7 @@
 @var text     emoji_font 'Custom emoji font' '"font_name"'
 @var text     a_radius   'Avatars: Custom border radius' 25%
 @var range    md_img_o   'Markdown: Default image opacity' [1, 0.0, 1, 0.01]
-@var checkbox ic_invert  'Invert icons in Shadow DOM' 1
+@var checkbox ic_invert  'Invert icons in Shadow DOM' 0
 @var checkbox img_invert 'Invert illustrations to dark colors' 1
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
@@ -128,6 +128,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --red-darker    : mix(dark, red, 85%);
         /// Prevents horizontal overflow. @upstream
         overflow-x: hidden;
+        /// CI status icons.
+        --svg-status-bg : var(--dark) !important;
     }
 
     // Overwrite existing Stylus-lang vars with CSS vars.
