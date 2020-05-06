@@ -123,6 +123,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             --cyan      : cyan;
             --green     : green;
         }
+        // TODO: Add more tones for secondary colors.
+        --red-darken    : mix(dark, red, 70%);
+        --red-darker    : mix(dark, red, 85%);
         /// Prevents horizontal overflow. @upstream
         overflow-x: hidden;
     }
@@ -4086,6 +4089,27 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .total-time { &, span { c: cm }}
                 .issue-date, .build-date { c: cm }
                 .issue { &-author-link, &-title, &-link { c: fg }}
+            }
+        }
+    }
+
+    // Dashboard -> Operations. #119
+    .dashboard-card {
+        &-header, &-footer { &-failed { c: 0 0 var(--red-darken) }}
+        &-body {
+            &-failed { c: 0 0 var(--red-darker) }
+            .gl-link { c: fg }
+            /// Add ellipsis to long text.
+            .text-secondary {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            /// Reset CI table.
+            .ci-table {
+                margin-top: 0 i;
+                rad: 0px i;
+                c: 0 t t;
             }
         }
     }
