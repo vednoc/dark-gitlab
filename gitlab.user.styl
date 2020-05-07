@@ -1925,7 +1925,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 bd;
             &::after { background-image: sk_gradient }
         }
-        /// Operations dashboard.
+        /// Dashboard -> Operations.
         /[class *= 'card-skeleton-']::after { background-image: sk_gradient }
         /// Spinners.
         /.gl-spinner {
@@ -2544,6 +2544,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.markdown-selector { color: ac }
             /// Issues -> Design -> Card text color. @upstream
             /.design-dropzone-card .text-center { c: fg }
+        }
+        /// Dashboard -> Operations -> Add projects.
+        /#add-projects-modal {
+            .gl-form-input { c: 0 0 hl }
+            .gl-infinite-scroll {
+                /// Reset buttons.
+                &-container .btn {
+                    c: 0 0 t;
+                    &:focus, &.focus {
+                        c: 0 0 hl;
+                        box-shadow: none i;
+                    }
+                }
+                /// Result count.
+                &-legend { c: cm }
+            }
         }
     }
 
