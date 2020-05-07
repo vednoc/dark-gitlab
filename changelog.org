@@ -1,6 +1,23 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.0 [2020-05-07]
+Adding new tweaks and disabling one of the options.
+
+This release disables invert hacks for status icons in Chromium-based browsers.
+You can re-enable this option from the configuration menu if you need it. More
+info can be found in [[https://gitlab.com/vednoc/dark-gitlab/-/commit/badae69eeec7a4ca9fd20a014e078ffd386ef8f3][badae69e]].
+
+*** Improved
+- Colors for status icons no longer require =filter: invert()= hack
+- Code areas now have highlights when you hover over the lines
+
+*** Fixed
+- Colors on operations dashboard page ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/119][#119]])
+- Input group colors in 'new project' area
+- Colors for accented links in todos
+- Styles for 'add projects' in operations
+
 ** 1.2.1 [2020-05-02]
 Small fixes and tweaks for the latest GitLab update.
 
