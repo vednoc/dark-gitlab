@@ -1305,6 +1305,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             a { c: fg }
             /// Metadata.
             /.item-meta * { c: cm }
+            /// Dashboard -> Todos -> Fix links.
+            .todo { &-label, &-project { a { c: ac }}}
             /// Groups -> Hover animation.
             .group-row-contents {
                 &:hover { c: 0 0 hl }
