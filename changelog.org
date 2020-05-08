@@ -1,6 +1,17 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.1 [2020-05-08]
+Small update to fix a few things.
+
+*** Improved
+- Added theme fonts and centered content on GitLab Next page
+
+*** Fixed
+- Text color for links in broadcast messages ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/120][#120]])
+- Small conflict with table =th= in keyboard shortcuts
+- Border colors on issues page in search area
+
 ** 1.3.0 [2020-05-07]
 Adding new tweaks and disabling one of the options.
 
