@@ -4469,8 +4469,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
 @-moz-document domain('next.gitlab.com') {
     .wrapper {
+        padding: 1rem;
+        min-height: calc(100vh - 2rem);
+        /// Reset text.
         h1, p { c: fg }
         a { c: ac }
+        * { font-family: var(--ui-font) }
         /// Tweak background images.
         .bg { filter: grayscale(1) invert(0.5) opacity(0.2) }
         /// Fix box content.
