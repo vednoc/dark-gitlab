@@ -662,7 +662,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 // &:hover > td { c: 0 0 hl }
             }
             /// Org-mode appears to render TH inside of TBODY. @upstream
-            > tr:first-child {
+            /// Fix a conflict with 'keyboard shortcuts' modal.
+            ../:not(.shortcut-mappings) tbody > tr:first-child {
                 > th {
                     border-bottom-width: 1px i;
                     c: 0 bd hl;
