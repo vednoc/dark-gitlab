@@ -613,6 +613,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// 'Skip to content' button.
         /.gl-accessibility:focus { c: fg 0 bd }
+        /// Mobile -> Toggle colors.
+        &-toggler {
+            border-left-color: bd i;
+            svg { v: cm }
+        }
     }
 
     // Global -> Tables.
