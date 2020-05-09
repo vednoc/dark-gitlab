@@ -2667,6 +2667,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Request access.
         /.access-request-link { c: 0 bd }
+        /// Mirrored repository -> Fix time color.
+        /.home-panel-description + p time { c: fg }
     }
 
     // Project -> Empty repository.
