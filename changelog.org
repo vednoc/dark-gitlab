@@ -1,6 +1,19 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.2 [2020-05-12 Tue]
+Small update to fix a few things.
+
+*** Documentation
+- Added a note about modifying the code
+- Added day names to dates in the changelog
+
+*** Fixed
+- Whitespace for 'newest first' mode in notes
+- Colors for CI status icons ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/122][#122]])
+- A few new buttons in snippets
+- Active pagination in pipelines
+
 ** 1.3.1 [2020-05-08 Fri]
 Small update to fix a few things.
 
