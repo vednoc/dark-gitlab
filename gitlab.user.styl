@@ -976,7 +976,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Commits -> Author dropdown.
         /.gl-new-dropdown .btn {
             box-shadow: none i;
-            &.dropdown-toggle { padding: 8px 8px 8px 10px i }
+            &.dropdown-toggle[id *= '15'] { padding: 8px 8px 8px 10px i }
             + ul {
                 [class *= 'text-pri'] { c: fg }
                 [class *= 'text-sec'] { c: cm }
@@ -1210,6 +1210,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-link, &-blank, &-clipboard { &::before { content: unset i }}
         /// Global -> Transparent buttons.
         &.bg-transparent { c: 0 0 t }
+        /// Dashboard -> Snippets.
+        &.gl-button { box-shadow: none i }
     }
 
     // Global -> Labels.
@@ -3114,7 +3116,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .btn {
                     svg { v: cm }
                     &.active { c: 0 0 bd }
-                    &, &-default { &:not(.btn-primary) { c: 0 0 bg }}
+                    &, &-default { c: 0 0 bg }
+                    /// Dashboard -> Snippets.
+                    &-primary, &-info {
+                        &:not(.btn-inverted) { c: 0 0 blue }
+                        svg { v: white }
+                    }
                 }
                 /// Fix anchors for both cases.
                 ../, & { a:not(.btn) { c: fg }}
