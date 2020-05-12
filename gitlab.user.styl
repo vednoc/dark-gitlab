@@ -422,6 +422,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 &-pending,
                 &-waiting-for-resource,
+                &-failed-with-warnings,
                 &-success-with-warnings {
                     &[class *= 'dropdown'] { c: 0 orange hl }
                     &:not(#z), &[data-toggle] { svg { v: orange }}
