@@ -1,7 +1,7 @@
 #+STARTUP: nofold
 
 * Changelog
-** 1.3.1 [2020-05-08]
+** 1.3.1 [2020-05-08 Fri]
 Small update to fix a few things.
 
 *** Improved
@@ -12,7 +12,7 @@ Small update to fix a few things.
 - Small conflict with table =th= in keyboard shortcuts
 - Border colors on issues page in search area
 
-** 1.3.0 [2020-05-07]
+** 1.3.0 [2020-05-07 Thu]
 Adding new tweaks and disabling one of the options.
 
 This release disables invert hacks for status icons in Chromium-based browsers.
@@ -29,7 +29,7 @@ info can be found in [[https://gitlab.com/vednoc/dark-gitlab/-/commit/badae69eee
 - Colors for accented links in todos
 - Styles for 'add projects' in operations
 
-** 1.2.1 [2020-05-02]
+** 1.2.1 [2020-05-02 Sat]
 Small fixes and tweaks for the latest GitLab update.
 
 *** Improved
@@ -43,7 +43,7 @@ Small fixes and tweaks for the latest GitLab update.
 - Double border for 'show unchanged lines' in diffs
 - Code blocks in search results area
 
-** 1.2.0 [2020-04-27]
+** 1.2.0 [2020-04-27 Mon]
 More polishing and fixing small bugs.
 
 *** Improved
@@ -62,7 +62,7 @@ More polishing and fixing small bugs.
 - Bad colors for org-mode table headers
 - Colors for code blocks in event lists
 
-** 1.1.1 [2020-04-23]
+** 1.1.1 [2020-04-23 Thu]
 Small tweaks and some fixes for the latest GitLab update.
 
 *** Improved
@@ -75,7 +75,7 @@ Small tweaks and some fixes for the latest GitLab update.
 - Initial styles for 'health status' labels
 - Faded gradient for dropdown menus
 
-** 1.1.0 [2020-04-22]
+** 1.1.0 [2020-04-22 Wed]
 A ton of polish in this update, and some new things as well.
 
 Thanks to everyone that contributed!
@@ -108,7 +108,7 @@ Thanks to everyone that contributed!
 - Colors for broadcast notifications ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/115][#115]])
 - Hover background for requirements
 
-** 1.0.0 [2020-04-14]
+** 1.0.0 [2020-04-14 Tue]
 The rewrite is complete.
 
 This update removes styles for all sub-domains except =next.gitlab.com=, and some
