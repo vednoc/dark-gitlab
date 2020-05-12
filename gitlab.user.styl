@@ -2076,7 +2076,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 opacity: 0.6;
                 c: cm 0 hl;
             }
-            ../ .active .page-link {
+            /// Issues | Pipelines.
+            ../ .active .page-link, &.active {
                 c: ac 0 bd;
             }
         }
