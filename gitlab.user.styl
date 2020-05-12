@@ -16,7 +16,7 @@
 @var text     emoji_font 'Custom emoji font' '"font_name"'
 @var text     a_radius   'Avatars: Custom border radius' 25%
 @var range    md_img_o   'Markdown: Default image opacity' [1, 0.0, 1, 0.01]
-@var checkbox ic_invert  'Invert icons in Shadow DOM' 0
+@var checkbox ic_invert  'Chromium: Invert icons in Shadow DOM' 1
 @var checkbox img_invert 'Invert illustrations to dark colors' 1
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
@@ -126,10 +126,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         // TODO: Add more tones for secondary colors.
         --red-darken    : mix(dark, red, 70%);
         --red-darker    : mix(dark, red, 85%);
+        /// Colors for CI status icons in Firefox.
+        @supports (-moz-user-select: none) {
+            --svg-status-bg : var(--dark) !important;
+        }
         /// Prevents horizontal overflow. @upstream
         overflow-x: hidden;
-        /// CI status icons.
-        --svg-status-bg : var(--dark) !important;
     }
 
     // Overwrite existing Stylus-lang vars with CSS vars.
@@ -447,9 +449,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             @supports not (-moz-user-select: none) {
                 .created-icon, .opened-icon, .ic-upload,
                 [class *= 'ci-status'] svg {
-                    filter: invert(0.8) hue-rotate(180deg);
+                    filter: invert(0.9) hue-rotate(180deg) saturate(200%);
+                }
+                /// Increase contrast for gray icons.
+                :not(#z) .ci-status-icon {
+                    &-created svg, &-skipped svg {
+                        v: #333 i;
+                    }
                 }
             }
+        } else {
+            /:root { --svg-status-bg : var(--dark) i }
         }
         /// Global -> Callouts.
         .bs-callout {
