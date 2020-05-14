@@ -2449,9 +2449,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Select menu.
         /.custom-select { c: fg bd hl }
         /// Project -> Releases -> Edit release.
-        &-group {
-            .bordered-box { c: 0 0 bg }
-            .gl-form-input { c: 0 0 bg }
+        /// Fix whitespace/focus. @upstream
+        &-group .bordered-box.pl-3 {
+            padding: 0 i;
+            c: 0 0 bg;
+            > .md-area {
+                margin 0 i;
+                padding 10px i;
+                rad: 4px;
+            }
+            &:focus-within { c: 0 blue }
         }
         /// Project -> Settings -> Operations.
         &-input.form-control { c: 0 0 hl }
