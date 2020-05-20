@@ -1,6 +1,28 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.3 [2020-05-21 Thu]
+Updating styles for =13.0= release.
+
+*** Documentation
+- Improved info in the readme
+
+*** Improved
+- More white images in docs/help are now inverted
+- Whitespace when performance bar is activated
+ 
+*** Fixed
+- Whitespace and focus event for Markdown form on 'edit release' page
+- Color for issue weight indicator in boards [[https://gitlab.com/vednoc/dark-gitlab/-/issues/124#][#124]]
+- Colors for epics label menu [[https://gitlab.com/vednoc/dark-gitlab/-/issues/123#][#123]]
+- Colors in epics related table
+- Borders for sign in/register tabs
+- Colors for some things in mobile mode
+- Colors for 'health status' menu in issues
+- Custom code font in diffs
+- Colors on project 'packages' page
+- Colors for pipelines search filter
+
 ** 1.3.2 [2020-05-12 Tue]
 Small update to fix a few things.
 
