@@ -1169,6 +1169,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-expired { c: 0 0 orange }
             &-upcoming { c: fg 0 bd }
             &-open { c: 0 0 green }
+            /// Mobile -> Fix colors for issue status icons.
+            > svg.s16 { v: white }
         }
         /// Button groups.
         /.input-group {
@@ -1489,7 +1491,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: 0 bd hl;
         .title { c: fg }
         .block { c: 0 bd }
-        .edit-link, .lock-edit, .no-value { c: cm }
+        .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
         a, .btn-link { &:not(.btn):hover { color: ac }}
         /// Fix top offset.
         if ( nb_height == 1 ) { top: 50px i }
@@ -1504,7 +1506,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Sidebar.
         .issuable-sidebar {
             overflow-y: auto i;
-            .gutter-toggle { c: 0 bd }
+            .gutter-toggle { c: 0 bd t }
             &-header, .dropdown { button { c: 0 0 bg }}
         }
         /// Time tracking. #49
