@@ -1709,12 +1709,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.sub-header-block { c: 0 bd t }
         /// Project -> Packages.
         /.gl-tab {
-            &s-nav { c: 0 bd }
+            &s-nav {
+                c: 0 bd;
+                /// Fix search button. @upstream
+                .gl-search-box-by-click-search-button {
+                    border: 1px solid bd;
+                }
+            }
             &-nav-item {
                 c: cm;
                 &-active { c: fg }
                 &:hover { box-shadow: inset 0 -0.125rem bd }
                 &.active { box-shadow: inset 0 -0.125rem ac }
+            }
+            /// Reset text colors.
+            &-content {
+                c: fg;
+                .text-dark { &, &:hover { c: fg }}
+                .text-secondary { &, &:hover { c: cm }}
             }
         }
     }
