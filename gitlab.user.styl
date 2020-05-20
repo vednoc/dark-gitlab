@@ -3521,7 +3521,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &, & + :not(.diff-expanded) { > td { c: 0 bd }}
             }
             /// Highlight hovered lines.
-            &[class *= 'holder']:not(.new):not(.old):hover > td[class *= 'line'] {
+            &[class *= 'holder']:not(.new):not(.old):hover > td[class *= 'line']:not(.match) {
                 &::before {
                     content: '';
                     z-index: -1;
