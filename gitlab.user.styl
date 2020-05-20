@@ -1542,6 +1542,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix link hover event.
             &-content a:hover { c: ac }
         }
+        /// Epics -> Labels. #123
+        .labels-select {
+            &-wrapper {
+                .label-item { &.is-focused, &:hover { c: fg 0 bd }}
+                .gl, .btn { &-link { c: cm }}
+            }
+            &-dropdown-contents {
+                border: 1px solid bd i;
+                c: 0 bd hl;
+                box-shadow: bsh i;
+                .dropdown { &-title, &-footer { c: 0 bd }}
+            }
+        }
         /// Collapsed state.
         &&-collapsed {
             .sidebar-collapsed-icon {
