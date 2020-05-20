@@ -2304,9 +2304,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.svg-container > svg,
             /.commits-empty > svg,
             /img[src ^= 'img/']:not([src *= 'logo']),
-            /img[src ^= 'help/img/'],
-            /img[src *= 's/illustrations/'] {
+            /img[src *= '/help/img/'],
+            /img[src *= 'assets/promotions/'],
+            /img[src *= 'assets/illustrations/'] {
                 filter: invert(0.8) brightness(110%) hue-rotate(180deg);
+                box-shadow: none i;
             }
         } else {
             /.empty-state .svg-content > svg,
