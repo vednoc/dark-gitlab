@@ -1709,13 +1709,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.sub-header-block { c: 0 bd t }
         /// Project -> Packages.
         /.gl-tab {
-            &s-nav {
-                c: 0 bd;
-                /// Fix search button. @upstream
-                .gl-search-box-by-click-search-button {
-                    border: 1px solid bd;
-                }
-            }
+            &s-nav { c: 0 bd }
             &-nav-item {
                 c: cm;
                 &-active { c: fg }
@@ -2547,6 +2541,38 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Settings -> Integrations.
         /.help-form .form-group {
             form, .form-control, code { c: 0 0 bg }
+        }
+    }
+
+    // Pajamas -> Search.
+    .gl {
+        &-filtered-search {
+            /// Wrapper.
+            &-scrollable {
+                c: 0 0 bg;
+                rad: 4px 0 0 4px;
+                box-shadow: inner i;
+                input { c: fg 0 t }
+            }
+            /// Token menu.
+            &-suggestion-active {
+                c: 0 0 bd;
+                a, p { c: fg }
+            }
+            &-token-operator-description { c: cm }
+        }
+        /// Search tokens.
+        &-token {
+            &-close { c: cm }
+            &-content { c: fg }
+            &.gl-filtered-search-token {
+                &-type, &-operator { c: 0 0 hl }
+                &-data { c: 0 0 bd }
+            }
+        }
+        /// Search button.
+        &-search-box-by-click-search-button {
+            border: 1px solid bd;
         }
     }
 
