@@ -25,45 +25,86 @@ This is why you should consider using Dark-GitLab!
 - Custom regex and included support for well-known public GitLab instances
   - Easy to add your private GitLab instance.
     - ⚠ Modifying the code will prevent auto-update from working.
-    - See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more information.
+    - See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more info.
   - Found a public instance that's not already on the list? Make a MR!
 - Custom image opacity in Markdown areas
 - Custom rounded corners for avatars
 - Custom UI/code/emoji fonts
 
 ** Installation
-You have to install [[https://add0n.com/stylus.html][Stylus]] and then click on the install link below.
+There are a few ways to install this userstyle.
 
-[[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
+*** With Stylus
+The recommended method; allows for full customization of custom features.
 
-*** Initial configuration
-Dark-GitLab works best with /default/ settings as it tries to be uniform across
-all instances that you might find on the web. Therefore, for the best experience
-set the following in the [[https://gitlab.com/profile/preferences][preferences]] on instances you're logged in:
-  - Set syntax highlighting theme set to =white=
-  - Set navigation theme to =indigo=
+1. Install [[https://add0n.com/stylus.html][Stylus]]
+2. Click on the install link or install badge.
+    #+begin_quote
+    Installs from =gitlab.user.styl= file using [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][this link]].
+    #+end_quote
+    [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
+3. Confirm the installation
+4. Continue to /Initial configuration/
+
+*** With /xStyle/, /Cascadia/, etc
+This is for userstyle managers that don't support stylus-lang. It doesn't
+offer the customizability that the recommended method offers.
+
+1. Install your userstyle manager of choice
+2. Click on the install link
+   #+begin_quote
+   Installs from =gitlab.user.css= file using [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css][this link]].
+   #+end_quote
+3. Confirm the installation
+4. Continue to /Initial configuration/
+
+*** With /Stylish/ through /[[https://userstyles.org/styles/164877][userstyles.org]]/ (USo)
+I don't recommended using this method because of the following reasons:
+
+1. Stylish is spyware and USo is abandoned by the same developers
+2. Only supported due to it being the largest repository of userstyles
+3. Updated manually, is very likely outdated, and only has core functionality.
+
+** Initial configuration
+This step is mandatory if you want to tune settings to your liking, or
+if you've changed GitLab's default preferences.
+
+Dark-GitLab works best with /default/ settings as it tries to offer seamless
+experience across all GitLab instances that you might stumble upon on the web.
+
+The following [[https://gitlab.com/profile/preferences][preferences]] need to be set on instances you're logged in:
+1. Set syntax highlighting theme set to =white=
+2. Set navigation theme to =indigo=
 
 To customize colors and/or other features, follow these instructions:
-  - Open the Stylus extension popup while you're on any page Dark-GitLab is
-    active on, or from the Manage page in Stylus. Click on the cogwheel icon and
-    that'll open up a menu from which you can customize the available options.
-  - Additionally, install [[https://gitlab.com/vednoc/dark-switcher/][dark-switcher]] if you'd like to quickly switch between
-    various pre-defined color-schemes.
+- Click on Stylus icon on your toolbar then on the configure button (gear icon)
+  and you'll be able to configure everything from within the popup. Same menu
+  can be opened from the /Manage/ page in Stylus.
+- Additionally, install [[https://gitlab.com/vednoc/dark-switcher/][dark-switcher]] if you'd like to quickly switch between
+  various pre-defined color-schemes.
 
-*** Other ways to install this userstyle
-Supported but /not recommended/.
+** FAQ
+This section cover frequently asked questions.
 
-**** Userstyle managers that don't support stylus-lang but support UserCSS
-Just install from =gitlab.user.css= file using [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css][this link]].
+*** Why are there so many errors?
+The linter that Stylus is using doesn't understand [[https://stylus-lang.com][stylus-lang]] syntax. Disable
+the linter and all warnings will be gone. More info can be found here:
+[[https://github.com/openstyles/stylus/issues/880][GitHub/openstyles/stylus/880]]
 
-**** /Stylish/ is only supported through /[[https://userstyles.org/styles/164877][userstyles.org]]/
-USo is still the largest repository for themes despite all the issues. Don't
-use this version unless you /absolutely/ have to.
+*** How to add custom domains?
+Click on Stylus icon on your toolbar then on the edit button (pen icon) to open
+it in the editor. When you get there, simply press on the =+= button to add a new
+domain.
 
-It only has core functionality, is (likely) outdated, has no support, and needs
-to be /manually/ compiled for every single update.
+- ⚠ Modifying the code will prevent auto-update from working.
+- See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more info.
 
-** Contributions
+*** How to customize colors and/or other options?
+Click on Stylus icon on your toolbar then on the configure button (gear icon)
+and you'll be able to configure everything from within the popup. Same menu can
+be opened from the /Manage/ page in Stylus.
+
+** Contributing
 Any contribution is greatly appreciated.
 
 If you really like the project and would like to tip me for my work, then you
