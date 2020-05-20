@@ -567,6 +567,28 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
+    // Admin.
+    /{
+        /// -> Performance bar.
+        .with-performance-bar {
+            .production {
+                c: 0 0 bg;
+                box-shadow: inset 0 -1px bd i;
+            }
+            /// Queries -> Rounded corners.
+            .backtrace-row { rad: 4px }
+            /// Bar -> Menu.
+            select {
+                border: 1px solid bd i;
+                c: fg 0 hl;
+            }
+            /// Feat -> Navbar height option.
+            if(nb_height) {
+                .layout-page, .content-wrapper  { margin-top: 85px i }
+            }
+        }
+    }
+
     // Global -> Navbar.
     .navbar {
         /// Wrapper.
@@ -628,7 +650,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         if ( nb_height == 1 ) {
             min-height: 50px;
             /.nav-sidebar { top: 50px }
-            /.layout-page { margin-top: 50px }
+            /.layout-page, /.content-wrapper  { margin-top: 50px }
             /// Dropdown menu tweaks.
             .show > .dropdown-menu { margin-top: 8px i }
             .search-input-container .dropdown-menu { margin-top: 14px i }
@@ -713,6 +735,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     > td:last-child { rad: 0 4px 4px 0 }
                 }
             }
+        }
+        /// Admin -> SQL queries.
+        > tr {
+            td { c: 0 bd }
+            &:first-child > td { border-top: none }
         }
         /// AsciiDoc-specific styles.
         &.grid-all {
