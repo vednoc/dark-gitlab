@@ -1888,11 +1888,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Epics -> Epics and issues.
-        /.related-items-list {
-            .item-body {
-                &.item-closed {
-                    c: 0 0 bb;
-                    rad: 3px i;
+        /.related-items {
+            &-tree {
+                .item-title a { c: fg }
+                .item-meta { c: cm bd }
+            }
+            &-list {
+                .item-body {
+                    &.item-closed {
+                        c: 0 0 bb;
+                        rad: 3px i;
+                    }
                 }
             }
         }
