@@ -229,7 +229,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg 0 hl;
             box-shadow: inner;
         }
-        .gl-link, .author-link { color: ac }
+        /// Misc link colors.
+        .gl-link, .author-link,
+        /.branch-commit .commit-sha {
+            color: ac;
+        }
         /// Custom monospace font.
         pre, code, kbd, samp, .monospace, .ref-name,
         .commit-sha, .pipeline-number, .label-branch,
@@ -3925,6 +3929,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-number { c: cm }
             /// Weight. #124
             &-weight { c: fg }
+            /// Add padding to last element. @upstream
+            &:last-child { margin-bottom: 0.25rem }
         }
         /// Delete icon.
         &-delete:not(:hover) { opacity: 0.6 }
