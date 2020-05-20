@@ -1584,6 +1584,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .dropdown { &-title, &-footer { c: 0 bd }}
             }
         }
+        /// Issues -> Health status menu.
+        .btn-group {
+            li .dropdown-item {
+                &:hover { c: 0 0 bd }
+                &, button.btn { c: 0 0 t }
+                .btn.is-active::before {
+                    content: '\f00c' i;
+                    opacity: 1 i;
+                    c: 0 0 t;
+                }
+            }
+            /// Fix a conflict with button background hacks.
+            /.dropdown-title-button { position: absolute }
+        }
         /// Collapsed state.
         &&-collapsed {
             .sidebar-collapsed-icon {
