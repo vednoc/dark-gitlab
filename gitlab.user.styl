@@ -1579,7 +1579,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .labels-select {
             &-wrapper {
                 .label-item { &.is-focused, &:hover { c: fg 0 bd }}
-                .gl, .btn { &-link { c: cm }}
+                .gl, .btn { &-link:not(.gl-label-link) { c: cm }}
             }
             &-dropdown-contents {
                 border: 1px solid bd i;
@@ -2628,12 +2628,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Pajamas -> Labels.
         /.gl-label {
-            c: 0 0 hl;
+            c: 0 0 bd;
             &-label-link { c: 0 0 t }
             &-text {
                 &-light { text-shadow: 1px 1px 0 sh }
                 /// Fix dark-on-dark label name in notes/sidebar.
-                &-dark:nth-child(2)[data-html],
+                &-dark[style *= 'background-color'] + &-dark,
+                &-dark > .gl-label-link > span:nth-child(2),
                 &[style = 'color: rgb(51\, 51\, 51);'] {
                     c: fg;
                 }
