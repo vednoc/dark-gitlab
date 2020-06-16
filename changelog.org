@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.4 [2020-06-16 Tue]
+Minor release to fix updated styles for =13.1= release.
+
+*** Fixed
+- Colors for updated search bars [[https://gitlab.com/vednoc/dark-gitlab/-/issues/126][#126]]
+- Removed styles for retry button in pipelines
+- Colors for updated labels
+
 ** 1.3.3 [2020-05-21 Thu]
 Updating styles for =13.0= release.
 
