@@ -3079,6 +3079,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-token, &-term {
                 .name, .operator, .value-container { c: fg 0 bd }
                 ../-token:first-child { margin-left: 5px }
+                /// Text input is also tokenized.
+                > .name { c: 0 0 t }
             }
         }
     }
