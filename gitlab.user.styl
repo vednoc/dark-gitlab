@@ -547,6 +547,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 bg;
             &:hover:not(.disabled), &.forked { c: 0 0 hl }
         }
+        /// Notes -> Sticky header.
+        .issue-sticky-header {
+            top: (nb_height) ? 50px i : 40px i;
+            c: 0 bd hl;
+        }
     }
 
     // Global -> Custom checkbox/radio inputs.
@@ -1641,7 +1646,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Groups -> Navigation.
         /.content-block {
             c: 0 bd t;
-            p { c: fg }
+            p:not(.status-box) { c: fg }
             &.landing {
                 c: 0 0 hl;
                 h4 { c: fg }
