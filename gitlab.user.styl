@@ -3821,8 +3821,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.line-resolve {
             &-all { c: 0 bd hl }
             &-btn {
+                c: cm;
                 &.is-disabled svg { v: cm }
-                &.is-active svg { v: green }
+                &.is-active {
+                    c: green;
+                    svg { v: green }
+                }
             }
         }
         /// Reset code discussions.
