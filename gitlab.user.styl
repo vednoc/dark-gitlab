@@ -552,6 +552,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             top: (nb_height) ? 50px i : 40px i;
             c: 0 bd hl;
         }
+        /// Settings -> Fix 'preview theme' borders.
+        .preview { &.ui-dark, &.gl-dark { c: 0 bd }}
     }
 
     // Global -> Custom checkbox/radio inputs.
@@ -608,7 +610,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 margin: 4px 2px 4px -8px i;
                 &[href = '/'] { &:hover, &:focus { c: 0 0 bd }}
             }
-            .logo-text svg { fill: fg }
+            .logo-text svg { fill: fg i }
         }
         /// Feat -> Show canary badge.
         if ( nb_canary != 1 ) {
@@ -671,6 +673,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border-left-color: bd i;
             svg { v: cm }
         }
+        /// Dark mode tweaks.
+        .search-form {
+            > form { box-shadow: none i }
+            &:hover, &.search-active { > form { c: 0 blue }}
+        }
+        &-gitlab { box-shadow: none i }
     }
 
     // Global -> Tables.
