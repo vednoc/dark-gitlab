@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.3.5
+@version      1.3.6
 @license      MIT
 ==/UserStyle== */
 
@@ -53,7 +53,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.3.5';
+    --note: 'Dark-GitLab Lite v1.3.6';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -728,6 +728,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--darker) !important;
     background-color: var(--darken) !important;
   }
+  body .preview.ui-dark,
+  body .preview.gl-dark {
+    border-color: var(--darker) !important;
+  }
   input[type = 'radio']:checked {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
     background-size: cover !important;
@@ -778,7 +782,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--darker) !important;
   }
   .navbar .title .logo-text svg {
-    fill: var(--light);
+    fill: var(--light) !important;
   }
   .navbar .canary-badge > .badge {
     color: var(--white) !important;
@@ -876,6 +880,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .navbar-toggler svg {
     fill: var(--lighter) !important;
+  }
+  .navbar .search-form > form {
+    box-shadow: none !important;
+  }
+  .navbar .search-form:hover > form,
+  .navbar .search-form.search-active > form {
+    border-color: var(--blue) !important;
+  }
+  .navbar-gitlab {
+    box-shadow: none !important;
   }
   table:not(.code):not(#z) {
     display: table;
@@ -1147,6 +1161,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .ci-table path[fill = '#FFF'] {
     fill: var(--darken) !important;
+  }
+  .ci-table .build.retried {
+    background-color: var(--bb) !important;
   }
   [class *= 'col-'] > table.table {
     border: 1px solid var(--darker);
@@ -5521,8 +5538,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--darker) !important;
     background-color: var(--darken) !important;
   }
+  .line-resolve-btn {
+    color: var(--lighter) !important;
+  }
   .line-resolve-btn.is-disabled svg {
     fill: var(--lighter) !important;
+  }
+  .line-resolve-btn.is-active {
+    color: var(--green) !important;
   }
   .line-resolve-btn.is-active svg {
     fill: var(--green) !important;
@@ -6722,6 +6745,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .monaco-editor .current-line-margin {
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
+  }
+  .hover-overlay hr {
+    background-color: var(--darker) !important;
+  }
+  .hover-overlay__contents {
+    border-color: var(--darker) !important;
+  }
+  .hover-overlay--gitlab .hljs-comment,
+  .hover-overlay--gitlab .hljs-quote {
+    color: var(--lighter) !important;
+  }
+  .hover-overlay--gitlab .hljs-section,
+  .hover-overlay--gitlab .hljs-selector-id,
+  .hover-overlay--gitlab .hljs-title {
+    color: var(--light) !important;
+  }
+  .hover-overlay .loading-spinner {
+    border-color: var(--darker) !important;
+    border-top-color: var(--accent) !important;
   }
   [data-page='users:show'] .user-profile .cover-block {
     padding-top: 80px;
