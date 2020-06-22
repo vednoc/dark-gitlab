@@ -4621,6 +4621,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .current-line-margin { c: 0 bd bd }
     }
 
+    /// SourceGraph integration.
+    .hover-overlay {
+        /// Borders.
+        hr { c: 0 0 bd }
+        &__contents { c: 0 bd }
+        /// Tokens.
+        &--gitlab .hljs {
+            &-comment, &-quote { c: cm }
+            &-section, &-selector-id, &-title { c: fg }
+        }
+        /// Spinner.
+        .loading-spinner {
+            c: 0 bd;
+            border-top-color: ac i;
+        }
+    }
+
     // Feat -> Dark-GitLab announcements.
     if ( dgl_alerts == 1 ) {
         [data-page='users:show'] .user-profile .cover-block {
