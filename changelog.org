@@ -1,6 +1,15 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.6 [2020-06-22 Mon]
+Fixing a few things from the =13.1= release.
+
+*** Fixed
+- Background for retried pipelines ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/125][#125]])
+- Colors for navbar area in alpha dark mode
+- Colors for Sourcegraph code search integration
+- Colors for un/resolved discussions in Merge Requests
+
 ** 1.3.5 [2020-06-17 Wed]
 Fixing sticky issue headers.
 
