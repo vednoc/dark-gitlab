@@ -891,6 +891,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Icons -> Fix background.
             path[fill = '#FFF'] { v: hl }
+            /// Pipelines -> Jobs. #125
+            .build.retried { c: 0 0 bb }
         }
         /// Project -> Settings -> Webhooks.
         /[class *= 'col-'] > table.table {
