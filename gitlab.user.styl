@@ -787,6 +787,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             tbody tr {
                 &:nth-of-type(2n + 1) { c: 0 0 bb }
                 > td { border-top: 1px solid bd i }
+                /// Analytics -> Issues.
+                &:not(:first-child) > td.issues-analytics-td {
+                    &, ~ td { border-top: none i }
+                }
             }
         }
         /// Pajamas -> Tables.
@@ -4060,7 +4064,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .legend {
                 rect { v: 0 cm }
                 text { v: fg }
-                /.gl-legend { c: fg }
+                /.gl-legend { &, &-inline { c: fg }}
             }
             /// Gray elements.
             [style *= '221\, 221\, 221'] { v: bd }
