@@ -1270,7 +1270,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Global -> Transparent buttons.
         &.bg-transparent { c: 0 0 t }
         /// Dashboard -> Snippets.
-        &.gl-button { box-shadow: none i }
+        &.gl-button {
+            box-shadow: none i;
+            &.disabled, &[disabled],
+            &[class *= 'search-button'] {
+                box-shadow: inner i;
+            }
+        }
     }
 
     // Global -> Labels.
@@ -1746,6 +1752,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             & a.gl-text-black-normal {
                 &:hover {c: ac}
             }
+            /// TODO: Move to global styles.
+            .gl-border-gray-200 { c: 0 bd }
         }
     }
 
