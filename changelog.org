@@ -1,6 +1,15 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.7 [2020-06-23 Tue]
+Another small update to fix a few misc things.
+
+*** Fixed
+- Link colors on /Container Registry/ page ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/37][!37]])
+- Colors and borders for new-ish buttons
+- Added missing styles in analytics area
+- Colors for date range inputs in setings
+
 ** 1.3.6 [2020-06-22 Mon]
 Fixing a few things from the =13.1= release.
 
