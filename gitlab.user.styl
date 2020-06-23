@@ -1738,6 +1738,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .text-secondary { &, &:hover { c: cm }}
             }
         }
+        /// Project -> Container Registry
+        /.registry-placeholder {
+            & .gl-text-black-normal {
+                c: fg;
+            }
+            & a.gl-text-black-normal {
+                &:hover {c: ac}
+            }
+        }
     }
 
     // Global -> Tabbed navigation.
