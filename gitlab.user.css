@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.3.6
+@version      1.3.7
 @license      MIT
 ==/UserStyle== */
 
@@ -53,7 +53,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.3.6';
+    --note: 'Dark-GitLab Lite v1.3.7';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -1020,6 +1020,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   table:not(.code):not(#z).pipeline-project-metrics tbody tr > td {
     border-top: 1px solid var(--darker) !important;
   }
+  table:not(.code):not(#z).table-striped tbody tr:not(:first-child) > td.issues-analytics-td,
+  table:not(.code):not(#z).active-tokens tbody tr:not(:first-child) > td.issues-analytics-td,
+  table:not(.code):not(#z).pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td,
+  table:not(.code):not(#z).table-striped tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
+  table:not(.code):not(#z).active-tokens tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
+  table:not(.code):not(#z).pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td ~ td {
+    border-top: none !important;
+  }
   table:not(.code):not(#z).gl-table {
     border: 1px solid var(--darker);
   }
@@ -1848,6 +1856,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .btn.gl-button {
     box-shadow: none !important;
   }
+  .btn.gl-button.disabled,
+  .btn.gl-button[disabled],
+  .btn.gl-button[class *= 'search-button'] {
+    box-shadow: inset 0 0 0 1px var(--darker) !important;
+  }
   .label.label-monospace {
     color: var(--light) !important;
     border-color: var(--darker) !important;
@@ -2540,6 +2553,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-tab-content .text-secondary,
   .gl-tab-content .text-secondary:hover {
     color: var(--lighter) !important;
+  }
+  .registry-placeholder .gl-text-black-normal {
+    color: var(--light) !important;
+  }
+  .registry-placeholder a.gl-text-black-normal:hover {
+    color: var(--accent) !important;
+  }
+  .registry-placeholder .gl-border-gray-200 {
+    border-color: var(--darker) !important;
   }
   .gitlab-tabs {
     border-radius: 4px 4px 0 0;
@@ -3706,6 +3728,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .help-form .form-group form,
   .help-form .form-group .form-control,
   .help-form .form-group code {
+    background-color: var(--dark) !important;
+  }
+  .form-group > label + input {
     background-color: var(--dark) !important;
   }
   .gl-filtered-search-scrollable {
@@ -5833,7 +5858,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .burndown-chart .legend text {
     fill: var(--light) !important;
   }
-  .gl-legend {
+  .gl-legend,
+  .gl-legend-inline {
     color: var(--light) !important;
   }
   .burndown-chart [style *= '221, 221, 221'] {
