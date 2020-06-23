@@ -2577,6 +2577,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Settings -> Integrations.
         /.help-form .form-group {
             form, .form-control, code { c: 0 0 bg }
+            /// Audit Events -> Date range.
+            /.form-group > label + input { c: 0 0 bg }
         }
     }
 
