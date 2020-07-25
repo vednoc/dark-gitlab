@@ -1756,8 +1756,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             & a.gl-text-black-normal {
                 &:hover {c: ac}
             }
-            /// TODO: Move to global styles.
-            .gl-border-gray-200 { c: 0 bd }
         }
     }
 
@@ -2613,8 +2611,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-search-box-by-click-search-button {
             border: 1px solid bd;
         }
-        /// Color overrides.
+        /// Background-color overrides.
         &-bg-white { c: 0 0 bb }
+        /// Border-color overrides.
+        &-border-gray {
+            &-100, &-200 { c: 0 bd }
+        }
     }
 
     // Pajamas -> GFM.
