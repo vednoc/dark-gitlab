@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.3.9 [2020-07-25 Sat]
+Small maintenance update.
+
+*** Fixed
+- Background color for file tree in diffs ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/129][#129]])
+- Refactored border-color overrides
+- Background color for blue buttons in issues sidebar
+
 ** 1.3.8 [2020-07-01 Wed]
 Fix colors for DAG integration.
 
