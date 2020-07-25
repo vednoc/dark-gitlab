@@ -3476,6 +3476,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .file-row {
                 &:hover, &:focus { c: 0 0 hl }
                 &-header.bg-white { c: 0 0 bb }
+                /// Active item. #129
+                &.is-active { c: 0 0 bd }
             }
         }
         /// MR -> Resolve conflicts. #82
