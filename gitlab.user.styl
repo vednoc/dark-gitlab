@@ -1563,7 +1563,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .issuable-sidebar {
             overflow-y: auto i;
             .gutter-toggle { c: 0 bd t }
-            &-header, .dropdown { button { c: 0 0 bg }}
+            &-header, .dropdown {
+                button { c: 0 0 bg }
+                /// 'Update all' button.
+                .btn-info { c: 0 0 blue }
+            }
         }
         /// Time tracking. #49
         .time_tracker {
