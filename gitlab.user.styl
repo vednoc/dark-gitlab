@@ -4067,7 +4067,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             li.issuable-row {
                 c: 0 0 bg;
                 &:first-child { border-top: 1px solid bd i }
-                &:last-child { rad: 0 0 r r }
+                &:last-child { rad: 0 0 4px 4px }
                 .issuable-number { c: cm }
             }
         }
@@ -4444,8 +4444,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-commit-panel {
                 c: 0 0 hl;
                 .ic-git-merge { c: cm }
-                /// Fix 1px of missing space.
-                > .ide-context-body { margin-right: -1px }
                 /// Commits.
                 &-header, ../-commit-form > form { c: 0 bd }
                 /// Discard all changes.
@@ -4605,7 +4603,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Command palette.
         .monaco-quick-open-widget {
-            rad: r;
             c: fg bd bg;
             box-shadow: outer, bsh i;
             .results-group { c: cm }
