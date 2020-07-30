@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.3.9
+@version      1.4.0
 @license      MIT
 ==/UserStyle== */
 
@@ -53,7 +53,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.3.9';
+    --note: 'Dark-GitLab Lite v1.4.0';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -1147,6 +1147,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .ci-table .gfm-commit {
     color: var(--accent) !important;
   }
+  .ci-table .ref-name,
   .ci-table .pipeline-id,
   .ci-table .table-mobile-header,
   .ci-table .build-link,
@@ -3769,12 +3770,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-search-box-by-click-search-button {
     border: 1px solid var(--darker);
   }
+  .gl-text-body {
+    color: var(--light) !important;
+  }
+  .gl-text-orange-500:not(#z) {
+    color: var(--orange) !important;
+    fill: var(--orange) !important;
+  }
   .gl-bg-white {
     background-color: var(--bb) !important;
+  }
+  .gl-bg-gray-10 {
+    background-color: var(--dark) !important;
   }
   .gl-border-gray-100,
   .gl-border-gray-200 {
     border-color: var(--darker) !important;
+  }
+  .gl-inset-border-1-gray-100 {
+    box-shadow: inset 0 0 0 1px var(--darker);
   }
   .gfm {
     color: var(--light) !important;
@@ -5833,7 +5847,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-top: 1px solid var(--darker) !important;
   }
   .milestone-content li.issuable-row:last-child {
-    border-radius: 0 0 r r;
+    border-radius: 0 0 4px 4px;
   }
   .milestone-content li.issuable-row .issuable-number {
     color: var(--lighter) !important;
@@ -6366,6 +6380,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .search-results .search-result-row {
     border-color: var(--darker) !important;
   }
+  .ide {
+    --ide-link-color: var(--accent);
+    --ide-text-color: var(--light);
+    --ide-input-color: var(--light);
+    --ide-border-color: var(--dark);
+    --ide-input-background: var(--darken);
+    --ide-text-color-secondary: var(--lighter);
+    --ide-highlight-background: var(--darken);
+    --ide-animation-gradient-1: var(--darker);
+    --ide-animation-gradient-2: var(--darken);
+    --ide-dropdown-hover-background: var(--darker);
+    --ide-dropdown-btn-hover-border: var(--darker);
+    --ide-dropdown-btn-hover-background: var(--darken);
+  }
   .ide-view {
     color: var(--light) !important;
   }
@@ -6417,9 +6445,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .ide .multi-file-commit-panel .ic-git-merge {
     color: var(--lighter) !important;
-  }
-  .ide .multi-file-commit-panel > .ide-context-body {
-    margin-right: -1px;
   }
   .ide .multi-file-commit-panel-header,
   .ide .multi-file-commit-form > form {
@@ -6652,7 +6677,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     box-shadow: inset 1px 0 var(--lighter);
   }
   .monaco-editor .monaco-quick-open-widget {
-    border-radius: r;
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
