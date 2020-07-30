@@ -84,10 +84,10 @@ To customize colors and/or other features, follow these instructions:
   various pre-defined color-schemes.
 
 ** FAQ
-This section cover frequently asked questions.
+This section covers frequently asked questions.
 
-*** Why are there so many errors?
-The linter that Stylus is using doesn't understand [[https://stylus-lang.com][stylus-lang]] syntax. Disable
+*** Why are there so many warnings and/or errors?
+The linter that Stylus is using doesn't understand [[https://stylus-lang.com][Stylus-lang]] syntax. Disable
 the linter and all warnings will be gone. More info can be found here:
 [[https://github.com/openstyles/stylus/issues/880][GitHub/openstyles/stylus/880]]
 
@@ -99,16 +99,22 @@ domain.
 - ⚠ Modifying the code will prevent auto-update from working.
 - See [[https://gitlab.com/vednoc/dark-gitlab/issues/99#note_265480670][#99]] for more info.
 
+*** How to exclude a domain?
+Click on Stylus icon on your toolbar then on the action menu button (three dots
+icon) and choose domain/URL exclusion you want to exclude.
+
 *** How to customize colors and/or other options?
 Click on Stylus icon on your toolbar then on the configure button (gear icon)
 and you'll be able to configure everything from within the popup. Same menu can
-be opened from the /Manage/ page in Stylus.
+also be accessed from the /Manage/ page in Stylus.
 
 ** Contributing
 Any contribution is greatly appreciated.
 
-If you really like the project and would like to tip me for my work, then you
-can buy me a coffee over at [[https://ko-fi.com/vednoc][ko-fi]] or support me over at [[https://liberapay.com/vednoc][LiberaPay]].
+If you really like this project and would like to tip me for my work, then you
+can:
+- Buy me a coffee over at [[https://ko-fi.com/vednoc][ko-fi]]
+- Support me over at [[https://liberapay.com/vednoc][LiberaPay]]
 
 ** License
 Code released under the [[license][MIT]] license.
