@@ -2616,6 +2616,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-search-box-by-click-search-button {
             border: 1px solid bd;
         }
+        /// Text color overrides.
+        &-text {
+            &-body { c: fg }
+            &-orange-500:not(#z) { c: orange; v: orange }
+        }
         /// Background-color overrides.
         &-bg {
             &-white { c: 0 0 bb }
