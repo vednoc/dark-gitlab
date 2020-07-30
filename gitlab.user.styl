@@ -4412,7 +4412,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Components -> IDE.
     .ide {
-        &-view { c: fg }
+        /// Vars.
+        --ide-link-color: ac
+        --ide-text-color: fg
+        --ide-input-color: fg
+        --ide-border-color: bg
+        --ide-input-background: hl
+        --ide-text-color-secondary: cm
+        --ide-highlight-background: hl
+        --ide-animation-gradient-1: bd
+        --ide-animation-gradient-2: hl
+        --ide-dropdown-hover-background: bd
+        --ide-dropdown-btn-hover-border: bd
+        --ide-dropdown-btn-hover-background: hl
         /// Header area.
         .sidebar-context-title { c: fg }
         .avatar-container { c: 0 0 t }
