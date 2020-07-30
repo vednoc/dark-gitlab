@@ -101,7 +101,7 @@ domain.
 
 *** How to exclude a domain?
 Click on Stylus icon on your toolbar then on the action menu button (three dots
-icon) and choose domain/URL exclusion you want to exclude.
+icon) and choose domain/URL exclusion you want to use.
 
 *** How to customize colors and/or other options?
 Click on Stylus icon on your toolbar then on the configure button (gear icon)
