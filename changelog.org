@@ -1,6 +1,22 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.4.0 [2020-07-30 Thu]
+Added integration with IDE color variables, updated info in the readme, and
+fixed more styles.
+
+*** Docs
+- Updated info in the project readme
+
+*** Improved
+- Added a shim for native variables used within the IDE area
+
+*** Fixed
+- Text color for branch name in CI tables (Thanks dasJ)
+- Image details in project container registry ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/130][#130]])
+- Text colors in project container registry ([[ https://gitlab.com/vednoc/dark-gitlab/-/issues/131][#131]])
+- Removed a couple of bad rules in Lite version
+
 ** 1.3.9 [2020-07-25 Sat]
 Small maintenance update.
 
