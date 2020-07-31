@@ -1,6 +1,18 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.4.1 [2020-08-01 Sat]
+Quick update to fix more colors and horizontal scrollbar in issue boards.
+
+*** Docs
+- Fix a typo in the project readme
+
+*** Fixed
+- Added missing colors in MR review mode
+- Added colors for various icon colors
+- Updated cards on environments page
+- Added styles for horizontal scrollbar in issue boards ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/38][!38]], [[https://gitlab.com/vednoc/dark-gitlab/-/issues/132][#132]])
+
 ** 1.4.0 [2020-07-30 Thu]
 Added integration with IDE color variables, updated info in the readme, and
 fixed more styles.
