@@ -2625,6 +2625,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-bg {
             &-white { c: 0 0 bb }
             &-gray-10 { c: 0 0 bg }
+            &-green-100.gl-text-green-800 { c: white green green }
         }
         /// Border-color overrides.
         &-border-gray {
@@ -3973,7 +3974,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Code -> Add new note.
         &-form { c: 0 bd bb }
         /// MR -> Review.
-        /.draft-note-component { c: 0 0 t }
+        /.draft-note-component {
+            c: 0 0 t
+            .drafts-count-component { c: white 0 green }
+        }
         /.review-bar-component { c: 0 bd bg }
     }
 
