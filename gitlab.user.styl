@@ -267,10 +267,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global color reset.
         .text {
-            &-info:not(#z) { c: blue }
-            &-danger:not(#z) { c: red }
-            &-success:not(#z) { c: green }
-            &-warning:not(#z) { c: orange }
+            &-info:not(#z) { c: blue; > svg { v: blue }}
+            &-danger:not(#z) { c: red; > svg { v: red }}
+            &-success:not(#z) { c: green; > svg { v: green }}
+            &-warning:not(#z) { c: orange; > svg { v: orange }}
             &-plain, /.light { c: fg }
             &-secondary, &-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
