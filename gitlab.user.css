@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.4.0
+@version      1.4.1
 @license      MIT
 ==/UserStyle== */
 
@@ -53,7 +53,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.4.0';
+    --note: 'Dark-GitLab Lite v1.4.1';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -219,14 +219,26 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   body .text-info:not(#z) {
     color: var(--blue) !important;
   }
+  body .text-info:not(#z) > svg {
+    fill: var(--blue) !important;
+  }
   body .text-danger:not(#z) {
     color: var(--red) !important;
+  }
+  body .text-danger:not(#z) > svg {
+    fill: var(--red) !important;
   }
   body .text-success:not(#z) {
     color: var(--green) !important;
   }
+  body .text-success:not(#z) > svg {
+    fill: var(--green) !important;
+  }
   body .text-warning:not(#z) {
     color: var(--orange) !important;
+  }
+  body .text-warning:not(#z) > svg {
+    fill: var(--orange) !important;
   }
   body .text-plain,
   .light {
@@ -2824,6 +2836,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .card.border-0 .card-header a {
     color: var(--light) !important;
   }
+  .environments-dashboard .dashboard-card {
+    box-shadow: none !important;
+    border: none !important;
+    background-color: var(--t) !important;
+  }
   .related-issues-block .card-header {
     border-color: var(--darker) !important;
     background-color: var(--darken) !important;
@@ -3782,6 +3799,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .gl-bg-gray-10 {
     background-color: var(--dark) !important;
+  }
+  .gl-bg-green-100.gl-text-green-800 {
+    color: var(--white) !important;
+    border-color: var(--green) !important;
+    background-color: var(--green) !important;
   }
   .gl-border-gray-100,
   .gl-border-gray-200 {
@@ -5718,6 +5740,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .draft-note-component {
     background-color: var(--t) !important;
   }
+  .draft-note-component .drafts-count-component {
+    color: var(--white) !important;
+    background-color: var(--green) !important;
+  }
   .review-bar-component {
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
@@ -5827,6 +5853,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .board-inner > header h3 {
     min-height: 51px !important;
+  }
+  .boards-list,
+  .board-swimlanes {
+    --offset: 0px;
+    height: calc(100vh - 114px - var(--offset));
+  }
+  @media (min-width: 768px) {
+    .boards-list,
+    .board-swimlanes {
+      height: calc(100vh - 167px - var(--offset));
+    }
+  }
+  @media (max-width: 767.98px) and (min-width: 576px) {
+    .boards-list,
+    .board-swimlanes {
+      height: calc(100vh - 99px - var(--offset));
+    }
   }
   .milestones .milestone:not(:last-child) {
     margin-bottom: 8px;
