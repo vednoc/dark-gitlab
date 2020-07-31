@@ -1945,6 +1945,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.border-0 {
             border: 1px solid bd i;
             .card-header a { c: fg }
+            /// Dashboard -> Environments.
+            /.environments-dashboard .dashboard-card {
+                box-shadow: none i
+                border: none i
+                c: 0 0 t
+            }
         }
         /// Notes -> Related issues.
         /.related-issues-block .card {
