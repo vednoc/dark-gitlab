@@ -4061,6 +4061,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix height of headers. @upstream
             ../-inner > header h3 { min-height: 51px i }
         }
+        &s-list, &-swimlanes {
+            --offset: (nb_height) ? 0px : -10px
+            height: calc(100vh - 114px - var(--offset));
+            @media (min-width: 768px) {
+                height: calc(100vh - 167px - var(--offset));
+            }
+            @media (max-width: 767.98px) and (min-width: 576px) {
+                height: calc(100vh - 99px - var(--offset));
+            }
+        }
     }
 
     // Issues -> Milestones.
