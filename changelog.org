@@ -1,6 +1,17 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.4.2 [2020-08-03 Mon]
+Quick update to fix more colors and horizontal scrollbar in issue boards.
+
+*** Improved
+- Added a shim to make new button style look like old 'bordered' buttons
+- Added Adélie Linux instance to domain list
+
+*** Fixed
+- Resolved white =<th>= elements in org-mode/rST tables
+- Added resets for borders on security dashboard page
+
 ** 1.4.1 [2020-08-01 Sat]
 Quick update to fix more colors and horizontal scrollbar in issue boards.
 
