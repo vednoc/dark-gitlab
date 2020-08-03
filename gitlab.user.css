@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.4.1
+@version      1.4.2
 @license      MIT
 ==/UserStyle== */
 
@@ -53,7 +53,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.4.1';
+    --note: 'Dark-GitLab Lite v1.4.2';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -953,10 +953,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   table:not(.code):not(#z) tbody tr:last-child td:first-child:last-child {
     border-radius: 0 0 4px 4px;
   }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th {
+  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr > th {
     border-bottom-width: 1px !important;
     border-color: var(--darker) !important;
     background-color: var(--darken) !important;
+  }
+  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:not(:first-child) > th {
+    border-top-width: 0px !important;
   }
   table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:not(:first-child):not(last-child) {
     border-left: none;
@@ -969,6 +972,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:first-child:last-child {
     border-radius: 4px 4px 0 0;
+  }
+  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:last-child > th:first-child {
+    border-radius: 0 0 0 4px;
+  }
+  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child:last-child > th:first-child {
+    border-radius: 4px 0 0 4px;
   }
   table:not(.code):not(#z) tbody:first-child > tr:first-child > td:first-child {
     border-radius: 4px 0 0 0;
@@ -1106,6 +1115,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   table:not(.code):not(#z).push-pull-table thead tr th {
     border-top: none !important;
+  }
+  .vulnerability-list thead th {
+    box-shadow: 0 1px var(--darker) !important;
   }
   .gl-responsive-table-row {
     color: var(--lighter) !important;
@@ -1867,6 +1879,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--t) !important;
   }
   .btn.gl-button {
+    border: 1px solid;
     box-shadow: none !important;
   }
   .btn.gl-button.disabled,
@@ -3808,6 +3821,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-border-gray-100,
   .gl-border-gray-200 {
     border-color: var(--darker) !important;
+  }
+  .border {
+    border: 1px solid var(--darker) !important;
   }
   .gl-inset-border-1-gray-100 {
     box-shadow: inset 0 0 0 1px var(--darker);
