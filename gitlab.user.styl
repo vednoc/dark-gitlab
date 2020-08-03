@@ -727,12 +727,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 // &:hover > td { c: 0 0 hl }
             }
-            /// Org-mode appears to render TH inside of TBODY. @upstream
+            /// Org-mode/rST tables appear to render TH inside of TBODY.
             /// Fix a conflict with 'keyboard shortcuts' modal.
-            ../:not(.shortcut-mappings) tbody > tr:first-child {
+            ../:not(.shortcut-mappings) tbody > tr {
                 > th {
                     border-bottom-width: 1px i;
                     c: 0 bd hl;
+                    ../:not(:first-child) > th { border-top-width: 0px i }
+                }
+                &:first-child > th {
                     &:{ flc } {
                         border-left: none;
                         // c: 0 green;
@@ -741,6 +744,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &:last-child { rad: 0 R 0 0 }
                     &:first-child:last-child { rad: R R 0 0 }
                 }
+                &:last-child > th:first-child { rad: 0 0 0 R }
+                &:first-child:last-child > th:first-child { rad: R 0 0 R }
             }
             /// Fix top rounded corners for head-less tables.
             &:first-child > tr:first-child {
