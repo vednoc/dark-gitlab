@@ -850,6 +850,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border: 1px solid bd;
             thead tr th { border-top: none i }
         }
+        /// Project -> Security.
+        /.vulnerability-list thead th { box-shadow: 0 1px bd i }
         /// Project -> Settings -> Badges.
         /.gl-responsive-table-row {
             c: cm;
@@ -2641,6 +2643,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Border-color overrides.
         &-border-gray {
             &-100, &-200 { c: 0 bd }
+            /.border { border: 1px solid bd i }
         }
         /// Box-shadow overrides.
         &-inset-border {
