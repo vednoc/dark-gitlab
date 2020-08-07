@@ -859,6 +859,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.gl-responsive-table-row {
             c: cm;
             &:not(:last-child) { c: 0 bd }
+            &-clickable:hover { c: 0 0 hl }
         }
         /// Project -> Pipelines.
         /.ci-table {
@@ -3093,7 +3094,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Remove right padding. @upstream
         div.build-trace-container { padding-right: 0 i }
         /// Jobs -> Failed jobs.
-        .build-trace {
+        /.build-trace {
             border: 1px solid bd;
             c: fg 0 hl;
             &-container { padding-right: 16px i }
