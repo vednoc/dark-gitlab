@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.4.2
+@version      1.4.3
 @license      MIT
 ==/UserStyle== */
 
@@ -46,14 +46,17 @@ domain('lab.libreho.st'),
 domain('opencode.net'),
 domain('skylab.vc.h-brs.de'),
 domain('vbscan.fisica.unimib.it'),
+domain('git.cardiff.ac.uk'),
+domain('git.igwn.org'),
+domain('git.ligo.org'),
 regexp('^https?://(www\.)?git\.(gnu|synz)\.io(/.*)?$'),
-regexp('^https?://(www\.)?code\.(videolan|briarproject)\.org(/.*)?$'),
+regexp('^https?://(www\.)?code\.((videolan|briarproject)\.org|foxkit\.us)(/.*)?$'),
 regexp('^https?://(www\.)?source\.(small-tech|joinmastodon)\.org(/.*)?$'),
 regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.org(/.*)?$'),
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.4.2';
+    --note: 'Dark-GitLab Lite v1.4.3';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -1124,6 +1127,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .gl-responsive-table-row:not(:last-child) {
     border-color: var(--darker) !important;
+  }
+  .gl-responsive-table-row-clickable:hover {
+    background-color: var(--darken) !important;
   }
   .ci-table {
     margin-top: 10px;
@@ -4451,12 +4457,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .build-page div.build-trace-container {
     padding-right: 0 !important;
   }
-  .build-page .build-trace {
+  .build-trace {
     border: 1px solid var(--darker);
     color: var(--light) !important;
     background-color: var(--darken) !important;
   }
-  .build-page .build-trace-container {
+  .build-trace-container {
     padding-right: 16px !important;
   }
   .detail-page-header {
