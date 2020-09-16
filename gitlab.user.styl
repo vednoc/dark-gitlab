@@ -3851,6 +3851,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &::before { content: unset i }
                 svg { v: fg }
             }
+            /// Buttons -> Remove styles from reply button. @upstream
+            .note-actions-item.js-reply-button > .gl-button {
+                border: none i
+                c: 0 0 t
+            }
             /// Edited text.
             .edited-text { &, .author-link { c: cm }}
             /// Code discussion divider.
