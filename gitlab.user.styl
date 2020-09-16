@@ -682,6 +682,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:hover, &.search-active { > form { c: 0 blue }}
         }
         &-gitlab { box-shadow: none i }
+        /// Fix 'down-arrow' size. @upstream
+        svg.s16[data-testid='angle-down-icon'] { width: 11px }
     }
 
     // Global -> Tables.
