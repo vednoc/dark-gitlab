@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.4.3
+@version      1.4.4
 @license      MIT
 ==/UserStyle== */
 
@@ -56,7 +56,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.4.3';
+    --note: 'Dark-GitLab Lite v1.4.4';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -905,6 +905,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .navbar-gitlab {
     box-shadow: none !important;
+  }
+  .navbar svg.s16[data-testid='angle-down-icon'] {
+    width: 11px;
   }
   table:not(.code):not(#z) {
     display: table;
@@ -5145,13 +5148,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .code.none .line_holder:not(#z) > td {
     color: var(--light) !important;
   }
-  .add-diff-note {
+  button.add-diff-note {
     padding: 0 0 1px 1px;
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
   }
-  .add-diff-note:hover {
+  button.add-diff-note:hover {
     background-color: var(--darken) !important;
   }
   .code.white .line_holder .unfold:not(#z),
@@ -5561,6 +5564,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .notes.timeline > .timeline-entry .note-actions-item > [class *= 'button']:hover svg {
     fill: var(--light) !important;
+  }
+  .notes.timeline > .timeline-entry .note-actions-item.js-reply-button > .gl-button {
+    border: none !important;
+    background-color: var(--t) !important;
   }
   .notes.timeline > .timeline-entry .edited-text,
   .notes.timeline > .timeline-entry .edited-text .author-link {
