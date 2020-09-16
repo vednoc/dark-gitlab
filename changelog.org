@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.4.4 [2020-09-16 Wed]
+Small maintenance update.
+
+*** Fixed
+- Some down-arrow icons in the navbar were having different sizes
+- There was a conflict with 'add a comment' button in commit diffs
+- New button styles were interferring with reply buttons in notes
+
 ** 1.4.3 [2020-08-07 Fri]
 Added a few more more instances to domain list.
 
