@@ -389,6 +389,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.closed { c: red; v: red }
             }
         }
+        /// CI -> Text
+        .ci-status-text {
+            max-width: 100%;
+            margin-right: 35px;
+        }
         /// CI -> Icons.
         /.ci-status {
             c: fg bd bg 1 0;
@@ -3034,6 +3039,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.pipeline-tab-content { c: 0 0 hl }
         /// Pipelines -> Stages.
         .build {
+            width: 100%;
             &-content {
                 c: 0 bd bg;
                 &:hover { c: 0 0 bb }
