@@ -1061,6 +1061,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 [class *= 'text-pri'] { c: fg }
                 [class *= 'text-sec'] { c: cm }
             }
+
+            /// Project -> Gitpod/IDE menu.
+            /// NOTE: Remove when replaced with an SVG icon. @upstream
+            if (lightness(dark) <= 50%) {
+                &.dropdown-toggle-split::after { filter: invert(0.7) i }
+            }
         }
         /// Issues -> 'Create MR' button.
         /.droplab-dropdown {
