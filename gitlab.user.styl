@@ -233,10 +233,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             box-shadow: inner;
         }
         /// Misc link colors.
-        .gl-link, .author-link,
-        /.branch-commit .commit-sha {
-            color: ac;
-        }
+        .gl-link { &, &:hover { color: ac }}
+        .author-link, /.branch-commit .commit-sha { color: ac }
         /// Custom monospace font.
         pre, code, kbd, samp, .monospace, .ref-name,
         .commit-sha, .pipeline-number, .label-branch,
@@ -1216,7 +1214,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-link { c: ac t t }
         &.active { c: fg bd bd }
         /// Transparent buttons.
-        &-transparent:not(#z) { c: cm t t 0 }
+        &-transparent:not(#z) {
+            c: cm t t 0
+            &::before { content: unset }
+        }
         /// Disabled.
         &[disabled], &.disabled {
             &:not(#z) {
