@@ -273,7 +273,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-success:not(#z) { c: green; > svg { v: green }}
             &-warning:not(#z) { c: orange; > svg { v: orange }}
             &-plain, /.light { c: fg }
-            &-secondary, &-muted, &-tertiary { c: cm }
+            &-secondary, &-muted, &-gl-muted, &-tertiary { c: cm }
             /.cgray, /.description-block, /.help-block { c: cm }
             /[class *= 'gl-text-gray-'] { c: cm }
         }
@@ -3521,8 +3521,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding-left: 0;
                 c: 0 0 t;
             }
-            /.cred { c: red }
-            /.cgreen { c: green }
+            /.cred:not(#z) { c: red; v: red }
+            /.cgreen:not(#z) { c: green; v: green }
             /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
                 c: blue 0 t;
