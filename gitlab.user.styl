@@ -867,6 +867,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: cm;
             &:not(:last-child) { c: 0 bd }
             &-clickable:hover { c: 0 0 hl }
+            /// Settings -> Usage quotas -> Storage.
+            &.bg-gray-light {
+                c: 0 0 bb
+                &:last-child { border-bottom: 1px solid bd i }
+            }
         }
         /// Project -> Pipelines.
         /.ci-table {
@@ -1777,6 +1782,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .text-dark { &, &:hover { c: fg }}
                 .text-secondary { &, &:hover { c: cm }}
             }
+            /// Settings -> Usage quotas.
+            /.pipeline-quota {
+                c: 0 bd
+                /// Workaround for removing extra whitespace.
+                + .ci-table > div:first-child { margin-top: -1px i }
+            }
         }
         /// Project -> Container Registry
         /.registry-placeholder {
@@ -2184,6 +2195,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.bg5 { c: 0 0 cyan }
         &.bg6 { c: 0 0 violet }
         &.bg7 { c: 0 0 orange }
+        /// Fallback identicon; Found on 'usage quotas' page.
+        &.bgNaN {
+            c: 0 0 bd
+            box-shadow: none
+        }
     }
 
     // Global -> Page title.
