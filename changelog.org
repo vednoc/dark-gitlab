@@ -1,6 +1,22 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.0 [2020-09-25 Fri]
+Updated styles to latest GitLab =13.4= release.
+
+*** Improved
+- Long job names in pipelines are no longer truncated ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/40][!40]])
+- GitLab links and transparent buttons should be more consistent
+- Added better colors for GitHub-Dark color-scheme
+
+*** Fixed
+- Inverted icon color for Gitpod/IDE dropdown menu
+- Added new styles for 'usage quota' page in account settings
+- Added background color to fallback/broken avatar identicons
+- Increased specificity and =fill= color for red/green SVG icons
+- Disabled custom Dark-GitLab announcements on user profiles
+  - I had it disabled in my configuration menu all this time. :v
+
 ** 1.4.4 [2020-09-16 Wed]
 Small maintenance update.
 
