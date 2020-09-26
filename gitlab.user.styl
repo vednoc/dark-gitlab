@@ -2733,98 +2733,69 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Pajamas -> Alerts.
     .gl-alert {
-        z-index: 1;
         &-body, &-actions {
             a {
                 font-weight: bold;
                 color: currentColor i;
             }
         }
+
         /// Close button.
         .js-close {
             color: currentColor;
             svg { fill: currentColor i }
         }
-        /// Background.
-        &::before {
-            z-index: -1;
-            opacity: 0.15;
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-        }
+
         /// States.
         &-warning {
-            c: orange_ 0 hl
+            c: b20 0 b24
             .gl-alert-icon { v: orange }
-            &::before { content: ''; c: 0 0 orange }
         }
         &-danger {
-            c: red 0 hl;
+            c: b10 0 b14
             .gl-alert-icon { v: red }
-            &::before { content: ''; c: 0 0 red }
         }
         &-success {
-            c: green 0 hl;
+            c: b40 0 b44
             .gl-alert-icon { v: green }
-            &::before {content: ''; c: 0 0 green }
         }
         &-info {
-            c: blue 0 hl;
+            c: b60 0 b64
             .gl-alert-icon { v: blue }
-            &::before { content: ''; c: 0 0 blue }
         }
         &-tip {
             c: fg 0 hl;
             .gl-alert-icon { v: fg }
-            &::before { content: ''; c: 0 0 cm }
         }
-        /// Global -> Old alerts.
+
+        /// Global -> Old floating alerts.
         /.flash-container {
             c: 0 0 bg;
-            > div {
-                position: relative;
-                &::before {
-                    content: '';
-                    opacity: 0.25;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                }
-                svg { fill: currentColor i }
-            }
-            .flash-alert {
-                c: red 0 t;
-                &::before { c: 0 0 red }
-            }
-            .flash-warning {
-                c: orange 0 t;
-                &::before { c: 0 0 orange }
-            }
-            .flash-notice {
-                c: blue 0 t;
-                &::before { c: 0 0 blue }
-            }
-            .flash-success {
-                c: green 0 t;
-                &::before { c: 0 0 green }
-            }
+            svg { fill: currentColor i }
+            .flash-alert { c: b10 0 b15 }
+            .flash-notice { c: b60 0 b65 }
+            .flash-warning { c: b20 0 b25 }
+            .flash-success { c: b40 0 b45 }
             /// Increase top offset when nb_height is enabled.
-            if (nb_height) {
-                &.sticky { top: 58px i }
-            }
+            if (nb_height) { &.sticky { top: 58px i }}
         }
+
+        /// Global -> Old alerts.
         /.alert {
-            &&-info, &&-primary { c: blue blue hl }
-            &&-warning { c: orange orange hl }
-            &&-success { c: green green hl }
-            &&-secondary { c: cm bd hl }
-            &&-danger { c: red red hl }
-            &&-light { c: fg bd hl }
+            &&-info, &&-primary { c: b60 b63 b64 }
+            &&-warning { c: b20 b23 b24 }
+            &&-success { c: b40 b43 b44 }
+            &&-secondary { c: fg3 bg5 bg2 }
+            &&-danger { c: b10 b13 b14 }
+            &&-light { c: fg3 bg5 bg3 }
             h4 { color: inherit i }
+
             /// Broadcast messages found on `git.synz.io`.
             /[class *= 'broadcast-banner'] {
-                svg { v: white }
-                .fa { c: white }
+                svg { v: currentColor }
+                .fa { c: currentColor }
             }
+
             /// Broadcast notifications. #115
             /.broadcast-notification-message {
                 c: 0 bd hl;
@@ -2863,6 +2834,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-input { box-shadow: none i }
         /// Select menu.
         /.custom-select { c: fg bd hl }
+
         /// Project -> Releases -> Edit release.
         /// Fix whitespace/focus. @upstream
         &-group .bordered-box.pl-3 {
