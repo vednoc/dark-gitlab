@@ -333,7 +333,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Colors for CI status icons in Firefox.
         @supports (-moz-user-select: none) {
-            --svg-status-bg : var(--dark) !important;
+            --svg-status-bg: var(--bg-1)
         }
         /// Prevents horizontal overflow. @upstream
         overflow-x: hidden;
@@ -1097,7 +1097,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             rad: 4px;
             [class *= 'header'] {
                 padding: 12px 16px;
-                c: fg bd hl;
+                c: fg1 bg5 bg3
                 rad: 3px 3px 0 0;
             }
             [class $= 'table-row'] {
@@ -1107,7 +1107,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     border-bottom: none i;
                     rad: 0 0 3px 3px;
                 }
-                &:hover { c: 0 0 bb }
+                &:hover { c: 0 0 bg2 }
             }
             .pipeline-actions { padding-right: 16px }
             /.js-run-mr-pipeline { margin-right: 16px }
@@ -2490,19 +2490,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Pagination.
     .pagination {
         .page-link {
-            c: fg bd hl;
-            &:not(.active):hover {
-                c: 0 0 bd;
-                box-shadow: none;
-            }
-            ../ .disabled .page-link {
-                opacity: 0.6;
-                c: cm 0 hl;
-            }
-            /// Issues | Pipelines.
-            ../ .active .page-link, &.active {
-                c: ac 0 bd;
-            }
+            c: fg1 bg5 bg3
+            &:not(.active):hover { c: 0 0 bg4; b: none }
+            ../ .disabled .page-link { c: fg5 0 bg2 }
+            ../ .active .page-link, &.active { c: ac0 0 ac4 }
         }
     }
 
