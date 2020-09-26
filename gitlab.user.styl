@@ -114,9 +114,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol', 'Noto Color Emoji';
         --white     : white;
-
-        /// Feat -> Color-scheme.
-        if ( theme == 'GitHub-Dark' ) {
+        if (theme == 'GitHub-Dark') {
             --bb        : #202020;
             --dark      : #181818;
             --darken    : #262626;
@@ -215,7 +213,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     /// Feat -> Set 'none' syntax preset to use theme colors.
-    if ( c_hl_none == 1 ) { c-hl-none = ', .code.none' }
+    if (c_hl_none) { c-hl-none = ', .code.none' }
 
     // Base styles.
     body {
@@ -310,7 +308,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Profile -> Calendar activities.
         .bordered, .unstyled { &-list > li { c: 0 bd }}
         /// Scrollbars.
-        if ( sb_enable == 1 ) {
+        if (sb_enable) {
             /html { scrollbar-color: #88888830 #88888815 }
             /::-webkit-scrollbar {
                 width: 12px;
@@ -485,7 +483,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Feat -> Invert icons in Shadow DOM.
-        if ( ic_invert == 1 ) {
+        if (ic_invert) {
             @supports not (-moz-user-select: none) {
                 .created-icon, .opened-icon, .ic-upload,
                 .gl-icon[data-testid *= 'status_'], // #135
@@ -630,7 +628,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: fg 0 hl;
             }
             /// Feat -> Navbar height option.
-            if(nb_height) {
+            if (nb_height) {
                 .layout-page, .content-wrapper  { margin-top: 85px i }
             }
         }
@@ -649,7 +647,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .logo-text svg { fill: fg i }
         }
         /// Feat -> Show canary badge.
-        if ( nb_canary != 1 ) {
+        if (!nb_canary) {
             .canary-badge { display: none i }
         } else {
             .canary-badge > .badge { c: white green green }
@@ -694,7 +692,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Sign in / register.
         .btn-sign-in { &, &:hover { c: cm 0 bg }}
         /// Feat -> Increase navbar height.
-        if ( nb_height == 1 ) {
+        if (nb_height) {
             min-height: 50px;
             /.nav-sidebar { top: 50px }
             /.layout-page, /.content-wrapper  { margin-top: 50px }
@@ -1673,14 +1671,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
         a, .btn-link { &:not(.btn):hover { color: ac }}
         /// Fix top offset.
-        if ( nb_height == 1 ) { top: 50px i }
+        if (nb_height) { top: 50px i }
         /// Pajamas -> Drawer.
         /.gl-drawer {
             c: fg bd bg;
             box-shadow: -1px 0 bd, bsh;
             &-header, &-body > * { c: 0 bd }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) { top: 50px i }
+            if (nb_height) { top: 50px i }
         }
         /// Issues -> Sidebar.
         .issuable-sidebar {
@@ -2373,7 +2371,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         img:not(.emoji) {
             c: 0 bd;
             /// Feat -> Default image opacity.
-            if ( md_img_o < 1 ) {
+            if (md_img_o < 1) {
                 opacity: md_img_o;
                 transition: opacity 0.5s ease;
                 &:hover {
@@ -2395,7 +2393,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.highlight { c: 0 0 hl }
             }
             /// Feat -> Set 'none' syntax colors to use theme colors.
-            if ( c_hl_none == 1 ) {
+            if (c_hl_none) {
                 &.code.none {
                     c: fg 0 hl;
                     .line span { c: fg }
@@ -2546,7 +2544,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Feat -> Invert illustrations/images.
-        if ( img_invert == 1 ) {
+        if (img_invert) {
             /.mermaid:not(.code),
             /.artwork,
             /.group-empty-state > .icon,
@@ -2648,7 +2646,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &::before { c: 0 0 green }
             }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) {
+            if (nb_height) {
                 &.sticky { top: 58px i }
             }
         }
@@ -3238,7 +3236,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             z-index: 99;
             c: fg bd hl;
             rad: 4px 4px 0 0;
-            if ( nb_height == 1  ) { top: 49px i }
+            if (nb_height) { top: 49px i }
         }
         .job-log {
             border: 1px solid bd;
@@ -3594,7 +3592,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Resets colors when syntax is set to white.
                 /.code.white & { c: fg bd bg }
                 /// Feat -> Set 'none' syntax colors to use theme colors.
-                if ( c_hl_none == 1 ) {
+                if (c_hl_none) {
                     /.code.none & {
                         c: fg bd hl;
                         /// Tokens are still there in the file viewer.
@@ -3636,7 +3634,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Header.
         .file {
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) {
+            if (nb_height) {
                 &-title, &-title-flex-parent {
                     top: 165px;
                     ~/.conflict ^[-1..-2] { top: 49px i }
@@ -3707,13 +3705,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &::before { content: unset }
             }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) { top: 49px }
+            if (nb_height) { top: 49px }
         }
         /// Diff -> Active file.
         &.is-active { box-shadow: bsh i }
         /// Diff -> File tree.
         /.diff-tree-list {
-            if ( nb_height == 1 ) { top: 165px i }
+            if (nb_height) { top: 165px i }
             /// Resize handle.
             .drag-handle {
                 &:hover { c: 0 0 hl }
@@ -4178,7 +4176,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Increase top offset when nb_height is enabled.
-        if ( nb_height == 1 ) {
+        if (nb_height) {
             &-body .file-title { top: 98px i }
         }
         /// Reply bar.
@@ -4384,10 +4382,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
         c: 0 bd bb;
-        if ( nb_height == 1  ) { top: 50px }
+        if (nb_height) { top: 50px }
         /.mr-version-controls {
             c: fg bd bb;
-            if ( nb_height == 1  ) { top: 98px }
+            if (nb_height) { top: 98px }
         }
     }
 
@@ -4824,7 +4822,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Review code.
         .diffOverview {
             c: 0 bd bb;
-            if ( img_invert == 1 ) {
+            if (img_invert) {
                 &Ruler { filter: invert(0.8) hue-rotate(180deg) }
             }
         }
@@ -4977,7 +4975,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Feat -> Dark-GitLab announcements.
-    if ( dgl_alerts == 1 ) {
+    if (dgl_alert) {
         [data-page='users:show'] .user-profile .cover-block {
             padding-top: 80px;
             .cover-controls { top: 80px }
