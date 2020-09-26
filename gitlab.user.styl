@@ -77,6 +77,9 @@ v(x, y = 0, xi = 1, yi = 1) {
 // Border radius mixin.
 rad() { border-radius: arguments }
 
+// Box-shadow mixin.
+b() { box-shadow: arguments }
+
 /// Feat -> Base color-scheme toggle. #32
 BG       = #292929
 FG       = #e6e6e6
@@ -1743,7 +1746,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .context-header > * {
             c: fg;
             &:hover { c: 0 0 bd }
-            .avatar-container { c: 0 t t }
+            .avatar-container {
+                c: 0 t t
+                .identicon.s40 { line-height: 36px i }
+            }
         }
         /// Items.
         .divider { c: 0 bd }
@@ -2140,7 +2146,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Profile -> Personal projects.
         &.compact {
             .user-access-role { line-height: 18px }
-            .avatar { line-height: 38px i }
+            .avatar { line-height: 36px i }
         }
         /// Loading icon.
         /.loading { c: cm }
@@ -2438,31 +2444,35 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Avatars.
     .avatar {
         &, &-circle, &-container {
-            text-shadow: 2px 2px 1px sh;
-            rad: var(--avatar) i;
-            c: fg t;
+            text-shadow: 1px 1px 1px sh
+            rad: var(--avatar) i
+            c: fg t t
         }
-        &.identicon { c: white }
-        &:not(.identicon) { c: 0 t t }
-        &.s48 { line-height: 46px }
-        &[class *= 'bg'] {
-            rad: var(--avatar);
-            box-shadow: inset 0 0 0 0.15em sh;
+
+        /// Overrides.
+        &.identicon {
+            border: 1px solid t
+
+            /// Resize avatars.
+            &.s20 { line-height: 16px } // Usage quotas.
+            &.s32 { line-height: 28px } // Search menus.
+            &.s40 { line-height: 28px } // Group's projects.
+            &.s48 { line-height: 44px } // Dashboard projects.
+            &.s64 { line-height: 60px } // Group's avatar.
         }
+
         /// Default colors.
-        &.bg0 { c: 0 0 red_ }
-        &.bg1 { c: 0 0 green_ }
-        &.bg2 { c: 0 0 blue_ }
-        &.bg3 { c: 0 0 yellow_ }
-        &.bg4 { c: 0 0 magenta_ }
-        &.bg5 { c: 0 0 cyan_ }
-        &.bg6 { c: 0 0 violet_ }
-        &.bg7 { c: 0 0 orange_ }
+        &.bg0 { c: b10 b13 b14 }
+        &.bg1 { c: b40 b43 b44 }
+        &.bg2 { c: b50 b53 b54 }
+        &.bg3 { c: b30 b33 b34 }
+        &.bg4 { c: b70 b73 b74 }
+        &.bg5 { c: b60 b63 b64 }
+        &.bg6 { c: b80 b83 b84 }
+        &.bg7 { c: b20 b23 b24 }
+
         /// Fallback identicon; Found on 'usage quotas' page.
-        &.bgNaN {
-            c: 0 0 bd
-            box-shadow: none
-        }
+        &.bgNaN { c: 0 bb bd }
     }
 
     // Global -> Page title.
@@ -4063,8 +4073,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:last-child::before { c: 0 0 bb }
             .metadata { margin-right: 10px }
             .description p, .stat-value { c: cm }
-            /// Fix wrong line-height for avatars. @upstream
-            .identicon.s40 { line-height: 30px }
         }
         .folder-caret { margin-left: 10px }
     }
