@@ -25,22 +25,22 @@
 @var checkbox dgl_alert  'Profile: Enable Dark-GitLab announcements' 0
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 
-@var color    dark       'Color: Primary background   ' #292929
-@var color    darken     'Color: Highlight background ' #333333
-@var color    darker     'Color: Secondary background ' #424242
-@var color    light      'Color: Primary foreground   ' #e6e6e6
-@var color    lighter    'Color: Secondary foreground ' #aaaaaa
-@var color    accent     'Color: Accent               ' #bf692b
-@var color    yellow     'Color: Yellow               ' #f0c674
-@var color    orange     'Color: Orange               ' #d98245
-@var color    red        'Color: Red                  ' #a54242
-@var color    magenta    'Color: Magenta              ' #b294bb
-@var color    violet     'Color: Violet               ' #85678f
-@var color    blue       'Color: Blue                 ' #54738c
-@var color    cyan       'Color: Cyan                 ' #5e8d87
-@var color    green      'Color: Green                ' #7b823a
-@var color    white      'Color: White                ' #ffffff
-@var color    shadow     'Color: Shadow               ' #00000035
+@var color    dark_      'Color: Primary background   ' #292929
+@var color    darken_    'Color: Highlight background ' #333333
+@var color    darker_    'Color: Secondary background ' #424242
+@var color    light_     'Color: Primary foreground   ' #e6e6e6
+@var color    lighter_   'Color: Secondary foreground ' #aaaaaa
+@var color    accent_    'Color: Accent               ' #bf692b
+@var color    yellow_    'Color: Yellow               ' #f0c674
+@var color    orange_    'Color: Orange               ' #d98245
+@var color    red_       'Color: Red                  ' #a54242
+@var color    magenta_   'Color: Magenta              ' #b294bb
+@var color    violet_    'Color: Violet               ' #85678f
+@var color    blue_      'Color: Blue                 ' #54738c
+@var color    cyan_      'Color: Cyan                 ' #5e8d87
+@var color    green_     'Color: Green                ' #7b823a
+@var color    white_     'Color: White                ' #ffffff
+@var color    shadow_    'Color: Shadow               ' #00000035
 ==/UserStyle== */
 
 /*!
@@ -53,6 +53,186 @@
  *
  * Make sure you have the latest version before submitting bug reports.
  */
+
+// Helpers
+t       = transparent
+i       = !important
+vendors = official
+
+// Color mixin.
+/// All colors: `c: fg bg bg`
+/// Only border-color: `c: 0 bg`
+c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+    if x != 0 && x != '_' {            color: xi is 0 ? x : x i }
+    if y != 0 && y != '_' {     border-color: yi is 0 ? y : y i }
+    if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
+}
+
+// SVG colors.
+v(x, y = 0, xi = 1, yi = 1) {
+    if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
+    if y != 0 && x != '_' { stroke: yi is 0 ? y : y i }
+}
+
+// Border radius mixin.
+rad() { border-radius: arguments }
+
+/// Feat -> Base color-scheme toggle. #32
+BG       = #292929
+FG       = #e6e6e6
+AC       = #d47d3f
+_red     = #f2777a
+_orange  = #f99157
+_yellow  = #ffcc66
+_green   = #99cc99
+_cyan    = #66cccc
+_blue    = #6699cc
+_magenta = #cc99cc
+_violet  = #aa99cc
+
+/// Helpers.
+BA = 0%
+FA = 0%
+AA = 0%
+SA = 0%
+
+// Color generator.
+/// NOTE: Scope the variables to avoid potential conflicts.
+/{
+    g = global
+
+    /// Color generator rules.
+    if (dark(BG)) {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
+        b1 = (BA + 10); b2 = (BA - 05); b3 = (BA - 10); b4 = (BA - 15); b5 = (BA - 20)
+        f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
+    } else {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
+        b1 = (BA - 10); b2 = (BA + 08); b3 = (BA + 16); b4 = (BA + 24); b5 = (BA + 32)
+        f1 = (FA - 05); f2 = (FA - 10); f3 = (FA - 15); f4 = (FA - 20); f5 = (FA - 30)
+    }
+
+    /// Generate tones for base colors.
+    C = {
+        bg: {
+            '0': darken(BG, b1),
+            '1': darken(BG, 0%),
+            '2': darken(BG, b2),
+            '3': darken(BG, b3),
+            '4': darken(BG, b4),
+            '5': darken(BG, b5),
+        },
+        fg: {
+            '0': darken(FG, f1),
+            '1': darken(FG, 0%),
+            '2': darken(FG, f2),
+            '3': darken(FG, f3),
+            '4': darken(FG, f4),
+            '5': darken(FG, f5),
+        },
+        ac: {
+            '0': mix(darken(BG,  0%), AC, 0%),
+            '1': mix(darken(BG, 40%), AC, a1),
+            '2': mix(darken(BG, 40%), AC, a2),
+            '3': mix(darken(BG, 40%), AC, a3),
+            '4': mix(darken(BG, 65%), AC, a4),
+            '5': mix(darken(BG, 50%), AC, a5),
+        },
+        b1: {
+            '0': spin(_red,  0deg - 0%)
+            '1': spin(_red, 15deg - s1)
+            '2': spin(_red, 30deg - s2)
+            '3': mix(darken(BG, 20%), _red, s3)
+            '4': mix(darken(BG, 40%), _red, s4)
+            '5': mix(darken(BG, 40%), _red, s5)
+        },
+        b2: {
+            '0': spin(_orange,  0deg - 0%)
+            '1': spin(_orange, 15deg - s1)
+            '2': spin(_orange, 30deg - s2)
+            '3': mix(darken(BG, 20%), _orange, s3)
+            '4': mix(darken(BG, 40%), _orange, s4)
+            '5': mix(darken(BG, 40%), _orange, s5)
+        },
+        b3: {
+            '0': spin(_yellow,  0deg - 0%)
+            '1': spin(_yellow, 15deg - s1)
+            '2': spin(_yellow, 30deg - s2)
+            '3': mix(darken(BG, 20%), _yellow, s3)
+            '4': mix(darken(BG, 40%), _yellow, s4)
+            '5': mix(darken(BG, 40%), _yellow, s5)
+        },
+        b4: {
+            '0': spin(_green,  0deg - 0%)
+            '1': spin(_green, 15deg - s1)
+            '2': spin(_green, 30deg - s2)
+            '3': mix(darken(BG, 20%), _green, s3)
+            '4': mix(darken(BG, 40%), _green, s4)
+            '5': mix(darken(BG, 40%), _green, s5)
+        },
+        b5: {
+            '0': spin(_cyan,  0deg - 0%)
+            '1': spin(_cyan, 15deg - s1)
+            '2': spin(_cyan, 30deg - s2)
+            '3': mix(darken(BG, 20%), _cyan, s3)
+            '4': mix(darken(BG, 40%), _cyan, s4)
+            '5': mix(darken(BG, 40%), _cyan, s5)
+        },
+        b6: {
+            '0': spin(_blue,  0deg - 0%)
+            '1': spin(_blue, 15deg - s1)
+            '2': spin(_blue, 30deg - s2)
+            '3': mix(darken(BG, 20%), _blue, s3)
+            '4': mix(darken(BG, 40%), _blue, s4)
+            '5': mix(darken(BG, 40%), _blue, s5)
+        },
+        b7: {
+            '0': spin(_magenta,  0deg - 0%)
+            '1': spin(_magenta, 15deg - s1)
+            '2': spin(_magenta, 30deg - s2)
+            '3': mix(darken(BG, 20%), _magenta, s3)
+            '4': mix(darken(BG, 40%), _magenta, s4)
+            '5': mix(darken(BG, 40%), _magenta, s5)
+        },
+        b8: {
+            '0': spin(_violet,  0deg - 0%)
+            '1': spin(_violet, 15deg - s1)
+            '2': spin(_violet, 30deg - s2)
+            '3': mix(darken(BG, 20%), _violet, s3)
+            '4': mix(darken(BG, 40%), _violet, s4)
+            '5': mix(darken(BG, 40%), _violet, s5)
+        }
+    }
+
+    define('bg-' + key, val, global) for key, val in C.bg
+    define('fg-' + key, val, global) for key, val in C.fg
+    define('ac-' + key, val, global) for key, val in C.ac
+    define('og-' + key, val, global) for key, val in C.og
+    define('ig-' + key, val, global) for key, val in C.ig
+    define('b1-' + key, val, global) for key, val in C.b1
+    define('b2-' + key, val, global) for key, val in C.b2
+    define('b3-' + key, val, global) for key, val in C.b3
+    define('b4-' + key, val, global) for key, val in C.b4
+    define('b5-' + key, val, global) for key, val in C.b5
+    define('b6-' + key, val, global) for key, val in C.b6
+    define('b7-' + key, val, global) for key, val in C.b7
+    define('b8-' + key, val, global) for key, val in C.b8
+
+    /// Generate Stylus-lang helpers for CSS variables.
+    define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
+    define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
+    define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
+    define('b1' + key, s('var(--b1-%s)', unquote(key)), g) for key, val in C.b1
+    define('b2' + key, s('var(--b2-%s)', unquote(key)), g) for key, val in C.b2
+    define('b3' + key, s('var(--b3-%s)', unquote(key)), g) for key, val in C.b3
+    define('b4' + key, s('var(--b4-%s)', unquote(key)), g) for key, val in C.b4
+    define('b5' + key, s('var(--b5-%s)', unquote(key)), g) for key, val in C.b5
+    define('b6' + key, s('var(--b6-%s)', unquote(key)), g) for key, val in C.b6
+    define('b7' + key, s('var(--b7-%s)', unquote(key)), g) for key, val in C.b7
+    define('b8' + key, s('var(--b8-%s)', unquote(key)), g) for key, val in C.b8
+}
 
 @-moz-document domain('custom.domain'),
 domain('invent.kde.org'),
@@ -103,7 +283,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     :root {
         --note      : 'Dark-GitLab v1.6.3';
         --bshadow   : 0 2px 4px var(--shadow);
-        --t         : transparent !important;
         --avatar    : a_radius;
         --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
             Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
@@ -114,6 +293,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol', 'Noto Color Emoji';
         --white     : white;
+
+        /// Feat -> Color-scheme.
         if (theme == 'GitHub-Dark') {
             --bb        : #202020;
             --dark      : #181818;
@@ -132,27 +313,41 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             --cyan      : #4d5eff;
             --green     : #008833;
         } else {
-            --bb        : lighten(dark, 1.5%);
-            --dark      : dark;
-            --darken    : darken;
-            --darker    : darker;
-            --light     : light;
-            --lighter   : lighter;
-            --accent    : accent;
-            --shadow    : shadow;
-            --yellow    : yellow;
-            --orange    : orange;
-            --red       : red;
-            --magenta   : magenta;
-            --violet    : violet;
-            --blue      : blue;
-            --cyan      : cyan;
-            --green     : green;
+            --bb        : lighten(dark_, 1.5%);
+            --dark      : dark_;
+            --darken    : darken_;
+            --darker    : darker_;
+            --light     : light_;
+            --lighter   : lighter_;
+            --accent    : accent_;
+            --shadow    : shadow_;
+            --yellow    : yellow_;
+            --orange    : orange_;
+            --red       : red_;
+            --magenta   : magenta_;
+            --violet    : violet_;
+            --blue      : blue_;
+            --cyan      : cyan_;
+            --green     : green_;
         }
 
         // TODO: Add more tones for secondary colors.
-        --red-darken    : mix(dark, red, 70%);
-        --red-darker    : mix(dark, red, 85%);
+        --red-darken    : mix(dark_, red, 70%);
+        --red-darker    : mix(dark_, red, 85%);
+
+        /// Generate DGL color variables.
+        for _v in (bg fg ac b1 b2 b3 b4 b5 b6 b7 b8) {
+            for _i in 0..5 {
+                key = s('--%s-%s', _v, _i)
+                /// Escape `\` for `*-0` vars.
+                val = _v + \- + _i
+
+                /// Generate CSS variables.
+                { key }: val i
+                // { key + '-rgb' }: to_rgb(val)
+            }
+        }
+
         /// Colors for CI status icons in Firefox.
         @supports (-moz-user-select: none) {
             --svg-status-bg : var(--dark) !important;
@@ -182,30 +377,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     lgreen  = transparentify(green, #fff, 75%);
     green   = var(--green);
     white   = var(--white);
-    t       = var(--t);
     outer   = 0 0 0 1px bd;
     inner   = inset outer;
-    i       = !important;
-    // Bootstrap --breakpoint-* CSS vars.
-    bpoints = { xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px }
-
-    // Color mixin.
-    /// All colors: `c: fg bd bg;`
-    /// Only border-color: `c: 0 bd;`
-    c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-        i = !important;
-        if x is a 'call' or x is a 'rgba' {            color: xi is 0? x : x i }
-        if y is a 'call' or y is a 'rgba' {     border-color: yi is 0? y : y i }
-        if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
-    }
-    // SVG colors.
-    v(x, y = 0, xi = 1, yi = 1) {
-        i = !important;
-        if x is a 'call' or x is a 'rgba' {   fill: xi is 0? x : x i }
-        if y is a 'call' or y is a 'rgba' { stroke: yi is 0? y : y i }
-    }
-    // Border radius mixin.
-    rad() { border-radius: arguments }
 
     // SVG-friendly colors mixin.
     to_svg(input) {
@@ -492,9 +665,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 /// Increase contrast for gray icons.
                 :not(#z) .ci-status-icon {
-                    &-created svg, &-skipped svg {
-                        v: #333 i;
-                    }
+                    &-created svg, &-skipped svg { v: #333 }
                 }
             }
         } else {
@@ -1130,7 +1301,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Project -> Gitpod/IDE menu.
             /// NOTE: Remove when replaced with an SVG icon. @upstream
-            if (lightness(dark) <= 50%) {
+            if (dark(dark_)) {
                 &.dropdown-toggle-split::after { filter: invert(0.7) i }
             }
         }
@@ -2279,14 +2450,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             box-shadow: inset 0 0 0 0.15em sh;
         }
         /// Default colors.
-        &.bg0 { c: 0 0 red }
-        &.bg1 { c: 0 0 green }
-        &.bg2 { c: 0 0 blue }
-        &.bg3 { c: 0 0 yellow }
-        &.bg4 { c: 0 0 magenta }
-        &.bg5 { c: 0 0 cyan }
-        &.bg6 { c: 0 0 violet }
-        &.bg7 { c: 0 0 orange }
+        &.bg0 { c: 0 0 red_ }
+        &.bg1 { c: 0 0 green_ }
+        &.bg2 { c: 0 0 blue_ }
+        &.bg3 { c: 0 0 yellow_ }
+        &.bg4 { c: 0 0 magenta_ }
+        &.bg5 { c: 0 0 cyan_ }
+        &.bg6 { c: 0 0 violet_ }
+        &.bg7 { c: 0 0 orange_ }
         /// Fallback identicon; Found on 'usage quotas' page.
         &.bgNaN {
             c: 0 0 bd
@@ -2592,7 +2763,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// States.
         &-warning {
-            c: orange 0 hl;
+            c: orange_ 0 hl
             .gl-alert-icon { v: orange }
             &::before { content: ''; c: 0 0 orange }
         }
