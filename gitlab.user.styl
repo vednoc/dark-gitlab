@@ -4064,21 +4064,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-title, &-status, &-desc { c: fg }
         /// Buttons.
         &-controls .btn { c: 0 0 bg }
-        /// Activity.
+
+        /// Activity calendar.
         /.calendar {
-            &-hint { c: cm }
+            &-hint { c: fg1 }
             svg.contrib-calendar > g {
-            text { v: fg }
-            rect { v: ac }
-            rect[fill = '#ededed'] { opacity: 0.06 }
-            rect[fill ^= 'rgb(17'] { opacity: 0.20 }
-            rect[fill ^= 'rgb(12'] { opacity: 0.45 }
-            rect[fill ^= 'rgb(82'] { opacity: 0.70 }
-            rect[fill ^= 'rgb(37'] { opacity: 1 }
+                text { v: fg4 }
+                rect { v: ac0 }
+                rect[fill = '#ededed'] { opacity: 0.06 }
+                rect[fill ^= 'rgb(17'] { opacity: 0.20 }
+                rect[fill ^= 'rgb(12'] { opacity: 0.45 }
+                rect[fill ^= 'rgb(82'] { opacity: 0.70 }
+                rect[fill ^= 'rgb(37'] { opacity: 1.00 }
             }
         }
+
+        /// Profile -> Lists.
         /.user-profile {
-            /// Profile -> Add background to lists.
             .projects, .activities {
                 &-block {
                     padding: 0 12px;
@@ -4086,7 +4088,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     rad: 4px;
                 }
             }
-            /// Profile -> Activity -> Fix an empty list. @upstream
+            /// Fix an empty list. @upstream
             .activities-block [data-href] {
                 min-height: 40px;
                 .hide:first-child:last-child {
