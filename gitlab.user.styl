@@ -530,40 +530,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &[class *= 'paused'] { c: red }
             &[class *= 'online'] { c: green }
         }
-        /// Global -> SVG icons.
-        /svg {
-            &.s16, &.s24, &.icon { v: cm }
-            &[class][data-testid *= 'status_'] { fill: currentColor i }
-            /// Activity icons.
-            /.deleted-icon > svg { v: orange }
-            /.closed-icon svg { v: red }
-            /.created-icon svg { v: cyan }
-            /.opened-icon svg { v: green }
-            /.accepted-icon svg { v: cyan }
-            /.deleted-icon svg { v: yellow }
-            /.imported-icon svg { v: violet }
-            /.commented-on-icon svg { v: blue }
-            &[id *= 'addition-solid'] { v: green }
-            /// Misc.
-            /.commit-icon svg { v: cm }
-            &.ic-eye-slash { v: orange }          /// Confidential issues.
-            &.text-success { v: green }           /// Green checkmark.
-            &.text-danger { v: red }              /// Due date.
-            /// Diff -> Git status icons.
-            &.ic-file-addition { &, &-solid { v: green }}
-            &.ic-file-modified { &, &-solid { v: blue }}
-            &.ic-file-deletion { &, &-solid { v: red }}
-            /// CI -> Default background.
-            /[id *= 'status_'] [fill = '#FFF'] { v: hl }
-            /// Notes -> Related isses/MRs/epics.
-            &.issue-token-state-icon {
-                &-open { v: green }
-                &-closed { v: blue }
-            }
-            &.merge-request-status {
-                &.open { c: green; v: green }
-                &.closed { c: red; v: red }
-            }
+        /// CI -> Text
+        .ci-status-text {
+            max-width: 100% i;
+            margin-right: 35px;
         }
         /// CI -> Icons.
         /.ci-status {
@@ -709,6 +679,41 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Settings -> Fix 'preview theme' borders.
         .preview { &.ui-dark, &.gl-dark { c: 0 bd }}
+    }
+
+    /// Global -> SVG icons.
+    svg {
+        &.s16:not([data-testid *= 'status_']), &.s24, &.icon { v: fg2 }
+
+        /// Activity icons.
+        /.deleted, /.closed { &-icon svg { v: b10 }}
+        /.created, /.joined, /.opened { &-icon svg { v: b40 }}
+        /.commit, /.pushed-new, /.pushed-to { &-icon svg { v: fg4 }}
+        /.imported, /.commented-on, /.accepted { &-icon svg { v: b60 }}
+
+        /// Misc.
+        &.ic-eye-slash { v: b20 }          /// Confidential issues.
+        &.text-success { v: b40 }           /// Green checkmark.
+        &.text-danger { v: b10 }              /// Due date.
+
+        /// Diff -> Git status icons.
+        &.ic-file-addition { &, &-solid { v: b40 }}
+        &.ic-file-modified { &, &-solid { v: b60 }}
+        &.ic-file-deletion { &, &-solid { v: b10 }}
+        &[id *= 'addition-solid'] { v: b40 }
+
+        /// CI -> Default background.
+        /[id *= 'status_'] [fill = '#FFF'] { v: bg1 }
+
+        /// Notes -> Related isses/MRs/epics.
+        &.issue-token-state-icon {
+            &-open { v: b40 }
+            &-closed { v: b60 }
+        }
+        &.merge-request-status {
+            &.open { c: b40; v: b40 }
+            &.closed { c: b10; v: b10 }
+        }
     }
 
     // Global -> Custom checkbox/radio inputs.
@@ -2169,8 +2174,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: cm bd;
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
-            /// Dashboard -> Activities -> Fix icons.
-            .joined, .pushed-new, .pushed-to { &-icon svg { v: cm }}
         }
         &-user-info a[href] { c: fg }
         /// Dashboard -> Activities.
