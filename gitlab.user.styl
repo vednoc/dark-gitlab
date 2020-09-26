@@ -339,28 +339,29 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         overflow-x: hidden;
     }
 
-    // Overwrite existing Stylus-lang vars with CSS vars.
-    bb      = var(--bb);
-    bg      = var(--dark);
-    hl      = var(--darken);
-    bd      = var(--darker);
-    fg      = var(--light);
-    cm      = var(--lighter);
-    ac      = var(--accent);
-    sh      = var(--shadow);
-    bsh     = var(--bshadow);
-    yellow  = var(--yellow);
-    orange  = var(--orange);
-    lred    = transparentify(red, #fff, 65%);
-    red     = var(--red);
-    magenta = var(--magenta);
-    violet  = var(--violet);
-    blue    = var(--blue);
-    cyan    = var(--cyan);
-    lgreen  = transparentify(green, #fff, 75%);
-    green   = var(--green);
+    // Interop with new variables.
+    // TODO: Remove when the refactor is complete.
+    bb      = var(--bg-0)
+    bg      = var(--bg-1)
+    hl      = var(--bg-2)
+    bd      = var(--bg-5)
+    fg      = var(--fg-1)
+    cm      = var(--fg-4)
+    ac      = var(--ac-0)
+    sh      = var(--shadow)
+    bsh     = var(--bshadow)
+    red     = var(--b1-0)
+    orange  = var(--b2-0)
+    yellow  = var(--b3-0)
+    green   = var(--b4-0)
+    cyan    = var(--b5-0)
+    blue    = var(--b6-0)
+    magenta = var(--b7-0)
+    violet  = var(--b8-0)
+    lred    = transparentify(_red, #fff, 65%);
+    lgreen  = transparentify(_green, #fff, 75%);
     white   = var(--white);
-    outer   = 0 0 0 1px bd;
+    outer   = 0 0 0 1px bg5;
     inner   = inset outer;
 
     // SVG-friendly colors mixin.
