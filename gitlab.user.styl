@@ -80,18 +80,35 @@ rad() { border-radius: arguments }
 // Box-shadow mixin.
 b() { box-shadow: arguments }
 
-/// Feat -> Base color-scheme toggle. #32
-BG       = #292929
-FG       = #e6e6e6
-AC       = #d47d3f
-_red     = #f2777a
-_orange  = #f99157
-_yellow  = #ffcc66
-_green   = #99cc99
-_cyan    = #66cccc
-_blue    = #6699cc
-_magenta = #cc99cc
-_violet  = #aa99cc
+/// Feat -> Color-scheme.
+if (theme == 'GitHub-Dark') {
+    BG         = #181818
+    FG         = #e6e6e6
+    AC         = #4f8cc9
+    _yellow    = #ffcc33
+    _orange    = #fe9600
+    _red       = #ff4444
+    _magenta   = #8368aa
+    _violet    = #6e5494
+    _blue      = #4f8cc9
+    _cyan      = #4d5eff
+    _green     = #008833
+    _shadow    = #00000050
+} else {
+    BG       = dark_
+    FG       = light_
+    AC       = accent_
+    _red     = red_
+    _orange  = orange_
+    _yellow  = yellow_
+    _green   = green_
+    _cyan    = cyan_
+    _blue    = blue_
+    _magenta = magenta_
+    _violet  = violet_
+    _shadow  = shadow_
+}
+
 
 /// Helpers.
 BA = 0%
@@ -296,43 +313,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol', 'Noto Color Emoji';
         --white     : white;
-
-        /// Feat -> Color-scheme.
-        if (theme == 'GitHub-Dark') {
-            --bb        : #202020;
-            --dark      : #181818;
-            --darken    : #262626;
-            --darker    : #404040;
-            --light     : #e6e6e6;
-            --lighter   : #9b9b9b;
-            --accent    : #4f8cc9;
-            --shadow    : #00000050;
-            --yellow    : #ffcc33;
-            --orange    : #fe9600;
-            --red       : #ff4444;
-            --magenta   : #8368aa;
-            --violet    : #6e5494;
-            --blue      : #4f8cc9;
-            --cyan      : #4d5eff;
-            --green     : #008833;
-        } else {
-            --bb        : lighten(dark_, 1.5%);
-            --dark      : dark_;
-            --darken    : darken_;
-            --darker    : darker_;
-            --light     : light_;
-            --lighter   : lighter_;
-            --accent    : accent_;
-            --shadow    : shadow_;
-            --yellow    : yellow_;
-            --orange    : orange_;
-            --red       : red_;
-            --magenta   : magenta_;
-            --violet    : violet_;
-            --blue      : blue_;
-            --cyan      : cyan_;
-            --green     : green_;
-        }
 
         // TODO: Add more tones for secondary colors.
         --red-darken    : mix(dark_, red, 70%);
