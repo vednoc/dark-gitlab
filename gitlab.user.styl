@@ -2431,6 +2431,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             text-shadow: 1px 1px 1px sh
             rad: var(--avatar) i
             c: fg t t
+
+            /// Remove borders in operations dashboard.
+            /.rect-avatar.border { border: none i }
         }
 
         /// Overrides.
@@ -2439,6 +2442,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Resize avatars.
             &.s20 { line-height: 16px } // Usage quotas.
+            &.s24 { line-height: 22px } // Operations.
             &.s32 { line-height: 28px } // Search menus.
             &.s40 { line-height: 28px } // Group's projects.
             &.s48 { line-height: 44px } // Dashboard projects.
