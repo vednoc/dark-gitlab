@@ -814,10 +814,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > button, > a {
                     transition: 0.2s ease;
                     &[data-toggle] { c: cm }
-                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
+                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bg3 }
                 }
                 /// Active menus.
-                &.active, &.active:hover, &.show { > button, > a { c: fg 0 bg }}
+                &.active, &.active:hover, &.show { > button, > a { c: fg1 0 bg4 }}
                 .caret-down { v: cm }
             }
             /// Reset backgrounds.
@@ -865,7 +865,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Dark mode tweaks.
         .search-form {
             > form { box-shadow: none i }
-            &:hover, &.search-active { > form { c: 0 blue }}
+            &:hover, &.search-active { > form { c: 0 b63 }}
         }
         &-gitlab { box-shadow: none i }
         /// Fix 'down-arrow' size. @upstream
