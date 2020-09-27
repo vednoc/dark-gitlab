@@ -527,85 +527,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &[class *= 'paused'] { c: red }
             &[class *= 'online'] { c: green }
         }
-        /// CI -> Text
-        .ci-status-text {
-            max-width: 100% i;
-            margin-right: 35px;
-        }
-        /// CI -> Icons.
-        /.ci-status {
-            c: fg bd bg 1 0;
-            /// Status icons.
-            &.ci {
-                &-success {
-                    c: green green;
-                }
-                &-info, &-running {
-                    c: blue blue;
-                }
-                &-failed {
-                    c: red red;
-                }
-                &-pending,
-                &-waiting-for-resource,
-                &-failed-with-warnings,
-                &-success-with-warnings {
-                    c: orange orange;
-                }
-                &-created,
-                &-skipped {
-                    c: fg cm;
-                }
-                &-canceled,
-                &-disabled,
-                &-scheduled,
-                &-manual {
-                    c: cm cm;
-                }
-            }
-            /// Stage icons.
-            &-icon {
-                &-success {
-                    &[class *= 'dropdown'] { c: 0 green hl }
-                    &:not(#z), &[data-toggle] { svg { v: green }}
-                    svg { c: 0 green }
-                }
-                &-running,
-                &-preparing {
-                    &[class *= 'dropdown'] { c: 0 blue hl }
-                    &:not(#z), &[data-toggle] { svg { v: blue }}
-                    svg { c: 0 blue }
-                }
-                &-failed {
-                    &[class *= 'dropdown'] { c: 0 red hl }
-                    &:not(#z), &[data-toggle] { svg { v: red }}
-                    svg { c: 0 red }
-                }
-                &-pending,
-                &-waiting-for-resource,
-                &-failed-with-warnings,
-                &-success-with-warnings {
-                    &[class *= 'dropdown'] { c: 0 orange hl }
-                    &:not(#z), &[data-toggle] { svg { v: orange }}
-                    svg { c: 0 orange }
-                }
-                &-created,
-                &-skipped {
-                    &[class *= 'dropdown'] { c: 0 cm hl }
-                    &:not(#z), &[data-toggle] { svg { v: fg }}
-                    svg { c: 0 fg }
-                }
-                &-manual,
-                &-canceled,
-                &-disabled,
-                &-scheduled,
-                &-not-found {
-                    &[class *= 'dropdown'] { c: 0 cm hl }
-                    &:not(#z), &[data-toggle] { svg { v: cm }}
-                    svg { c: 0 cm }
-                }
-            }
-        }
         /// Feat -> Invert icons in Shadow DOM.
         if (ic_invert) {
             @supports not (-moz-user-select: none) {
@@ -699,9 +620,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.ic-file-deletion { &, &-solid { v: b10 }}
         &[id *= 'addition-solid'] { v: b40 }
 
-        /// CI -> Default background.
-        /[id *= 'status_'] [fill = '#FFF'] { v: bg1 }
-
         /// Notes -> Related isses/MRs/epics.
         &.issue-token-state-icon {
             &-open { v: b40 }
@@ -710,6 +628,67 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.merge-request-status {
             &.open { c: b40; v: b40 }
             &.closed { c: b10; v: b10 }
+        }
+
+        /// CI -> Background for old icons.
+        /[id *= 'status_'] [fill = '#FFF'] { v: bg1 }
+
+        /// CI -> Text.
+        .ci-status-text {
+            max-width: 100%;
+            margin-right: 35px;
+        }
+
+        /// CI -> Status icons.
+        /.ci-status {
+            c: fg1 bg5 bg1 1 0
+
+            /// Badges.
+            &.ci {
+                &-failed { c: b10 b10 }
+                &-success { c: b40 b40 }
+                &-info, &-running { c: b60 b60 }
+                &-created, &-skipped { c: fg3 fg3 }
+                &-canceled, &-disabled, &-scheduled, &-manual { c: fg5 fg5 }
+                &-pending,
+                &-waiting-for-resource,
+                &-failed-with-warnings,
+                &-success-with-warnings {
+                    c: b20 b20
+                }
+            }
+
+            /// Icons.
+            &-icon {
+                &-success {
+                    &[class *= 'dropdown'], svg { c: 0 b40 }
+                    &:not(#z), &[data-toggle] { svg { v: b40 }}
+                }
+                &-running, &-preparing {
+                    &[class *= 'dropdown'], svg { c: 0 b60 }
+                    &:not(#z), &[data-toggle] { svg { v: b60 }}
+                }
+                &-failed {
+                    &[class *= 'dropdown'], svg { c: 0 b10 }
+                    &:not(#z), &[data-toggle] { svg { v: b10 }}
+                }
+                &-pending, &-waiting-for-resource,
+                &-failed-with-warnings, &-success-with-warnings {
+                    &[class *= 'dropdown'], svg { c: 0 orange }
+                    &:not(#z), &[data-toggle] { svg { v: orange }}
+                }
+                &-created, &-skipped {
+                    &[class *= 'dropdown'], svg { c: 0 fg3 }
+                    &:not(#z), &[data-toggle] { svg { v: fg3 }}
+                }
+                &-manual, &-canceled, &-disabled, &-scheduled, &-not-found {
+                    &[class *= 'dropdown'], svg { c: 0 fg5 }
+                    &:not(#z), &[data-toggle] { svg { v: fg5 }}
+                }
+            }
+
+            /// Reset background.
+            /button[class *= 'ci-status-icon-'] { c: 0 0 bg1 }
         }
     }
 
