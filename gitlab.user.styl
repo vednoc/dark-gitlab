@@ -58,6 +58,10 @@
 t       = transparent
 i       = !important
 vendors = official
+BA      = 0%
+FA      = 0%
+AA      = 0%
+SA      = 0%
 
 // Color mixin.
 /// All colors: `c: fg bg bg`
@@ -80,7 +84,7 @@ rad() { border-radius: arguments }
 // Box-shadow mixin.
 b() { box-shadow: arguments }
 
-/// Feat -> Color-scheme.
+// Feat -> Color-scheme.
 if (theme == 'GitHub-Dark') {
     BG         = #181818
     FG         = #e6e6e6
@@ -108,13 +112,6 @@ if (theme == 'GitHub-Dark') {
     _violet  = violet_
     _shadow  = shadow_
 }
-
-
-/// Helpers.
-BA = 0%
-FA = 0%
-AA = 0%
-SA = 0%
 
 // Color generator.
 /// NOTE: Scope the variables to avoid potential conflicts.
