@@ -4717,9 +4717,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Dashboard -> Operations. #119
     .dashboard-card {
-        &-header, &-footer { &-failed { c: 0 0 var(--red-darken) }}
+        &.border-0 { border: none i }
+        &-header, &-footer { &-failed { c: 0 b10 b14 }}
         &-body {
-            &-failed { c: 0 0 var(--red-darker) }
+            &-failed { c: 0 0 b15 }
             .gl-link { c: fg }
             /// Add ellipsis to long text.
             .text-secondary {
