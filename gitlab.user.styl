@@ -3699,9 +3699,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: 0 0 yellow;
                 }
             }
-            /// Diffs.
-            .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lgreen }
-            .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lred }
+            /// Inline git diffs.
+            /.old .idiff { c: fg0 0 b13 }
+            /.new .idiff { c: fg0 0 b43 }
             /// Code area.
             /pre.code {
                 /// Resets colors when syntax is set to white.
@@ -3875,83 +3875,66 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: fg 0 bg 0 0 0;
         .line_holder {
             /// Override the default text color.
-            &:not(#z) > td { c: fg }
+            pre.code, .line_content { c: fg1 bg5 }
+
             /// Buttons -> Add new note.
             /button.add-diff-note {
-                padding: 0 0 1px 1px;
-                c: fg bd bg;
-                &:hover { c: 0 0 hl }
+                c: fg1 bg5 bg2
+                &:hover { c: 0 0 bg4 }
             }
+
             /// Unfold lines.
             .unfold:not(#z) {
-                c: cm;
-                /// Hide hover.
-                &::before { content: unset }
+                &, + .line_content { c: fg4 }
             }
+
             /// Matching and 'No newline at end of file' lines.
             &.match, &.new-nonewline {
-                &:not(#z) {
-                    c: 0 0 hl;
-                    .line_content { c: cm }
-                }
+                c: 0 0 bg2
+                .match { c: fg4 }
             }
+
             /// Line numbers.
-            .diff-line-num {
-                z-index: 1;
-                padding-right: 11px;
-                border-right: none i;
-                box-shadow: inset -1px 0 bd;
-                &.new, &.old {
-                    &::after {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.25;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        position: absolute;
-                        pointer-events: none;
-                    }
-                }
+            > .diff-line-num {
+                /// Fix border colors while loading.
+                /.diff-line-num { c: 0 bg5 }
+
+                /// Status.
+                &.old { c: 0 b13 b14 }
+                &.new { c: 0 b43 b44 }
+                &.hll { c: 0 b33 b34 }
+
+                /// Hover event.
                 &.is-over {
-                    &::before {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.45;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        position: absolute;
-                        pointer-events: none;
+                    &.diff-line-num {
+                        c: 0 0 bg4
+                        + .line_content { c: 0 0 bg3 }
+                    }
+
+                    &.old { c: 0 b10 b13 }
+                    &.new { c: 0 b40 b43 }
+                    &.hll { c: 0 b33 b34 }
+
+                    /// HACK: Highlight individual lines.
+                    ../../:hover > [class ^= 'line'] {
+                        &:not(.match) { c: 0 0 bg3 }
+                        &.old:not(.diff-line-num) { c: 0 0 b14 }
+                        &.new:not(.diff-line-num) { c: 0 0 b44 }
+                        &.hll:not(.diff-line-num) { c: 0 0 b34 }
                     }
                 }
-                &.old::after { c: 0 0 red }
-                &.new::after { c: 0 0 green }
-                &.is-over::before { c: 0 0 bd }
-                /// HACK: Work around specificity conflict with table styles.
-                /:not(#z) &:not(.new):not(.old) { c: 0 0 hl }
             }
-            /// Added/removed lines.
-            > [class *= 'line']:not([class *= 'num']) {
-                position: relative;
-                z-index: 1;
-                c: 0 0 t;
-                &.new, &.old {
-                    c: 0 0 t;
-                    &::after {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.18;
-                        position: absolute;
-                        pointer-events: none;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                    }
-                }
-                &.old {
-                    &::before { c: red }
-                    &::after { c: 0 0 red }
-                }
-                &.new {
-                    &::before { c: green }
-                    &::after { c: 0 0 green }
-                }
+
+            /// Code lines.
+            > [class ^= 'line'] {
+                c: 0 0 t
+
+                /// States.
+                &.old { c: 0 0 b15; &::before { c: b10 }}
+                &.new { c: 0 0 b45; &::before { c: b40 }}
+                &.hll { c: 0 0 b35 }
             }
+
             /// Diff -> Comments.
             /.diff-comment {
                 &-avatar, &s-more-count { c: 0 bg }
@@ -3967,24 +3950,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > .line_content { c: 0 0 hl }
                 > .diff-line-num { box-shadow: none i }
                 &, & + :not(.diff-expanded) { > td { c: 0 bd }}
-            }
-            /// Highlight hovered lines.
-            &[class *= 'holder']:not(.new):not(.old):hover > td[class *= 'line']:not(.match) {
-                &::before {
-                    content: '';
-                    z-index: -1;
-                    opacity: 0.50;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    position: absolute;
-                    pointer-events: none;
-                    c: 0 0 bd;
-                }
-            }
-            &.old, &.new {
-                &:hover > .diff-line-num::after { opacity: 0.30 i }
-                &:hover > td[class *= 'line'] {
-                    &:not([class *= 'num'])::after { opacity: 0.30 i }
-                }
             }
         }
         /// Project -> Settings -> Status/Report tables.
