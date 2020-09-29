@@ -3666,57 +3666,44 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix code area background.
             pre.code.highlight.white:not([lang]) { c: 0 0 bg }
         }
-        /// Global -> Code styles.
+
+        /// Project -> File viewer.
         /.code.white { c-hl-none } {
-            /// Gutters.
-            .line-numbers, .diff-line-num {
-                c: 0 0 hl;
-                a {
-                    font-family: var(--mono-font);
-                    c: cm;
-                }
+            .line-numbers {
+                c: 0 0 bg2
+                > a { c: fg3 0 t }
             }
-            /// Hover state.
-            code > span.line:hover { c: 0 0 hl }
-            /// NOTE: Inconsistent use of line-num parent element.
-            .line-numbers > .diff-line-num { c: 0 0 t }
-            /// Show unchanged lines.
-            .line_expansion {
-                c: 0 0 hl;
-                td { c: 0 bd }
-                a, span { c: cm }
-                /// Add missing top border.
-                &:not(:first-of-type) > td { border-top: 1px solid bd i }
+
+            /// Reset code area colors.
+            pre.code, .line_content {
+                c: fg1 bg5 bg1
             }
-            /// Highlighted line.
-            pre .hll {
-                z-index: 1 i;
-                position: relative;
-                c: 0 0 t;
-                &::before {
-                    content: '';
-                    z-index: -1 i;
-                    opacity: 0.20;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    c: 0 0 yellow;
-                }
+
+            code {
+                span.line:hover { c: 0 0 bg2 }
+
+                /// Highlighted line.
+                .hll { c: 0 0 b35 }
+
+                /// Inline git diffs.
+                /.old .idiff { c: fg0 0 b13 }
+                /.new .idiff { c: fg0 0 b43 }
             }
-            /// Inline git diffs.
-            /.old .idiff { c: fg0 0 b13 }
-            /.new .idiff { c: fg0 0 b43 }
+
             /// Code area.
             /pre.code {
                 /// Resets colors when syntax is set to white.
-                /.code.white & { c: fg bd bg }
+                /.code.white & { c: fg1 bg5 bg1 }
+
                 /// Feat -> Set 'none' syntax colors to use theme colors.
                 if (c_hl_none) {
                     /.code.none & {
-                        c: fg bd hl;
+                        c: fg1 bg5 bg3
                         /// Tokens are still there in the file viewer.
-                        .line span { c: fg }
+                        .line span { c: fg1 }
                     }
                 }
+
                 /// Syntax highlighting.
                 /.code.white {
                     /// Package links.
@@ -3899,6 +3886,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Line numbers.
             > .diff-line-num {
+                c: 0 0 bg2
+
+                /// Line numbers.
+                > a { c: fg3 }
+
                 /// Fix border colors while loading.
                 /.diff-line-num { c: 0 bg5 }
 
@@ -3957,6 +3949,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// New discussion block.
                 /.js-temp-notes-holder td { c: 0 bg5 }
             }
+        }
+
+        /// Show unchanged lines.
+        .line_expansion {
+            c: 0 0 bg2
+            td { c: 0 bg5 }
+            a, span { c: fg3 }
         }
 
         /// Project -> Settings -> Status/Report tables.
