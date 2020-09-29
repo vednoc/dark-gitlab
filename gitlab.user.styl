@@ -3935,23 +3935,27 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.hll { c: 0 0 b35 }
             }
 
-            /// Diff -> Comments.
-            /.diff-comment {
-                &-avatar, &s-more-count { c: 0 bg }
-                &s-more-count, /.diff-notes-collapse {
-                    rad: var(--avatar);
-                    c: fg bd hl;
-                }
-                /// New discussion block.
-                /.js-temp-notes-holder td { c: 0 bd }
-            }
             /// Diff -> Expanded sections.
             &.diff-expanded {
-                > .line_content { c: 0 0 hl }
-                > .diff-line-num { box-shadow: none i }
-                &, & + :not(.diff-expanded) { > td { c: 0 bd }}
+                .diff-line-num { border-right-color: bg2 i }
+                .line_content:not(#z) { c: 0 0 bg2 }
+            }
+
+            /// Diff -> Comment avatars.
+            /.diff-comment {
+                &-avatar, &s-more-count { c: 0 bg1 }
+
+                /// Reset avatars.
+                &s-more-count, /.diff-notes-collapse {
+                    rad: var(--avatar)
+                    c: fg1 bg5 bg4
+                }
+
+                /// New discussion block.
+                /.js-temp-notes-holder td { c: 0 bg5 }
             }
         }
+
         /// Project -> Settings -> Status/Report tables.
         &.white { c: fg 0 t 0 0 0 }
         /// Diff -> Fix border for 'Show unchanged lines'. @upstream
