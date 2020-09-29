@@ -601,7 +601,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     /// Global -> SVG icons.
     svg {
-        &.s16:not([data-testid *= 'status_']), &.s24, &.icon { v: fg2 }
+        &.s16, &.s24, &.icon { v: fg3 }
 
         /// Activity icons.
         /.deleted, /.closed { &-icon svg { v: b10 }}
@@ -629,6 +629,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.open { c: b40; v: b40 }
             &.closed { c: b10; v: b10 }
         }
+
+        /// Pipelines -> Jobs.
+        &[data-testid *= 'status_'] { fill: currentColor }
 
         /// CI -> Background for old icons.
         /[id *= 'status_'] [fill = '#FFF'] { v: bg1 }
