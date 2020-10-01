@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.5.0
+@version      1.5.1
 @license      MIT
 ==/UserStyle== */
 
@@ -56,7 +56,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.5.0';
+    --note: 'Dark-GitLab Lite v1.5.1';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -403,6 +403,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   svg.icon {
     fill: var(--lighter) !important;
   }
+  svg[class][data-testid *= 'status_'] {
+    fill: currentColor !important;
+  }
   .deleted-icon > svg {
     fill: var(--orange) !important;
   }
@@ -472,7 +475,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     fill: var(--red) !important;
   }
   body .ci-status-text {
-    max-width: 100%;
+    max-width: 100% !important;
     margin-right: 35px;
   }
   .ci-status {
@@ -4408,7 +4411,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--darken) !important;
   }
   .pipeline-graph .build {
-    width: 100%;
+    width: 100% !important;
   }
   .pipeline-graph .build-content {
     border-color: var(--darker) !important;
