@@ -1,6 +1,13 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.1 [2020-10-01 Thu]
+Small patch release to fix things in pipelines and jobs.
+
+*** Fixed
+- Updated specificity for jobs's full text tweaks in pipelines
+- Updated colors for CI status icons so that they inherit CI badge colors
+
 ** 1.5.0 [2020-09-25 Fri]
 Updated styles to latest GitLab =13.4= release.
 
