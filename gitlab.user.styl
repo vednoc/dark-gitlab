@@ -356,6 +356,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Global -> SVG icons.
         /svg {
             &.s16, &.s24, &.icon { v: cm }
+            &[class][data-testid *= 'status_'] { fill: currentColor i }
             /// Activity icons.
             /.deleted-icon > svg { v: orange }
             /.closed-icon svg { v: red }
