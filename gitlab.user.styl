@@ -4125,7 +4125,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target:not(#z) { c: 0 blue bb }
+            &.target:not(#z) { c: 0 blue b65 }
             /// Markdown area.
             .note-text {
                 &.md { c: fg }
@@ -4252,7 +4252,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 bg;
-            &.target { c: 0 0 bb }
+            &.target { c: 0 0 b65 }
         }
         /// Fix rounded corners in discussions. @upstream
         &-body {
