@@ -3255,12 +3255,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         [class *= 'file-title'] {
             padding: 10px 16px;
             rad: 4px 4px 0 0;
-            strong { font-weight: normal }
             a:not(.btn) { c: fg }
         }
         /// Body.
         .file-content {
-            c: 0 0 t;
             /// HACK: GitHub-alike styles.
             [dir][align='left'] { text-align: left }
             [dir][align='right'] { text-align: right }
