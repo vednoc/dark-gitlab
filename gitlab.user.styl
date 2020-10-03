@@ -3685,9 +3685,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Highlighted line.
                 .hll { c: 0 0 b35 }
 
-                /// Inline git diffs.
-                /.old .idiff { c: fg0 0 b13 }
-                /.new .idiff { c: fg0 0 b43 }
+                /// Global -> Idiffs.
+                /.idiff {
+                    /// Notes.
+                    &.addition { c: b40 0 b45 }
+                    &.deletion { c: b10 0 b15 }
+
+                    /// Commit diffs.
+                    /.old & { c: fg0 0 b13 }
+                    /.new & { c: fg0 0 b43 }
+                }
             }
 
             /// Code area.
@@ -4177,11 +4184,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 bd hl;
             box-shadow: bsh;
             input { c: 0 0 bg }
-        }
-        /// Global -> Idiffs.
-        /.idiff {
-            &.addition { c: green 0 t }
-            &.deletion { c: red 0 t }
         }
         /// Notes -> Resolved discussions. #79
         /.line-resolve {
