@@ -775,6 +775,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Navbar.
     .navbar {
+        display: flex
+        align-items: center
+
         /// Wrapper.
         &-gitlab, &&-empty { c: 0 bd hl }
         /// Logo.
@@ -856,7 +859,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         svg.s16[data-testid='angle-down-icon'] { width: 11px }
 
         /// Navbar -> Fix whitespace on GitLab 10.4. OBSOLETE
-        > div > .header-content { margin-top: 5px }
+        > div {
+            margin: 0 i
+            padding: 0 i
+            width: 100% i
+            display: flex i
+            align-items: center i
+            justify-content: center i
+            > .header-content { width: 100% }
+        }
     }
 
     // Global -> Tables.
