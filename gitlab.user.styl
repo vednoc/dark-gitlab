@@ -3663,6 +3663,29 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             rad: 0 0 3px 3px;
             /// Fix code area background.
             pre.code.highlight.white:not([lang]) { c: 0 0 bg }
+
+            /// Fix text color for Markdown areas on old instances. OBSOLETE
+            &.wiki, /.documentation-index {
+                c: fg1 bg5
+
+                /// Reset text colors.
+                p { c: inherit }
+                > * { c: inherit inherit }
+                a { &, & > code { color: ac1 }}
+
+                /// Heading anchors.
+                .anchor::after {
+                    content: '#' i
+                    c: fg5
+                }
+            }
+
+            /// Help -> 'Quick help' panel on old instances. OBSOLETE
+            /.panel {
+                c: 0 bg5 bg1
+                > .panel-heading { c: fg1 bg5 bg3 }
+                li:not([class*='disabled']):hover { c: 0 0 bg2 }
+            }
         }
 
         /// Project -> File viewer.
