@@ -1681,25 +1681,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .commit-sha { c: ac }
             .cgray { c: cm }
         }
+
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
-            .issue.today:not(.user-can-drag) {
-                position: relative;
-                &:hover {
-                    c: 0 0 t;
-                    &::before { opacity: 0.12 }
-                    ../:not(:hover) { c: 0 0 t }
-                }
-                &::before {
-                    content: '';
-                    z-index: -1;
-                    opacity: 0.05;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    c: 0 0 green;
-                }
+            .today {
+                c: 0 0 b45
+                &:hover { c: 0 0 b44 }
             }
-            .closed, .merged { c: 0 0 t }
+            .closed, .merged { c: 0 0 bg2 }
             .issuable {
                 ../ .fa:not(.fa-question-circle), ../ .task-status { c: cm }
                 &-milestone, &-info, &-updated-at { c: cm }
@@ -1710,7 +1699,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.icon-merge-request-unmerged { filter: invert(0.7) }
             /// Manual ordering. #136
             &.manual-ordering {
-                c: red green hl
+                c: 0 0 hl
                 > .issue { c: 0 bd bg }
             }
         }
