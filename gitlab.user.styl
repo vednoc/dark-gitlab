@@ -854,6 +854,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-gitlab { box-shadow: none i }
         /// Fix 'down-arrow' size. @upstream
         svg.s16[data-testid='angle-down-icon'] { width: 11px }
+
+        /// Navbar -> Fix whitespace on GitLab 10.4. OBSOLETE
+        > div > .header-content { margin-top: 5px }
     }
 
     // Global -> Tables.
@@ -1613,6 +1616,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Search -> Gradient. NOTE: Type 's' to see it.
             /.dropdown-content-faded-mask::after {
                 background: linear-gradient(to top, hl, t) i;
+            }
+
+            /// Navbar -> Search location on GitLab 10.4. OBSOLETE
+            /.search .location-badge {
+                height: 30px i
+                c: fg4 0 bg3
+                b: 1px 0 bg5 i
             }
         }
         /// Fix icon color.
