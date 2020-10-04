@@ -1339,6 +1339,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.git-clone-holder .form-control {
             font-family: var(--mono-font) i;
             c: 0 0 bg;
+
+            /// Clone bar on Gitlab 10.4. OBSOLETE
+            &#project_clone { height: 34px i }
         }
         /// Releases -> Source code.
         &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
@@ -1478,6 +1481,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 /// Remove margin from the last badge.
                 &-badge:last-child { margin-right: 0 i }
+
+                /// Arrow-buttons on GitLab 10.4. OBSOLETE
+                &-with-arrow {
+                    .arrow::before { border-right-color: bg5 }
+                    .arrow::after { border-right-color: bg2 }
+                    .count { c: 0 bg5 bg2 }
+                }
             }
         }
         /// Commits -> Toggle message.
@@ -2476,8 +2486,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Epics -> Roadmap.
             &.group-epics-roadmap { c: 0 bd }
         }
-        /// Project -> File path divider.
-        &.repo-breadcrumb > li + li::before { c: cm }
+
+        /// Project.
+        &.repo-breadcrumb {
+            /// Dividers.
+            > li + li::before { c: cm }
+
+            /// Path. OBSOLETE
+            a { c: fg1 }
+        }
     }
 
     // Global -> Pagination.
@@ -3172,6 +3189,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         pre.bg-light {
             c: 0 0 hl;
             rad: 4px;
+        }
+    }
+
+    // Project -> Project header on GitLab 10.4. OBSOLETE
+    .project-home-panel {
+        c: 0 bg5
+
+        /// Project visibility/license text. TODO: Change to fg4.
+        .project-metadata > div { c: fg4 }
+
+        /// Project -> Stats on GitLab 10.4. OBSOLETE
+        /.project-stats {
+            c: 0 bg5
+
+            .nav .stat-link {
+                c: fg4
+                &:hover { c: fg1 }
+            }
         }
     }
 
