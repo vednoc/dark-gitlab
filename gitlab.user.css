@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.5.1
+@version      1.5.2
 @license      MIT
 ==/UserStyle== */
 
@@ -56,7 +56,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.5.1';
+    --note: 'Dark-GitLab Lite v1.5.2';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -621,8 +621,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     body .created-icon,
     body .opened-icon,
     body .ic-upload,
+    body .gl-icon[data-testid *= 'status_'],
     body [class *= 'ci-status'] svg {
-      filter: invert(0.9) hue-rotate(180deg) saturate(200%);
+      filter: invert(0.85) hue-rotate(180deg) saturate(100%);
     }
     body :not(#z) .ci-status-icon-created svg,
     body :not(#z) .ci-status-icon-skipped svg {
@@ -4680,6 +4681,29 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .mr-state-widget .mr-widget-body.media .bold {
     margin-left: 0;
     color: var(--lighter) !important;
+  }
+  .mr-state-widget .deploy-heading,
+  .mr-state-widget .merge-train-position-indicator {
+    border-color: var(--darker) !important;
+    background-color: var(--darken) !important;
+  }
+  .linked-pipeline-mini-list.is-downstream > svg.arrow-icon + a[href] {
+    margin-top: 5px !important;
+  }
+  .linked-pipeline-mini-list.is-downstream [class *= 'ci-status'] {
+    background-color: var(--darken) !important;
+  }
+  .linked-pipeline-mini-list.is-downstream [class *= 'ci-status'],
+  .linked-pipeline-mini-list.is-downstream [class *= 'ci-status'] .s16 {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .linked-pipeline-mini-list.is-downstream [class *= 'ci-status']:hover > .s16 {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .mr-state-widget .ci-widget {
+    color: var(--light) !important;
   }
   .mr-state-widget .mr-widget-footer {
     border-color: var(--darker) !important;
