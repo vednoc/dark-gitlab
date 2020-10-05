@@ -1,6 +1,13 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.2 [2020-10-05 Mon]
+Small patch release to fix things in Merge Requests.
+
+*** Fixed
+- Added colors for CI widget and new CI status icons ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/135][#135]])
+- Added styles for deployment and linked downstream pipeline
+
 ** 1.5.1 [2020-10-01 Thu]
 Small patch release to fix things in pipelines and jobs.
 
