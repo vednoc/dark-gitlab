@@ -3263,6 +3263,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .square + button { margin-right: 10px }
             .bold { margin-left: 0; c: cm }
         }
+        /// Fix deployment colors.
+        .deploy-heading, .merge-train-position-indicator { c: 0 bd hl }
+        /// Pipelines -> Downstream icon in linked pipelines. @upstream
+        /.linked-pipeline-mini-list.is-downstream {
+            /// Reset position.
+            > svg.arrow-icon + a[href] { margin-top: 5px i }
+            /// Reset size.
+            [class *= 'ci-status'] {
+                c: 0 0 hl
+                &, .s16 { width: 24px i; height: @width }
+                &:hover > .s16 { width: 22px i; height: @width }
+            }
+        }
         /// Fix CI status text color. #135
         .ci-widget { c: fg }
         /// Footer.
