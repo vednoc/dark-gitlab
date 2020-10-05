@@ -471,8 +471,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         if ( ic_invert == 1 ) {
             @supports not (-moz-user-select: none) {
                 .created-icon, .opened-icon, .ic-upload,
+                .gl-icon[data-testid *= 'status_'], // #135
                 [class *= 'ci-status'] svg {
-                    filter: invert(0.9) hue-rotate(180deg) saturate(200%);
+                    filter: invert(0.85) hue-rotate(180deg) saturate(100%);
                 }
                 /// Increase contrast for gray icons.
                 :not(#z) .ci-status-icon {
@@ -3262,6 +3263,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .square + button { margin-right: 10px }
             .bold { margin-left: 0; c: cm }
         }
+        /// Fix CI status text color. #135
+        .ci-widget { c: fg }
         /// Footer.
         .mr-widget-footer {
             c: 0 bd;
