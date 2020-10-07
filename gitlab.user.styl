@@ -173,6 +173,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     outer   = 0 0 0 1px bd;
     inner   = inset outer;
     i       = !important;
+    // Bootstrap --breakpoint-* CSS vars.
+    bpoints = { xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px }
 
     // Color mixin.
     /// All colors: `c: fg bd bg;`
@@ -694,7 +696,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Tables.
     table:not(.code):not(#z) {
         R = 4px;
-        display: table;
+        &:not(.b-table-stacked) {
+            display: table;
+        }
+        for k, v in bpoints {
+            &.b-table-stacked-{k} {
+                @media(max-width: v) {
+                    display: block;
+                }
+            }
+        }
         border-spacing: 0;
         border-collapse: unset;
         border-radius: R;
