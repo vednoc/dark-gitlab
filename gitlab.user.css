@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.5.2
+@version      1.5.3
 @license      MIT
 ==/UserStyle== */
 
@@ -56,7 +56,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.5.2';
+    --note: 'Dark-GitLab Lite v1.5.3';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -922,13 +922,64 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     width: 11px;
   }
   table:not(.code):not(#z) {
-    display: table;
     border-spacing: 0;
     border-collapse: unset;
     border-radius: 4px;
     color: var(--light) !important;
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
+  }
+  table:not(.code):not(#z):not(.b-table-stacked) {
+    display: table;
+  }
+  @media (max-width: 0) {
+    table:not(.code):not(#z).b-table-stacked-xs {
+      display: block;
+    }
+  }
+  @media (max-width: 576px) {
+    table:not(.code):not(#z).b-table-stacked-sm {
+      display: block;
+    }
+  }
+  @media (max-width: 768px) {
+    table:not(.code):not(#z).b-table-stacked-md {
+      display: block;
+    }
+  }
+  @media (max-width: 992px) {
+    table:not(.code):not(#z).b-table-stacked-lg {
+      display: block;
+    }
+  }
+  @media (max-width: 1200px) {
+    table:not(.code):not(#z).b-table-stacked-xl {
+      display: block;
+    }
+  }
+  @media (max-width: 991.98px) {
+    table:not(.code):not(#z)[class*='table-stacked'] {
+      border-color: var(--t) !important;
+      background-color: var(--t) !important;
+    }
+    table:not(.code):not(#z)[class*='table-stacked'] tr > td {
+      border-top: none !important;
+      border-bottom: 1px solid var(--darker) !important;
+    }
+    table:not(.code):not(#z)[class*='table-stacked'] td {
+      background-color: var(--dark) !important;
+      border-left: 1px solid var(--darker) !important;
+    }
+    table:not(.code):not(#z)[class*='table-stacked'] td:first-child {
+      border-radius: 4px 4px 0 0 !important;
+      border-top: 1px solid var(--darker) !important;
+    }
+    table:not(.code):not(#z)[class*='table-stacked'] td:last-child {
+      border-radius: 0 0 4px 4px !important;
+    }
+    table:not(.code):not(#z)[class*='table-stacked'] td:hover {
+      background-color: var(--bb) !important;
+    }
   }
   table:not(.code):not(#z) thead tr:first-child th:first-child {
     border-top-left-radius: 4px;
@@ -1076,8 +1127,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   table:not(.code):not(#z).gl-table tbody > tr:last-child > td {
     border-bottom: none;
   }
-  table:not(.code):not(#z).gl-table tbody > tr:hover > td {
-    background-color: var(--bb) !important;
+  @media (min-width: 991.98px) {
+    table:not(.code):not(#z).gl-table tbody > tr:hover > td {
+      background-color: var(--bb) !important;
+    }
   }
   table:not(.code):not(#z).tree-table {
     border: 1px solid var(--darker);
@@ -1765,12 +1818,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--darker) !important;
     background-color: var(--darker) !important;
   }
-  .btn-transparent:not(#z) {
+  .btn-transparent:not(#z),
+  .btn-default-tertiary {
     color: var(--lighter);
     border-color: var(--t) !important;
     background-color: var(--t) !important;
   }
-  .btn-transparent:not(#z)::before {
+  .btn-transparent:not(#z)::before,
+  .btn-default-tertiary::before {
     content: unset;
   }
   .btn[disabled]:not(#z)::before,
@@ -1915,10 +1970,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border: 1px solid;
     box-shadow: none !important;
   }
-  .btn.gl-button.disabled,
-  .btn.gl-button[disabled],
-  .btn.gl-button[class *= 'search-button'] {
-    box-shadow: inset 0 0 0 1px var(--darker) !important;
+  .btn.gl-button.btn-dashed {
+    outline-color: var(--bb) !important;
+  }
+  .btn.gl-button.btn-dashed:active,
+  .btn.gl-button.btn-dashed:focus {
+    border-color: var(--blue) !important;
   }
   .label.label-monospace {
     color: var(--light) !important;
@@ -3938,7 +3995,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     fill: var(--green) !important;
   }
   .gl-label {
-    background-color: var(--darker) !important;
+    background-color: var(--darker);
   }
   .gl-label-label-link {
     background-color: var(--t) !important;
@@ -3951,7 +4008,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-label-text[style = 'color: rgb(51, 51, 51);'] {
     color: var(--light) !important;
   }
-  .gl-label:not(:hover) .gl-label-text {
+  .gl-label:not(:hover) .gl-label-text,
+  .gl-label:not(:hover) .gl-label-text + span {
     box-shadow: inset 0 0 0 1rem var(--shadow) !important;
   }
   .gl-label-link:not(#z),
@@ -3961,6 +4019,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-label-icon[href ^= '/help'] > .fa,
   .gl-label-icon[href ^= '/help'] > svg {
     color: var(--lighter) !important;
+  }
+  .gl-label:not([style*='label-background']) {
+    background-color: var(--darker) !important;
   }
   .gfm-form[action $= 'tags'] .form-control,
   .gfm-form[action $= 'tags'] .dropdown-menu-toggle {
@@ -4843,6 +4904,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .file-holder .file-title-flex-parent .btn,
   .file-holder .file-title-flex-parent .btn-default {
     background-color: var(--dark) !important;
+  }
+  .file-holder .file-title-flex-parent .btn,
+  .file-holder .file-title-flex-parent .btn-danger-secondary {
+    color: var(--red) !important;
+    border-color: var(--red) !important;
   }
   .file-holder .file-title-flex-parent .btn-primary:not(.btn-inverted),
   .file-holder .file-title-flex-parent .btn-info:not(.btn-inverted) {
@@ -5904,6 +5970,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .board-title-caret:hover {
     background-color: var(--darken) !important;
+  }
+  .board-list-count {
+    color: var(--lighter) !important;
   }
   .board .issue-count-badge {
     background-color: var(--t) !important;
