@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.3 [2020-10-08 Thu]
+Fixing recently introduced changes for the upcoming =13.5= release.
+
+*** Fixed
+- Added reset styles for Bootstrap stacked tables ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/41][!41]])
+- Added resets for new buttons introduced in Pajamas
+- Added tweaks for new badge styles in Issue Boards
+
 ** 1.5.2 [2020-10-05 Mon]
 Small patch release to fix things in Merge Requests.
 
