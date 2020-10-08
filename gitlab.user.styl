@@ -1253,7 +1253,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-link { c: ac t t }
         &.active { c: fg bd bd }
         /// Transparent buttons.
-        &-transparent:not(#z) {
+        &-transparent:not(#z), &-default-tertiary {
             c: cm t t 0
             &::before { content: unset }
         }
@@ -1347,10 +1347,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.gl-button {
             border: 1px solid;
             box-shadow: none i;
-            &.disabled, &[disabled],
-            &[class *= 'search-button'] {
-                box-shadow: inner i;
-            }
+            /// Snippets -> 'Add another file' button.
+            &.btn-dashed { outline-color: bb }
         }
     }
 
