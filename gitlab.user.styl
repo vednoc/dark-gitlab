@@ -696,9 +696,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Tables.
     table:not(.code):not(#z) {
         R = 4px;
+        border-spacing: 0;
+        border-collapse: unset;
+        border-radius: R;
+        c: fg bd bg;
         &:not(.b-table-stacked) {
             display: table;
         }
+        /// Fix stacked tables. !41
         for k, v in bpoints {
             &.b-table-stacked-{k} {
                 @media(max-width: v) {
@@ -706,10 +711,28 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
         }
-        border-spacing: 0;
-        border-collapse: unset;
-        border-radius: R;
-        c: fg bd bg;
+        /// Reset styles for stacked tables.
+        @media (max-width: 991.98px) {
+            &[class*='table-stacked'] {
+                c: 0 t t
+                /// Reset borders.
+                tr > td {
+                    border-top: none i
+                    border-bottom: 1px solid bd i
+                }
+                /// Reset styles for table cell.
+                td {
+                    c: 0 0 bg
+                    border-left: 1px solid bd i
+                    &:first-child {
+                        rad: 4px 4px 0 0 i
+                        border-top: 1px solid bd i
+                    }
+                    &:last-child { rad: 0 0 4px 4px i }
+                    &:hover { c: 0 0 bb }
+                }
+            }
+        }
         /// Shorthand.
         flc = 'not(:first-child):not(last-child)';
         thead {
@@ -825,7 +848,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             tbody {
                 > tr:first-child > td { border-top: 1px solid bd }
                 > tr:last-child > td { border-bottom: none }
-                > tr:hover > td { c: 0 0 bb }
+                /// Exclude hover in stacked tables.
+                @media (min-width: 991.98px) {
+                    > tr:hover > td { c: 0 0 bb }
+                }
             }
         }
         /// Project -> File table.
