@@ -1348,7 +1348,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border: 1px solid;
             box-shadow: none i;
             /// Snippets -> 'Add another file' button.
-            &.btn-dashed { outline-color: bb }
+            &.btn-dashed {
+                outline-color: bb i
+                &:active, &:focus { c: 0 blue }
+            }
         }
     }
 
@@ -3413,6 +3416,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     svg { v: cm }
                     &.active { c: 0 0 bd }
                     &, &-default { c: 0 0 bg }
+                    &, &-danger-secondary { c: red red }
                     /// Dashboard -> Snippets.
                     &-primary, &-info {
                         &:not(.btn-inverted) { c: 0 0 blue }
