@@ -1,6 +1,12 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.4 [2020-10-10 Sat]
+Fixing a regression introduced in the previous update.
+
+*** Fixed
+- Removed an extra selector for toolbar buttons in file viewer
+
 ** 1.5.3 [2020-10-08 Thu]
 Fixing recently introduced changes for the upcoming =13.5= release.
 
