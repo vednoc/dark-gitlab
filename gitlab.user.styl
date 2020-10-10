@@ -1552,7 +1552,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Labels.
     .label {
-        &&-monospace { c: fg bd bb }
+        &&-monospace { c: fg1 bg5 bg1 }
         /// Issues/MRs/Epics -> Scoped labels.
         &.scoped-label .fa-question-circle {
             c: 0 0 t;
@@ -1695,7 +1695,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Branches.
         &.all-branches {
             .graph { &-side .bar, &-separator { c: 0 0 bd }}
-            .branch-item:hover { c: 0 0 bb }
+            .branch-item:hover { c: 0 0 bg2 }
             .commit-sha { c: ac }
             .cgray { c: cm }
         }
@@ -2918,10 +2918,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-bg {
             &-white { c: 0 0 bb }
             &-gray-10 { c: 0 0 bg }
-            &-gray-50 { c: 0 0 hl } // #139
-            /.bg-secondary-50 { c: 0 0 hl } // 'License Complicance' page.
+            &-gray-50 { c: 0 0 bg2 }
+            /.bg-secondary-50 { c: 0 0 bg3 } // 'License Complicance' page.
             &-green-100.gl-text-green-800 { c: white green green }
-            &-blue-50 { c: 0 0 blue } // #137
+            &-blue-50 { c: 0 0 b64 }
         }
         /// Border-color overrides.
         &-border-gray {
