@@ -412,6 +412,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Custom monospace font.
         pre, code, kbd, samp, .monospace, .ref-name,
         .commit-sha, .pipeline-number, .label-branch,
+        .git-revision-dropdown .dropdown-content ul li a,
         table.code, [class *= 'git-commit'] {
             font-family: var(--mono-font) i;
         }
@@ -2878,6 +2879,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Pajamas.
     .gl {
+        &-font-monospace { font-family: var(--mono-font) i }
         /// Search area.
         &-filtered-search {
             /// Wrapper.
