@@ -3911,31 +3911,43 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.is-active { c: 0 0 bd }
             }
         }
+
         /// MR -> Resolve conflicts. #82
         &.conflict {
-            border-top: none i;
-            .head, .origin {
-                position: relative;
-                &::before {
-                    content: '';
-                    opacity: 0.35;
-                    position: absolute;
-                    pointer-events: none;
-                    top: 0; right: 0; bottom: 0; left: 0;
+            border-top: none i
+
+            .diff-line-num { c: fg3 }
+
+            /// Changes.
+            tr.line_holder {
+                .head {
+                    c: 0 b43 b45
+                    .btn { c: 0 b43 b44 }
+                    &.diff-line-num,
+                    &.line_content.header,
+                    &.line_content:hover {
+                        c: 0 0 b44
+                    }
+                }
+                .origin {
+                    c: 0 b63 b65
+                    .btn { c: 0 b63 b64 }
+                    &.diff-line-num,
+                    &.line_content.header,
+                    &.line_content:hover {
+                        c: 0 0 b64
+                    }
+                }
+                .unselected {
+                    c: 0 bg5 bg3
+                    &.diff-line-num { c: 0 0 bg3 }
+                    &.line_content {
+                        &.header, &:hover:not(#z) { c: 0 0 bg3 }
+                        &:not(.header) { c: 0 0 bg2 }
+                    }
                 }
             }
-            /// Modes.
-            .line_content:not(.header) {
-                &.head::before, &.origin::before { opacity: 0.25 }
-                &.selected::before { opacity: 0.25 i }
-            }
-            .unselected {
-                &:not(#z)::before { c: 0 0 bd }
-                .btn { opacity: 0.5 }
-            }
-            .selected::before { opacity: 0.5 i }
-            .head { &::before, > .btn { c: 0 green green }}
-            .origin { &::before, > .btn { c: 0 blue blue }}
+
             /// Edit inline.
             .editor-wrap.saved .editor { c: 0 green }
         }
