@@ -2826,8 +2826,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
             &[class *= '_message']:not([class *= 'epic']) { rad: 4px }
-            &, / { .warning_message:not(#z) { c: orange orange hl }}
-            &, / { .danger_message:not(#z) { c: red red hl }}
+            &, / { .warning_message:not(#z) { c: fg1 b23 b25 }}
+            &, / { .danger_message:not(#z) { c: fg1 b13 b15 }}
         }
     }
 
