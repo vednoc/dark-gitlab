@@ -632,7 +632,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Pipelines -> Jobs.
-        &[data-testid *= 'status_'] { fill: currentColor }
+        &[data-testid *= 'status_'] { v: currentColor }
 
         /// CI -> Background for old icons.
         /[id *= 'status_'] [fill = '#FFF'] { v: bg1 }
