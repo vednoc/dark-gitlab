@@ -1493,7 +1493,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
-            .issue.today {
+            .issue.today:not(.user-can-drag) {
                 position: relative;
                 &:hover {
                     c: 0 0 t;
@@ -1518,6 +1518,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Unmerged MR icon color. @upstream
             /.icon-merge-request-unmerged { filter: invert(0.7) }
+            /// Manual ordering. #136
+            &.manual-ordering {
+                c: red green hl
+                > .issue { c: 0 bd bg }
+            }
         }
         /// Project -> Requirements -> Remove hover bg.
         &.requirements-list > li:hover { c: 0 0 t }
