@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.5.4
+@version      1.5.5
 @license      MIT
 ==/UserStyle== */
 
@@ -56,7 +56,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.5.4';
+    --note: 'Dark-GitLab Lite v1.5.5';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -2214,19 +2214,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   ul.content-list.all-branches .cgray {
     color: var(--lighter) !important;
   }
-  ul.content-list.issuable-list .issue.today {
+  ul.content-list.issuable-list .issue.today:not(.user-can-drag) {
     position: relative;
   }
-  ul.content-list.issuable-list .issue.today:hover {
+  ul.content-list.issuable-list .issue.today:not(.user-can-drag):hover {
     background-color: var(--t) !important;
   }
-  ul.content-list.issuable-list .issue.today:hover::before {
+  ul.content-list.issuable-list .issue.today:not(.user-can-drag):hover::before {
     opacity: 0.12;
   }
-  ul.content-list.issuable-list .issue.today:not(:hover) {
+  ul.content-list.issuable-list .issue.today:not(.user-can-drag):not(:hover) {
     background-color: var(--t) !important;
   }
-  ul.content-list.issuable-list .issue.today::before {
+  ul.content-list.issuable-list .issue.today:not(.user-can-drag)::before {
     content: '';
     z-index: -1;
     opacity: 0.05;
@@ -2255,6 +2255,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .icon-merge-request-unmerged {
     filter: invert(0.7);
+  }
+  ul.content-list.issuable-list.manual-ordering {
+    color: var(--red) !important;
+    border-color: var(--green) !important;
+    background-color: var(--darken) !important;
+  }
+  ul.content-list.issuable-list.manual-ordering > .issue {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
   }
   ul.content-list.requirements-list > li:hover {
     background-color: var(--t) !important;
@@ -4008,8 +4017,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-label-text[style = 'color: rgb(51, 51, 51);'] {
     color: var(--light) !important;
   }
-  .gl-label:not(:hover) .gl-label-text,
-  .gl-label:not(:hover) .gl-label-text + span {
+  .gl-label[style*='--label-inset-border']:not(:hover) [class*='text-scoped'] {
+    z-index: 1;
+  }
+  .gl-label[style*='--label-inset-border']:not(:hover)::after {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     box-shadow: inset 0 0 0 1rem var(--shadow) !important;
   }
   .gl-label-link:not(#z),
@@ -4019,6 +4037,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-label-icon[href ^= '/help'] > .fa,
   .gl-label-icon[href ^= '/help'] > svg {
     color: var(--lighter) !important;
+  }
+  .gl-label-close svg {
+    fill: currentColor !important;
   }
   .gl-label:not([style*='label-background']) {
     background-color: var(--darker) !important;
@@ -6029,6 +6050,33 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     .board-swimlanes {
       height: calc(100vh - 99px - var(--offset));
     }
+  }
+  .boards-app .add-issues-container {
+    border: 1px solid;
+    color: var(--light) !important;
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+  }
+  .boards-app .add-issues-container > div > header {
+    background-color: var(--darken) !important;
+  }
+  .boards-app .add-issues-container .board-card.is-active {
+    background-color: rgba(34,136,255,0.082) !important;
+  }
+  .boards-app .add-issues-container .board-card.is-active svg.gl-icon {
+    color: var(--white) !important;
+    border-color: var(--blue) !important;
+    background-color: var(--blue) !important;
+    fill: var(--white) !important;
+  }
+  .boards-app .add-issues-container .btn.close {
+    top: -5px;
+  }
+  .boards-app .add-issues-container .filtered-search {
+    background-color: var(--t) !important;
+  }
+  .boards-app .add-issues-container .clear-search {
+    background-color: var(--t) !important;
   }
   .milestones .milestone:not(:last-child) {
     margin-bottom: 8px;
