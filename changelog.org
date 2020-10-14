@@ -1,6 +1,17 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.5 [2020-10-14 Wed]
+Fixing a few unstyled areas in issues and boards, as well as recent additions to
+lables in issues.
+
+*** Improved
+- Tweaked dark overlay and added styles for close buttons to labels
+
+*** Fixed
+- Added styles for 'Manual' sorting mode in issues ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/136][#136]])
+- Added styles for 'Add issues' modal in Issue Boards
+
 ** 1.5.4 [2020-10-10 Sat]
 Fixing a regression introduced in the previous update.
 
