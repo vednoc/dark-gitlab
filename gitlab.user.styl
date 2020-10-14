@@ -2794,12 +2794,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: fg;
                 }
                 /// Add dark overlay to badges.
-                ../:not(:hover) & {
-                    &, & + span { box-shadow: inset 0 0 0 1rem sh i }
+                ../[style*='--label-inset-border']:not(:hover) {
+                    [class*='text-scoped'] { z-index: 1 }
+                    &::after {
+                        z-index: 0
+                        content: ''
+                        position: absolute
+                        top: 0; left: 0; bottom: 0; right: 0
+                        box-shadow: inset 0 0 0 1rem sh i
+                    }
                 }
             }
             &-link, ../-label { &:not(#z) { color: inherit i }}
             &-icon[href ^= '/help'] { > .fa, > svg { c: cm }}
+            /// Remove background from 'remove' buttons.
+            &-close svg { fill: currentColor i }
             /// Issues -> Fix badge colors in Boards.
             &:not([style*='label-background']) { c: 0 0 bd }
         }
