@@ -4188,6 +4188,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 height: calc(100vh - 99px - var(--offset));
             }
         }
+        /// Boards -> 'Add issues' modal.
+        &s-app .add-issues {
+            &-container {
+                border: 1px solid
+                c: fg bd bg
+                > div > header { c: 0 0 hl }
+                .board-card.is-active {
+                    c: 0 0 #2288ff15
+                    svg.gl-icon { c: white blue blue; v: white }
+                }
+                /// Resets.
+                .btn.close { top: -5px }
+                .filtered-search { c: 0 0 t }
+                .clear-search { c: 0 0 t }
+            }
+        }
     }
 
     // Issues -> Milestones.
