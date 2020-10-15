@@ -1,6 +1,13 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.6 [2020-10-15 Thu]
+Minor release to fix a couple of bugs.
+
+*** Fixed
+- Added styles for Kubernetes cluster list ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/43][!43]])
+- Removed border/background from transparent buttons in file diff titles
+
 ** 1.5.5 [2020-10-14 Wed]
 Fixing a few unstyled areas in issues and boards, as well as recent additions to
 lables in issues.
