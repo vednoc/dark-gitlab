@@ -3379,6 +3379,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
+    // Project -> Clusters
+     .clusters {
+       &-container &-table {
+         c: 0 bd hl;
+       }
+     }
+
     // Project -> Settings.
     .project {
         /// Grouped options.
