@@ -3438,6 +3438,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &.active { c: 0 0 bd }
                     &, &-default { c: 0 0 bg }
                     &-danger-secondary { c: red red }
+                    &-default-tertiary:not(#z) { c: 0 t t }
                     /// Dashboard -> Snippets.
                     &-primary, &-info {
                         &:not(.btn-inverted) { c: 0 0 blue }
