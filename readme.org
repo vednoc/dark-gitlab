@@ -7,6 +7,8 @@ self-hosted GitLab instances.
 
 Check [[https://gitlab.com/vednoc/dark-gitlab/-/milestones/1][dark-gitlab/milestones/1]] to see the roadmap to =v1.0=.
 
+[[https://gitlab.com/vednoc/dark-gitlab/-/starrers][https://img.shields.io/badge/dynamic/json?color=orange&label=Stars&query=%24.star_count&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F7904989]]
+[[https://gitlab.com/vednoc/dark-gitlab/-/forks][https://img.shields.io/badge/dynamic/json?color=blue&label=Forks&query=%24.forks_count&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F7904989]]
 [[https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
 [[https://discord.gg/NpT8PzA][https://img.shields.io/discord/272011641694978048.svg?longCache=true&colorB=7289da&logo=discord&style=flat]]
 
