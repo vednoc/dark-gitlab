@@ -1,6 +1,15 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.5.8 [2020-10-24 Sat]
+Adding new domains and tweaking missing/static buttons.
+
+*** Added
+- Lots of new domains ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/45][!45]], [[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/46][!46]])
+
+*** Improved
+- Switched to darker text color for missing/static buttons
+
 ** 1.5.7 [2020-10-23 Fri]
 Updating styles to fix changes introduced in GitLab =13.5= release.
 
