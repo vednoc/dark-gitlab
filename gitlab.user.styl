@@ -1331,7 +1331,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.open { c: ac 0 bd }
         }
         /// Project -> Missing files / Static buttons.
-        &-missing, /.stat-text { c: fg bd hl }
+        &-missing, /.stat-text { c: cm bd hl }
         /// Settings -> Connected accounts.
         /.provider-btn {
             line-height: unset;
