@@ -1,6 +1,19 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.6.0 [2020-10-25 Sun]
+Adding support for =(prefers-color-scheme: dark)= and refactoring old CSS literals
+for inputs and up/down arrows to Stylus-lang.
+
+*** Added
+- A new option to interop with =(prefers-color-scheme: dark)= media query ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/87][#87]])
+  + Disabled by default, and only available in the ~wa.user.styl~ version.
+  + It will turn dark mode on or off depending on your system's theme.
+
+*** Improved
+- Added vertical whitespace between multiple rows of badges in project header
+- Refactored logic for radio/checkbox inputs and ↑/↓ arrows to Stylus-lang
+
 ** 1.5.8 [2020-10-24 Sat]
 Adding new domains and tweaking missing/static buttons.
 
