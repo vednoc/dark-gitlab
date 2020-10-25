@@ -11,6 +11,7 @@
 @license      MIT
 
 @var select   theme      'Color-scheme' ['Default', 'GitHub-Dark']
+@var checkbox pcs_enable 'Apply when `(prefers-color-scheme: dark)` is enabled' 0
 @var text     ui_font    'Custom UI font' '"font_name"'
 @var text     mono_font  'Custom mono font' '"font_name"'
 @var text     emoji_font 'Custom emoji font' '"font_name"'
@@ -94,7 +95,11 @@ regexp('^https?://(www\.)?source\.(small-tech|joinmastodon)\.org(/.*)?$'),
 regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.org(/.*)?$'),
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
-    /// Hello, friend.
+    if (pcs_enable) {
+        { unquote('@media (prefers-color-scheme: dark) {') }
+    }
+
+    // Dark-GitLab variables.
     :root {
         --note      : 'Dark-GitLab v1.5.8';
         --bshadow   : 0 2px 4px var(--shadow);
@@ -109,6 +114,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol', 'Noto Color Emoji';
         --white     : white;
+
+        /// Feat -> Color-scheme.
         if ( theme == 'GitHub-Dark' ) {
             --bb        : #202020;
             --dark      : #181818;
@@ -144,6 +151,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             --cyan      : cyan;
             --green     : green;
         }
+
         // TODO: Add more tones for secondary colors.
         --red-darken    : mix(dark, red, 70%);
         --red-darker    : mix(dark, red, 85%);
@@ -4921,9 +4929,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
     }
+    if (pcs_enable) {
+        { unquote('}') }
+    }
 }
 
 @-moz-document domain('next.gitlab.com') {
+    if (pcs_enable) {
+        { unquote('@media (prefers-color-scheme: dark) {') }
+    }
     .wrapper {
         padding: 1rem;
         min-height: calc(100vh - 2rem);
@@ -4946,5 +4960,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:checked + label::before { c: 0 0 blue }
             }
         }
+    }
+    if (pcs_enable) {
+        { unquote('}') }
     }
 }
