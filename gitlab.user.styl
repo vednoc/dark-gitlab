@@ -3456,8 +3456,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
         }
-        /// Project -> Header -> Badges.
-        &-badge { rad: 4px }
+        /// Project -> Tweaks for multiple rows of badges.
+        &-badges {
+            margin-top: -0.5rem
+            img { margin-top: 0.5rem; rad: 4px }
+        }
     }
 
     // Project -> File viewer.
