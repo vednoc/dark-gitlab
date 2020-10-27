@@ -4930,6 +4930,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     /// DAG integration. #128
     line[id *= 'dag-'][stroke = '#f2f2f2'] { stroke: gray i }
 
+    /// DevOps Score area. #141
+    .devops {
+        &-card-high .board-card-score-big { c: 0 0 var(--success) }
+        &-card-low .board-card-score-big { c: 0 0 var(--red) }
+        &-step { c: 0 0 hl }
+        /.board-card-score-value { c: cm }
+    }
+
     // Feat -> Dark-GitLab announcements.
     if ( dgl_alerts == 1 ) {
         [data-page='users:show'] .user-profile .cover-block {
