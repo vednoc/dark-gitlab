@@ -4232,7 +4232,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             border-top: 1px solid bd i;
             c: 0 bd hl;
             box-shadow: none;
-            &-header a { c: fg }
+            &-header, &-title { a { c: fg }} // #140
             &-number { c: cm }
             /// Weight. #124
             &-weight { c: fg }
