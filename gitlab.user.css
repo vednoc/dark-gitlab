@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.6.0
+@version      1.6.1
 @license      MIT
 ==/UserStyle== */
 
@@ -63,7 +63,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.6.0';
+    --note: 'Dark-GitLab Lite v1.6.1';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -3928,6 +3928,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-bg-gray-50 {
     background-color: var(--darken) !important;
   }
+  .bg-secondary-50 {
+    background-color: var(--darken) !important;
+  }
   .gl-bg-green-100.gl-text-green-800 {
     color: var(--white) !important;
     border-color: var(--green) !important;
@@ -6051,7 +6054,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--darken) !important;
     box-shadow: none;
   }
-  .board-card-header a {
+  .board-card-header a,
+  .board-card-title a {
     color: var(--light) !important;
   }
   .board-card-number {
@@ -7123,6 +7127,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   line[id *= 'dag-'][stroke = '#f2f2f2'] {
     stroke: #808080 !important;
+  }
+  .devops-card-high .board-card-score-big {
+    background-color: var(--success) !important;
+  }
+  .devops-card-low .board-card-score-big {
+    background-color: var(--red) !important;
+  }
+  .devops-step {
+    background-color: var(--darken) !important;
+  }
+  .board-card-score-value {
+    color: var(--lighter) !important;
   }
   [data-page='users:show'] .user-profile .cover-block {
     padding-top: 80px;
