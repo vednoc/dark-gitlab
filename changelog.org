@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.6.1 [2020-10-27 Tue]
+Small patch release to fix styles for a couple of unstyled areas.
+
+*** Fixed
+- Added a new selector for titles of cards ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/140][#140]])
+- Added a temporary fix for 'DevOps Score' page ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/141][#141]])
+- Remapped another obscure and possibly obsolete color utility class
+
 ** 1.6.0 [2020-10-25 Sun]
 Adding support for =(prefers-color-scheme: dark)= and refactoring old CSS literals
 for inputs and up/down arrows to Stylus-lang.
