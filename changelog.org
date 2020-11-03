@@ -1,6 +1,14 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.6.2 [2020-11-03 Tue]
+Small patch release to fix a few unstyled elements and a variable conflict.
+
+*** Fixed
+- Added styles for applications in Kubernetes clusters ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/142][#142]])
+- Updated styles for hover event for build jobs in pipelines
+- Renamed =v= variable for =bpoints= to escape a conflict with =v= mixin
+
 ** 1.6.1 [2020-10-27 Tue]
 Small patch release to fix styles for a couple of unstyled areas.
 
