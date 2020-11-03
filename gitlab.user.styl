@@ -735,9 +735,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             display: table;
         }
         /// Fix stacked tables. !41
-        for k, v in bpoints {
+        for k, v_ in bpoints {
             &.b-table-stacked-{k} {
-                @media(max-width: v) {
+                @media(max-width: v_) {
                     display: block;
                 }
             }
