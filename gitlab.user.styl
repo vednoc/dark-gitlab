@@ -3433,12 +3433,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
-    // Project -> Clusters
-    .clusters {
-       &-container &-table {
-         c: 0 bd hl;
-       }
-     }
+    // Project -> Clusters.
+    .cluster {
+        /// #142
+        &-application {
+            &-list { c: 0 bg5 }
+            &-row {
+                c: 0 0 hl
+                img.avatar:not(.identicon) { background-color: 0 0 unset i }
+            }
+        }
+        /// !43
+        &s {
+            &-container &-table {
+                c: 0 bd hl;
+            }
+        }
+    }
 
     // Project -> Settings.
     .project {
