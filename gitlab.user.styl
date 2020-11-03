@@ -3178,7 +3178,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             width: 100% i;
             &-content {
                 c: 0 bd bg;
-                &:hover { c: 0 0 bb }
+                transition: none i
+                &:hover { c: cm 0 bb }
             }
             /// Downstream.
             .linked-pipeline-content {
