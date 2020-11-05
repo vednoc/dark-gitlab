@@ -1643,6 +1643,26 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             span { c: fg }
             &:hover { c: 0 0 bd }
         }
+        /// Fix for a glitch introduced in !47.
+        /// NOTE: Sometimes, the JS calculation is not made in time and the very
+        /// first column of jobs ends up hidden behind left sidebar. This simple
+        /// workaround prevents that, so will always add some padding. You will
+        /// be able to tell that this occurred if all the jobs are on the far
+        /// left side of the available area, and not centered like usually.
+        &:not(.js-sidebar-collapsed) + .content-wrapper {
+            .pipeline-visualization > div[style*='padding-left: 0px'] {
+                padding-left: 0px i
+                padding-left: 240px i
+                // border-left: 300px solid ac i
+                // transform: translateX(27.9vw) i
+            }
+        }
+        &.js-sidebar-collapsed + .content-wrapper {
+            .pipeline-visualization > div[style*='padding-left: 0px'] {
+                padding-left: 0px i
+                padding-left: 70px i
+            }
+        }
     }
 
     // Global -> Right sidebar.
