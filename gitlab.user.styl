@@ -410,11 +410,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.closed { c: red; v: red }
             }
         }
-        /// CI -> Text
-        .ci-status-text {
-            max-width: 100% i;
-            margin-right: 35px;
-        }
         /// CI -> Icons.
         /.ci-status {
             c: fg bd bg 1 0;
@@ -3209,6 +3204,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /div[class *= 'mini-pipe'] {
                 &:focus { box-shadow: 0 0 4px 0px ac i }
                 li:hover [class *= 'dropdown-item'] { c: 0 0 bd }
+            }
+        }
+        /// Tweak curved connectors for !47.
+        .stage-column {
+            .curve { &::before, &::after { top: -24px }}
+            .build:nth-child(2) {
+                &::before, &::after { height: 24px; top: -4px }
             }
         }
     }
