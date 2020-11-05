@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      1.6.2
+@version      1.6.3
 @license      MIT
 ==/UserStyle== */
 
@@ -63,7 +63,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --note: 'Dark-GitLab Lite v1.6.2';
+    --note: 'Dark-GitLab Lite v1.6.3';
     --bshadow: 0 2px 4px var(--shadow);
     --t: transparent !important;
     --avatar: 25%;
@@ -480,10 +480,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   svg.merge-request-status.closed {
     color: var(--red) !important;
     fill: var(--red) !important;
-  }
-  body .ci-status-text {
-    max-width: 100% !important;
-    margin-right: 35px;
   }
   .ci-status {
     color: var(--light) !important;
@@ -2386,6 +2382,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .nav-sidebar .close-nav-button:hover {
     background-color: var(--darker) !important;
   }
+  .nav-sidebar:not(.js-sidebar-collapsed) + .content-wrapper .pipeline-visualization > div[style*='padding-left: 0px'] {
+    padding-left: 0px !important;
+    padding-left: 240px !important;
+  }
+  .nav-sidebar.js-sidebar-collapsed + .content-wrapper .pipeline-visualization > div[style*='padding-left: 0px'] {
+    padding-left: 0px !important;
+    padding-left: 70px !important;
+  }
   .right-sidebar {
     border-color: var(--darker) !important;
     background-color: var(--darken) !important;
@@ -3970,8 +3974,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .gfm.gfm-commit,
   .gfm.gfm-commit_range {
-    font-family: var(--ui-font);
-    font-size: 100%;
+    font-family: var(--mono-font);
   }
   .gfm.gfm-commit,
   .gfm.gfm-commit_range > code {
@@ -4526,16 +4529,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     font-family: var(--mono-font);
     background-color: var(--t) !important;
   }
+  .ci-job-name-component > .gl-text-truncate {
+    max-width: 100%;
+    margin-right: 35px;
+  }
   .pipeline-graph.pipeline-tab-content {
     background-color: var(--darken) !important;
   }
   .pipeline-graph .build {
     width: 100% !important;
+    margin-bottom: 5px;
   }
   .pipeline-graph .build-content {
     border-color: var(--darker) !important;
     background-color: var(--dark) !important;
     transition: none !important;
+    padding: 5px 5px !important;
   }
   .pipeline-graph .build-content:hover {
     color: var(--lighter) !important;
@@ -4570,6 +4579,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   div[class *= 'mini-pipe'] li:hover [class *= 'dropdown-item'] {
     background-color: var(--darker) !important;
+  }
+  .pipeline-graph .stage-column .curve::before,
+  .pipeline-graph .stage-column .curve::after {
+    top: -24px;
+  }
+  .pipeline-graph .stage-column .build:nth-child(2)::before,
+  .pipeline-graph .stage-column .build:nth-child(2)::after {
+    height: 24px;
+    top: -4px;
   }
   .build-page .top-bar {
     z-index: 99;
