@@ -1,6 +1,16 @@
 #+STARTUP: nofold
 
 * Changelog
+** 1.6.3 [2020-11-05 Thu]
+Small patch release to fix a few things for jobs in pipelines, and font used in
+GFM commits and commit ranges.
+
+*** Fixed
+- Updated styles for text truncating of jobs names in pipelines ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/47][!47]])
+  + Also added a workaround for glitchy behavior in [[https://gitlab.com/vednoc/dark-gitlab/-/commit/6f66369aeb1b6f6167766a3bbd0016d14c643a60][#6f66369a]].
+  + Might be bundled into a "compact pipelines" option in next minor release.
+- GFM commits and commit ranges now use custom monospace font
+
 ** 1.6.2 [2020-11-03 Tue]
 Small patch release to fix a few unstyled elements and a variable conflict.
 
