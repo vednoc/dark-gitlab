@@ -3168,7 +3168,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 t;
         }
     }
-
+    // Projects -> Text
+    .ci-job-name-component > .gl-text-truncate {
+        max-width: 100%;
+        margin-right: 35px
+    }
     // Project -> Pipelines.
     .pipeline-graph {
         /// Pipelines -> Tab background.
@@ -3180,7 +3184,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 bd bg;
                 transition: none i
                 &:hover { c: cm 0 bb }
+                padding: 5px 5px i;
             }
+            margin-bottom: 5px;
             /// Downstream.
             .linked-pipeline-content {
                 c: 0 bd bg;
