@@ -389,11 +389,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         .container { c: 0 bd }
         /// Settings -> Account.
-        .danger-title, .gl-field-error, .invalid-feedback { c: red }
+        .danger-title, .gl-field-error, .invalid-feedback { c: v16 }
         [class *= 'price-per-'] { c: blue }
-        .warning-title { c: orange }
-        .valid-feedback { c: green }
+        .warning-title { c: v26 }
+        .valid-feedback { c: v46 }
         .account-well { c: fg bd hl }
+
         /// Settings -> Fix QR code. #108
         [class *= 'two-factor-auth'] svg {
             c: 0 0 white;
@@ -517,15 +518,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global -> Callouts.
         .bs-callout {
-            rad: 3px;
-            c: fg bd hl;
+            rad: 4px
+            c: fg1 bg5 bg3
+
             a { c: ac }
             strong { color: inherit i }
-            &-warning { c: 0 orange hl }
-            &-success { c: 0 green hl }
-            &-danger { c: 0 red hl }
-            &-info { c: 0 blue hl }
+            &-warning { c: v98 v25 v21 }
+            &-success { c: v98 v45 v41 }
+            &-danger { c: v98 v15 v11 }
+            &-info { c: v98 v65 v61 }
             .btn-default, code:not([class]) { c: 0 0 bg }
+
             /// Project -> Settings -> CI/CD.
             &.help-callout,
             &.shared-runners-description {
@@ -576,30 +579,30 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.s16, &.s24, &.icon { g: fg3 }
 
         /// Activity icons.
-        /.deleted, /.closed { &-icon svg { g: b10 }}
-        /.created, /.joined, /.opened { &-icon svg { g: b40 }}
+        /.deleted, /.closed { &-icon svg { g: v16 }}
+        /.created, /.joined, /.opened { &-icon svg { g: v46 }}
         /.commit, /.pushed-new, /.pushed-to { &-icon svg { g: fg4 }}
-        /.imported, /.commented-on, /.accepted { &-icon svg { g: b60 }}
+        /.imported, /.commented-on, /.accepted { &-icon svg { g: v66 }}
 
         /// Misc.
-        &.ic-eye-slash { g: b20 } /// Confidential issues.
-        &.text-success { g: b40 } /// Green checkmark.
-        &.text-danger { g: b10 } /// Due date.
+        &.ic-eye-slash { g: v26 } /// Confidential issues.
+        &.text-success { g: v46 } /// Green checkmark.
+        &.text-danger { g: v16 } /// Due date.
 
         /// Diff -> Git status icons.
-        &.ic-file-addition { &, &-solid { g: b40 }}
-        &.ic-file-modified { &, &-solid { g: b60 }}
-        &.ic-file-deletion { &, &-solid { g: b10 }}
-        &[id *= 'addition-solid'] { g: b40 }
+        &.file-addition { &, &-solid { g: v46 }}
+        &.file-modified { &, &-solid { g: v66 }}
+        &.file-deletion { &, &-solid { g: v16 }}
+        &[id*='addition-solid'] { g: v46 }
 
         /// Notes -> Related isses/MRs/epics.
         &.issue-token-state-icon {
-            &-open { g: b40 }
-            &-closed { g: b60 }
+            &-open { g: v46 }
+            &-closed { g: v66 }
         }
         &.merge-request-status {
-            &.open { c: b40; g: b40 }
-            &.closed { c: b10; g: b10 }
+            &.open { c: v46; g: v46 }
+            &.closed { c: v16; g: v16 }
         }
 
         /// Pipelines -> Jobs.
@@ -620,37 +623,37 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Badges.
             &.ci {
-                &-failed { c: b10 b10 }
-                &-success { c: b40 b40 }
-                &-info, &-running { c: b60 b60 }
+                &-failed { c: v16 v16 }
+                &-success { c: v46 v46 }
+                &-info, &-running { c: v66 v66 }
                 &-created, &-skipped { c: fg3 fg3 }
                 &-canceled, &-disabled, &-scheduled, &-manual { c: fg5 fg5 }
                 &-pending,
                 &-waiting-for-resource,
                 &-failed-with-warnings,
                 &-success-with-warnings {
-                    c: b20 b20
+                    c: v26 v26
                 }
             }
 
             /// Icons.
             &-icon {
                 &-success {
-                    &[class *= 'dropdown'], svg { c: 0 b40 }
-                    &:not(#z), &[data-toggle] { svg { g: b40 }}
+                    &[class *= 'dropdown'], svg { c: 0 v46 }
+                    &:not(#z), &[data-toggle] { svg { g: v46 }}
                 }
                 &-running, &-preparing {
-                    &[class *= 'dropdown'], svg { c: 0 b60 }
-                    &:not(#z), &[data-toggle] { svg { g: b60 }}
+                    &[class *= 'dropdown'], svg { c: 0 v66 }
+                    &:not(#z), &[data-toggle] { svg { g: v66 }}
                 }
                 &-failed {
-                    &[class *= 'dropdown'], svg { c: 0 b10 }
-                    &:not(#z), &[data-toggle] { svg { g: b10 }}
+                    &[class *= 'dropdown'], svg { c: 0 v16 }
+                    &:not(#z), &[data-toggle] { svg { g: v16 }}
                 }
                 &-pending, &-waiting-for-resource,
                 &-failed-with-warnings, &-success-with-warnings {
-                    &[class *= 'dropdown'], svg { c: 0 orange }
-                    &:not(#z), &[data-toggle] { svg { g: orange }}
+                    &[class *= 'dropdown'], svg { c: 0 v26 }
+                    &:not(#z), &[data-toggle] { svg { g: v26 }}
                 }
                 &-created, &-skipped {
                     &[class *= 'dropdown'], svg { c: 0 fg3 }
@@ -824,7 +827,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Dark mode tweaks.
         .search-form {
             > form { box-shadow: none i }
-            &:hover, &.search-active { > form { c: 0 b63 }}
+            &:hover, &.search-active { > form { c: 0 v65 }}
         }
         &-gitlab { box-shadow: none i }
         /// Fix 'down-arrow' size. @upstream
@@ -1674,8 +1677,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
             .today {
-                c: 0 0 b45
-                &:hover { c: 0 0 b44 }
+                c: 0 0 v40
+                &:hover { c: 0 0 v41 }
             }
             .closed, .merged { c: 0 0 bg2 }
             .issuable {
@@ -2428,23 +2431,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.s20 { line-height: 16px } // Usage quotas.
             &.s24 { line-height: 22px } // Operations.
             &.s32 { line-height: 28px } // Search menus.
-            &.s40 { line-height: 28px } // Group's projects.
+            &.s40 { line-height: 28px } // Group projects.
             &.s48 { line-height: 44px } // Dashboard projects.
-            &.s64 { line-height: 60px } // Group's avatar.
+            &.s64 { line-height: 60px } // Group avatar.
         }
 
         /// Default colors.
-        &.bg0 { c: b10 b13 b14 }
-        &.bg1 { c: b40 b43 b44 }
-        &.bg2 { c: b50 b53 b54 }
-        &.bg3 { c: b30 b33 b34 }
-        &.bg4 { c: b70 b73 b74 }
-        &.bg5 { c: b60 b63 b64 }
-        &.bg6 { c: b80 b83 b84 }
-        &.bg7 { c: b20 b23 b24 }
+        &.bg0 { c: v19 v13 v11 }
+        &.bg1 { c: v49 v43 v41 }
+        &.bg2 { c: v59 v53 v51 }
+        &.bg3 { c: v39 v33 v31 }
+        &.bg4 { c: v79 v73 v71 }
+        &.bg5 { c: v69 v63 v61 }
+        &.bg6 { c: v89 v83 v81 }
+        &.bg7 { c: v29 v23 v21 }
 
         /// Fallback identicon; Found on 'usage quotas' page.
-        &.bgNaN { c: 0 bb bd }
+        &.bgNaN { c: 0 bg5 bg3 }
     }
 
     // Global -> Page title.
@@ -2737,46 +2740,45 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// States.
         &-warning {
-            c: b20 0 b24
+            c: v99 0 v23
             .gl-alert-icon { g: orange }
         }
         &-danger {
-            c: b10 0 b14
+            c: v99 0 v14
             .gl-alert-icon { g: red }
         }
         &-success {
-            c: b40 0 b44
+            c: v99 0 v44
             .gl-alert-icon { g: green }
         }
         &-info {
-            c: b60 0 b64
+            c: v99 0 v64
             .gl-alert-icon { g: blue }
         }
         &-tip {
-            c: fg 0 hl;
+            c: fg2 0 bg3
             .gl-alert-icon { g: fg }
         }
 
         /// Global -> Old floating alerts.
         /.flash-container {
-            c: 0 0 bg;
             svg { fill: currentColor i }
-            .flash-alert { c: b10 0 b15 }
-            .flash-notice { c: b60 0 b65 }
-            .flash-warning { c: b20 0 b25 }
-            .flash-success { c: b40 0 b45 }
+            .flash-alert { c: v98 0 v13 }
+            .flash-notice { c: v98 0 v63 }
+            .flash-warning { c: v98 0 v23 }
+            .flash-success { c: v98 0 v43 }
             /// Increase top offset when nb_height is enabled.
             if (nb_height) { &.sticky { top: 58px i }}
         }
 
         /// Global -> Old alerts.
         /.alert {
-            &&-info, &&-primary { c: b60 b63 b64 }
-            &&-warning { c: b20 b23 b24 }
-            &&-success { c: b40 b43 b44 }
+            &&-info, &&-primary { c: v98 v63 v62 }
+            &&-warning { c: v98 v23 v22 }
+            &&-success { c: v98 v43 v42 }
             &&-secondary { c: fg3 bg5 bg2 }
-            &&-danger { c: b10 b13 b14 }
-            &&-light { c: fg3 bg5 bg3 }
+            &&-danger { c: v98 v13 v12 }
+            &&-light { c: fg1 bg5 bg3 }
             h4 { color: inherit i }
 
             /// Broadcast messages found on `git.synz.io`.
@@ -2797,8 +2799,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
             &[class *= '_message']:not([class *= 'epic']) { rad: 4px }
-            &, / { .warning_message:not(#z) { c: fg1 b23 b25 }}
-            &, / { .danger_message:not(#z) { c: fg1 b13 b15 }}
+            &, / { .warning_message:not(#z) { c: v98 v24 v21 }}
+            &, / { .danger_message:not(#z) { c: v98 v14 v11 }}
         }
     }
 
@@ -2892,7 +2894,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-gray-50 { c: 0 0 bg2 }
             /.bg-secondary-50 { c: 0 0 bg3 } // 'License Complicance' page.
             &-green-100.gl-text-green-800 { c: white green green }
-            &-blue-50 { c: 0 0 b64 }
+            &-blue-50 { c: 0 0 v62 }
         }
         /// Border-color overrides.
         &-border-gray {
@@ -3421,7 +3423,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-body .issuable {
                 &-warning-icon {
                     c: 0 0 bd;
-                    svg { g: orange }
+                    svg { g: v26 }
                 }
             }
         }
@@ -3620,7 +3622,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Grouped options.
         &-visibility-setting, &-feature-settings, /.sub-section {
             c: 0 bd hl;
-            .bs-callout { c: 0 0 bd }
         }
         /// Sections.
         /.settings {
@@ -3728,17 +3729,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 span.line:hover { c: 0 0 bg2 }
 
                 /// Highlighted line.
-                .hll { c: 0 0 b35 }
+                .hll { c: 0 0 v31 }
 
                 /// Global -> Idiffs.
                 /.idiff {
                     /// Notes.
-                    &.addition { c: b40 0 b45 }
-                    &.deletion { c: b10 0 b15 }
+                    &.addition { c: v48 0 v40 }
+                    &.deletion { c: v18 0 v10 }
 
                     /// Commit diffs.
-                    /.old & { c: fg0 0 b13 }
-                    /.new & { c: fg0 0 b43 }
+                    /.old & { c: fg0 0 v13 }
+                    /.new & { c: fg0 0 v43 }
                 }
             }
 
@@ -3759,21 +3760,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Syntax highlighting.
                 /.code.white {
                     /// Package links.
-                    .line > a { c: blue }
+                    .line > a { c: v65 }
                     /// Errors.
-                    .err { c: white 0 red }
+                    .err { c: v99 0 v16 }
                     /// Additions/deletions.
-                    .gi { c: green 0 bb }
-                    .gd { c: red 0 bb }
+                    .gi { c: v48 0 v40 }
+                    .gd { c: v18 0 v10 }
                     /// Tokens.
-                    .c, .cm, .c1, .gh, .nn, .go, .gt { c: cm }
-                    .n, .cp, .gp, .s, .s1 { c: fg }
-                    .no, .na, .nb { c: cyan }
-                    .sx, .se, .sh, .s2 { c: red }
-                    .sr, .vi, .mf, .ne, .nv { c: green }
-                    .nt, .m, .mi, .mh { c: blue }
-                    .nf, .ss, .si, .nc { c: magenta }
-                    .ni, .gu, .sb, .kt { c: violet }
+                    .c, .cm, .c1, .gh, .nn, .go, .gt { c: fg4 }
+                    .n, .cp, .gp, .s, .s1 { c: fg1 }
+                    .no, .na, .nb { c: v56 }
+                    .sx, .se, .sh, .s2 { c: v16 }
+                    .sr, .vi, .mf, .ne, .nv { c: v46 }
+                    .nt, .m, .mi, .mh { c: v66 }
+                    .nf, .ss, .si, .nc { c: v76 }
+                    .ni, .gu, .sb, .kt { c: v86 }
                 }
             }
         }
@@ -3853,11 +3854,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding-left: 0;
                 c: 0 0 t;
             }
-            /.cred:not(#z) { c: red; g: red }
-            /.cgreen:not(#z) { c: green; g: green }
+            /.cred:not(#z) { c: v15; g: v15 }
+            /.cgreen:not(#z) { c: v45; g: v45 }
+            /.highlighted:not(#z) { c: ac0 }
             /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
-                c: blue 0 t;
+                c: v65 0 t
                 /// Reset hover styles.
                 &::before { content: unset }
             }
@@ -3892,21 +3894,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Changes.
             tr.line_holder {
                 .head {
-                    c: 0 b43 b45
-                    .btn { c: 0 b43 b44 }
+                    c: 0 v43 v40
+                    .btn { c: 0 v43 v43 }
                     &.diff-line-num,
                     &.line_content.header,
                     &.line_content:hover {
-                        c: 0 0 b44
+                        c: 0 0 v41
                     }
                 }
                 .origin {
-                    c: 0 b63 b65
-                    .btn { c: 0 b63 b64 }
+                    c: 0 v63 v60
+                    .btn { c: 0 v63 v63 }
                     &.diff-line-num,
                     &.line_content.header,
                     &.line_content:hover {
-                        c: 0 0 b64
+                        c: 0 0 v61
                     }
                 }
                 .unselected {
@@ -3920,7 +3922,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// Edit inline.
-            .editor-wrap.saved .editor { c: 0 green }
+            .editor-wrap.saved .editor { c: 0 v45 }
         }
     }
 
@@ -3959,9 +3961,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /.diff-line-num { c: 0 bg5 }
 
                 /// Status.
-                &.old { c: 0 b13 b14 }
-                &.new { c: 0 b43 b44 }
-                &.hll { c: 0 b33 b34 }
+                &.old { c: 0 v12 v11 }
+                &.new { c: 0 v42 v41 }
+                &.hll { c: 0 v32 v31 }
 
                 /// Hover event.
                 &.is-over {
@@ -3970,16 +3972,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         + .line_content { c: 0 0 bg3 }
                     }
 
-                    &.old { c: 0 b10 b13 }
-                    &.new { c: 0 b40 b43 }
-                    &.hll { c: 0 b33 b34 }
+                    &.old { c: 0 v14 v12 }
+                    &.new { c: 0 v44 v42 }
+                    &.hll { c: 0 v34 v32 }
 
                     /// HACK: Highlight individual lines.
                     ../../:hover > [class ^= 'line'] {
                         &:not(.match) { c: 0 0 bg3 }
-                        &.old:not(.diff-line-num) { c: 0 0 b14 }
-                        &.new:not(.diff-line-num) { c: 0 0 b44 }
-                        &.hll:not(.diff-line-num) { c: 0 0 b34 }
+                        &.old:not(.diff-line-num) { c: 0 0 v11 }
+                        &.new:not(.diff-line-num) { c: 0 0 v41 }
+                        &.hll:not(.diff-line-num) { c: 0 0 v31 }
                     }
                 }
             }
@@ -3989,9 +3991,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 0 t
 
                 /// States.
-                &.old { c: 0 0 b15; &::before { c: b10 }}
-                &.new { c: 0 0 b45; &::before { c: b40 }}
-                &.hll { c: 0 0 b35 }
+                &.old { c: 0 0 v10; &::before { c: v16 }}
+                &.new { c: 0 0 v40; &::before { c: v46 }}
+                &.hll { c: 0 0 v30 }
             }
 
             /// Diff -> Expanded sections.
@@ -4189,7 +4191,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target:not(#z) { c: 0 blue b65 }
+            &.target:not(#z) { c: 0 v63 v60 }
             /// Markdown area.
             .note-text {
                 &.md { c: fg }
@@ -4311,7 +4313,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 bg;
-            &.target { c: 0 0 b65 }
+            &.target { c: 0 0 v60 }
         }
         /// Fix rounded corners in discussions. @upstream
         &-body {
@@ -4372,8 +4374,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { g: fg }
             }
             &.is-focused {
-                c: 0 blue;
-                box-shadow: 0 0 0.4rem -0.2rem blue i;
+                c: 0 v65
+                b: 0 0 0 0.2rem v63 i
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
@@ -4651,13 +4653,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Scroller shadow.
             &_scroller&_scroll-left { box-shadow: inset 17px 0 16px -16px sh }
             /// Syntax highlighting.
-            &_url { c: ac }
-            &_list { c: magenta }
-            &_name&_function { c: violet }
-            &_line, &_constant, &_numeric { c: fg }
-            &_support { ~/_type&, ~/_function& { c: cm }}
-            &_variable, &_string, &_comment { c: green }
-            &_heading, &_storage, &_keyword, &_meta&_tag { c: blue }
+            &_url { c: v66 }
+            &_list { c: v76 }
+            &_name&_function { c: v86 }
+            &_line, &_constant, &_numeric { c: fg1 }
+            &_support { ~/_type&, ~/_function& { c: fg4 }}
+            &_variable, &_string, &_comment { c: v46 }
+            &_heading, &_storage, &_keyword, &_meta&_tag { c: v66 }
         }
     }
 
@@ -4777,10 +4779,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Dashboard -> Operations. #119
     .dashboard-card {
         &.border-0 { border: none i }
-        &-header, &-footer { &-failed { c: 0 b10 b14 }}
+        &-header, &-footer { &-failed { c: 0 v15 v11 }}
         &-body {
-            &-failed { c: 0 0 b15 }
+            &-failed { c: 0 0 v12 }
             .gl-link { c: fg }
+            .ci-status { c: 0 0 t }
             /// Add ellipsis to long text.
             .text-secondary {
                 overflow: hidden;
@@ -5004,15 +5007,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Syntax highlighting.
         /// TODO: Add missing tokens.
         .mtk {
-            &1 { c: fg }
-            &3, &10 { c: cm }
-            &5, &6, &23 { c: blue }
-            &7 { c: cyan }
-            &8 { c: green }
-            &11 { c: orange }
-            &4, &15, &20 { c: red }
-            &14, &20 { c: magenta }
-            &12, &22, &23 { c: cyan }
+            &1 { c: fg1 }
+            &3, &10 { c: fg4 }
+            &5, &6, &23 { c: v66 }
+            &7 { c: v56 }
+            &8 { c: v46 }
+            &11 { c: v26 }
+            &4, &15, &20 { c: v16 }
+            &14, &20 { c: v76 }
+            &12, &22, &23 { c: v56 }
         }
         /// Lines.
         .lines-content {
