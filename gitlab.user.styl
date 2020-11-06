@@ -4209,9 +4209,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 + .description-version > pre.wrapper { rad: 4px }
             }
             /// Buttons -> Reset hover styles.
-            .note-actions-item > [class *= 'button']:hover {
-                &::before { content: unset i }
-                svg { g: fg }
+            .note-actions-item:not(#z) button.btn-transparent:not([disabled]) {
+                c: fg4
+                &:hover { c: fg1 0 bg3 }
             }
             /// Buttons -> Remove styles from reply button. @upstream
             .note-actions-item.js-reply-button > .gl-button {
