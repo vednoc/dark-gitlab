@@ -3515,6 +3515,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &-border-top { c: 0 bd }
             &-info { c: fg }
+
+            /// Promo -> Pipeline suggestion.
+            &-body.mr-pipeline-suggest {
+                c: fg1 bg5 bg1
+            }
         }
         /// Code quality and other reports. #64
         /.report-block {
