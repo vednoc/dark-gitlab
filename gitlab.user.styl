@@ -606,7 +606,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Pipelines -> Jobs.
-        &[data-testid *= 'status_'] { g: currentColor }
+        /// NOTE: Icons in this area are slightly problematic, so this fixes them.
+        &.s16[data-testid *= 'status_'] { g: currentColor }
 
         /// CI -> Background for old icons.
         /[id *= 'status_'] [fill = '#FFF'] { g: bg1 }
