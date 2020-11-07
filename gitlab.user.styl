@@ -1608,8 +1608,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: fg1 }
             }
         }
-        /// Commits -> Details.
-        &&-gray { c: fg 0 hl }
+        /// Project -> Pages -> Domains.
+        &&-gray { c: fg1 0 bg3 }
         /// Notes -> Related issues/MRs.
         /.issue, /.mr { &-count-badge { &, + button { c: fg bd bg }}}
         /// HACK: Reset colored labels.
@@ -1621,13 +1621,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 box-shadow: inset 0 0 0 1rem #33333325;
             }
         }
+
         /// Colored badges.
-        &-primary, &-info, &-active { c: white 0 blue }
-        &-light, &-secondary, &-inactive { c: cm 0 hl }
-        &-warning { c: white 0 orange }
-        &-success { c: white 0 green }
-        &-danger { c: white 0 red }
-        &-dark { c: fg 0 bd }
+        &-primary, &-info, &-active { c: v99 0 v63 }
+        &-secondary, &-inactive { c: fg4 0 bg2 }
+        &-warning { c: v99 0 v23 }
+        &-success { c: v99 0 v43 }
+        &-danger { c: v99 0 v13 }
+        &-light { c: fg3 0 bg3 }
+        &-dark { c: fg1 0 bg4 }
+
+        /// Settings -> Un/verified badges.
+        &.unverified {
+            c: fg5 fg5 bg1
+            &:hover { c: bg3 fg5 fg5 }
+        }
+        &.verified {
+            c: v45 v45 bg1
+            &:hover { c: v99 v43 v43 }
+        }
     }
 
     // Global -> Forms.
