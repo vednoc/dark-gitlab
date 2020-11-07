@@ -2425,6 +2425,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         margin-top: 10px;
         c: fg bd hl;
         rad: 4px;
+
+        /// Old styles.
         .pika {
             /// Header.
             &-label { c: fg 0 t }
@@ -2440,8 +2442,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &-prev::before { content: '←' }
             &-next::before { content: '→' }
+
             /// Table.
-            &-table {
+            ../:not(.gl-datepicker-theme) .pika-table {
                 border: 1px solid bd;
                 /// Cells.
                 th:not(#z) {
@@ -2460,14 +2463,27 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 tr:last-child > td { border-bottom: none i }
             }
         }
+
         /// Shadow.
         &.is-bound { box-shadow: bsh }
+
         /// Global -> Pajamas wrapper.
         /.gl-datepicker-theme {
             font-family: var(--ui-font) i;
+
+            /// Reset styles.
             .pika-lendar:not(#z) {
-                rad: 4px;
-                box-shadow: inner;
+                rad: 4px
+                b: inner
+                tr th { c: fg3 }
+                .pika-table { c: 0 t t }
+            }
+
+            /// Days.
+            .pika-button {
+                c: fg4
+                &:hover { c: fg1 0 bg3 }
+                ../ .is-selected .pika-button { c: v99 0 ac1 }
             }
         }
     }
