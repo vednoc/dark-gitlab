@@ -829,7 +829,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Dark mode tweaks.
         .search-form {
-            > form { box-shadow: none i }
+            &:focus-within > form { b: 0 0 0 0.2rem v63 i }
             &:hover, &.search-active { > form { c: 0 v65 }}
         }
         &-gitlab { box-shadow: none i }
@@ -1650,7 +1650,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         border: 1px solid bd i;
         &:focus, &.focus {
             c: 0 blue;
-            box-shadow: 0 0 0.4rem -0.2rem blue i;
+            b: 0 0 0 0.2rem b63 i
         }
         &[disabled = 'disabled']:not(#z) { opacity: 0.5 }
         /// Overwrites for navbar and top nav.
