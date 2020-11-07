@@ -681,10 +681,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         prefix += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">'
         arrows += 'width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none">'
 
-        &:hover { box-shadow: none i }
-
         &[type='radio'],
         &[type='checkbox'] {
+            &:hover { box-shadow: none i }
             &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
                 -webkit-appearance: none i
                 -moz-appearance: none i
@@ -5219,25 +5218,30 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         { unquote('@media (prefers-color-scheme: dark) {') }
     }
     .wrapper {
-        padding: 1rem;
-        min-height: calc(100vh - 2rem);
+        padding: 1rem
+        min-height: calc(100vh - 2rem)
+
         /// Reset text.
-        h1, p { c: fg }
-        a { c: ac }
-        * { font-family: var(--ui-font) }
+        h1, p { c: fg1 }
+        a { c: ac0; &:hover { c: ac1 }}
+        * { font-family: var(--ui-font) i }
+
         /// Tweak background images.
         .bg { filter: grayscale(1) invert(0.5) opacity(0.2) }
-        /// Fix box content.
-        [class *= 'box'] {
-            c: 0 0 bg;
-            rad: 4px;
-            box-shadow: inner, bsh;
-            .text-switch { c: cm }
+
+        /// Box styles.
+        [class*='box'] {
+            rad: 4px i
+            c: 0 0 bg2
+            b: inner i
+
+            .text-switch { c: fg3 }
+
             [class *= 'toggle'] {
-                + label { c: 0 0 bd }
-                + label::after { c: 0 0 bd }
-                + label::before { c: 0 0 bg }
-                &:checked + label::before { c: 0 0 blue }
+                + label { c: 0 0 bg5 }
+                + label::after { c: 0 0 fg0 }
+                + label::before { c: 0 0 bg1 }
+                &:checked + label::before { c: 0 0 ac2 }
             }
         }
     }
