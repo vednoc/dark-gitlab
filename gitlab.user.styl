@@ -2799,23 +2799,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// States.
         &-warning {
             c: v99 0 v23
-            .gl-alert-icon { g: orange }
+            .gl-alert-icon { g: v97 }
         }
         &-danger {
-            c: v99 0 v14
-            .gl-alert-icon { g: red }
+            c: v99 0 v13
+            .gl-alert-icon { g: v97 }
         }
         &-success {
-            c: v99 0 v44
-            .gl-alert-icon { g: green }
+            c: v99 0 v43
+            .gl-alert-icon { g: v97 }
         }
         &-info {
-            c: v99 0 v64
-            .gl-alert-icon { g: blue }
+            c: v99 0 v63
+            .gl-alert-icon { g: v97 }
         }
         &-tip {
             c: fg2 0 bg3
-            .gl-alert-icon { g: fg }
+            .gl-alert-icon { g: fg3 }
         }
 
         /// Global -> Old floating alerts.
@@ -3689,7 +3689,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.settings {
             c: 0 bd;
             ../-feature-row .form-control { c: 0 0 bg }
-            &-message { c: orange orange bg }
+            &-message { c: v98 v24 v21 }
             .account-well {
                 c: 0 bd hl;
                 /// Project -> Settings -> Mirroring repositories.
