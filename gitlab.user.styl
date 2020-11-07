@@ -2343,10 +2343,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Skeleton.
     .animation-container {
-        sk_gradient = linear-gradient(90deg, bd 0%, hl 50%, bd);
+        sk_gradient = linear-gradient(90deg, bg3 0%, bg4 50%, bg3)
         /// File table.
         [class *= 'skeleton-line-'] {
-            c: 0 0 bd;
+            c: 0 0 bg2
             &::after { background-image: sk_gradient }
         }
         /// Dashboard -> Operations.
@@ -2358,7 +2358,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// MRs -> Widgets.
-        /svg.gl-skeleton-loader rect { g: bd }
+        /svg.gl-skeleton-loader {
+            .primary-stop { stop-color: bg3 }
+            .secondary-stop { stop-color: bg4 }
+        }
     }
 
     // Global -> Calendar.
