@@ -1965,7 +1965,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// Fix on-hover background colors.
-            .gutter-toggle, .block, .sub-block {
+            .gutter-toggle,
+            .block > .sub-block,
+            .block:not(.with-sub-blocks) {
                 &:hover { c: 0 0 bg3 }
             }
         }
