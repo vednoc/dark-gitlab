@@ -3929,15 +3929,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover, &:focus { c: 0 0 hl }
                 &-header.bg-white { c: 0 0 bb }
                 /// Active item. #129
-                &.is-active { c: 0 0 bd }
+                &.is-active { c: 0 0 bg3 }
             }
         }
 
         /// MR -> Resolve conflicts. #82
         &.conflict {
             border-top: none i
-
-            .diff-line-num { c: fg3 }
 
             /// Changes.
             tr.line_holder {
@@ -4000,7 +3998,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Line numbers.
             > .diff-line-num {
-                c: 0 0 bg2
+                c: fg4 0 bg2
 
                 /// Line numbers.
                 > a { c: fg3 }
