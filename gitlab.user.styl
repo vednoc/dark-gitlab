@@ -420,9 +420,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-success:not(#z) { c: green; > svg { g: green }}
             &-warning:not(#z) { c: orange; > svg { g: orange }}
             &-plain, /.light { c: fg }
-            &-secondary, &-muted, &-gl-muted, &-tertiary { c: cm }
-            /.cgray, /.description-block, /.help-block { c: cm }
-            /[class *= 'gl-text-gray-'] { c: cm }
+            &-secondary, &-muted, &-gl-muted, &-tertiary,
+            /.cgray, /.description-block, /.help-block,
+            /[class *= 'gl-text-gray-'], /.help-text, /.stat-text {  /// 2: snippets -> new
+                c: fg4
+            }
         }
         /.bg {
             &-light { c: 0 0 bd }
@@ -1697,7 +1699,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Lists.
     ul.content-list {
         li {
-            c: fg bd;
+            c: fg1 bg3
             a { c: fg }
             /// Metadata.
             /.item-meta * { c: cm }
@@ -2244,8 +2246,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-header {
             c: 0 bg5 bg3
             /// Project -> Settings -> Pages.
-            &.bg-info { c: white blue blue }
-            &.bg-danger { c: white red red }
+            &.bg-info { c: c98 v65 v62 }
+            &.bg-danger { c: c98 v15 v12 }
             + ul > .list-group-item { c: 0 bd t }
             /// Project -> Settings -> Card borders.
             ../.border {
@@ -2943,6 +2945,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Text color overrides.
         &-text {
             &-body { c: fg }
+            &-black-normal { c: fg0 }
             &-orange-500:not(#z) { c: orange; g: orange }
         }
         /// Background-color overrides.
