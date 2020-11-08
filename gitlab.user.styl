@@ -2542,10 +2542,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Breadcrumbs.
     .breadcrumb {
-        &-item a {
+        &-item > a {
             c: cm;
-            /// Project -> File location.
-            strong { c: fg }
+            /// Project -> File location / Active path.
+            strong, &.router-link-exact-active:not(#z) {
+                font-weight: bold
+                c: fg1
+            }
         }
         &s {
             &-list a { c: cm }
@@ -2559,11 +2562,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Project.
         &.repo-breadcrumb {
-            /// Dividers.
-            > li + li::before { c: cm }
-
-            /// Path. OBSOLETE
-            a { c: fg1 }
+            /// Dividers/items.
+            > li + li::before,
+            a:not([class*='dropdown']) {
+                c: fg3
+            }
         }
     }
 
