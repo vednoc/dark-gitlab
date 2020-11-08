@@ -1605,7 +1605,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg4 0 bg4
 
             /// Navigation.
-            /.active [class$='badge-pill'] { c: fg1 0 bg5 }
+            /.active [class*='badge-pill'] { c: fg1 0 bg5 }
 
             /// Project -> Tags.
             &.badge-secondary {
@@ -2005,9 +2005,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &.active, strong { c: fg ac }
                 }
 
-                /// Badges on old instances. OBSOLETE
-                [data-state] > .badge { c: fg4 0 bg4 }
-                &.active [data-state] > .badge { c: fg1 0 bg5 }
+                /// OBSOLETE: Badges on old instances.
+                [class$='badge'], [data-state] > .badge { c: fg4 0 bg4 }
+                &.active {
+                    [class$='badge'], [data-state] > .badge { c: fg1 0 bg5 }
+                }
             }
         }
         /// Global -> Search.
