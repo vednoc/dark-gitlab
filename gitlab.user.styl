@@ -1669,11 +1669,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 background: linear-gradient(to top, hl, t) i;
             }
 
-            /// Navbar -> Search location on GitLab 10.4. OBSOLETE
-            /.search .location-badge {
-                height: 30px i
-                c: fg4 0 bg3
-                b: 1px 0 bg5 i
+            /// OBSOLETE: Navbar -> Search on GitLab 10.4.
+            /.search.has-location-badge {
+                margin-top: 3px
+
+                /// Reset form.
+                > form {
+                    height: 34px
+                    b: none i
+                }
+
+                /// Reset badge.
+                .location-badge {
+                    height: 32px
+                    c: fg4 0 bg3
+                    b: 1px 0 bg5 i
+                }
             }
         }
         /// Fix icon color.
