@@ -1565,6 +1565,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 bg5 bg3
             }
         }
+
+        /// Project -> Merge Request analytics.
+        /// NOTE: Bring borders back to the dropdown menu.
+        &[id*='_toggle_'] { border-style: solid i }
     }
 
     // Global -> Labels.
