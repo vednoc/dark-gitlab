@@ -1790,7 +1790,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Header.
         .context-header > * {
             c: fg;
-            &:hover { c: 0 0 bd }
+            &:hover { c: 0 0 bg3 }
             .avatar-container {
                 c: 0 t t
                 .identicon.s40 { line-height: 36px i }
@@ -1800,12 +1800,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .divider { c: 0 bd }
         .sidebar-top-level-items > li {
             &:hover {
-                c: 0 0 #88888810;
+                c: 0 0 bg3
                 > a { c: fg }
             }
             &.active {
-                c: 0 0 #88888810;
-                box-shadow: inset 4px 0 ac i;
+                c: 0 0 bg3
+                b: inset 4px 0 ac i
                 /// Level name.
                 > a {
                     c: fg;
@@ -1813,8 +1813,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 /// Active item.
                 &:not(.is-over) > ul > li.active > a {
-                    c: 0 0 bd;
-                    box-shadow: inset 4px 0 ac i;
+                    c: 0 0 bg4
+                    b: inset 4px 0 ac i
                 }
                 .badge { c: fg1 0 bg5 }
             }
@@ -1826,35 +1826,33 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Remove borders from sub-level items.
             &.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
         }
-        .sidebar-sub-level-items {
-            > li {
-                &:hover {
-                    c: 0 0 bd;
-                    box-shadow: inset 4px 0 ac i;
-                    a { c: fg }
-                }
-                &.active {
-                    box-shadow: inset 4px 0 ac i;
-                    a { c: fg }
-                }
+        .sidebar-sub-level-items > li {
+            &:hover {
+                c: 0 0 bd;
+                b: inset 4px 0 ac i
+                a { c: fg }
+            }
+            &.active {
+                b: inset 4px 0 ac i
+                a { c: fg }
             }
         }
         /// Flyout menus.
         .is-over.is-showing-fly-out {
-            > a { c: fg 0 #88888810 }
+            > a { c: fg 0 bg3 }
             ul {
                 c: 0 bd hl;
-                box-shadow: none;
+                b: none i
                 li {
                     a { c: cm }
                     a:focus { c: 0 0 bd }
-                    &:hover a { c: fg 0 #88888810 }
+                    &:hover a { c: fg 0 bg4 }
                 }
             }
         }
         /// Collapsed state.
         &[class *= 'collapsed'] {
-            .sidebar-top-level-items > li.active { c: 0 0 bd }
+            .sidebar-top-level-items > li.active { c: 0 0 bg4 }
         }
         /// Collapse buttons.
         .toggle-sidebar-button, .close-nav-button {
