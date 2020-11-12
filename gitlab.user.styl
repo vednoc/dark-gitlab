@@ -2083,8 +2083,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
         }
-        /// Project -> Compare.
-        /.sub-header-block { c: 0 bd t }
+        /// Project -> Compare Revisions.
+        /.sub-header-block {
+            c: 0 bg5 t
+            + .card.bg-light { c: 0 0 t }
+        }
         /// Project -> Packages.
         /.gl-tab {
             &s-nav { c: 0 bd }
@@ -4076,10 +4079,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// Code lines.
-            > [class ^= 'line'] {
+            > [class^='line'] {
                 c: 0 0 t
 
                 /// States.
+                /.parallel.left-side.old { c: 0 0 v10 }
                 &.old { c: 0 0 v10; &::before { c: v16 }}
                 &.new { c: 0 0 v40; &::before { c: v46 }}
                 &.hll { c: 0 0 v30 }
