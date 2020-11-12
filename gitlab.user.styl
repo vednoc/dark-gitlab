@@ -1776,7 +1776,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: 0 0 hl }
             }
             /// Fix search icon. #80
-            /input.form-control + button { c: 0 bd }
+            /input.form-control + button { border-color: bg5 }
         }
         /// Dashboard -> Snippets.
         .snippet { &-filename, &-info { c: cm }}
@@ -4785,10 +4785,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         text { g: fg }
         rect {
             /// Sidebars.
-            &[fill = '#222222'] { g: hl t }
-            &[fill = '#444444'] { g: bb t }
+            &[fill='#222222'] { g: bg3 t }
+            &[fill='#444444'] { g: bg2 t }
             /// Commit info.
-            &[transform = 'matrix(1\,0\,0\,1\,20\,20)'] { g: hl bd }
+            &[transform='matrix(1\,0\,0\,1\,20\,20)'] { g: bg3 bg5 }
         }
         rect, path {
             /// Anchors.
