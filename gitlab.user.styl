@@ -2904,7 +2904,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Pajamas -> Toggles.
     .gl-toggle, .project-feature-toggle {
-        c: 0 0 bd;
+        c: 0 0 bg4
         .toggle-icon {
             c: 0 0 bg;
             svg { g: cm }
@@ -5264,10 +5264,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             .text-switch { c: fg3 }
 
-            [class *= 'toggle'] {
-                + label { c: 0 0 bg5 }
+            [class*='toggle'] {
+                + label { c: 0 0 ac0 }
                 + label::after { c: 0 0 fg0 }
                 + label::before { c: 0 0 bg1 }
+                &:not(:checked) + label { c: 0 0 bg5 }
                 &:checked + label::before { c: 0 0 ac2 }
             }
         }
