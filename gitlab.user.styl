@@ -3929,6 +3929,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 &-info { c: cm }
                 ~ .note-container { c: 0 t t }
+
+                /// Invert controls.
+                if (dark(BG)) {
+                    .swipe .swipe-bar,
+                    .controls {
+                        filter: invert(0.95) brightness(100%)
+                    }
+                }
             }
             /// Image preview modes.
             .view-modes {
