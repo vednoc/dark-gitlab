@@ -461,32 +461,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Login.
             .login-box, .signup-box, .omniauth-container {
-                rad: 4px;
-                c: 0 bd hl;
-                box-shadow: inner i;
+                rad: 4px
+                c: 0 bg5 bg2
+                b: inner i
                 .omniauth-btn { c: 0 0 bg }
                 .omniauth-divider { &::before, &::after { c: 0 bd }}
                 input.form-control { c: 0 0 bg }
-                .btn { &-success, &-register { c: white green green }}
             }
-            /// Buttons -> Sign in/Register.
-            .new-session-tabs {
-                border: 1px solid bd i;
-                border-bottom: none i;
-                box-shadow: none i;
-                c: 0 0 bg;
-                li {
-                    &:not(.active) {
-                        &, &:hover a:not(.active) { c: 0 bd t }
-                    }
-                    a.active {
-                        rad: 0;
-                        c: 0 t hl;
-                        box-shadow: 0 1px hl;
-                    }
-                }
-                + .tab-content > div { rad: 0 0 4px 4px i }
-            }
+            /// Reset page height.
+            /.devise-layout-html body.navless { height: calc(100% - 41px) }
         }
         /// Global -> FA icons.
         /.fa {
@@ -1358,6 +1341,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Green.
+        &-register,
         &-success {
             c: v99 v45 v43
             &:hover { c: v99 v46 v44 }
@@ -2166,8 +2150,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// 'Create from template' area.
             .template-option { c: 0 bd }
             .card-slim { c: 0 0 bg }
-            /// NOTE: Obsolete tabs?
-            /.nav-tabs .nav-link.active { c: 0 ac t }
+
+            /// OBSOLETE: Login/register tabs until GitLab 12.5 or earlier.
+            /.new-session-tabs {
+                border: 1px solid bg5 i
+                border-bottom: none i
+                c: 0 0 bg1
+                b: none i
+                li {
+                    &:not(.active) { &, &:hover a:not(.active) { c: 0 bg5 t }}
+                    a.active {
+                        rad: 0
+                        c: 0 t bg2
+                        b: 0 1px bg2
+                    }
+                }
+                + .tab-content > div { rad: 0 0 4px 4px i }
+            }
+
             /// Fix icon for Gitea.
             .btn[class *= 'gitea'] svg {
                 path { g: cm }
