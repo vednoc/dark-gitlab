@@ -1325,45 +1325,42 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:focus { c: 0 0 bg4; b: $f bg3 i }
         }
 
-        /// TODO: Make the :hover and :focus styles more in line.
-        // &-default {
-        //     c: fg1 bg5 bg1
-        //     &:hover { c: 0 0 bg3 }
-        //     &:focus { c: 0 0 bg4; b: $f bg3 i }
-        // }
-
         /// Red.
         &-remove,
         &-danger {
-            c: v99 v15 v13
+            c: v98 v15 v13
             &:hover { c: v99 v16 v14 }
-            &:focus { c: v99 v17 v15; b: $f v13 i }
+            &:focus { c: v99 v17 v15; b: $f v12 i }
+            > svg { g: v98 }
         }
 
         /// Green.
         &-register,
         &-success {
-            c: v99 v45 v43
+            c: v98 v45 v43
             &:hover { c: v99 v46 v44 }
-            &:focus { c: v99 v47 v45; b: $f v43 i }
+            &:focus { c: v99 v47 v45; b: $f v42 i }
+            > svg { g: v98 }
         }
 
         /// Blue.
         &-info,
         &-primary {
-            c: v99 v65 v63
+            c: v98 v65 v63
             &:hover { c: v99 v66 v64 }
-            &:focus { c: v99 v67 v65; b: $f v63 i }
+            &:focus { c: v99 v67 v65; b: $f v62 i }
+            > svg { g: v98 }
         }
 
         /// Orange.
         &-close,
         &-close-color,
         &-warning {
-            c: v99 v25 v23
+            c: v98 v25 v23
             &:hover { c: v99 v26 v24 }
             &:focus { c: v99 v27 v25; b: $f v23 i }
             .i { color: currentColor i }
+            > svg { g: v98 }
         }
 
         /// Red outline.
@@ -1399,9 +1396,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Accent.
         /// TODO: Implement once `v0-*` is added to color generator.
         &-primary#clone-dropdown {
-            c: v99 ac2 ac4
+            c: v98 ac2 ac4
             &:hover { c: v99 ac1 ac3 }
-            &:focus { c: v99 ac0 ac2; b: $f ac3 i }
+            &:focus { c: v99 ac0 ac2; b: $f ac4 i }
+            > svg { g: v98 }
         }
 
         /// Disabled icons.
