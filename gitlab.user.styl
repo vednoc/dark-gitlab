@@ -1633,6 +1633,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: v45 v45 bg1
             &:hover { c: v99 v43 v43 }
         }
+
+        /// Notes -> Issue status.
+        /.status-box {
+            c: v99
+            &-issue-closed, &-mr-merged { c: 0 0 v65 }
+            &-closed, &-mr-closed { c: 0 0 v15 }
+            &-upcoming { c: fg1 0 bg5 }
+            &-expired { c: 0 0 v25 }
+            &-open { c: 0 0 v45 }
+            > svg.s16 { g: v99 }
+        }
     }
 
     // Global -> Forms.
