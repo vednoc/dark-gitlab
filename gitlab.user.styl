@@ -3146,6 +3146,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             transition: 0.2s ease
             c: 0 0 bg3 0 0 0
 
+            /// Switch to gray for a specific label.
+            &[style*='d-color:#333'] {
+                c: 0 0 v93
+                b: inset 0 0 0 1px v96 i
+            }
+
             /// More readable and consistent label colors.
             &-text-light {
                 &[style*='--label-background'] {
