@@ -2038,6 +2038,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.active {
                     [class$='badge'], [data-state] > .badge { c: fg1 0 bg5 }
                 }
+
+                /// Milestones -> Navigation.
+                /.nav-tabs .nav-link.active { c: 0 ac t }
             }
         }
         /// Global -> Search.
