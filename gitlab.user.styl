@@ -3050,7 +3050,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Border-color overrides.
         &-border-gray {
             &-100, &-200 { c: 0 bd }
-            /.border { border: 1px solid bd i }
+            /.border {
+                border: 1px solid bd i
+                &-left { c: 0 bg5 } // Operations -> Metrics.
+            }
         }
         &-border {
             &-b-gray-100 { c: 0 bd }
