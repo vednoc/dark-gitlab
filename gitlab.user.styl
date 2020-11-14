@@ -3137,9 +3137,44 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &-state-open.s16 { g: green }
             }
         }
+
         /// Pajamas -> Labels.
         /.gl-label {
-            c: 0 0 bd 0 0 0
+            el = '.gl-label'
+            c: 0 0 v92 0 0 0
+
+            /// More readable and consistent label colors.
+            &-text-light[style*='--label-background'] {
+                $e = brightness(4) contrast() grayscale()
+                $s = 1px 1px 0px sh
+                { el }-text { text-shadow: $s, $s, $s }
+                { el }-text-scoped { filter: $e }
+                { el }-close svg { g: white }
+            }
+            &-text-dark {
+                > { el }-link > { el }-text-scoped { c: fg1 }
+            }
+
+            /// Reset 'close' buttons.
+            &-close {
+                c: 0 0 t
+                &:hover { c: 0 0 sh }
+            }
+
+            /// HACK: Darken labels.
+            &::after {
+                z-index: 0
+                content: ''
+                position: absolute
+                pointer-events: none
+                top: 0; left: 0; bottom: 0; right: 0
+                transition: background 0.2s ease
+                c: 0 0 sh
+                // ../:hover::after { c: 0 0 ac0 }
+                ../:hover::after { c: 0 0 t }
+            }
+
+            /*
             &-label-link { c: 0 0 t }
             &-text {
                 &-light { text-shadow: 1px 1px 0 sh }
@@ -3167,7 +3202,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-close svg { fill: currentColor i }
             /// Issues -> Fix badge colors in Boards.
             &:not([style*='label-background']) { c: 0 0 bd }
+            */
         }
+
         /// Project -> Releases -> New release resets.
         &-form[action $= 'tags'] {
            .form-control, .dropdown-menu-toggle { c: 0 0 bg }
