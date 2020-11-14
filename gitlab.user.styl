@@ -1943,10 +1943,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Time tracking. #49
-        .time_tracker {
-            .compare-label { c: cm }
-            .compare-value { c: fg }
-            .time-tracking-help-state { c: 0 bd bg }
+        .time_tracker, .time-tracker {
+            .compare-label { c: fg4 }
+            .compare-value { c: fg2 }
+            .over_estimate { .time-remaining, .spent { c: v17 }}
+            .time-tracking-help-state { c: 0 bg5 bg1 }
         }
         /// Jobs -> Builds container. #22
         &.build-sidebar {
