@@ -1961,7 +1961,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Reset colors.
             .blocks-container { a, .btn-link { &:not(.btn) { c: ac }}}
-            .btn, [data-toggle = 'dropdown'] { c: 0 0 bg }
+            .btn, [data-toggle = 'dropdown'] {
+                c: 0 0 bg1
+                &:hover { c: 0 0 bg3 }
+                &:focus { c: 0 0 bg4 }
+            }
+            .btn-default-tertiary { c: 0 0 t }
         }
         /// Epics -> Start/due date.
         .is-option-selected > span { c: cm }
