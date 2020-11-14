@@ -260,23 +260,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Dark-GitLab variables.
     :root {
-        --note      : 'Dark-GitLab v1.6.3';
+        --version   : '🌚 Dark-GitLab v1.6.3';
         --bshadow   : 0 4px 8px var(--shadow);
         --shadow    : _shadow
-        --avatar    : a_radius;
-        --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
-            var(--emoji-font), sans-serif;
-        --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
-            'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono',
-            'lucida console', monospace;
-        --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
-            'Segoe UI Symbol', 'Noto Color Emoji';
-        --white     : white;
+        --white     : _white
+        --avatar    : a_radius
 
-        // TODO: Add more tones for secondary colors.
-        --red-darken    : mix(_dark, _red, 70%);
-        --red-darker    : mix(_dark, _red, 85%);
+        /// Custom UI font.
+        $fs1 = -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans'
+        $fs2 = 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif
+        --ui-font: ui_font, $fs1, $fs2, sans-serif, var(--emoji-font)
+
+        /// Custom Monospace font.
+        $fm1 = 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas'
+        $fm2 = 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console'
+        --mono-font: mono_font, $fm1, $fm2, monospace
+
+        /// Custom Emoji font.
+        $fe1 = 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+        --emoji-font: emoji_font, $fe1, 'Noto Color Emoji'
 
         /// Generate DGL color variables.
         for _v in (bg fg ac) {
@@ -775,7 +777,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             > a { margin-top: 0.25rem }
             /// Embed theme version.
             &::before {
-                content: '🌚 ' var(--note);
+                content: var(--version)
                 display: block;
                 padding: 4px 12px 6px;
                 border-bottom: 1px solid bd;
