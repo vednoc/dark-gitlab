@@ -1183,7 +1183,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             [class*='divider'] { c: 0 bg5 bg5 }
             [class*='-content'] { c: fg3 0 t }
             [class*='-title'] { c: fg0 0 t }
-            span[class*='-text'] { c: fg1 }
+            span[class*='-text'] {
+                /// Sidebars -> Confidentiality/lock issue.
+                &:not(.gl-button-text) { c: fg1 }
+            }
             strong, .bold, .text { c: fg1 }
 
             li {
@@ -1920,7 +1923,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
-        a, .btn-link { &:not(.btn):hover { color: ac }}
+
+        /// Reset buttons and links.
+        .btn {
+            &-link:not([disabled]) {
+                c: ac0
+                > svg { g: currentColor }
+            }
+
+            /// Health status for closed issues.
+            &-link[disabled] { c: fg5 t t }
+        }
+
         /// Fix top offset.
         if (nb_height) { top: 50px i }
         /// Pajamas -> Drawer.
@@ -1939,6 +1953,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 .btn-default,
                 [data-toggle='dropdown'] {
                     c: 0 0 bg1
+                    &:hover { c: 0 0 bg3 }
                 }
             }
         }
