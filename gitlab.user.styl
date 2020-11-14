@@ -415,11 +415,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global color reset.
         .text {
-            &-info:not(#z) { c: blue; > svg { g: blue }}
-            &-danger:not(#z) { c: red; > svg { g: red }}
-            &-success:not(#z) { c: green; > svg { g: green }}
-            &-warning:not(#z) { c: orange; > svg { g: orange }}
-            &-plain, /.light { c: fg }
+            &-info:not(#z) { c: v66; > svg { g: v66 }}
+            &-danger:not(#z) { c: v16; > svg { g: v16 }}
+            &-success:not(#z) { c: v46; > svg { g: v46 }}
+            &-warning:not(#z) { c: v26; > svg { g: v26 }}
+            &-plain, /.light { c: fg1 }
             &-secondary, &-muted, &-gl-muted, &-tertiary,
             /.cgray, /.description-block, /.help-block,
             /[class *= 'gl-text-gray-'], /.help-text, /.stat-text {  /// 2: snippets -> new
@@ -4322,10 +4322,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: fg4
                 &:hover { c: fg1 0 bg3 }
             }
-            /// Buttons -> Remove styles from reply button. @upstream
-            .note-actions-item.js-reply-button > .gl-button {
-                border: none i
-                c: 0 0 t
+            /// Toolbar buttons.
+            .note-actions-item {
+                button { b: none i }
+                /// Emoji icon requres additional rule.
+                a:hover > svg, svg:hover { g: fg1 }
             }
             /// Edited text.
             .edited-text { &, .author-link { c: cm }}
