@@ -767,10 +767,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.active, &.active:hover, &.show { > button, > a { c: fg1 0 bg4 }}
                 .caret-down { g: cm }
             }
-            /// Reset backgrounds.
-            [data-toggle = 'dropdown'], button.menu-item {
-                &::before { content: unset i }
-            }
         }
         /// Help menu.
         .header-help li:first-child {
@@ -1127,160 +1123,195 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Global -> Dropdowns.
-    [class *= 'dropdown-menu'] {
-        c: fg bd hl;
-        /// Active state.
-        &.show { box-shadow: bsh }
-        /// Misc elements.
-        .dropdown-info-note { c: cm }
-        strong, .bold, .text { c: fg }
-        span[class *= '-text'] { z-index: 1; c: fg }
-        [class *= 'input-field'] {
-            c: fg bd bg;
-            &:focus { c: 0 blue }
+    [class*='dropdown-menu'] {
+        $t = color, border, background
+        c: fg1 bg5 bg2 0 0 0
+
+        /// Toggle button.
+        &[type] {
+            c: fg1 bg5 bg2 0 0 0
+            transition: $t 0.2s ease
+            &:hover { c: 0 0 bg3 0 0 0 }
+            &:focus { c: 0 bg5 bg4 0 0 0 }
+            &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
         }
-        .dropdown-title, [class *= '-header'] { c: fg bd }
-        [class *= 'divider'], .separator { c: 0 bd bd }
-        .border-top { c: 0 bd }
-        li {
-            a, button {
-                c: cm;
-                /// TODO: Figure out `active/focus` states.
-                &:hover, &:active, &:focus { c: fg 0 bd }
-                &.is-focused { c: fg 0 bd }
-                &.is-active { c: ac }
-            }
-            /// Notes -> Reset 'Create MR' button.
-            .btn-success:hover { c: white 0 green }
-            /// Navbar -> User.
-            &.current-user {
-                c: cm;
-                .bold, .user-status { c: fg }
-            }
+
+        /// Menu.
+        &.show {
+            rad: 4px /// TODO: Remove/tweak later?
+            c: 0 bg5 bg2 0 0 0
+            b: var(--bshadow)
         }
-        button {
-            c: cm;
-            /// Notes -> Fix a couple of context menu items.
-            &[class *= '-note-']:not(#z):hover { c: 0 0 bd }
-            &[class *= 'note-delete']::before { content: none }
-            &:not(#z):not([class *= 'disable']):hover { c: fg 0 bd 0 0 0 }
-        }
-        /// Base elements.
+
+        /// Shared styles.
         .dropdown {
+            &-loading { c: 0 0 hl; opacity: 0.9 }
+            &-title, &-header { c: fg0 bg5 }
+            &-info-note { c: fg3 }
+            &-footer { c: 0 bg5 }
+
+            /// Boards -> Add list.
             &-tab {
-                &s-list { box-shadow: none i }
+                &s-list { b: none i }
                 &-item {
-                    padding: 0 i;
-                    c: 0 bd;
+                    padding: 0 i
+                    c: 0 bg5
+
+                    /// Reset items.
                     a {
-                        border-width: 1px i;
-                        c: 0 bd bg;
-                        &:hover { c: fg 0 t }
-                        &.active { c: fg t hl }
+                        border-width: 1px i
+                        c: 0 bg5 bg1
+                        &.active { c: fg1 t bg2 }
                     }
                 }
             }
-            &-footer { c: 0 bd }
-            &-loading { c: 0 0 hl; opacity: 0.9 }
+
+            /// Inputs.
+            &-input-field {
+                rad: 4px
+                c: fg1 bg5 bg1
+                &:focus { c: 0 v65; b: 0 0 0 0.25rem v63 }
+            }
         }
+
+        /// Overrides for items.
+        & {
+            [class*='divider'] { c: 0 bg5 bg5 }
+            [class*='-content'] { c: fg3 0 t }
+            [class*='-title'] { c: fg0 0 t }
+            span[class*='-text'] { c: fg1 }
+            strong, .bold, .text { c: fg1 }
+
+            li {
+                /// Remove 1px padding on the sides.
+                padding-left: 0
+                padding-right: 0
+
+                /// Items.
+                /// 3: Navbar -> User -> Edit status.
+                > a, button, .menu-item {
+                    color: fg3
+                    &.is-active { c: fg1 }
+
+                    /// Hover state.
+                    /// TODO: Tweak these things.
+                    &:focus,
+                    &:active,
+                    &:not(.disable-hover):not(.active):hover {
+                        c: fg1 0 bg3 //0 0 0
+                    }
+
+                    /// NOTE: Might cause conflicts somewhere.
+                    &.is-focused { c: fg1 0 bg5 }
+                    &.is-active { c: ac0 }
+                }
+
+                /// Remove focus ring.
+                button:focus { b: none i }
+
+                /// New GitLab dropdowns.
+                p { c: fg3 }
+            }
+        }
+
         /// Navbar -> Projects/groups.
         /.frequent-items-dropdown {
-            &-sidebar {
-                c: 0 bd;
-                a { c: fg }
-                a:hover { c: 0 0 bd }
-            }
-            &-content {
-                ul li:hover a { c: 0 0 bd }
-                [class *= '-item-title'] { c: fg }
-                [class *= '-namespace'] { c: cm }
-            }
+            &-sidebar { c: 0 bg5 }
             &-container {
-                /// Text colors for header and no results.
-                .section { &-header, &-empty { c: cm }}
-            }
-        }
-        /// Issues -> Boards -> Add list.
-        &[class *= '-tabs'] {
-            p { c: cm }
-            .btn-link:not(#z) {
-                c: 0 0 t;
-                &:hover { c: 0 0 bd }
-            }
-        }
-        /// Global -> Select2 component.
-        /.select2 {
-            &-highlighted &-result-label { c: fg 0 bd }
-            &-result-label { c: fg }
-            &-choice { &, &s { c: fg bd hl }}
-            &-arrow::after { c: cm }
-            &-match { c: ac }
-            &-drop {
-                c: cm bd hl;
-                box-shadow: bsh;
-            }
-            &-input:not(#z) {
-                font-family: var(--ui-font) i;
-                c: fg bd t;
-            }
-            &-container-disabled {
-                > a { c: 0 0 bd }
-                .select2-arrow { c: 0 0 t }
-            }
-        }
-        /// Pipelines -> Pipeline menus.
-        &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
-        &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
-        [class *= 'counter-badge'] { font-weight: normal; c: cm }
-        /// Commits -> Author dropdown.
-        /.gl-new-dropdown .btn {
-            box-shadow: none i;
-            &.dropdown-toggle[id *= '15'] { padding: 8px 8px 8px 10px i }
-            + ul {
-                [class *= 'text-pri'] { c: fg }
-                [class *= 'text-sec'] { c: cm }
+                li { padding: 0 1px }
+                [class*='-item-title'] { c: fg1 }
+                [class*='-namespace'] { c: fg4 }
+
+                /// Fix text for header and no results.
+                .section { &-header, &-empty { c: fg4 }}
             }
 
             /// Project -> Gitpod/IDE menu.
             /// NOTE: Remove when replaced with an SVG icon. @upstream
             if (dark(_dark)) {
-                &.dropdown-toggle-split::after { filter: invert(0.7) i }
+                /.gl-new-dropdown .btn {
+                    &.dropdown-toggle-split::after { filter: invert(0.7) i }
+                }
             }
         }
-        /// Issues -> 'Create MR' button.
-        /.droplab-dropdown {
-            .form-control { c: 0 0 bg }
-            .menu-item:not(.disable-hover) {
-                c: cm;
-                &:hover { c: fg 0 bd }
-            }
-            [class *= 'selected'] .menu-item { &, .fa { c: fg }}
-            /// Active items. !31
-            /.droplab-item-active:not(#z) button { c: fg 0 bd }
+
+        /// Navbar -> To-do list menus.
+        /.dropdown-menu-user {
+            &-link:not(:hover) { strong, span { c: fg3 }}
+            &-name, &-full-name, &-username { c: 0 0 t }
         }
-        /// Misc resets.
-        /.dropdown-menu {
-            /// Project -> Reset items in 'notification settings' menu.
-            &-inner {
-                &-title, &-content { c: 0 0 t }
-                &-content { c: cm }
+
+        /// Navbar -> User menu.
+        li.current-user {
+            c: fg4
+            .bold, .user-status { c: fg1 }
+        }
+
+        /// Buttons -> Reset hover styles.
+        &.more-actions-dropdown button:not([disabled]) {
+            c: fg3
+            &:hover, &:active { c: fg1 0 bg3 }
+            &:focus { c: fg1 0 bg4 }
+        }
+
+        /// Pipelines -> Grouped pipeline menu counter/caret.
+        [class*='counter-badge'] { font-weight: normal; c: fg3 }
+        &[class*='mini-pipe'], &[class*='big-pipe'] {
+            &::before, &::after { c: 0 t }
+        }
+
+        /// Select2 component.
+        /.select2 {
+            &-choice { &, &s { c: fg1 bg5 bg1 }}
+
+            /// Focused state.
+            &-container {
+                &&-active:not([class*='dropdown-open']) > .select2-choice {
+                    b: 0 0 0 0.2rem v63 i
+                    c: 0 v66
+                }
+
+                /// NOTE: Ported and untested.
+                &-disabled {
+                    > a { c: 0 0 bg5 }
+                    .select2-arrow { c: 0 0 t }
+                }
             }
-            /// Dashboard -> Todos.
-            &-user {
-                &-link:not(:hover) { strong, span { c: cm }}
-                &-name, &-full-name, &-username { c: 0 0 t }
+
+            /// Results.
+            &-drop {
+                c: fg1 bg5 bg2
+                b: var(--bshadow)
+
+                /// Header/items/highlight.
+                ../-results div { c: fg0 }
+                ../-result-sub div { c: fg3 }
+                ../-highlighted {
+                    c: fg1
+                    div { c: fg1 0 bg3 }
+                }
             }
-            /// Close buttons.
-            ../:not(#z) .dropdown-menu-close {
-                &, &:hover { c: 0 0 t }
-                &-icon { c: 0 0 t }
+
+            /// NOTE: Ported and untested.
+            &-arrow::after { c: fg4 }
+            &-match { c: ac0 }
+            &-input {
+                font-family: var(--ui-font) i
+                c: fg1 bg5 t
             }
         }
-        /// Reset dropdown height. @upstream
-        /[data-page ^= 'search:'],
-        /[data-page ^= 'projects:'],
-        /[data-page ^= 'dashboard:'] {
-            .dropdown-menu[class *= 'select'] { max-height: 420px i }
+
+        /// OBSOLETE: Old 'download' menu, and likely others.
+        /.dropdown .btn[data-toggle='dropdown'] {
+            .fa, svg { color: fg4 }
+            ../ .border-top { c: 0 bg5 }
+        }
+
+        /// Reset height overflow. @upstream
+        /[data-page^='search:'],
+        /[data-page^='projects:'],
+        /[data-page^='dashboard:'] {
+            .dropdown-menu[class*='select'] { max-height: 420px i }
         }
     }
 
@@ -3025,7 +3056,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Dropdowns.
         &-new-dropdown {
-            p { c: fg }
             button[class*='close'] { c: 0 t t }
         }
     }
@@ -4315,12 +4345,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 + .flex-list div[class *= 'toggle'] { c: ac }
                 /// Updated note description.
                 + .description-version > pre.wrapper { rad: 4px }
-            }
-            /// Buttons -> Reset hover styles.
-            /// TODO: Has some conflicts with dropdown styles.
-            .more-actions-dropdown:not(#z) button:not([disabled]) {
-                c: fg4
-                &:hover { c: fg1 0 bg3 }
             }
             /// Toolbar buttons.
             .note-actions-item {
