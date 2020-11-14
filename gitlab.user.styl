@@ -3141,18 +3141,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Pajamas -> Labels.
         /.gl-label {
             el = '.gl-label'
+            ef = grayscale()
             c: 0 0 v92 0 0 0
 
             /// More readable and consistent label colors.
             &-text-light[style*='--label-background'] {
-                $e = brightness(4) contrast() grayscale()
                 $s = 1px 1px 0px sh
                 { el }-text { text-shadow: $s, $s, $s }
-                { el }-text-scoped { filter: $e }
+                { el }-text-scoped { filter: ef; c: fg1 }
                 { el }-close svg { g: white }
             }
             &-text-dark {
-                > { el }-link > { el }-text-scoped { c: fg1 }
+                { el }-text-scoped { filter: ef; c: fg1 }
             }
 
             /// Reset 'close' buttons.
