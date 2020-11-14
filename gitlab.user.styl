@@ -405,16 +405,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global -> Progress bar.
         .progress {
-            c: 0 0 bd;
-            &-bar { c: fg; rad: 4px }
-            &-bar.bg-primary { c: 0 0 ac }
+            c: 0 0 bg5
+
+            /// Progress bar percentage.
+            &-bar.bg-primary { c: 0 0 ac1 }
+
             /// Project -> Languages bar.
-            &.repository-languages-bar {
-                c: 0 0 t;
-                /// Override language colors. @upstream
-                [style *= '#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
-                [style *= '#776791'] { c: 0 0 #000100 } /// Crystal.
-            }
+            &.repository-languages-bar { c: 0 0 t }
+
+            /// OBSOLETE: Override old colors for languages.
+            [style*='#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
+            [style*='#776791'] { c: 0 0 #000100 } /// Crystal.
         }
         /// Global color reset.
         .text {
