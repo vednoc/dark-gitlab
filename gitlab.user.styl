@@ -3581,8 +3581,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Notes -> Locked issue.
             &-body .issuable {
                 &-warning-icon {
-                    c: 0 0 bd;
-                    svg { g: v26 }
+                    c: 0 0 v22
+                    svg { g: v27 }
                 }
             }
         }
@@ -4518,8 +4518,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: 0 0 t;
         /// Confidential issues.
         /.issuable-note-warning {
-            c: orange bd bg;
-            a { c: orange }
+            c: v27 v22 v20
+            a, svg { c: currentColor; g: currentColor }
         }
         /// Editor.
         /.md-area {
@@ -4540,7 +4540,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Reset background.
         .timeline-icon { c: 0 0 t }
         /// Commands.
-        /.referenced-commands { c: fg 0 bd }
+        /.referenced-commands { c: fg3 0 bg3 }
         /// Zen mode.
         /.zen {
             &-control svg { g: cm }
