@@ -3142,17 +3142,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.gl-label {
             el = '.gl-label'
             ef = grayscale()
-            c: 0 0 v92 0 0 0
+            ts = 1px 1px 0px sh
+            transition: 0.2s ease
+            c: 0 0 bg3 0 0 0
 
             /// More readable and consistent label colors.
-            &-text-light[style*='--label-background'] {
-                $s = 1px 1px 0px sh
-                { el }-text { text-shadow: $s, $s, $s }
-                { el }-text-scoped { filter: ef; c: fg1 }
-                { el }-close svg { g: white }
+            &-text-light {
+                &[style*='--label-background'] {
+                    { el }-text-scoped { filter: ef; c: fg1 }
+                    { el }-close svg { g: white }
+                }
+                /// Small labels; old style.
+                &[style] { text-shadow: ts, ts, ts }
             }
             &-text-dark {
                 { el }-text-scoped { filter: ef; c: fg1 }
+                /// Small labels; old style.
+                &:not([style]) { c: fg1 }
             }
 
             /// Reset 'close' buttons.
@@ -4427,7 +4433,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] {
             &, [class *= 'separator'] { c: cm }
-            a:hover { &, time { c: ac }}
+            a:not([class*='label']):hover { &, time { c: v16 }}
         }
         /// Replies.
         .replies-toggle {
