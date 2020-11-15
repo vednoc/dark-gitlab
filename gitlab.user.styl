@@ -1572,6 +1572,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
 
+        /// OBSOLETE: Notes -> Calendar icon.
+        &[href*='.ics'] path { g: fg4 }
+
         /// Notes -> Reactions.
         &.award-control.active {
             c: ac0 ac3 ac4
