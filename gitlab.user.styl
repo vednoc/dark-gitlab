@@ -3145,6 +3145,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             ts = 1px 1px 0px sh
             transition: 0.2s ease
             c: 0 0 bg3 0 0 0
+            z-index: 1
+
+            /// HACK: Resolve the following issues:
+            /// 1. Do not overlap colors for labels.
+            /// 2. Keep all text elements above the shadow.
+            span { position:relative; z-index: -1 }
 
             /// Switch to gray for a specific label.
             &[style*='d-color:#333'] {
@@ -3174,8 +3180,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// HACK: Darken labels.
-            &::after {
-                z-index: 0
+            span::before {
+                z-index: -1
                 content: ''
                 position: absolute
                 pointer-events: none
@@ -3183,7 +3189,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 transition: background 0.2s ease
                 c: 0 0 sh
                 // ../:hover::after { c: 0 0 ac0 }
-                ../:hover::after { c: 0 0 t }
+                ../:hover span::before { c: 0 0 t }
             }
 
             /*
