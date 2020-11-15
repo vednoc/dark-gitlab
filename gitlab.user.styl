@@ -2995,8 +2995,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             box-shadow: none i
             font-family: var(--ui-font) i
         }
+
         /// Select menu.
-        /.custom-select { c: fg bd hl }
+        /.custom-select {
+            c: fg1 bg5 bg2
+            &:focus {
+                c: 0 v65
+                b: 0 0 0 0.2rem v62 i
+            }
+        }
 
         /// Project -> Releases -> Edit release.
         /// Fix whitespace/focus. @upstream
