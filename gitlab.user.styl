@@ -1151,9 +1151,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Menu.
         &.show {
-            rad: 4px /// TODO: Remove/tweak later?
+            rad: 4px
             c: 0 bg5 bg2 0 0 0
             b: var(--bshadow)
+        }
+
+        /// Active styles.
+        /.show.dropdown {
+            > .btn { c: 0 0 bg4 0 0 0 }
+            > [class*='dropdown-'] { c: 0 bg5 }
         }
 
         /// Shared styles.
