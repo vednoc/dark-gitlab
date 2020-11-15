@@ -3150,9 +3150,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// HACK: Resolve the following issues:
             /// 1. Keep all text elements above the shadow.
             /// 2. Do not overlap colors for label elements.
+            /// 3. Remove inconsistent text underlines.
             span {
                 z-index: -1
                 position: relative
+                &, ../ a { text-decoration: none i }
             }
 
             /// Switch to gray for a specific label.
