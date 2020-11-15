@@ -1140,6 +1140,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:hover { c: 0 0 bg3 0 0 0 }
             &:focus { c: 0 bg5 bg4 0 0 0 }
             &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
+
+            /// OBSOLETE: Old toggle buttons.
+            /.dropdown > [class*='toggle'] {
+                c: fg1 bg5 bg1
+                &:hover { c: 0 0 bg3 }
+                &:focus { c: 0 bg5 bg4 }
+            }
         }
 
         /// Menu.
