@@ -1967,9 +1967,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Sidebar.
         .issuable-sidebar {
             overflow-y: auto i;
-            .gutter-toggle { c: 0 bd t }
             &-header, .dropdown {
-                .btn-default,
+                .btn-default:not(.gutter-toggle),
                 [data-toggle='dropdown'] {
                     c: 0 0 bg1
                     &:hover { c: 0 0 bg3 }
@@ -2044,8 +2043,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix a conflict with button background hacks.
             /.dropdown-title-button { position: absolute }
         }
+
         /// Collapsed state.
         &&-collapsed {
+            /// Reset toggle.
+            .gutter-toggle {
+                border-bottom-color: bg5 i
+                rad: 0
+            }
+
+            /// Icons.
             .sidebar-collapsed-icon {
                 c: fg;
                 svg { g: cm }
