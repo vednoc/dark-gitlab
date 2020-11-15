@@ -3148,9 +3148,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             z-index: 1
 
             /// HACK: Resolve the following issues:
-            /// 1. Do not overlap colors for labels.
-            /// 2. Keep all text elements above the shadow.
-            span { position:relative; z-index: -1 }
+            /// 1. Keep all text elements above the shadow.
+            /// 2. Do not overlap colors for label elements.
+            span {
+                z-index: -1
+                position: relative
+            }
 
             /// Switch to gray for a specific label.
             &[style*='d-color:#333'] {
@@ -3176,7 +3179,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Reset 'close' buttons.
             &-close {
                 c: 0 0 t
+                position: relative
                 &:hover { c: 0 0 sh }
+                &::before {
+                    z-index: -1
+                    content: ''
+                    position: absolute
+                    pointer-events: none
+                    top: -4px; left: 4px; bottom: -4px; right: -4px
+                    transition: background 0.2s ease
+                    c: 0 0 sh
+                    ../../:hover .gl-label-close::before { c: 0 0 t }
+                }
             }
 
             /// HACK: Darken labels.
@@ -3188,7 +3202,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 top: 0; left: 0; bottom: 0; right: 0
                 transition: background 0.2s ease
                 c: 0 0 sh
-                // ../:hover::after { c: 0 0 ac0 }
                 ../:hover span::before { c: 0 0 t }
             }
 
