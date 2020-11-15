@@ -426,6 +426,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-plain, /.light { c: fg1 }
             &-secondary, &-muted, &-gl-muted, &-tertiary,
             /.cgray, /.description-block, /.help-block,
+            /.canary-deployment-callout-message, /// (--gray-500) Operations -> Environments.
             /[class *= 'gl-text-gray-'], /.help-text, /.stat-text {  /// 2: snippets -> new
                 c: fg4
             }
@@ -433,6 +434,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.bg {
             &-light { c: 0 0 bd }
             &-danger { c: 0 0 red }
+            &-danger-100 { c: 0 0 v11 }
             &-secondary { c: 0 0 hl }
             &-success { c: 0 0 green }
             &-white, &-gray-light { c: 0 0 bg }
@@ -1051,7 +1053,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.ci-table {
             margin-top: 10px;
             border: 1px solid bd;
-            c: red 0 bg;
+            c: fg1 0 bg1
             rad: 4px;
             [class *= 'header'] {
                 padding: 12px 16px;
@@ -3086,6 +3088,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         &-border {
             &-b-gray-100 { c: 0 bd }
+            &-t-gray-100 { c: 0 bg5 }
         }
         /// Box-shadow overrides.
         &-inset-border {
@@ -4013,9 +4016,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     .gd { c: v18 0 v10 }
                     /// Tokens.
                     .c, .cm, .c1, .gh, .nn, .go, .gt { c: fg4 }
-                    .n, .cp, .gp, .s, .s1 { c: fg1 }
+                    .n, .cp, .gp, .s { c: fg1 }
                     .no, .na, .nb { c: v56 }
-                    .sx, .se, .sh, .s2 { c: v16 }
+                    .sx, .se, .sh, .s1, .s2 { c: v16 }
                     .sr, .vi, .mf, .ne, .nv { c: v46 }
                     .nt, .m, .mi, .mh { c: v66 }
                     .nf, .ss, .si, .nc { c: v76 }
