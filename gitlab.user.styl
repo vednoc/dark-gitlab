@@ -1203,6 +1203,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:not(.gl-button-text) { c: fg1 }
             }
             strong, .bold, .text { c: fg1 }
+            .btn-helptext { c: fg5 }
 
             li {
                 /// Remove 1px padding on the sides.
@@ -3068,11 +3069,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Search tokens.
         &-token {
+            c: fg1 0 bg3 0 0 0
             &-close { c: cm }
             &-content { c: fg }
             &.gl-filtered-search-token {
                 &-type, &-operator { c: 0 0 hl }
-                &-data { c: 0 0 bd }
+                &-data { c: 0 0 bg3 }
             }
         }
         /// Search button.
@@ -3736,10 +3738,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Dashboard -> Issues/MRs.
             &-token, &-term {
-                .name, .operator, .value-container { c: fg 0 bd }
+                .name, .operator { c: fg2 0 bg2 }
+                .value-container { c: fg1 0 bg3 }
                 ../-token:first-child { margin-left: 5px }
                 /// Text input is also tokenized.
-                > .name { c: 0 0 t }
+                ../-term .name { c: 0 0 t }
             }
         }
     }
