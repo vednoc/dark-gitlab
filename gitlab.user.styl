@@ -1142,7 +1142,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
 
             /// OBSOLETE: Old toggle buttons.
-            /.dropdown > [class*='toggle'] {
+            /.dropdown > button[class*='dropdown-toggle'] {
                 c: fg1 bg5 bg1
                 &:hover { c: 0 0 bg3 }
                 &:focus { c: 0 bg5 bg4 }
@@ -1159,7 +1159,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Active styles.
         /.show.dropdown {
             > .btn { c: 0 0 bg4 0 0 0 }
-            > [class*='dropdown-'] { c: 0 bg5 }
+            > button[class*='dropdown-'] { c: 0 bg5 bg3 }
         }
 
         /// Shared styles.
@@ -1226,7 +1226,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
                     /// NOTE: Might cause conflicts somewhere.
                     &.is-focused { c: fg1 0 bg5 }
-                    &.is-active { c: ac0 }
+                    &.is-active:not(#z) { c: ac0 }
                 }
 
                 /// Remove focus ring.
@@ -1649,7 +1649,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg4 0 bg4
 
             /// Navigation.
-            /.active [class*='badge-pill'] { c: fg1 0 bg5 }
+            /.active [class*='badge-pill']:not([class*='count']) { c: fg1 0 bg5 }
 
             /// Project -> Tags.
             &.badge-secondary {
@@ -4678,6 +4678,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Header.
             ~/-title {
                 c: 0 bd;
+                &-sub-text { c: fg4 }
                 &-caret:hover { c: 0 0 hl }
             }
             /// End of the list.
