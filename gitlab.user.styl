@@ -1496,6 +1496,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 t t
         }
 
+        /// Close buttons.
+        &.close:not(#z) {
+            transition: 0.2s ease
+            c: 0 0 t
+        }
+
         /// Button groups.
         /.input-group {
             &-append, &-prepend {
