@@ -814,7 +814,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Dark mode tweaks.
         .search-form {
             &:focus-within > form { b: 0 0 0 0.2rem v63 i }
-            &:hover, &.search-active { > form { c: 0 v65 }}
+            &.search-active > form { c: 0 v65 }
         }
         &-gitlab { box-shadow: none i }
         /// Fix 'down-arrow' size. @upstream
@@ -1189,7 +1189,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-input-field {
                 rad: 4px
                 c: fg1 bg5 bg1
-                &:focus { c: 0 v65; b: 0 0 0 0.25rem v63 }
+                &:focus { c: 0 v65; b: 0 0 0 0.2rem v63 }
             }
         }
 
@@ -2124,18 +2124,26 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.nav-block { c: 0 bd }
         /.row-content-block {
             c: fg bd hl;
+
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
-            /// Switch to `bg` color for child elements.
-            .btn {
-                &:not(.btn-link):not(.btn-success):not(.btn-danger):not(.btn-info):not(.gl-button),
-                ../ .btn-default {
-                    c: 0 0 bg;
+
+            /// Reset buttons.
+            [class*='group'] > .btn {
+                &-default:not(#z) {
+                    c: 0 0 bg1
+                    &:hover { c: 0 0 bg3 }
+                    &:focus { c: 0 0 bg4 }
                 }
-                /// Project -> Requirements.
-                &.dropdown-toggle { border: 1px solid bd }
             }
-            .filtered-search-box { &:not(#z) { c: 0 0 bg }}
+
+            /// Reset elements in navigation box.
+            .filtered-search-box { c: 0 0 bg }
+            button[class*='dropdown-']:not(#z) {
+                b: none i
+                &:hover, &:focus { c: 0 0 bg3 }
+            }
+
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
                 padding: 16px 0;
