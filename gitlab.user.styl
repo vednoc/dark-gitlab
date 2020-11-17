@@ -3137,6 +3137,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-new-dropdown {
             button[class*='close'] { c: 0 t t }
         }
+
+        /// Cards.
+        /// Groups -> Recent activity. #143
+        &-card {
+            c: 0 bg5 bg1
+            &-header, &-footer { c: 0 bg5 bg2 }
+        }
     }
 
     // Pajamas -> GFM.
