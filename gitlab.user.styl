@@ -1142,7 +1142,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
 
             /// OBSOLETE: Old toggle buttons.
-            /.dropdown > button[class*='dropdown-toggle'] {
+            /.dropdown > button[class*=' dropdown-toggle']:not(.gl-button) {
                 c: fg1 bg5 bg1
                 &:hover { c: 0 0 bg3 }
                 &:focus { c: 0 bg5 bg4 }
@@ -1195,6 +1195,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Overrides for items.
         & {
+            [class*='separator'] { c: 0 0 bg5 }
             [class*='divider'] { c: 0 bg5 bg5 }
             [class*='-content'] { c: fg3 0 t }
             [class*='-title'] { c: fg0 0 t }
@@ -1202,6 +1203,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Sidebars -> Confidentiality/lock issue.
                 &:not(.gl-button-text) { c: fg1 }
             }
+            .search-item-avatar { c: 0 bg5 }
             strong, .bold, .text { c: fg1 }
             .btn-helptext { c: fg5 }
 
@@ -1225,7 +1227,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     }
 
                     /// NOTE: Might cause conflicts somewhere.
-                    &.is-focused { c: fg1 0 bg5 }
+                    &.is-focused {
+                        &, &:hover:not(#z) { c: fg1 0 bg4 }
+                    }
                     &.is-active:not(#z) { c: ac0 }
                 }
 
@@ -1754,6 +1758,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.form-actions { c: 0 bd t }
         /// Settings -> Reset background.
         &.select-control { c: 0 0 hl }
+        /// Search -> Dropdown height. @upstream
+        /.form-group button[class*='dropdown'] { height: 34px i }
     }
 
     // Global -> Auto-complete menu.
