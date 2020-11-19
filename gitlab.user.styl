@@ -2287,12 +2287,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
-    // Global -> Welcome page.
-    .section-welcome {
+    // Global -> Welcome page. #144
+    .blank-state {
         /// Cards.
-        .container .blank-state-link {
-            c: cm bd bg;
-            &:hover { c: fg 0 hl }
+        &-row &-link {
+            c: fg3 bg5 bg1
+            &:hover { c: 0 0 bg2 }
+            h3 { c: ac0 }
         }
     }
 
