@@ -1960,6 +1960,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-link:not([disabled]) {
                 c: ac0
                 > svg { g: currentColor }
+                &.edit-link { c: fg4 0 t }
             }
 
             /// Health status for closed issues.
@@ -2055,6 +2056,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix a conflict with button background hacks.
             /.dropdown-title-button { position: absolute }
         }
+
+        /// Expanded state.
+        &-expanded .gutter-toggle { c: 0 bg5 }
 
         /// Collapsed state.
         &&-collapsed {
@@ -3141,9 +3145,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-inset-border {
             &-1-gray-100 { box-shadow: inset 0 0 0 1px bd }
         }
+
         /// Dropdowns.
+        /// NOTE: Right sidebar -> Health status.
         &-new-dropdown {
             button[class*='close'] { c: 0 t t }
+            .dropdown-menu:not(#z) {
+                c: 0 bg5 bg1
+
+                /// Fix conflict with btn-link styles.
+                .btn-link.dropdown-item {
+                    c: fg3
+                    &.is-active { c: fg1 }
+                }
+            }
         }
 
         /// Cards.
@@ -3728,10 +3743,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// MRs -> Editor button.
             a { color: cm }
             /// Notes -> Locked issue.
-            &-body .issuable {
+            /.issuable {
                 &-warning-icon {
                     c: 0 0 v22
-                    svg { g: v27 }
+                    svg { g: v28 }
                 }
             }
         }
