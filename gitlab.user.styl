@@ -1428,6 +1428,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Green outline.
+        &-success&-inverted,
         &-success-secondary {
             c: v46 v45 bg1
             &:hover { c: v46 0 v40 }
@@ -2144,7 +2145,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
 
-            /// Reset buttons.
+            /// Boards -> Reset various buttons on toolbar.
+            :not([class*='group']) {
+                > .js-focus-mode-btn,
+                > [class*='btn btn-default'],
+                > [class*='btn btn-inverted'] {
+                    &:not([disabled]) {
+                        c: 0 0 bg1
+                        &:hover { c: 0 0 bg3 }
+                    }
+                }
+            }
+
+            /// Reset buttons in button groups.
             [class*='group'] > .btn {
                 &-default:not(#z) {
                     c: 0 0 bg1
@@ -4718,7 +4731,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Issues -> Boards.
     .board {
         &-inner {
-            c: 0 bd bg;
+            c: 0 bg5 bg1 0 0
             /// Header.
             ~/-title {
                 c: 0 bd;
