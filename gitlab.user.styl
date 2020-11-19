@@ -1654,8 +1654,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-pill {
             c: fg4 0 bg4
 
-            /// Navigation.
-            /.active [class*='badge-pill']:not([class*='count']) { c: fg1 0 bg5 }
+            /// Search -> Navigation.
+            /.active [class*='badge badge-pill']:not([class*='count']) { c: fg1 0 bg5 }
 
             /// Project -> Tags.
             &.badge-secondary {
