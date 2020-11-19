@@ -2055,8 +2055,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: 0 0 t;
                 }
             }
-            /// Fix a conflict with button background hacks.
-            /.dropdown-title-button { position: absolute }
+            /// NOTE: Might break some things.
+            /.dropdown-title-button { float: right }
         }
 
         /// Expanded state.
