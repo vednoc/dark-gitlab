@@ -334,8 +334,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     blue    = var(--v6-5)
     magenta = var(--v7-5)
     violet  = var(--v8-5)
-    lred    = transparentify(_red, #fff, 65%);
-    lgreen  = transparentify(_green, #fff, 75%);
     white   = var(--white);
     outer   = 0 0 0 1px bg5;
     inner   = inset outer;
@@ -5346,7 +5344,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Line numbers.
         .margin {
             c: 0 bd t;
-            * { font-family: var(--mono-font) i }
+            *:not(.codicon) { font-family: var(--mono-font) i }
             ../ .line-numbers {
                 opacity: 0.6;
                 c: cm;
@@ -5451,10 +5449,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Git status.
         .dirty-diff-added { c: 0 0 green }
         .dirty-diff-modified { c: 0 0 blue }
-        .inline-deleted-margin-view-zone, .char-delete { c: 0 0 #ff000050 }
-        .inline-added-margin-view-zone, .char-insert { c: 0 0 #00ff0050 }
-        .line-delete { c: white sh lred }
-        .line-insert { c: white sh lgreen }
+        .inline-deleted-margin-view-zone, .char-delete { c: 0 0 v13 }
+        .inline-added-margin-view-zone, .char-insert { c: 0 0 v43 }
+        .line-delete { c: white sh v11 }
+        .line-insert { c: white sh v41 }
         .current-line-margin { c: 0 bd bd }
     }
     }
