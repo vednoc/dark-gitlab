@@ -10,7 +10,21 @@
 @version      1.6.3
 @license      MIT
 
-@var select   theme      'Color-scheme' ['Default', 'GitHub-Dark']
+@var select   cg_theme     'Base color-scheme toggle' {
+    'Custom colors   *': 'custom',
+    'Dark blue (old)  ': 'old-colors',
+    'Dark gray (new)  ': 'new-colors',
+    'Breeze Dark      ': 'breeze-dark',
+    'GitHub Dark      ': 'github-dark',
+    'GitHub Dark Mode ': 'github-dark-mode',
+}
+
+@var color    cg_bg        'Base background color' #292929
+@var color    cg_fg        'Base foreground color' #e6e6e6
+@var color    cg_ac        'Base accent color    ' #d47d3f
+@var color    _inverse     'Button inverse color ' #ffffff
+@var color    _shadow      'Shadow color         ' #00000040
+
 @var checkbox pcs_enable 'Apply when `(prefers-color-scheme: dark)` is enabled' 0
 @var text     ui_font    'Custom UI font' '"font_name"'
 @var text     mono_font  'Custom mono font' '"font_name"'
@@ -22,25 +36,10 @@
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
 @var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
+@var checkbox c_ide      'Code: Enable IDE styles' 1
+@var checkbox c_monaco   'Code: Enable Monaco Editor styles' 1
 @var checkbox dgl_alert  'Profile: Enable Dark-GitLab announcements' 0
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
-
-@var color    dark       'Color: Primary background   ' #292929
-@var color    darken     'Color: Highlight background ' #333333
-@var color    darker     'Color: Secondary background ' #424242
-@var color    light      'Color: Primary foreground   ' #e6e6e6
-@var color    lighter    'Color: Secondary foreground ' #aaaaaa
-@var color    accent     'Color: Accent               ' #bf692b
-@var color    yellow     'Color: Yellow               ' #f0c674
-@var color    orange     'Color: Orange               ' #d98245
-@var color    red        'Color: Red                  ' #a54242
-@var color    magenta    'Color: Magenta              ' #b294bb
-@var color    violet     'Color: Violet               ' #85678f
-@var color    blue       'Color: Blue                 ' #54738c
-@var color    cyan       'Color: Cyan                 ' #5e8d87
-@var color    green      'Color: Green                ' #7b823a
-@var color    white      'Color: White                ' #ffffff
-@var color    shadow     'Color: Shadow               ' #00000035
 ==/UserStyle== */
 
 /*!
@@ -53,6 +52,159 @@
  *
  * Make sure you have the latest version before submitting bug reports.
  */
+
+to_hsla(input) {
+    $h = {}
+    $h.hue = unquote(split('deg', '%s' % ceil(hue(input), 2))[0])
+    $h.saturation = ceil(saturation(input), 2)
+    $h.lightness = ceil(lightness(input), 2)
+    s('hsla(%s,%s,%s,1)', $h.hue, $h.saturation, $h.lightness)
+}
+
+// Generator -> Color-schemes.
+ColorSchemes = {
+    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
+    'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
+    'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
+    'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
+}
+
+// Generator -> Active color-scheme.
+for selected in ColorSchemes {
+    if (selected == cg_theme) {
+        // main { dbg: s('%s %s', selected, cg_theme) }
+        define('BG', ColorSchemes[selected].BG, global)
+        define('FG', ColorSchemes[selected].FG, global)
+        define('AC', ColorSchemes[selected].AC, global)
+    }
+}
+
+// Helpers
+t       = transparent
+i       = !important
+vendors = official
+BA      = 0%
+FA      = 0%
+AA      = 0%
+SA      = 0%
+
+// Color mixin.
+/// All colors: `c: fg bg bg`
+/// Only border-color: `c: 0 bg`
+c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+    if x != 0 && x != '_' {            color: xi is 0 ? x : x i }
+    if y != 0 && y != '_' {     border-color: yi is 0 ? y : y i }
+    if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
+}
+
+// SVG colors.
+g(x, y = 0, xi = 1, yi = 1) {
+    if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
+    if y != 0 && x != '_' { stroke: yi is 0 ? y : y i }
+}
+
+// Border radius mixin.
+rad() { border-radius: arguments }
+
+// Box-shadow mixin.
+b() { box-shadow: arguments }
+
+// Color generator.
+/// NOTE: Scope the variables to avoid potential conflicts.
+/// TODO: Port color generator v3.
+/{
+    /// Color generator v1.
+    g = global
+
+    /// Color generator rules.
+    if (dark(BG)) {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
+        b1 = (BA + 10); b2 = (BA - 04); b3 = (BA - 08); b4 = (BA - 12); b5 = (BA - 16)
+        f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
+    } else {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
+        b1 = (BA - 10); b2 = (BA + 08); b3 = (BA + 16); b4 = (BA + 24); b5 = (BA + 32)
+        f1 = (FA - 05); f2 = (FA - 10); f3 = (FA - 15); f4 = (FA - 20); f5 = (FA - 30)
+    }
+
+    /// Generate tones for base colors.
+    C = {
+        bg: {
+            '0': darken(BG, b1),
+            '1': darken(BG, 0%),
+            '2': darken(BG, b2),
+            '3': darken(BG, b3),
+            '4': darken(BG, b4),
+            '5': darken(BG, b5),
+        },
+        fg: {
+            '0': darken(FG, f1),
+            '1': darken(FG, 0%),
+            '2': darken(FG, f2),
+            '3': darken(FG, f3),
+            '4': darken(FG, f4),
+            '5': darken(FG, f5),
+        },
+        ac: {
+            '0': mix(darken(BG,  0%), AC, 0%),
+            '1': mix(darken(BG, 40%), AC, a1),
+            '2': mix(darken(BG, 40%), AC, a2),
+            '3': mix(darken(BG, 40%), AC, a3),
+            '4': mix(darken(BG, 65%), AC, a4),
+            '5': mix(darken(BG, 50%), AC, a5),
+        },
+    }
+
+    define('bg-' + key, val, global) for key, val in C.bg
+    define('fg-' + key, val, global) for key, val in C.fg
+    define('ac-' + key, val, global) for key, val in C.ac
+
+    /// Generate Stylus-lang helpers for CSS variables.
+    define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
+    define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
+    define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
+}
+
+/{
+/// Color generator v2.
+C = {
+    v1: { hue: 000deg, }, //red
+    v2: { hue: 030deg, }, //orange
+    v3: { hue: 060deg, }, //yellow
+    v4: { hue: 120deg, }, //green
+    v5: { hue: 180deg, }, //cyan
+    v6: { hue: 210deg, }, //blue
+    v7: { hue: 270deg, }, //magenta
+    v8: { hue: 300deg, }, //violet
+    v9: { hue: 000deg, }, //gray
+}
+
+for c, i in C {
+    $hue = C[c].hue
+    // $dbg = 'k: ' + c + ' ::: i: ' + i + ' ::: val: ' + $hue
+    for num in 0..9 {
+        $res = ''
+        if (c != 'v9') {
+            $h = C[c].hue + num / 2
+            $s = 100 - num * 8
+            $offset = (num < 2) ? 1 : 1.5
+            $l = 5 + (num + $offset) * 5
+            $res = hsl($h, $s, $l)
+            $res = mix(BG, $res, 10%)
+        } else {
+            $res = hsl(C[c].hue, 0, (num + 2) * 8)
+        }
+        $res = to_hsla($res)
+        // $dbg = c + '-' + num + ' ::: ' + $res
+        define(c + num, s('var(--%s-%s)', unquote(c), num), global)
+        define(c + '-' + num, $res, global)
+    }
+}
+}
 
 @-moz-document domain('custom.domain'),
 domain('invent.kde.org'),
@@ -101,113 +253,78 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Dark-GitLab variables.
     :root {
-        --note      : 'Dark-GitLab v1.6.3';
-        --bshadow   : 0 2px 4px var(--shadow);
-        --t         : transparent !important;
-        --avatar    : a_radius;
-        --ui-font   : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',
-            var(--emoji-font), sans-serif;
-        --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
-            'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono',
-            'lucida console', monospace;
-        --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',
-            'Segoe UI Symbol', 'Noto Color Emoji';
-        --white     : white;
+        --version   : '🌚 Dark-GitLab v1.6.3';
+        --bshadow   : 0 4px 8px var(--shadow);
+        --shadow    : _shadow
+        --white     : _inverse
+        --avatar    : a_radius
 
-        /// Feat -> Color-scheme.
-        if ( theme == 'GitHub-Dark' ) {
-            --bb        : #202020;
-            --dark      : #181818;
-            --darken    : #262626;
-            --darker    : #404040;
-            --light     : #e6e6e6;
-            --lighter   : #9b9b9b;
-            --accent    : #4f8cc9;
-            --shadow    : #00000050;
-            --yellow    : #ffcc33;
-            --orange    : #fe9600;
-            --red       : #ff4444;
-            --magenta   : #8368aa;
-            --violet    : #6e5494;
-            --blue      : #4f8cc9;
-            --cyan      : #4d5eff;
-            --green     : #008833;
-        } else {
-            --bb        : lighten(dark, 1.5%);
-            --dark      : dark;
-            --darken    : darken;
-            --darker    : darker;
-            --light     : light;
-            --lighter   : lighter;
-            --accent    : accent;
-            --shadow    : shadow;
-            --yellow    : yellow;
-            --orange    : orange;
-            --red       : red;
-            --magenta   : magenta;
-            --violet    : violet;
-            --blue      : blue;
-            --cyan      : cyan;
-            --green     : green;
+        /// Custom UI font.
+        $fs1 = -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans'
+        $fs2 = 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif
+        --ui-font: ui_font, $fs1, $fs2, sans-serif, var(--emoji-font)
+
+        /// Custom Monospace font.
+        $fm1 = 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas'
+        $fm2 = 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console'
+        --mono-font: mono_font, $fm1, $fm2, monospace
+
+        /// Custom Emoji font.
+        $fe1 = 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+        --emoji-font: emoji_font, $fe1, 'Noto Color Emoji'
+
+        /// Generate DGL color variables.
+        for _v in (bg fg ac) {
+            for _i in 0..5 {
+                key = s('--%s-%s', _v, _i)
+                /// Escape `\` for `*-0` vars.
+                val = _v + \- + _i
+
+                /// Generate CSS variables.
+                { key }: val i
+                // { key + '-rgb' }: to_rgb(val)
+            }
         }
 
-        // TODO: Add more tones for secondary colors.
-        --red-darken    : mix(dark, red, 70%);
-        --red-darker    : mix(dark, red, 85%);
+        /// Generate v2 color variables.
+        for tone in 0..9 {
+            for number in 0..9 {
+                key = '--v%s-%s' % ((tone) (number))
+                val = '%s' % (v + tone + \- + number)
+                { key }: val
+            }
+        }
+
         /// Colors for CI status icons in Firefox.
         @supports (-moz-user-select: none) {
-            --svg-status-bg : var(--dark) !important;
+            --svg-status-bg: var(--bg-1)
         }
         /// Prevents horizontal overflow. @upstream
         overflow-x: hidden;
     }
 
-    // Overwrite existing Stylus-lang vars with CSS vars.
-    bb      = var(--bb);
-    bg      = var(--dark);
-    hl      = var(--darken);
-    bd      = var(--darker);
-    fg      = var(--light);
-    cm      = var(--lighter);
-    ac      = var(--accent);
-    sh      = var(--shadow);
-    bsh     = var(--bshadow);
-    yellow  = var(--yellow);
-    orange  = var(--orange);
-    lred    = transparentify(red, #fff, 65%);
-    red     = var(--red);
-    magenta = var(--magenta);
-    violet  = var(--violet);
-    blue    = var(--blue);
-    cyan    = var(--cyan);
-    lgreen  = transparentify(green, #fff, 75%);
-    green   = var(--green);
+    // Interop with new variables.
+    // TODO: Remove when the refactor is complete.
+    bb      = var(--bg-0)
+    bg      = var(--bg-1)
+    hl      = var(--bg-2)
+    bd      = var(--bg-5)
+    fg      = var(--fg-1)
+    cm      = var(--fg-4)
+    ac      = var(--ac-0)
+    sh      = var(--shadow)
+    bsh     = var(--bshadow)
+    red     = var(--v1-5)
+    orange  = var(--v2-5)
+    yellow  = var(--v3-5)
+    green   = var(--v4-5)
+    cyan    = var(--v5-5)
+    blue    = var(--v6-5)
+    magenta = var(--v7-5)
+    violet  = var(--v8-5)
     white   = var(--white);
-    t       = var(--t);
-    outer   = 0 0 0 1px bd;
+    outer   = 0 0 0 1px bg5;
     inner   = inset outer;
-    i       = !important;
-    // Bootstrap --breakpoint-* CSS vars.
-    bpoints = { xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px }
-
-    // Color mixin.
-    /// All colors: `c: fg bd bg;`
-    /// Only border-color: `c: 0 bd;`
-    c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-        i = !important;
-        if x is a 'call' or x is a 'rgba' {            color: xi is 0? x : x i }
-        if y is a 'call' or y is a 'rgba' {     border-color: yi is 0? y : y i }
-        if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
-    }
-    // SVG colors.
-    v(x, y = 0, xi = 1, yi = 1) {
-        i = !important;
-        if x is a 'call' or x is a 'rgba' {   fill: xi is 0? x : x i }
-        if y is a 'call' or y is a 'rgba' { stroke: yi is 0? y : y i }
-    }
-    // Border radius mixin.
-    rad() { border-radius: arguments }
 
     // SVG-friendly colors mixin.
     to_svg(input) {
@@ -215,7 +332,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     /// Feat -> Set 'none' syntax preset to use theme colors.
-    if ( c_hl_none == 1 ) { c-hl-none = ', .code.none' }
+    if (c_hl_none) { c-hl-none = ', .code.none' }
 
     // Base styles.
     body {
@@ -258,18 +375,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .gl-link { &, &:hover { color: ac }}
         .author-link, /.branch-commit .commit-sha { color: ac }
         /// Custom monospace font.
+        .text-monospace,
         pre, code, kbd, samp, .monospace, .ref-name,
         .commit-sha, .pipeline-number, .label-branch,
+        .git-revision-dropdown .dropdown-content ul li a,
         table.code, [class *= 'git-commit'] {
             font-family: var(--mono-font) i;
         }
         .container { c: 0 bd }
         /// Settings -> Account.
-        .danger-title, .gl-field-error, .invalid-feedback { c: red }
+        .danger-title, .gl-field-error, .invalid-feedback { c: v16 }
         [class *= 'price-per-'] { c: blue }
-        .warning-title { c: orange }
-        .valid-feedback { c: green }
+        .warning-title { c: v26 }
+        .valid-feedback { c: v46 }
         .account-well { c: fg bd hl }
+
         /// Settings -> Fix QR code. #108
         [class *= 'two-factor-auth'] svg {
             c: 0 0 white;
@@ -277,31 +397,36 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global -> Progress bar.
         .progress {
-            c: 0 0 bd;
-            &-bar { c: fg; rad: 4px }
-            &-bar.bg-primary { c: 0 0 ac }
+            c: 0 0 bg5
+
+            /// Progress bar percentage.
+            &-bar.bg-primary { c: 0 0 ac1 }
+
             /// Project -> Languages bar.
-            &.repository-languages-bar {
-                c: 0 0 t;
-                /// Override language colors. @upstream
-                [style *= '#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
-                [style *= '#776791'] { c: 0 0 #000100 } /// Crystal.
-            }
+            &.repository-languages-bar { c: 0 0 t }
+
+            /// OBSOLETE: Override old colors for languages.
+            [style*='#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
+            [style*='#776791'] { c: 0 0 #000100 } /// Crystal.
         }
         /// Global color reset.
         .text {
-            &-info:not(#z) { c: blue; > svg { v: blue }}
-            &-danger:not(#z) { c: red; > svg { v: red }}
-            &-success:not(#z) { c: green; > svg { v: green }}
-            &-warning:not(#z) { c: orange; > svg { v: orange }}
-            &-plain, /.light { c: fg }
-            &-secondary, &-muted, &-gl-muted, &-tertiary { c: cm }
-            /.cgray, /.description-block, /.help-block { c: cm }
-            /[class *= 'gl-text-gray-'] { c: cm }
+            &-info:not(#z) { c: v66; > svg { g: v66 }}
+            &-danger:not(#z) { c: v16; > svg { g: v16 }}
+            &-success:not(#z) { c: v46; > svg { g: v46 }}
+            &-warning:not(#z) { c: v26; > svg { g: v26 }}
+            &-plain, /.light { c: fg1 }
+            &-secondary, &-muted, &-gl-muted, &-tertiary,
+            /.cgray, /.description-block, /.help-block,
+            /.canary-deployment-callout-message, /// (--gray-500) Operations -> Environments.
+            /[class *= 'gl-text-gray-'], /.help-text, /.stat-text {  /// 2: snippets -> new
+                c: fg4
+            }
         }
-        .bg {
+        /.bg {
             &-light { c: 0 0 bd }
             &-danger { c: 0 0 red }
+            &-danger-100 { c: 0 0 v11 }
             &-secondary { c: 0 0 hl }
             &-success { c: 0 0 green }
             &-white, &-gray-light { c: 0 0 bg }
@@ -310,7 +435,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Profile -> Calendar activities.
         .bordered, .unstyled { &-list > li { c: 0 bd }}
         /// Scrollbars.
-        if ( sb_enable == 1 ) {
+        if (sb_enable) {
             /html { scrollbar-color: #88888830 #88888815 }
             /::-webkit-scrollbar {
                 width: 12px;
@@ -334,32 +459,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Login.
             .login-box, .signup-box, .omniauth-container {
-                rad: 4px;
-                c: 0 bd hl;
-                box-shadow: inner i;
+                rad: 4px
+                c: 0 bg5 bg2
+                b: inner i
                 .omniauth-btn { c: 0 0 bg }
                 .omniauth-divider { &::before, &::after { c: 0 bd }}
                 input.form-control { c: 0 0 bg }
-                .btn { &-success, &-register { c: white green green }}
             }
-            /// Buttons -> Sign in/Register.
-            .new-session-tabs {
-                border: 1px solid bd i;
-                border-bottom: none i;
-                box-shadow: none i;
-                c: 0 0 bg;
-                li {
-                    &:not(.active) {
-                        &, &:hover a:not(.active) { c: 0 bd t }
-                    }
-                    a.active {
-                        rad: 0;
-                        c: 0 t hl;
-                        box-shadow: 0 1px hl;
-                    }
-                }
-                + .tab-content > div { rad: 0 0 4px 4px i }
-            }
+            /// Reset page height.
+            /.devise-layout-html body.navless { height: calc(100% - 41px) }
         }
         /// Global -> FA icons.
         /.fa {
@@ -375,117 +483,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &[class *= 'paused'] { c: red }
             &[class *= 'online'] { c: green }
         }
-        /// Global -> SVG icons.
-        /svg {
-            &.s16, &.s24, &.icon { v: cm }
-            &[class][data-testid *= 'status_'] { fill: currentColor i }
-            /// Activity icons.
-            /.deleted-icon > svg { v: orange }
-            /.closed-icon svg { v: red }
-            /.created-icon svg { v: cyan }
-            /.opened-icon svg { v: green }
-            /.accepted-icon svg { v: cyan }
-            /.deleted-icon svg { v: yellow }
-            /.imported-icon svg { v: violet }
-            /.commented-on-icon svg { v: blue }
-            &[id *= 'addition-solid'] { v: green }
-            /// Misc.
-            /.commit-icon svg { v: cm }
-            &.ic-eye-slash { v: orange }          /// Confidential issues.
-            &.text-success { v: green }           /// Green checkmark.
-            &.text-danger { v: red }              /// Due date.
-            /// Diff -> Git status icons.
-            &.ic-file-addition { &, &-solid { v: green }}
-            &.ic-file-modified { &, &-solid { v: blue }}
-            &.ic-file-deletion { &, &-solid { v: red }}
-            /// CI -> Default background.
-            /[id *= 'status_'] [fill = '#FFF'] { v: hl }
-            /// Notes -> Related isses/MRs/epics.
-            &.issue-token-state-icon {
-                &-open { v: green }
-                &-closed { v: blue }
-            }
-            &.merge-request-status {
-                &.open { c: green; v: green }
-                &.closed { c: red; v: red }
-            }
-        }
-        /// CI -> Icons.
-        /.ci-status {
-            c: fg bd bg 1 0;
-            /// Status icons.
-            &.ci {
-                &-success {
-                    c: green green;
-                }
-                &-info, &-running {
-                    c: blue blue;
-                }
-                &-failed {
-                    c: red red;
-                }
-                &-pending,
-                &-waiting-for-resource,
-                &-failed-with-warnings,
-                &-success-with-warnings {
-                    c: orange orange;
-                }
-                &-created,
-                &-skipped {
-                    c: fg cm;
-                }
-                &-canceled,
-                &-disabled,
-                &-scheduled,
-                &-manual {
-                    c: cm cm;
-                }
-            }
-            /// Stage icons.
-            &-icon {
-                &-success {
-                    &[class *= 'dropdown'] { c: 0 green hl }
-                    &:not(#z), &[data-toggle] { svg { v: green }}
-                    svg { c: 0 green }
-                }
-                &-running,
-                &-preparing {
-                    &[class *= 'dropdown'] { c: 0 blue hl }
-                    &:not(#z), &[data-toggle] { svg { v: blue }}
-                    svg { c: 0 blue }
-                }
-                &-failed {
-                    &[class *= 'dropdown'] { c: 0 red hl }
-                    &:not(#z), &[data-toggle] { svg { v: red }}
-                    svg { c: 0 red }
-                }
-                &-pending,
-                &-waiting-for-resource,
-                &-failed-with-warnings,
-                &-success-with-warnings {
-                    &[class *= 'dropdown'] { c: 0 orange hl }
-                    &:not(#z), &[data-toggle] { svg { v: orange }}
-                    svg { c: 0 orange }
-                }
-                &-created,
-                &-skipped {
-                    &[class *= 'dropdown'] { c: 0 cm hl }
-                    &:not(#z), &[data-toggle] { svg { v: fg }}
-                    svg { c: 0 fg }
-                }
-                &-manual,
-                &-canceled,
-                &-disabled,
-                &-scheduled,
-                &-not-found {
-                    &[class *= 'dropdown'] { c: 0 cm hl }
-                    &:not(#z), &[data-toggle] { svg { v: cm }}
-                    svg { c: 0 cm }
-                }
-            }
-        }
         /// Feat -> Invert icons in Shadow DOM.
-        if ( ic_invert == 1 ) {
+        if (ic_invert) {
             @supports not (-moz-user-select: none) {
                 .created-icon, .opened-icon, .ic-upload,
                 .gl-icon[data-testid *= 'status_'], // #135
@@ -494,9 +493,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 /// Increase contrast for gray icons.
                 :not(#z) .ci-status-icon {
-                    &-created svg, &-skipped svg {
-                        v: #333 i;
-                    }
+                    &-created svg, &-skipped svg { g: #333 }
                 }
             }
         } else {
@@ -504,15 +501,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Global -> Callouts.
         .bs-callout {
-            rad: 3px;
-            c: fg bd hl;
+            rad: 4px
+            c: fg1 bg5 bg3
+
             a { c: ac }
             strong { color: inherit i }
-            &-warning { c: 0 orange hl }
-            &-success { c: 0 green hl }
-            &-danger { c: 0 red hl }
-            &-info { c: 0 blue hl }
+            &-warning { c: v98 v25 v21 }
+            &-success { c: v98 v45 v41 }
+            &-danger { c: v98 v15 v11 }
+            &-info { c: v98 v65 v61 }
             .btn-default, code:not([class]) { c: 0 0 bg }
+
             /// Project -> Settings -> CI/CD.
             &.help-callout,
             &.shared-runners-description {
@@ -558,6 +557,103 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .preview { &.ui-dark, &.gl-dark { c: 0 bd }}
     }
 
+    /// Global -> SVG icons.
+    svg {
+        &.s16, &.s24, &.icon { g: fg3 }
+
+        /// Activity icons.
+        /.deleted, /.closed { &-icon svg { g: v16 }}
+        /.created, /.joined, /.opened { &-icon svg { g: v46 }}
+        /.commit, /.pushed-new, /.pushed-to { &-icon svg { g: fg4 }}
+        /.imported, /.commented-on, /.accepted { &-icon svg { g: v66 }}
+
+        /// Misc.
+        &.ic-eye-slash { g: v26 } /// Confidential issues.
+        &.text-success { g: v46 } /// Green checkmark.
+        &.text-danger { g: v16 } /// Due date.
+
+        /// Diff -> Git status icons.
+        &.file-addition { &, &-solid { g: v46 }}
+        &.file-modified { &, &-solid { g: v66 }}
+        &.file-deletion { &, &-solid { g: v16 }}
+        &[id*='addition-solid'] { g: v46 }
+
+        /// Notes -> Related isses/MRs/epics.
+        &.issue-token-state-icon {
+            &-open { g: v46 }
+            &-closed { g: v66 }
+        }
+        &.merge-request-status {
+            &.open { c: v46; g: v46 }
+            &.closed { c: v16; g: v16 }
+        }
+
+        /// Pipelines -> Jobs.
+        /// NOTE: Icons in this area are slightly problematic, so this fixes them.
+        &.s16[data-testid *= 'status_'] { g: currentColor }
+
+        /// CI -> Background for old icons.
+        /[id *= 'status_'] [fill = '#FFF'] { g: bg1 }
+
+        /// CI -> Text.
+        .ci-status-text {
+            max-width: 100%;
+            margin-right: 35px;
+        }
+
+        /// CI -> Status icons.
+        /.ci-status {
+            c: fg1 bg5 bg1 1 0
+
+            /// Badges.
+            &.ci {
+                &-failed { c: v16 v16 }
+                &-success { c: v46 v46 }
+                &-info, &-running { c: v66 v66 }
+                &-created, &-skipped { c: fg3 fg3 }
+                &-canceled, &-disabled, &-scheduled, &-manual { c: fg5 fg5 }
+                &-pending,
+                &-waiting-for-resource,
+                &-failed-with-warnings,
+                &-success-with-warnings {
+                    c: v26 v26
+                }
+            }
+
+            /// Icons.
+            &-icon {
+                &-success {
+                    &[class *= 'dropdown'], svg { c: 0 v46 }
+                    &:not(#z), &[data-toggle] { svg { g: v46 }}
+                }
+                &-running, &-preparing {
+                    &[class *= 'dropdown'], svg { c: 0 v66 }
+                    &:not(#z), &[data-toggle] { svg { g: v66 }}
+                }
+                &-failed {
+                    &[class *= 'dropdown'], svg { c: 0 v16 }
+                    &:not(#z), &[data-toggle] { svg { g: v16 }}
+                }
+                &-pending, &-waiting-for-resource,
+                &-failed-with-warnings, &-success-with-warnings {
+                    &[class *= 'dropdown'], svg { c: 0 v26 }
+                    &:not(#z), &[data-toggle] { svg { g: v26 }}
+                }
+                &-created, &-skipped {
+                    &[class *= 'dropdown'], svg { c: 0 fg3 }
+                    &:not(#z), &[data-toggle] { svg { g: fg3 }}
+                }
+                &-manual, &-canceled, &-disabled, &-scheduled, &-not-found {
+                    &[class *= 'dropdown'], svg { c: 0 fg5 }
+                    &:not(#z), &[data-toggle] { svg { g: fg5 }}
+                }
+            }
+
+            /// Reset background.
+            /button[class *= 'ci-status-icon-'] { c: 0 0 bg1 }
+        }
+    }
+
     // Global -> Custom checkbox/radio inputs.
     input {
         r       = unquote
@@ -566,10 +662,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         prefix += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">'
         arrows += 'width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none">'
 
-        &:hover { box-shadow: none i }
-
         &[type='radio'],
         &[type='checkbox'] {
+            &:hover { box-shadow: none i }
             &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
                 -webkit-appearance: none i
                 -moz-appearance: none i
@@ -630,7 +725,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: fg 0 hl;
             }
             /// Feat -> Navbar height option.
-            if(nb_height) {
+            if (nb_height) {
                 .layout-page, .content-wrapper  { margin-top: 85px i }
             }
         }
@@ -638,6 +733,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Navbar.
     .navbar {
+        display: flex
+        align-items: center
+
         /// Wrapper.
         &-gitlab, &&-empty { c: 0 bd hl }
         /// Logo.
@@ -649,7 +747,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .logo-text svg { fill: fg i }
         }
         /// Feat -> Show canary badge.
-        if ( nb_canary != 1 ) {
+        if (!nb_canary) {
             .canary-badge { display: none i }
         } else {
             .canary-badge > .badge { c: white green green }
@@ -661,15 +759,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > button, > a {
                     transition: 0.2s ease;
                     &[data-toggle] { c: cm }
-                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bd }
+                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bg3 }
                 }
                 /// Active menus.
-                &.active, &.active:hover, &.show { > button, > a { c: fg 0 bg }}
-                .caret-down { v: cm }
-            }
-            /// Reset backgrounds.
-            [data-toggle = 'dropdown'], button.menu-item {
-                &::before { content: unset i }
+                &.active, &.active:hover, &.show { > button, > a { c: fg1 0 bg4 }}
+                .caret-down { g: cm }
             }
         }
         /// Help menu.
@@ -678,7 +772,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             > a { margin-top: 0.25rem }
             /// Embed theme version.
             &::before {
-                content: '🌚 ' var(--note);
+                content: var(--version)
                 display: block;
                 padding: 4px 12px 6px;
                 border-bottom: 1px solid bd;
@@ -694,7 +788,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Sign in / register.
         .btn-sign-in { &, &:hover { c: cm 0 bg }}
         /// Feat -> Increase navbar height.
-        if ( nb_height == 1 ) {
+        if (nb_height) {
             min-height: 50px;
             /.nav-sidebar { top: 50px }
             /.layout-page, /.content-wrapper  { margin-top: 50px }
@@ -707,16 +801,27 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Mobile -> Toggle colors.
         &-toggler {
             border-left-color: bd i;
-            svg { v: cm }
+            svg { g: cm }
         }
         /// Dark mode tweaks.
         .search-form {
-            > form { box-shadow: none i }
-            &:hover, &.search-active { > form { c: 0 blue }}
+            &:focus-within > form { b: 0 0 0 0.2rem v63 i }
+            &.search-active > form { c: 0 v65 }
         }
         &-gitlab { box-shadow: none i }
         /// Fix 'down-arrow' size. @upstream
         svg.s16[data-testid='angle-down-icon'] { width: 11px }
+
+        /// Navbar -> Fix whitespace on GitLab 10.4. OBSOLETE
+        > div {
+            margin: 0 auto i
+            padding: 0 i
+            width: 100% i
+            display: flex i
+            align-items: center i
+            justify-content: center i
+            > .header-content { width: 100% }
+        }
     }
 
     // Global -> Tables.
@@ -896,7 +1001,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         border-bottom: none i;
                     }
                     &.selected td { c: 0 0 hl }
-                    &:hover:not(.selected) td { c: 0 0 bb }
+                    &:hover:not(.selected) td { c: 0 0 bg2 }
                     &:last-child {
                         /// Last element globally / Single element in artifacts.
                         &, &:first-child { td:not(#z) { border-bottom: none i }}
@@ -940,11 +1045,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.ci-table {
             margin-top: 10px;
             border: 1px solid bd;
-            c: red 0 bg;
+            c: fg1 0 bg1
             rad: 4px;
             [class *= 'header'] {
                 padding: 12px 16px;
-                c: fg bd hl;
+                c: fg1 bg5 bg3
                 rad: 3px 3px 0 0;
             }
             [class $= 'table-row'] {
@@ -954,12 +1059,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     border-bottom: none i;
                     rad: 0 0 3px 3px;
                 }
-                &:hover { c: 0 0 bb }
+                &:hover { c: 0 0 bg2 }
             }
             .pipeline-actions { padding-right: 16px }
             /.js-run-mr-pipeline { margin-right: 16px }
             /// Project -> Jobs -> Fix icons and table cells. #98
-            .sprite { v: cm }
+            .sprite { g: cm }
             > tbody > .build {
                 > td { border-top: 1px solid bd i }
                 &:hover { c: 0 0 bb }
@@ -973,7 +1078,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             .duration {
                 c: cm;
-                svg path { v: cm }
+                svg path { g: cm }
             }
             /// Jobs -> Pipelines.
             &.pipeline tbody {
@@ -981,7 +1086,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > tr > td { border-top: 1px solid bd i }
             }
             /// Icons -> Fix background.
-            path[fill = '#FFF'] { v: hl }
+            path[fill = '#FFF'] { g: hl }
             /// Pipelines -> Jobs. #125
             .build.retried { c: 0 0 bb }
         }
@@ -1016,374 +1121,516 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Global -> Dropdowns.
-    [class *= 'dropdown-menu'] {
-        c: fg bd hl;
-        /// Active state.
-        &.show { box-shadow: bsh }
-        /// Misc elements.
-        .dropdown-info-note { c: cm }
-        strong, .bold, .text { c: fg }
-        span[class *= '-text'] { z-index: 1; c: fg }
-        [class *= 'input-field'] {
-            c: fg bd bg;
-            &:focus { c: 0 blue }
-        }
-        .dropdown-title, [class *= '-header'] { c: fg bd }
-        [class *= 'divider'], .separator { c: 0 bd bd }
-        .border-top { c: 0 bd }
-        li {
-            a, button {
-                c: cm;
-                /// TODO: Figure out `active/focus` states.
-                &:hover, &:active, &:focus { c: fg 0 bd }
-                &.is-focused { c: fg 0 bd }
-                &.is-active { c: ac }
-            }
-            /// Notes -> Reset 'Create MR' button.
-            .btn-success:hover { c: white 0 green }
-            /// Navbar -> User.
-            &.current-user {
-                c: cm;
-                .bold, .user-status { c: fg }
+    [class*='dropdown-menu'] {
+        $t = color, border, background
+        c: fg1 bg5 bg2 0 0 0
+
+        /// Toggle button.
+        &[type] {
+            c: fg1 bg5 bg2 0 0 0
+            transition: $t 0.2s ease
+            &:hover { c: 0 0 bg3 0 0 0 }
+            &:focus { c: 0 bg5 bg4 0 0 0 }
+            &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
+
+            /// New SVG icons.
+            ../[data-testid*='chevron'] { c: 0 0 t }
+
+            /// OBSOLETE: Old toggle buttons.
+            /.dropdown > button[class*=' dropdown-toggle']:not(.gl-button) {
+                c: fg1 bg5 bg1
+                &:hover { c: 0 0 bg3 }
+                &:focus { c: 0 bg5 bg4 }
             }
         }
-        button {
-            c: cm;
-            /// Notes -> Fix a couple of context menu items.
-            &[class *= '-note-']:not(#z):hover { c: 0 0 bd }
-            &[class *= 'note-delete']::before { content: none }
-            &:not(#z):not([class *= 'disable']):hover { c: fg 0 bd 0 0 0 }
+
+        /// Menu.
+        &.show {
+            rad: 4px
+            c: 0 bg5 bg2 0 0 0
+            b: var(--bshadow)
         }
-        /// Base elements.
+
+        /// Active styles.
+        /.show.dropdown {
+            > .btn { c: 0 0 bg4 0 0 0 }
+            > button[class*='dropdown-'] { c: 0 bg5 bg3 }
+        }
+
+        /// Shared styles.
         .dropdown {
+            &-loading { c: 0 0 hl; opacity: 0.9 }
+            &-title, &-header { c: fg0 bg5 }
+            &-info-note { c: fg3 }
+            &-footer { c: 0 bg5 }
+
+            /// Boards -> Add list.
             &-tab {
-                &s-list { box-shadow: none i }
+                &s-list { b: none i }
                 &-item {
-                    padding: 0 i;
-                    c: 0 bd;
+                    padding: 0 i
+                    c: 0 bg5
+
+                    /// Reset items.
                     a {
-                        border-width: 1px i;
-                        c: 0 bd bg;
-                        &:hover { c: fg 0 t }
-                        &.active { c: fg t hl }
+                        border-width: 1px i
+                        c: 0 bg5 bg1
+                        &.active { c: fg1 t bg2 }
                     }
                 }
             }
-            &-footer { c: 0 bd }
-            &-loading { c: 0 0 hl; opacity: 0.9 }
+
+            /// Inputs.
+            &-input-field {
+                rad: 4px
+                c: fg1 bg5 bg1
+                &:focus { c: 0 v65; b: 0 0 0 0.2rem v63 }
+            }
         }
+
+        /// Overrides for items.
+        & {
+            [class*='separator'] { c: 0 0 bg5 }
+            [class*='divider'] { c: 0 bg5 bg5 }
+            [class*='-content'] { c: fg3 0 t }
+            [class*='-title'] { c: fg0 0 t }
+            span[class*='-text'] {
+                /// Sidebars -> Confidentiality/lock issue.
+                &:not(.gl-button-text) { c: fg1 }
+            }
+            .search-item-avatar { c: 0 bg5 }
+            strong, .bold, .text { c: fg1 }
+            .btn-helptext { c: fg5 }
+
+            li {
+                /// Remove 1px padding on the sides.
+                padding-left: 0
+                padding-right: 0
+
+                /// Items.
+                /// 3: Navbar -> User -> Edit status.
+                > a, button, .menu-item {
+                    color: fg3
+                    &.is-active { c: fg1 }
+
+                    /// Hover state.
+                    /// TODO: Tweak these things.
+                    &:focus,
+                    &:active,
+                    &:not(.disable-hover):not(.active):hover {
+                        c: fg1 0 bg3 //0 0 0
+                    }
+
+                    /// NOTE: Might cause conflicts somewhere.
+                    &.is-focused {
+                        &, &:hover:not(#z) { c: fg1 0 bg4 }
+                    }
+                    &.is-active:not(#z) {
+                        background-image: none i // NOTE: Hide embedded checkmark.
+                        c: ac0
+                    }
+                }
+
+                /// Remove focus ring.
+                button:focus { b: none i }
+
+                /// New GitLab dropdowns.
+                p { c: fg3 }
+            }
+        }
+
         /// Navbar -> Projects/groups.
         /.frequent-items-dropdown {
-            &-sidebar {
-                c: 0 bd;
-                a { c: fg }
-                a:hover { c: 0 0 bd }
-            }
-            &-content {
-                ul li:hover a { c: 0 0 bd }
-                [class *= '-item-title'] { c: fg }
-                [class *= '-namespace'] { c: cm }
-            }
+            &-sidebar { c: 0 bg5 }
             &-container {
-                /// Text colors for header and no results.
-                .section { &-header, &-empty { c: cm }}
-            }
-        }
-        /// Issues -> Boards -> Add list.
-        &[class *= '-tabs'] {
-            p { c: cm }
-            .btn-link:not(#z) {
-                c: 0 0 t;
-                &:hover { c: 0 0 bd }
-            }
-        }
-        /// Global -> Select2 component.
-        /.select2 {
-            &-highlighted &-result-label { c: fg 0 bd }
-            &-result-label { c: fg }
-            &-choice { &, &s { c: fg bd hl }}
-            &-arrow::after { c: cm }
-            &-match { c: ac }
-            &-drop {
-                c: cm bd hl;
-                box-shadow: bsh;
-            }
-            &-input:not(#z) {
-                font-family: var(--ui-font) i;
-                c: fg bd t;
-            }
-            &-container-disabled {
-                > a { c: 0 0 bd }
-                .select2-arrow { c: 0 0 t }
-            }
-        }
-        /// Pipelines -> Pipeline menus.
-        &[class *= 'big-pipe'] { &::before, &::after { c: 0 t }}
-        &[class *= 'mini-pipe'] { &::before, &::after { c: 0 t }}
-        [class *= 'counter-badge'] { font-weight: normal; c: cm }
-        /// Commits -> Author dropdown.
-        /.gl-new-dropdown .btn {
-            box-shadow: none i;
-            &.dropdown-toggle[id *= '15'] { padding: 8px 8px 8px 10px i }
-            + ul {
-                [class *= 'text-pri'] { c: fg }
-                [class *= 'text-sec'] { c: cm }
+                li { padding: 0 1px }
+                [class*='-item-title'] { c: fg1 }
+                [class*='-namespace'] { c: fg4 }
+
+                /// Fix text for header and no results.
+                .section { &-header, &-empty { c: fg4 }}
             }
 
             /// Project -> Gitpod/IDE menu.
             /// NOTE: Remove when replaced with an SVG icon. @upstream
-            if (lightness(dark) <= 50%) {
-                &.dropdown-toggle-split::after { filter: invert(0.7) i }
+            if (dark(BG)) {
+                /.gl-new-dropdown .btn {
+                    &.dropdown-toggle-split::after { filter: invert(0.7) i }
+                }
             }
         }
-        /// Issues -> 'Create MR' button.
-        /.droplab-dropdown {
-            .form-control { c: 0 0 bg }
-            .menu-item:not(.disable-hover) {
-                c: cm;
-                &:hover { c: fg 0 bd }
-            }
-            [class *= 'selected'] .menu-item { &, .fa { c: fg }}
-            /// Active items. !31
-            /.droplab-item-active:not(#z) button { c: fg 0 bd }
+
+        /// Navbar -> To-do list menus.
+        /.dropdown-menu-user {
+            &-link:not(:hover) { strong, span { c: fg3 }}
+            &-name, &-full-name, &-username { c: 0 0 t }
         }
-        /// Misc resets.
-        /.dropdown-menu {
-            /// Project -> Reset items in 'notification settings' menu.
-            &-inner {
-                &-title, &-content { c: 0 0 t }
-                &-content { c: cm }
+
+        /// Navbar -> User menu.
+        li.current-user {
+            c: fg4
+            .bold, .user-status { c: fg1 }
+        }
+
+        /// Buttons -> Reset hover styles.
+        &.more-actions-dropdown button:not([disabled]) {
+            c: fg3
+            &:hover, &:active { c: fg1 0 bg3 }
+            &:focus { c: fg1 0 bg4 }
+        }
+
+        /// Pipelines -> Grouped pipeline menu counter/caret.
+        [class*='counter-badge'] { font-weight: normal; c: fg3 }
+        &[class*='mini-pipe'], &[class*='big-pipe'] {
+            &::before, &::after { c: 0 t }
+        }
+
+        /// Select2 component.
+        /.select2 {
+            &-choice { &, &s { c: fg1 bg5 bg1 }}
+            &-arrow { filter: invert(0.7); c: 0 0 t }
+
+            /// Focused state.
+            &-container {
+                &&-active:not([class*='dropdown-open']) > .select2-choice {
+                    b: 0 0 0 0.2rem v63 i
+                    c: 0 v66
+                }
+
+                /// NOTE: Ported and untested.
+                &-disabled {
+                    > a { c: 0 0 bg5 }
+                }
             }
-            /// Dashboard -> Todos.
-            &-user {
-                &-link:not(:hover) { strong, span { c: cm }}
-                &-name, &-full-name, &-username { c: 0 0 t }
+
+            /// Results.
+            &-drop {
+                c: fg1 bg5 bg2
+                b: var(--bshadow)
+
+                /// Header/items/highlight.
+                ../-results div { c: fg0 }
+                ../-result-sub div { c: fg3 }
+                ../-highlighted {
+                    c: fg1
+                    div { c: fg1 0 bg3 }
+                }
             }
-            /// Close buttons.
-            ../:not(#z) .dropdown-menu-close {
-                &, &:hover { c: 0 0 t }
-                &-icon { c: 0 0 t }
+
+            /// NOTE: Ported and untested.
+            &-arrow::after { c: fg4 }
+            &-match { c: ac0 }
+            &-input {
+                font-family: var(--ui-font) i
+                c: fg1 bg5 t
             }
         }
-        /// Reset dropdown height. @upstream
-        /[data-page ^= 'search:'],
-        /[data-page ^= 'projects:'],
-        /[data-page ^= 'dashboard:'] {
-            .dropdown-menu[class *= 'select'] { max-height: 420px i }
+
+        /// OBSOLETE: Old 'download' menu, and likely others.
+        /.dropdown .btn[data-toggle='dropdown'] {
+            .fa, svg { color: fg4 }
+            ../ .border-top { c: 0 bg5 }
+        }
+
+        /// Reset height overflow. @upstream
+        /[data-page^='search:'],
+        /[data-page^='projects:'],
+        /[data-page^='dashboard:'] {
+            .dropdown-menu[class*='select'] { max-height: 420px i }
         }
     }
 
     // Global -> Buttons.
     .btn {
-        z-index: 1;
-        position: relative;
-        &, /[data-toggle = 'dropdown'], &-default {
-            c: fg bd hl;
-            svg { v: cm }
-            ../.active > .fa { c: fg }
-            &:hover::before { content: ''; c: 0 0 #88888830 0 0 0 }
-            /// MR -> Fix conflict with 'description templates' in title area.
-            &[id *= 'promotion'] {
-                c: 0 0 t;
-                &::before { content: unset i }
-            }
+        $f = 0 0 0 0.2rem
+
+        /// Consistent button styles.
+        &.gl-button {
+            b: none i
+            border: 1px solid t
+            c: fg1 bg5 bg2 0 0 0
         }
-        /// Dropdowns -> Active state; exclude CI status icons.
-        /.active, /.show {
-            > [data-toggle = 'dropdown']:not([class *= 'ci-status']) svg { v: fg }
+
+        /// Default styles.
+        & {
+            c: fg1 bg5 bg2 0 0 0
+            &:hover { c: fg1 bg5 bg3 0 0 0 }
+            &:focus { c: fg1 bg5 bg4; b: $f bg3 i }
+            &:active { c: fg1 bg5 bg4 0 0 0 }
+            &[href].gl-link { color: fg1 }
         }
-        /// Project -> Download source code.
-        &&-xs, &-xs.stat-text {
-            padding: 8px 10px;
-            c: 0 0 bg;
-            &:not(#z).btn-primary { c: white ac ac }
+
+        /// Active buttons.
+        &.active,
+        &.is-active {
+            c: fg1 bg5 bg4
         }
-        /// Project -> Clone repository.
-        /.git-clone-holder .form-control {
-            font-family: var(--mono-font) i;
-            c: 0 0 bg;
+
+        /// Highlighted buttons.
+        &-default,
+        &-cancel {
+            c: fg1 bg5 bg2
+            &:hover { c: 0 0 bg3 }
+            &:focus { c: 0 0 bg4; b: $f bg3 i }
         }
-        /// Releases -> Source code.
-        &[data-toggle = 'dropdown'].btn-link { c: 0 t t }
-        /// NOTE: Definitely not a great idea, but let us see what happens!
-        &::before, /[data-toggle = 'dropdown']::before {
-            z-index: 0;
-            opacity: 0.20;
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            transition: opacity 0.2s ease;
-            rad: inherit;
-            ../:hover::before { opacity: 0.35 }
+
+        /// Background-color buttons.
+        &-secondary {
+            c: fg1 bg5 bg1
+            &:hover { c: 0 0 bg3 }
+            &:focus { c: 0 0 bg4; b: $f bg3 i }
         }
-        /// Colored buttons.
-        &&-remove, &&-danger {
-            c: white red red;
-            &:not(.btn-inverted) {
-                transition: opacity 0.2s ease;
-                .fa { c: white } svg { v: white }
-                &:hover { opacity: 0.8 }
-            }
-            &.btn-inverted {
-                c: red red bg;
-                &::before { content: ''; c: 0 0 red }
-                .fa { c: red } svg { v: red }
-            }
+
+        /// Red.
+        &-remove,
+        &-danger {
+            c: v98 v15 v13
+            &:hover { c: v99 v16 v14 }
+            &:focus { c: v99 v17 v15; b: $f v12 i }
+            > .fa, > svg { c: currentColor; g: currentColor }
         }
-        &&-close, &&-close-color, &&-warning {
-            c: orange orange bg;
-            &::before { content: ''; c: 0 0 orange }
-            .fa { c: orange } svg { v: orange }
+
+        /// Green.
+        &-register,
+        &-success {
+            c: v98 v45 v43
+            &:hover { c: v99 v46 v44 }
+            &:focus { c: v99 v47 v45; b: $f v42 i }
+            > .fa, > svg { c: currentColor; g: currentColor }
         }
-        &&-success {
-            c: white green green;
-            &:not(.btn-inverted) {
-                transition: opacity 0.2s ease;
-                .fa { c: white } svg { v: white }
-                &:hover { opacity: 0.8 }
-            }
-            &.btn-inverted {
-                c: green green bg;
-                &::before { content: ''; c: 0 0 green }
-                .fa { c: green } svg { v: green }
-            }
-            /// Project -> Override 'New release' color.
-            &.js-new-release-btn:not(#z) { c: white }
+
+        /// Blue.
+        &-info,
+        &-primary {
+            c: v98 v65 v63
+            &:hover { c: v99 v66 v64 }
+            &:focus { c: v99 v67 v65; b: $f v63 i }
+            > .fa, > svg { c: currentColor; g: currentColor }
         }
-        &&-primary, &&-info {
-            c: white blue blue;
-            &:not(.btn-inverted) {
-                transition: opacity 0.2s ease;
-                .fa { c: white } svg { v: white }
-                &:hover { opacity: 0.8 }
-            }
-            &.btn-inverted {
-                c: blue blue bg;
-                &::before { content: ''; c: 0 0 blue }
-                .fa { c: blue } svg { v: blue }
-            }
-            /// Project settings -> Integration.
-            &.new-gl-button { box-shadow: none i }
+
+        /// Orange.
+        &-close,
+        &-close-color,
+        &-warning {
+            c: v98 v25 v23
+            &:hover { c: v99 v26 v24 }
+            &:focus { c: v99 v27 v25; b: $f v23 i }
+            > .fa, > svg { c: currentColor; g: currentColor }
         }
-        /// Account -> Billing.
-        &&-inverted-secondary {
-            c: ac ac;
-            &::before { content: ''; c: 0 0 ac }
+
+        /// Red outline.
+        &-danger-secondary {
+            c: v16 v15 bg1
+            &:hover { c: v16 0 v10 }
+            &:focus { c: v98 0 v12; b: $f v11 i }
         }
-        /// Boards -> Switch board.
-        &&-secondary {
-            &:focus, &.focus { box-shadow: 0 0 0 0.2rem #88888810 i }
+
+        /// Green outline.
+        &-success&-inverted,
+        &-success-secondary {
+            c: v46 v45 bg1
+            &:hover { c: v46 0 v40 }
+            &:focus { c: v98 0 v42; b: $f v41 i }
         }
-        /// No link-buttons! Reference: fbe1cde1
-        &.gl-link[href] { c: fg }
-        /// Notes -> Links.
-        &-link { c: ac t t }
-        &.active { c: fg bd bd }
+
+        /// Blue outline.
+        /// 1: Project -> Milestones.
+        /// 2: Account -> Billing page.
+        /// 3: TODO: Figure out where this was used. XD
+        &-info-secondary,
+        &-inverted-secondary,
+        &-primary&-inverted {
+            c: v66 v65 bg1
+            &:hover { c: v66 0 v60 }
+            &:focus { c: v98 0 v62; b: $f v61 i }
+        }
+
+        /// Orange outline.
+        /// TODO: Polish :focus and :hover styles.
+        &-warning-secondary {
+            c: v26 v25 bg1
+            &:hover { c: v26 0 v20 }
+            &:focus { c: v98 0 v22; b: $f v21 i }
+        }
+
+        /// Accent.
+        /// TODO: Implement once `v0-*` is added to color generator.
+        &-primary#clone-dropdown {
+            c: v98 ac2 ac4
+            &:hover { c: v99 ac1 ac3 }
+            &:focus { c: v99 ac0 ac2; b: $f ac4 i }
+            > svg { g: v98 }
+        }
+
+        /// Disabled icons.
+        /// TODO: Add more 'disabled' selectors.
+        &.disabled,
+        &[disabled] {
+            c: fg5 bg3 bg1
+            svg { fill: currentColor i }
+            &:focus { b: none i }
+        }
+
+        /// New GL buttons.
+        &.new-gl-button {
+            b: none i
+            c: fg1 bg5 bg2
+        }
+
+        /// Link buttons.
+        /// TODO: Update outline with v2 accent color.
+        &-link,
+        &.gl-link:not([href]) {
+            color: ac0
+            &:hover, &:active, &:focus { color: ac1 }
+            &:focus { c: 0 0 t; b: $f ac4 i }
+
+            /// Remove default border/background colors.
+            &[href] { c: 0 t t 0 0 0 }
+
+            // 2: Notes -> 'Compare with previous version.'
+            &.gl-button { c: ac0 }
+        }
+
         /// Transparent buttons.
-        &-transparent:not(#z), &-default-tertiary {
-            c: cm t t 0
-            &::before { content: unset }
+        &&-clipboard,
+        &&-transparent,
+        &&-default-tertiary {
+            c: 0 t t
         }
-        /// Disabled.
-        &[disabled], &.disabled {
-            &:not(#z) {
-                &::before { content: unset }
-                &, &:hover {
-                    opacity: 0.5 i;
-                    c: cm bd bg;
-                }
-                .fa { c: cm }
-            }
+
+        /// Close buttons.
+        /button.close:not(#z) {
+            transition: 0.2s ease
+            c: 0 0 t
         }
-        /// Reactions.
-        &.award-control {
-            c: cm bd hl;
-            &.active, &.is-active {
-                c: ac ac hl;
-                &::before { content: ''; c: 0 0 ac }
-            }
-        }
-        /// GPG.
-        &.gpg-status-box {
-            &.invalid { c: cm bd hl }
-            &.valid { c: green green hl }
-        }
-        /// Notes -> Issue status.
-        /.status-box {
-            c: white;
-            &-issue-closed, &-mr-merged { c: 0 0 blue }
-            &-closed, &-mr-closed { c: 0 0 red }
-            &-expired { c: 0 0 orange }
-            &-upcoming { c: fg 0 bd }
-            &-open { c: 0 0 green }
-            /// Mobile -> Fix colors for issue status icons.
-            > svg.s16 { v: white }
-        }
+
         /// Button groups.
         /.input-group {
             &-append, &-prepend {
-                c: 0 0 t;
+                c: 0 0 t
                 > [class *= '-text'] {
-                    c: fg bd;
-                    // Project -> Edit labels. #29
-                    &:not(.label-color-preview) { c: 0 0 bb }
+                    c: fg1 bg5
+                    /// Project -> Edit labels. #29
+                    &:not(.label-color-preview) { c: 0 0 bg3 }
                 }
             }
         }
-        /// Project -> Header buttons.
-        /.project-repo-buttons {
-            .btn { padding: 6px 10px }
-            .count {
-                c: fg;
-                &-badge-count { c: 0 bd hl }
-                &-badge, ../ .btn-xs {
-                    height: 32px i;
-                    font-size: 14px i;
+
+        /// Project -> Repository buttons.
+        &.count-badge-button {
+            /.project-repo-buttons {
+                /// Reset button styles.
+                .btn {
+                    padding: 6px 10px i
+                    &-xs, &-xs + span {
+                        height: 32px i
+                        font-size: 14px i
+                    }
+
+                    /// OBSOLETE: Buttons/clone bar in GitLab 10.4.
+                    &:not(.btn-xs) { c: fg1 bg5 bg3 }
+                    ../ input { height: 34px i }
                 }
-                /// Remove margin from the last badge.
-                &-badge:last-child { margin-right: 0 i }
+
+                /// Button colors.
+                .count {
+                    c: fg1
+                    &-badge-count { c: 0 bg5 bg3 }
+                    &-badge:last-of-type { margin-right: 0 }
+
+                    /// OBSOLETE: Arrow-buttons on GitLab 10.4.
+                    &-with-arrow {
+                        .arrow::before { border-right-color: bg5 }
+                        .arrow::after { border-right-color: bg2 }
+                        .count { c: 0 bg5 bg2 }
+                    }
+                }
             }
         }
-        /// Commits -> Toggle message.
+
+        /// Project -> Toggle commit message.
         /.text-expander {
-            padding: 2px 4px;
-            c: cm bd hl;
-            &.open { c: ac 0 bd }
+            padding: 3px 5px
+            c: fg4 bg5 bg2
+            &:hover { c: 0 0 bg3 }
+            &.open { c: fg1 0 bg4; b: none }
         }
-        /// Project -> Missing files / Static buttons.
-        &-missing, /.stat-text { c: cm bd hl }
+
+        /// Project -> Reset border for clipboard/sha groups.
+        /.clipboard,
+        /.commit-sha {
+            /// Remove focus from commit SHA buttons.
+            ../-label { &:hover, &:focus { c: 0 0 t; b: none i }}
+        }
+
+        /// Project -> Download dropdown.
+        &-xs[download] {
+            padding: 8px 10px
+            background-color: bg0
+            &:hover { background-color: bg3 }
+        }
+
+        /// Snippets -> Add another file.
+        /// Project -> Add missing files.
+        &-dashed,
+        &-missing {
+            c: fg4 bg5 bg2
+            outline-color: bg5 i
+            &:hover { c: 0 0 bg3 }
+            &:focus { c: 0 0 bg4 }
+        }
+
+        /// Project -> Signed commits.
+        &.gpg-status-box {
+            &:focus { b: none i }
+            &.valid {
+                c: v46 v46 bg1
+                &:hover { c: 0 0 v41 }
+            }
+            &.invalid {
+                c: fg4 bg3 bg1
+            }
+        }
+
+        /// OBSOLETE: Notes -> Calendar icon.
+        &[href*='.ics'] path { g: fg4 }
+
+        /// Notes -> Reactions.
+        &.selected[data-testid='award-button'],
+        &.award-control.active {
+            c: ac0 ac3 ac4
+            &:focus { b: $f ac5 i }
+        }
+
         /// Settings -> Connected accounts.
         /.provider-btn {
-            line-height: unset;
-            rad: 0 4px 4px 0;
-            c: fg 0 hl;
+            line-height: unset
+            rad: 0 4px 4px 0
+            c: fg1 0 bg2
             &-group {
-                rad: 4px;
-                c: 0 bd hl;
+                rad: 4px
+                c: 0 bg5 bg2
             }
             &-image {
-                rad: 4px 0 0 4px;
-                c: 0 bd bd;
+                rad: 4px 0 0 4px
+                c: 0 bg5 bg3
             }
         }
-        /// Global -> Disable pseudo-element for some buttons.
-        &-link, &-blank, &-clipboard { &::before { content: unset i }}
-        /// Global -> Transparent buttons.
-        &.bg-transparent { c: 0 0 t }
-        /// Dashboard -> Snippets.
-        &.gl-button {
-            border: 1px solid;
-            box-shadow: none i;
-            /// Snippets -> 'Add another file' button.
-            &.btn-dashed {
-                outline-color: bb i
-                &:active, &:focus { c: 0 blue }
-            }
+
+        /// Project -> Merge Request analytics.
+        /// NOTE: Bring borders back to the dropdown menu.
+        &[id*='_toggle_'] { border-style: solid i }
+
+        /// Project -> Commit SHA.
+        &-group {
+            .btn-label.gl-font-monospace { c: fg1 0 bg3 }
         }
     }
 
     // Global -> Labels.
     .label {
-        &&-monospace { c: fg bd bb }
+        &&-monospace { c: fg1 bg5 bg1 }
         /// Issues/MRs/Epics -> Scoped labels.
         &.scoped-label .fa-question-circle {
             c: 0 0 t;
@@ -1399,7 +1646,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-gray { c: cm 0 hl }
         }
         &-links a { c: ac }
-        &-action svg { v: cm }
+        &-action svg { g: cm }
         /// Project labels -> Subscribe buttons. @upstream
         &-subscribe-button { font-weight: 400 }
         /// Project -> File -> LFS file badge.
@@ -1411,14 +1658,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &.issues-count { c: white 0 green }
         &.merge-requests-count { c: white 0 orange }
         &.todos-count { c: white 0 blue }
-        /// Project -> Header stats.
-        &&-pill&-secondary {
-            c: cm 0 bd;
-            &:hover { c: fg }
+        &-pill {
+            c: fg4 0 bg4
+
+            /// Search -> Navigation.
+            /.active [class*='badge badge-pill']:not([class*='count']) { c: fg1 0 bg5 }
+
+            /// Project -> Tags.
+            &.badge-secondary {
+                c: fg3 0 bg2
+                &:hover { c: fg1 }
+            }
         }
-        &-pill { c: cm 0 bd }
-        /// Commits -> Details.
-        &&-gray { c: fg 0 hl }
+        /// Project -> Pages -> Domains.
+        &&-gray { c: fg1 0 bg3 }
         /// Notes -> Related issues/MRs.
         /.issue, /.mr { &-count-badge { &, + button { c: fg bd bg }}}
         /// HACK: Reset colored labels.
@@ -1430,13 +1683,36 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 box-shadow: inset 0 0 0 1rem #33333325;
             }
         }
+
         /// Colored badges.
-        &-primary, &-info, &-active { c: white 0 blue }
-        &-light, &-secondary, &-inactive { c: cm 0 hl }
-        &-warning { c: white 0 orange }
-        &-success { c: white 0 green }
-        &-danger { c: white 0 red }
-        &-dark { c: fg 0 bd }
+        &-primary, &-info, &-active { c: v99 0 v63 }
+        &-secondary, &-inactive { c: fg4 0 bg2 }
+        &-warning { c: v99 0 v23 }
+        &-success { c: v99 0 v43 }
+        &-danger { c: v99 0 v13 }
+        &-light { c: fg3 0 bg3 }
+        &-dark { c: fg1 0 bg4 }
+
+        /// Settings -> Un/verified badges.
+        &.unverified {
+            c: fg5 fg5 bg1
+            &:hover { c: bg3 fg5 fg5 }
+        }
+        &.verified {
+            c: v45 v45 bg1
+            &:hover { c: v99 v43 v43 }
+        }
+
+        /// Notes -> Issue status.
+        /.status-box {
+            c: v99
+            &-issue-closed, &-mr-merged { c: 0 0 v65 }
+            &-closed, &-mr-closed { c: 0 0 v15 }
+            &-upcoming { c: fg1 0 bg5 }
+            &-expired { c: 0 0 v25 }
+            &-open { c: 0 0 v45 }
+            > svg.s16 { g: v99 }
+        }
     }
 
     // Global -> Forms.
@@ -1445,7 +1721,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         border: 1px solid bd i;
         &:focus, &.focus {
             c: 0 blue;
-            box-shadow: 0 0 0.4rem -0.2rem blue i;
+            b: 0 0 0 0.2rem v63 i
         }
         &[disabled = 'disabled']:not(#z) { opacity: 0.5 }
         /// Overwrites for navbar and top nav.
@@ -1460,13 +1736,33 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.dropdown-content-faded-mask::after {
                 background: linear-gradient(to top, hl, t) i;
             }
+
+            /// OBSOLETE: Navbar -> Search on GitLab 10.4.
+            /.search.has-location-badge {
+                margin-top: 3px
+
+                /// Reset form.
+                > form {
+                    height: 34px
+                    b: none i
+                }
+
+                /// Reset badge.
+                .location-badge {
+                    height: 32px
+                    c: fg4 0 bg3
+                    b: 1px 0 bg5 i
+                }
+            }
         }
         /// Fix icon color.
-        .search-icon { v: cm }
+        .search-icon { g: cm }
         /// Snippets -> New.
         /.form-actions { c: 0 bd t }
         /// Settings -> Reset background.
         &.select-control { c: 0 0 hl }
+        /// Search -> Dropdown height. @upstream
+        /.form-group button[class*='dropdown'] { height: 34px i }
     }
 
     // Global -> Auto-complete menu.
@@ -1487,7 +1783,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Lists.
     ul.content-list {
         li {
-            c: fg bd;
+            c: fg1 bg3
             a { c: fg }
             /// Metadata.
             /.item-meta * { c: cm }
@@ -1513,29 +1809,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Branches.
         &.all-branches {
             .graph { &-side .bar, &-separator { c: 0 0 bd }}
-            .branch-item:hover { c: 0 0 bb }
+            .branch-item:hover { c: 0 0 bg2 }
             .commit-sha { c: ac }
             .cgray { c: cm }
         }
+
         /// Project -> Issues / Merge Requests.
         &.issuable-list {
-            .issue.today:not(.user-can-drag) {
-                position: relative;
-                &:hover {
-                    c: 0 0 t;
-                    &::before { opacity: 0.12 }
-                    ../:not(:hover) { c: 0 0 t }
-                }
-                &::before {
-                    content: '';
-                    z-index: -1;
-                    opacity: 0.05;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    c: 0 0 green;
-                }
+            .today {
+                c: 0 0 v40
+                &:hover { c: 0 0 v41 }
             }
-            .closed, .merged { c: 0 0 t }
+            .closed, .merged { c: 0 0 bg2 }
             .issuable {
                 ../ .fa:not(.fa-question-circle), ../ .task-status { c: cm }
                 &-milestone, &-info, &-updated-at { c: cm }
@@ -1546,7 +1831,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.icon-merge-request-unmerged { filter: invert(0.7) }
             /// Manual ordering. #136
             &.manual-ordering {
-                c: red green hl
+                c: 0 0 hl
                 > .issue { c: 0 bd bg }
             }
         }
@@ -1559,7 +1844,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: 0 0 hl }
             }
             /// Fix search icon. #80
-            /input.form-control + button { c: 0 bd }
+            /input.form-control + button { border-color: bg5 }
         }
         /// Dashboard -> Snippets.
         .snippet { &-filename, &-info { c: cm }}
@@ -1573,68 +1858,69 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Header.
         .context-header > * {
             c: fg;
-            &:hover { c: 0 0 bd }
-            .avatar-container { c: 0 t t }
+            &:hover { c: 0 0 bg3 }
+            .avatar-container {
+                c: 0 t t
+                .identicon.s40 { line-height: 36px i }
+            }
         }
         /// Items.
         .divider { c: 0 bd }
         .sidebar-top-level-items > li {
             &:hover {
-                c: 0 0 #88888810;
+                c: 0 0 bg3
                 > a { c: fg }
             }
             &.active {
-                c: 0 0 #88888810;
-                box-shadow: inset 4px 0 ac i;
+                c: 0 0 bg3
+                b: inset 4px 0 ac i
                 /// Level name.
                 > a {
                     c: fg;
-                    svg { v: fg }
+                    svg { g: fg }
                 }
                 /// Active item.
                 &:not(.is-over) > ul > li.active > a {
-                    c: 0 0 bd;
-                    box-shadow: inset 4px 0 ac i;
+                    c: 0 0 bg4
+                    b: inset 4px 0 ac i
                 }
-                .badge-pill { c: fg }
+                .badge { c: fg1 0 bg5 }
             }
             a {
                 c: cm;
                 &:hover { c: 0 0 t }
             }
-            .badge-pill { c: cm 0 bd }
+            .badge { c: fg3 0 bg4 }
             /// Remove borders from sub-level items.
             &.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
         }
-        .sidebar-sub-level-items {
-            > li {
-                &:hover {
-                    c: 0 0 bd;
-                    box-shadow: inset 4px 0 ac i;
-                    a { c: fg }
-                }
-                &.active {
-                    box-shadow: inset 4px 0 ac i;
-                    a { c: fg }
-                }
+        .sidebar-sub-level-items > li {
+            &:hover {
+                c: 0 0 bd;
+                b: inset 4px 0 ac i
+                a { c: fg }
+            }
+            &.active {
+                b: inset 4px 0 ac i
+                a { c: fg }
             }
         }
         /// Flyout menus.
         .is-over.is-showing-fly-out {
-            > a { c: fg 0 #88888810 }
+            > a { c: fg 0 bg3 }
             ul {
                 c: 0 bd hl;
-                box-shadow: none;
+                b: none i
                 li {
                     a { c: cm }
                     a:focus { c: 0 0 bd }
-                    &:hover a { c: fg 0 #88888810 }
+                    &:hover a { c: fg 0 bg4 }
                 }
             }
         }
         /// Collapsed state.
         &[class *= 'collapsed'] {
-            .sidebar-top-level-items > li.active { c: 0 0 bd }
+            .sidebar-top-level-items > li.active { c: 0 0 bg4 }
         }
         /// Collapse buttons.
         .toggle-sidebar-button, .close-nav-button {
@@ -1671,32 +1957,46 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .title { c: fg }
         .block { c: 0 bd }
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
-        a, .btn-link { &:not(.btn):hover { color: ac }}
+
+        /// Reset buttons and links.
+        .btn {
+            &-link:not([disabled]) {
+                c: ac0
+                > svg { g: currentColor }
+                &.edit-link { c: fg4 0 t }
+            }
+
+            /// Health status for closed issues.
+            &-link[disabled] { c: fg5 t t }
+        }
+
         /// Fix top offset.
-        if ( nb_height == 1 ) { top: 50px i }
+        if (nb_height) { top: 50px i }
         /// Pajamas -> Drawer.
         /.gl-drawer {
             c: fg bd bg;
             box-shadow: -1px 0 bd, bsh;
             &-header, &-body > * { c: 0 bd }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) { top: 50px i }
+            if (nb_height) { top: 50px i }
         }
         /// Issues -> Sidebar.
         .issuable-sidebar {
             overflow-y: auto i;
-            .gutter-toggle { c: 0 bd t }
             &-header, .dropdown {
-                button { c: 0 0 bg }
-                /// 'Update all' button.
-                .btn-info { c: 0 0 blue }
+                .btn-default:not(.gutter-toggle),
+                [data-toggle='dropdown'] {
+                    c: 0 0 bg1
+                    &:hover { c: 0 0 bg3 }
+                }
             }
         }
         /// Time tracking. #49
-        .time_tracker {
-            .compare-label { c: cm }
-            .compare-value { c: fg }
-            .time-tracking-help-state { c: 0 bd bg }
+        .time_tracker, .time-tracker {
+            .compare-label { c: fg4 }
+            .compare-value { c: fg2 }
+            .over_estimate { .time-remaining, .spent { c: v17 }}
+            .time-tracking-help-state { c: 0 bg5 bg1 }
         }
         /// Jobs -> Builds container. #22
         &.build-sidebar {
@@ -1712,7 +2012,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /// Reset colors.
             .blocks-container { a, .btn-link { &:not(.btn) { c: ac }}}
-            .btn, [data-toggle = 'dropdown'] { c: 0 0 bg }
+            .btn, [data-toggle = 'dropdown'] {
+                c: 0 0 bg1
+                &:hover { c: 0 0 bg3 }
+                &:focus { c: 0 0 bg4 }
+            }
+            .btn-default-tertiary { c: 0 0 t }
         }
         /// Epics -> Start/due date.
         .is-option-selected > span { c: cm }
@@ -1721,8 +2026,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &::before { c: 0 cm }
             &-icon {
                 c: 0 0 hl;
-                &.opened svg { v: green }
-                &.closed svg { v: blue }
+                &.opened svg { g: green }
+                &.closed svg { g: blue }
             }
             /// Fix link hover event.
             &-content a:hover { c: ac }
@@ -1751,18 +2056,32 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: 0 0 t;
                 }
             }
-            /// Fix a conflict with button background hacks.
-            /.dropdown-title-button { position: absolute }
+            /// NOTE: Might break some things.
+            /.dropdown-title-button { float: right }
         }
+
+        /// Expanded state.
+        &-expanded .gutter-toggle { c: 0 bg5 }
+
         /// Collapsed state.
         &&-collapsed {
+            /// Reset toggle.
+            .gutter-toggle {
+                border-bottom-color: bg5 i
+                rad: 0
+            }
+
+            /// Icons.
             .sidebar-collapsed-icon {
                 c: fg;
-                svg { v: cm }
+                svg { g: cm }
             }
-            .gutter-toggle {
-                c: 0 0 hl;
-                &, ../ .block { &:hover { c: 0 0 #88888810 }}
+
+            /// Fix on-hover background colors.
+            .gutter-toggle,
+            .block > .sub-block,
+            .block:not(.with-sub-blocks) {
+                &:hover { c: 0 0 bg3 }
             }
         }
     }
@@ -1774,18 +2093,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.nav-links {
             &:not(.quick-links) { c: 0 bd }
             li {
-                .badge.badge-pill { c: cm 0 bd }
                 a, button {
                     c: cm;
                     &:focus { c: 0 bd }
                     ../:hover { a, button { c: fg bd }}
-                    ../.active {
-                        &, a, button { c: fg ac }
-                        .badge.badge-pill { c: fg 0 bd }
-                    }
+                    ../.active { &, a, button { c: fg1 ac1 }}
                     /// Active items and project header stats.
                     &.active, strong { c: fg ac }
                 }
+
+                /// OBSOLETE: Badges on old instances.
+                [class$='badge'], [data-state] > .badge { c: fg3 0 bg3 }
+                &.active {
+                    [class$='badge'], [data-state] > .badge { c: fg1 0 bg5 }
+                }
+
+                /// Milestones -> Navigation.
+                /.nav-tabs .nav-link.active { c: 0 ac t }
             }
         }
         /// Global -> Search.
@@ -1804,6 +2128,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     padding: 6px 10px i;
                     line-height: 20px i;
                     font-size: 0.875rem;
+
+                    /// Unset height for dropdown menu.
+                    &.gl-h-7 { height: unset }
                 }
                 /// Notes -> Tweak large buttons to fit in emoji block.
                 /.emoji-block .col-lg-6 {
@@ -1819,18 +2146,38 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.nav-block { c: 0 bd }
         /.row-content-block {
             c: fg bd hl;
+
             /// Project -> New issue.
             &.footer-block { c: 0 0 t }
-            /// Switch to `bg` color for child elements.
-            .btn {
-                &:not(.btn-link):not(.btn-success):not(.btn-danger):not(.btn-info):not(.gl-button),
-                ../ .btn-default {
-                    c: 0 0 bg;
+
+            /// Boards -> Reset various buttons on toolbar.
+            :not([class*='group']) {
+                > .js-focus-mode-btn,
+                > [class*='btn btn-default'],
+                > [class*='btn btn-inverted'] {
+                    &:not([disabled]) {
+                        c: 0 0 bg1
+                        &:hover { c: 0 0 bg3 }
+                    }
                 }
-                /// Project -> Requirements.
-                &.dropdown-toggle { border: 1px solid bd }
             }
-            .filtered-search-box { &:not(#z) { c: 0 0 bg }}
+
+            /// Reset buttons in button groups.
+            [class*='group'] > .btn {
+                &-default:not(#z) {
+                    c: 0 0 bg1
+                    &:hover { c: 0 0 bg3 }
+                    &:focus { c: 0 0 bg4 }
+                }
+            }
+
+            /// Reset elements in navigation box.
+            .filtered-search-box { c: 0 0 bg }
+            button[class*='dropdown-']:not(#z) {
+                b: none i
+                &:hover, &:focus { c: 0 0 bg3 }
+            }
+
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
                 padding: 16px 0;
@@ -1846,7 +2193,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
             /// Dashboard -> Todos.
-            &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
+            &.issues-details-filters [class*='menu-toggle']:not(svg) { c: 0 0 bg }
             /// Search -> Results header.
             span > code, form > div > button { c: 0 0 bg }
             /// Issues -> Board scope.
@@ -1859,8 +2206,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
         }
-        /// Project -> Compare.
-        /.sub-header-block { c: 0 bd t }
+        /// Project -> Compare Revisions.
+        /.sub-header-block {
+            c: 0 bg5 t
+            + .card.bg-light { c: 0 0 t }
+        }
         /// Project -> Packages.
         /.gl-tab {
             &s-nav { c: 0 bd }
@@ -1929,7 +2279,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude 'create from template' input bar.
             [class *= 'input-group']:not(.template-input-group) {
                 rad: 3px 0 0 3px;
-                c: fg bd bb;
+                c: fg1 bg5 bg3
             }
             /// Visibility level.
             /.option {
@@ -1937,27 +2287,41 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &-description, &-disabled-reason { c: cm }
             }
             /// 'Create from template' area.
-            .template-option { c: 0 bd }
+            /.template-option { c: 0 bg5 }
             .card-slim { c: 0 0 bg }
-            /// NOTE: Obsolete tabs?
-            /.nav-tabs .nav-link.active { c: 0 ac t }
-            /// Button reset.
-            .btn {
-                &[class *= 'gitea'] svg {
-                    path { v: cm }
-                    rect { v: bg }
+
+            /// OBSOLETE: Login/register tabs until GitLab 12.5 or earlier.
+            /.new-session-tabs {
+                border: 1px solid bg5 i
+                border-bottom: none i
+                c: 0 0 bg1
+                b: none i
+                li {
+                    &:not(.active) { &, &:hover a:not(.active) { c: 0 bg5 t }}
+                    a.active {
+                        rad: 0
+                        c: 0 t bg2
+                        b: 0 1px bg2
+                    }
                 }
-                &-cancel, &-default, &[class *= 'import'] { c: 0 0 bg }
+                + .tab-content > div { rad: 0 0 4px 4px i }
+            }
+
+            /// Fix icon for Gitea.
+            /.btn[class*='gitea'] svg {
+                path { g: cm }
+                rect { g: bg }
             }
         }
     }
 
-    // Global -> Welcome page.
-    .section-welcome {
+    // Global -> Welcome page. #144
+    .blank-state {
         /// Cards.
-        .container .blank-state-link {
-            c: cm bd bg;
-            &:hover { c: fg 0 hl }
+        &-row &-link {
+            c: fg3 bg5 bg1
+            &:hover { c: 0 0 bg2 }
+            h3 { c: ac0 }
         }
     }
 
@@ -1971,7 +2335,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Profile -> Personal projects.
         &.compact {
             .user-access-role { line-height: 18px }
-            .avatar { line-height: 38px i }
+            .avatar { line-height: 36px i }
         }
         /// Loading icon.
         /.loading { c: cm }
@@ -2013,8 +2377,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: cm bd;
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
-            /// Dashboard -> Activities -> Fix icons.
-            .joined, .pushed-new, .pushed-to { &-icon svg { v: cm }}
         }
         &-user-info a[href] { c: fg }
         /// Dashboard -> Activities.
@@ -2041,10 +2403,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .user-info .user { c: fg }
         /// Default styles.
         &-header {
-            c: 0 bd hl;
+            c: 0 bg5 bg3
             /// Project -> Settings -> Pages.
-            &.bg-info { c: white blue blue }
-            &.bg-danger { c: white red red }
+            &.bg-info { c: c98 v65 v62 }
+            &.bg-danger { c: c98 v15 v12 }
             + ul > .list-group-item { c: 0 bd t }
             /// Project -> Settings -> Card borders.
             ../.border {
@@ -2196,10 +2558,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Skeleton.
     .animation-container {
-        sk_gradient = linear-gradient(90deg, bd 0%, hl 50%, bd);
+        sk_gradient = linear-gradient(90deg, bg3 0%, bg4 50%, bg3)
         /// File table.
         [class *= 'skeleton-line-'] {
-            c: 0 0 bd;
+            c: 0 0 bg2
             &::after { background-image: sk_gradient }
         }
         /// Dashboard -> Operations.
@@ -2211,7 +2573,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// MRs -> Widgets.
-        /svg.gl-skeleton-loader rect { v: bd }
+        /svg.gl-skeleton-loader {
+            .primary-stop { stop-color: bg3 }
+            .secondary-stop { stop-color: bg4 }
+        }
     }
 
     // Global -> Calendar.
@@ -2219,6 +2584,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         margin-top: 10px;
         c: fg bd hl;
         rad: 4px;
+
+        /// Old styles.
         .pika {
             /// Header.
             &-label { c: fg 0 t }
@@ -2234,8 +2601,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &-prev::before { content: '←' }
             &-next::before { content: '→' }
+
             /// Table.
-            &-table {
+            ../:not(.gl-datepicker-theme) .pika-table {
                 border: 1px solid bd;
                 /// Cells.
                 th:not(#z) {
@@ -2254,14 +2622,27 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 tr:last-child > td { border-bottom: none i }
             }
         }
+
         /// Shadow.
         &.is-bound { box-shadow: bsh }
+
         /// Global -> Pajamas wrapper.
         /.gl-datepicker-theme {
             font-family: var(--ui-font) i;
+
+            /// Reset styles.
             .pika-lendar:not(#z) {
-                rad: 4px;
-                box-shadow: inner;
+                rad: 4px
+                b: inner
+                tr th { c: fg3 }
+                .pika-table { c: 0 t t }
+            }
+
+            /// Days.
+            .pika-button {
+                c: fg4
+                &:hover { c: fg1 0 bg3 }
+                ../ .is-selected .pika-button { c: v99 0 ac1 }
             }
         }
     }
@@ -2269,31 +2650,40 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Avatars.
     .avatar {
         &, &-circle, &-container {
-            text-shadow: 2px 2px 1px sh;
-            rad: var(--avatar) i;
-            c: fg t;
+            text-shadow: 1px 1px 1px sh
+            rad: var(--avatar) i
+            c: fg t t
+
+            /// Remove borders in operations dashboard.
+            /.rect-avatar.border { border: none i }
         }
-        &.identicon { c: white }
-        &:not(.identicon) { c: 0 t t }
-        &.s48 { line-height: 46px }
-        &[class *= 'bg'] {
-            rad: var(--avatar);
-            box-shadow: inset 0 0 0 0.15em sh;
+
+        /// Overrides.
+        &.identicon {
+            border: 1px solid t
+
+            /// Resize avatars.
+            &.s20 { line-height: 16px } // Usage quotas.
+            &.s24 { line-height: 22px } // Operations.
+            &.s32 { line-height: 28px } // Search menus.
+            &.s40 { line-height: 28px } // Group projects.
+            &.s48 { line-height: 44px } // Dashboard projects.
+            &.s64 { line-height: 60px } // Group avatar.
+            &.s90 { line-height: 86px } // Project avatar in settings.
         }
+
         /// Default colors.
-        &.bg0 { c: 0 0 red }
-        &.bg1 { c: 0 0 green }
-        &.bg2 { c: 0 0 blue }
-        &.bg3 { c: 0 0 yellow }
-        &.bg4 { c: 0 0 magenta }
-        &.bg5 { c: 0 0 cyan }
-        &.bg6 { c: 0 0 violet }
-        &.bg7 { c: 0 0 orange }
+        &.bg0 { c: v19 v13 v11 }
+        &.bg1 { c: v49 v43 v41 }
+        &.bg2 { c: v59 v53 v51 }
+        &.bg3 { c: v39 v33 v31 }
+        &.bg4 { c: v79 v73 v71 }
+        &.bg5 { c: v69 v63 v61 }
+        &.bg6 { c: v89 v83 v81 }
+        &.bg7 { c: v29 v23 v21 }
+
         /// Fallback identicon; Found on 'usage quotas' page.
-        &.bgNaN {
-            c: 0 0 bd
-            box-shadow: none
-        }
+        &.bgNaN { c: 0 bg5 bg3 }
     }
 
     // Global -> Page title.
@@ -2309,40 +2699,41 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Breadcrumbs.
     .breadcrumb {
-        &-item a {
+        &-item > a {
             c: cm;
-            /// Project -> File location.
-            strong { c: fg }
+            /// Project -> File location / Active path.
+            strong, &.router-link-exact-active:not(#z) {
+                font-weight: bold
+                c: fg1
+            }
         }
         &s {
             &-list a { c: cm }
-            &-list-angle { v: cm }
+            &-list-angle { g: cm }
             &-container { c: 0 bd }
             &-sub-title a { c: fg }
             &-links img { c: 0 hl hl }
             /// Epics -> Roadmap.
             &.group-epics-roadmap { c: 0 bd }
         }
-        /// Project -> File path divider.
-        &.repo-breadcrumb > li + li::before { c: cm }
+
+        /// Project.
+        &.repo-breadcrumb {
+            /// Dividers/items.
+            > li + li::before,
+            a:not([class*='dropdown']) {
+                c: fg3
+            }
+        }
     }
 
     // Global -> Pagination.
     .pagination {
         .page-link {
-            c: fg bd hl;
-            &:not(.active):hover {
-                c: 0 0 bd;
-                box-shadow: none;
-            }
-            ../ .disabled .page-link {
-                opacity: 0.6;
-                c: cm 0 hl;
-            }
-            /// Issues | Pipelines.
-            ../ .active .page-link, &.active {
-                c: ac 0 bd;
-            }
+            c: fg1 bg5 bg3
+            &:not(.active):hover { c: 0 0 bg4; b: none }
+            ../ .disabled .page-link { c: fg5 0 bg2 }
+            ../ .active .page-link, &.active { c: ac0 0 ac4 }
         }
     }
 
@@ -2373,7 +2764,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         img:not(.emoji) {
             c: 0 bd;
             /// Feat -> Default image opacity.
-            if ( md_img_o < 1 ) {
+            if (md_img_o < 1) {
                 opacity: md_img_o;
                 transition: opacity 0.5s ease;
                 &:hover {
@@ -2395,7 +2786,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &.highlight { c: 0 0 hl }
             }
             /// Feat -> Set 'none' syntax colors to use theme colors.
-            if ( c_hl_none == 1 ) {
+            if (c_hl_none) {
                 &.code.none {
                     c: fg 0 hl;
                     .line span { c: fg }
@@ -2424,7 +2815,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Heading anchors.
         .anchor::after {
-            content: '§' i;
+            content: '#' i
             c: fg;
         }
         /// Fix task lists. #111
@@ -2443,7 +2834,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Base resets.
         button.btn {
             c: fg bd hl;
-            ../ .arrow { v: fg }
+            ../ .arrow { g: fg }
             &.execute { c: white blue blue }
             ../ .download-contents { c: fg 0 bd }
         }
@@ -2546,7 +2937,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Feat -> Invert illustrations/images.
-        if ( img_invert == 1 ) {
+        if (img_invert) {
             /.mermaid:not(.code),
             /.artwork,
             /.group-empty-state > .icon,
@@ -2573,98 +2964,68 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Pajamas -> Alerts.
     .gl-alert {
-        z-index: 1;
         &-body, &-actions {
             a {
                 font-weight: bold;
                 color: currentColor i;
             }
         }
+
         /// Close button.
         .js-close {
             color: currentColor;
             svg { fill: currentColor i }
         }
-        /// Background.
-        &::before {
-            z-index: -1;
-            opacity: 0.15;
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-        }
+
         /// States.
         &-warning {
-            c: orange 0 hl;
-            .gl-alert-icon { v: orange }
-            &::before { content: ''; c: 0 0 orange }
+            c: v99 0 v23
+            .gl-alert-icon { g: v97 }
         }
         &-danger {
-            c: red 0 hl;
-            .gl-alert-icon { v: red }
-            &::before { content: ''; c: 0 0 red }
+            c: v99 0 v13
+            .gl-alert-icon { g: v97 }
         }
         &-success {
-            c: green 0 hl;
-            .gl-alert-icon { v: green }
-            &::before {content: ''; c: 0 0 green }
+            c: v99 0 v43
+            .gl-alert-icon { g: v97 }
         }
         &-info {
-            c: blue 0 hl;
-            .gl-alert-icon { v: blue }
-            &::before { content: ''; c: 0 0 blue }
+            c: v99 0 v63
+            .gl-alert-icon { g: v97 }
         }
         &-tip {
-            c: fg 0 hl;
-            .gl-alert-icon { v: fg }
-            &::before { content: ''; c: 0 0 cm }
+            c: fg2 0 bg3
+            .gl-alert-icon { g: fg3 }
         }
-        /// Global -> Old alerts.
+
+        /// Global -> Old floating alerts.
         /.flash-container {
-            c: 0 0 bg;
-            > div {
-                position: relative;
-                &::before {
-                    content: '';
-                    opacity: 0.25;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                }
-                svg { fill: currentColor i }
-            }
-            .flash-alert {
-                c: red 0 t;
-                &::before { c: 0 0 red }
-            }
-            .flash-warning {
-                c: orange 0 t;
-                &::before { c: 0 0 orange }
-            }
-            .flash-notice {
-                c: blue 0 t;
-                &::before { c: 0 0 blue }
-            }
-            .flash-success {
-                c: green 0 t;
-                &::before { c: 0 0 green }
-            }
+            svg { fill: currentColor i }
+            .flash-alert { c: v98 0 v13 }
+            .flash-notice { c: v98 0 v63 }
+            .flash-warning { c: v98 0 v23 }
+            .flash-success { c: v98 0 v43 }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) {
-                &.sticky { top: 58px i }
-            }
+            if (nb_height) { &.sticky { top: 58px i }}
         }
+
+        /// Global -> Old alerts.
         /.alert {
-            &&-info, &&-primary { c: blue blue hl }
-            &&-warning { c: orange orange hl }
-            &&-success { c: green green hl }
-            &&-secondary { c: cm bd hl }
-            &&-danger { c: red red hl }
-            &&-light { c: fg bd hl }
+            &&-info, &&-primary { c: v98 v63 v62 }
+            &&-warning { c: v98 v23 v22 }
+            &&-success { c: v98 v43 v42 }
+            &&-secondary { c: fg3 bg5 bg2 }
+            &&-danger { c: v98 v13 v12 }
+            &&-light { c: fg1 bg5 bg3 }
             h4 { color: inherit i }
+
             /// Broadcast messages found on `git.synz.io`.
             /[class *= 'broadcast-banner'] {
-                svg { v: white }
-                .fa { c: white }
+                svg { g: currentColor }
+                .fa { c: currentColor }
             }
+
             /// Broadcast notifications. #115
             /.broadcast-notification-message {
                 c: 0 bd hl;
@@ -2677,21 +3038,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Issues -> Reset issue template.
         /[role = 'alert'] {
             &[class *= '_message']:not([class *= 'epic']) { rad: 4px }
-            &, / { .warning_message:not(#z) { c: orange orange hl }}
-            &, / { .danger_message:not(#z) { c: red red hl }}
+            &, / { .warning_message:not(#z) { c: v98 v24 v21 }}
+            &, / { .danger_message:not(#z) { c: v98 v14 v11 }}
         }
     }
 
     // Pajamas -> Toggles.
     .gl-toggle, .project-feature-toggle {
-        c: 0 0 bd;
+        c: 0 0 bg4
         .toggle-icon {
             c: 0 0 bg;
-            svg { v: cm }
+            svg { g: cm }
         }
         &.is-checked {
             c: 0 0 ac;
-            svg { v: ac }
+            svg { g: ac }
         }
     }
 
@@ -2700,9 +3061,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Checkbox label color.
         &-checkbox { c: fg }
         /// Inputs.
-        &-input { box-shadow: none i }
+        &-input {
+            box-shadow: none i
+            font-family: var(--ui-font) i
+        }
+
         /// Select menu.
-        /.custom-select { c: fg bd hl }
+        /.custom-select {
+            c: fg1 bg5 bg2
+            &:focus {
+                c: 0 v65
+                b: 0 0 0 0.2rem v62 i
+            }
+        }
+
         /// Project -> Releases -> Edit release.
         /// Fix whitespace/focus. @upstream
         &-group .bordered-box.pl-3 {
@@ -2729,6 +3101,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Pajamas.
     .gl {
+        &-font-monospace { font-family: var(--mono-font) i }
         /// Search area.
         &-filtered-search {
             /// Wrapper.
@@ -2747,11 +3120,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Search tokens.
         &-token {
+            c: fg1 0 bg3 0 0 0
             &-close { c: cm }
             &-content { c: fg }
             &.gl-filtered-search-token {
                 &-type, &-operator { c: 0 0 hl }
-                &-data { c: 0 0 bd }
+                &-data { c: 0 0 bg3 }
             }
         }
         /// Search button.
@@ -2761,34 +3135,59 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Text color overrides.
         &-text {
             &-body { c: fg }
-            &-orange-500:not(#z) { c: orange; v: orange }
+            &-black-normal { c: fg0 }
+            &-orange-500:not(#z) { c: orange; g: orange }
         }
         /// Background-color overrides.
         &-bg {
             &-white { c: 0 0 bb }
             &-gray-10 { c: 0 0 bg }
-            &-gray-50 { c: 0 0 hl } // #139
-            /.bg-secondary-50 { c: 0 0 hl } // 'License Complicance' page.
+            &-gray-50 { c: 0 0 bg2 }
+            /.bg-secondary-50 { c: 0 0 bg3 } // 'License Complicance' page.
             &-green-100.gl-text-green-800 { c: white green green }
-            &-blue-50 { c: 0 0 blue } // #137
+            &-blue-50 { c: 0 0 v62 }
         }
         /// Border-color overrides.
         &-border-gray {
             &-100, &-200 { c: 0 bd }
-            /.border { border: 1px solid bd i }
+            /.border {
+                border: 1px solid bd i
+                &-left { c: 0 bg5 } // Operations -> Metrics.
+            }
         }
         &-border {
             &-b-gray-100 { c: 0 bd }
+            &-t-gray-100 { c: 0 bg5 }
         }
         /// Box-shadow overrides.
         &-inset-border {
             &-1-gray-100 { box-shadow: inset 0 0 0 1px bd }
         }
+
         /// Dropdowns.
+        /// NOTE: Right sidebar -> Health status.
         &-new-dropdown {
-            p { c: fg }
             button[class*='close'] { c: 0 t t }
+            .dropdown-menu:not(#z) {
+                c: 0 bg5 bg1
+
+                /// Fix conflict with btn-link styles.
+                .btn-link.dropdown-item {
+                    c: fg3
+                    &.is-active { c: fg1 }
+                }
+            }
         }
+
+        /// Cards.
+        /// Groups -> Recent activity. #143
+        &-card {
+            c: 0 bg5 bg1
+            &-header, &-footer { c: 0 bg5 bg2 }
+        }
+
+        /// Breadcrumbs.
+        &-breadcrumbs { b: inset 0 -1px bg5 }
     }
 
     // Pajamas -> GFM.
@@ -2833,14 +3232,82 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.suggestion {
                 c: fg;
                 /// Icon states.
-                &-confidential.s16 { v: orange }
-                &-state-closed.s16 { v: blue }
-                &-state-open.s16 { v: green }
+                &-confidential.s16 { g: orange }
+                &-state-closed.s16 { g: blue }
+                &-state-open.s16 { g: green }
             }
         }
+
         /// Pajamas -> Labels.
         /.gl-label {
-            c: 0 0 bd 0 0 0
+            el = '.gl-label'
+            ef = grayscale()
+            ts = 1px 1px 0px sh
+            transition: 0.2s ease
+            c: 0 0 bg3 0 0 0
+            z-index: 1
+
+            /// HACK: Resolve the following issues:
+            /// 1. Keep all text elements above the shadow.
+            /// 2. Do not overlap colors for label elements.
+            /// 3. Remove inconsistent text underlines.
+            span {
+                z-index: -1
+                position: relative
+                &, ../ a { text-decoration: none i }
+            }
+
+            /// Switch to gray for a specific label.
+            &[style*='d-color:#333'] {
+                c: 0 0 v93
+                b: inset 0 0 0 1px v96 i
+            }
+
+            /// More readable and consistent label colors.
+            &-text-light {
+                &[style*='--label-background'] {
+                    { el }-text-scoped { filter: ef; c: fg1 }
+                    { el }-close svg { g: white }
+                }
+                /// Small labels; old style.
+                &[style] { text-shadow: ts, ts, ts }
+            }
+            &-text-dark {
+                { el }-text-scoped { filter: ef; c: fg1 }
+                /// Small labels; old style.
+                &:not([style]) { c: fg1 }
+            }
+
+            /// Reset 'close' buttons.
+            &-close {
+                c: 0 0 t
+                position: relative
+                &:hover { c: 0 0 sh }
+                &::before {
+                    z-index: -1
+                    content: ''
+                    position: absolute
+                    pointer-events: none
+                    top: -4px; left: 4px; bottom: -4px; right: -4px
+                    transition: background 0.2s ease
+                    c: 0 0 sh
+                    ../../:hover .gl-label-close::before { c: 0 0 t }
+                }
+            }
+
+            /// HACK: Darken labels.
+            span::before {
+                z-index: -1
+                content: ''
+                position: absolute
+                pointer-events: none
+                top: 0; left: 0; bottom: 0; right: 0
+                transition: background 0.2s ease
+                c: 0 0 sh
+                ../:hover span::before { c: 0 0 t }
+            }
+
+            /*
             &-label-link { c: 0 0 t }
             &-text {
                 &-light { text-shadow: 1px 1px 0 sh }
@@ -2868,7 +3335,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-close svg { fill: currentColor i }
             /// Issues -> Fix badge colors in Boards.
             &:not([style*='label-background']) { c: 0 0 bd }
+            */
         }
+
         /// Project -> Releases -> New release resets.
         &-form[action $= 'tags'] {
            .form-control, .dropdown-menu-toggle { c: 0 0 bg }
@@ -2895,7 +3364,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             .modal-footer {
                 c: 0 bd hl;
-                .btn-secondary { c: 0 0 bg }
             }
             /// Project -> Reset 'Email a new issue/MR' buttons.
             .btn {
@@ -2981,8 +3449,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Signed commits.
         /.gpg-popover {
-            &-icon.valid svg { c: 0 green; v: green }
-            &-icon.invalid svg { c: 0 red; v: red }
+            &-icon.valid svg { c: 0 green; g: green }
+            &-icon.invalid svg { c: 0 red; g: red }
             &-user-link { c: fg }
         }
         /// Milestones.
@@ -3030,7 +3498,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .active { c: 0 0 bd }
             .qa-toggle-btn {
                 c: 0 0 t;
-                &:hover svg { v: fg }
+                &:hover svg { g: fg }
             }
         }
     }
@@ -3059,6 +3527,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
     }
 
+    // Project -> Project header on GitLab 10.4. OBSOLETE
+    .project-home-panel {
+        c: 0 bg5
+
+        /// Project visibility/license text. TODO: Change to fg4.
+        .project-metadata > div { c: fg4 }
+
+        /// Project -> Stats on GitLab 10.4. OBSOLETE
+        /.project-stats {
+            c: 0 bg5
+
+            .nav .stat-link {
+                c: fg4
+                &:hover { c: fg1 }
+            }
+        }
+    }
+
     // Project -> Latest commit.
     .info-well {
         c: fg bd hl;
@@ -3072,7 +3558,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// 'Parent commit' text color.
             .cgray { c: fg }
         }
-        svg path { v: cm }
+        svg path { g: cm }
         /// Commits -> Unavailable branches.
         .limit-box {
             c: white 0 red;
@@ -3139,12 +3625,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         [class *= 'file-title'] {
             padding: 10px 16px;
             rad: 4px 4px 0 0;
-            strong { font-weight: normal }
             a:not(.btn) { c: fg }
         }
         /// Body.
         .file-content {
-            c: 0 0 t;
             /// HACK: GitHub-alike styles.
             [dir][align='left'] { text-align: left }
             [dir][align='right'] { text-align: right }
@@ -3238,7 +3722,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             z-index: 99;
             c: fg bd hl;
             rad: 4px 4px 0 0;
-            if ( nb_height == 1  ) { top: 49px i }
+            if (nb_height) { top: 49px i }
         }
         .job-log {
             border: 1px solid bd;
@@ -3280,10 +3764,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// MRs -> Editor button.
             a { color: cm }
             /// Notes -> Locked issue.
-            &-body .issuable {
+            /.issuable {
                 &-warning-icon {
-                    c: 0 0 bd;
-                    svg { v: orange }
+                    c: 0 0 v22
+                    svg { g: v28 }
                 }
             }
         }
@@ -3320,16 +3804,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     rad: 4px;
                     c: 0 0 bg;
                 }
-                &.focus { c: 0 blue }
+                &.focus { c: 0 v66; b: 0 0 0 0.2rem v63 i }
                 /// Input wrapper background. #126
                 &-input-container { c: 0 0 t }
             }
             /// Dashboard -> Issues/MRs.
             &-token, &-term {
-                .name, .operator, .value-container { c: fg 0 bd }
+                .name, .operator { c: fg2 0 bg2 }
+                .value-container { c: fg1 0 bg3 }
                 ../-token:first-child { margin-left: 5px }
                 /// Text input is also tokenized.
-                > .name { c: 0 0 t }
+                ../-term .name { c: 0 0 t }
             }
         }
     }
@@ -3374,6 +3859,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &-border-top { c: 0 bd }
             &-info { c: fg }
+
+            /// Promo -> Pipeline suggestion.
+            &-body.mr-pipeline-suggest {
+                c: fg1 bg5 bg1
+            }
         }
         /// Code quality and other reports. #64
         /.report-block {
@@ -3385,9 +3875,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-container {
                 c: 0 bd bb;
                 /// Icons.
-                /.failed > svg { v: red }
-                /.neutral > svg { v: cm }
-                /.success > svg { v: green }
+                /.failed > svg { g: red }
+                /.neutral > svg { g: cm }
+                /.success > svg { g: green }
             }
         }
         /// Reset tables.
@@ -3482,13 +3972,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Grouped options.
         &-visibility-setting, &-feature-settings, /.sub-section {
             c: 0 bd hl;
-            .bs-callout { c: 0 0 bd }
         }
         /// Sections.
         /.settings {
             c: 0 bd;
             ../-feature-row .form-control { c: 0 0 bg }
-            &-message { c: orange orange bg }
+            &-message { c: v98 v24 v21 }
             .account-well {
                 c: 0 bd hl;
                 /// Project -> Settings -> Mirroring repositories.
@@ -3501,6 +3990,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-content .sub-section {
                 rad: 4px;
                 .btn-default, .form-control, .select2-choice { c: 0 0 bg }
+                .btn-default:hover { c: 0 0 bg3 }
                 /// Buttons -> Archive project/Change path.
                 .btn-warning {
                     transition: opacity 0.2s ease;
@@ -3527,98 +4017,103 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-flex-parent {
                 c: fg bd hl;
                 /// Header buttons.
-                .btn {
-                    svg { v: cm }
-                    &.active { c: 0 0 bd }
-                    &, &-default { c: 0 0 bg }
-                    &-danger-secondary { c: red red }
-                    &-default-tertiary:not(#z) { c: 0 t t }
-                    /// Dashboard -> Snippets.
-                    &-primary, &-info {
-                        &:not(.btn-inverted) { c: 0 0 blue }
-                        svg { v: white }
-                    }
-                }
-                /// Fix anchors for both cases.
-                ../, & { a:not(.btn) { c: fg }}
+                a { color: fg1 }
+                .btn.disabled { c: 0 bg5 bg3 }
             }
-            &-name { c: fg }
+            &-name, strong { c: fg }
         }
         .file-content {
             c: 0 0 bg;
             rad: 0 0 3px 3px;
             /// Fix code area background.
             pre.code.highlight.white:not([lang]) { c: 0 0 bg }
+
+            /// Fix text color for Markdown areas on old instances. OBSOLETE
+            &.wiki, /.documentation-index {
+                c: fg1 bg5
+
+                /// Reset text colors.
+                p { c: inherit }
+                > * { c: inherit inherit }
+                a { &, & > code { color: ac1 }}
+
+                /// Heading anchors.
+                .anchor::after {
+                    content: '#' i
+                    c: fg5
+                }
+            }
+
+            /// Help -> 'Quick help' panel on old instances. OBSOLETE
+            /.panel {
+                c: 0 bg5 bg1
+                > .panel-heading { c: fg1 bg5 bg3 }
+                li:not([class*='disabled']):hover { c: 0 0 bg2 }
+            }
         }
-        /// Global -> Code styles.
+
+        /// Project -> File viewer.
         /.code.white { c-hl-none } {
-            /// Gutters.
-            .line-numbers, .diff-line-num {
-                c: 0 0 hl;
-                a {
-                    font-family: var(--mono-font);
-                    c: cm;
+            .line-numbers {
+                c: 0 0 bg2
+                > a { c: fg3 0 t }
+            }
+
+            /// Reset code area colors.
+            pre.code, .line_content {
+                c: fg1 bg5 bg1
+            }
+
+            code {
+                span.line:hover { c: 0 0 bg2 }
+
+                /// Highlighted line.
+                .hll { c: 0 0 v31 }
+
+                /// Global -> Idiffs.
+                /.idiff {
+                    /// Notes.
+                    &.addition { c: v48 0 v40 }
+                    &.deletion { c: v18 0 v10 }
+
+                    /// Commit diffs.
+                    /.old & { c: fg0 0 v13 }
+                    /.new & { c: fg0 0 v43 }
                 }
             }
-            /// Hover state.
-            code > span.line:hover { c: 0 0 hl }
-            /// NOTE: Inconsistent use of line-num parent element.
-            .line-numbers > .diff-line-num { c: 0 0 t }
-            /// Show unchanged lines.
-            .line_expansion {
-                c: 0 0 hl;
-                td { c: 0 bd }
-                a, span { c: cm }
-                /// Add missing top border.
-                &:not(:first-of-type) > td { border-top: 1px solid bd i }
-            }
-            /// Highlighted line.
-            pre .hll {
-                z-index: 1 i;
-                position: relative;
-                c: 0 0 t;
-                &::before {
-                    content: '';
-                    z-index: -1 i;
-                    opacity: 0.20;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    c: 0 0 yellow;
-                }
-            }
-            /// Diffs.
-            .new .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lgreen }
-            .old .idiff { c: fg 0 t; box-shadow: inset 0 0 0 1rem lred }
+
             /// Code area.
             /pre.code {
                 /// Resets colors when syntax is set to white.
-                /.code.white & { c: fg bd bg }
+                /.code.white & { c: fg1 bg5 bg1 }
+
                 /// Feat -> Set 'none' syntax colors to use theme colors.
-                if ( c_hl_none == 1 ) {
+                if (c_hl_none) {
                     /.code.none & {
-                        c: fg bd hl;
+                        c: fg1 bg5 bg1
                         /// Tokens are still there in the file viewer.
-                        .line span { c: fg }
+                        .line span { c: fg1 }
                     }
                 }
+
                 /// Syntax highlighting.
                 /.code.white {
                     /// Package links.
-                    .line > a { c: blue }
+                    .line > a { c: v65 }
                     /// Errors.
-                    .err { c: white 0 red }
+                    .err { c: v99 0 v16 }
                     /// Additions/deletions.
-                    .gi { c: green 0 bb }
-                    .gd { c: red 0 bb }
+                    .gi { c: v48 0 v40 }
+                    .gd { c: v18 0 v10 }
                     /// Tokens.
-                    .c, .cm, .c1, .gh, .nn, .go, .gt { c: cm }
-                    .n, .cp, .gp, .s, .s1 { c: fg }
-                    .no, .na, .nb { c: cyan }
-                    .sx, .se, .sh, .s2 { c: red }
-                    .sr, .vi, .mf, .ne, .nv { c: green }
-                    .nt, .m, .mi, .mh { c: blue }
-                    .nf, .ss, .si, .nc { c: magenta }
-                    .ni, .gu, .sb, .kt { c: violet }
+                    .c, .cm, .c1, .gh, .nn, .go, .gt { c: fg4 }
+                    .n, .cp, .gp, .s { c: fg1 }
+                    .no, .na, .nb { c: v56 }
+                    .sx, .se, .sh, .s1, .s2 { c: v16 }
+                    .sr, .vi, .mf, .ne, .nv { c: v46 }
+                    .nt, .m, .mi, .mh { c: v66 }
+                    .nf, .ss, .si, .nc { c: v76 }
+                    .ni, .gu, .sb, .kt { c: v86 }
                 }
             }
         }
@@ -3636,7 +4131,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Header.
         .file {
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) {
+            if (nb_height) {
                 &-title, &-title-flex-parent {
                     top: 165px;
                     ~/.conflict ^[-1..-2] { top: 49px i }
@@ -3648,7 +4143,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-title, &-title-flex-parent {
                 // border-top: none i;
                 box-shadow: none i;
-                .btn:not(.active) { c: 0 0 bg }
                 /// Diff -> Hide comment toggle/avatars.
                 &::before { c: 0 0 bb }
             }
@@ -3677,6 +4171,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
                 &-info { c: cm }
                 ~ .note-container { c: 0 t t }
+
+                /// Invert controls.
+                if (dark(BG)) {
+                    .swipe .swipe-bar,
+                    .controls {
+                        filter: invert(0.95) brightness(100%)
+                    }
+                }
             }
             /// Image preview modes.
             .view-modes {
@@ -3698,22 +4200,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding-left: 0;
                 c: 0 0 t;
             }
-            /.cred:not(#z) { c: red; v: red }
-            /.cgreen:not(#z) { c: green; v: green }
+            /.cred:not(#z) { c: v15; g: v15 }
+            /.cgreen:not(#z) { c: v45; g: v45 }
+            /.highlighted:not(#z) { c: ac0 }
             /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
-                c: blue 0 t;
+                c: v65 0 t
                 /// Reset hover styles.
                 &::before { content: unset }
             }
             /// Increase top offset when nb_height is enabled.
-            if ( nb_height == 1 ) { top: 49px }
+            if (nb_height) { top: 49px }
         }
         /// Diff -> Active file.
         &.is-active { box-shadow: bsh i }
         /// Diff -> File tree.
         /.diff-tree-list {
-            if ( nb_height == 1 ) { top: 165px i }
+            if (nb_height) { top: 165px i }
             /// Resize handle.
             .drag-handle {
                 &:hover { c: 0 0 hl }
@@ -3724,36 +4227,46 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover, &:focus { c: 0 0 hl }
                 &-header.bg-white { c: 0 0 bb }
                 /// Active item. #129
-                &.is-active { c: 0 0 bd }
+                &.is-active { c: 0 0 bg2 }
             }
         }
+
         /// MR -> Resolve conflicts. #82
         &.conflict {
-            border-top: none i;
-            .head, .origin {
-                position: relative;
-                &::before {
-                    content: '';
-                    opacity: 0.35;
-                    position: absolute;
-                    pointer-events: none;
-                    top: 0; right: 0; bottom: 0; left: 0;
+            border-top: none i
+
+            /// Changes.
+            tr.line_holder {
+                .head {
+                    c: 0 v43 v40
+                    .btn { c: 0 v43 v43 }
+                    &.diff-line-num,
+                    &.line_content.header,
+                    &.line_content:hover {
+                        c: 0 0 v41
+                    }
+                }
+                .origin {
+                    c: 0 v63 v60
+                    .btn { c: 0 v63 v63 }
+                    &.diff-line-num,
+                    &.line_content.header,
+                    &.line_content:hover {
+                        c: 0 0 v61
+                    }
+                }
+                .unselected {
+                    c: 0 bg5 bg3
+                    &.diff-line-num { c: 0 0 bg3 }
+                    &.line_content {
+                        &.header, &:hover:not(#z) { c: 0 0 bg3 }
+                        &:not(.header) { c: 0 0 bg2 }
+                    }
                 }
             }
-            /// Modes.
-            .line_content:not(.header) {
-                &.head::before, &.origin::before { opacity: 0.25 }
-                &.selected::before { opacity: 0.25 i }
-            }
-            .unselected {
-                &:not(#z)::before { c: 0 0 bd }
-                .btn { opacity: 0.5 }
-            }
-            .selected::before { opacity: 0.5 i }
-            .head { &::before, > .btn { c: 0 green green }}
-            .origin { &::before, > .btn { c: 0 blue blue }}
+
             /// Edit inline.
-            .editor-wrap.saved .editor { c: 0 green }
+            .editor-wrap.saved .editor { c: 0 v45 }
         }
     }
 
@@ -3762,118 +4275,100 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: fg 0 bg 0 0 0;
         .line_holder {
             /// Override the default text color.
-            &:not(#z) > td { c: fg }
+            pre.code, .line_content { c: fg1 bg5 }
+
             /// Buttons -> Add new note.
             /button.add-diff-note {
-                padding: 0 0 1px 1px;
-                c: fg bd bg;
-                &:hover { c: 0 0 hl }
+                c: fg1 bg5 bg2
+                &:hover { c: 0 0 bg4 }
             }
+
             /// Unfold lines.
             .unfold:not(#z) {
-                c: cm;
-                /// Hide hover.
-                &::before { content: unset }
+                &, + .line_content { c: fg4 }
             }
+
             /// Matching and 'No newline at end of file' lines.
             &.match, &.new-nonewline {
-                &:not(#z) {
-                    c: 0 0 hl;
-                    .line_content { c: cm }
-                }
+                c: 0 0 bg2
+                .match { c: fg4 }
             }
+
             /// Line numbers.
-            .diff-line-num {
-                z-index: 1;
-                padding-right: 11px;
-                border-right: none i;
-                box-shadow: inset -1px 0 bd;
-                &.new, &.old {
-                    &::after {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.25;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        position: absolute;
-                        pointer-events: none;
-                    }
-                }
+            > .diff-line-num {
+                c: fg4 0 bg2
+
+                /// Line numbers.
+                > a { c: fg3 }
+
+                /// Fix border colors while loading.
+                /.diff-line-num { c: 0 bg5 }
+
+                /// Status.
+                &.old { c: 0 v12 v11 }
+                &.new { c: 0 v42 v41 }
+                &.hll { c: 0 v32 v31 }
+
+                /// Hover event.
                 &.is-over {
-                    &::before {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.45;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        position: absolute;
-                        pointer-events: none;
+                    &.diff-line-num {
+                        c: 0 0 bg4
+                        + .line_content { c: 0 0 bg3 }
+                    }
+
+                    &.old { c: 0 v14 v12 }
+                    &.new { c: 0 v44 v42 }
+                    &.hll { c: 0 v34 v32 }
+
+                    /// HACK: Highlight individual lines.
+                    ../../:hover > [class ^= 'line'] {
+                        &:not(.match) { c: 0 0 bg3 }
+                        &.old:not(.diff-line-num) { c: 0 0 v11 }
+                        &.new:not(.diff-line-num) { c: 0 0 v41 }
+                        &.hll:not(.diff-line-num) { c: 0 0 v31 }
                     }
                 }
-                &.old::after { c: 0 0 red }
-                &.new::after { c: 0 0 green }
-                &.is-over::before { c: 0 0 bd }
-                /// HACK: Work around specificity conflict with table styles.
-                /:not(#z) &:not(.new):not(.old) { c: 0 0 hl }
             }
-            /// Added/removed lines.
-            > [class *= 'line']:not([class *= 'num']) {
-                position: relative;
-                z-index: 1;
-                c: 0 0 t;
-                &.new, &.old {
-                    c: 0 0 t;
-                    &::after {
-                        content: '';
-                        z-index: -1;
-                        opacity: 0.18;
-                        position: absolute;
-                        pointer-events: none;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                    }
-                }
-                &.old {
-                    &::before { c: red }
-                    &::after { c: 0 0 red }
-                }
-                &.new {
-                    &::before { c: green }
-                    &::after { c: 0 0 green }
-                }
+
+            /// Code lines.
+            > [class^='line'] {
+                c: 0 0 t
+
+                /// States.
+                /.parallel.left-side.old { c: 0 0 v10 }
+                &.old { c: 0 0 v10; &::before { c: v16 }}
+                &.new { c: 0 0 v40; &::before { c: v46 }}
+                &.hll { c: 0 0 v30 }
             }
-            /// Diff -> Comments.
-            /.diff-comment {
-                &-avatar, &s-more-count { c: 0 bg }
-                &s-more-count, /.diff-notes-collapse {
-                    rad: var(--avatar);
-                    c: fg bd hl;
-                }
-                /// New discussion block.
-                /.js-temp-notes-holder td { c: 0 bd }
-            }
+
             /// Diff -> Expanded sections.
             &.diff-expanded {
-                > .line_content { c: 0 0 hl }
-                > .diff-line-num { box-shadow: none i }
-                &, & + :not(.diff-expanded) { > td { c: 0 bd }}
+                .diff-line-num { border-right-color: bg2 i }
+                .line_content:not(#z) { c: 0 0 bg2 }
             }
-            /// Highlight hovered lines.
-            &[class *= 'holder']:not(.new):not(.old):hover > td[class *= 'line']:not(.match) {
-                &::before {
-                    content: '';
-                    z-index: -1;
-                    opacity: 0.50;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    position: absolute;
-                    pointer-events: none;
-                    c: 0 0 bd;
+
+            /// Diff -> Comment avatars.
+            /.diff-comment {
+                &-avatar, &s-more-count { c: 0 bg1 }
+
+                /// Reset avatars.
+                &s-more-count, /.diff-notes-collapse {
+                    rad: var(--avatar)
+                    c: fg1 bg5 bg4
                 }
-            }
-            &.old, &.new {
-                &:hover > .diff-line-num::after { opacity: 0.30 i }
-                &:hover > td[class *= 'line'] {
-                    &:not([class *= 'num'])::after { opacity: 0.30 i }
-                }
+
+                /// New discussion block.
+                /.js-temp-notes-holder td { c: 0 bg5 }
             }
         }
+
+        /// Show unchanged lines.
+        .line_expansion {
+            c: 0 0 bg2
+            td { c: 0 bg5 }
+            a, span { c: fg3 }
+        }
+
         /// Project -> Settings -> Status/Report tables.
         &.white { c: fg 0 t 0 0 0 }
         /// Diff -> Fix border for 'Show unchanged lines'. @upstream
@@ -3894,8 +4389,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:last-child::before { c: 0 0 bb }
             .metadata { margin-right: 10px }
             .description p, .stat-value { c: cm }
-            /// Fix wrong line-height for avatars. @upstream
-            .identicon.s40 { line-height: 30px }
         }
         .folder-caret { margin-left: 10px }
     }
@@ -3906,21 +4399,23 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-title, &-status, &-desc { c: fg }
         /// Buttons.
         &-controls .btn { c: 0 0 bg }
-        /// Activity.
+
+        /// Activity calendar.
         /.calendar {
-            &-hint { c: cm }
+            &-hint { c: fg1 }
             svg.contrib-calendar > g {
-            text { v: fg }
-            rect { v: ac }
-            rect[fill = '#ededed'] { opacity: 0.06 }
-            rect[fill ^= 'rgb(17'] { opacity: 0.20 }
-            rect[fill ^= 'rgb(12'] { opacity: 0.45 }
-            rect[fill ^= 'rgb(82'] { opacity: 0.70 }
-            rect[fill ^= 'rgb(37'] { opacity: 1 }
+                text { g: fg4 }
+                rect { g: ac0 }
+                rect[fill = '#ededed'] { opacity: 0.06 }
+                rect[fill ^= 'rgb(17'] { opacity: 0.20 }
+                rect[fill ^= 'rgb(12'] { opacity: 0.45 }
+                rect[fill ^= 'rgb(82'] { opacity: 0.70 }
+                rect[fill ^= 'rgb(37'] { opacity: 1.00 }
             }
         }
+
+        /// Profile -> Lists.
         /.user-profile {
-            /// Profile -> Add background to lists.
             .projects, .activities {
                 &-block {
                     padding: 0 12px;
@@ -3928,7 +4423,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     rad: 4px;
                 }
             }
-            /// Profile -> Activity -> Fix an empty list. @upstream
+            /// Fix an empty list. @upstream
             .activities-block [data-href] {
                 min-height: 40px;
                 .hide:first-child:last-child {
@@ -4030,7 +4525,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Timeline icons.
             .timeline-icon {
                 c: 0 bd hl;
-                svg { v: cm }
+                svg { g: cm }
             }
             /// Links.
             a:not(.gl-link):not(.gfm) { c: ac }
@@ -4041,7 +4536,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target:not(#z) { c: 0 blue bb }
+            &.target:not(#z) { c: 0 v63 v60 }
             /// Markdown area.
             .note-text {
                 &.md { c: fg }
@@ -4052,15 +4547,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Updated note description.
                 + .description-version > pre.wrapper { rad: 4px }
             }
-            /// Buttons -> Reset hover styles.
-            .note-actions-item > [class *= 'button']:hover {
-                &::before { content: unset i }
-                svg { v: fg }
-            }
-            /// Buttons -> Remove styles from reply button. @upstream
-            .note-actions-item.js-reply-button > .gl-button {
-                border: none i
-                c: 0 0 t
+            /// Toolbar buttons.
+            .note-actions-item {
+                button { b: none i }
+                /// Emoji icon requres additional rule.
+                a:hover > svg, svg:hover { g: fg1 }
             }
             /// Edited text.
             .edited-text { &, .author-link { c: cm }}
@@ -4070,7 +4561,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] {
             &, [class *= 'separator'] { c: cm }
-            a:hover { &, time { c: ac }}
+            a:not([class*='label']):hover { &, time { c: ac0 }}
         }
         /// Replies.
         .replies-toggle {
@@ -4082,9 +4573,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Reactions.
         /[class *= 'award-control-'] {
-            &, svg { v: cm }
-            &:hover svg { v: fg }
-            &.is-active svg { v: ac }
+            &, svg { g: cm }
+            &:hover svg { g: fg }
+            &.is-active svg { g: ac }
         }
         /// User role.
         .user-access-role { c: fg 0 hl }
@@ -4094,20 +4585,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             box-shadow: bsh;
             input { c: 0 0 bg }
         }
-        /// Global -> Idiffs.
-        /.idiff {
-            &.addition { c: green 0 t }
-            &.deletion { c: red 0 t }
-        }
         /// Notes -> Resolved discussions. #79
         /.line-resolve {
             &-all { c: 0 bd hl }
             &-btn {
                 c: cm;
-                &.is-disabled svg { v: cm }
+                &.is-disabled svg { g: cm }
                 &.is-active {
                     c: green;
-                    svg { v: green }
+                    svg { g: green }
                 }
             }
         }
@@ -4168,7 +4654,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 bg;
-            &.target { c: 0 0 bb }
+            &.target { c: 0 0 v60 }
         }
         /// Fix rounded corners in discussions. @upstream
         &-body {
@@ -4178,7 +4664,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Increase top offset when nb_height is enabled.
-        if ( nb_height == 1 ) {
+        if (nb_height) {
             &-body .file-title { top: 98px i }
         }
         /// Reply bar.
@@ -4200,7 +4686,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Locked state.
             .issuable-note-warning {
                 c: orange t t;
-                svg { v: orange }
+                svg { g: orange }
             }
         }
         /// Code -> Add new note.
@@ -4218,19 +4704,19 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: 0 0 t;
         /// Confidential issues.
         /.issuable-note-warning {
-            c: orange bd bg;
-            a { c: orange }
+            c: v27 v22 v20
+            a, svg { c: currentColor; g: currentColor }
         }
         /// Editor.
         /.md-area {
             c: fg bd bg;
             /.toolbar-btn svg {
-                v: cm;
-                &:hover { v: fg }
+                g: cm;
+                &:hover { g: fg }
             }
             &.is-focused {
-                c: 0 blue;
-                box-shadow: 0 0 0.4rem -0.2rem blue i;
+                c: 0 v65
+                b: 0 0 0 0.2rem v63 i
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
@@ -4240,10 +4726,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Reset background.
         .timeline-icon { c: 0 0 t }
         /// Commands.
-        /.referenced-commands { c: fg 0 bd }
+        /.referenced-commands { c: fg3 0 bg3 }
         /// Zen mode.
         /.zen {
-            &-control svg { v: cm }
+            &-control svg { g: cm }
             &-backdrop.fullscreen { c: 0 0 bg }
         }
         /// MR -> Notes -> 'Unresolve thread' action.
@@ -4253,10 +4739,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Issues -> Boards.
     .board {
         &-inner {
-            c: 0 bd bg;
+            c: 0 bg5 bg1 0 0
             /// Header.
             ~/-title {
                 c: 0 bd;
+                &-sub-text { c: fg4 }
                 &-caret:hover { c: 0 0 hl }
             }
             /// End of the list.
@@ -4289,16 +4776,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix height of headers. @upstream
             ../-inner > header h3 { min-height: 51px i }
         }
+
+        /// Height reset. #145
         &s-list, &-swimlanes {
-            --offset: (nb_height) ? 0px : -10px
-            height: calc(100vh - 114px - var(--offset));
-            @media (min-width: 768px) {
-                height: calc(100vh - 167px - var(--offset));
+            --offset: (nb_height) ? 11px : 1px
+            height: calc(100vh - 156px - var(--offset))
+
+            /// Tweaks for various screen resolutions.
+            @media (max-width: 1081px) {
+                --offset: (nb_height) ? 21px : 11px
             }
-            @media (max-width: 767.98px) and (min-width: 576px) {
-                height: calc(100vh - 99px - var(--offset));
+            @media (max-width: 993px) {
+                --offset: (nb_height) ? 53px : 43px
+            }
+            @media (max-width: 768px) {
+                --offset: (nb_height) ? -90px : -100px
             }
         }
+
         /// Boards -> 'Add issues' modal.
         &s-app .add-issues {
             &-container {
@@ -4307,7 +4802,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 > div > header { c: 0 0 hl }
                 .board-card.is-active {
                     c: 0 0 #2288ff15
-                    svg.gl-icon { c: white blue blue; v: white }
+                    svg.gl-icon { c: white blue blue; g: white }
                 }
                 /// Resets.
                 .btn.close { top: -5px }
@@ -4341,40 +4836,40 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 bg;
             rad: 4px;
             box-shadow: inner;
-            text { v: fg }
+            text { g: fg }
             .axis {
-                &-label text { v: fg }
-                &-label line, line, path { v: 0 cm }
+                &-label text { g: fg }
+                &-label line, line, path { g: 0 cm }
             }
             .line {
-                &.ideal { v: 0 cm }
-                &.actual { v: 0 green }
+                &.ideal { g: 0 cm }
+                &.actual { g: 0 green }
             }
             /// Legends. #83
             .legend {
-                rect { v: 0 cm }
-                text { v: fg }
+                rect { g: 0 cm }
+                text { g: fg }
                 /.gl-legend { &, &-inline { c: fg }}
             }
             /// Gray elements.
-            [style *= '221\, 221\, 221'] { v: bd }
+            [style *= '221\, 221\, 221'] { g: bd }
             [stroke = '#ddd'],
             [stroke = '#dfdfdf'],
             [stroke = '#919191'] {
-                v: 0 bd;
+                g: 0 bd;
             }
             /// Blue elements.
-            [stroke = '#1f78d1'] { v: 0 blue }
+            [stroke = '#1f78d1'] { g: 0 blue }
             [fill = '#1f78d1'],
             [fill *= '34\,132\,229'],
             [style *= '31\, 120\, 209'] {
-                v: blue;
+                g: blue;
             }
             /// Burndown chart hint.
             /.content-block.burndown-hint {
                 c: 0 bd hl;
                 rad: 4px;
-                svg path[fill = '#fff'] { v: t }
+                svg path[fill = '#fff'] { g: t }
                 /// Buttons -> Selected chart.
                 /.js-burndown-data-selector .btn-primary { c: white blue blue }
             }
@@ -4384,10 +4879,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
         c: 0 bd bb;
-        if ( nb_height == 1  ) { top: 50px }
+        if (nb_height) { top: 50px }
         /.mr-version-controls {
             c: fg bd bb;
-            if ( nb_height == 1  ) { top: 98px }
+            if (nb_height) { top: 98px }
         }
     }
 
@@ -4446,7 +4941,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 [data-toggle = 'dropdown'] { c: 0 0 bg }
             }
         }
-        .toolbar-btn:hover svg { v: fg }
+        .toolbar-btn:hover svg { g: fg }
         /// Fix fonts.
         .btn, .encoding-selector, #preview { font-family: var(--ui-font) }
         /// Branch name.
@@ -4508,13 +5003,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Scroller shadow.
             &_scroller&_scroll-left { box-shadow: inset 17px 0 16px -16px sh }
             /// Syntax highlighting.
-            &_url { c: ac }
-            &_list { c: magenta }
-            &_name&_function { c: violet }
-            &_line, &_constant, &_numeric { c: fg }
-            &_support { ~/_type&, ~/_function& { c: cm }}
-            &_variable, &_string, &_comment { c: green }
-            &_heading, &_storage, &_keyword, &_meta&_tag { c: blue }
+            &_url { c: v66 }
+            &_list { c: v76 }
+            &_name&_function { c: v86 }
+            &_line, &_constant, &_numeric { c: fg1 }
+            &_support { ~/_type&, ~/_function& { c: fg4 }}
+            &_variable, &_string, &_comment { c: v46 }
+            &_heading, &_storage, &_keyword, &_meta&_tag { c: v66 }
         }
     }
 
@@ -4547,44 +5042,44 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 0 bg;
             }
         }
-        text { v: fg }
+        text { g: fg }
         rect {
             /// Sidebars.
-            &[fill = '#222222'] { v: hl t }
-            &[fill = '#444444'] { v: bb t }
+            &[fill='#222222'] { g: bg3 t }
+            &[fill='#444444'] { g: bg2 t }
             /// Commit info.
-            &[transform = 'matrix(1\,0\,0\,1\,20\,20)'] { v: hl bd }
+            &[transform='matrix(1\,0\,0\,1\,20\,20)'] { g: bg3 bg5 }
         }
         rect, path {
             /// Anchors.
             &[style = 'fill-opacity: 0.5;'] {
-                v: ac;
-               + text[style] { v: white }
+                g: ac;
+               + text[style] { g: white }
             }
             /// Avatars.
-            &[stroke = '#cc7a7a'] { v: 0 fg }
-            &[stroke = '#cccccc'] { v: 0 cm }
-            &[stroke = '#cc0000'] { v: 0 red }
-            &[stroke = '#00cc8f'] { v: 0 cyan }
-            &[stroke = '#5283cc'] { v: 0 blue }
-            &[stroke = '#49cc29'] { v: 0 green }
-            &[stroke = '#7a29cc'] { v: 0 orange }
-            &[stroke = '#ccc052'] { v: 0 yellow }
-            &[stroke = '#cc007a'] { v: 0 violet }
-            &[stroke = '#b8a3cc'] { v: 0 magenta }
+            &[stroke = '#cc7a7a'] { g: 0 fg }
+            &[stroke = '#cccccc'] { g: 0 cm }
+            &[stroke = '#cc0000'] { g: 0 red }
+            &[stroke = '#00cc8f'] { g: 0 cyan }
+            &[stroke = '#5283cc'] { g: 0 blue }
+            &[stroke = '#49cc29'] { g: 0 green }
+            &[stroke = '#7a29cc'] { g: 0 orange }
+            &[stroke = '#ccc052'] { g: 0 yellow }
+            &[stroke = '#cc007a'] { g: 0 violet }
+            &[stroke = '#b8a3cc'] { g: 0 magenta }
         }
         circle {
             /// Paths.
-            &[fill = '#cc7a7a'] { v: fg }
-            &[fill = '#cccccc'] { v: cm }
-            &[fill = '#cc0000'] { v: red }
-            &[fill = '#00cc8f'] { v: cyan }
-            &[fill = '#5283cc'] { v: blue }
-            &[fill = '#49cc29'] { v: green }
-            &[fill = '#7a29cc'] { v: orange }
-            &[fill = '#ccc052'] { v: yellow }
-            &[fill = '#cc007a'] { v: violet }
-            &[fill = '#b8a3cc'] { v: magenta }
+            &[fill = '#cc7a7a'] { g: fg }
+            &[fill = '#cccccc'] { g: cm }
+            &[fill = '#cc0000'] { g: red }
+            &[fill = '#00cc8f'] { g: cyan }
+            &[fill = '#5283cc'] { g: blue }
+            &[fill = '#49cc29'] { g: green }
+            &[fill = '#7a29cc'] { g: orange }
+            &[fill = '#ccc052'] { g: yellow }
+            &[fill = '#cc007a'] { g: violet }
+            &[fill = '#b8a3cc'] { g: magenta }
         }
         /// Text elements.
         [style *= 'Monaco'] { font-family: var(--mono-font) i }
@@ -4633,10 +5128,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Dashboard -> Operations. #119
     .dashboard-card {
-        &-header, &-footer { &-failed { c: 0 0 var(--red-darken) }}
+        &.border-0 { border: none i }
+        &-header, &-footer { &-failed { c: 0 v15 v11 }}
         &-body {
-            &-failed { c: 0 0 var(--red-darker) }
+            &-failed { c: 0 0 v12 }
             .gl-link { c: fg }
+            .ci-status { c: 0 0 t }
             /// Add ellipsis to long text.
             .text-secondary {
                 overflow: hidden;
@@ -4675,6 +5172,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Components -> IDE.
+    if (c_ide) {
     .ide {
         /// Vars.
         --ide-link-color: ac
@@ -4695,13 +5193,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .avatar-container { c: 0 0 t }
         /// Sidebars.
         &-activity-bar {
-            svg.s16 { v: cm }
+            svg.s16 { g: cm }
             button.active {
                 c: fg bd bg;
                 box-shadow: inset 3px 0 ac i;
                 &.is-right { box-shadow: inset -3px 0 ac i }
                 &::after { c: 0 0 t }
-                svg.s16 { v: fg }
+                svg.s16 { g: fg }
             }
         }
         & &-right-sidebar {
@@ -4824,19 +5322,21 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Review code.
         .diffOverview {
             c: 0 bd bb;
-            if ( img_invert == 1 ) {
+            if (img_invert) {
                 &Ruler { filter: invert(0.8) hue-rotate(180deg) }
             }
         }
     }
+    }
 
     // Global -> Monaco Editor.
+    if (c_monaco) {
     .monaco-editor {
         c: fg 0 bg;
         /// Line numbers.
         .margin {
             c: 0 bd t;
-            * { font-family: var(--mono-font) i }
+            *:not(.codicon) { font-family: var(--mono-font) i }
             ../ .line-numbers {
                 opacity: 0.6;
                 c: cm;
@@ -4860,15 +5360,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Syntax highlighting.
         /// TODO: Add missing tokens.
         .mtk {
-            &1 { c: fg }
-            &3, &10 { c: cm }
-            &5, &6, &23 { c: blue }
-            &7 { c: cyan }
-            &8 { c: green }
-            &11 { c: orange }
-            &4, &15, &20 { c: red }
-            &14, &20 { c: magenta }
-            &12, &22, &23 { c: cyan }
+            &1 { c: fg1 }
+            &3, &10 { c: fg4 }
+            &5, &6, &23 { c: v66 }
+            &7 { c: v56 }
+            &8 { c: v46 }
+            &11 { c: v26 }
+            &4, &15, &20 { c: v16 }
+            &14, &20 { c: v76 }
+            &12, &22, &23 { c: v56 }
         }
         /// Lines.
         .lines-content {
@@ -4941,11 +5441,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Git status.
         .dirty-diff-added { c: 0 0 green }
         .dirty-diff-modified { c: 0 0 blue }
-        .inline-deleted-margin-view-zone, .char-delete { c: 0 0 #ff000050 }
-        .inline-added-margin-view-zone, .char-insert { c: 0 0 #00ff0050 }
-        .line-delete { c: white sh lred }
-        .line-insert { c: white sh lgreen }
+        .inline-deleted-margin-view-zone, .char-delete { c: 0 0 v13 }
+        .inline-added-margin-view-zone, .char-insert { c: 0 0 v43 }
+        .line-delete { c: white sh v11 }
+        .line-insert { c: white sh v41 }
         .current-line-margin { c: 0 bd bd }
+    }
     }
 
     /// SourceGraph integration.
@@ -4977,7 +5478,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Feat -> Dark-GitLab announcements.
-    if ( dgl_alerts == 1 ) {
+    if (dgl_alert) {
         [data-page='users:show'] .user-profile .cover-block {
             padding-top: 80px;
             .cover-controls { top: 80px }
@@ -5004,25 +5505,31 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         { unquote('@media (prefers-color-scheme: dark) {') }
     }
     .wrapper {
-        padding: 1rem;
-        min-height: calc(100vh - 2rem);
+        padding: 1rem
+        min-height: calc(100vh - 2rem)
+
         /// Reset text.
-        h1, p { c: fg }
-        a { c: ac }
-        * { font-family: var(--ui-font) }
+        h1, p { c: fg1 }
+        a { c: ac0; &:hover { c: ac1 }}
+        * { font-family: var(--ui-font) i }
+
         /// Tweak background images.
         .bg { filter: grayscale(1) invert(0.5) opacity(0.2) }
-        /// Fix box content.
-        [class *= 'box'] {
-            c: 0 0 bg;
-            rad: 4px;
-            box-shadow: inner, bsh;
-            .text-switch { c: cm }
-            [class *= 'toggle'] {
-                + label { c: 0 0 bd }
-                + label::after { c: 0 0 bd }
-                + label::before { c: 0 0 bg }
-                &:checked + label::before { c: 0 0 blue }
+
+        /// Box styles.
+        [class*='box'] {
+            rad: 4px i
+            c: 0 0 bg2
+            b: inner i
+
+            .text-switch { c: fg3 }
+
+            [class*='toggle'] {
+                + label { c: 0 0 ac0 }
+                + label::after { c: 0 0 fg0 }
+                + label::before { c: 0 0 bg1 }
+                &:not(:checked) + label { c: 0 0 bg5 }
+                &:checked + label::before { c: 0 0 ac2 }
             }
         }
     }
