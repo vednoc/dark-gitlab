@@ -14,8 +14,9 @@
     'Custom colors   *': 'custom',
     'Dark blue (old)  ': 'old-colors',
     'Dark gray (new)  ': 'new-colors',
-    'GitHub Dark      ': 'github-dark',
     'Breeze Dark      ': 'breeze-dark',
+    'GitHub Dark      ': 'github-dark',
+    'GitHub Dark Mode ': 'github-dark-mode',
 }
 
 @var color    cg_bg        'Base background color' #292929
@@ -61,11 +62,12 @@ to_hsla(input) {
 
 // Generator -> Color-schemes.
 ColorSchemes = {
-    'custom':      { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
-    'old-colors':  { BG: #1f232a, FG: #eeeeee, AC: #7289da }
-    'new-colors':  { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
-    'github-dark': { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
-    'breeze-dark': { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
+    'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
+    'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
+    'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
 }
 
 // Generator -> Active color-scheme.
