@@ -125,14 +125,16 @@ b() { box-shadow: arguments }
 
 // Color generator.
 /// NOTE: Scope the variables to avoid potential conflicts.
+/// TODO: Port color generator v3.
 /{
+    /// Color generator v1.
     g = global
 
     /// Color generator rules.
     if (dark(BG)) {
         a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
         s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
-        b1 = (BA + 10); b2 = (BA - 05); b3 = (BA - 10); b4 = (BA - 15); b5 = (BA - 20)
+        b1 = (BA + 10); b2 = (BA - 04); b3 = (BA - 08); b4 = (BA - 12); b5 = (BA - 16)
         f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
     } else {
         a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
@@ -180,6 +182,7 @@ b() { box-shadow: arguments }
 }
 
 /{
+/// Color generator v2.
 C = {
     v1: { hue: 000deg, }, //red
     v2: { hue: 030deg, }, //orange
