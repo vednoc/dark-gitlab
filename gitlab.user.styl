@@ -1586,7 +1586,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Add missing files.
         &-dashed,
         &-missing {
-            c: fg5 bg5 bg2
+            c: fg4 bg5 bg2
             outline-color: bg5 i
             &:hover { c: 0 0 bg3 }
             &:focus { c: 0 0 bg4 }
@@ -1631,6 +1631,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Merge Request analytics.
         /// NOTE: Bring borders back to the dropdown menu.
         &[id*='_toggle_'] { border-style: solid i }
+
+        /// Project -> Commit SHA.
+        &-group {
+            .btn-label.gl-font-monospace { c: fg1 0 bg3 }
+        }
     }
 
     // Global -> Labels.
@@ -1895,7 +1900,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: cm;
                 &:hover { c: 0 0 t }
             }
-            .badge { c: fg4 0 bg4 }
+            .badge { c: fg3 0 bg4 }
             /// Remove borders from sub-level items.
             &.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
         }
@@ -2108,7 +2113,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
 
                 /// OBSOLETE: Badges on old instances.
-                [class$='badge'], [data-state] > .badge { c: fg4 0 bg4 }
+                [class$='badge'], [data-state] > .badge { c: fg3 0 bg3 }
                 &.active {
                     [class$='badge'], [data-state] > .badge { c: fg1 0 bg5 }
                 }
