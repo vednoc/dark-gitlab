@@ -1299,6 +1299,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Select2 component.
         /.select2 {
             &-choice { &, &s { c: fg1 bg5 bg1 }}
+            &-arrow { filter: invert(0.7); c: 0 0 t }
 
             /// Focused state.
             &-container {
@@ -1310,7 +1311,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// NOTE: Ported and untested.
                 &-disabled {
                     > a { c: 0 0 bg5 }
-                    .select2-arrow { c: 0 0 t }
                 }
             }
 
@@ -1571,8 +1571,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Reset border for clipboard/sha groups.
         /.clipboard,
         /.commit-sha {
-            &-group :not(:first-child) { border-left: none i }
-
             /// Remove focus from commit SHA buttons.
             ../-label { &:hover, &:focus { c: 0 0 t; b: none i }}
         }
@@ -2140,6 +2138,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     padding: 6px 10px i;
                     line-height: 20px i;
                     font-size: 0.875rem;
+
+                    /// Unset height for dropdown menu.
+                    &.gl-h-7 { height: unset }
                 }
                 /// Notes -> Tweak large buttons to fit in emoji block.
                 /.emoji-block .col-lg-6 {
@@ -4233,7 +4234,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover, &:focus { c: 0 0 hl }
                 &-header.bg-white { c: 0 0 bb }
                 /// Active item. #129
-                &.is-active { c: 0 0 bg3 }
+                &.is-active { c: 0 0 bg2 }
             }
         }
 
