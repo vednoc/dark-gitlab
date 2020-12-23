@@ -1142,6 +1142,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:focus { c: 0 bg5 bg4 0 0 0 }
             &[aria-expanded='true'] { c: 0 bg5 bg4 0 0 0 }
 
+            /// New SVG icons.
+            ../[data-testid*='chevron'] { c: 0 0 t }
+
             /// OBSOLETE: Old toggle buttons.
             /.dropdown > button[class*=' dropdown-toggle']:not(.gl-button) {
                 c: fg1 bg5 bg1
@@ -1231,7 +1234,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &.is-focused {
                         &, &:hover:not(#z) { c: fg1 0 bg4 }
                     }
-                    &.is-active:not(#z) { c: ac0 }
+                    &.is-active:not(#z) {
+                        background-image: none i // NOTE: Hide embedded checkmark.
+                        c: ac0
+                    }
                 }
 
                 /// Remove focus ring.
@@ -2189,7 +2195,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
             /// Dashboard -> Todos.
-            &.issues-details-filters [class *= 'menu-toggle'] { c: 0 0 bg }
+            &.issues-details-filters [class*='menu-toggle']:not(svg) { c: 0 0 bg }
             /// Search -> Results header.
             span > code, form > div > button { c: 0 0 bg }
             /// Issues -> Board scope.
