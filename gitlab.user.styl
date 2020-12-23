@@ -32,6 +32,8 @@
 @var checkbox nb_height  'Navbar: Increase height' 1
 @var checkbox nb_canary  'Navbar: Show canary badge' 1
 @var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
+@var checkbox c_ide      'Code: Enable IDE styles' 1
+@var checkbox c_monaco   'Code: Enable Monaco Editor styles' 1
 @var checkbox dgl_alert  'Profile: Enable Dark-GitLab announcements' 0
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 
@@ -5176,6 +5178,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Components -> IDE.
+    if (c_ide) {
     .ide {
         /// Vars.
         --ide-link-color: ac
@@ -5330,8 +5333,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
     }
+    }
 
     // Global -> Monaco Editor.
+    if (c_monaco) {
     .monaco-editor {
         c: fg 0 bg;
         /// Line numbers.
@@ -5447,6 +5452,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .line-delete { c: white sh lred }
         .line-insert { c: white sh lgreen }
         .current-line-margin { c: 0 bd bd }
+    }
     }
 
     /// SourceGraph integration.
