@@ -1596,6 +1596,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &[href*='.ics'] path { g: fg4 }
 
         /// Notes -> Reactions.
+        &.selected[data-testid='award-button'],
         &.award-control.active {
             c: ac0 ac3 ac4
             &:focus { b: $f ac5 i }
@@ -2285,7 +2286,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &-description, &-disabled-reason { c: cm }
             }
             /// 'Create from template' area.
-            .template-option { c: 0 bd }
+            /.template-option { c: 0 bg5 }
             .card-slim { c: 0 0 bg }
 
             /// OBSOLETE: Login/register tabs until GitLab 12.5 or earlier.
@@ -2306,7 +2307,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// Fix icon for Gitea.
-            .btn[class *= 'gitea'] svg {
+            /.btn[class*='gitea'] svg {
                 path { g: cm }
                 rect { g: bg }
             }
@@ -3183,6 +3184,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 bg5 bg1
             &-header, &-footer { c: 0 bg5 bg2 }
         }
+
+        /// Breadcrumbs.
+        &-breadcrumbs { b: inset 0 -1px bg5 }
     }
 
     // Pajamas -> GFM.
@@ -4556,7 +4560,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] {
             &, [class *= 'separator'] { c: cm }
-            a:not([class*='label']):hover { &, time { c: v16 }}
+            a:not([class*='label']):hover { &, time { c: ac0 }}
         }
         /// Replies.
         .replies-toggle {
