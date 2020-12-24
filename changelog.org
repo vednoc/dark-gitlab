@@ -1,6 +1,58 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.1 [2020-12-24 Thu]
+This is a big release, with a lot of additions and some breaking changes. It
+consists of around [[https://gitlab.com/vednoc/dark-gitlab/-/compare/1.6.3...2.0.0-rc.1][140 commits]], which you can see more in depth on compare page.
+
+The primary goal was to refactor styles for major components and make it as
+/simple/ as possible, not /simpler/. Another goal of mine was to make things more
+maintainable, so that others can get started much more easily than before.
+
+Most importantly, for me at least, was to make things as /consistent/ as possible,
+both about the look of Dark-GitLab and the code that powers it.
+
+*** Added
+- Ported *procedural color generator* from my other userstyles
+  + This release of Dark-GitLab is the first one to ship the latest iteration.
+  + You can set your own base =background=, =foreground=, and =accent= colors, or
+    choose from a few built-in color-schemes. More colors will be added.
+  + Additionally, you can also tweak the intensity of generated syntax colors.
+- An option to disable styles for Monaco Editor
+- An option to disable styles for IDE area
+- An option to enable compact pipelines
+  + Disabled by default because of /random/ glitches in GitLab's UI due to how
+    jobs area is calculated and rendered.
+  + In my current environment, it works great with my hack/workaround.
+  + This feature was contributed by [[https://gitlab.com/Preisschild][Florian Ströger]] in last few releases.
+
+*** Removed
+- All options for color customization (except shadow and inverse color) are
+  removed in favor of aforementioned procedural color generator.
+  - Currently, the v3 of color generator doesn't support light mode colors, but
+    in one of the next releases that is likely going to be added.
+
+*** Improved
+- Buttons have been through a major rewrite
+  + All buttons are now consistent. Yes, /all/ of them.
+- Labels have also received a major rewrite
+  + Similar story to buttons, now much more consistent and usable in dark mode.
+- Dropdowns have been rewritten as well
+  + Far less buggy than before, given how bad things got over time.
+- Added vastly better colors in commit/inline diffs, and merge conflict areas
+- Updated colors for alerts, cards, icons, badges, labels, diffs, and more
+- Updated and simplified a ton styles for notes, pipelines, sidebars, forms,
+  navbar, graphs, avatars, projects/groups, editors, calendars, etc
+- Project languages bar now looks better than before ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/149][#149]])
+
+*** Fixed
+- Added styles to fix instances running old/ancient GitLab releases ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/133][#133]], [[https://gitlab.com/vednoc/dark-gitlab/-/issues/134][#134]])
+- Added styles to fix "Recent Activity" in groups ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/143][#143]])
+- Updated styles to fix "Create new project" page ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/144][#144]])
+- Updated styles to fix various screen sizes in boards ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/145][#145]])
+- Added styles to fix colors for new incidents ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/148][#148]])
+- Updated styles for a ton of misc elements
+
 ** 1.6.3 [2020-11-05 Thu]
 Small patch release to fix a few things for jobs in pipelines, and font used in
 GFM commits and commit ranges.
