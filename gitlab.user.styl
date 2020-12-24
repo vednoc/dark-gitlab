@@ -5481,6 +5481,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.board-card-score-value { c: cm }
     }
 
+    /// Incidents. #148
+    .incident-management-list {
+        .new-alert { c: 0 0 t }
+    }
+
     // Feat -> Dark-GitLab announcements.
     if (dgl_alert) {
         [data-page='users:show'] .user-profile .cover-block {
