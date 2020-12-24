@@ -3689,9 +3689,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .build {
             width: 100% i;
             &-content {
-                c: 0 bd bg;
-                transition: none i
-                &:hover { c: cm 0 bb }
+                c: fg1 bg5 bg1
+                transition: 0.1s ease i
+                &:hover { c: cm 0 bg3 }
             }
             /// Downstream.
             .linked-pipeline-content {
@@ -3706,9 +3706,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /.ci {
                 /// Fix CI job text weight/color.
-                &-build-text, &-status-text {
-                    font-weight: normal i;
-                    c: fg;
+                &-build-text, &-status-text,
+                ../-content .gl-font-weight-100 {
+                    font-weight: normal i
+                    c: fg4
                 }
             }
             /// Dropdowns -> Focused menu toggle.
