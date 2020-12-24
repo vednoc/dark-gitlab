@@ -712,6 +712,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg(ac-0))
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
         }
+
+        /// Checkmarks.
+        /.dropdown-menu-selectable li .is-active {
+            x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
+            x += 'viewBox="0 0 48 48" width="32" height="32" stroke-width="3" '
+            x += 'stroke-linecap="round" stroke-linejoin="round"><polyline '
+            x += s('stroke="%s" points="20 6 9 17 4 12"></polyline></svg>', to_svg(ac-0))
+            background-image: s("url('%s') %s", r(x), i)
+        }
     }
 
     // Admin.
@@ -1231,10 +1240,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &.is-focused {
                         &, &:hover:not(#z) { c: fg1 0 bg4 }
                     }
-                    &.is-active:not(#z) {
-                        background-image: none i // NOTE: Hide embedded checkmark.
-                        c: ac0
-                    }
+                    &.is-active:not(#z) { c: ac0 }
                 }
 
                 /// Remove focus ring.
