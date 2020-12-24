@@ -112,100 +112,92 @@ rad() { border-radius: arguments }
 // Box-shadow mixin.
 b() { box-shadow: arguments }
 
-// Color generator.
-/// NOTE: Scope the variables to avoid potential conflicts.
-/// TODO: Port color generator v3.
-/{
-    /// Color generator v1.
-    g = global
+/{ // {{{ Color generator.
+// Generator -> Color values/hues.
+// NOTE: List with anonymous hashes.
+colors = (
+    { key: bg, color:   BG } \
+    { key: fg, color:   FG } \
+    { key: v0, color:   AC } \
+    { key: v1, hue:   0deg } \
+    { key: v2, hue:  30deg } \
+    { key: v3, hue:  60deg } \
+    { key: v4, hue: 120deg } \
+    { key: v5, hue: 180deg } \
+    { key: v6, hue: 210deg } \
+    { key: v7, hue: 270deg } \
+    { key: v8, hue: 300deg } \
+    { key: v9, hue:   0deg } \
+)
 
-    /// Color generator rules.
-    if (dark(BG)) {
-        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
-        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
-        b1 = (BA + 10); b2 = (BA - 04); b3 = (BA - 08); b4 = (BA - 12); b5 = (BA - 16)
-        f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
-    } else {
-        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
-        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
-        b1 = (BA - 10); b2 = (BA + 08); b3 = (BA + 16); b4 = (BA + 24); b5 = (BA + 32)
-        f1 = (FA - 05); f2 = (FA - 10); f3 = (FA - 15); f4 = (FA - 20); f5 = (FA - 30)
-    }
+// Alias colors.
+$bg = colors[0]
+$fg = colors[1]
+// $dbg += '%s; %s; :::' % (($bg) ($fg))
 
-    /// Generate tones for base colors.
-    C = {
-        bg: {
-            '0': darken(BG, b1),
-            '1': darken(BG, 0%),
-            '2': darken(BG, b2),
-            '3': darken(BG, b3),
-            '4': darken(BG, b4),
-            '5': darken(BG, b5),
-        },
-        fg: {
-            '0': darken(FG, f1),
-            '1': darken(FG, 0%),
-            '2': darken(FG, f2),
-            '3': darken(FG, f3),
-            '4': darken(FG, f4),
-            '5': darken(FG, f5),
-        },
-        ac: {
-            '0': mix(darken(BG,  0%), AC, 0%),
-            '1': mix(darken(BG, 40%), AC, a1),
-            '2': mix(darken(BG, 40%), AC, a2),
-            '3': mix(darken(BG, 40%), AC, a3),
-            '4': mix(darken(BG, 65%), AC, a4),
-            '5': mix(darken(BG, 50%), AC, a5),
-        },
-    }
+// Generate background colors.
+for num in 0..5 {
+    $color = $bg.color
+    if num == 1 {} // Skip base BG color.
+    else if num == 0 { $color = darken($color, 10%) }
+    else { $color = lighten($color, (num+2) * num/2%) }
+    $color = to_hsla($color)
 
-    define('bg-' + key, val, global) for key, val in C.bg
-    define('fg-' + key, val, global) for key, val in C.fg
-    define('ac-' + key, val, global) for key, val in C.ac
-
-    /// Generate Stylus-lang helpers for CSS variables.
-    define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
-    define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
-    define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
+    define('' + s('%s%s', $bg.key, num), s('var(--%s-%s)', unquote($bg.key), num), global)
+    define('' + s('%s-%s', $bg.key, num), $color, global)
 }
 
-/{
-/// Color generator v2.
-C = {
-    v1: { hue: 000deg, }, //red
-    v2: { hue: 030deg, }, //orange
-    v3: { hue: 060deg, }, //yellow
-    v4: { hue: 120deg, }, //green
-    v5: { hue: 180deg, }, //cyan
-    v6: { hue: 210deg, }, //blue
-    v7: { hue: 270deg, }, //magenta
-    v8: { hue: 300deg, }, //violet
-    v9: { hue: 000deg, }, //gray
+// Generate foreground colors.
+for num in 0..5 {
+    $color = $fg.color
+    if num == 1 {} // Skip base FG color.
+    else if num == 0 { $color = lighten($color, 10%) }
+    else { $color = darken($color, (num + num/1.25) * 5%) }
+
+    $color = desaturate($color, 80%)
+    $color = to_hsla($color)
+    // $dbg += '--- FG: ' + $color
+
+    define('' + s('%s%s', $fg.key, num), s('var(--%s-%s)', unquote($fg.key), num), global)
+    define('' + s('%s-%s', $fg.key, num), $color, global)
 }
 
-for c, i in C {
-    $hue = C[c].hue
-    // $dbg = 'k: ' + c + ' ::: i: ' + i + ' ::: val: ' + $hue
+for c, i in colors[2..length(colors)] {
+    // $dbg += s('::: c: %s, i: %s; ', c, i )
+    // if c.key == v9 { $dbg += s('::: c: %s, i: %s; ', c, i ) }
+    $sel  = colors[i+2]
+    $dbg += ' ' + $sel
+
     for num in 0..9 {
-        $res = ''
-        if (c != 'v9') {
-            $h = C[c].hue + num / 2
-            $s = 100 - num * 8
-            $offset = (num < 2) ? 1 : 1.5
-            $l = 5 + (num + $offset) * 5
-            $res = hsl($h, $s, $l)
-            $res = mix(BG, $res, 10%)
-        } else {
-            $res = hsl(C[c].hue, 0, (num + 2) * 8)
+        /// Case for accent colors.
+        if ($sel.key == v0) {
+            $color = darken($sel.color, (80% - ((num + num/3) * 7.5)))
+            $color = darken($sel.color, (100% - (num+3) * 7.5))
+            $color = lightness($color, lightness($color) + num)
         }
-        $res = to_hsla($res)
-        // $dbg = c + '-' + num + ' ::: ' + $res
-        define(c + num, s('var(--%s-%s)', unquote(c), num), global)
-        define(c + '-' + num, $res, global)
+
+        /// Case for gray colors.
+        else if ($sel.key == v9) {
+            $color = hsl($sel.hue, 0%, 50%)
+            $color = darken($color, (100% - (num+2) * 17))
+        }
+
+        /// Case for RGB colors.
+        else {
+            $hue   = $sel.hue
+            $color = hsl($hue, 70%, 70%)
+            $color = darken($color, (100% - (num+2) * 7.5))
+            $color = lightness($color, lightness($color) + num)
+        }
+
+        /// Convert to HSLA format.
+        $color = to_hsla($color)
+
+        define('' + s('%s%s', $sel.key, num), s('var(--%s-%s)', unquote($sel.key), num), global)
+        define('' + s('%s-%s', $sel.key, num), $color, global)
     }
 }
-}
+} /// }}}
 
 @-moz-document domain('custom.domain'),
 domain('invent.kde.org'),
@@ -274,25 +266,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         $fe1 = 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
         --emoji-font: emoji_font, $fe1, 'Noto Color Emoji'
 
-        /// Generate DGL color variables.
-        for _v in (bg fg ac) {
-            for _i in 0..5 {
-                key = s('--%s-%s', _v, _i)
-                /// Escape `\` for `*-0` vars.
-                val = _v + \- + _i
-
-                /// Generate CSS variables.
-                { key }: val i
-                // { key + '-rgb' }: to_rgb(val)
+        colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
+        for color in colors[0..1] {
+            for tone in 0..5 {
+                { '--%s-%s' % ((color) (tone)) }: color + '-' + tone
             }
         }
-
-        /// Generate v2 color variables.
-        for tone in 0..9 {
-            for number in 0..9 {
-                key = '--v%s-%s' % ((tone) (number))
-                val = '%s' % (v + tone + \- + number)
-                { key }: val
+        for color in colors[2..length(colors)] {
+            for tone in 0..9 {
+                { '--%s-%s' % ((color) (tone)) }: color + '-' + tone
             }
         }
 
