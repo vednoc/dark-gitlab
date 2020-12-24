@@ -350,7 +350,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         a { &, &:hover { color: ac }}
         hr { border-color: bd }
         h, .h { &1, &2, &3, &4, &5, &6 { color: fg }}
-        time { color: cm }
+        time { color: inherit }
         :not(pre) > code {
             c: fg 0 hl 0 0 0;
             box-shadow: inner;
@@ -1091,7 +1091,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .build-link, .build-name a {
                 c: fg;
             }
-            .duration {
+            /.duration,
+            /.finished-at {
                 c: cm;
                 svg path { g: cm }
             }
@@ -1732,7 +1733,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         &[disabled = 'disabled']:not(#z) { opacity: 0.5 }
         /// Overwrites for navbar and top nav.
-        /.navbar & { c: 0 0 bg }
+        /.navbar & { c: 0 0 bg3 }
         /.top-area & { height: 35px }
         /// Navbar -> Fix 'search' dropdown. @upstream
         #search {
@@ -1970,7 +1971,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-link:not([disabled]) {
                 c: ac0
                 > svg { g: currentColor }
-                &.edit-link { c: fg4 0 t }
+                &.edit-link { &, * { c: fg4 0 t }}
             }
 
             /// Health status for closed issues.
@@ -2578,6 +2579,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &&-dark {
                 c: 0 bd; border-top-color: ac i
             }
+            /// Issues -> Labels.
+            &-container.labels-fetch-loading { c: 0 0 t }
         }
         /// MRs -> Widgets.
         /svg.gl-skeleton-loader {
@@ -3787,7 +3790,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /.page-content-header {
             /// Issues/Jobs -> Page header -> Author link.
-            time, [class *= '-link'] { c: fg }
+            [class *= '-link'] { c: fg }
             /// Jobs -> Browse artifacts -> Page header.
             .header-content a { c: fg }
         }
@@ -4057,6 +4060,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Help -> 'Quick help' panel on old instances. OBSOLETE
             /.panel {
                 c: 0 bg5 bg1
+                &-default { c: 0 0 t } // Settings -> Mirroring repositories.
                 > .panel-heading { c: fg1 bg5 bg3 }
                 li:not([class*='disabled']):hover { c: 0 0 bg2 }
             }
@@ -4573,7 +4577,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] {
-            &, [class *= 'separator'] { c: cm }
+            &, time, [class *= 'separator'] { c: fg4 }
             a:not([class*='label']):hover { &, time { c: ac0 }}
         }
         /// Replies.
