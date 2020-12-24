@@ -38,6 +38,7 @@
 @var checkbox c_hl_none  'Code: Use theme colors for "none" syntax hl theme' 1
 @var checkbox c_ide      'Code: Enable IDE styles' 1
 @var checkbox c_monaco   'Code: Enable Monaco Editor styles' 1
+@var checkbox pipelines  'CI/CD: Compact pipelines' 0
 @var checkbox dgl_alert  'Profile: Enable Dark-GitLab announcements' 0
 @var checkbox sb_enable  'Global: Enable theme scrollbars' 1
 ==/UserStyle== */
@@ -1943,6 +1944,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// workaround prevents that, so will always add some padding. You will
         /// be able to tell that this occurred if all the jobs are on the far
         /// left side of the available area, and not centered like usually.
+        if (pipelines) {
         &:not(.js-sidebar-collapsed) + .content-wrapper {
             .pipeline-visualization > div[style*='padding-left: 0px'] {
                 padding-left: 0px i
@@ -1956,6 +1958,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding-left: 0px i
                 padding-left: 70px i
             }
+        }
         }
     }
 
@@ -3677,11 +3680,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 t;
         }
     }
-    // Projects -> Text
-    .ci-job-name-component > .gl-text-truncate {
-        max-width: 100%;
-        margin-right: 35px
-    }
+
     // Project -> Pipelines.
     .pipeline-graph {
         /// Pipelines -> Tab background.
@@ -3693,9 +3692,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 bd bg;
                 transition: none i
                 &:hover { c: cm 0 bb }
-                padding: 5px 5px i;
             }
-            margin-bottom: 5px;
             /// Downstream.
             .linked-pipeline-content {
                 c: 0 bd bg;
@@ -3720,11 +3717,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 li:hover [class *= 'dropdown-item'] { c: 0 0 bd }
             }
         }
-        /// Tweak curved connectors for !47.
-        .stage-column {
-            .curve { &::before, &::after { top: -24px }}
-            .build:nth-child(2) {
-                &::before, &::after { height: 24px; top: -4px }
+
+        /// Feat -> Compact pipelines.
+        if (pipelines) {
+            .build {
+                margin-bottom: 5px
+                &-content { padding: 5px i }
+            }
+            /// Projects -> Show full name.
+            .ci-job-name-component > .gl-text-truncate {
+                max-width: 100%;
+                margin-right: 35px
+            }
+
+            /// Tweak curved connectors for !47.
+            .stage-column {
+                .curve { &::before, &::after { top: -24px }}
+                .build:nth-child(2) {
+                    &::before, &::after { height: 24px; top: -4px }
+                }
             }
         }
     }
