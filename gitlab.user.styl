@@ -403,7 +403,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-bar.bg-primary { c: 0 0 ac1 }
 
             /// Project -> Languages bar.
-            &.repository-languages-bar { c: 0 0 t }
+            &.repository-languages-bar {
+                c: 0 0 t
+
+                /// Remove whitespace. #149
+                .progress-bar { margin-right: unset }
+            }
 
             /// OBSOLETE: Override old colors for languages.
             [style*='#375eab'] { c: 0 0 #00ADD8 } /// Go-lang.
