@@ -300,7 +300,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     bd      = var(--bg-5)
     fg      = var(--fg-1)
     cm      = var(--fg-4)
-    ac      = var(--ac-0)
+    ac      = var(--v0-9)
     sh      = var(--shadow)
     bsh     = var(--bshadow)
     red     = var(--v1-5)
@@ -384,7 +384,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 0 bg5
 
             /// Progress bar percentage.
-            &-bar.bg-primary { c: 0 0 ac1 }
+            &-bar.bg-primary { c: 0 0 v09 }
 
             /// Project -> Languages bar.
             &.repository-languages-bar {
@@ -1225,7 +1225,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     &.is-focused {
                         &, &:hover:not(#z) { c: fg1 0 bg4 }
                     }
-                    &.is-active:not(#z) { c: ac0 }
+                    &.is-active:not(#z) { c: v09 }
                 }
 
                 /// Remove focus ring.
@@ -1316,7 +1316,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// NOTE: Ported and untested.
             &-arrow::after { c: fg4 }
-            &-match { c: ac0 }
+            &-match { c: v09 }
             &-input {
                 font-family: var(--ui-font) i
                 c: fg1 bg5 t
@@ -1452,10 +1452,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Accent.
         /// TODO: Implement once `v0-*` is added to color generator.
-        &-primary#clone-dropdown {
-            c: v98 ac2 ac4
-            &:hover { c: v99 ac1 ac3 }
-            &:focus { c: v99 ac0 ac2; b: $f ac4 i }
+        &#clone-dropdown {
+            c: v98 v04 v02
+            &:hover { c: v99 v05 v03 }
+            &:focus { c: v99 v06 v04; b: $f v02 i }
             > svg { g: v98 }
         }
 
@@ -1478,15 +1478,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// TODO: Update outline with v2 accent color.
         &-link,
         &.gl-link:not([href]) {
-            color: ac0
-            &:hover, &:active, &:focus { color: ac1 }
-            &:focus { c: 0 0 t; b: $f ac4 i }
+            color: v09
+            &:hover, &:active, &:focus { color: v07 }
+            &:focus { c: 0 0 t; b: none i }
 
             /// Remove default border/background colors.
             &[href] { c: 0 t t 0 0 0 }
 
-            // 2: Notes -> 'Compare with previous version.'
-            &.gl-button { c: ac0 }
+            /// Notes -> 'Compare with previous version.'
+            &.gl-button { c: v09 }
         }
 
         /// Transparent buttons.
@@ -1596,8 +1596,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Notes -> Reactions.
         &.selected[data-testid='award-button'],
         &.award-control.active {
-            c: ac0 ac3 ac4
-            &:focus { b: $f ac5 i }
+            c: v09 v04 v01
+            &:hover { c: 0 0 v02 }
+            &:focus { b: $f v01 i }
         }
 
         /// Settings -> Connected accounts.
@@ -1778,6 +1779,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg1 bg3
             a { c: fg }
             /// Metadata.
+            .commit-sha { c: v07 }
             /.item-meta * { c: cm }
             /// Dashboard -> Todos -> Fix links.
             .todo { &-label, &-project { a { c: ac }}}
@@ -1796,7 +1798,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 &:hover { c: 0 0 hl }
             }
             /// Project -> Compare -> List items.
-            ../:not(.event_commits) > li.commit:hover { c: 0 0 bb }
+            ../:not(.event_commits) > li.commit:hover { c: 0 0 bg2 }
         }
         /// Project -> Branches.
         &.all-branches {
@@ -1955,7 +1957,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Reset buttons and links.
         .btn {
             &-link:not([disabled]) {
-                c: ac0
+                c: v09
                 > svg { g: currentColor }
                 &.edit-link { &, * { c: fg4 0 t }}
             }
@@ -2091,7 +2093,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: cm;
                     &:focus { c: 0 bd }
                     ../:hover { a, button { c: fg bd }}
-                    ../.active { &, a, button { c: fg1 ac1 }}
+                    ../.active { &, a, button { c: fg1 v08 }}
                     /// Active items and project header stats.
                     &.active, strong { c: fg ac }
                 }
@@ -2315,7 +2317,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-row &-link {
             c: fg3 bg5 bg1
             &:hover { c: 0 0 bg2 }
-            h3 { c: ac0 }
+            h3 { c: v09 }
         }
     }
 
@@ -2638,7 +2640,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .pika-button {
                 c: fg4
                 &:hover { c: fg1 0 bg3 }
-                ../ .is-selected .pika-button { c: v99 0 ac1 }
+                ../ .is-selected .pika-button { c: v99 0 v08 }
             }
         }
     }
@@ -2729,7 +2731,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg1 bg5 bg3
             &:not(.active):hover { c: 0 0 bg4; b: none }
             ../ .disabled .page-link { c: fg5 0 bg2 }
-            ../ .active .page-link, &.active { c: ac0 0 ac4 }
+            ../ .active .page-link, &.active { c: v09 0 v01 }
         }
     }
 
@@ -4043,7 +4045,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Reset text colors.
                 p { c: inherit }
                 > * { c: inherit inherit }
-                a { &, & > code { color: ac1 }}
+                a { &, & > code { color: v08 }}
 
                 /// Heading anchors.
                 .anchor::after {
@@ -4214,7 +4216,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             /.cred:not(#z) { c: v15; g: v15 }
             /.cgreen:not(#z) { c: v45; g: v45 }
-            /.highlighted:not(#z) { c: ac0 }
+            /.highlighted:not(#z) { c: v09 }
             /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
                 c: v65 0 t
@@ -4417,7 +4419,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-hint { c: fg1 }
             svg.contrib-calendar > g {
                 text { g: fg4 }
-                rect { g: ac0 }
+                rect { g: v09 }
                 rect[fill = '#ededed'] { opacity: 0.06 }
                 rect[fill ^= 'rgb(17'] { opacity: 0.20 }
                 rect[fill ^= 'rgb(12'] { opacity: 0.45 }
@@ -4573,7 +4575,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /[class *= 'author-name'] { c: fg }
         /[class *= 'headline-light'] {
             &, time, [class *= 'separator'] { c: fg4 }
-            a:not([class*='label']):hover { &, time { c: ac0 }}
+            a:not([class*='label']):hover { &, time { c: v09 }}
         }
         /// Replies.
         .replies-toggle {
@@ -5529,7 +5531,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Reset text.
         h1, p { c: fg1 }
-        a { c: ac0; &:hover { c: ac1 }}
+        a { c: v09; &:hover { c: v07 }}
         * { font-family: var(--ui-font) i }
 
         /// Tweak background images.
@@ -5544,11 +5546,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             .text-switch { c: fg3 }
 
             [class*='toggle'] {
-                + label { c: 0 0 ac0 }
+                + label { c: 0 0 v09 }
                 + label::after { c: 0 0 fg0 }
                 + label::before { c: 0 0 bg1 }
                 &:not(:checked) + label { c: 0 0 bg5 }
-                &:checked + label::before { c: 0 0 ac2 }
+                &:checked + label::before { c: 0 0 v05 }
             }
         }
     }
