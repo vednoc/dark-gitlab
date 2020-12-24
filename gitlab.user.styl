@@ -55,6 +55,13 @@
  * Make sure you have the latest version before submitting bug reports.
  */
 
+// {{{ Helpers.
+t       = transparent
+i       = !important
+vendors = official
+
+// Convert colors to HSLA format.
+/// NOTE: This is done just for consistency of generated colors.
 to_hsla(input) {
     $h = {}
     $h.hue = unquote(split('deg', '%s' % ceil(hue(input), 2))[0])
@@ -69,35 +76,6 @@ to_svg(input) {
     s('\%23%s', unquote(substr(s('%s', convert(input)), 1, 6)))
 }
 
-// Generator -> Color-schemes.
-ColorSchemes = {
-    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
-    'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
-    'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
-    'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
-    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
-    'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
-}
-
-// Generator -> Active color-scheme.
-for selected in ColorSchemes {
-    if (selected == cg_theme) {
-        // main { dbg: s('%s %s', selected, cg_theme) }
-        define('BG', ColorSchemes[selected].BG, global)
-        define('FG', ColorSchemes[selected].FG, global)
-        define('AC', ColorSchemes[selected].AC, global)
-    }
-}
-
-// Helpers
-t       = transparent
-i       = !important
-vendors = official
-BA      = 0%
-FA      = 0%
-AA      = 0%
-SA      = 0%
-
 // Color mixin.
 /// All colors: `c: fg bg bg`
 /// Only border-color: `c: 0 bg`
@@ -107,7 +85,8 @@ c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
     if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
 }
 
-// SVG colors.
+// SVG mixin.
+/// Same usage as `c` mixin.
 g(x, y = 0, xi = 1, yi = 1) {
     if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
     if y != 0 && x != '_' { stroke: yi is 0 ? y : y i }
@@ -118,9 +97,30 @@ rad() { border-radius: arguments }
 
 // Box-shadow mixin.
 b() { box-shadow: arguments }
+// }}}
 
 /{ // {{{ Color generator.
-// Generator -> Color values/hues.
+// Color-scheme picker.
+ColorSchemes = {
+    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
+    'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
+    'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
+    'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
+}
+
+// Select active color-scheme.
+for color-scheme in ColorSchemes {
+    if (color-scheme == cg_theme) {
+        // main { dbg: s('%s %s', color-scheme, cg_theme) }
+        define('BG', ColorSchemes[color-scheme].BG, global)
+        define('FG', ColorSchemes[color-scheme].FG, global)
+        define('AC', ColorSchemes[color-scheme].AC, global)
+    }
+}
+
+// Color values and hues.
 // NOTE: List with anonymous hashes.
 colors = (
     { key: bg, color:   BG } \
@@ -169,6 +169,7 @@ for num in 0..5 {
     define('' + s('%s-%s', $fg.key, num), $color, global)
 }
 
+// Generate all other colors.
 for c, i in colors[2..length(colors)] {
     // $dbg += s('::: c: %s, i: %s; ', c, i )
     // if c.key == v9 { $dbg += s('::: c: %s, i: %s; ', c, i ) }
