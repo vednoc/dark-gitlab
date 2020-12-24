@@ -388,10 +388,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
             /// Project -> Languages bar.
             &.repository-languages-bar {
-                c: 0 0 t
+                c: 0 0 bg3
 
                 /// Remove whitespace. #149
-                .progress-bar { margin-right: unset }
+                .progress-bar {
+                    margin-right: unset
+                    /// NOTE: Removing margins leaves out empty space.
+                    &:last-child:nth-child(-n+4) { flex-grow: 1 }
+                }
             }
 
             /// OBSOLETE: Override old colors for languages.
