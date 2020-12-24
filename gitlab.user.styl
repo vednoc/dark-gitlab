@@ -367,9 +367,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             ../ > pre:not([class]) { c: 0 0 t }
         }
         kbd {
-            rad: 4px;
+            rad: 3px
             c: fg 0 hl;
-            box-shadow: inner;
+            box-shadow: inner, inset 0 -3px bg4 i
         }
         /// Misc link colors.
         .gl-link { &, &:hover { color: ac }}
@@ -504,7 +504,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             rad: 4px
             c: fg1 bg5 bg3
 
-            a { c: ac }
+            a:not(.btn) { c: ac }
             strong { color: inherit i }
             &-warning { c: v98 v25 v21 }
             &-success { c: v98 v45 v41 }
@@ -698,13 +698,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Arrows.
         /[aria-sort='ascending'] {
-            x = s('<path fill="%s" d="M51 1l25 23 24 22H1l25-22z"/>', to_svg(accent))
+            x = s('<path fill="%s" d="M51 1l25 23 24 22H1l25-22z"/>', to_svg(ac-0))
             y = '<path fill="gray" opacity=".6" d="M51 101l25-23 24-22H1l25 22z"/>'
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
         }
         /[aria-sort='descending'] {
             x = '<path fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/>'
-            y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg(accent))
+            y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg(ac-0))
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
         }
     }
@@ -1066,8 +1066,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> Jobs -> Fix icons and table cells. #98
             .sprite { g: cm }
             > tbody > .build {
+                + tr > td { border-top: 1px solid red i }
                 > td { border-top: 1px solid bd i }
-                &:hover { c: 0 0 bb }
+                &:hover { c: 0 0 bg2 }
             }
             /// Text colors.
             .commit-sha, .gfm-commit { c: ac }
@@ -3183,6 +3184,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Breadcrumbs.
         &-breadcrumbs { b: inset 0 -1px bg5 }
+
+        /// Select elements.
+        &-form-select { b: inner }
     }
 
     // Pajamas -> GFM.
