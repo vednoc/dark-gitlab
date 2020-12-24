@@ -4075,10 +4075,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             code {
-                span.line:hover { c: 0 0 bg2 }
+                span.line:hover {
+                    c: 0 0 bg2
+                    &.hll { c: 0 0 v31 }
+                }
 
                 /// Highlighted line.
-                .hll { c: 0 0 v31 }
+                .hll { c: 0 0 v30 }
 
                 /// Global -> Idiffs.
                 /.idiff {
@@ -4118,11 +4121,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     /// Tokens.
                     .c, .cm, .c1, .gh, .nn, .go, .gt { c: fg4 }
                     .n, .cp, .gp, .s { c: fg1 }
-                    .no, .na, .nb { c: v56 }
-                    .sx, .se, .sh, .s1, .s2 { c: v16 }
+                    .no, .na, .nb { c: v57 }
+                    .sx, .se, .sh, .s1, .s2 { c: v17 }
                     .sr, .vi, .mf, .ne, .nv { c: v46 }
-                    .nt, .m, .mi, .mh { c: v66 }
-                    .nf, .ss, .si, .nc { c: v76 }
+                    .nt, .m, .mi, .mh { c: v67 }
+                    .nf, .ss, .si, .nc { c: v78 }
                     .ni, .gu, .sb, .kt { c: v86 }
                 }
             }
