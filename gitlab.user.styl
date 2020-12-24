@@ -1621,16 +1621,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Merge Request analytics.
         /// NOTE: Bring borders back to the dropdown menu.
         &[id*='_toggle_'] { border-style: solid i }
-
-        /// Project -> Commit SHA.
-        &-group {
-            .btn-label.gl-font-monospace { c: fg1 0 bg3 }
-        }
     }
 
     // Global -> Labels.
     .label {
-        &&-monospace { c: fg1 bg5 bg1 }
+        &&-monospace, /.btn-label.gl-font-monospace { c: fg1 bg5 bg3 }
         /// Issues/MRs/Epics -> Scoped labels.
         &.scoped-label .fa-question-circle {
             c: 0 0 t;
