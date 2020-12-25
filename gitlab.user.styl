@@ -3094,10 +3094,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             &:focus-within { c: 0 blue }
         }
-        /// Project -> Settings -> Operations.
-        &-input.form-control { c: 0 0 hl }
-        /// Project -> Reset search bar background.
-        &-input[placeholder] { c: 0 0 bg }
         /// Project -> Settings -> Integrations.
         /.help-form .form-group {
             form, .form-control, code { c: 0 0 bg }
@@ -3160,6 +3156,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.border {
                 border: 1px solid bd i
                 &-left { c: 0 bg5 } // Operations -> Metrics.
+                &-top { border-top: 1px solid bg5 i } // Operations -> Jaeger.
             }
         }
         &-border {
