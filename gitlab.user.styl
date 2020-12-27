@@ -4122,12 +4122,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Syntax highlighting.
                 /.code.white {
                     /// Package links.
-                    .line > a { c: v65 }
+                    .line a { c: v67 }
+
                     /// Errors.
                     .err { c: v99 0 v16 }
-                    /// Additions/deletions.
-                    .gi { c: v48 0 v40 }
-                    .gd { c: v18 0 v10 }
+
+                    /// Additions/deletions in patches.
+                    .gi { c: v98 0 v42 }
+                    .gd { c: v98 0 v12 }
+
                     /// Tokens.
                     .c, .cm, .c1, .gh, .nn, .go, .gt { c: fg4 }
                     .n, .cp, .gp, .s { c: fg1 }
