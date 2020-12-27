@@ -2068,6 +2068,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /.dropdown-title-button { float: right }
         }
 
+        /// Jobs -> Trigger build variables. #146
+        .trigger-build { &-variable, &-value { c: fg3 }}
+
         /// Expanded state.
         &-expanded .gutter-toggle { c: 0 bg5 }
 
