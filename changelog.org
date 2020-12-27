@@ -1,6 +1,26 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.2 [2020-12-27 Sun]
+Added two new options to adjust syntax colors to replace the old one, fixed some
+bugs to improve consistency, and refactored/removed some unused code.
+
+*** Added
+- Split "adjust syntax colors" into two options ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/150][#150]])
+  + You can now adjust saturation and lightness separately.
+  + For a more detailed write-up and explanation, see #2f944058.
+
+*** Improved
+- Added better colors for radio and checkbox inputs
+- Switched to a lighter colors for highlighted lines
+
+*** Fixed
+- Added styles for trigger build variables ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/146][#146]])
+- Updated margins for contributions list on profile page
+- Updated colors for inline-diffs in =.patch= files
+- Added better colors to buttons on login page
+- Added quite a few overrides for text colors
+
 ** 2.0.0-rc.1 [2020-12-24 Thu]
 This is a big release, with a lot of additions and some breaking changes. It
 consists of around [[https://gitlab.com/vednoc/dark-gitlab/-/compare/1.6.3...2.0.0-rc.1][140 commits]], which you can see more in depth on compare page.
