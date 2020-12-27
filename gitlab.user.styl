@@ -457,8 +457,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 rad: 4px
                 c: 0 bg5 bg2
                 b: inner i
-                .omniauth-btn { c: 0 0 bg }
-                .omniauth-divider { &::before, &::after { c: 0 bd }}
+                /.omniauth-btn {
+                    c: 0 0 bg1
+                    &:hover { c: 0 0 bg3 }
+                }
+                /.omniauth-divider { &::before, &::after { c: 0 bg5 }}
                 input.form-control { c: 0 0 bg }
             }
             /// Reset page height.
@@ -792,7 +795,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             rad: var(--avatar);
         }
         /// Sign in / register.
-        .btn-sign-in { &, &:hover { c: cm 0 bg }}
+        .btn-sign-in { color: fg2 }
         /// Feat -> Increase navbar height.
         if (nb_height) {
             min-height: 50px;
