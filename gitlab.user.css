@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.1
+@version      2.0.0-rc.2
 @license      MIT
 ==/UserStyle== */
 
@@ -63,7 +63,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.1';
+    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.2';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --white: #fff;
@@ -93,86 +93,86 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     --v0-7: hsla(24.74,63.29%,47.59%,1);
     --v0-8: hsla(24.76,63%,52.51%,1);
     --v0-9: hsla(25.23,63.57%,57.44%,1);
-    --v1-0: hsla(0,70.38%,10.59%,1);
-    --v1-1: hsla(0,70%,16.69%,1);
-    --v1-2: hsla(0,70.1%,22.99%,1);
-    --v1-3: hsla(0,70.15%,29.28%,1);
-    --v1-4: hsla(0,70.19%,35.57%,1);
-    --v1-5: hsla(0,70.06%,41.67%,1);
-    --v1-6: hsla(0,70.1%,47.97%,1);
-    --v1-7: hsla(0,70.13%,54.26%,1);
-    --v1-8: hsla(0,70.25%,60.55%,1);
-    --v1-9: hsla(0,70.24%,66.85%,1);
-    --v2-0: hsla(30,70.38%,10.59%,1);
-    --v2-1: hsla(30,70%,16.69%,1);
-    --v2-2: hsla(30.4,70.1%,22.99%,1);
-    --v2-3: hsla(30,70.15%,29.28%,1);
-    --v2-4: hsla(29.74,70.19%,35.57%,1);
-    --v2-5: hsla(30.23,70.06%,41.67%,1);
-    --v2-6: hsla(30,70.1%,47.97%,1);
-    --v2-7: hsla(29.83,70.13%,54.26%,1);
-    --v2-8: hsla(30.01,70.25%,60.55%,1);
-    --v2-9: hsla(29.81,70.24%,66.85%,1);
-    --v3-0: hsla(60,70.38%,10.59%,1);
-    --v3-1: hsla(60,70%,16.69%,1);
-    --v3-2: hsla(60,70.1%,22.99%,1);
-    --v3-3: hsla(60,70.15%,29.28%,1);
-    --v3-4: hsla(60,70.19%,35.57%,1);
-    --v3-5: hsla(60,70.06%,41.67%,1);
-    --v3-6: hsla(60,70.1%,47.97%,1);
-    --v3-7: hsla(60.01,70.13%,54.26%,1);
-    --v3-8: hsla(60,70.25%,60.55%,1);
-    --v3-9: hsla(60,70.24%,66.85%,1);
-    --v4-0: hsla(120,70.38%,10.59%,1);
-    --v4-1: hsla(120,70%,16.69%,1);
-    --v4-2: hsla(120,70.1%,22.99%,1);
-    --v4-3: hsla(120,70.15%,29.28%,1);
-    --v4-4: hsla(120,70.19%,35.57%,1);
-    --v4-5: hsla(120,70.06%,41.67%,1);
-    --v4-6: hsla(120,70.1%,47.97%,1);
-    --v4-7: hsla(120,70.13%,54.26%,1);
-    --v4-8: hsla(120,70.25%,60.55%,1);
-    --v4-9: hsla(120,70.24%,66.85%,1);
-    --v5-0: hsla(180,70.38%,10.59%,1);
-    --v5-1: hsla(180,70%,16.69%,1);
-    --v5-2: hsla(180,70.1%,22.99%,1);
-    --v5-3: hsla(180,70.15%,29.28%,1);
-    --v5-4: hsla(180,70.19%,35.57%,1);
-    --v5-5: hsla(180,70.06%,41.67%,1);
-    --v5-6: hsla(180,70.1%,47.97%,1);
-    --v5-7: hsla(180,70.13%,54.26%,1);
-    --v5-8: hsla(180,70.25%,60.55%,1);
-    --v5-9: hsla(180,70.24%,66.85%,1);
-    --v6-0: hsla(210,70.38%,10.59%,1);
-    --v6-1: hsla(210,70%,16.69%,1);
-    --v6-2: hsla(209.6,70.1%,22.99%,1);
-    --v6-3: hsla(210,70.15%,29.28%,1);
-    --v6-4: hsla(210.27,70.19%,35.57%,1);
-    --v6-5: hsla(209.78,70.06%,41.67%,1);
-    --v6-6: hsla(210,70.1%,47.97%,1);
-    --v6-7: hsla(210.18,70.13%,54.26%,1);
-    --v6-8: hsla(210,70.25%,60.55%,1);
-    --v6-9: hsla(210.2,70.24%,66.85%,1);
-    --v7-0: hsla(270,70.38%,10.59%,1);
-    --v7-1: hsla(270,70%,16.69%,1);
-    --v7-2: hsla(270.4,70.1%,22.99%,1);
-    --v7-3: hsla(270,70.15%,29.28%,1);
-    --v7-4: hsla(269.74,70.19%,35.57%,1);
-    --v7-5: hsla(270.23,70.06%,41.67%,1);
-    --v7-6: hsla(270,70.1%,47.97%,1);
-    --v7-7: hsla(269.83,70.13%,54.26%,1);
-    --v7-8: hsla(270,70.25%,60.55%,1);
-    --v7-9: hsla(269.81,70.24%,66.85%,1);
-    --v8-0: hsla(300,70.38%,10.59%,1);
-    --v8-1: hsla(300,70%,16.69%,1);
-    --v8-2: hsla(300,70.1%,22.99%,1);
-    --v8-3: hsla(300,70.15%,29.28%,1);
-    --v8-4: hsla(300,70.19%,35.57%,1);
-    --v8-5: hsla(300,70.06%,41.67%,1);
-    --v8-6: hsla(300,70.1%,47.97%,1);
-    --v8-7: hsla(300,70.13%,54.26%,1);
-    --v8-8: hsla(300,70.25%,60.55%,1);
-    --v8-9: hsla(300,70.24%,66.85%,1);
+    --v1-0: hsla(0,60.87%,9.02%,1);
+    --v1-1: hsla(0,59.43%,14.53%,1);
+    --v1-2: hsla(0,60.44%,19.85%,1);
+    --v1-3: hsla(0,60%,25.55%,1);
+    --v1-4: hsla(0,59.43%,31.06%,1);
+    --v1-5: hsla(0,60.25%,36.57%,1);
+    --v1-6: hsla(0,59.79%,42.08%,1);
+    --v1-7: hsla(0,60.2%,47.4%,1);
+    --v1-8: hsla(0,60%,53.1%,1);
+    --v1-9: hsla(0,60.32%,58.42%,1);
+    --v2-0: hsla(30,60.87%,9.02%,1);
+    --v2-1: hsla(29.27,59.43%,14.53%,1);
+    --v2-2: hsla(30.55,60.44%,19.85%,1);
+    --v2-3: hsla(29.57,60%,25.55%,1);
+    --v2-4: hsla(30,59.43%,31.06%,1);
+    --v2-5: hsla(29.7,60.25%,36.57%,1);
+    --v2-6: hsla(30.01,59.79%,42.08%,1);
+    --v2-7: hsla(30,60.2%,47.4%,1);
+    --v2-8: hsla(30.01,60%,53.1%,1);
+    --v2-9: hsla(30.01,60.32%,58.42%,1);
+    --v3-0: hsla(60,60.87%,9.02%,1);
+    --v3-1: hsla(60,59.43%,14.53%,1);
+    --v3-2: hsla(60,60.44%,19.85%,1);
+    --v3-3: hsla(60,60%,25.55%,1);
+    --v3-4: hsla(60,59.43%,31.06%,1);
+    --v3-5: hsla(60,60.25%,36.57%,1);
+    --v3-6: hsla(60,59.79%,42.08%,1);
+    --v3-7: hsla(60,60.2%,47.4%,1);
+    --v3-8: hsla(60,60%,53.1%,1);
+    --v3-9: hsla(60,60.32%,58.42%,1);
+    --v4-0: hsla(90,60.87%,9.02%,1);
+    --v4-1: hsla(90.74,59.43%,14.53%,1);
+    --v4-2: hsla(89.46,60.44%,19.85%,1);
+    --v4-3: hsla(90.44,60%,25.55%,1);
+    --v4-4: hsla(90,59.43%,31.06%,1);
+    --v4-5: hsla(90.31,60.25%,36.57%,1);
+    --v4-6: hsla(90,59.79%,42.08%,1);
+    --v4-7: hsla(90,60.2%,47.4%,1);
+    --v4-8: hsla(90,60%,53.1%,1);
+    --v4-9: hsla(90,60.32%,58.42%,1);
+    --v5-0: hsla(180,60.87%,9.02%,1);
+    --v5-1: hsla(180,59.43%,14.53%,1);
+    --v5-2: hsla(180,60.44%,19.85%,1);
+    --v5-3: hsla(180,60%,25.55%,1);
+    --v5-4: hsla(180,59.43%,31.06%,1);
+    --v5-5: hsla(180,60.25%,36.57%,1);
+    --v5-6: hsla(180,59.79%,42.08%,1);
+    --v5-7: hsla(180,60.2%,47.4%,1);
+    --v5-8: hsla(180,60%,53.1%,1);
+    --v5-9: hsla(180,60.32%,58.42%,1);
+    --v6-0: hsla(210,60.87%,9.02%,1);
+    --v6-1: hsla(210.74,59.43%,14.53%,1);
+    --v6-2: hsla(209.46,60.44%,19.85%,1);
+    --v6-3: hsla(210.44,60%,25.55%,1);
+    --v6-4: hsla(210,59.43%,31.06%,1);
+    --v6-5: hsla(210.31,60.25%,36.57%,1);
+    --v6-6: hsla(210,59.79%,42.08%,1);
+    --v6-7: hsla(210,60.2%,47.4%,1);
+    --v6-8: hsla(210,60%,53.1%,1);
+    --v6-9: hsla(210,60.32%,58.42%,1);
+    --v7-0: hsla(270,60.87%,9.02%,1);
+    --v7-1: hsla(269.27,59.43%,14.53%,1);
+    --v7-2: hsla(270.55,60.44%,19.85%,1);
+    --v7-3: hsla(269.57,60%,25.55%,1);
+    --v7-4: hsla(270,59.43%,31.06%,1);
+    --v7-5: hsla(269.7,60.25%,36.57%,1);
+    --v7-6: hsla(270,59.79%,42.08%,1);
+    --v7-7: hsla(270,60.2%,47.4%,1);
+    --v7-8: hsla(270,60%,53.1%,1);
+    --v7-9: hsla(270,60.32%,58.42%,1);
+    --v8-0: hsla(300,60.87%,9.02%,1);
+    --v8-1: hsla(300,59.43%,14.53%,1);
+    --v8-2: hsla(300,60.44%,19.85%,1);
+    --v8-3: hsla(300,60%,25.55%,1);
+    --v8-4: hsla(300,59.43%,31.06%,1);
+    --v8-5: hsla(300,60.25%,36.57%,1);
+    --v8-6: hsla(300,59.79%,42.08%,1);
+    --v8-7: hsla(300,60.2%,47.4%,1);
+    --v8-8: hsla(300,60%,53.1%,1);
+    --v8-9: hsla(300,60.32%,58.42%,1);
     --v9-0: hsla(0,0%,16.87%,1);
     --v9-1: hsla(0,0%,25.5%,1);
     --v9-2: hsla(0,0%,34.12%,1);
@@ -435,17 +435,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--bg-2) !important;
     box-shadow: inset 0 0 0 1px var(--bg-5) !important;
   }
-  body .page-wrap .login-box .omniauth-btn,
-  body .page-wrap .signup-box .omniauth-btn,
-  body .page-wrap .omniauth-container .omniauth-btn {
+  .omniauth-btn {
     background-color: var(--bg-1) !important;
   }
-  body .page-wrap .login-box .omniauth-divider::before,
-  body .page-wrap .signup-box .omniauth-divider::before,
-  body .page-wrap .omniauth-container .omniauth-divider::before,
-  body .page-wrap .login-box .omniauth-divider::after,
-  body .page-wrap .signup-box .omniauth-divider::after,
-  body .page-wrap .omniauth-container .omniauth-divider::after {
+  .omniauth-btn:hover {
+    background-color: var(--bg-3) !important;
+  }
+  .omniauth-divider::before,
+  .omniauth-divider::after {
     border-color: var(--bg-5) !important;
   }
   body .page-wrap .login-box input.form-control,
@@ -790,11 +787,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   input[type='radio']:focus,
   input[type='checkbox']:focus,
   input[type='radio']:hover:active,
-  input[type='checkbox']:hover:active,
-  input[type='radio']:disabled,
-  input[type='checkbox']:disabled,
-  input[type='radio']:hover:active:disabled,
-  input[type='checkbox']:hover:active:disabled {
+  input[type='checkbox']:hover:active {
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
@@ -806,22 +799,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--fg-1) !important;
     background-color: var(--bg-2) !important;
   }
-  input[type='radio']:checked {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
+  input[type='radio'] {
     border-radius: 100% !important;
   }
+  input[type='radio']:checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="128" fill="white"/></svg>') !important;
+  }
   input[type='radio']:checked:checked {
-    border-color: var(--v0-9) !important;
-    background-color: var(--v0-9) !important;
+    border-color: var(--v0-8) !important;
+    background-color: var(--v0-4) !important;
   }
   input[type='checkbox']:checked {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
-    border-color: var(--v0-9) !important;
-    background-color: var(--v0-9) !important;
+    border-color: var(--v0-8) !important;
+    background-color: var(--v0-4) !important;
   }
   input[type='checkbox']:indeterminate {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="128" y="192" width="256" height="96" fill="white"/></svg>') !important;
-    border-color: var(--v1-5) !important;
+    border-color: var(--v1-8) !important;
     background-color: var(--v1-5) !important;
   }
   [aria-sort='ascending'] {
@@ -932,10 +927,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: transparent !important;
     border-radius: var(--avatar);
   }
-  .navbar .btn-sign-in,
-  .navbar .btn-sign-in:hover {
-    color: var(--fg-4) !important;
-    background-color: var(--bg-1) !important;
+  .navbar .btn-sign-in {
+    color: var(--fg-2);
   }
   .nav-sidebar {
     top: 50px;
@@ -1193,6 +1186,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   table:not(.code):not(#z).tree-table tbody tr > td {
     border-top: 1px solid var(--bg-5) !important;
     border-bottom: none !important;
+  }
+  table:not(.code):not(#z).tree-table tbody tr > td.tree-time-ago {
+    color: var(--fg-4) !important;
   }
   table:not(.code):not(#z).tree-table tbody tr.selected td {
     background-color: var(--bg-2) !important;
@@ -2584,6 +2580,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .right-sidebar .block {
     border-color: var(--bg-5) !important;
   }
+  .right-sidebar a:not(.btn):hover {
+    color: var(--v0-8);
+  }
   .right-sidebar .edit-link,
   .right-sidebar .lock-edit,
   .right-sidebar .no-value,
@@ -2735,6 +2734,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .dropdown-title-button {
     float: right;
+  }
+  .right-sidebar .trigger-build-variable,
+  .right-sidebar .trigger-build-value {
+    color: var(--fg-3) !important;
   }
   .right-sidebar-expanded .gutter-toggle {
     border-color: var(--bg-5) !important;
@@ -3107,6 +3110,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     padding-bottom: 0 !important;
   }
   .user-calendar-activities {
+    margin: 0 15px;
     background-color: var(--bg-2) !important;
     border-radius: 4px;
   }
@@ -4128,12 +4132,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-form-group .bordered-box.pl-3:focus-within {
     border-color: var(--v6-5) !important;
   }
-  .gl-form-input.form-control {
-    background-color: var(--bg-2) !important;
-  }
-  .gl-form-input[placeholder] {
-    background-color: var(--bg-1) !important;
-  }
   .help-form .form-group form,
   .help-form .form-group .form-control,
   .help-form .form-group code {
@@ -4223,6 +4221,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .border-left {
     border-color: var(--bg-5) !important;
+  }
+  .border-top {
+    border-top: 1px solid var(--bg-5) !important;
   }
   .gl-border-b-gray-100 {
     border-color: var(--bg-5) !important;
@@ -5320,6 +5321,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--fg-1);
   }
   .file-holder .file-title-flex-parent .btn.disabled {
+    color: var(--fg-5) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-3) !important;
   }
@@ -5397,11 +5399,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .code.white code span.line:hover.hll,
   .code.none code span.line:hover.hll {
-    background-color: var(--v3-1) !important;
+    background-color: var(--v3-2) !important;
   }
   .code.white code .hll,
   .code.none code .hll {
-    background-color: var(--v3-0) !important;
+    background-color: var(--v3-1) !important;
   }
   .idiff.addition {
     color: var(--v4-8) !important;
@@ -5432,20 +5434,20 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .code.none pre.code .line span {
     color: var(--fg-1) !important;
   }
-  .code.white .line > a {
-    color: var(--v6-5) !important;
+  .code.white .line a {
+    color: var(--v6-7) !important;
   }
   .code.white .err {
     color: var(--v9-9) !important;
     background-color: var(--v1-6) !important;
   }
   .code.white .gi {
-    color: var(--v4-8) !important;
-    background-color: var(--v4-0) !important;
+    color: var(--v9-8) !important;
+    background-color: var(--v4-2) !important;
   }
   .code.white .gd {
-    color: var(--v1-8) !important;
-    background-color: var(--v1-0) !important;
+    color: var(--v9-8) !important;
+    background-color: var(--v1-2) !important;
   }
   .code.white .c,
   .code.white .cm,
@@ -5599,8 +5601,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: transparent !important;
   }
   .cred:not(#z) {
-    color: var(--v1-5) !important;
-    fill: var(--v1-5) !important;
+    color: var(--v1-6) !important;
+    fill: var(--v1-6) !important;
   }
   .cgreen:not(#z) {
     color: var(--v4-5) !important;
@@ -5613,7 +5615,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--fg-4) !important;
   }
   .diff-files-changed [class *= 'summary-toggle'] {
-    color: var(--v6-5) !important;
+    color: var(--v6-7) !important;
     background-color: transparent !important;
   }
   .diff-files-changed [class *= 'summary-toggle']::before {
@@ -5889,7 +5891,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     margin-right: 10px;
   }
   .group-list-tree .group-row .description p,
-  .group-list-tree .group-row .stat-value {
+  .group-list-tree .group-row .stat-value,
+  .group-list-tree .group-row .last-updated {
     color: var(--fg-4) !important;
   }
   .group-list-tree .folder-caret {
