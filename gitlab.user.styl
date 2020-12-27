@@ -1963,6 +1963,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: 0 bd hl;
         .title { c: fg }
         .block { c: 0 bd }
+        a:not(.btn):hover { color: v08 }
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
 
         /// Reset buttons and links.
@@ -4226,12 +4227,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 padding-left: 0;
                 c: 0 0 t;
             }
-            /.cred:not(#z) { c: v15; g: v15 }
+            /.cred:not(#z) { c: v16; g: v16 }
             /.cgreen:not(#z) { c: v45; g: v45 }
             /.highlighted:not(#z) { c: v09 }
             /.diff-changed-file-path { c: cm }
             [class *= 'summary-toggle'] {
-                c: v65 0 t
+                c: v67 0 t
                 /// Reset hover styles.
                 &::before { content: unset }
             }
@@ -4414,7 +4415,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-contents:hover { c: 0 0 hl }
             &:last-child::before { c: 0 0 bb }
             .metadata { margin-right: 10px }
-            .description p, .stat-value { c: cm }
+            .description p, .stat-value, .last-updated { c: fg4 }
         }
         .folder-caret { margin-left: 10px }
     }
