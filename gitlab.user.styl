@@ -697,7 +697,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: 0 v18 v15
         }
 
-        /// Arrows.
+        /// Sort arrows.
         /[aria-sort='ascending'] {
             x = s('<path fill="%s" d="M51 1l25 23 24 22H1l25-22z"/>', to_svg(v0-9))
             y = '<path fill="gray" opacity=".6" d="M51 101l25-23 24-22H1l25 22z"/>'
@@ -707,6 +707,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             x = '<path fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/>'
             y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg(v0-9))
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
+        }
+
+        /// Down chevron.
+        /.select2-arrow {
+            x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
+            x += s('viewBox="0 0 48 48" width="34" height="34" stroke="%s" ', to_svg(fg-3))
+            x += 'stroke-width="3" stroke-linecap="round" stroke-linejoin="round" '
+            x += 'fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>'
+            background: s("url('%s') 10px 9px %s", r(x), i)
         }
 
         /// Checkmarks.
@@ -1297,8 +1306,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Select2 component.
         /.select2 {
-            &-choice { &, &s { c: fg1 bg5 bg1 }}
-            &-arrow { filter: invert(0.7); c: 0 0 t }
+            &-choice { &, &s { c: fg1 bg5 bg2 }}
+
+            /// Down chevron.
+            &-arrow {
+                padding: 0 16px
+                width: unset
+                c: 0 bg5 t
+            }
 
             /// Focused state.
             &-container {
