@@ -3226,8 +3226,16 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Breadcrumbs.
         &-breadcrumbs { b: inset 0 -1px bg5 }
 
+        &-form-input {
+            /// Settings -> CI/CD -> Clean up image tags.
+            &.form-control-plaintext { c: fg1 0 t }
+        }
+
         /// Select elements.
-        &-form-select { b: inner }
+        &-form-select {
+            font-family: var(--ui-font)
+            b: inner
+        }
     }
 
     // Pajamas -> GFM.
