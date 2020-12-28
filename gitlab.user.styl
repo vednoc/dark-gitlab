@@ -1351,6 +1351,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 font-family: var(--ui-font) i
                 c: fg1 bg5 t
             }
+
+            /// Fix flash of browser-default select elements.
+            /select {
+                border: 1px solid bg5
+                c: fg 0 bg2
+            }
         }
 
         /// OBSOLETE: Old 'download' menu, and likely others.
