@@ -1309,22 +1309,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-choice { &, &s { c: fg1 bg5 bg2 }}
 
             /// Down chevron.
+            &-chosen { margin-right: 25px i }
             &-arrow {
                 padding: 0 16px
                 width: unset
                 c: 0 bg5 t
             }
 
-            /// Focused state.
             &-container {
+                /// Focused state.
                 &&-active:not([class*='dropdown-open']) > .select2-choice {
                     b: 0 0 0 0.2rem v63 i
                     c: 0 v66
                 }
 
-                /// NOTE: Ported and untested.
+                /// Disabled state.
                 &-disabled {
-                    > a { c: 0 0 bg5 }
+                    .select2-arrow { opacity: 0.6 }
+                    > a { c: fg5 bg3 bg1 }
                 }
             }
 
