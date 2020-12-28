@@ -1859,83 +1859,84 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Left sidebar.
     .nav-sidebar {
-        border-right: 1px solid bd;
-        c: 0 0 hl;
-        box-shadow: none;
+        border-right: 1px solid bg5
+        c: 0 0 bg2
+        b: none i
+
         /// Header.
-        .context-header > * {
-            c: fg;
+        .context-header {
+            a { c: fg1 }
             &:hover { c: 0 0 bg3 }
-            .avatar-container {
-                c: 0 t t
-                .identicon.s40 { line-height: 36px i }
+            .identicon.s40 { line-height: 36px i }
+        }
+
+        /// Items.
+        li {
+            a {
+                margin-right: 0px i
+                color: fg3
+            }
+            svg { g: currentColor }
+            .divider { c: 0 bg5 }
+            &.active {
+                b: inset 4px 0 0 v08 i
+                > a { c: ac }
             }
         }
-        /// Items.
-        .divider { c: 0 bd }
+
+        /// First level.
         .sidebar-top-level-items > li {
-            &:hover {
-                c: 0 0 bg3
-                > a { c: fg }
-            }
+            > a:hover { color: fg1 }
             &.active {
                 c: 0 0 bg3
-                b: inset 4px 0 ac i
-                /// Level name.
-                > a {
-                    c: fg;
-                    svg { g: fg }
-                }
-                /// Active item.
-                &:not(.is-over) > ul > li.active > a {
-                    c: 0 0 bg4
-                    b: inset 4px 0 ac i
-                }
+                > a:hover { c: 0 0 bg4 }
                 .badge { c: fg1 0 bg5 }
             }
-            a {
-                c: cm;
-                &:hover { c: 0 0 t }
+            &.is-over {
+                > a { c: 0 0 bg3 }
+                &.active > a { c: 0 0 bg4 }
             }
-            .badge { c: fg3 0 bg4 }
-            /// Remove borders from sub-level items.
-            &.is-over:not(#z) { ul > li { &, > a { box-shadow: unset i }}}
-        }
-        .sidebar-sub-level-items > li {
-            &:hover {
-                c: 0 0 bd;
-                b: inset 4px 0 ac i
-                a { c: fg }
-            }
-            &.active {
-                b: inset 4px 0 ac i
-                a { c: fg }
-            }
-        }
-        /// Flyout menus.
-        .is-over.is-showing-fly-out {
-            > a { c: fg 0 bg3 }
-            ul {
-                c: 0 bd hl;
-                b: none i
-                li {
-                    a { c: cm }
-                    a:focus { c: 0 0 bd }
-                    &:hover a { c: fg 0 bg4 }
+
+            /// Second level.
+            &:not(.is-showing-fly-out) > ul > li {
+                &:not(.active) > a {
+                    &:hover, &:focus {
+                        c: fg1 0 bg4
+                        b: inset 4px 0 0 v08 i
+                    }
+                }
+                &.active a {
+                    c: 0 0 bg4
+                    b: inset 4px 0 0 v08 i
                 }
             }
         }
-        /// Collapsed state.
-        &[class *= 'collapsed'] {
-            .sidebar-top-level-items > li.active { c: 0 0 bg4 }
+
+        /// Fly-out menu.
+        .is-showing-fly-out {
+            > ul {
+                c: 0 bg5 bg2
+                li {
+                    b: none i
+                    &:not(.active) {
+                        > a { color: fg3 }
+                        &:first-child > a { c: fg1 }
+                    }
+                    a { &:hover, &:focus { c: 0 0 bg3 }}
+                }
+            }
         }
+
         /// Collapse buttons.
         .toggle-sidebar-button, .close-nav-button {
-            c: 0 bd hl;
-            svg { c: cm }
-            span { c: fg }
-            &:hover { c: 0 0 bd }
+            c: 0 bg5 bg2
+            span, svg { c: fg4 }
+            &:hover {
+                c: 0 0 bg3
+                > span, > svg { c: fg1 }
+            }
         }
+
         /// Fix for a glitch introduced in !47.
         /// NOTE: Sometimes, the JS calculation is not made in time and the very
         /// first column of jobs ends up hidden behind left sidebar. This simple
