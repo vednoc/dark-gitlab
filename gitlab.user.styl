@@ -726,6 +726,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             x += s('stroke="%s" points="20 6 9 17 4 12"></polyline></svg>', to_svg(v0-9))
             background-image: s("url('%s') %s", r(x), i)
         }
+
+        /// Issues -> Import CSV.
+        &[accept] {
+            background-color: t
+            filter: invert(0.8)
+        }
     }
 
     // Admin.
