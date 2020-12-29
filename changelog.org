@@ -1,6 +1,25 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.3 [2020-12-29 Tue]
+Refactored left sidebar, and made a ton of tiny tweaks for colors.
+
+*** Improved
+- Rewritten left sidebar is now more correct and uses new colors
+- Added custom "chevron down" icon for arrows in select2 component
+- Switched to slightly lighter tones for active notes and reactions
+- Switched to slightly darker tones of colors for alerts
+  + Previous colors made buttons blend in.
+
+*** Fixed
+- Added styles to fix flashing of browser-default select elements
+- Updated incorrect ported styles for disabled select2 elements
+- Added tweaks for plaintext/accept input elements
+- Added styles for new breadcrumbs from Pajamas
+- Inverted images on "Create new project" pages
+- Added a couple of tweaks for dropdown items
+- Tweaked borders for CI tables on jobs page
+
 ** 2.0.0-rc.2 [2020-12-27 Sun]
 Added two new options to adjust syntax colors to replace the old one, fixed some
 bugs to improve consistency, and refactored/removed some unused code.
