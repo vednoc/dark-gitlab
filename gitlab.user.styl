@@ -3246,6 +3246,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-form-select {
             font-family: var(--ui-font)
             b: inner
+            &:disabled {
+                c: fg5
+                b: inner
+            }
         }
     }
 
