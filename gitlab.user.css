@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.2
+@version      2.0.0-rc.3
 @license      MIT
 ==/UserStyle== */
 
@@ -63,7 +63,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.2';
+    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.3';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --white: #fff;
@@ -825,8 +825,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   [aria-sort='descending'] {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none"><path fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/><path fill="\%23d7884d" d="M51 101l25-23 24-22H1l25 22z"/></svg>') !important;
   }
+  .select2-arrow {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="34" height="34" stroke="\%23a8a8a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>') 10px 9px !important;
+  }
   .dropdown-menu-selectable li .is-active {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline stroke="\%23d7884d" points="20 6 9 17 4 12"></polyline></svg>') !important;
+  }
+  input[accept] {
+    background-color: transparent;
+    filter: invert(0.8);
   }
   .with-performance-bar .production {
     background-color: var(--bg-1) !important;
@@ -1263,7 +1270,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
   }
-  .ci-table [class $= 'table-row']:nth-last-child(2) {
+  .ci-table [class $= 'table-row']:last-child {
     border-bottom: none !important;
     border-radius: 0 0 3px 3px;
   }
@@ -1279,8 +1286,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .ci-table .sprite {
     fill: var(--fg-4) !important;
   }
-  .ci-table > tbody > .build + tr > td {
-    border-top: 1px solid var(--v1-5) !important;
+  .ci-table > tbody > .build + tr + tr > th {
+    box-shadow: inset 0 1px var(--bg-5) !important;
   }
   .ci-table > tbody > .build > td {
     border-top: 1px solid var(--bg-5) !important;
@@ -1591,18 +1598,28 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .select2-choices {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-1) !important;
+    background-color: var(--bg-2) !important;
+  }
+  .select2-chosen {
+    margin-right: 25px !important;
   }
   .select2-arrow {
-    filter: invert(0.7);
+    padding: 0 16px;
+    width: unset;
+    border-color: var(--bg-5) !important;
     background-color: transparent !important;
   }
   .select2-container.select2-container-active:not([class*='dropdown-open']) > .select2-choice {
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
     border-color: var(--v6-6) !important;
   }
+  .select2-container-disabled .select2-arrow {
+    opacity: 0.6;
+  }
   .select2-container-disabled > a {
-    background-color: var(--bg-5) !important;
+    color: var(--fg-5) !important;
+    border-color: var(--bg-3) !important;
+    background-color: var(--bg-1) !important;
   }
   .select2-drop {
     color: var(--fg-1) !important;
@@ -1634,6 +1651,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: transparent !important;
+  }
+  select {
+    border: 1px solid var(--bg-5);
+    color: var(--fg-1) !important;
+    background-color: var(--bg-2) !important;
   }
   .dropdown .btn[data-toggle='dropdown'] .fa,
   .dropdown .btn[data-toggle='dropdown'] svg {
@@ -2072,12 +2094,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .btn.selected[data-testid='award-button'],
   .btn.award-control.active {
     color: var(--v0-9) !important;
-    border-color: var(--v0-4) !important;
-    background-color: var(--v0-1) !important;
+    border-color: var(--v0-5) !important;
+    background-color: var(--v0-2) !important;
   }
   .btn.selected[data-testid='award-button']:hover,
   .btn.award-control.active:hover {
-    background-color: var(--v0-2) !important;
+    background-color: var(--v0-3) !important;
   }
   .btn.selected[data-testid='award-button']:focus,
   .btn.award-control.active:focus {
@@ -2461,113 +2483,99 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .nav-sidebar {
     border-right: 1px solid var(--bg-5);
     background-color: var(--bg-2) !important;
-    box-shadow: none;
+    box-shadow: none !important;
   }
-  .nav-sidebar .context-header > * {
+  .nav-sidebar .context-header a {
     color: var(--fg-1) !important;
   }
-  .nav-sidebar .context-header > *:hover {
+  .nav-sidebar .context-header:hover {
     background-color: var(--bg-3) !important;
   }
-  .nav-sidebar .context-header > * .avatar-container {
-    border-color: transparent !important;
-    background-color: transparent !important;
-  }
-  .nav-sidebar .context-header > * .avatar-container .identicon.s40 {
+  .nav-sidebar .context-header .identicon.s40 {
     line-height: 36px !important;
   }
-  .nav-sidebar .divider {
+  .nav-sidebar li a {
+    margin-right: 0px !important;
+    color: var(--fg-3);
+  }
+  .nav-sidebar li svg {
+    fill: currentColor !important;
+  }
+  .nav-sidebar li .divider {
     border-color: var(--bg-5) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li:hover {
-    background-color: var(--bg-3) !important;
+  .nav-sidebar li.active {
+    box-shadow: inset 4px 0 0 var(--v0-8) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li:hover > a {
-    color: var(--fg-1) !important;
+  .nav-sidebar li.active > a {
+    color: var(--v0-9) !important;
+  }
+  .nav-sidebar .sidebar-top-level-items > li > a:hover {
+    color: var(--fg-1);
   }
   .nav-sidebar .sidebar-top-level-items > li.active {
     background-color: var(--bg-3) !important;
-    box-shadow: inset 4px 0 var(--v0-9) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li.active > a {
-    color: var(--fg-1) !important;
-  }
-  .nav-sidebar .sidebar-top-level-items > li.active > a svg {
-    fill: var(--fg-1) !important;
-  }
-  .nav-sidebar .sidebar-top-level-items > li.active:not(.is-over) > ul > li.active > a {
+  .nav-sidebar .sidebar-top-level-items > li.active > a:hover {
     background-color: var(--bg-4) !important;
-    box-shadow: inset 4px 0 var(--v0-9) !important;
   }
   .nav-sidebar .sidebar-top-level-items > li.active .badge {
     color: var(--fg-1) !important;
     background-color: var(--bg-5) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li a {
-    color: var(--fg-4) !important;
-  }
-  .nav-sidebar .sidebar-top-level-items > li a:hover {
-    background-color: transparent !important;
-  }
-  .nav-sidebar .sidebar-top-level-items > li .badge {
-    color: var(--fg-3) !important;
-    background-color: var(--bg-4) !important;
-  }
-  .nav-sidebar .sidebar-top-level-items > li.is-over:not(#z) ul > li,
-  .nav-sidebar .sidebar-top-level-items > li.is-over:not(#z) ul > li > a {
-    box-shadow: unset !important;
-  }
-  .nav-sidebar .sidebar-sub-level-items > li:hover {
-    background-color: var(--bg-5) !important;
-    box-shadow: inset 4px 0 var(--v0-9) !important;
-  }
-  .nav-sidebar .sidebar-sub-level-items > li:hover a {
-    color: var(--fg-1) !important;
-  }
-  .nav-sidebar .sidebar-sub-level-items > li.active {
-    box-shadow: inset 4px 0 var(--v0-9) !important;
-  }
-  .nav-sidebar .sidebar-sub-level-items > li.active a {
-    color: var(--fg-1) !important;
-  }
-  .nav-sidebar .is-over.is-showing-fly-out > a {
-    color: var(--fg-1) !important;
+  .nav-sidebar .sidebar-top-level-items > li.is-over > a {
     background-color: var(--bg-3) !important;
   }
-  .nav-sidebar .is-over.is-showing-fly-out ul {
-    border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-    box-shadow: none !important;
+  .nav-sidebar .sidebar-top-level-items > li.is-over.active > a {
+    background-color: var(--bg-4) !important;
   }
-  .nav-sidebar .is-over.is-showing-fly-out ul li a {
-    color: var(--fg-4) !important;
-  }
-  .nav-sidebar .is-over.is-showing-fly-out ul li a:focus {
-    background-color: var(--bg-5) !important;
-  }
-  .nav-sidebar .is-over.is-showing-fly-out ul li:hover a {
+  .nav-sidebar .sidebar-top-level-items > li:not(.is-showing-fly-out) > ul > li:not(.active) > a:hover,
+  .nav-sidebar .sidebar-top-level-items > li:not(.is-showing-fly-out) > ul > li:not(.active) > a:focus {
     color: var(--fg-1) !important;
     background-color: var(--bg-4) !important;
+    box-shadow: inset 4px 0 0 var(--v0-8) !important;
   }
-  .nav-sidebar[class *= 'collapsed'] .sidebar-top-level-items > li.active {
+  .nav-sidebar .sidebar-top-level-items > li:not(.is-showing-fly-out) > ul > li.active a {
     background-color: var(--bg-4) !important;
+    box-shadow: inset 4px 0 0 var(--v0-8) !important;
+  }
+  .nav-sidebar .is-showing-fly-out > ul {
+    border-color: var(--bg-5) !important;
+    background-color: var(--bg-2) !important;
+  }
+  .nav-sidebar .is-showing-fly-out > ul li {
+    box-shadow: none !important;
+  }
+  .nav-sidebar .is-showing-fly-out > ul li:not(.active) > a {
+    color: var(--fg-3);
+  }
+  .nav-sidebar .is-showing-fly-out > ul li:not(.active):first-child > a {
+    color: var(--fg-1) !important;
+  }
+  .nav-sidebar .is-showing-fly-out > ul li a:hover,
+  .nav-sidebar .is-showing-fly-out > ul li a:focus {
+    background-color: var(--bg-3) !important;
   }
   .nav-sidebar .toggle-sidebar-button,
   .nav-sidebar .close-nav-button {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
   }
+  .nav-sidebar .toggle-sidebar-button span,
+  .nav-sidebar .close-nav-button span,
   .nav-sidebar .toggle-sidebar-button svg,
   .nav-sidebar .close-nav-button svg {
     color: var(--fg-4) !important;
   }
-  .nav-sidebar .toggle-sidebar-button span,
-  .nav-sidebar .close-nav-button span {
-    color: var(--fg-1) !important;
-  }
   .nav-sidebar .toggle-sidebar-button:hover,
   .nav-sidebar .close-nav-button:hover {
-    background-color: var(--bg-5) !important;
+    background-color: var(--bg-3) !important;
+  }
+  .nav-sidebar .toggle-sidebar-button:hover > span,
+  .nav-sidebar .close-nav-button:hover > span,
+  .nav-sidebar .toggle-sidebar-button:hover > svg,
+  .nav-sidebar .close-nav-button:hover > svg {
+    color: var(--fg-1) !important;
   }
   .right-sidebar {
     border-color: var(--bg-5) !important;
@@ -3946,6 +3954,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   img[src *= '/help/img/'],
   img[src *= 'assets/promotions/'],
   img[src *= 'assets/illustrations/'],
+  [data-page='projects:new'] svg[width='215px'],
   #oauth-login-github > img {
     filter: invert(0.8) brightness(110%) hue-rotate(180deg);
     box-shadow: none !important;
@@ -3963,35 +3972,35 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   }
   .gl-alert-warning {
     color: var(--v9-9) !important;
-    background-color: var(--v2-3) !important;
+    background-color: var(--v2-2) !important;
   }
   .gl-alert-warning .gl-alert-icon {
     fill: var(--v9-7) !important;
   }
   .gl-alert-danger {
     color: var(--v9-9) !important;
-    background-color: var(--v1-3) !important;
+    background-color: var(--v1-2) !important;
   }
   .gl-alert-danger .gl-alert-icon {
     fill: var(--v9-7) !important;
   }
   .gl-alert-success {
     color: var(--v9-9) !important;
-    background-color: var(--v4-3) !important;
+    background-color: var(--v4-2) !important;
   }
   .gl-alert-success .gl-alert-icon {
     fill: var(--v9-7) !important;
   }
   .gl-alert-info {
     color: var(--v9-9) !important;
-    background-color: var(--v6-3) !important;
+    background-color: var(--v6-2) !important;
   }
   .gl-alert-info .gl-alert-icon {
     fill: var(--v9-7) !important;
   }
   .gl-alert-tip {
     color: var(--fg-2) !important;
-    background-color: var(--bg-3) !important;
+    background-color: var(--bg-2) !important;
   }
   .gl-alert-tip .gl-alert-icon {
     fill: var(--fg-3) !important;
@@ -4238,6 +4247,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     border-color: transparent !important;
     background-color: transparent !important;
   }
+  .gl-new-dropdown-header-top {
+    border-color: var(--bg-5) !important;
+  }
   .gl-new-dropdown .dropdown-menu:not(#z) {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
@@ -4260,7 +4272,22 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   .gl-breadcrumbs {
     box-shadow: inset 0 -1px var(--bg-5);
   }
+  .gl-breadcrumb-separator > svg {
+    color: var(--fg-4) !important;
+  }
+  .gl-breadcrumb-item:last-child > a {
+    color: var(--fg-1) !important;
+  }
+  .gl-form-input.form-control-plaintext {
+    color: var(--fg-1) !important;
+    background-color: transparent !important;
+  }
   .gl-form-select {
+    font-family: var(--ui-font);
+    box-shadow: inset 0 0 0 1px var(--bg-5);
+  }
+  .gl-form-select:disabled {
+    color: var(--fg-5) !important;
     box-shadow: inset 0 0 0 1px var(--bg-5);
   }
   .gfm {
@@ -4460,15 +4487,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   #add-projects-modal .gl-form-input {
     background-color: var(--bg-2) !important;
   }
-  #add-projects-modal .gl-infinite-scroll-container .btn {
+  .gl-infinite-scroll-container .btn {
     background-color: transparent !important;
   }
-  #add-projects-modal .gl-infinite-scroll-container .btn:focus,
-  #add-projects-modal .gl-infinite-scroll-container .btn.focus {
+  .gl-infinite-scroll-container .btn:focus,
+  .gl-infinite-scroll-container .btn.focus {
     background-color: var(--bg-2) !important;
     box-shadow: none !important;
   }
-  #add-projects-modal .gl-infinite-scroll-legend {
+  .gl-infinite-scroll-legend {
     color: var(--fg-4) !important;
   }
   .modal-doorkeepr-auth > .modal-content {
@@ -6077,8 +6104,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--bg-1) !important;
   }
   .notes.timeline > .timeline-entry.target:not(#z) {
-    border-color: var(--v6-3) !important;
-    background-color: var(--v6-0) !important;
+    border-color: var(--v0-4) !important;
+    background-color: var(--v0-0) !important;
   }
   .notes.timeline > .timeline-entry .note-text.md {
     color: var(--fg-1) !important;
@@ -6246,7 +6273,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     background-color: var(--bg-1) !important;
   }
   .discussion .timeline-entry.target {
-    background-color: var(--v6-0) !important;
+    background-color: var(--v0-0) !important;
   }
   .discussion-body .notes_holder li.note,
   .discussion-body .notes li.note:not(:first-child) {
