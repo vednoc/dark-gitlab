@@ -3224,7 +3224,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Breadcrumbs.
-        &-breadcrumbs { b: inset 0 -1px bg5 }
+        &-breadcrumb {
+            &s { b: inset 0 -1px bg5 }
+            &-separator > svg { c: fg4 }
+            &-item:last-child > a { c: fg1 }
+        }
 
         &-form-input {
             /// Settings -> CI/CD -> Clean up image tags.
