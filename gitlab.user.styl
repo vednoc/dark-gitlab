@@ -1081,7 +1081,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             [class $= 'table-row'] {
                 padding: 8px 16px;
                 c: fg bd bg;
-                &:nth-last-child(2) {
+                &:last-child {
                     border-bottom: none i;
                     rad: 0 0 3px 3px;
                 }
@@ -1092,7 +1092,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Project -> Jobs -> Fix icons and table cells. #98
             .sprite { g: cm }
             > tbody > .build {
-                + tr > td { border-top: 1px solid red i }
+                + tr + tr > th { b: inset 0 1px bg5 i }
                 > td { border-top: 1px solid bd i }
                 &:hover { c: 0 0 bg2 }
             }
