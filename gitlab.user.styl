@@ -1632,8 +1632,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Notes -> Reactions.
         &.selected[data-testid='award-button'],
         &.award-control.active {
-            c: v09 v04 v01
-            &:hover { c: 0 0 v02 }
+            c: v09 v05 v02
+            &:hover { c: 0 0 v03 }
             &:focus { b: $f v01 i }
         }
 
@@ -4570,7 +4570,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude system events and input form.
             &:not(.system-note):not(.note-form) { c: 0 0 bg }
             /// Active note.
-            &.target:not(#z) { c: 0 v63 v60 }
+            &.target:not(#z) { c: 0 v04 v00 }
             /// Markdown area.
             .note-text {
                 &.md { c: fg }
@@ -4688,7 +4688,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Discussion notes.
         .timeline-entry {
             c: fg 0 bg;
-            &.target { c: 0 0 v60 }
+            &.target { c: 0 0 v00 }
         }
         /// Fix rounded corners in discussions. @upstream
         &-body {
