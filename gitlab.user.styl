@@ -2695,7 +2695,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Avatars.
     .avatar {
-        &, &-circle, &-container {
+        &, &-circle, &-container, /.gl-avatar-s32 {
             text-shadow: 1px 1px 1px sh
             rad: var(--avatar) i
             c: fg t t
@@ -2705,28 +2705,28 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Overrides.
-        &.identicon {
-            border: 1px solid t
+        /[class*='identicon'] {
+            border: 1px solid t i
 
             /// Resize avatars.
-            &.s20 { line-height: 16px } // Usage quotas.
-            &.s24 { line-height: 22px } // Operations.
-            &.s32 { line-height: 28px } // Search menus.
-            &.s40 { line-height: 28px } // Group projects.
-            &.s48 { line-height: 44px } // Dashboard projects.
-            &.s64 { line-height: 60px } // Group avatar.
-            &.s90 { line-height: 86px } // Project avatar in settings.
-        }
+            &[class*='s20'] { line-height: 16px i } // Usage quotas.
+            &[class*='s24'] { line-height: 22px i } // Operations.
+            &[class*='s32'] { line-height: 28px i } // Search menus.
+            &[class*='s40'] { line-height: 28px i } // Group projects.
+            &[class*='s48'] { line-height: 44px i } // Dashboard projects.
+            &[class*='s64'] { line-height: 60px i } // Group avatar.
+            &[class*='s90'] { line-height: 86px i } // Project avatar in settings.
 
-        /// Default colors.
-        &.bg0 { c: v19 v13 v11 }
-        &.bg1 { c: v49 v43 v41 }
-        &.bg2 { c: v59 v53 v51 }
-        &.bg3 { c: v39 v33 v31 }
-        &.bg4 { c: v79 v73 v71 }
-        &.bg5 { c: v69 v63 v61 }
-        &.bg6 { c: v89 v83 v81 }
-        &.bg7 { c: v29 v23 v21 }
+            /// Default colors.
+            &[class*='bg0'] { c: v19 v13 v11 }
+            &[class*='bg1'] { c: v49 v43 v41 }
+            &[class*='bg2'] { c: v59 v53 v51 }
+            &[class*='bg3'] { c: v39 v33 v31 }
+            &[class*='bg4'] { c: v79 v73 v71 }
+            &[class*='bg5'] { c: v69 v63 v61 }
+            &[class*='bg6'] { c: v89 v83 v81 }
+            &[class*='bg7'] { c: v29 v23 v21 }
+        }
 
         /// Fallback identicon; Found on 'usage quotas' page.
         &.bgNaN { c: 0 bg5 bg3 }
