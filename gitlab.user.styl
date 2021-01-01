@@ -184,7 +184,7 @@ for num in 0..5 {
     else if num == 0 { $color = lighten($color, 10%) }
     else { $color = darken($color, (num + num/1.25) * 5%) }
 
-    $color = desaturate($color, 80%)
+    $color = desaturate($color, 90%)
     $color = to_hsla($color)
     // $dbg += '--- FG: ' + $color
 
