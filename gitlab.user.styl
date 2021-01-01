@@ -458,11 +458,11 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .bordered, .unstyled { &-list > li { c: 0 bd }}
         /// Scrollbars.
         if (sb_enable) {
-            /html { scrollbar-color: #88888830 #88888815 }
+            /html { scrollbar-color: bg4 bg2 }
             /::-webkit-scrollbar {
                 width: 12px;
-                &-track { background: #88888815 }
-                &-thumb { background: #88888830 }
+                &-track { background: bg2 }
+                &-thumb { background: bg4 }
             }
         }
         /// Placeholders.
