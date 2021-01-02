@@ -1665,6 +1665,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:focus { b: $f v01 i }
         }
 
+        /// Notes -> Reply to a discussion.
+        &&-text-field {
+            c: fg3 bg5 bg1
+            &:hover { c: 0 0 bg2 }
+        }
+
         /// Settings -> Connected accounts.
         /.provider-btn {
             line-height: unset
