@@ -4227,6 +4227,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Diff -> Hide comment toggle/avatars.
                 &::before { c: 0 0 bb }
             }
+
+            /// Non-previewable files in diffs.
+            /// NOTE: https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/7/diffs
+            ../.preview-container .file-container {
+                c: 0 0 t
+                .file-info { c: fg3 }
+            }
         }
         /// Content.
         .diff-content {
