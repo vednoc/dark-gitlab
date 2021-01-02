@@ -4229,10 +4229,24 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
 
             /// Non-previewable files in diffs.
-            /// NOTE: https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/7/diffs
-            ../.preview-container .file-container {
-                c: 0 0 t
-                .file-info { c: fg3 }
+            /// https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/7/diffs
+            ../.preview-container {
+                .file-container {
+                    c: 0 0 t
+                    .file-info { c: fg3 }
+                }
+
+                /// Image discussions.
+                /// NOTE: Seems to be a bugged on upstream.
+                /.note-container {
+                    c: 0 bg5 t
+                    .discussion {
+                        &-notes::before, &-form::before {
+                            c: 0 0 t
+                            filter: invert(0.7)
+                        }
+                    }
+                }
             }
         }
         /// Content.
@@ -4257,7 +4271,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                         &:-moz-broken::before { content: 'broken image' }
                     }
                 }
-                &-info { c: cm }
+                &-info { c: fg3 }
                 ~ .note-container { c: 0 t t }
 
                 /// Invert controls.
