@@ -1315,7 +1315,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Navbar -> User menu.
         li.current-user {
-            c: fg4
+            c: fg1
             .bold, .user-status { c: fg1 }
         }
 
@@ -3234,6 +3234,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-b-gray-100 { c: 0 bd }
             &-t-gray-100 { c: 0 bg5 }
         }
+
+        /// Text color overrides.
+        &-sm-text-body { c: fg1 } // Packages -> Image tags.
+
         /// Box-shadow overrides.
         &-inset-border {
             &-1-gray-100 { box-shadow: inset 0 0 0 1px bd }
@@ -3263,7 +3267,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Badges.
-        &-badge {
+        &-badge:not(#z) {
             &.badge-success { c: v99 0 v45 }
             &.badge-warning { c: v99 0 v25 }
             &.badge-danger { c: v99 0 v15 }
@@ -3579,7 +3583,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Project -> 'No repository' header.
     .slead {
-        c: cm;
+        c: fg3
         + hr + .no-repo-actions {
             .btn-primary {
                 c: ac ac t;
@@ -3990,6 +3994,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .mr-widget-footer {
             c: 0 bd;
             .btn-link { c: ac }
+            .mr-widget-help { c: fg3 }
         }
         /// Reset for pipeline/commit/branch selectors.
         .pipeline-number, .commit-sha, .label-branch {
@@ -4187,7 +4192,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     .line a { c: v67 }
 
                     /// Errors.
-                    .err { c: v99 0 v16 }
+                    .err { c: v99 0 v13 }
 
                     /// Additions/deletions in patches.
                     .gi { c: v98 0 v42 }
@@ -4687,7 +4692,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &.is-active svg { g: ac }
         }
         /// User role.
-        .user-access-role { c: fg 0 hl }
+        .user-access-role { c: fg3 0 bg3 }
         /// Global -> Emoji picker.
         /.emoji-menu {
             c: 0 bd hl;
@@ -5001,7 +5006,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: 0 bg3 bg0
         if (nb_height) { top: 50px }
         /.mr-version-controls {
-            c: fg bd bb;
+            c: fg1 bg3 bg0
             if (nb_height) { top: 98px }
         }
     }
