@@ -1744,9 +1744,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Colored badges.
         &-primary, &-info, &-active { c: v99 0 v63 }
         &-secondary, &-inactive { c: fg4 0 bg2 }
-        &-warning { c: v99 0 v23 }
-        &-success { c: v99 0 v43 }
-        &-danger { c: v99 0 v13 }
+        &-warning { c: v99 0 v24 }
+        &-success { c: v99 0 v44 }
+        &-danger { c: v99 0 v14 }
         &-light { c: fg3 0 bg3 }
         &-dark { c: fg1 0 bg4 }
 
@@ -3253,6 +3253,14 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-header, &-footer { c: 0 bg5 bg2 }
         }
 
+        /// Badges.
+        &-badge {
+            &.badge-success { c: v99 0 v45 }
+            &.badge-warning { c: v99 0 v25 }
+            &.badge-danger { c: v99 0 v15 }
+            &.badge-info { c: v99 0 v65 }
+        }
+
         /// Breadcrumbs.
         &-breadcrumb {
             &s { b: inset 0 -1px bg5 }
@@ -3260,6 +3268,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-item:last-child > a { c: fg1 }
         }
 
+        /// Inputs.
         &-form-input {
             /// Settings -> CI/CD -> Clean up image tags.
             &.form-control-plaintext { c: fg1 0 t }
