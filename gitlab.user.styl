@@ -1719,7 +1719,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             c: fg3 0 bg4
 
             /// Navigation items counter.
-            /.active & { c: fg1 0 bg5 }
+            /// NOTE: Exclude navbar counters.
+            /.active:not(.user-counter) & { c: fg1 0 bg5 }
 
             /// Project -> Tags.
             &.badge-secondary {
