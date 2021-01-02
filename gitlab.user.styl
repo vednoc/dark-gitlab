@@ -4028,6 +4028,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             thead > tr > th { border-top: none }
             tbody > tr:hover { c: 0 0 bb }
         }
+        /// Tables -> History.
+        &-history.table {
+            margin-top: 16px
+            border: 1px solid bg5
+            thead > tr > th { border-top: none }
+            tbody > tr > td { border-top: 1px solid bg5 i }
+        }
     }
 
     // Project -> Clusters.
