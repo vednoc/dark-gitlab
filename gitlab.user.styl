@@ -1248,10 +1248,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             [class*='divider'] { c: 0 bg5 bg5 }
             [class*='-content'] { c: fg3 0 t }
             [class*='-title'] { c: fg0 0 t }
-            span[class*='-text'] {
-                /// Sidebars -> Confidentiality/lock issue.
-                &:not(.gl-button-text) { c: fg1 }
-            }
             .search-item-avatar { c: 0 bg5 }
             strong, .bold, .text { c: fg1 }
             .btn-helptext { c: fg5 }
@@ -3213,7 +3209,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-gray-10 { c: 0 0 bg }
             &-gray-50 { c: 0 0 bg2 }
             /.bg-secondary-50 { c: 0 0 bg3 } // 'License Complicance' page.
-            &-green-100.gl-text-green-800 { c: white green green }
+            &-green-100.gl-text-green-800 { c: v48 v42 v42 } // Pending comments.
             &-blue-50 { c: 0 0 v62 }
         }
         /// Border-color overrides.
@@ -4751,8 +4747,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: 0 0 t;
                 box-shadow: none i;
             }
-            /// Exclude 'Start a review' button.
-            .btn:not(.btn-success) { c: fg bd bg }
         }
         /// Disabled comments.
         /.disabled-comment {
@@ -4767,12 +4761,25 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Code -> Add new note.
         &-form { c: 0 bd bb }
-        /// MR -> Review.
+
+        /// MR -> Review mode.
         /.draft-note-component {
-            c: 0 0 t
-            .drafts-count-component { c: white 0 green }
+            c: 0 0 v31
+
+            /// Remove note background.
+            .note.draft-note { c: 0 0 t }
+
+            .badge {
+                /// Count badge.
+                &.badge-success { c: 0 0 v44 }
+
+                /// Pending badge.
+                &.draft-pending-label { c: v99 0 v24 }
+            }
+
+            /// Fix review toolbar.
+            /.review-bar-component { c: 0 bd bg }
         }
-        /.review-bar-component { c: 0 bd bg }
     }
 
     // Notes -> Input-box.
