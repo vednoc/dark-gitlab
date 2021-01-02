@@ -361,7 +361,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Browser styles.
         a { &, &:hover { color: ac }}
-        hr { border-color: bd }
+        hr { border-color: bg3 }
         h, .h { &1, &2, &3, &4, &5, &6 { color: fg }}
         time { color: inherit }
         :not(pre) > code {
@@ -1085,7 +1085,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Settings -> Badges.
         /.gl-responsive-table-row {
             c: cm;
-            &:not(:last-child) { c: 0 bd }
+            &:not(:last-child) { c: 0 bg3 }
             &-clickable:hover { c: 0 0 hl }
             /// Settings -> Usage quotas -> Storage.
             &.bg-gray-light {
@@ -2160,10 +2160,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Global -> Navigation.
     .top-area {
-        c: 0 bd;
+        c: 0 bg3
         /// Global -> Nav links.
         /.nav-links {
-            &:not(.quick-links) { c: 0 bd }
+            &:not(.quick-links) { c: 0 bg3 }
             li {
                 a, button {
                     c: cm;
@@ -2188,7 +2188,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .form-control { c: 0 0 hl }
         /// Groups -> Navigation.
         /.content-block {
-            c: 0 bd t;
+            c: 0 bg3 t
             p:not(.status-box) { c: fg }
             &.landing {
                 c: 0 0 hl;
@@ -2215,12 +2215,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Misc.
-        /.nav-block { c: 0 bd }
+        /.nav-block { c: 0 bg3 }
         /.row-content-block {
             c: fg bd hl;
 
             /// Project -> New issue.
-            &.footer-block { c: 0 0 t }
+            &.footer-block { c: 0 bg3 t }
 
             /// Boards -> Reset various buttons on toolbar.
             :not([class*='group']) {
@@ -2280,12 +2280,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Project -> Compare Revisions.
         /.sub-header-block {
-            c: 0 bg5 t
+            c: 0 bg3 t
             + .card.bg-light { c: 0 0 t }
         }
         /// Project -> Packages.
         /.gl-tab {
-            &s-nav { c: 0 bd }
+            &s-nav { c: 0 bg3 }
             &-nav-item {
                 c: cm;
                 &-active { c: fg }
@@ -2400,7 +2400,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Projects list.
     .projects-list {
         > li {
-            c: 0 bd;
+            c: 0 bg4
             .description { c: cm }
             /.user-access-role { c: cm bd #88888815 }
         }
@@ -2447,7 +2447,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Event lists.
     .event {
         &-item {
-            c: cm bd;
+            c: fg4 bg4
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
         }
@@ -2764,10 +2764,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Page title.
     .page-title {
         c: fg;
-        &-holder { c: 0 bd }
+        &-holder { c: 0 bg3 }
         /// Commits -> Details.
         /.commit-box {
-            c: 0 bd;
+            c: 0 bg3
             .commit-title, time { c: fg }
         }
     }
@@ -2785,11 +2785,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &s {
             &-list a { c: cm }
             &-list-angle { g: cm }
-            &-container { c: 0 bd }
+            &-container { c: 0 bg3 }
             &-sub-title a { c: fg }
             &-links img { c: 0 hl hl }
             /// Epics -> Roadmap.
-            &.group-epics-roadmap { c: 0 bd }
+            &.group-epics-roadmap { c: 0 bg3 }
+            /// Boards -> Fix border color.
+            &.issue-boards-content > &-container { c: 0 bg5 }
         }
 
         /// Project.
@@ -2815,8 +2817,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     // Global -> Markdown area.
     .md {
         c: fg;
-        h1, h2 { c: fg bd }
-        hr { c: 0 bd }
+        h1, h2 { c: fg1 bg4 }
+        hr { c: 0 bg4 }
         p { c: fg }
         a { c: ac }
         a, p {
@@ -3224,8 +3226,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-100, &-200 { c: 0 bd }
             /.border {
                 border: 1px solid bd i
-                &-left { c: 0 bg5 } // Operations -> Metrics.
-                &-top { border-top: 1px solid bg5 i } // Operations -> Jaeger.
+                &-left { border-left-color: bg3 i } // Operations -> Metrics.
+                &-top { border-top-color: bg3 i } // Operations -> Jaeger.
             }
         }
         &-border {
@@ -3840,10 +3842,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     .detail-page {
         /// Header.
         &-header {
-            c: cm bd;
+            c: fg4 bg3
             /.author { c: fg }
             /// MRs -> Editor button.
-            a { color: cm }
+            a { color: fg3 }
             /// Notes -> Locked issue.
             /.issuable {
                 &-warning-icon {
@@ -3853,9 +3855,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
         }
         /// Milestones -> Details.
-        &-description {
-            &, .title { c: 0 bd }
-        }
+        &-description { &, .title { c: 0 bg3 }}
         /.page-content-header {
             /// Issues/Jobs -> Page header -> Author link.
             [class *= '-link'] { c: fg }
@@ -4063,7 +4063,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Sections.
         /.settings {
-            c: 0 bd;
+            c: 0 bg3
             ../-feature-row .form-control { c: 0 0 bg }
             &-message { c: v98 v24 v21 }
             .account-well {
@@ -4847,7 +4847,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
-            .comment-toolbar { c: cm bd }
+            .comment-toolbar { c: fg4 bg3 }
             textarea { font-family: var(--mono-font) }
         }
         /// Reset background.
@@ -5005,7 +5005,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // MRs -> Changes.
     [class *= '-tabs-holder'] {
-        c: 0 bd bb;
+        c: 0 bg3 bg0
         if (nb_height) { top: 50px }
         /.mr-version-controls {
             c: fg bd bb;
