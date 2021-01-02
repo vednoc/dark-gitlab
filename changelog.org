@@ -1,6 +1,57 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.4 [2021-01-02 Sat]
+Added 13 new built-in color-schemes for more variety, one new domain, and a ton
+of improvements and bug fixes.
+
+*** Features
+- More color-schemes have been ported from [[https://gitlab.com/vednoc/dark-switcher][Dark-Switcher]]
+  + Still work-in-progress, please report if you run into issues.
+  + Feel free to contribute/request new color-schemes in either repository.
+  + In total, there are 18 pre-defined color-schemes and 1 custom one:
+    - Existing color-schemes:
+      + Dark blue (used most of my other userstyles)
+      + Dark gray (same colors used by the =custom= option)
+      + Breeze Dark (used by [[https://gitlab.com/RaitaroH][RaitaroH]]'s userstyles)
+      + GitHub Dark (made by StylishThemes)
+      + GitHub Dark Mode (GH's dark colors)
+    - New color-schemes:
+      + Gruvbox Dark Soft/Medium/Dark
+      + Solarized Dark (looks bad ATM)
+      + Dracula
+      + Nord Dark
+      + Arc Dark
+      + Moonlight (used in GitHub Moonlight)
+      + Monokai
+      + Horizon
+      + Doom One (used by Doom Emacs)
+      + Deep-Dark (used by [[https://gitlab.com/RaitaroH][RaitaroH]]'s userstyles)
+      + Brave Dark
+- New domain: ~git.najer.info~ ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/48][!48]])
+
+*** Improved
+- Bumped desaturation from ~80%~ to ~90%~ when generating foreground colors
+  + It's necessary for Gruvbox and Solarized color-schemes. I'll explore
+    improving the latter because ATM the generated colors don't look good.
+- Switched scrollbar colors to use theme colors
+  + Might need extra tweaks in some scenarios.
+- Updated MR Review mode with new colors
+- Changed colors for inline diffs to be slightly darker
+- Made border colors in navigation, content areas, etc. less intense than before
+  + I've been wanting to try this idea for a long time. In my eyes, it does look
+    a lot better this way. There's still a lot of work to be done.
+  + Mini write-up in commit #0c155da.
+- Lots of tiny improvements for miscellaneous styles
+
+*** Bug fixes
+- Updated styles for avatars to fix identicons in Pajamas
+- Added better selectors for active and inactive badges
+- Added styles for non-previewable files in diff views
+- Added styles to fix unstyled image discussions
+- Added styles for new "reply" button in notes
+- Added borders to page history table in wikis
+
 ** 2.0.0-rc.3 [2020-12-29 Tue]
 Refactored left sidebar, and made a ton of tiny tweaks for colors.
 
