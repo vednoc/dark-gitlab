@@ -401,7 +401,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         .danger-title, .gl-field-error, .invalid-feedback { c: v16 }
         [class *= 'price-per-'] { c: blue }
         .warning-title { c: v26 }
-        .valid-feedback { c: v46 }
+        .legend-success, .valid-feedback { c: v46 }
         .account-well { c: fg bd hl }
 
         /// Settings -> Fix QR code. #108
@@ -501,6 +501,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &&-triangle, &.merge-icon { c: orange }
             /// Global -> Menu icon.
             &&-bars:not(#z) { c: fg }
+            /// CI/CD -> Charts. OBSOLETE
+            /.legend-success &-circle,
             /// Issues -> Export issues.
             &.checkmark { c: green }
             /// MRs -> First contribution.
@@ -1191,8 +1193,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// New SVG icons.
             ../[data-testid*='chevron'] { c: 0 0 t }
 
-            /// OBSOLETE: Old toggle buttons.
-            /.dropdown > button[class*=' dropdown-toggle']:not(.gl-button) {
+            /// OBSOLETE: Old toggle buttons in nav blocks.
+            /.dropdown > button.dropdown-toggle {
                 c: fg1 bg5 bg1
                 &:hover { c: 0 0 bg3 }
                 &:focus { c: 0 bg5 bg4 }
@@ -2259,7 +2261,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
                 padding: 16px 0;
-                c: 0 0 bb;
+                c: 0 bg3 t
                 .event-last-push {
                     time { c: fg }
                     &-text { font-size: 14px }
