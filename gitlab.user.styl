@@ -746,7 +746,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Checkmarks.
-        /.dropdown-menu-selectable li .is-active {
+        /.dropdown-menu-toggle + .dropdown-menu-selectable li .is-active {
             x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
             x += 'viewBox="0 0 48 48" width="32" height="32" stroke-width="3" '
             x += 'stroke-linecap="round" stroke-linejoin="round"><polyline '
