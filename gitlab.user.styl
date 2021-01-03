@@ -1516,12 +1516,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
 
         /// Accent.
-        /// TODO: Implement once `v0-*` is added to color generator.
         &#clone-dropdown {
-            c: v98 v04 v02
-            &:hover { c: v99 v05 v03 }
-            &:focus { c: v99 v06 v04; b: $f v02 i }
+            c: v98 v05 v03
+            &:hover { c: v99 v06 v04 }
+            &:focus { c: v99 v07 v05; b: $f v02 i }
             > svg { g: v98 }
+
+            /// Reset menu input styles.
+            + ul input {
+                font-family: var(--mono-font)
+                c: 0 0 bg1
+            }
         }
 
         /// Disabled icons.
