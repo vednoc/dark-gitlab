@@ -4690,9 +4690,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Fix styles on old versions. OBSOLETE
             &:not(.note-wrapper):not(.note-discussion) {
                 c: 0 0 t
-                .system-note-message a { c: ac }
                 > .timeline-entry-inner { c: 0 bg5 }
                 blockquote, .blockquote, li { > p { c: fg4 }}
+                .system-note-message a:not(.gl-link) { color: ac }
             }
         }
 
@@ -4764,54 +4764,47 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Issue/MRs/Epics -> Discussions.
     .discussion {
-        &-header { c: 0 bd }
-        &-actions button { c: cm }
-        &-headline-light a { c: ac }
-        /// Discussion notes.
-        .timeline-entry {
-            c: fg 0 bg;
-            &.target { c: 0 0 v00 }
+        /// Snippets -> Unstyled notes. @upstream
+        &-header {
+            c: 0 t
+            + .discussion-body[style=''] { border-top: 1px solid bg5 }
         }
-        /// Fix rounded corners in discussions. @upstream
-        &-body {
-            .notes_holder li.note,
-            .notes li.note:not(:first-child) {
-                rad: 0;
-            }
+
+        /// Text colors.
+        &-headline-light { c: fg4 }
+        &-toggle-button,
+        &-header .author-link {
+            color: fg1
+            &:hover, &:focus { c: ac }
         }
+
+        /// Fix system notes.
+        &-notes .system-note {
+            c: 0 0 t
+            .system-note-message a:not(.gl-link) { color: ac }
+        }
+
+        /// Fix rounded corners. @upstream
+        &-body .diff-content { rad: 0 0 4px 4px i }
+
         /// Increase top offset when nb_height is enabled.
         if (nb_height) {
             &-body .file-title { top: 98px i }
         }
-        /// Reply bar.
-        /&-reply-holder {
-            c: 0 bd bb;
-            /// MR -> Review -> Reset colors.
-            > .discussion-notes {
-                c: 0 0 t;
-                box-shadow: none i;
-            }
-        }
-        /// Disabled comments.
-        /.disabled-comment {
-            padding: 8px 0;
-            c: cm bd bg;
-            a:not(.learn-more) { c: ac }
-            /// Locked state.
-            .issuable-note-warning {
-                c: orange t t;
-                svg { g: orange }
-            }
-        }
-        /// Code -> Add new note.
-        &-form { c: 0 bd bb }
+
+        /// Reply to a discussion.
+        /// NOTE: Exclude md-area in snippets.
+        &-reply-holder:not(.new-note) { c: 0 bg5 bg2 }
+
+        /// MR -> Add a new note.
+        &-form { c: 0 0 t }
 
         /// MR -> Review mode.
         /.draft-note-component {
             c: 0 0 v31
 
             /// Remove note background.
-            .note.draft-note { c: 0 0 t }
+            .note.draft-note:not(#z) { c: 0 0 t }
 
             .badge {
                 /// Count badge.
