@@ -4663,11 +4663,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Reset system notes.
         &.system-note {
-            .timeline-icon {
-                c: 0 bg5 bg2
-                > svg { g: fg4 }
-            }
             .note-text { c: fg1 }
+            .timeline-icon > svg { g: fg4 }
+            &.note-wrapper .timeline-icon { c: 0 bg5 bg2 }
         }
 
         /// Entries.
@@ -4677,6 +4675,12 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             /// Exclude adding styles to form and system notes.
             &:not(.note-form):not(.system-note) { c: 0 bg5 bg1 }
 
+            /// Fix styles on old versions. OBSOLETE
+            &:not(.note-wrapper):not(.note-discussion) {
+                c: 0 0 t
+                .system-note-message a { c: ac }
+                > .timeline-entry-inner { c: 0 bg5 }
+                blockquote, .blockquote, li { > p { c: fg4 }}
             }
         }
 
@@ -4684,6 +4688,13 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /.disabled-comment {
             c: fg1 bg5 bg3
             a { c:  ac }
+
+            /// Target the very last disabled comment.
+            /// NOTE: This workaround is required for old versions.
+            /.notes + div > & {
+                margin-top: 16px
+                padding: 8px 0
+            }
         }
 
         /// Reactions.
