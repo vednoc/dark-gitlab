@@ -4016,6 +4016,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
     // Project -> Wiki.
     .wiki {
+        /// Old readmes/notes/etc. OBSOLETE
+        a { color: ac }
+        h1, h2 { c: fg1 bg3 }
         /// Page title.
         &-last-edit-by {
             c: cm;
