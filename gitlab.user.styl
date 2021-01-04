@@ -2410,7 +2410,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         > li {
             c: 0 bg4
             .description { c: cm }
-            /.user-access-role { c: cm bd #88888815 }
+            /.user-access-role { c: fg3 bg5 bg3 }
         }
         /// Profile -> Personal projects.
         &.compact {
@@ -4699,8 +4699,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &:hover svg { g: fg }
             &.is-active svg { g: ac }
         }
-        /// User role.
-        .user-access-role { c: fg3 0 bg3 }
         /// Global -> Emoji picker.
         /.emoji-menu {
             c: 0 bd hl;
