@@ -1745,7 +1745,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Project -> Pages -> Domains.
         &&-gray { c: fg1 0 bg3 }
         /// Notes -> Related issues/MRs.
-        /.issue, /.mr { &-count-badge { &, + button { c: fg bd bg }}}
+        /.issue, /.mr { &-count-badge { c: fg1 0 t }}
         /// HACK: Reset colored labels.
         &.color-label {
             box-shadow: inset 0 0 0 1rem #33333370;
