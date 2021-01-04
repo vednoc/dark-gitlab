@@ -4638,59 +4638,54 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     }
 
     // Issues/MRs/Epics -> Notes.
-    .notes {
-        /// Visual line.
-        &::before { c: 0 hl }
-        .system-note {
-            /// Timeline icons.
+    .note {
+        &s {
+            c: 0 0 t
+
+            /// Connectors.
+            &::before { c: 0 bg4 }
+
+            /// Toggle replies button.
+            .replies-toggle {
+                c: fg1 bg5 bg2
+                > span:hover { c: fg3 }
+                &.collapsed {
+                    c: fg3
+                    border-bottom: none // @upstream
+                    .author-link { c: fg1 }
+                }
+            }
+
+
+        /// Text colors.
+        &-headline-light, &-timestamp { c: fg4 }
+        &-header-info { a:hover, a.hover { c: ac }}
+
+        /// Reset system notes.
+        &.system-note {
             .timeline-icon {
-                c: 0 bd hl;
-                svg { g: cm }
+                c: 0 bg5 bg2
+                > svg { g: fg4 }
             }
-            /// Links.
-            a:not(.gl-link):not(.gfm) { c: ac }
+            .note-text { c: fg1 }
         }
-        /// Note styles.
-        &.timeline > .timeline-entry {
-            c: 0 bd;
-            /// Exclude system events and input form.
-            &:not(.system-note):not(.note-form) { c: 0 0 bg }
-            /// Active note.
-            &.target:not(#z) { c: 0 v04 v00 }
-            /// Markdown area.
-            .note-text {
-                &.md { c: fg }
-                /// Commit list gradient.
-                &::after { background: linear-gradient(t -100px, bb 100%) i }
-                /// 'Toggle commit list' button.
-                + .flex-list div[class *= 'toggle'] { c: ac }
-                /// Updated note description.
-                + .description-version > pre.wrapper { rad: 4px }
+
+        /// Entries.
+        &.timeline-entry {
+            c: fg1
+
+            /// Exclude adding styles to form and system notes.
+            &:not(.note-form):not(.system-note) { c: 0 bg5 bg1 }
+
             }
-            /// Toolbar buttons.
-            .note-actions-item {
-                button { b: none i }
-                /// Emoji icon requres additional rule.
-                a:hover > svg, svg:hover { g: fg1 }
-            }
-            /// Edited text.
-            .edited-text { &, .author-link { c: cm }}
-            /// Code discussion divider.
-            .notes-content { c: 0 bd }
         }
-        /[class *= 'author-name'] { c: fg }
-        /[class *= 'headline-light'] {
-            &, time, [class *= 'separator'] { c: fg4 }
-            a:not([class*='label']):hover { &, time { c: v09 }}
+
+        /// Disabled comment.
+        /.disabled-comment {
+            c: fg1 bg5 bg3
+            a { c:  ac }
         }
-        /// Replies.
-        .replies-toggle {
-            c: cm bd hl;
-            &:not(.expanded) { border-bottom: 0 }
-            &.collapsed { rad: 0 0 3px 3px }
-            &.expanded { c: 0 0 hl }
-            span, a { c: fg }
-        }
+
         /// Reactions.
         /[class *= 'award-control-'] {
             &, svg { g: cm }
@@ -4714,26 +4709,6 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     svg { g: green }
                 }
             }
-        }
-        /// Reset code discussions.
-        &_holder {
-            font-family: var(--ui-font) i;
-            > td, .notes { c: 0 0 t }
-            [class *= 'reply-holder'] { margin-bottom: -1px }
-            /// Diff -> Comments.
-            .timeline-entry.note {
-                c: fg 0 bg;
-                /// Add missing borders. @upstream
-                .replies-toggle,
-                [class *= 'reply-holder'] {
-                    border-bottom: 1px solid bd;
-                }
-            }
-        }
-        /// Notes -> Specific activity in the feed.
-        &.timeline > .discussion-filter-note {
-            c: fg;
-            .timeline-icon { c: 0 bd hl }
         }
         /// Epics -> Health status.
         /.epic-tabs-content {
