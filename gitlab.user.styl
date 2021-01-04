@@ -4656,6 +4656,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 }
             }
 
+            /// Diffs -> Code discussions.
+            /.diff-file {
+                /// Fix UI font.
+                .notes_holder { font-family: var(--ui-font) i }
+
+                /// Remove wrapper background.
+                .notes-content {
+                    padding-bottom: 0px i
+                    c: 0 0 t
+                }
+            }
+        }
 
         /// Text colors.
         &-headline-light, &-timestamp { c: fg4 }
