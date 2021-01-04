@@ -2827,14 +2827,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         c: fg;
         h1, h2 { c: fg1 bg4 }
         hr { c: 0 bg4 }
-        p { c: fg }
-        a { c: ac }
-        a, p {
-            > code {
-                padding: 2px 4px;
-                color: inherit i;
-            }
-        }
+        a, p { > code { padding: 2px 4px }}
+        a, a > code { c: ac }
+        p, p > code { c: fg1 }
         kbd {
             c: 0 bd;
             box-shadow: inset 0 -1px 0 bd i;
