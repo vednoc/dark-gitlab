@@ -4661,6 +4661,18 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         &-headline-light, &-timestamp { c: fg4 }
         &-header-info { a:hover, a.hover { c: ac }}
 
+        /// Action buttons.
+        &-actions {
+            button.btn:not(#z) { c: fg3 t t; b: none i }
+
+            /// NOTE: Needs to be this specific because of "unstyled" notes.
+            .js-reply-button,
+            .note-action-button:not(.line-resolve-btn) {
+                > * { &, > svg { transition: 0.15s ease; c: fg4 }}
+                &:hover { > * { &, > svg { c: fg1; g: fg1 }}}
+            }
+        }
+
         /// Reset system notes.
         &.system-note {
             .note-text { c: fg1 }
