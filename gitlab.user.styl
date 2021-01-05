@@ -5078,6 +5078,8 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 /// Snippets -> File name.
                 &-flex-parent > .form-control { c: 0 0 bg }
                 [data-toggle = 'dropdown'] { c: 0 0 bg }
+                /// Fix dropdown items. #151
+                .dropdown-content a { color: fg3 }
             }
         }
         .toolbar-btn:hover svg { g: fg }
