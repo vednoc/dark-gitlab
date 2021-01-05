@@ -5485,10 +5485,17 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     if (c_monaco) {
     .monaco-editor {
         c: fg 0 bg;
+
+        /// Fix monospace font.
+        &,
+        .margin *:not(.codicon),
+        .view-lines[style*='font-family:'] {
+            font-family: var(--mono-font) i
+        }
+
         /// Line numbers.
         .margin {
             c: 0 bd t;
-            *:not(.codicon) { font-family: var(--mono-font) i }
             ../ .line-numbers {
                 opacity: 0.6;
                 c: cm;
