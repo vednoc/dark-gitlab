@@ -1357,6 +1357,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                     c: 0 v66
                 }
 
+                /// Active state.
+                &.select2-dropdown-open > .select2-choice { c: 0 0 bg3 }
+
                 /// Disabled state.
                 &-disabled {
                     .select2-arrow { opacity: 0.6 }
