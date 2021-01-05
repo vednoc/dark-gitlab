@@ -1,6 +1,30 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.5 [2021-01-05 Tue]
+Refactored styles for notes and discussions, refined colors for a ton of
+elements, and fixed more bugs that exist in older versions of GitLab.
+
+*** Improved
+- Refined contrast for inline diffs
+- Refined colors and font for clone dropdown
+- Refined colors for reply buttons in discussions
+- Refactored styles for notes and discussions
+  + Ended up rewriting most of it from scratch. It should no longer cause issues
+    on old versions of GitLab.
+  + Also took the chance to improve colors and fix some old specificity-related
+    bugs with buttons and timeline entries.
+- Added tweaks for edge-cases for menus with custom down chevrons
+
+*** Bug fixes
+- Add more specific styles for inlined checkmarks on old versions of GitLab
+- Added styles to fix text colors on old versions of GitLab
+- Updated badge for related issues and merge requests
+- Fixed text color for code elements inside of links
+- Fixed colors of menu items in file editor ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/151][#151]])
+- Added active state colors to select2 components
+- Fixed custom monospace font in Monaco editor
+
 ** 2.0.0-rc.4 [2021-01-02 Sat]
 Added 13 new built-in color-schemes for more variety, one new domain, and a ton
 of improvements and bug fixes.
