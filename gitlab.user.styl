@@ -1340,7 +1340,10 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
             &-choice { &, &s { c: fg1 bg5 bg2 }}
 
             /// Down chevron.
-            &-chosen { margin-right: 25px i }
+            &-chosen {
+                margin-right: 25px i
+                padding-right: 10px
+            }
             &-arrow {
                 padding: 0 16px
                 width: unset
@@ -5094,7 +5097,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Override colors.
         input, .btn, .select2-choice { c: 0 0 bg }
-        .btn[class *= 'active'] { c: 0 0 bd }
+        .btn[class*='active'] { c: 0 0 bg4 }
         /// Editor -> Ace editor.
         /.ace {
             /// Wrapper. #75
