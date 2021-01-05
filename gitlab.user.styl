@@ -1198,6 +1198,9 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
                 c: fg1 bg5 bg1
                 &:hover { c: 0 0 bg3 }
                 &:focus { c: 0 bg5 bg4 }
+
+                /// Issues -> Three dots menu.
+                &-no-caret { c: 0 0 t }
             }
         }
 
@@ -1210,7 +1213,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Active styles.
         /.show.dropdown {
-            > .btn { c: 0 0 bg4 0 0 0 }
+            > .btn { c: 0 bg5 bg4 0 0 0 }
             > button[class*='dropdown-'] { c: 0 bg5 bg3 }
         }
 
