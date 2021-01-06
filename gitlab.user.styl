@@ -275,7 +275,7 @@ regexp('^https?://(www\.)?code\.((videolan|briarproject)\.org|foxkit\.us)(/.*)?$
 regexp('^https?://(www\.)?source\.(small-tech|joinmastodon)\.org(/.*)?$'),
 regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.org(/.*)?$'),
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
-regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
+regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
     if (pcs_enable) {
         { unquote('@media (prefers-color-scheme: dark) {') }
     }
