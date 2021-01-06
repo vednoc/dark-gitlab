@@ -1679,10 +1679,15 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
 
         /// Notes -> Reactions.
         &.selected[data-testid='award-button'],
-        &.award-control.active {
-            c: v09 v05 v02
-            &:hover { c: 0 0 v03 }
-            &:focus { b: $f v01 i }
+        &.award-control {
+            &.active {
+                c: v09 v05 v02
+                &:hover { c: 0 0 v03 }
+                &:focus { b: $f v01 i }
+            }
+
+            /// Remove disabled state. OBSOLETE
+            &.disabled:hover { c: fg5 bg3 bg1 }
         }
 
         /// Notes -> Reply to a discussion.
@@ -2587,7 +2592,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         }
         /// Notes -> Related merge requests.
         /#merge-requests {
-            c: 0 0 bg;
+            &:not(.card) { c: 0 0 bg0 } // OBSOLETE
             .card-header {
                 c: 0 bd hl;
                 rad: 3px 3px 0 0;
@@ -4723,7 +4728,7 @@ regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
         /// Disabled comment.
         /.disabled-comment {
             c: fg1 bg5 bg3
-            a { c:  ac }
+            a { c: ac }
 
             /// Target the very last disabled comment.
             /// NOTE: This workaround is required for old versions.
