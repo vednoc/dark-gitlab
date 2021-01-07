@@ -1552,12 +1552,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &:focus { b: none i }
         }
 
-        /// New GL buttons.
-        &.new-gl-button {
-            b: none i
-            c: fg1 bg5 bg2
-        }
-
         /// Link buttons.
         /// TODO: Update outline with v2 accent color.
         &-link,
@@ -3033,15 +3027,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /.close {
             c: cm;
             text-shadow: none;
-        }
-        /// New button.
-        /.new-gl-button {
-            c: 0 0 bd;
-            box-shadow: inner;
-            &:hover {
-                opacity: 0.8;
-                box-shadow: inner;
-            }
         }
         /// Feat -> Invert illustrations/images.
         if (img_invert) {
