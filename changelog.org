@@ -1,6 +1,24 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.6 [2021-01-07 Thu]
+Added support for pages on Web Archive, fixed a couple regressions, and improved
+a few other things.
+
+*** Features
+- Added support for pages in ~web.archive.org~
+
+*** Improved
+- Sticky header in issues now uses slightly darker color
+- Added styles to fix reactions and related blocks on old versions
+- Increased contrast for blockquotes in Markdown areas
+
+*** Bug fixes
+- Fixed a regression caused by dropdown menus on old versions
+- Fixed custom checkmark image in project notification settings
+- Fixed a regression for tertiary buttons ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/152][#152]])
+  + The issue has been reported. This will be removed once fixed on upstream.
+
 ** 2.0.0-rc.5 [2021-01-05 Tue]
 Refactored styles for notes and discussions, refined colors for a ton of
 elements, and fixed more bugs that exist in older versions of GitLab.
