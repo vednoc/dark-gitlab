@@ -1714,6 +1714,16 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Project -> Merge Request analytics.
         /// NOTE: Bring borders back to the dropdown menu.
         &[id*='_toggle_'] { border-style: solid i }
+
+        /// Remove `mix-blend-mode` for tertiary buttons. #152
+        &-info-tertiary,
+        &-success-tertiary,
+        &-danger-tertiary,
+        &-warning-tertiary,
+        &-dashed-tertiary,
+        &-default-tertiary {
+            mix-blend-mode: unset i
+        }
     }
 
     // Global -> Labels.
