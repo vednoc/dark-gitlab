@@ -812,12 +812,20 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             c: cm;
             > li {
                 > button, > a {
-                    transition: 0.2s ease;
+                    &, > svg { transition: 0.2s ease }
                     &[data-toggle] { c: cm }
-                    &:hover:not([aria-expanded = 'true']) { c: fg 0 bg3 }
+                    &:hover:not([aria-expanded='true']) {
+                        c: fg2 0 bg3
+                        > svg { g: fg2 }
+                    }
                 }
                 /// Active menus.
-                &.active, &.active:hover, &.show { > button, > a { c: fg1 0 bg4 }}
+                &.active, &.active:hover, &.show {
+                    > button, > a {
+                        c: fg1 0 bg4
+                        > svg { g: fg1 }
+                    }
+                }
                 .caret-down { g: cm }
             }
         }
