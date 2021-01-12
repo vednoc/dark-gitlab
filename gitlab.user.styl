@@ -177,8 +177,10 @@ for num in 0..5 {
     else { $color = lighten($color, (num+2) * num/2%) }
     $color = to_hsla($color)
 
-    define('' + s('%s%s', $bg.key, num), s('var(--%s-%s)', unquote($bg.key), num), global)
-    define('' + s('%s-%s', $bg.key, num), $color, global)
+    $key = s('%s%s', $bg.key, num)
+    $val = 'var(--%s-%s)' % (($bg.key) (num))
+    define('$' + $key, $color, global)
+    define('' + $key, $val, global)
 }
 
 // Generate foreground colors.
@@ -192,8 +194,10 @@ for num in 0..5 {
     $color = to_hsla($color)
     // $dbg += '--- FG: ' + $color
 
-    define('' + s('%s%s', $fg.key, num), s('var(--%s-%s)', unquote($fg.key), num), global)
-    define('' + s('%s-%s', $fg.key, num), $color, global)
+    $key = s('%s%s', $fg.key, num)
+    $val = 'var(--%s-%s)' % (($fg.key) (num))
+    define('$' + $key, $color, global)
+    define('' + $key, $val, global)
 }
 
 // Generate all other colors.
@@ -228,8 +232,10 @@ for c, i in colors[2..length(colors)] {
         /// Convert to HSLA format.
         $color = to_hsla($color)
 
-        define('' + s('%s%s', $sel.key, num), s('var(--%s-%s)', unquote($sel.key), num), global)
-        define('' + s('%s-%s', $sel.key, num), $color, global)
+        $key = s('%s%s', $sel.key, num)
+        $val = 'var(--%s-%s)' % (($sel.key) (num))
+        define('$' + $key, $color, global)
+        define('' + $key, $val, global)
     }
 }
 } /// }}}
@@ -305,12 +311,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
         for color in colors[0..1] {
             for tone in 0..5 {
-                { '--%s-%s' % ((color) (tone)) }: color + '-' + tone
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
         for color in colors[2..length(colors)] {
             for tone in 0..9 {
-                { '--%s-%s' % ((color) (tone)) }: color + '-' + tone
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
 
@@ -728,20 +734,20 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Sort arrows.
         /[aria-sort='ascending'] {
-            x = s('<path fill="%s" d="M51 1l25 23 24 22H1l25-22z"/>', to_svg(v0-9))
+            x = s('<path fill="%s" d="M51 1l25 23 24 22H1l25-22z"/>', to_svg($v09))
             y = '<path fill="gray" opacity=".6" d="M51 101l25-23 24-22H1l25 22z"/>'
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
         }
         /[aria-sort='descending'] {
             x = '<path fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/>'
-            y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg(v0-9))
+            y = s('<path fill="%s" d="M51 101l25-23 24-22H1l25 22z"/>', to_svg($v09))
             background-image: s("url('%s%s%s</svg>') %s", r(arrows), r(x), r(y), i)
         }
 
         /// Down chevron.
         /.select2-arrow {
             x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
-            x += s('viewBox="0 0 48 48" width="34" height="34" stroke="%s" ', to_svg(fg-3))
+            x += s('viewBox="0 0 48 48" width="34" height="34" stroke="%s" ', to_svg($fg3))
             x += 'stroke-width="3" stroke-linecap="round" stroke-linejoin="round" '
             x += 'fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>'
             background: s("url('%s') 10px 9px %s", r(x), i)
@@ -753,7 +759,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
             x += 'viewBox="0 0 48 48" width="32" height="32" stroke-width="3" '
             x += 'stroke-linecap="round" stroke-linejoin="round"><polyline '
-            x += s('stroke="%s" points="20 6 9 17 4 12"></polyline></svg>', to_svg(v0-9))
+            x += s('stroke="%s" points="20 6 9 17 4 12"></polyline></svg>', to_svg($v09))
             background-image: s("url('%s') %s", r(x), i)
         }
 
