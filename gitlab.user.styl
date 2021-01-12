@@ -1768,7 +1768,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &.merge-requests-count { c: white 0 orange }
         &.todos-count { c: white 0 blue }
         &-pill {
-            c: fg3 0 bg4
+            c: fg3 0 bg3
 
             /// Navigation items counter.
             /// NOTE: Exclude navbar counters.
@@ -1982,6 +1982,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
             svg { g: currentColor }
             .divider { c: 0 bg5 }
+            .badge { c: 0 0 bg4 }
             &.active {
                 b: inset 4px 0 0 v08 i
                 > a { c: ac }
