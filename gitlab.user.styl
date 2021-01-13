@@ -396,6 +396,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         .author-link, /.branch-commit .commit-sha { color: ac }
         /// Custom monospace font.
         .text-monospace,
+        .code.diff-table,
         pre, code, kbd, samp, .monospace, .ref-name,
         .commit-sha, .pipeline-number, .label-branch,
         .git-revision-dropdown .dropdown-content ul li a,
@@ -4424,6 +4425,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     // Project -> Code area.
     .code.white { c-hl-none } {
         c: fg 0 bg 0 0 0;
+
         .line_holder {
             /// Override the default text color.
             pre.code, .line_content { c: fg1 bg5 }
@@ -4446,7 +4448,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
 
             /// Line numbers.
-            > .diff-line-num {
+            .diff-line-num {
                 c: fg4 0 bg2
 
                 /// Line numbers.
@@ -4482,7 +4484,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
 
             /// Code lines.
-            > [class^='line'] {
+            [class^='line'], .diff-td:not(.diff-line-num) {
                 c: 0 0 t
 
                 /// States.
@@ -4516,13 +4518,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Show unchanged lines.
         .line_expansion {
             c: 0 0 bg2
-            td { c: 0 bg5 }
-            a, span { c: fg3 }
+            td, .diff-td { c: 0 bg5 }
+            a, span { c: ac }
         }
 
         /// Project -> Settings -> Status/Report tables.
         &.white { c: fg 0 t 0 0 0 }
         /// Diff -> Fix border for 'Show unchanged lines'. @upstream
+        .diff-tr:last-child { rad: 0 0 4px 4px }
+        .diff-tr:last-child > .diff-td,
         tbody > tr.line_expansion.match:last-child > td {
             border-bottom: none i;
         }
