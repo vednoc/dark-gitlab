@@ -1777,6 +1777,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &-pill {
             c: fg3 0 bg3
 
+            /// Navbar -> Merge requests menu.
+            &.merge-request-badge { c: fg2 0 bg4 }
+
             /// Navigation items counter.
             /// NOTE: Exclude navbar counters.
             /.active:not(.user-counter) & { c: fg1 0 bg5 }
