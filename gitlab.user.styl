@@ -2100,8 +2100,28 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             c: fg bd bg;
             box-shadow: -1px 0 bd, bsh;
             &-header, &-body > * { c: 0 bd }
+
             /// Increase top offset when nb_height is enabled.
             if (nb_height) { top: 50px i }
+
+            /// Added in GitLab v13.8.
+            &.whats-new-drawer {
+                if (nb_height) { top: 10px i }
+                .img-thumbnail { c: 0 bg4 bg2 }
+                .badge-pill { c: fg2 }
+
+                /// Feat -> Add interop with custom image opacity.
+                if (md_img_o < 1) {
+                    .gl-link[rel] {
+                        display: flex
+                        > .img-thumbnail {
+                            opacity: md_img_o
+                            transition: opacity 0.5s ease;
+                        }
+                        &:hover > img { opacity: 1 }
+                    }
+                }
+            }
         }
         /// Issues -> Sidebar.
         .issuable-sidebar {
