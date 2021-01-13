@@ -848,6 +848,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 border-bottom: 1px solid bd;
                 color: fg;
             }
+            /// Added in GitLab v13.8.
+            /.notification-dot {
+                c: 0 bg2 fg3
+                /.show > a & { c: 0 bg4 fg1 }
+                /.whats-new-notification-count { c: fg1 0 bg4 }
+            }
         }
         /// User menu -> Reset avatar.
         .header-user-avatar {
