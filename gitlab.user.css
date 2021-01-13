@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.6
+@version      2.0.0-rc.7
 @license      MIT
 ==/UserStyle== */
 
@@ -64,7 +64,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.6';
+    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.7';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --white: #fff;
@@ -267,6 +267,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v0-9);
   }
   body .text-monospace,
+  body .code.diff-table,
   body pre,
   body code,
   body kbd,
@@ -887,7 +888,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .navbar-sub-nav > li > button,
   .navbar-nav > li > button,
   .navbar-sub-nav > li > a,
-  .navbar-nav > li > a {
+  .navbar-nav > li > a,
+  .navbar-sub-nav > li > button > svg,
+  .navbar-nav > li > button > svg,
+  .navbar-sub-nav > li > a > svg,
+  .navbar-nav > li > a > svg {
     transition: 0.2s ease;
   }
   .navbar-sub-nav > li > button[data-toggle],
@@ -896,12 +901,18 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .navbar-nav > li > a[data-toggle] {
     color: var(--fg-4) !important;
   }
-  .navbar-sub-nav > li > button:hover:not([aria-expanded = 'true']),
-  .navbar-nav > li > button:hover:not([aria-expanded = 'true']),
-  .navbar-sub-nav > li > a:hover:not([aria-expanded = 'true']),
-  .navbar-nav > li > a:hover:not([aria-expanded = 'true']) {
-    color: var(--fg-1) !important;
+  .navbar-sub-nav > li > button:hover:not([aria-expanded='true']),
+  .navbar-nav > li > button:hover:not([aria-expanded='true']),
+  .navbar-sub-nav > li > a:hover:not([aria-expanded='true']),
+  .navbar-nav > li > a:hover:not([aria-expanded='true']) {
+    color: var(--fg-2) !important;
     background-color: var(--bg-3) !important;
+  }
+  .navbar-sub-nav > li > button:hover:not([aria-expanded='true']) > svg,
+  .navbar-nav > li > button:hover:not([aria-expanded='true']) > svg,
+  .navbar-sub-nav > li > a:hover:not([aria-expanded='true']) > svg,
+  .navbar-nav > li > a:hover:not([aria-expanded='true']) > svg {
+    fill: var(--fg-2) !important;
   }
   .navbar-sub-nav > li.active > button,
   .navbar-nav > li.active > button,
@@ -918,6 +929,20 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
     background-color: var(--bg-4) !important;
   }
+  .navbar-sub-nav > li.active > button > svg,
+  .navbar-nav > li.active > button > svg,
+  .navbar-sub-nav > li.active:hover > button > svg,
+  .navbar-nav > li.active:hover > button > svg,
+  .navbar-sub-nav > li.show > button > svg,
+  .navbar-nav > li.show > button > svg,
+  .navbar-sub-nav > li.active > a > svg,
+  .navbar-nav > li.active > a > svg,
+  .navbar-sub-nav > li.active:hover > a > svg,
+  .navbar-nav > li.active:hover > a > svg,
+  .navbar-sub-nav > li.show > a > svg,
+  .navbar-nav > li.show > a > svg {
+    fill: var(--fg-1) !important;
+  }
   .navbar-sub-nav > li .caret-down,
   .navbar-nav > li .caret-down {
     fill: var(--fg-4) !important;
@@ -931,6 +956,18 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     padding: 4px 12px 6px;
     border-bottom: 1px solid var(--bg-5);
     color: var(--fg-1);
+  }
+  .notification-dot {
+    border-color: var(--bg-2) !important;
+    background-color: var(--fg-3) !important;
+  }
+  .show > a .notification-dot {
+    border-color: var(--bg-4) !important;
+    background-color: var(--fg-1) !important;
+  }
+  .whats-new-notification-count {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-4) !important;
   }
   .navbar .header-user-avatar {
     border: none !important;
@@ -1988,6 +2025,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: transparent !important;
     background-color: transparent !important;
   }
+  .btn.btn-clipboard:hover > svg,
+  .btn.btn-transparent:hover > svg,
+  .btn.btn-default-tertiary:hover > svg {
+    fill: var(--fg-1) !important;
+  }
   button.close:not(#z) {
     transition: 0.2s ease;
     background-color: transparent !important;
@@ -2214,6 +2256,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .badge-pill {
     color: var(--fg-3) !important;
+    background-color: var(--bg-3) !important;
+  }
+  .badge-pill.merge-request-badge {
+    color: var(--fg-2) !important;
     background-color: var(--bg-4) !important;
   }
   .active:not(.user-counter) .badge-pill {
@@ -2533,6 +2579,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .nav-sidebar li .divider {
     border-color: var(--bg-5) !important;
   }
+  .nav-sidebar li .badge {
+    background-color: var(--bg-4) !important;
+  }
   .nav-sidebar li.active {
     box-shadow: inset 4px 0 0 var(--v0-8) !important;
   }
@@ -2652,6 +2701,16 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-drawer-header,
   .gl-drawer-body > * {
     border-color: var(--bg-5) !important;
+  }
+  .gl-drawer.whats-new-drawer {
+    top: 10px !important;
+  }
+  .gl-drawer.whats-new-drawer .img-thumbnail {
+    border-color: var(--bg-4) !important;
+    background-color: var(--bg-2) !important;
+  }
+  .gl-drawer.whats-new-drawer .badge-pill {
+    color: var(--fg-2) !important;
   }
   .right-sidebar .issuable-sidebar {
     overflow-y: auto !important;
@@ -5631,6 +5690,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     filter: invert(0.7);
   }
   .diff-file .diff-content {
+    border-radius: 0 0 4px 4px;
     color: var(--fg-1) !important;
     background-color: var(--bg-1) !important;
   }
@@ -5826,101 +5886,123 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .code.none .line_holder.new-nonewline .match {
     color: var(--fg-4) !important;
   }
-  .code.white .line_holder > .diff-line-num,
-  .code.none .line_holder > .diff-line-num {
+  .code.white .line_holder .diff-line-num,
+  .code.none .line_holder .diff-line-num {
     color: var(--fg-4) !important;
     background-color: var(--bg-2) !important;
   }
-  .code.white .line_holder > .diff-line-num > a,
-  .code.none .line_holder > .diff-line-num > a {
+  .code.white .line_holder .diff-line-num > a,
+  .code.none .line_holder .diff-line-num > a {
     color: var(--fg-3) !important;
   }
   .diff-line-num {
     border-color: var(--bg-5) !important;
   }
-  .code.white .line_holder > .diff-line-num.old,
-  .code.none .line_holder > .diff-line-num.old {
+  .code.white .line_holder .diff-line-num.old,
+  .code.none .line_holder .diff-line-num.old {
     border-color: var(--v1-2) !important;
     background-color: var(--v1-1) !important;
   }
-  .code.white .line_holder > .diff-line-num.new,
-  .code.none .line_holder > .diff-line-num.new {
+  .code.white .line_holder .diff-line-num.new,
+  .code.none .line_holder .diff-line-num.new {
     border-color: var(--v4-2) !important;
     background-color: var(--v4-1) !important;
   }
-  .code.white .line_holder > .diff-line-num.hll,
-  .code.none .line_holder > .diff-line-num.hll {
+  .code.white .line_holder .diff-line-num.hll,
+  .code.none .line_holder .diff-line-num.hll {
     border-color: var(--v3-2) !important;
     background-color: var(--v3-1) !important;
   }
-  .code.white .line_holder > .diff-line-num.is-over.diff-line-num,
-  .code.none .line_holder > .diff-line-num.is-over.diff-line-num {
+  .code.white .line_holder .diff-line-num.is-over.diff-line-num,
+  .code.none .line_holder .diff-line-num.is-over.diff-line-num {
     background-color: var(--bg-4) !important;
   }
-  .code.white .line_holder > .diff-line-num.is-over.diff-line-num + .line_content,
-  .code.none .line_holder > .diff-line-num.is-over.diff-line-num + .line_content {
+  .code.white .line_holder .diff-line-num.is-over.diff-line-num + .line_content,
+  .code.none .line_holder .diff-line-num.is-over.diff-line-num + .line_content {
     background-color: var(--bg-3) !important;
   }
-  .code.white .line_holder > .diff-line-num.is-over.old,
-  .code.none .line_holder > .diff-line-num.is-over.old {
+  .code.white .line_holder .diff-line-num.is-over.old,
+  .code.none .line_holder .diff-line-num.is-over.old {
     border-color: var(--v1-4) !important;
     background-color: var(--v1-2) !important;
   }
-  .code.white .line_holder > .diff-line-num.is-over.new,
-  .code.none .line_holder > .diff-line-num.is-over.new {
+  .code.white .line_holder .diff-line-num.is-over.new,
+  .code.none .line_holder .diff-line-num.is-over.new {
     border-color: var(--v4-4) !important;
     background-color: var(--v4-2) !important;
   }
-  .code.white .line_holder > .diff-line-num.is-over.hll,
-  .code.none .line_holder > .diff-line-num.is-over.hll {
+  .code.white .line_holder .diff-line-num.is-over.hll,
+  .code.none .line_holder .diff-line-num.is-over.hll {
     border-color: var(--v3-4) !important;
     background-color: var(--v3-2) !important;
   }
-  .code.white .line_holder:hover > [class ^= 'line']:not(.match),
-  .code.none .line_holder:hover > [class ^= 'line']:not(.match) {
+  .code.white .line_holder:hover .diff-td:not(.match):not(.old):not(.new):not(.hll),
+  .code.none .line_holder:hover .diff-td:not(.match):not(.old):not(.new):not(.hll),
+  .code.white .line_holder:hover > [class ^= 'line']:not(.match):not(.old):not(.new):not(.hll),
+  .code.none .line_holder:hover > [class ^= 'line']:not(.match):not(.old):not(.new):not(.hll) {
     background-color: var(--bg-3) !important;
   }
+  .code.white .line_holder:hover .diff-td.old:not(.diff-line-num),
+  .code.none .line_holder:hover .diff-td.old:not(.diff-line-num),
   .code.white .line_holder:hover > [class ^= 'line'].old:not(.diff-line-num),
   .code.none .line_holder:hover > [class ^= 'line'].old:not(.diff-line-num) {
     background-color: var(--v1-1) !important;
   }
+  .code.white .line_holder:hover .diff-td.new:not(.diff-line-num),
+  .code.none .line_holder:hover .diff-td.new:not(.diff-line-num),
   .code.white .line_holder:hover > [class ^= 'line'].new:not(.diff-line-num),
   .code.none .line_holder:hover > [class ^= 'line'].new:not(.diff-line-num) {
     background-color: var(--v4-1) !important;
   }
+  .code.white .line_holder:hover .diff-td.hll:not(.diff-line-num),
+  .code.none .line_holder:hover .diff-td.hll:not(.diff-line-num),
   .code.white .line_holder:hover > [class ^= 'line'].hll:not(.diff-line-num),
   .code.none .line_holder:hover > [class ^= 'line'].hll:not(.diff-line-num) {
     background-color: var(--v3-1) !important;
   }
-  .code.white .line_holder > [class^='line'],
-  .code.none .line_holder > [class^='line'] {
+  .code.white .line_holder [class^='line'],
+  .code.none .line_holder [class^='line'],
+  .code.white .line_holder .diff-td:not(.diff-line-num),
+  .code.none .line_holder .diff-td:not(.diff-line-num) {
     background-color: transparent !important;
   }
   .parallel.left-side.old {
     background-color: var(--v1-0) !important;
   }
-  .code.white .line_holder > [class^='line'].old,
-  .code.none .line_holder > [class^='line'].old {
+  .code.white .line_holder [class^='line'].old,
+  .code.none .line_holder [class^='line'].old,
+  .code.white .line_holder .diff-td:not(.diff-line-num).old,
+  .code.none .line_holder .diff-td:not(.diff-line-num).old {
     background-color: var(--v1-0) !important;
   }
-  .code.white .line_holder > [class^='line'].old::before,
-  .code.none .line_holder > [class^='line'].old::before {
+  .code.white .line_holder [class^='line'].old::before,
+  .code.none .line_holder [class^='line'].old::before,
+  .code.white .line_holder .diff-td:not(.diff-line-num).old::before,
+  .code.none .line_holder .diff-td:not(.diff-line-num).old::before {
     color: var(--v1-6) !important;
   }
-  .code.white .line_holder > [class^='line'].new,
-  .code.none .line_holder > [class^='line'].new {
+  .code.white .line_holder [class^='line'].new,
+  .code.none .line_holder [class^='line'].new,
+  .code.white .line_holder .diff-td:not(.diff-line-num).new,
+  .code.none .line_holder .diff-td:not(.diff-line-num).new {
     background-color: var(--v4-0) !important;
   }
-  .code.white .line_holder > [class^='line'].new::before,
-  .code.none .line_holder > [class^='line'].new::before {
+  .code.white .line_holder [class^='line'].new::before,
+  .code.none .line_holder [class^='line'].new::before,
+  .code.white .line_holder .diff-td:not(.diff-line-num).new::before,
+  .code.none .line_holder .diff-td:not(.diff-line-num).new::before {
     color: var(--v4-6) !important;
   }
-  .code.white .line_holder > [class^='line'].hll,
-  .code.none .line_holder > [class^='line'].hll {
+  .code.white .line_holder [class^='line'].hll,
+  .code.none .line_holder [class^='line'].hll,
+  .code.white .line_holder .diff-td:not(.diff-line-num).hll,
+  .code.none .line_holder .diff-td:not(.diff-line-num).hll {
     background-color: var(--v3-0) !important;
   }
-  .code.white .line_holder > [class^='line'].hll::before,
-  .code.none .line_holder > [class^='line'].hll::before {
+  .code.white .line_holder [class^='line'].hll::before,
+  .code.none .line_holder [class^='line'].hll::before,
+  .code.white .line_holder .diff-td:not(.diff-line-num).hll::before,
+  .code.none .line_holder .diff-td:not(.diff-line-num).hll::before {
     color: var(--fg-3) !important;
   }
   .code.white .line_holder.diff-expanded .diff-line-num,
@@ -5950,20 +6032,28 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
   }
   .code.white .line_expansion td,
-  .code.none .line_expansion td {
+  .code.none .line_expansion td,
+  .code.white .line_expansion .diff-td,
+  .code.none .line_expansion .diff-td {
     border-color: var(--bg-5) !important;
   }
   .code.white .line_expansion a,
   .code.none .line_expansion a,
   .code.white .line_expansion span,
   .code.none .line_expansion span {
-    color: var(--fg-3) !important;
+    color: var(--v0-9) !important;
   }
   .code.white.white,
   .code.none.white {
     color: var(--fg-1);
     background-color: transparent;
   }
+  .code.white .diff-tr:last-child,
+  .code.none .diff-tr:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+  .code.white .diff-tr:last-child > .diff-td,
+  .code.none .diff-tr:last-child > .diff-td,
   .code.white tbody > tr.line_expansion.match:last-child > td,
   .code.none tbody > tr.line_expansion.match:last-child > td {
     border-bottom: none !important;
@@ -6002,15 +6092,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     margin-left: 10px;
   }
   .cover-block {
-    background-color: var(--bg-2) !important;
+    background-color: var(--bg-1) !important;
   }
   .cover-title,
   .cover-status,
   .cover-desc {
     color: var(--fg-1) !important;
-  }
-  .cover-controls .btn {
-    background-color: var(--bg-1) !important;
   }
   .calendar-hint {
     color: var(--fg-1) !important;
@@ -6184,13 +6271,17 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .diff-file .notes_holder {
     font-family: var(--ui-font) !important;
   }
+  .diff-file .notes_holder .diff-td,
+  .diff-file .notes_holder td {
+    border-color: var(--bg-5);
+  }
   .diff-file .notes-content {
     padding-bottom: 0px !important;
     background-color: transparent !important;
   }
   .note-headline-light,
   .note-timestamp {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .note-header-info a:hover,
   .note-header-info a.hover {
@@ -6225,6 +6316,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .note.system-note.note-wrapper .timeline-icon {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
+  }
+  .note.system-note .system-note-commit-list::after {
+    background: linear-gradient(transparent -100px, var(--bg-0) 100%) !important;
+  }
+  .note.system-note .system-note-commit-list-toggler {
+    color: var(--v0-9) !important;
   }
   .note.timeline-entry {
     color: var(--fg-1) !important;
@@ -7588,6 +7685,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 }
 
 @-moz-document domain('next.gitlab.com') {
+  body {
+    linear-gradient(130deg, var(--bg-2), var(--bg-1)) !important;
+  }
   .wrapper {
     padding: 1rem;
     min-height: calc(100vh - 2rem);
