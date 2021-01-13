@@ -1,6 +1,26 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.7 [2021-01-13 Wed]
+Fixed a ton of new things for upcoming GitLab 13.8 release, refined more colors,
+and fixed a couple of regressions caused by previous releases.
+
+*** Improved
+- Tweaked the names of generated Stylus-lang helper variables
+  - From ~Color-Tone~ to ~$ColorTone~; i.e.: ~fg-0~ -> ~$fg0~
+- Increased text color contrast for system notes
+- Switched to darker background tone for "cover" element in user profiles
+- Refined colors for dropdown menu states in the navbar
+- Refined colors for badge pills in navigation blocks
+
+*** Bug fixes
+- Resolved a regression for commit list gradient in Merge Requests ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/153][#153]])
+- Added styles to fix a brand new diff table component 
+- Fixed border colors for notes in code discussions
+- Fixed styles when hovering over lines in new diff tables
+- Added styles for notification dot and "What's new at GitLab" feature
+- Replaced body gradient with theme colors on ~next.gitlab.com~ page
+
 ** 2.0.0-rc.6 [2021-01-07 Thu]
 Added support for pages on Web Archive, fixed a couple regressions, and improved
 a few other things.
