@@ -4474,8 +4474,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     &.hll { c: 0 v34 v32 }
 
                     /// HACK: Highlight individual lines.
+                    ../../:hover .diff-td,
                     ../../:hover > [class ^= 'line'] {
-                        &:not(.match) { c: 0 0 bg3 }
+                        &:not(.match):not(.old):not(.new):not(.hll) { c: 0 0 bg3 }
                         &.old:not(.diff-line-num) { c: 0 0 v11 }
                         &.new:not(.diff-line-num) { c: 0 0 v41 }
                         &.hll:not(.diff-line-num) { c: 0 0 v31 }
