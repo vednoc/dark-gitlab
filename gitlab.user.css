@@ -7686,7 +7686,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
 @-moz-document domain('next.gitlab.com') {
   body {
-    linear-gradient(130deg, var(--bg-2), var(--bg-1)) !important;
+    background: linear-gradient(130deg, var(--bg-2), var(--bg-1)) !important;
   }
   .wrapper {
     padding: 1rem;
