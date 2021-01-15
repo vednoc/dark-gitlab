@@ -4525,6 +4525,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 &.hll { c: 0 0 v30; &::before { c: fg3 }}
             }
 
+            /// Diff -> Add border to right-side of side-by-side view.
+            &:not(.diff-expanded) > .left-side {
+                + .right-side, + .diff-line-num {
+                    border-left: 1px solid bg5 i
+                }
+            }
+
             /// Diff -> Expanded sections.
             &.diff-expanded {
                 .diff-line-num { border-right-color: bg2 i }
