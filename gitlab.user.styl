@@ -1628,6 +1628,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                         font-size: 14px i
                     }
 
+                    /// Implemented in GitLab 13.8. @upstream
+                    ../ .has-tooltip + .fork-count { height: 32px i }
+
                     /// OBSOLETE: Buttons/clone bar in GitLab 10.4.
                     &:not(.btn-xs) { c: fg1 bg5 bg3 }
                     ../ input { height: 34px i }
