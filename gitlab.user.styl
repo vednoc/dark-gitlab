@@ -3240,7 +3240,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
     // Pajamas.
     .gl {
+        o = '\!'
+
         &-font-monospace { font-family: var(--mono-font) i }
+
         /// Search area.
         &-filtered-search {
             /// Wrapper.
@@ -3271,12 +3274,17 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &-search-box-by-click-search-button {
             border: 1px solid bd;
         }
+
         /// Text color overrides.
         &-text {
             &-body { c: fg }
             &-black-normal { c: fg0 }
             &-orange-500:not(#z) { c: orange; g: orange }
+            &-red {
+                &-500{ o } { c: v15 }
+            }
         }
+
         /// Background-color overrides.
         &-bg {
             &-white { c: 0 0 bb }
@@ -3285,7 +3293,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             /.bg-secondary-50 { c: 0 0 bg3 } // 'License Complicance' page.
             &-green-100.gl-text-green-800 { c: v48 v42 v42 } // Pending comments.
             &-blue-50 { c: 0 0 v62 }
+            &-red {
+                &-50 { c: 0 0 v10 }
+            }
         }
+
         /// Border-color overrides.
         &-border-gray {
             &-100, &-200 { c: 0 bd }
