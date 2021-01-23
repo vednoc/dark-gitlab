@@ -474,12 +474,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Login page.
         .page-wrap {
             c: 0 0 t;
-            .brand-holder p { c: cm }
+            .brand-holder p { c: fg3 }
             /// Footer styles.
             hr.footer-fixed {
                 padding-top: 24px;
                 margin-bottom: 0;
-                c: 0 0 hl;
+                c: 0 0 bg1
                 + .footer-container { c: 0 0 t }
             }
             /// Login.
@@ -1673,11 +1673,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Project -> Add missing files.
         &-dashed,
         &-missing {
-            c: fg4 bg5 bg2
+            c: fg3 bg5 bg2
             outline-color: t i
             border-style: dashed i
             &:hover { c: 0 0 bg3 }
             &:focus { c: 0 0 bg4 }
+            &.disabled { c: 0 0 bg1 }
         }
 
         /// Project -> Signed commits.
@@ -3625,7 +3626,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 c: fg 0 hl;
                 border: 1px solid bd;
                 box-shadow: bsh;
-                [class *= 'share'] { c: cm }
+                [class *= 'share'] { c: fg3 }
                 [class *= 'scoped-label'] { c: ac }
                 /// Issues -> Assignee.
                 .text-white-50 { c: cm; opacity: 0.5 }
