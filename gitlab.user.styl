@@ -357,15 +357,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     // Base styles.
     body {
         font-family: var(--ui-font) i;
-        &, &.navless { c: fg 0 bg }
-        /// App background.
-        &::before {
-            content: '';
-            z-index: -1;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            c: 0 0 bb;
-        }
+
+        /// Default page colors.
+        &, &.navless { c: fg1 0 bg0 }
+
         /// Browser styles.
         a { &, &:hover { color: ac }}
         hr { border-color: bg3 }
