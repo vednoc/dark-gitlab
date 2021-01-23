@@ -1,6 +1,25 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.8 [2021-01-23 Sat]
+Fixed some new things and conflicts introduced in GitLab 13.8 release and
+refined color contrast for many elements.
+
+*** Improved
+- Added border to right side of side-by-side view in file diffs ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/155][#155]])
+- Made illustration inversion on "New projects" page much more generic
+- Added a few overrides for Pajamas' red colors
+- Tweaked colors for item active and focus states in navbar
+- Simplified styles for default page colors and navbar menus
+- Added a ton of color adjustments for miscellaneous elements
+
+*** Bug fixes
+- Fixed a syntax issue in /Lite/ version ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/154][#154]])
+- Fixed selected state of buttons in MR settings ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/155][#155]])
+- Fixed issues with borders for dashed/missing buttons
+- Fixed height of "Fork count" button on project page
+- Fixed new selectors for reactions in notes
+
 ** 2.0.0-rc.7 [2021-01-13 Wed]
 Fixed a ton of new things for upcoming GitLab 13.8 release, refined more colors,
 and fixed a couple of regressions caused by previous releases.
