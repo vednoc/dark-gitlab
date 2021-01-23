@@ -1699,7 +1699,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &.selected[data-testid='award-button'],
         &.award-control {
             &.active {
-                c: v09 v05 v02
+                c: ac v05 v02
+                &:hover { c: 0 0 v03 }
+                &:focus { b: $f v01 i }
+            }
+
+            /// Added in GitLab v13.8.
+            /.awards > .gl-button.selected {
+                c: ac v05 v02
                 &:hover { c: 0 0 v03 }
                 &:focus { b: $f v01 i }
             }
