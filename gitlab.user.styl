@@ -1918,7 +1918,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             c: fg1 bg3
             a { c: fg }
             /// Metadata.
-            .commit-sha { c: v07 }
+            .commit-sha { c: ac }
             /.item-meta * { c: cm }
             /// Dashboard -> Todos -> Fix links.
             .todo { &-label, &-project { a { c: ac }}}
@@ -1930,7 +1930,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
             /// Profile -> Groups.
             &.group-row {
-                .description p, .stats { c: cm }
+                .description p, .stats { c: fg3 }
             }
             /// Hover animation.
             &.issue, &.merge-request, &[id *= 'epic'] {
@@ -2490,7 +2490,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     .projects-list {
         > li {
             c: 0 bg4
-            .description { c: cm }
+            .description { c: fg3 }
             /.user-access-role { c: fg3 bg5 bg3 }
         }
         /// Profile -> Personal projects.
@@ -2536,7 +2536,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     // Global -> Event lists.
     .event {
         &-item {
-            c: fg4 bg4
+            c: fg3 bg4
             .commit { &, &s-stat { c: fg }}
             [href], [href *= '/compare/'] { c: ac }
         }
