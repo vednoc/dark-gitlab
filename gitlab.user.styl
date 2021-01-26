@@ -1597,6 +1597,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &&-transparent,
         &&-default-tertiary {
             c: 0 t t
+            &:hover > svg { g: fg1 }
         }
 
         /// Close buttons.
@@ -2103,12 +2104,21 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 c: v09
                 > svg { g: currentColor }
                 &.edit-link { &, * { c: fg4 0 t }}
+                &.dropdown-menu-close { c: fg3 } // Health status.
             }
+
+            /// 'Move issue' button.
+            &.btn-block { border: 1px solid bg5 }
 
             /// Health status for closed issues.
             &-link[disabled] { c: fg5 t t }
         }
 
+        /// Improve contrast for inputs.
+        input.form-control,
+        .labels-select-dropdown-button:not(:hover) {
+            c: 0 0 bg1
+        }
         /// Fix top offset.
         if (nb_height) { top: 50px i }
         /// Pajamas -> Drawer.
