@@ -4947,8 +4947,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         c: 0 0 t;
         /// Confidential issues.
         /.issuable-note-warning {
-            c: v27 v22 v20
+            c: v29 v22 v21
             a, svg { c: currentColor; g: currentColor }
+            &.gl-border-b-gray-100 { c: 0 bg5 }
         }
         /// Editor.
         /.md-area {
@@ -4958,8 +4959,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 &:hover { g: fg }
             }
             &.is-focused {
-                c: 0 v65
-                b: 0 0 0 0.2rem v63 i
+                b: 0 0 0 0.2rem v63 i // OBSOLETE
+                &.gfm-form { b: 0 0 0 1px v65, 0 0 0 0.2rem v63 i }
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
