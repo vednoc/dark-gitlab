@@ -751,6 +751,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Checkmarks.
         /#notifications-button + ul li .is-active,
+        /.dropdown-menu-selectable > .gl-new-dropdown .is-active,
         /.dropdown-menu-toggle + .dropdown-menu-selectable li .is-active {
             x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
             x += 'viewBox="0 0 48 48" width="32" height="32" stroke-width="3" '
@@ -2203,16 +2204,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 .dropdown { &-title, &-footer { c: 0 bd }}
             }
         }
+
         /// Issues -> Health status menu.
         .btn-group {
             li .dropdown-item {
                 &:hover { c: 0 0 bd }
                 &, button.btn { c: 0 0 t }
-                .btn.is-active::before {
-                    content: '\f00c' i;
-                    opacity: 1 i;
-                    c: 0 0 t;
-                }
             }
             /// NOTE: Might break some things.
             /.dropdown-title-button { float: right }
