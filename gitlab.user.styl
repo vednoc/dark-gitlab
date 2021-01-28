@@ -741,6 +741,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         }
 
         /// Down chevron.
+        /.swagger-ui select,
         /.select2-arrow {
             x  = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" '
             x += s('viewBox="0 0 48 48" width="34" height="34" stroke="%s" ', to_svg($fg3))
@@ -2991,102 +2992,149 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /.task-list { c: fg }
     }
 
-    // Global -> Swagger UI. #101
+    // Global -> Swagger UI. #101, #157
     .swagger-ui {
-        position: relative;
-        z-index: 1;
-        /// Header.
-        .info {
-            .title { c: fg }
-            & a, ../ link a { c: ac }
+        c: fg1
+
+        /// Text colors.
+        a {
+            c: ac
+            &:not([href]) { c: inherit }
+            ../.info a:hover { opacity: 0.8 }
         }
-        /// Base resets.
-        button.btn {
-            c: fg bd hl;
-            ../ .arrow { g: fg }
-            &.execute { c: white blue blue }
-            ../ .download-contents { c: fg 0 bd }
+        p, li, table, h3, h4, h5, label { c: fg1 }
+        :not(pre) > code { c: ac 0 bg2 }
+        pre.microlight {
+            c: fg1 bg5 bg2
+            span:not([style]) { c: fg1 }
+            span[style^='color: rgb(162'] { c: v47 }
+            span[style^='color: rgb(211'] { c: v27 }
         }
+
+        /// Base overrides.
         input, textarea {
-            c: fg bd hl;
-            &[disabled] {c: cm bd hl; opacity: 0.6 }
+            c: fg1 bg5 bg1
+            &[disabled] { &, &::placeholder { c: fg5 }}
+            &:focus { c: 0 v65; b: 0 0 0 0.2rem v63 }
         }
-        &, h3, h4, h5 { c: fg }
-        select { c: fg bd hl; box-shadow: none i }
-        /// Mixin for `method_colors` styles.
-        method_colors(method, color) {
-            &-{ method } {
-                c: 0 color t;
-                position: relative;
-                &::before { content: ''; c: 0 0 color }
-                .tab-item.active h4 span::after,
-                .opblock-summary-method {
-                    c: 0 0 color;
-                }
+        .btn {
+            c: fg3 bg5
+            &-done { c: fg1 bg5 }
+            &.execute { c: v99 v07 v05 }
+            &.cancel { c: v99 v17 v14 }
+            &.authorize {
+                c: v47 v43
+                &:hover { c: 0 0 v41 }
+            }
+            &:hover { opacity: 0.9; b: var(--bshadow) }
+        }
+
+        /// Adjust down chevron icon.
+        select {
+            background-size: auto i
+            background-position-x: right -10px i
+            background-position-y: top 5px i
+            background-repeat: no-repeat i
+            &.content-type { c: fg1 v46 }
+            &[disabled] { c: fg5 }
+        }
+
+        /// Fix custom UI font.
+        *:not(code):not(pre) { font-family: var(--ui-font) i }
+
+        /// Icons.
+        svg.arrow { g: fg3 }
+        .unlocked > svg { g: v99 }
+        .authorize > svg { g: v47 }
+        .close-modal > svg { g: fg3 }
+
+        /// Title.
+        .title {
+            c: fg1
+            small { c: fg1 0 bg5 }
+            .version-stamp { c: white 0 v07 }
+        }
+
+        /// Auth modal.
+        .dialog-ux {
+            .backdrop-ux { c: 0 0 bg0; opacity: 0.85 }
+            .modal-ux {
+                c: 0 bg5 bg1
+                &-header { c: 0 bg5 }
             }
         }
-        /// Blocks.
+
+        /// Operations.
         .opblock {
-            &-tag { c: fg bd }
-            &-section p { c: cm }
-            &-title, &-section-header h4 { c: fg }
+            &-tag {
+                c: fg1 bg5
+                &:hover { c: 0 0 bg2 }
+            }
             &-section-header {
-                c: 0 0 hl;
-                box-shadow: 0 1px bd, 0 -1px bd i;
+                c: 0 0 bg2
+                b: 0 1px bg5, inset 0 1px bg5 i
             }
             &-summary {
-                &-path, &-operation-id, &-path__deprecated { c: fg }
-                &-description { c: cm }
+                c: 0 inherit
+                &-path { c: v98 }
+                &-description { c: v96 }
+                &-operation-id, &-path__deprecated { c: fg1 }
             }
-            /// Theme colors for methods.
-            &::before {
-                z-index: -1;
-                opacity: 0.1;
-                position: absolute;
-                top: 0; right: 0; bottom: 0; left: 0;
+
+            /// Misc elements.
+            .active h4 span::after { c: 0 0 ac }
+            [class*='accept-message'] { c: v47 }
+            .download-contents, .copy-to-clipboard {
+                c: fg1 0 bg5
+                &:hover { opacity: 0.8 }
             }
-            method_colors(get, blue);
-            method_colors(put, orange);
-            method_colors(post, green);
-            method_colors(patch, cyan);
-            method_colors(delete, red);
+
+            /// Mixin for method colors.
+            method_colors(method, $bd, $bg) {
+                &-{ method } {
+                    c: 0 $bd $bg
+                    .opblock-summary-method { c: 0 0 $bd }
+                }
+            }
+            method_colors(get,    v64, v61)
+            method_colors(put,    v24, v21)
+            method_colors(post,   v44, v41)
+            method_colors(patch,  v54, v51)
+            method_colors(delete, v14, v11)
+        }
+
+        /// Misc elements.
+        .scheme-container {
+            c: 0 0 bg2
+            b: 0 1px bg5, inset 0 1px bg5 i
         }
         .model {
-            c: fg;
-            &-title { c: fg }
-            &-toggle::after { filter: invert(1) }
-            &s {
-                c: 0 bd;
-                > h4 { c: 0 bd hl }
-            }
+            &s { c: 0 bg5 }
+            &, &-title { c: fg1 }
+            &-toggle { filter: invert() }
         }
         .prop {
-            &-format { c: cm }
-            &-type { c: violet }
+            &-format { c: fg4 }
+            &-type { c: v87 }
         }
         .parameter {
-            &__name { c: fg }
-            &__name::after { c: red }
-            &__in, &__type { c: cm }
+            &__name {
+                c: fg1
+                &::after { c: v15 }
+                &.required span { c: v17 }
+            }
+            &__in, &__type { c: fg4 }
         }
-        pre.microlight {
-            c: fg bd hl;
-            span:not(#z) { c: fg }
-        }
-        .scheme-container {
-            c: fg 0 bg;
-            box-shadow: 0 -1px bd, 0 1px bd;
-        }
-        /// Reset table elements.
+
+        /// Table reset.
         table:not(#z) {
-            padding: 0;
-            &, th:not(#z), td { c: fg t t }
-            span { &[class = ''], &:not([class]) { c: cm }}
+            padding: 0 i
+            c: 0 0 t
+            thead tr {
+                b: 0 1px bg5 i
+                th, td { c: fg1 0 t }
+            }
         }
-        /// Reset various colors.
-        .tab li::after { c: 0 0 cm }
-        a.tablinks, [class *= 'brace-'] { c: fg }
-        :not(#z) [style *= 'color: red']:not(#z) { c: red }
     }
 
     // Pajamas -> Banners.
