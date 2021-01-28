@@ -1,6 +1,26 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.9 [2021-01-28 Thu]
+Added many new improvements for styles in notes, fixed a couple of new regressions,
+and rewrote OpenAPI/Swagger UI styles to use new color variables.
+
+*** Improved
+- Updated new styles for Markdown input area in notes
+- Added lots of tweaks for buttons/inputs in issue's right sidebar
+- Rewrote styles for OpenAPI/Swagger UI from the scratch ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/157][#157]])
+- Changed accent color to be 1:1 from what has been set in configuration menu
+  + In previous releases, the accent color was /very close to 1:1, like 99% or
+    so/. It was exceptionally hard to notice the difference for /most/ colors.
+- Added two new color-schemes: =Twilight= and =Ubuntu=
+  + That's a total of 21 (including =Custom=) color-schemes out-of-the-box!
+
+*** Bug fixes
+- Remapped background color for 'Next' badge in navbar
+- Fixed invalid checkmark icon in issue's 'Health status' menu
+- Fixed colors for labels menu while creating a new Epic ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/159][#159]])
+- Resolved a regression for 'current user' in system messages ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/158][#158]])
+
 ** 2.0.0-rc.8 [2021-01-23 Sat]
 Fixed some new things and conflicts introduced in GitLab 13.8 release and
 refined color contrast for many elements.
