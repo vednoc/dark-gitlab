@@ -2201,11 +2201,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             /// Fix link hover event.
             &-content a:hover { c: ac }
         }
-        /// Epics -> Labels. #123
-        .labels-select {
+
+        /// Epics -> Labels. #123, #159
+        /.labels-select {
             &-wrapper {
-                .label-item { &.is-focused, &:hover { c: fg 0 bd }}
-                .gl, .btn { &-link:not(.gl-label-link) { c: cm }}
+                .label-item { &.is-focused, &:hover { c: fg1 0 bg4 }}
+                .gl, .btn { &-link:not(.gl-label-link) { c: fg3 }}
             }
             &-dropdown-contents {
                 border: 1px solid bd i;
