@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.8
+@version      2.0.0-rc.9
 @license      MIT
 ==/UserStyle== */
 
@@ -64,11 +64,12 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.8';
+    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.9';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --white: #fff;
     --avatar: 25%;
+    --ac: #d47d3f;
     --ui-font: '"font_name"', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, sans-serif, var(--emoji-font);
     --mono-font: '"font_name"', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace;
     --emoji-font: '"font_name"', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -201,7 +202,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   body a,
   body a:hover {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   body hr {
     border-color: var(--bg-3);
@@ -250,11 +251,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   body .gl-link,
   body .gl-link:hover {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   body .author-link,
   .branch-commit .commit-sha {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   body .text-monospace,
   body .code.diff-table,
@@ -461,7 +462,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v4-5) !important;
   }
   .fa.fa-certificate {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .fa[class *= 'paused'] {
     color: var(--v1-5) !important;
@@ -489,7 +490,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-3) !important;
   }
   body .bs-callout a:not(.btn) {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   body .bs-callout strong {
     color: inherit !important;
@@ -819,10 +820,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   [aria-sort='descending'] {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="101" height="101" view-box="0 0 101 101" preserveAspectRatio="none"><path fill="gray" opacity=".6" d="M51 1l25 23 24 22H1l25-22z"/><path fill="\%23d7884d" d="M51 101l25-23 24-22H1l25 22z"/></svg>') !important;
   }
+  .swagger-ui select,
   .select2-arrow {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="34" height="34" stroke="\%23a8a8a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>') 10px 9px !important;
   }
   #notifications-button + ul li .is-active,
+  .dropdown-menu-selectable > .gl-new-dropdown .is-active,
   .dropdown-menu-toggle + .dropdown-menu-selectable li .is-active {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline stroke="\%23d7884d" points="20 6 9 17 4 12"></polyline></svg>') !important;
   }
@@ -1070,7 +1073,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-left: none;
   }
   table:not(.code):not(#z) tbody tr td a {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   table:not(.code):not(#z) tbody tr:last-child td:last-child {
     border-radius: 0 0 4px 0;
@@ -1314,7 +1317,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .ci-table .commit-sha,
   .ci-table .gfm-commit {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .ci-table .ref-name,
   .ci-table .pipeline-id,
@@ -2002,6 +2005,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: transparent !important;
     background-color: transparent !important;
   }
+  .btn.btn-clipboard:hover > svg,
+  .btn.btn-transparent:hover > svg,
+  .btn.btn-default-tertiary:hover > svg {
+    fill: var(--fg-1) !important;
+  }
   button.close:not(#z) {
     transition: 0.2s ease;
     background-color: transparent !important;
@@ -2125,7 +2133,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .btn.selected[data-testid='award-button'].active,
   .btn.award-control.active {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     border-color: var(--v0-5) !important;
     background-color: var(--v0-2) !important;
   }
@@ -2138,7 +2146,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     box-shadow: 0 0 0 0.2rem var(--v0-1) !important;
   }
   .awards > .gl-button.selected {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     border-color: var(--v0-5) !important;
     background-color: var(--v0-2) !important;
   }
@@ -2220,7 +2228,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
   }
   .label-links a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .label-action svg {
     fill: var(--fg-4) !important;
@@ -2435,7 +2443,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .atwho-view .atwho-view-ul li strong {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .atwho-view .atwho-view-ul li small,
   .atwho-view .atwho-view-ul li .params {
@@ -2454,14 +2462,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   ul.content-list li .commit-sha {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .item-meta * {
     color: var(--fg-4) !important;
   }
   ul.content-list li .todo-label a,
   ul.content-list li .todo-project a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   ul.content-list li .group-row-contents:hover {
     background-color: var(--bg-2) !important;
@@ -2493,7 +2501,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
   }
   ul.content-list.all-branches .commit-sha {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   ul.content-list.all-branches .cgray {
     color: var(--fg-4) !important;
@@ -2518,7 +2526,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .issuable-email-modal-btn {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .icon-merge-request-unmerged {
     filter: invert(0.7);
@@ -2577,7 +2585,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     box-shadow: inset 4px 0 0 var(--v0-8) !important;
   }
   .nav-sidebar li.active > a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .nav-sidebar .sidebar-top-level-items > li > a:hover {
     color: var(--fg-1);
@@ -2677,10 +2685,20 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
     background-color: transparent !important;
   }
+  .right-sidebar .btn-link:not([disabled]).dropdown-menu-close {
+    color: var(--fg-3) !important;
+  }
+  .right-sidebar .btn.btn-block {
+    border: 1px solid var(--bg-5);
+  }
   .right-sidebar .btn-link[disabled] {
     color: var(--fg-5) !important;
     border-color: transparent !important;
     background-color: transparent !important;
+  }
+  .right-sidebar input.form-control,
+  .right-sidebar .labels-select-dropdown-button:not(:hover) {
+    background-color: var(--bg-1) !important;
   }
   .gl-drawer {
     color: var(--fg-1) !important;
@@ -2753,7 +2771,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .right-sidebar.build-sidebar .blocks-container a:not(.btn),
   .right-sidebar.build-sidebar .blocks-container .btn-link:not(.btn) {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .right-sidebar.build-sidebar .btn,
   .right-sidebar.build-sidebar [data-toggle = 'dropdown'] {
@@ -2786,25 +2804,25 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--v6-5) !important;
   }
   .right-sidebar .vertical-timeline-content a:hover {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
-  .right-sidebar .labels-select-wrapper .label-item.is-focused,
-  .right-sidebar .labels-select-wrapper .label-item:hover {
+  .labels-select-wrapper .label-item.is-focused,
+  .labels-select-wrapper .label-item:hover {
     color: var(--fg-1) !important;
-    background-color: var(--bg-5) !important;
+    background-color: var(--bg-4) !important;
   }
-  .right-sidebar .labels-select-wrapper .gl-link:not(.gl-label-link),
-  .right-sidebar .labels-select-wrapper .btn-link:not(.gl-label-link) {
-    color: var(--fg-4) !important;
+  .labels-select-wrapper .gl-link:not(.gl-label-link),
+  .labels-select-wrapper .btn-link:not(.gl-label-link) {
+    color: var(--fg-3) !important;
   }
-  .right-sidebar .labels-select-dropdown-contents {
+  .labels-select-dropdown-contents {
     border: 1px solid var(--bg-5) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
     box-shadow: var(--bshadow) !important;
   }
-  .right-sidebar .labels-select-dropdown-contents .dropdown-title,
-  .right-sidebar .labels-select-dropdown-contents .dropdown-footer {
+  .labels-select-dropdown-contents .dropdown-title,
+  .labels-select-dropdown-contents .dropdown-footer {
     border-color: var(--bg-5) !important;
   }
   .right-sidebar .btn-group li .dropdown-item:hover {
@@ -2812,11 +2830,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .right-sidebar .btn-group li .dropdown-item,
   .right-sidebar .btn-group li .dropdown-item button.btn {
-    background-color: transparent !important;
-  }
-  .right-sidebar .btn-group li .dropdown-item .btn.is-active::before {
-    content: '\f00c' !important;
-    opacity: 1 !important;
     background-color: transparent !important;
   }
   .dropdown-title-button {
@@ -2874,7 +2887,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .nav-links li a strong,
   .nav-links li button strong {
     color: var(--fg-1) !important;
-    border-color: var(--v0-9) !important;
+    border-color: var(--ac) !important;
   }
   .nav-links li [class$='badge'],
   .nav-links li [data-state] > .badge {
@@ -2887,7 +2900,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-5) !important;
   }
   .nav-tabs .nav-link.active {
-    border-color: var(--v0-9) !important;
+    border-color: var(--ac) !important;
     background-color: transparent !important;
   }
   .top-area .form-control {
@@ -3019,7 +3032,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     box-shadow: inset 0 -0.125rem var(--bg-5);
   }
   .gl-tab-nav-item.active {
-    box-shadow: inset 0 -0.125rem var(--v0-9);
+    box-shadow: inset 0 -0.125rem var(--ac);
   }
   .gl-tab-content {
     color: var(--fg-1) !important;
@@ -3042,7 +3055,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .registry-placeholder a.gl-text-black-normal:hover {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .gitlab-tabs {
     border-radius: 4px 4px 0 0;
@@ -3223,7 +3236,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .event-item [href],
   .event-item [href *= '/compare/'] {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .event-user-info a[href] {
     color: var(--fg-1) !important;
@@ -3419,7 +3432,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-1) !important;
   }
   .card.links-card a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .sortable-container {
     background-color: var(--bg-2) !important;
@@ -3428,7 +3441,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-radius: 0 0 4px 4px;
   }
   .sortable-row .sortable-link {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .epic-discussion-separator {
     border-color: var(--bg-5) !important;
@@ -3454,7 +3467,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .gl-spinner.gl-spinner-dark {
     border-color: var(--bg-5) !important;
-    border-top-color: var(--v0-9) !important;
+    border-top-color: var(--ac) !important;
   }
   .gl-spinner-container.labels-fetch-loading {
     background-color: transparent !important;
@@ -3511,7 +3524,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .pika-single:not(.gl-datepicker-theme) .pika-table td .pika-day:hover,
   .pika-single:not(.gl-datepicker-theme) .pika-table td[class ^= 'is-'] .pika-day {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     background-color: var(--bg-2) !important;
   }
   .pika-single:not(.gl-datepicker-theme) .pika-table td.is-disabled .pika-day {
@@ -3712,7 +3725,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .md a,
   .md a > code {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .md p,
   .md p > code {
@@ -3793,176 +3806,233 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .swagger-ui {
-    position: relative;
-    z-index: 1;
-  }
-  .swagger-ui .info .title {
     color: var(--fg-1) !important;
   }
-  .swagger-ui .info a,
-  .swagger-ui link a {
-    color: var(--v0-9) !important;
+  .swagger-ui a {
+    color: var(--ac) !important;
   }
-  .swagger-ui button.btn {
+  .swagger-ui a:not([href]) {
+    color: inherit !important;
+  }
+  .swagger-ui.info a:hover {
+    opacity: 0.8;
+  }
+  .swagger-ui p,
+  .swagger-ui li,
+  .swagger-ui table,
+  .swagger-ui h3,
+  .swagger-ui h4,
+  .swagger-ui h5,
+  .swagger-ui label {
+    color: var(--fg-1) !important;
+  }
+  .swagger-ui :not(pre) > code {
+    color: var(--ac) !important;
+    background-color: var(--bg-2) !important;
+  }
+  .swagger-ui pre.microlight {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
   }
-  .swagger-ui .arrow {
-    fill: var(--fg-1) !important;
-  }
-  .swagger-ui button.btn.execute {
-    color: var(--white) !important;
-    border-color: var(--v6-5) !important;
-    background-color: var(--v6-5) !important;
-  }
-  .swagger-ui .download-contents {
+  .swagger-ui pre.microlight span:not([style]) {
     color: var(--fg-1) !important;
-    background-color: var(--bg-5) !important;
+  }
+  .swagger-ui pre.microlight span[style^='color: rgb(162'] {
+    color: var(--v4-7) !important;
+  }
+  .swagger-ui pre.microlight span[style^='color: rgb(211'] {
+    color: var(--v2-7) !important;
   }
   .swagger-ui input,
   .swagger-ui textarea {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
+    background-color: var(--bg-1) !important;
   }
   .swagger-ui input[disabled],
-  .swagger-ui textarea[disabled] {
-    color: var(--fg-4) !important;
-    border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-    opacity: 0.6;
+  .swagger-ui textarea[disabled],
+  .swagger-ui input[disabled]::placeholder,
+  .swagger-ui textarea[disabled]::placeholder {
+    color: var(--fg-5) !important;
   }
-  .swagger-ui,
-  .swagger-ui h3,
-  .swagger-ui h4,
-  .swagger-ui h5 {
+  .swagger-ui input:focus,
+  .swagger-ui textarea:focus {
+    border-color: var(--v6-5) !important;
+    box-shadow: 0 0 0 0.2rem var(--v6-3);
+  }
+  .swagger-ui .btn {
+    color: var(--fg-3) !important;
+    border-color: var(--bg-5) !important;
+  }
+  .swagger-ui .btn-done {
     color: var(--fg-1) !important;
+    border-color: var(--bg-5) !important;
+  }
+  .swagger-ui .btn.execute {
+    color: var(--v9-9) !important;
+    border-color: var(--v0-7) !important;
+    background-color: var(--v0-5) !important;
+  }
+  .swagger-ui .btn.cancel {
+    color: var(--v9-9) !important;
+    border-color: var(--v1-7) !important;
+    background-color: var(--v1-4) !important;
+  }
+  .swagger-ui .btn.authorize {
+    color: var(--v4-7) !important;
+    border-color: var(--v4-3) !important;
+  }
+  .swagger-ui .btn.authorize:hover {
+    background-color: var(--v4-1) !important;
+  }
+  .swagger-ui .btn:hover {
+    opacity: 0.9;
+    box-shadow: var(--bshadow);
   }
   .swagger-ui select {
+    background-size: auto !important;
+    background-position-x: right -10px !important;
+    background-position-y: top 5px !important;
+    background-repeat: no-repeat !important;
+  }
+  .swagger-ui select.content-type {
     color: var(--fg-1) !important;
+    border-color: var(--v4-6) !important;
+  }
+  .swagger-ui select[disabled] {
+    color: var(--fg-5) !important;
+  }
+  .swagger-ui *:not(code):not(pre) {
+    font-family: var(--ui-font) !important;
+  }
+  .swagger-ui svg.arrow {
+    fill: var(--fg-3) !important;
+  }
+  .swagger-ui .unlocked > svg {
+    fill: var(--v9-9) !important;
+  }
+  .swagger-ui .authorize > svg {
+    fill: var(--v4-7) !important;
+  }
+  .swagger-ui .close-modal > svg {
+    fill: var(--fg-3) !important;
+  }
+  .swagger-ui .title {
+    color: var(--fg-1) !important;
+  }
+  .swagger-ui .title small {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-5) !important;
+  }
+  .swagger-ui .title .version-stamp {
+    color: var(--white) !important;
+    background-color: var(--v0-7) !important;
+  }
+  .swagger-ui .dialog-ux .backdrop-ux {
+    background-color: var(--bg-0) !important;
+    opacity: 0.85;
+  }
+  .swagger-ui .dialog-ux .modal-ux {
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-    box-shadow: none !important;
+    background-color: var(--bg-1) !important;
+  }
+  .swagger-ui .dialog-ux .modal-ux-header {
+    border-color: var(--bg-5) !important;
   }
   .swagger-ui .opblock-tag {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
   }
-  .swagger-ui .opblock-section p {
-    color: var(--fg-4) !important;
-  }
-  .swagger-ui .opblock-title,
-  .swagger-ui .opblock-section-header h4 {
-    color: var(--fg-1) !important;
+  .swagger-ui .opblock-tag:hover {
+    background-color: var(--bg-2) !important;
   }
   .swagger-ui .opblock-section-header {
     background-color: var(--bg-2) !important;
-    box-shadow: 0 1px var(--bg-5), 0 -1px var(--bg-5) !important;
+    box-shadow: 0 1px var(--bg-5), inset 0 1px var(--bg-5) !important;
   }
-  .swagger-ui .opblock-summary-path,
+  .swagger-ui .opblock-summary {
+    border-color: inherit !important;
+  }
+  .swagger-ui .opblock-summary-path {
+    color: var(--v9-8) !important;
+  }
+  .swagger-ui .opblock-summary-description {
+    color: var(--v9-6) !important;
+  }
   .swagger-ui .opblock-summary-operation-id,
   .swagger-ui .opblock-summary-path__deprecated {
     color: var(--fg-1) !important;
   }
-  .swagger-ui .opblock-summary-description {
-    color: var(--fg-4) !important;
+  .swagger-ui .opblock .active h4 span::after {
+    background-color: var(--ac) !important;
   }
-  .swagger-ui .opblock::before {
-    z-index: -1;
-    opacity: 0.1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  .swagger-ui .opblock [class*='accept-message'] {
+    color: var(--v4-7) !important;
+  }
+  .swagger-ui .opblock .download-contents,
+  .swagger-ui .opblock .copy-to-clipboard {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-5) !important;
+  }
+  .swagger-ui .opblock .download-contents:hover,
+  .swagger-ui .opblock .copy-to-clipboard:hover {
+    opacity: 0.8;
   }
   .swagger-ui .opblock-get {
-    border-color: var(--v6-5) !important;
-    background-color: transparent !important;
-    position: relative;
+    border-color: var(--v6-4) !important;
+    background-color: var(--v6-1) !important;
   }
-  .swagger-ui .opblock-get::before {
-    content: '';
-    background-color: var(--v6-5) !important;
-  }
-  .swagger-ui .opblock-get .tab-item.active h4 span::after,
   .swagger-ui .opblock-get .opblock-summary-method {
-    background-color: var(--v6-5) !important;
+    background-color: var(--v6-4) !important;
   }
   .swagger-ui .opblock-put {
-    border-color: var(--v2-5) !important;
-    background-color: transparent !important;
-    position: relative;
+    border-color: var(--v2-4) !important;
+    background-color: var(--v2-1) !important;
   }
-  .swagger-ui .opblock-put::before {
-    content: '';
-    background-color: var(--v2-5) !important;
-  }
-  .swagger-ui .opblock-put .tab-item.active h4 span::after,
   .swagger-ui .opblock-put .opblock-summary-method {
-    background-color: var(--v2-5) !important;
+    background-color: var(--v2-4) !important;
   }
   .swagger-ui .opblock-post {
-    border-color: var(--v4-5) !important;
-    background-color: transparent !important;
-    position: relative;
+    border-color: var(--v4-4) !important;
+    background-color: var(--v4-1) !important;
   }
-  .swagger-ui .opblock-post::before {
-    content: '';
-    background-color: var(--v4-5) !important;
-  }
-  .swagger-ui .opblock-post .tab-item.active h4 span::after,
   .swagger-ui .opblock-post .opblock-summary-method {
-    background-color: var(--v4-5) !important;
+    background-color: var(--v4-4) !important;
   }
   .swagger-ui .opblock-patch {
-    border-color: var(--v5-5) !important;
-    background-color: transparent !important;
-    position: relative;
+    border-color: var(--v5-4) !important;
+    background-color: var(--v5-1) !important;
   }
-  .swagger-ui .opblock-patch::before {
-    content: '';
-    background-color: var(--v5-5) !important;
-  }
-  .swagger-ui .opblock-patch .tab-item.active h4 span::after,
   .swagger-ui .opblock-patch .opblock-summary-method {
-    background-color: var(--v5-5) !important;
+    background-color: var(--v5-4) !important;
   }
   .swagger-ui .opblock-delete {
-    border-color: var(--v1-5) !important;
-    background-color: transparent !important;
-    position: relative;
+    border-color: var(--v1-4) !important;
+    background-color: var(--v1-1) !important;
   }
-  .swagger-ui .opblock-delete::before {
-    content: '';
-    background-color: var(--v1-5) !important;
-  }
-  .swagger-ui .opblock-delete .tab-item.active h4 span::after,
   .swagger-ui .opblock-delete .opblock-summary-method {
-    background-color: var(--v1-5) !important;
+    background-color: var(--v1-4) !important;
   }
-  .swagger-ui .model {
-    color: var(--fg-1) !important;
-  }
-  .swagger-ui .model-title {
-    color: var(--fg-1) !important;
-  }
-  .swagger-ui .model-toggle::after {
-    filter: invert(1);
+  .swagger-ui .scheme-container {
+    background-color: var(--bg-2) !important;
+    box-shadow: 0 1px var(--bg-5), inset 0 1px var(--bg-5) !important;
   }
   .swagger-ui .models {
     border-color: var(--bg-5) !important;
   }
-  .swagger-ui .models > h4 {
-    border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
+  .swagger-ui .model,
+  .swagger-ui .model-title {
+    color: var(--fg-1) !important;
+  }
+  .swagger-ui .model-toggle {
+    filter: invert();
   }
   .swagger-ui .prop-format {
     color: var(--fg-4) !important;
   }
   .swagger-ui .prop-type {
-    color: var(--v8-5) !important;
+    color: var(--v8-7) !important;
   }
   .swagger-ui .parameter__name {
     color: var(--fg-1) !important;
@@ -3970,46 +4040,24 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .swagger-ui .parameter__name::after {
     color: var(--v1-5) !important;
   }
+  .swagger-ui .parameter__name.required span {
+    color: var(--v1-7) !important;
+  }
   .swagger-ui .parameter__in,
   .swagger-ui .parameter__type {
     color: var(--fg-4) !important;
   }
-  .swagger-ui pre.microlight {
-    color: var(--fg-1) !important;
-    border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-  }
-  .swagger-ui pre.microlight span:not(#z) {
-    color: var(--fg-1) !important;
-  }
-  .swagger-ui .scheme-container {
-    color: var(--fg-1) !important;
-    background-color: var(--bg-1) !important;
-    box-shadow: 0 -1px var(--bg-5), 0 1px var(--bg-5);
-  }
   .swagger-ui table:not(#z) {
-    padding: 0;
-  }
-  .swagger-ui table:not(#z),
-  .swagger-ui table:not(#z) th:not(#z),
-  .swagger-ui table:not(#z) td {
-    color: var(--fg-1) !important;
-    border-color: transparent !important;
+    padding: 0 !important;
     background-color: transparent !important;
   }
-  .swagger-ui table:not(#z) span[class = ''],
-  .swagger-ui table:not(#z) span:not([class]) {
-    color: var(--fg-4) !important;
+  .swagger-ui table:not(#z) thead tr {
+    box-shadow: 0 1px var(--bg-5) !important;
   }
-  .swagger-ui .tab li::after {
-    background-color: var(--fg-4) !important;
-  }
-  .swagger-ui a.tablinks,
-  .swagger-ui [class *= 'brace-'] {
+  .swagger-ui table:not(#z) thead tr th,
+  .swagger-ui table:not(#z) thead tr td {
     color: var(--fg-1) !important;
-  }
-  .swagger-ui :not(#z) [style *= 'color: red']:not(#z) {
-    color: var(--v1-5) !important;
+    background-color: transparent !important;
   }
   .gl-banner {
     color: var(--fg-1) !important;
@@ -4154,7 +4202,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .broadcast-notification-message a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   [role = 'alert'][class *= '_message']:not([class *= 'epic']) {
     border-radius: 4px;
@@ -4185,11 +4233,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .gl-toggle.is-checked,
   .project-feature-toggle.is-checked {
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .gl-toggle.is-checked svg,
   .project-feature-toggle.is-checked svg {
-    fill: var(--v0-9) !important;
+    fill: var(--ac) !important;
   }
   .gl-form-checkbox {
     color: var(--fg-1) !important;
@@ -4299,6 +4347,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--v4-2) !important;
     background-color: var(--v4-2) !important;
   }
+  .gl-bg-green-500 {
+    background-color: var(--v4-5) !important;
+  }
   .gl-bg-blue-50 {
     background-color: var(--v6-2) !important;
   }
@@ -4400,7 +4451,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gfm.gfm-merge_request,
   .gfm.gfm-epic,
   .gfm.gfm-milestone {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .gfm.gfm-commit,
   .gfm.gfm-commit_range {
@@ -4408,7 +4459,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .gfm.gfm-commit,
   .gfm.gfm-commit_range > code {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .gfm-color_chip > span {
     border-color: transparent !important;
@@ -4420,7 +4471,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     text-decoration: none !important;
     transition: 0.2s ease;
     font-weight: 500;
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     background-color: transparent !important;
   }
   .gfm.gfm-project_member::before {
@@ -4434,14 +4485,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     left: 0;
     transition: inherit;
     border-radius: inherit;
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .gfm.gfm-project_member:hover::before {
     opacity: 0.4;
   }
   .gfm.gfm-project_member.current-user {
     color: var(--white) !important;
-    background-color: var(--v0-9) !important;
+    background-color: var(--v0-7) !important;
   }
   .gfm.gfm-project_member.current-user:hover {
     opacity: 0.7;
@@ -4582,7 +4633,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5) !important;
   }
   .markdown-selector {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   .design-dropzone-card .text-center {
     color: var(--fg-1) !important;
@@ -4696,7 +4747,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-3) !important;
   }
   .tooltip-inner [class *= 'scoped-label'] {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .tooltip-inner .text-white-50 {
     color: var(--fg-4) !important;
@@ -4759,13 +4810,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-3) !important;
   }
   .slead + hr + .no-repo-actions .btn-primary {
-    color: var(--v0-9) !important;
-    border-color: var(--v0-9) !important;
+    color: var(--ac) !important;
+    border-color: var(--ac) !important;
     background-color: transparent !important;
   }
   .slead + hr + .no-repo-actions .btn-primary::before {
     content: '';
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .access-request-link {
     border-color: var(--bg-5) !important;
@@ -4874,7 +4925,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .blame .commit-sha {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .legend-box-0,
   .blame-commit-age-0::before {
@@ -5037,7 +5088,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   div[class *= 'mini-pipe']:focus {
-    box-shadow: 0 0 4px 0px var(--v0-9) !important;
+    box-shadow: 0 0 4px 0px var(--ac) !important;
   }
   div[class *= 'mini-pipe'] li:hover [class *= 'dropdown-item'] {
     background-color: var(--bg-5) !important;
@@ -5307,7 +5358,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5) !important;
   }
   .mr-state-widget .mr-widget-footer .btn-link {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .mr-state-widget .mr-widget-footer .mr-widget-help {
     color: var(--fg-3) !important;
@@ -5317,7 +5368,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .mr-state-widget .label-branch {
     padding: 0.2em 0.4em;
     font-weight: normal !important;
-    color: var(--v0-9);
+    color: var(--ac);
     background-color: var(--bg-2) !important;
     border-radius: 4px;
     box-shadow: inset 0 0 0 1px var(--bg-5);
@@ -5338,7 +5389,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .wiki a {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   .wiki h1,
   .wiki h2 {
@@ -5355,7 +5406,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .wiki-sidebar.right-sidebar .active a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .wiki-sidebar.right-sidebar .btn {
     background-color: var(--bg-1) !important;
@@ -5695,7 +5746,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .nothing-here-block .click-to-expand {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     border-color: transparent !important;
     background-color: transparent !important;
   }
@@ -6044,7 +6095,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .code.none .line_expansion a,
   .code.white .line_expansion span,
   .code.none .line_expansion span {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .code.white.white,
   .code.none.white {
@@ -6248,7 +6299,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .roadmap-container .current-day-indicator,
   .roadmap-container .current-day-indicator-header {
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .notes {
     background-color: transparent !important;
@@ -6288,7 +6339,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .note-header-info a:hover,
   .note-header-info a.hover {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .note-actions button.btn:not(#z) {
     color: var(--fg-3) !important;
@@ -6317,7 +6368,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-4) !important;
   }
   .note.system-note .system-note-message a:not(.gl-link) {
-    color: var(--v0-9) !important;
+    color: var(--ac);
   }
   .note.system-note.note-wrapper .timeline-icon {
     border-color: var(--bg-5) !important;
@@ -6327,7 +6378,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background: linear-gradient(transparent -100px, var(--bg-0) 100%) !important;
   }
   .note.system-note .system-note-commit-list-toggler {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .note.timeline-entry {
     color: var(--fg-1) !important;
@@ -6348,7 +6399,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-3) !important;
   }
   .note.timeline-entry:not(.note-wrapper):not(.note-discussion) .system-note-message a:not(.gl-link) {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   .disabled-comment {
     color: var(--fg-1) !important;
@@ -6356,7 +6407,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-3) !important;
   }
   .disabled-comment a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .notes + div > .disabled-comment {
     margin-top: 16px;
@@ -6370,7 +6421,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-1) !important;
   }
   [class *= 'award-control-'].is-active svg {
-    fill: var(--v0-9) !important;
+    fill: var(--ac) !important;
   }
   .emoji-menu {
     border-color: var(--bg-5) !important;
@@ -6446,13 +6497,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .discussion-header .author-link:hover,
   .discussion-toggle-button:focus,
   .discussion-header .author-link:focus {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .discussion-notes .system-note {
     background-color: transparent !important;
   }
   .discussion-notes .system-note .system-note-message a:not(.gl-link) {
-    color: var(--v0-9);
+    color: var(--ac);
   }
   .discussion-body .notes .notes li.note {
     border-radius: 0;
@@ -6497,14 +6548,17 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: transparent !important;
   }
   .issuable-note-warning {
-    color: var(--v2-7) !important;
+    color: var(--v2-9) !important;
     border-color: var(--v2-2) !important;
-    background-color: var(--v2-0) !important;
+    background-color: var(--v2-1) !important;
   }
   .issuable-note-warning a,
   .issuable-note-warning svg {
     color: currentColor !important;
     fill: currentColor !important;
+  }
+  .issuable-note-warning.gl-border-b-gray-100 {
+    border-color: var(--bg-5) !important;
   }
   .md-area {
     color: var(--fg-1) !important;
@@ -6518,11 +6572,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-1) !important;
   }
   .md-area.is-focused {
-    border-color: var(--v6-5) !important;
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
   }
+  .md-area.is-focused.gfm-form {
+    box-shadow: 0 0 0 1px var(--v6-5), 0 0 0 0.2rem var(--v6-3) !important;
+  }
   .md-area .markdown-selector {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .md-area .markdown-area {
     color: var(--fg-1) !important;
@@ -6668,7 +6724,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: transparent !important;
   }
   .milestone-content .card-header.bg-primary {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .milestone-content li.issuable-row {
     background-color: var(--bg-1) !important;
@@ -6777,7 +6833,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .design-detail .frame .badge-pill {
     color: var(--white) !important;
     border-color: var(--bg-5) !important;
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .design-detail .image-notes {
     border-left: 1px solid var(--bg-5);
@@ -6797,7 +6853,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .design-detail .image-notes .key {
     color: var(--white) !important;
     border-color: var(--bg-5) !important;
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
     box-shadow: none;
   }
   .file-holder {
@@ -6883,7 +6939,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     opacity: 0.3;
   }
   .ace_cursor {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .ace_indent-guide {
     background: none;
@@ -7005,7 +7061,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   [data-page *= 'network:show'] rect[style = 'fill-opacity: 0.5;'],
   [data-page *= 'network:show'] path[style = 'fill-opacity: 0.5;'] {
-    fill: var(--v0-9) !important;
+    fill: var(--ac) !important;
   }
   [data-page *= 'network:show'] rect[style = 'fill-opacity: 0.5;'] + text[style],
   [data-page *= 'network:show'] path[style = 'fill-opacity: 0.5;'] + text[style] {
@@ -7136,9 +7192,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-0) !important;
   }
   #cycle-analytics .stage-nav-item.active {
-    border-color: var(--v0-9) !important;
+    border-color: var(--ac) !important;
     background-color: var(--bg-2) !important;
-    box-shadow: inset 4px 0 var(--v0-9) !important;
+    box-shadow: inset 4px 0 var(--ac) !important;
   }
   #cycle-analytics .stage-nav-item:hover:not(.active) {
     background-color: var(--bg-2) !important;
@@ -7206,7 +7262,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5) !important;
   }
   .search-results-row .author {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .search-results-row pre.code {
     border-radius: 4px;
@@ -7221,7 +7277,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5) !important;
   }
   .ide {
-    --ide-link-color: var(--v0-9);
+    --ide-link-color: var(--ac);
     --ide-text-color: var(--fg-1);
     --ide-background: var(--bg-5);
     --ide-input-color: var(--fg-1);
@@ -7252,10 +7308,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
-    box-shadow: inset 3px 0 var(--v0-9) !important;
+    box-shadow: inset 3px 0 var(--ac) !important;
   }
   .ide-activity-bar button.active.is-right {
-    box-shadow: inset -3px 0 var(--v0-9) !important;
+    box-shadow: inset -3px 0 var(--ac) !important;
   }
   .ide-activity-bar button.active::after {
     background-color: transparent !important;
@@ -7368,7 +7424,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .ide-review-header a {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .ide-commit-editor-header {
     background-color: var(--bg-2) !important;
@@ -7400,13 +7456,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-4) !important;
   }
   .ide-tree-header svg:hover {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .ide .drag-handle:hover {
     background-color: var(--bg-5) !important;
   }
   .ide .drag-handle.is-dragging {
-    background-color: var(--v0-9) !important;
+    background-color: var(--ac) !important;
   }
   .ide-status-bar {
     color: var(--fg-1) !important;
@@ -7504,8 +7560,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .monaco-editor .lines-content .cursor {
     color: var(--fg-1) !important;
-    border-color: var(--v0-9) !important;
-    background-color: var(--v0-9) !important;
+    border-color: var(--ac) !important;
+    background-color: var(--ac) !important;
   }
   .monaco-editor .lines-content .current-line {
     border-color: var(--bg-5) !important;
@@ -7533,11 +7589,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .monaco-editor .monaco-quick-open-widget .label-name .highlight {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
   }
   .monaco-editor .monaco-quick-open-widget .monaco-tree-row:hover,
   .monaco-editor .monaco-quick-open-widget .monaco-tree-row.focused {
-    color: var(--v0-9) !important;
+    color: var(--ac) !important;
     background-color: var(--bg-5) !important;
   }
   .monaco-editor .monaco-inputbox {
@@ -7551,7 +7607,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .monaco-editor .find-widget {
     color: var(--fg-1) !important;
-    border-color: var(--v0-9) !important;
+    border-color: var(--ac) !important;
     background-color: var(--bg-2) !important;
     box-shadow: var(--bshadow);
   }
@@ -7668,7 +7724,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .hover-overlay .loading-spinner {
     border-color: var(--bg-5) !important;
-    border-top-color: var(--v0-9) !important;
+    border-top-color: var(--ac) !important;
   }
   line[id *= 'dag-'][stroke = '#f2f2f2'] {
     stroke: #808080 !important;
