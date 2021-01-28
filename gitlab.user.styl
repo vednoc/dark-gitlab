@@ -30,6 +30,8 @@
     'Doom One                ': 'doom-one',
     'Deep Dark               ': 'deep-dark',
     'Brave Dark              ': 'brave-dark',
+    'Twilight                ': 'twilight',
+    'Ubuntu                  ': 'ubuntu',
 }
 
 @var color    cg_bg        'Base background color' #292929
@@ -135,6 +137,8 @@ ColorSchemes = {
     'doom-one':                 { BG: #21242b, FG: #bbc2cf, AC: #51afef }
     'deep-dark':                { BG: #111111, FG: #eff0f1, AC: #00adee }
     'brave-dark':               { BG: #222222, FG: #d6d6d6, AC: #f96234 }
+    'twilight':                 { BG: #171717, FG: #f7f7f7, AC: #8f9d6a }
+    'ubuntu':                   { BG: #2c071a, FG: #f2f1ef, AC: #ef7847 }
 }
 
 // Select active color-scheme.
@@ -144,6 +148,7 @@ for color-scheme in ColorSchemes {
         define('BG', ColorSchemes[color-scheme].BG, global)
         define('FG', ColorSchemes[color-scheme].FG, global)
         define('AC', ColorSchemes[color-scheme].AC, global)
+        define('ac', var(--ac), global)
     }
 }
 
@@ -293,6 +298,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         --shadow    : _shadow
         --white     : _inverse
         --avatar    : a_radius
+        --ac        : AC
 
         /// Custom UI font.
         $fs1 = -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans'
@@ -308,6 +314,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         $fe1 = 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
         --emoji-font: emoji_font, $fe1, 'Noto Color Emoji'
 
+        /// Generate CSS color variables.
         colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
         for color in colors[0..1] {
             for tone in 0..5 {
@@ -336,7 +343,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     bd      = var(--bg-5)
     fg      = var(--fg-1)
     cm      = var(--fg-4)
-    ac      = var(--v0-9)
     sh      = var(--shadow)
     bsh     = var(--bshadow)
     red     = var(--v1-5)
