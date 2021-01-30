@@ -1068,38 +1068,36 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 }
             }
         }
-        /// Project -> File table.
+
+        /// Project -> Files.
         &.tree-table {
-            border: 1px solid bd;
+            border-spacing: 0
+            border-collapse: unset
+            border: 1px solid bg5 i
+            rad: 4px i
+            c: 0 0 bg1
+
+            /// Items.
             thead tr {
-                &, th { border-top: none i }
-                > th:first-child { border-top-left-radius: 3px i }
-                > th:last-child { border-top-right-radius: 3px i }
+                > th { border-top: none i }
+                > th:first-child { border-top-left-radius: 4px i }
+                > th:last-child { border-top-right-radius: 4px i }
             }
             tbody {
-                td { c: 0 bd }
                 tr {
                     > td {
-                        border-top: 1px solid bd i;
-                        border-bottom: none i;
-                        &.tree-time-ago { c: fg4 }
+                        border-top: 1px solid bd i
+                        border-bottom: none i
                     }
-                    &.selected td { c: 0 0 hl }
-                    &:hover:not(.selected) td { c: 0 0 bg2 }
-                    &:last-child {
-                        /// Last element globally / Single element in artifacts.
-                        &, &:first-child { td:not(#z) { border-bottom: none i }}
+                    &:hover > td { c: 0 0 bg2 }
+                    &:last-of-type {
+                        > td:first-child { border-bottom-left-radius: 4px i }
+                        > td:last-child { border-bottom-right-radius: 4px i }
                     }
                 }
-                /// Remove top border tweak in find file table.
-                &:first-child > tr:first-child td { border-top: none i }
-            }
-            /// Files.
-            /.tree {
-                &-item-file-name { &, a, i { c: fg }}
-                &-commit { &, &-link { c: cm }}
             }
         }
+
         /// Project -> Settings -> MR approvals.
         &.table.m-0 {
             margin-bottom: 8px i;
