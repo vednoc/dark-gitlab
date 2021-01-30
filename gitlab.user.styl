@@ -3576,7 +3576,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         c: 0 0 t;
         /// Content.
         .modal-content {
-            c: fg bd bg;
+            border: 1px solid bg5
+            c: fg1 0 bg1
             .modal-header {
                 c: 0 bd hl;
                 .close { c: cm }
@@ -3590,6 +3591,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
             .modal-footer {
                 c: 0 bd hl;
+                .btn-default:not(:hover):not(:focus) { c: 0 0 bg0 }
             }
             /// Project -> Reset 'Email a new issue/MR' buttons.
             .btn {
