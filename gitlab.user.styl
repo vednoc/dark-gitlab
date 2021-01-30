@@ -1005,6 +1005,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     }
                 }
             }
+
+            /// Text colors.
+            /.tree {
+                &-item-file-name { &, a, i { c: fg1 }}
+                &-commit { &, &-link { c: fg3 }}
+                &-time-ago { c: fg3 }
+            }
         }
 
         /// Project -> Settings -> MR approvals.
