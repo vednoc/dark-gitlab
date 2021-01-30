@@ -4008,12 +4008,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             box-shadow: 0 1px bd i;
             &:last-child { rad: 0 0 3px 3px }
             .label-branch { c: 0 0 bg }
-            /// Reset approvers table.
-            + .border-top > table:not(#z) {
-                margin-bottom: 0px i;
-                border: none i;
-                rad: 0 0 3px 3px i;
-                thead > tr > th { c: 0 0 bb }
+
+            /// Reset 'approvers' table.
+            + .border-top > table {
+                margin-bottom: 0px i
+                border: none i
+                rad: 0 0 4px 4px i
+                thead tr th { c: 0 0 bg1 }
             }
         }
         /// Global widgets.
