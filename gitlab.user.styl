@@ -908,12 +908,17 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     }
 
     // Global -> Tables.
-    table:not(.code):not(#z) {
-        R = 4px;
-        border-spacing: 0;
-        border-collapse: unset;
-        border-radius: R;
-        c: fg bd bg;
+    table {
+        /// Base styles.
+        &:not(.code) {
+            c: fg1
+            th { c: fg1 0 bg2 }
+            th, td { c: 0 bg5 }
+
+            /// Reset colors.
+            thead { c: 0 bg5 }
+            tbody { c: 0 0 t }
+        }
         &:not(.b-table-stacked) {
             display: table;
         }
@@ -947,75 +952,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 }
             }
         }
-        /// Shorthand.
-        flc = 'not(:first-child):not(last-child)';
-        thead {
-            tr {
-                &:first-child th:first-child { border-top-left-radius: R }
-                &:first-child th:last-child { border-top-right-radius: R }
-                th {
-                    c: fg bd hl;
-                    border-bottom-width: 0px;
-                    &:{ flc } {
-                        border-left: none;
-                        // c: 0 green;
-                    }
-                }
-            }
-        }
-        tbody {
-            c: 0 0 t;
-            tr {
-                &:{ flc } td {
-                    border-top: none;
-                    // c: 0 red;
-                }
-                td {
-                    c: fg bd t; /// NOTE: Remove `t` if it breaks things.
-                    &:{ flc } {
-                        border-left: none;
-                        // c: 0 yellow;
-                    }
-                    a { color: ac }
-                }
-                &:last-child td {
-                    &:last-child { rad: 0 0 R 0 }
-                    &:first-child { rad: 0 0 0 R }
-                    &:first-child:last-child { rad: 0 0 R R }
-                }
-                // &:hover > td { c: 0 0 hl }
-            }
-            /// Org-mode/rST tables appear to render TH inside of TBODY.
-            /// Fix a conflict with 'keyboard shortcuts' modal.
-            ../:not(.shortcut-mappings) tbody > tr {
-                > th {
-                    border-bottom-width: 1px i;
-                    c: 0 bd hl;
-                    ../:not(:first-child) > th { border-top-width: 0px i }
-                }
-                &:first-child > th {
-                    &:{ flc } {
-                        border-left: none;
-                        // c: 0 green;
-                    }
-                    &:first-child { rad: R 0 0 0 }
-                    &:last-child { rad: 0 R 0 0 }
-                    &:first-child:last-child { rad: R R 0 0 }
-                }
-                &:last-child > th:first-child { rad: 0 0 0 R }
-                &:first-child:last-child > th:first-child { rad: R 0 0 R }
-            }
-            /// Fix top rounded corners for head-less tables.
-            &:first-child > tr:first-child {
-                > td:first-child { rad: 4px 0 0 0 }
-                > td:last-child { rad: 0 4px 0 0 }
-                /// Single-row.
-                &:last-child {
-                    > td:first-child { rad: 4px 0 0 4px }
-                    > td:last-child { rad: 0 4px 4px 0 }
-                }
-            }
-        }
+
         /// Admin -> SQL queries.
         > tr {
             td { c: 0 bd }
