@@ -919,38 +919,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             thead { c: 0 bg5 }
             tbody { c: 0 0 t }
         }
-        &:not(.b-table-stacked) {
-            display: table;
-        }
-        /// Fix stacked tables. !41
-        for k, v_ in bpoints {
-            &.b-table-stacked-{k} {
-                @media(max-width: v_) {
-                    display: block;
-                }
-            }
-        }
-        /// Reset styles for stacked tables.
-        @media (max-width: 991.98px) {
-            &[class*='table-stacked'] {
-                c: 0 t t
-                /// Reset borders.
-                tr > td {
-                    border-top: none i
-                    border-bottom: 1px solid bd i
-                }
-                /// Reset styles for table cell.
-                td {
-                    c: 0 0 bg
-                    border-left: 1px solid bd i
-                    &:first-child {
-                        rad: 4px 4px 0 0 i
-                        border-top: 1px solid bd i
-                    }
-                    &:last-child { rad: 0 0 4px 4px i }
-                    &:hover { c: 0 0 bb }
-                }
-            }
+
+        /// Reset stacked tables. !41
+        &[class*='table-stacked'] {
+            thead th { c: 0 0 t }
         }
 
         /// Admin -> SQL queries.
