@@ -978,6 +978,41 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
         }
 
+        /// Markdown areas.
+        /// NOTE: AsciiDoc, Markdown.
+        &.grid-all,
+        &[dir] {
+            overflow: hidden
+            border-spacing: 0
+            border-collapse: collapse
+            max-width: max-content
+            position: relative
+            c: fg1 t bg1
+            rad: 4px i
+
+            /// HACK: Add rounded corners.
+            &::before {
+                o = 0px
+                content: ''
+                position: absolute
+                top: o; right: o; bottom: 0; left: 0
+                pointer-events: none i
+                border: 1px solid bg5
+                rad: 4px
+            }
+
+            /// Resets.
+            thead th {
+                border-bottom-width: 1px i
+                c: 0 bg5 bg2
+             }
+             tbody {
+                c: 0 0 t
+                tr > td { c: 0 bg5 bg1 }
+                // tr:nth-child(2n) > td { c: 0 0 bg2 }
+             }
+         }
+
         /// Project -> Files.
         &.tree-table {
             border-spacing: 0
