@@ -948,8 +948,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             border: 1px solid bd;
             thead > tr > th { border-top: none }
             tbody tr {
-                &:nth-of-type(2n + 1) { c: 0 0 bb }
-                > td { border-top: 1px solid bd i }
+                &:nth-of-type(2n+1) > td { c: 0 0 bg0 }
                 /// Analytics -> Issues.
                 &:not(:first-child) > td.issues-analytics-td {
                     &, ~ td { border-top: none i }
@@ -1040,31 +1039,19 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
         }
 
-        /// Project -> Settings -> MR approvals.
-        &.table.m-0 {
-            margin-bottom: 8px i;
-            border: 1px solid bd;
-            /// Remove bottom border.
-            tbody > tr:last-child:not(#z) > td { border-bottom: none i }
-        }
-        /// Project -> Settings -> Mirrored repositories.
-        &.push-pull-table {
-            border: 1px solid bd;
-            thead tr th { border-top: none i }
-        }
         /// Project -> Security.
         /.vulnerability-list thead th { box-shadow: 0 1px bd i }
+
         /// Project -> Settings -> Badges.
         /.gl-responsive-table-row {
-            c: cm;
+            c: fg3
             &:not(:last-child) { c: 0 bg3 }
             &-clickable:hover { c: 0 0 hl }
             /// Settings -> Usage quotas -> Storage.
-            &.bg-gray-light {
-                c: 0 0 bb
-                &:last-child { border-bottom: 1px solid bd i }
-            }
+            &.bg-gray-light { c: 0 0 bg 0 }
+            &-clickable:hover { c: 0 0 bg2 }
         }
+
         /// Project -> Pipelines.
         /.ci-table {
             margin-top: 10px;
@@ -1142,6 +1129,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             /// Project -> Import in progress.
             /.save-project-loader { c: cm }
         }
+
+        /// Reset misc tables.
+        &.integration-list { border: none }
+        &.shortcut-mappings th { c: 0 0 t }
+
         /// Who cares about semantic HTML anyways? #88 @upstream
         td.d-sm-block { display: table-cell i }
     }
