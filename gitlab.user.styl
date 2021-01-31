@@ -922,7 +922,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Reset stacked tables. !41
         &[class*='table-stacked'] {
-            thead th { c: 0 0 t }
+            thead[role='rowgroup'] th { border-top: 1px solid bg5 }
+            @media (max-width: 991.98px) {
+                tr[role='row'] > td[aria-colindex='1'] { c: 0 0 bg2 }
+            }
         }
 
         /// Admin -> SQL queries.
