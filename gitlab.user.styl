@@ -1323,11 +1323,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 /// Focused state.
                 &&-active:not([class*='dropdown-open']) > .select2-choice {
                     b: 0 0 0 0.2rem v63 i
-                    c: 0 v66
+                    c: 0 v66 bg3
                 }
 
-                /// Active state.
-                &.select2-dropdown-open > .select2-choice { c: 0 0 bg3 }
+                /// Active states.
+                .select2-choice:hover { c: 0 0 bg3 }
+                &.select2-dropdown-open > .select2-choice {
+                    c: 0 0 bg3
+                    .select2-arrow { border-left: 1px solid bg5 i }
+                }
 
                 /// Disabled state.
                 &-disabled {
