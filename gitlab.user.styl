@@ -2280,7 +2280,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
 
             /// Reset elements in navigation box.
-            .filtered-search-box { c: 0 0 bg }
+            .filtered-search-box,
+            .gl-datepicker-input {
+                c: 0 0 bg1
+            }
             button[class*='dropdown-']:not(#z) {
                 b: none i
                 &:hover, &:focus { c: 0 0 bg3 }
