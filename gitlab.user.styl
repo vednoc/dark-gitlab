@@ -958,21 +958,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 }
             }
         }
-        /// Pajamas -> Tables.
-        &.gl-table {
-            border: 1px solid bd;
-            tbody {
-                > tr:first-child > td { border-top: 1px solid bd }
-                > tr:last-child > td { border-bottom: none }
-                /// Exclude hover in stacked tables.
-                @media (min-width: 991.98px) {
-                    > tr:hover > td { c: 0 0 bb }
-                }
-            }
-        }
 
         /// Markdown areas.
-        /// NOTE: AsciiDoc, Markdown.
+        /// NOTE: Authorized apps, AsciiDoc, Markdown.
+        // &.table-bordered,
+        &.table-striped,
         &.grid-all,
         &[dir] {
             overflow: hidden
@@ -1063,6 +1053,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             rad: 4px;
             [class *= 'header'] {
                 padding: 12px 16px;
+                font-size: 14px
                 c: fg1 bg5 bg3
                 rad: 3px 3px 0 0;
             }
