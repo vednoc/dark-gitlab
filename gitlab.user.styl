@@ -1097,20 +1097,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             /// Pipelines -> Jobs. #125
             .build.retried { c: 0 0 bb }
         }
-        /// Project -> Settings -> Webhooks.
-        /[class *= 'col-'] > table.table {
-            border: 1px solid bd;
-            thead tr th { border-top: none }
-            tbody {
-                tr td { border-top: 1px solid bd i }
-                tr:hover { c: 0 0 bb }
-            }
-        }
+
         /// Project -> CI/CD -> Variables.
         /.ci-variable-table table {
             colgroup col:nth-child(7) { width: 50px i }
             tr th, tr td { &:first-child { padding-left: 16px }}
         }
+
         /// Project -> Import.
         &.import-table {
             border: 1px solid bd i;
