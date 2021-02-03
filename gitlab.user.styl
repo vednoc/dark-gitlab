@@ -1388,7 +1388,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
     // Global -> Buttons.
     .btn {
-        $f = 0 0 0 0.2rem
+        $f = 0 0 0 1px bg1, 0 0 0 0.25rem
 
         /// Consistent button styles.
         &.gl-button {
@@ -1401,7 +1401,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         & {
             c: fg1 bg5 bg2 0 0 0
             &:hover { c: fg1 bg5 bg3 0 0 0 }
-            &:focus { c: fg1 bg5 bg4; b: $f bg3 i }
+            &:focus { c: fg1 bg5 bg4; b: $f v64 i }
             &:active { c: fg1 bg5 bg4 0 0 0 }
             &[href].gl-link { color: fg1 }
         }
@@ -1418,7 +1418,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &-cancel {
             c: fg1 bg5 bg2
             &:hover { c: 0 0 bg3 }
-            &:focus { c: 0 0 bg4; b: $f bg3 i }
+            &:focus { c: 0 0 bg4; b: $f v64 i }
         }
 
         /// Background-color buttons.
