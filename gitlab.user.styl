@@ -2189,6 +2189,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             .block:not(.with-sub-blocks) {
                 &:hover { c: 0 0 bg3 }
             }
+
+            // Fix 'copy email' button.
+            .copy-email-button {
+                transition: none
+                rad: 0
+                &:hover { c: 0 0 bg3 }
+            }
         }
     }
 
