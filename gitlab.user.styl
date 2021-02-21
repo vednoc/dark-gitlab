@@ -3344,6 +3344,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     &.is-active { c: fg1 }
                 }
             }
+
+            /// Members -> Search menu.
+            &-item .dropdown-item {
+                &:not(.disable-hover):hover {
+                    c: fg1 0 bg4
+                    p { c: fg1 }
+                }
+            }
         }
 
         /// Cards.
