@@ -296,7 +296,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         --version   : '🌚 Dark-GitLab v2.0.0-rc.9';
         --bshadow   : 0 4px 8px var(--shadow);
         --shadow    : _shadow
-        --white     : _inverse
+        --inverse   : _inverse
         --avatar    : a_radius
         --ac        : AC
 
@@ -353,7 +353,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     blue    = var(--v6-5)
     magenta = var(--v7-5)
     violet  = var(--v8-5)
-    white   = var(--white);
+    white   = var(--inverse);
     outer   = 0 0 0 1px bg5;
     inner   = inset outer;
 
@@ -888,6 +888,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         }
         /// Dark mode tweaks.
         .search-form {
+            > form { b: none i }
             &:focus-within > form { b: 0 0 0 0.2rem v63 i }
             &.search-active > form { c: 0 v65 }
         }
@@ -3284,6 +3285,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Text color overrides.
         &-text {
             &-body { c: fg }
+            &-white { c: var(--inverse) }
             &-black-normal { c: fg0 }
             &-orange-500:not(#z) { c: orange; g: orange }
             &-red {
