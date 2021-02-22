@@ -1,6 +1,35 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.10 [2021-02-22 Mon]
+Rewrote styles for rounded tables, updated focus states for buttons and
+dropdowns, and fixed many styles for various elements. Also, finally added
+integration with native dark mode.
+
+*** Features
+- Added support for native dark mode by overriding some colors
+  + Please open an issue if there are more colors that need overrides.
+
+*** Improved
+- Refactored rounded corners for all tables to simplify the code
+  + Even though I tested many use-cases, conflicts are possible. Let me know if
+    there are issues.
+- Added 1px dark border around buttons for their focus states
+- Mirrored button focus states for expanded dropdown menus
+- Bumped the size of focus state for new Markdown input area
+- Replaced modal content shadows with DGL box-shadow variable
+
+*** Bug fixes
+- Updated =g= mixin to fix a small typo in the logic
+- Updated styles for content area in modals and default buttons
+- Fixed overrides for "Approvers" table in Merge Requests
+- Updated colors for elements on "Billing" page in user settings
+- Fixed background colors for datepicker inputs in navigation blocks
+- Added missing states for select2 dropdown menus
+- Fixed colors for menus and members on project members page
+- Fixed colors for "Copy email link" button in right sidebar
+- Fixed styles for focused item in "Select label" dropdown menu ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/160][#160]])
+
 ** 2.0.0-rc.9 [2021-01-28 Thu]
 Added many new improvements for styles in notes, fixed a couple of new regressions,
 and rewrote OpenAPI/Swagger UI styles to use new color variables.
