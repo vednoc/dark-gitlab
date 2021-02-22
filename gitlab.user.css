@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.9
+@version      2.0.0-rc.10
 @license      MIT
 ==/UserStyle== */
 
@@ -64,10 +64,10 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.9';
+    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.10';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
-    --white: #fff;
+    --inverse: #fff;
     --avatar: 25%;
     --ac: #d47d3f;
     --ui-font: '"font_name"', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, sans-serif, var(--emoji-font);
@@ -281,8 +281,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   body .invalid-feedback {
     color: var(--v1-6) !important;
   }
-  body [class *= 'price-per-'] {
-    color: var(--v6-5) !important;
+  body [class^='price-'] {
+    color: var(--v6-7) !important;
   }
   body .warning-title {
     color: var(--v2-6) !important;
@@ -297,8 +297,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
   }
   body [class *= 'two-factor-auth'] svg {
-    background-color: var(--white) !important;
-    box-shadow: 0 0 0 4px var(--white);
+    background-color: var(--inverse) !important;
+    box-shadow: 0 0 0 4px var(--inverse);
   }
   body .progress {
     background-color: var(--bg-5) !important;
@@ -873,7 +873,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-1) !important;
   }
   .navbar .canary-badge > .badge {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--v4-5) !important;
     background-color: var(--v4-5) !important;
   }
@@ -980,6 +980,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .navbar-toggler svg {
     fill: var(--fg-4) !important;
   }
+  .navbar .search-form > form {
+    box-shadow: none !important;
+  }
   .navbar .search-form:focus-within > form {
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
   }
@@ -1003,232 +1006,141 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .navbar > div > .header-content {
     width: 100%;
   }
-  table:not(.code):not(#z) {
-    border-spacing: 0;
-    border-collapse: unset;
-    border-radius: 4px;
+  table:not(.code) {
     color: var(--fg-1) !important;
+  }
+  table:not(.code) th {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-2) !important;
+  }
+  table:not(.code) th,
+  table:not(.code) td {
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-1) !important;
   }
-  table:not(.code):not(#z):not(.b-table-stacked) {
-    display: table;
+  table:not(.code) thead {
+    border-color: var(--bg-5) !important;
   }
-  @media (max-width: 0) {
-    table:not(.code):not(#z).b-table-stacked-bpoints {
-      display: block;
-    }
+  table:not(.code) tbody {
+    background-color: transparent !important;
+  }
+  table[class*='table-stacked'] thead[role='rowgroup'] th {
+    border-top: 1px solid var(--bg-5);
   }
   @media (max-width: 991.98px) {
-    table:not(.code):not(#z)[class*='table-stacked'] {
-      border-color: transparent !important;
-      background-color: transparent !important;
-    }
-    table:not(.code):not(#z)[class*='table-stacked'] tr > td {
-      border-top: none !important;
-      border-bottom: 1px solid var(--bg-5) !important;
-    }
-    table:not(.code):not(#z)[class*='table-stacked'] td {
-      background-color: var(--bg-1) !important;
-      border-left: 1px solid var(--bg-5) !important;
-    }
-    table:not(.code):not(#z)[class*='table-stacked'] td:first-child {
-      border-radius: 4px 4px 0 0 !important;
-      border-top: 1px solid var(--bg-5) !important;
-    }
-    table:not(.code):not(#z)[class*='table-stacked'] td:last-child {
-      border-radius: 0 0 4px 4px !important;
-    }
-    table:not(.code):not(#z)[class*='table-stacked'] td:hover {
-      background-color: var(--bg-0) !important;
+    table[class*='table-stacked'] tr[role='row'] > td[aria-colindex='1'] {
+      background-color: var(--bg-2) !important;
     }
   }
-  table:not(.code):not(#z) thead tr:first-child th:first-child {
-    border-top-left-radius: 4px;
-  }
-  table:not(.code):not(#z) thead tr:first-child th:last-child {
-    border-top-right-radius: 4px;
-  }
-  table:not(.code):not(#z) thead tr th {
-    color: var(--fg-1) !important;
+  table > tr td {
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-    border-bottom-width: 0px;
   }
-  table:not(.code):not(#z) thead tr th:not(:first-child):not(last-child) {
-    border-left: none;
-  }
-  table:not(.code):not(#z) tbody {
-    background-color: transparent !important;
-  }
-  table:not(.code):not(#z) tbody tr:not(:first-child):not(last-child) td {
+  table > tr:first-child > td {
     border-top: none;
   }
-  table:not(.code):not(#z) tbody tr td {
+  table.grid-all > caption {
+    padding: 10px 16px;
+    color: var(--fg-3) !important;
+    background-color: var(--bg-2) !important;
+  }
+  table.grid-all > tbody > tr > th:first-child {
+    border-top: none !important;
+    border-bottom: 1px solid var(--bg-5) !important;
+  }
+  table.table-striped,
+  table.active-tokens,
+  table.pipeline-project-metrics {
+    border: 1px solid var(--bg-5);
+  }
+  table.table-striped thead > tr > th,
+  table.active-tokens thead > tr > th,
+  table.pipeline-project-metrics thead > tr > th {
+    border-top: none;
+  }
+  table.table-striped tbody tr:nth-of-type(2n+1) > td,
+  table.active-tokens tbody tr:nth-of-type(2n+1) > td,
+  table.pipeline-project-metrics tbody tr:nth-of-type(2n+1) > td {
+    background-color: var(--bg-0) !important;
+  }
+  table.table-striped tbody tr:not(:first-child) > td.issues-analytics-td,
+  table.active-tokens tbody tr:not(:first-child) > td.issues-analytics-td,
+  table.pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td,
+  table.table-striped tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
+  table.active-tokens tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
+  table.pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td ~ td {
+    border-top: none !important;
+  }
+  table.table-striped,
+  table.grid-all,
+  table[dir] {
+    overflow: hidden;
+    border-spacing: 0;
+    border-collapse: collapse;
+    max-width: max-content;
+    position: relative;
     color: var(--fg-1) !important;
-    border-color: var(--bg-5) !important;
-    background-color: transparent !important;
+    border-color: transparent !important;
+    background-color: var(--bg-1) !important;
+    border-radius: 4px !important;
   }
-  table:not(.code):not(#z) tbody tr td:not(:first-child):not(last-child) {
-    border-left: none;
+  table.table-striped::before,
+  table.grid-all::before,
+  table[dir]::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0;
+    left: 0;
+    pointer-events: none !important;
+    border: 1px solid var(--bg-5);
+    border-radius: 4px;
   }
-  table:not(.code):not(#z) tbody tr td a {
-    color: var(--ac);
-  }
-  table:not(.code):not(#z) tbody tr:last-child td:last-child {
-    border-radius: 0 0 4px 0;
-  }
-  table:not(.code):not(#z) tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 4px;
-  }
-  table:not(.code):not(#z) tbody tr:last-child td:first-child:last-child {
-    border-radius: 0 0 4px 4px;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr > th {
+  table.table-striped thead th,
+  table.grid-all thead th,
+  table[dir] thead th {
     border-bottom-width: 1px !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
   }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:not(:first-child) > th {
-    border-top-width: 0px !important;
+  table.table-striped tbody,
+  table.grid-all tbody,
+  table[dir] tbody {
+    background-color: transparent !important;
   }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:not(:first-child):not(last-child) {
-    border-left: none;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:first-child {
-    border-radius: 4px 0 0 0;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:last-child {
-    border-radius: 0 4px 0 0;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child > th:first-child:last-child {
-    border-radius: 4px 4px 0 0;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:last-child > th:first-child {
-    border-radius: 0 0 0 4px;
-  }
-  table:not(.code):not(#z):not(.shortcut-mappings) tbody > tr:first-child:last-child > th:first-child {
-    border-radius: 4px 0 0 4px;
-  }
-  table:not(.code):not(#z) tbody:first-child > tr:first-child > td:first-child {
-    border-radius: 4px 0 0 0;
-  }
-  table:not(.code):not(#z) tbody:first-child > tr:first-child > td:last-child {
-    border-radius: 0 4px 0 0;
-  }
-  table:not(.code):not(#z) tbody:first-child > tr:first-child:last-child > td:first-child {
-    border-radius: 4px 0 0 4px;
-  }
-  table:not(.code):not(#z) tbody:first-child > tr:first-child:last-child > td:last-child {
-    border-radius: 0 4px 4px 0;
-  }
-  table:not(.code):not(#z) > tr td {
+  table.table-striped tbody tr > td,
+  table.grid-all tbody tr > td,
+  table[dir] tbody tr > td {
     border-color: var(--bg-5) !important;
+    background-color: var(--bg-1) !important;
   }
-  table:not(.code):not(#z) > tr:first-child > td {
-    border-top: none;
+  table.tree-table {
+    border-spacing: 0;
+    border-collapse: unset;
+    border: 1px solid var(--bg-5) !important;
+    border-radius: 4px !important;
+    background-color: var(--bg-1) !important;
   }
-  table:not(.code):not(#z).grid-all > caption {
-    color: var(--fg-4) !important;
-  }
-  table:not(.code):not(#z).grid-all > thead > tr > th:first-child {
-    border-left: 1px solid var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).grid-all > thead > tr > th:last-child {
-    border-right: 1px solid var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).grid-all > tbody > tr > th:first-child {
-    border-top: none !important;
-    border-bottom: 1px solid var(--bg-5) !important;
-    border-color: var(--bg-5) !important;
-    background-color: var(--bg-2) !important;
-  }
-  table:not(.code):not(#z).grid-all > tbody > tr > td:last-child {
-    border-right: 1px solid var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).grid-all > tbody > tr:first-child > th {
-    border-top: 1px solid var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).grid-all > tbody > tr:last-child > th {
-    border-radius: 0 0 0 4px;
-  }
-  table:not(.code):not(#z).table-striped,
-  table:not(.code):not(#z).active-tokens,
-  table:not(.code):not(#z).pipeline-project-metrics {
-    border: 1px solid var(--bg-5);
-  }
-  table:not(.code):not(#z).table-striped thead > tr > th,
-  table:not(.code):not(#z).active-tokens thead > tr > th,
-  table:not(.code):not(#z).pipeline-project-metrics thead > tr > th {
-    border-top: none;
-  }
-  table:not(.code):not(#z).table-striped tbody tr:nth-of-type(2n + 1),
-  table:not(.code):not(#z).active-tokens tbody tr:nth-of-type(2n + 1),
-  table:not(.code):not(#z).pipeline-project-metrics tbody tr:nth-of-type(2n + 1) {
-    background-color: var(--bg-0) !important;
-  }
-  table:not(.code):not(#z).table-striped tbody tr > td,
-  table:not(.code):not(#z).active-tokens tbody tr > td,
-  table:not(.code):not(#z).pipeline-project-metrics tbody tr > td {
-    border-top: 1px solid var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).table-striped tbody tr:not(:first-child) > td.issues-analytics-td,
-  table:not(.code):not(#z).active-tokens tbody tr:not(:first-child) > td.issues-analytics-td,
-  table:not(.code):not(#z).pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td,
-  table:not(.code):not(#z).table-striped tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
-  table:not(.code):not(#z).active-tokens tbody tr:not(:first-child) > td.issues-analytics-td ~ td,
-  table:not(.code):not(#z).pipeline-project-metrics tbody tr:not(:first-child) > td.issues-analytics-td ~ td {
+  table.tree-table thead tr > th {
     border-top: none !important;
   }
-  table:not(.code):not(#z).gl-table {
-    border: 1px solid var(--bg-5);
+  table.tree-table thead tr > th:first-child {
+    border-top-left-radius: 4px !important;
   }
-  table:not(.code):not(#z).gl-table tbody > tr:first-child > td {
-    border-top: 1px solid var(--bg-5);
+  table.tree-table thead tr > th:last-child {
+    border-top-right-radius: 4px !important;
   }
-  table:not(.code):not(#z).gl-table tbody > tr:last-child > td {
-    border-bottom: none;
-  }
-  @media (min-width: 991.98px) {
-    table:not(.code):not(#z).gl-table tbody > tr:hover > td {
-      background-color: var(--bg-0) !important;
-    }
-  }
-  table:not(.code):not(#z).tree-table {
-    border: 1px solid var(--bg-5);
-  }
-  table:not(.code):not(#z).tree-table thead tr,
-  table:not(.code):not(#z).tree-table thead tr th {
-    border-top: none !important;
-  }
-  table:not(.code):not(#z).tree-table thead tr > th:first-child {
-    border-top-left-radius: 3px !important;
-  }
-  table:not(.code):not(#z).tree-table thead tr > th:last-child {
-    border-top-right-radius: 3px !important;
-  }
-  table:not(.code):not(#z).tree-table tbody td {
-    border-color: var(--bg-5) !important;
-  }
-  table:not(.code):not(#z).tree-table tbody tr > td {
+  table.tree-table tbody tr > td {
     border-top: 1px solid var(--bg-5) !important;
     border-bottom: none !important;
   }
-  table:not(.code):not(#z).tree-table tbody tr > td.tree-time-ago {
-    color: var(--fg-4) !important;
-  }
-  table:not(.code):not(#z).tree-table tbody tr.selected td {
+  table.tree-table tbody tr:hover > td {
     background-color: var(--bg-2) !important;
   }
-  table:not(.code):not(#z).tree-table tbody tr:hover:not(.selected) td {
-    background-color: var(--bg-2) !important;
+  table.tree-table tbody tr:last-of-type > td:first-child {
+    border-bottom-left-radius: 4px !important;
   }
-  table:not(.code):not(#z).tree-table tbody tr:last-child td:not(#z),
-  table:not(.code):not(#z).tree-table tbody tr:last-child:first-child td:not(#z) {
-    border-bottom: none !important;
-  }
-  table:not(.code):not(#z).tree-table tbody:first-child > tr:first-child td {
-    border-top: none !important;
+  table.tree-table tbody tr:last-of-type > td:last-child {
+    border-bottom-right-radius: 4px !important;
   }
   .tree-item-file-name,
   .tree-item-file-name a,
@@ -1237,26 +1149,16 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .tree-commit,
   .tree-commit-link {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
-  table:not(.code):not(#z).table.m-0 {
-    margin-bottom: 8px !important;
-    border: 1px solid var(--bg-5);
-  }
-  table:not(.code):not(#z).table.m-0 tbody > tr:last-child:not(#z) > td {
-    border-bottom: none !important;
-  }
-  table:not(.code):not(#z).push-pull-table {
-    border: 1px solid var(--bg-5);
-  }
-  table:not(.code):not(#z).push-pull-table thead tr th {
-    border-top: none !important;
+  .tree-time-ago {
+    color: var(--fg-3) !important;
   }
   .vulnerability-list thead th {
     box-shadow: 0 1px var(--bg-5) !important;
   }
   .gl-responsive-table-row {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .gl-responsive-table-row:not(:last-child) {
     border-color: var(--bg-3) !important;
@@ -1265,10 +1167,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
   }
   .gl-responsive-table-row.bg-gray-light {
-    background-color: var(--bg-0) !important;
+    background-color: var(--bg-1) !important;
   }
-  .gl-responsive-table-row.bg-gray-light:last-child {
-    border-bottom: 1px solid var(--bg-5) !important;
+  .gl-responsive-table-row-clickable:hover {
+    background-color: var(--bg-2) !important;
   }
   .ci-table {
     margin-top: 10px;
@@ -1279,6 +1181,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .ci-table [class *= 'header'] {
     padding: 12px 16px;
+    font-size: 14px;
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-3) !important;
@@ -1348,18 +1251,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .ci-table .build.retried {
     background-color: var(--bg-0) !important;
   }
-  [class *= 'col-'] > table.table {
-    border: 1px solid var(--bg-5);
-  }
-  [class *= 'col-'] > table.table thead tr th {
-    border-top: none;
-  }
-  [class *= 'col-'] > table.table tbody tr td {
-    border-top: 1px solid var(--bg-5) !important;
-  }
-  [class *= 'col-'] > table.table tbody tr:hover {
-    background-color: var(--bg-0) !important;
-  }
   .ci-variable-table table colgroup col:nth-child(7) {
     width: 50px !important;
   }
@@ -1367,17 +1258,17 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .ci-variable-table table tr td:first-child {
     padding-left: 16px;
   }
-  table:not(.code):not(#z).import-table {
+  table.import-table {
     border: 1px solid var(--bg-5) !important;
   }
-  table:not(.code):not(#z).import-table thead th {
+  table.import-table thead th {
     border: none !important;
     background-color: var(--bg-2) !important;
   }
-  table:not(.code):not(#z).import-table tbody tr:hover td {
+  table.import-table tbody tr:hover td {
     background-color: var(--bg-0) !important;
   }
-  table:not(.code):not(#z).import-table tbody td {
+  table.import-table tbody td {
     border-top: 1px solid var(--bg-5) !important;
   }
   .import-slash-divider {
@@ -1387,7 +1278,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .save-project-loader {
     color: var(--fg-4) !important;
   }
-  table:not(.code):not(#z) td.d-sm-block {
+  table.integration-list {
+    border: none;
+  }
+  table.shortcut-mappings th {
+    background-color: transparent !important;
+  }
+  table td.d-sm-block {
     display: table-cell !important;
   }
   [class*='dropdown-menu'] {
@@ -1411,6 +1308,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   [class*='dropdown-menu'][type][aria-expanded='true'] {
     border-color: var(--bg-5);
     background-color: var(--bg-4);
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
   [class*='dropdown-menu'][data-testid*='chevron'] {
     background-color: transparent !important;
@@ -1637,9 +1535,16 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .select2-container.select2-container-active:not([class*='dropdown-open']) > .select2-choice {
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
     border-color: var(--v6-6) !important;
+    background-color: var(--bg-3) !important;
+  }
+  .select2-container .select2-choice:hover {
+    background-color: var(--bg-3) !important;
   }
   .select2-container.select2-dropdown-open > .select2-choice {
     background-color: var(--bg-3) !important;
+  }
+  .select2-container.select2-dropdown-open > .select2-choice .select2-arrow {
+    border-left: 1px solid var(--bg-5) !important;
   }
   .select2-container-disabled .select2-arrow {
     opacity: 0.6;
@@ -1718,7 +1623,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-4) !important;
-    box-shadow: 0 0 0 0.2rem var(--bg-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
   .btn:active {
     color: var(--fg-1);
@@ -1748,7 +1653,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn-default:focus,
   .btn-cancel:focus {
     background-color: var(--bg-4) !important;
-    box-shadow: 0 0 0 0.2rem var(--bg-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
   .btn-secondary {
     color: var(--fg-1) !important;
@@ -1760,7 +1665,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .btn-secondary:focus {
     background-color: var(--bg-4) !important;
-    box-shadow: 0 0 0 0.2rem var(--bg-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--bg-3) !important;
   }
   .btn-remove,
   .btn-danger {
@@ -1779,7 +1684,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v9-9) !important;
     border-color: var(--v1-7) !important;
     background-color: var(--v1-5) !important;
-    box-shadow: 0 0 0 0.2rem var(--v1-2) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v1-2) !important;
   }
   .btn-remove > .fa,
   .btn-danger > .fa,
@@ -1805,7 +1710,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v9-9) !important;
     border-color: var(--v4-7) !important;
     background-color: var(--v4-5) !important;
-    box-shadow: 0 0 0 0.2rem var(--v4-2) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v4-2) !important;
   }
   .btn-register > .fa,
   .btn-success > .fa,
@@ -1815,27 +1720,32 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: currentColor !important;
   }
   .btn-info,
+  .btn-confirm,
   .btn-primary {
     color: var(--v9-8) !important;
     border-color: var(--v6-5) !important;
     background-color: var(--v6-3) !important;
   }
   .btn-info:hover,
+  .btn-confirm:hover,
   .btn-primary:hover {
     color: var(--v9-9) !important;
     border-color: var(--v6-6) !important;
     background-color: var(--v6-4) !important;
   }
   .btn-info:focus,
+  .btn-confirm:focus,
   .btn-primary:focus {
     color: var(--v9-9) !important;
     border-color: var(--v6-7) !important;
     background-color: var(--v6-5) !important;
-    box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-3) !important;
   }
   .btn-info > .fa,
+  .btn-confirm > .fa,
   .btn-primary > .fa,
   .btn-info > svg,
+  .btn-confirm > svg,
   .btn-primary > svg {
     color: currentColor !important;
     fill: currentColor !important;
@@ -1860,7 +1770,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v9-9) !important;
     border-color: var(--v2-7) !important;
     background-color: var(--v2-5) !important;
-    box-shadow: 0 0 0 0.2rem var(--v2-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v2-3) !important;
   }
   .btn-close > .fa,
   .btn-close-color > .fa,
@@ -1883,7 +1793,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn-danger-secondary:focus {
     color: var(--v9-8) !important;
     background-color: var(--v1-2) !important;
-    box-shadow: 0 0 0 0.2rem var(--v1-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v1-1) !important;
   }
   .btn-success.btn-inverted,
   .btn-success-secondary {
@@ -1900,7 +1810,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn-success-secondary:focus {
     color: var(--v9-8) !important;
     background-color: var(--v4-2) !important;
-    box-shadow: 0 0 0 0.2rem var(--v4-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v4-1) !important;
   }
   .btn-info-secondary,
   .btn-inverted-secondary,
@@ -1920,7 +1830,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn-primary.btn-inverted:focus {
     color: var(--v9-8) !important;
     background-color: var(--v6-2) !important;
-    box-shadow: 0 0 0 0.2rem var(--v6-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-1) !important;
   }
   .btn-warning-secondary {
     color: var(--v2-6) !important;
@@ -1934,7 +1844,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn-warning-secondary:focus {
     color: var(--v9-8) !important;
     background-color: var(--v2-2) !important;
-    box-shadow: 0 0 0 0.2rem var(--v2-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v2-1) !important;
   }
   .btn#clone-dropdown {
     color: var(--v9-8) !important;
@@ -1950,7 +1860,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--v9-9) !important;
     border-color: var(--v0-7) !important;
     background-color: var(--v0-5) !important;
-    box-shadow: 0 0 0 0.2rem var(--v0-2) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v0-2) !important;
   }
   .btn#clone-dropdown > svg {
     fill: var(--v9-8) !important;
@@ -2143,7 +2053,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .btn.selected[data-testid='award-button'].active:focus,
   .btn.award-control.active:focus {
-    box-shadow: 0 0 0 0.2rem var(--v0-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v0-1) !important;
   }
   .awards > .gl-button.selected {
     color: var(--ac) !important;
@@ -2154,7 +2064,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--v0-3) !important;
   }
   .awards > .gl-button.selected:focus {
-    box-shadow: 0 0 0 0.2rem var(--v0-1) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v0-1) !important;
   }
   .btn.selected[data-testid='award-button'].disabled:hover,
   .btn.award-control.disabled:hover {
@@ -2207,7 +2117,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: transparent !important;
   }
   .label.scoped-label .fa-question-circle[style *= '#FFFFFF'] {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
   }
   .label.scoped-label .fa-question-circle[style *= '#333333'] {
     color: #000 !important;
@@ -2220,7 +2130,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .label-badge-blue {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v6-5) !important;
   }
   .label-badge-gray {
@@ -2242,15 +2152,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-1) !important;
   }
   .badge.issues-count {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v4-5) !important;
   }
   .badge.merge-requests-count {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v2-5) !important;
   }
   .badge.todos-count {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v6-5) !important;
   }
   .badge-pill {
@@ -2806,6 +2716,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .right-sidebar .vertical-timeline-content a:hover {
     color: var(--ac) !important;
   }
+  .labels-select-wrapper li.is-focused .label-item {
+    background-color: var(--bg-4) !important;
+  }
   .labels-select-wrapper .label-item.is-focused,
   .labels-select-wrapper .label-item:hover {
     color: var(--fg-1) !important;
@@ -2855,6 +2768,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .right-sidebar.right-sidebar-collapsed .gutter-toggle:hover,
   .right-sidebar.right-sidebar-collapsed .block > .sub-block:hover,
   .right-sidebar.right-sidebar-collapsed .block:not(.with-sub-blocks):hover {
+    background-color: var(--bg-3) !important;
+  }
+  .right-sidebar.right-sidebar-collapsed .copy-email-button {
+    transition: none;
+    border-radius: 0;
+  }
+  .right-sidebar.right-sidebar-collapsed .copy-email-button:hover {
     background-color: var(--bg-3) !important;
   }
   .top-area {
@@ -2969,7 +2889,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .row-content-block [class*='group'] > .btn-default:not(#z):focus {
     background-color: var(--bg-4) !important;
   }
-  .row-content-block .filtered-search-box {
+  .row-content-block .filtered-search-box,
+  .row-content-block .gl-datepicker-input {
     background-color: var(--bg-1) !important;
   }
   .row-content-block button[class*='dropdown-']:not(#z) {
@@ -3065,6 +2986,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gitlab-tabs.nav.nav-tabs.nav-links {
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid;
+    border-color: var(--bg-5) !important;
     box-shadow: none;
   }
   .gitlab-tabs.nav.nav-tabs.nav-links > .nav-item {
@@ -3298,6 +3220,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .card-header .card-title {
     color: var(--fg-1) !important;
   }
+  .card-header > .badge-pill {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-5) !important;
+  }
   .card-body > .form-actions {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
@@ -3451,7 +3377,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5) !important;
   }
   .flex-grid .property-label {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .flex-grid .property-value {
     color: var(--fg-1) !important;
@@ -3926,7 +3852,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-5) !important;
   }
   .swagger-ui .title .version-stamp {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v0-7) !important;
   }
   .swagger-ui .dialog-ux .backdrop-ux {
@@ -4320,6 +4246,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-text-body {
     color: var(--fg-1) !important;
   }
+  .gl-text-white {
+    color: var(--inverse) !important;
+  }
   .gl-text-black-normal {
     color: var(--fg-0) !important;
   }
@@ -4398,6 +4327,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-new-dropdown .dropdown-menu:not(#z) .btn-link.dropdown-item.is-active {
     color: var(--fg-1) !important;
   }
+  .gl-new-dropdown-item .dropdown-item:not(.disable-hover):hover {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-4) !important;
+  }
+  .gl-new-dropdown-item .dropdown-item:not(.disable-hover):hover p {
+    color: var(--fg-1) !important;
+  }
   .gl-card {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
@@ -4443,6 +4379,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-form-select:disabled {
     color: var(--fg-5) !important;
     box-shadow: inset 0 0 0 1px var(--bg-5);
+  }
+  .gl-avatar-labeled-labels {
+    color: var(--fg-1) !important;
+  }
+  .gl-avatar-labeled-sublabel {
+    color: var(--fg-3) !important;
   }
   .gfm {
     color: var(--fg-1) !important;
@@ -4491,7 +4433,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     opacity: 0.4;
   }
   .gfm.gfm-project_member.current-user {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v0-7) !important;
   }
   .gfm.gfm-project_member.current-user:hover {
@@ -4531,7 +4473,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .gl-label-text-light[style*='--label-background'] .gl-label-close svg {
-    fill: var(--white) !important;
+    fill: var(--inverse) !important;
   }
   .gl-label-text-light[style] {
     text-shadow: 1px 1px 0px var(--shadow), 1px 1px 0px var(--shadow), 1px 1px 0px var(--shadow);
@@ -4588,9 +4530,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: transparent !important;
   }
   .modal .modal-content {
+    border: 1px solid var(--bg-5);
     color: var(--fg-1) !important;
-    border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
+    box-shadow: var(--bshadow) !important;
   }
   .modal .modal-content .modal-header {
     border-color: var(--bg-5) !important;
@@ -4614,6 +4557,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .modal .modal-content .modal-footer {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-2) !important;
+  }
+  .modal .modal-content .modal-footer .btn-default:not(:hover):not(:focus) {
+    background-color: var(--bg-0) !important;
   }
   .modal .modal-content .btn-clipboard:not(#z) {
     border-color: var(--bg-5) !important;
@@ -4871,11 +4817,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-4) !important;
   }
   .info-well .limit-box {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     background-color: var(--v1-5) !important;
   }
   .info-well .limit-box .fa {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
   }
   .info-well .branches .s12 {
     margin-top: 2px;
@@ -5251,13 +5197,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .mr-state-widget .mr-widget-extension .label-branch {
     background-color: var(--bg-1) !important;
   }
-  .mr-state-widget .mr-widget-extension + .border-top > table:not(#z) {
+  .mr-state-widget .mr-widget-extension + .border-top > table {
     margin-bottom: 0px !important;
     border: none !important;
-    border-radius: 0 0 3px 3px !important;
+    border-radius: 0 0 4px 4px !important;
   }
-  .mr-state-widget .mr-widget-extension + .border-top > table:not(#z) thead > tr > th {
-    background-color: var(--bg-0) !important;
+  .mr-state-widget .mr-widget-extension + .border-top > table thead tr th {
+    background-color: var(--bg-1) !important;
   }
   .mr-state-widget .mr-section-container {
     border: 1px solid var(--bg-5) !important;
@@ -6575,7 +6521,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
   }
   .md-area.is-focused.gfm-form {
-    box-shadow: 0 0 0 1px var(--v6-5), 0 0 0 0.2rem var(--v6-3) !important;
+    box-shadow: 0 0 0 1px var(--v6-5), 0 0 0 0.25rem var(--v6-3) !important;
   }
   .md-area .markdown-selector {
     color: var(--ac) !important;
@@ -6700,10 +6646,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: rgba(34,136,255,0.082) !important;
   }
   .boards-app .add-issues-container .board-card.is-active svg.gl-icon {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--v6-5) !important;
     background-color: var(--v6-5) !important;
-    fill: var(--white) !important;
+    fill: var(--inverse) !important;
   }
   .boards-app .add-issues-container .btn.close {
     top: -5px;
@@ -6798,7 +6744,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: transparent !important;
   }
   .js-burndown-data-selector .btn-primary {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--v6-5) !important;
     background-color: var(--v6-5) !important;
   }
@@ -6831,7 +6777,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-bottom: 1px solid var(--bg-5);
   }
   .design-detail .frame .badge-pill {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--ac) !important;
   }
@@ -6851,7 +6797,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .design-detail .image-notes .badge-pill,
   .design-detail .image-notes .key {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--ac) !important;
     box-shadow: none;
@@ -7065,7 +7011,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   [data-page *= 'network:show'] rect[style = 'fill-opacity: 0.5;'] + text[style],
   [data-page *= 'network:show'] path[style = 'fill-opacity: 0.5;'] + text[style] {
-    fill: var(--white) !important;
+    fill: var(--inverse) !important;
   }
   [data-page *= 'network:show'] rect[stroke = '#cc7a7a'],
   [data-page *= 'network:show'] path[stroke = '#cc7a7a'] {
@@ -7694,12 +7640,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--v4-3) !important;
   }
   .monaco-editor .line-delete {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--shadow) !important;
     background-color: var(--v1-1) !important;
   }
   .monaco-editor .line-insert {
-    color: var(--white) !important;
+    color: var(--inverse) !important;
     border-color: var(--shadow) !important;
     background-color: var(--v4-1) !important;
   }
