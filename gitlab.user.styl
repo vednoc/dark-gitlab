@@ -2142,6 +2142,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Epics -> Labels. #123, #159
         /.labels-select {
             &-wrapper {
+                li.is-focused .label-item { c: 0 0 bg4 } // #160
                 .label-item { &.is-focused, &:hover { c: fg1 0 bg4 }}
                 .gl, .btn { &-link:not(.gl-label-link) { c: fg3 }}
             }
