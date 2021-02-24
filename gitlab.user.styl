@@ -1566,9 +1566,23 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 /// Reset button styles.
                 .btn {
                     padding: 6px 10px i
-                    &-xs, &-xs + span {
+
+                    /// Button size.
+                    &-sm, &-xs, &-xs + span {
                         height: 32px i
                         font-size: 14px i
+                    }
+
+                    /// Notifications menu.
+                    svg {
+                        g: fg3
+                        &.s12 { width: 16px; height: @width }
+                    }
+
+                    /// Project -> Notifications menu.
+                    &.dropdown-toggle:not(#z) {
+                        c: 0 0 bg2
+                        &:hover { c: 0 0 bg3 }
                     }
 
                     /// Implemented in GitLab 13.8. @upstream
