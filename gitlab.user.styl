@@ -2272,6 +2272,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /.row-content-block {
             c: fg bd hl;
 
+            /// Project -> New MR.
+            &.middle-block {
+                .btn-cancel:not(:hover):not(:focus) { c: 0 0 bg1 }
+
+                /// Fix inline diff. @upstream
+                /#diff-notes-app .diffs.tab-pane { margin: 0 i }
+            }
+
             /// Project -> New issue.
             &.footer-block { c: 0 bg3 t }
 
