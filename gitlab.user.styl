@@ -1267,14 +1267,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 /// Fix text for header and no results.
                 .section { &-header, &-empty { c: fg4 }}
             }
-
-            /// Project -> Gitpod/IDE menu.
-            /// NOTE: Remove when replaced with an SVG icon. @upstream
-            if (dark(BG)) {
-                /.gl-new-dropdown .btn {
-                    &.dropdown-toggle-split::after { filter: invert(0.7) i }
-                }
-            }
         }
 
         /// Navbar -> To-do list menus.
@@ -3370,6 +3362,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     c: fg3
                     &.is-active { c: fg1 }
                 }
+            }
+
+            /// Chevron icons.
+            .dropdown-toggle-split:not(:disabled)::after {
+                c: 0 0 fg3
             }
 
             /// Members -> Search menu.
