@@ -1022,6 +1022,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                         > td:first-child { border-bottom-left-radius: 4px i }
                         > td:last-child { border-bottom-right-radius: 4px i }
                     }
+
+                    /// Fix selected row. #161
+                    &.selected td { c: 0 0 bg3 }
+                    ../../.files-slider tr:first-child td { border-top: none i }
                 }
             }
 
