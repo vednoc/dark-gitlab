@@ -4973,7 +4973,16 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Reply bar.
         /// NOTE: Exclude md-area in snippets.
-        &-reply-holder:not(.new-note) { c: 0 bg5 bg2 }
+        &-reply-holder:not(.new-note) {
+            border-top: 1px solid bg5 i
+            c: 0 0 bg2
+
+            /// Added in 13.9 release.
+            textarea[rows] {
+                font-family: var(--mono-font) i
+                c: 0 bg5 bg3
+            }
+        }
 
         /// MR -> Add a new note.
         &-form { c: 0 0 t }
