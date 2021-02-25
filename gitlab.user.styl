@@ -2445,9 +2445,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
 
             /// Fix icon for Gitea.
-            /.btn[class*='gitea'] svg {
-                path { g: cm }
-                rect { g: bg }
+            /[class*='gitea'],
+            /[data-page='import:gitea:new'] {
+                svg[version] {
+                    path { g: fg3 }
+                    rect { g: bg1 }
+                }
             }
         }
     }
