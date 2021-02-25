@@ -1,6 +1,24 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.11 [2021-02-25 Thu]
+Fixed many bugs and added tweaks for the latest GitLab 13.9 release.
+
+*** Improved
+- Restored the old look for project's "Notification menu" button
+- Updated colors for inlined chevron images in buttons
+- Added back margins to "inline" code view in Diff app
+- Updated colors for even better look of outlined buttons
+- Tweaked various text colors in project area and issue/MR lists
+
+*** Bug fixes
+- Resolved a regression on project "Find file" page ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/161][#161]])
+- Removed split between buttons and dropdown menus in notes
+- Excluded colored buttons from active state of dropdown menu styles
+- Updated position of inlined checkmark image in buttons
+- Inverted browser-default inputs with "file" type
+- Restored old look for reply bar in discussions
+
 ** 2.0.0-rc.10 [2021-02-22 Mon]
 Rewrote styles for rounded tables, updated focus states for buttons and
 dropdowns, and fixed many styles for various elements. Also, finally added
