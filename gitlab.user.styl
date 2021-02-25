@@ -768,10 +768,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             background-position: 14px 8px
         }
 
-        /// Issues -> Import CSV.
-        &[accept] {
-            background-color: t
-            filter: invert(0.8)
+        /// Issues -> Import CSV | Projects -> Import manifest.
+        &[type='file'][id] {
+            filter: invert(0.8) hue-rotate(180deg)
+            c: 0 0 t
         }
     }
 
