@@ -1905,8 +1905,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
             .closed, .merged { c: 0 0 bg2 }
             .issuable {
-                ../ .fa:not(.fa-question-circle), ../ .task-status { c: cm }
-                &-milestone, &-info, &-updated-at { c: cm }
+                ../ .fa:not(.fa-question-circle), ../ .task-status { c: fg3 }
+                &-milestone, &-info, &-updated-at { c: fg3 }
                 /// Email a new issue/MR to this project.
                 /^[-1..-1]-email-modal-btn { c: ac }
             }
@@ -3759,7 +3759,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             c: 0 bg5
 
             .nav .stat-link {
-                c: fg4
+                c: fg3
                 &:hover { c: fg1 }
             }
         }
@@ -4804,6 +4804,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     border-bottom: none // @upstream
                     .author-link { c: fg1 }
                 }
+
+                /// Added in 13.9 release.
+                .collapse-replies-btn:hover { c: fg3 }
             }
 
             /// Diffs -> Code discussions.
