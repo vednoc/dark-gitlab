@@ -856,6 +856,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 > *:focus { c: fg2 0 bg4; svg { g: currentColor } }
                 .caret-down { g: cm }
             }
+
+            // 'Edit status' button.
+            .current-user + li + li > .btn-link { c: fg3 }
         }
         /// Help menu.
         .header-help li:first-child {
@@ -1968,7 +1971,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         li {
             a {
                 margin-right: 0px i
-                color: fg3
+                c: fg3
             }
             svg { g: currentColor }
             .divider { c: 0 bg5 }
@@ -1981,7 +1984,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// First level.
         .sidebar-top-level-items > li {
-            > a:hover { color: fg1 }
+            > a:hover { c: fg1 }
             &.active {
                 c: 0 0 bg3
                 > a:hover { c: 0 0 bg4 }
@@ -2014,10 +2017,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 li {
                     b: none i
                     &:not(.active) {
-                        > a { color: fg3 }
+                        > a { c: fg3 }
                         &:first-child > a { c: fg1 }
                     }
-                    a { &:hover, &:focus { c: 0 0 bg3 }}
+                    a { &:hover, &:focus { c: fg1 0 bg3 }}
                 }
             }
         }
@@ -2063,6 +2066,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         .block { c: 0 bd }
         a:not(.btn):hover { color: v08 }
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
+        button[data-testid='edit-button']:not(#z) { c: fg3 }
 
         /// Reset buttons and links.
         .btn {
