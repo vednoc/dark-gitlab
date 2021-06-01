@@ -812,7 +812,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         align-items: center
 
         /// Wrapper.
-        &-gitlab, &&-empty { c: 0 bd hl }
+        &-gitlab, &&-empty {
+            border-bottom: 1px solid bg5 i
+            c: 0 0 bg2
+        }
+
         /// Logo.
         .title {
             > a {
@@ -2096,17 +2100,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &.whats-new-drawer {
                 if (nb_height) { top: 10px i }
                 .img-thumbnail { c: 0 bg4 bg2 }
-                .badge-pill { c: fg2 }
+                .badge-pill { c: fg2 0 bg3 }
 
                 /// Feat -> Add interop with custom image opacity.
                 if (md_img_o < 1) {
-                    .gl-link[rel] {
-                        display: flex
-                        > .img-thumbnail {
-                            opacity: md_img_o
-                            transition: opacity 0.5s ease;
-                        }
-                        &:hover > img { opacity: 1 }
+                    .gl-link[rel]:not(.whats-new-item-title-link) {
+                        opacity: md_img_o
+                        transition: opacity 0.5s ease
+                        > div { border-radius: 4px }
+                        &:hover { opacity: 1 }
                     }
                 }
             }
