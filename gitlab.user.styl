@@ -2474,10 +2474,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     // Global -> Welcome page. #144
     .blank-state {
         /// Cards.
-        &-row &-link {
+        &-row &-link,
+        /.new-namespace-panel {
             c: fg3 bg5 bg1
             &:hover { c: 0 0 bg2 }
-            h3 { c: v09 }
+            h3 {
+                c: v09
+                + p { c: fg2 }
+            }
         }
     }
 
@@ -3146,6 +3150,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             /img[src *= '/help/img/'],
             /img[src *= 'assets/promotions/'],
             /img[src *= 'assets/illustrations/'],
+            /.new-namespace-panel-illustration,
             /[data-page='projects:new'] .col-lg-3 svg[width][height],
             /#oauth-login-github > img {
                 filter: invert(0.8) brightness(110%) hue-rotate(180deg);
