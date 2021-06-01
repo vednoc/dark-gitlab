@@ -1,6 +1,37 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.12 [2021-06-01 Tue]
+Fixed many bugs from the last few GitLab releases, and I'm sure there are many
+that I've missed since I haven't been using GitLab all that much lately.
+
+The next release will likely be =v2.0.0= in which I'll change the =@updateURL= to
+use [[https://userstyles.world][UserStyles.world]]'s API, which is the project I've been working on since the
+start of 2021, and port over the procedural color generator from Dark-GitHub.
+
+The reason for =@updateURL= change is so that I can see whether or not this
+project is worth continuing since USw allows for very basic statistics. I'm the
+only maintainer of this project, and these days I have very little time to spare
+on maintaining projects that aren't "useful" and/or "worth it" in the long-run.
+
+Since I'm unemployed, most of my time has been going towards trying to get a
+job. I've been also researching and learning, then apploying that knowledge to
+USw and other projects I've been doing in my spare time. If there is anyone that
+would like to help out with Dark-GitLab, feel free to get in touch with me.
+
+** Features
+- New domain: ~gitplac.si~ ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/51][!51]])
+
+** Bug fixes
+- Updated text colors for "open in your IDE" dropdown items ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/49][!49]])
+- Removed repeating background in select dropdowns ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/50][!50]])
+- Updated text colors for pipeline schedules ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/163][#163]])
+- Added styles for custom checkbox/radiobox inputs ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/168][#168]])
+- Added bottom border and updated text colors in navbar
+- Updated styles for new selectors in "What's new" drawer
+- Updated text colors in left and right sidebars
+- Added and tweaked colors to various new buttons
+
 ** 2.0.0-rc.11 [2021-02-25 Thu]
 Fixed many bugs and added tweaks for the latest GitLab 13.9 release.
 
