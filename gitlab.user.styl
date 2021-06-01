@@ -1103,6 +1103,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             path[fill = '#FFF'] { g: hl }
             /// Pipelines -> Jobs. #125
             .build.retried { c: 0 0 bb }
+            /// Schedules -> Links. #163
+            .pipeline-schedule-table-row {
+                .next-run-cell { c: fg3 }
+                a { c: fg1 }
+            }
         }
 
         /// Project -> CI/CD -> Variables.
