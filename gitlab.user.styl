@@ -1559,6 +1559,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /button.close:not(#z) {
             transition: 0.2s ease
             c: 0 0 t
+
+            &:hover { border: 1px solid }
         }
 
         /// Button groups.
@@ -1576,6 +1578,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Project -> Repository buttons.
         &.count-badge-button {
             /.project-repo-buttons {
+                .count { c: 0 0 bg3 }
+
                 /// Reset button styles.
                 .btn {
                     padding: 6px 10px i
@@ -1602,7 +1606,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                     ../ .has-tooltip + .fork-count { height: 32px i }
 
                     /// OBSOLETE: Buttons/clone bar in GitLab 10.4.
-                    &:not(.btn-xs) { c: fg1 bg5 bg3 }
                     ../ input { height: 34px i }
                 }
 
