@@ -1556,6 +1556,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &&-default-tertiary {
             c: 0 t t
             &:hover > svg { g: fg1 }
+
+            /// MR -> Reset clipboard button.
+            /button[data-clipboard-text]:not(#z) { c: 0 t t }
         }
 
         /// Close buttons.
