@@ -712,6 +712,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 background-size: cover i
                 c: fg1 0 bg2
             }
+
+            /// Custom checkbox/radiobox. #168
+            &.custom-control-input {
+                &:checked ~ label::before { c: 0 v08 v04 }
+                &:focus ~ label::before { b: 0 0 0 0.2rem v01 }
+                ~ label::before { c: 0 bg5 bg2 }
+            }
         }
 
         /// Checkboxes.
@@ -723,6 +730,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 &:checked { c: 0 v08 v04 }
             }
         }
+
         &[type='checkbox']:checked {
             z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
@@ -3245,8 +3253,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
     // Pajamas -> Forms.
     .gl-form {
-        /// Checkbox label color.
-        &-checkbox { c: fg }
+        /// Checkbox/radiobox label colors. #168
+        &-checkbox,
+        &-radio {
+            c: fg1
+
+        }
+
         /// Inputs.
         &-input {
             box-shadow: none i
