@@ -1494,9 +1494,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// 1: Project -> Milestones.
         /// 2: Account -> Billing page.
         /// 3: TODO: Figure out where this was used. XD
+        /// 4: MR -> Mark as draft.
         &-info-secondary,
         &-inverted-secondary,
-        &-primary&-inverted {
+        &-primary&-inverted,
+        &-confirm-secondary {
             c: v66 v65 bg1
             &:hover { c: v68 0 v61 }
             &:focus { c: v68 v65 bg1; b: $f v63 i }
