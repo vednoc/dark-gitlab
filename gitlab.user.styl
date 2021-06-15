@@ -2382,6 +2382,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 &:hover, &:focus { c: 0 0 bg3 }
             }
 
+            /// Remove borders from dropdown menu.
+            .filtered-search-box > .dropdown .gl-button {
+                c: 0 t
+                border-right-color: bg5 i
+            }
+
             /// Dashboard -> 'You pushed to...' alert.
             &.top-block {
                 padding: 16px 0;
