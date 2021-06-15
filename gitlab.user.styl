@@ -1969,11 +1969,41 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         c: 0 0 bg2
         b: none i
 
+
+        /// Added in Gitlab v14.0.
+        /.sidebar-refactoring & {
+            /// Fix top offset.
+            if (nb_height) { top: 50px i }
+            // outline: 1px solid red i
+
+            /// Fix white space.
+            li a { margin-right: 6px i }
+
+            /// Add missing border.
+            .toggle-sidebar-button { b: inset -1px 0 bg5 i }
+
+            /// Reset fly-out menu header.
+            .fly-out-top-item-container {
+                c: fg1 0 bg4
+                &::before { border-right-color: bg4 i }
+            }
+
+            /// Remove border on active item.
+            ul:not(#z) > li.active a { b: none i }
+        }
+
         /// Header.
         .context-header {
             a { c: fg1 }
             &:hover { c: 0 0 bg3 }
             .identicon.s40 { line-height: 36px i }
+
+            /// New sidebar.
+            .sidebar-context-title { c: fg1 }
+            &.active {
+                c: 0 0 t
+                > a { c: 0 0 bg3 }
+            }
         }
 
         /// Items.
@@ -1994,13 +2024,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// First level.
         .sidebar-top-level-items > li {
             > a:hover { c: fg1 }
-            &.active {
+            &.active:not(.context-header) {
                 c: 0 0 bg3
                 > a:hover { c: 0 0 bg4 }
                 .badge { c: fg1 0 bg5 }
             }
             &.is-over {
-                > a { c: 0 0 bg3 }
+                > a { c: fg1 0 bg3 }
                 &.active > a { c: 0 0 bg4 }
             }
 
@@ -2035,7 +2065,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         }
 
         /// Collapse buttons.
-        .toggle-sidebar-button, .close-nav-button {
+        .toggle-sidebar-button,
+        .close-nav-button {
             c: 0 bg5 bg2
             span, svg { c: fg4 }
             &:hover {
