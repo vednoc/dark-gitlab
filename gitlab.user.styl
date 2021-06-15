@@ -843,6 +843,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         } else {
             .canary-badge > .badge { c: white green green }
         }
+
         /// Lists.
         ul[class] {
             c: cm;
@@ -866,7 +867,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 .caret-down { g: cm }
             }
 
-            // 'Edit status' button.
+            /// Added in GitLab v14.0.
+            .top-nav-menu-item {
+                &:hover, &:focus { c: 0 0 bg3 }
+                &.active { c: 0 0 bg4 }
+            }
+
+            /// 'Edit status' button.
             .current-user + li + li > .btn-link { c: fg3 }
         }
         /// Help menu.
