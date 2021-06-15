@@ -625,6 +625,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &.closed { c: v16; g: v16 }
         }
 
+        /// Notes -> Merge icon.
+        &.merge-icon:not(#z) {
+            g: v29
+            filter: drop-shadow(0 0 0.5px bg2) \
+                    drop-shadow(0 0 1px bg2) \
+                    drop-shadow(0 0 2px bg2) i
+        }
+
         /// Pipelines -> Jobs.
         /// NOTE: Icons in this area are slightly problematic, so this fixes them.
         &.s16[data-testid *= 'status_'] { g: currentColor }
@@ -2105,7 +2113,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         .title { c: fg }
         .block { c: 0 bd }
         a:not(.btn):hover { color: v08 }
-        .edit-link, .lock-edit, .no-value, a[href = '#'] { c: cm }
+        .edit-link, .lock-edit, .no-value, a[href = '#'] { c: fg3 }
         button[data-testid='edit-button']:not(#z) { c: fg3 }
 
         /// Reset buttons and links.
@@ -3392,6 +3400,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &-red {
                 &-500{ o } { c: v15 }
             }
+
+            /// Overrides.
+            &-gray-900 { c: fg1 }
         }
 
         /// Background-color overrides.
@@ -3943,7 +3954,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
     // Project -> Commits.
     .commit {
-        &ter { c: cm }
+        &ter { c: fg3 }
         & &-author-link { c: fg }
         &, /.generic-commit-status { a { color: fg }}
         &-header {
@@ -4164,6 +4175,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &-body.mr-pipeline-suggest {
                 c: fg1 bg5 bg1
             }
+
+            /// Heading colors.
+            &-body .gl-font-weight-bold { c: fg3 }
         }
         /// Code quality and other reports. #64
         /.report-block {
