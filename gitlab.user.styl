@@ -4716,8 +4716,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &-hint { c: fg1 }
             svg.contrib-calendar > g {
                 text { g: fg4 }
+                rect { g: v09 }
+                // For compatibility version OLD
+                rect[fill = '#ededed'] { opacity: 0.06 }
+                rect[fill ^= 'rgb(17'] { opacity: 0.20 }
+                rect[fill ^= 'rgb(12'] { opacity: 0.45 }
+                rect[fill ^= 'rgb(82'] { opacity: 0.70 }
+                rect[fill ^= 'rgb(37'] { opacity: 1.00 }
+                // For compatibility version NEW !52
                 .user-contrib-cell {
-                    g: v09
                     contribs = { '0': 0.06, '1': 0.20, '2': 0.45, '3': 0.70, '4': 1.00 }
                     for k, v in contribs {
                         &[data-level=\"{k}\"] {
@@ -4725,6 +4732,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                         }
                     }
                 }
+                // For compatibility END
             }
         }
 
