@@ -3459,7 +3459,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Box-shadow overrides.
         &-inset-border {
-            &-1-gray-100 { box-shadow: inset 0 0 0 1px bd }
+            &-1-gray-100 { &, &\\\! { box-shadow: inset 0 0 0 1px bd i }}
         }
 
         /// Dropdowns.
