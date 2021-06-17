@@ -3927,12 +3927,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     }
 
     // Project -> Pipelines.
-    .js-pipeline-graph {
-        > div  {
-            c: 0 0 hl
-        }
+    [class*="pipeline-graph"] {
+        /// Pipelines -> Tab background.
+        &.pipeline-tab-content { c: 0 0 hl }
+        .ci-status-text { c: fg1 } // OBSOLETE
+
         /// Pipelines -> Stages.
-        .gl-build {
+        .build, .gl-build {
+            width: 100% i;
             &-content {
                 c: fg1 bg5 bg1
                 transition: 0.1s ease i
@@ -3966,14 +3968,21 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Feat -> Compact pipelines.
         if (pipelines) {
-            .gl-build {
+            .build, .gl-build {
                 margin-bottom: 5px
                 &-content { padding: 5px i }
             }
-            /// Projects -> Show full name.
-            .ci-job-name-component .gl-text-truncate {
-                max-width: 100%;
-                margin-right: 35px
+
+            /// Remove max-width. Added in GitLab v14.0.
+            .gl-pipeline-job-width { width: 100% }
+
+            /// Projects -> Show full name. OBSOLETE
+            .ci-job-name-component {
+                .ci-status-text,
+                .gl-text-truncate {
+                    max-width: 100%
+                    margin-right: 35px
+                }
             }
 
             /// Tweak curved connectors for !47.
