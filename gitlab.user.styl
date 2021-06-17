@@ -1584,6 +1584,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &:hover { border: 1px solid }
         }
 
+        /// Inherit colors for dropdown icons.
+        &.btn-icon[data-toggle=dropdown] svg {
+            color: inherit
+        }
+
         /// Button groups.
         /.input-group {
             &-append, &-prepend {
