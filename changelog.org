@@ -1,6 +1,22 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.13 [2021-06-18 Fri]
+Updated styles for the upcoming GitLab v14.0 release while preserving backwards
+compatibility with previous releases.
+
+*** Features
+- Added styles for the new left sidebar, navigation menu, emoji picker, and more
+- Buttons that have icons will now properly inherit button's colors
+- Improved text contrast for secondary text in a few places
+
+*** Bug Fixes
+- Removed double borders for filter dropdown in navigation blocks
+- Added new selectors for online CI/CD runners ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/170][#170]])
+- Fixed badge overrides for project members in notes
+- Added new colors for contributions calendar ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/52][!52]])
+- Added new styles for pipeline jobs ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/171][#171]], [[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/53][!53]])
+
 ** 2.0.0-rc.12 [2021-06-01 Tue]
 Fixed many bugs from the last few GitLab releases, and I'm sure there are many
 that I've missed since I haven't been using GitLab all that much lately.
