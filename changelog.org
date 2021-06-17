@@ -15,14 +15,14 @@ only maintainer of this project, and these days I have very little time to spare
 on maintaining projects that aren't "useful" and/or "worth it" in the long-run.
 
 Since I'm unemployed, most of my time has been going towards trying to get a
-job. I've been also researching and learning, then apploying that knowledge to
+job. I've been also researching and learning, then applying that knowledge to
 USw and other projects I've been doing in my spare time. If there is anyone that
 would like to help out with Dark-GitLab, feel free to get in touch with me.
 
-** Features
+*** Features
 - New domain: ~gitplac.si~ ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/51][!51]])
 
-** Bug fixes
+*** Bug fixes
 - Updated text colors for "open in your IDE" dropdown items ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/49][!49]])
 - Removed repeating background in select dropdowns ([[https://gitlab.com/vednoc/dark-gitlab/-/merge_requests/50][!50]])
 - Updated text colors for pipeline schedules ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/163][#163]])
