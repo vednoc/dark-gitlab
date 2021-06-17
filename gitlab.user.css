@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.12
+@version      2.0.0-rc.13
 @license      MIT
 ==/UserStyle== */
 
@@ -65,7 +65,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab Lite v2.0.0-rc.12';
+    --version: '🌚 Dark-GitLab v2.0.0-rc.13';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --inverse: #fff;
@@ -235,10 +235,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     border-color: var(--bg-5);
     background-color: var(--bg-2);
   }
-  body pre[class *= 'description'] {
+  body pre[class*="description"] {
     border-left-width: 4px;
     font-size: 0.875rem;
-    color: var(--fg-4) !important;
+    color: var(--fg-2) !important;
     border-color: var(--bg-5) !important;
   }
   body > pre:not([class]) {
@@ -602,6 +602,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .accepted-icon svg {
     fill: var(--v6-6) !important;
   }
+  svg[data-testid="status-active-icon"] {
+    fill: var(--v4-5) !important;
+  }
   svg.ic-eye-slash {
     fill: var(--v2-6) !important;
   }
@@ -639,6 +642,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   svg.merge-request-status.closed {
     color: var(--v1-6) !important;
     fill: var(--v1-6) !important;
+  }
+  svg.merge-icon:not(#z) {
+    fill: var(--v2-9) !important;
+    filter: drop-shadow(0 0 0.5px var(--bg-2)) drop-shadow(0 0 1px var(--bg-2)) drop-shadow(0 0 2px var(--bg-2)) !important;
   }
   svg.s16[data-testid *= 'status_'] {
     fill: currentColor !important;
@@ -942,6 +949,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .navbar ul[class] > li .caret-down {
     fill: var(--fg-4) !important;
+  }
+  .navbar ul[class] .top-nav-menu-item:hover,
+  .navbar ul[class] .top-nav-menu-item:focus {
+    background-color: var(--bg-3) !important;
+  }
+  .navbar ul[class] .top-nav-menu-item.active {
+    background-color: var(--bg-4) !important;
   }
   .navbar ul[class] .current-user + li + li > .btn-link {
     color: var(--fg-3) !important;
@@ -1967,6 +1981,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   button.close:not(#z):hover {
     border: 1px solid;
   }
+  .btn.btn-icon[data-toggle=dropdown] svg {
+    color: inherit;
+  }
   .input-group-append,
   .input-group-prepend {
     background-color: transparent !important;
@@ -2524,14 +2541,55 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-2) !important;
     box-shadow: none !important;
   }
+  .nav-sidebar[data-track-action]:not(#z) {
+    top: 50px !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) ul li > a {
+    margin-right: 6px !important;
+    box-shadow: none !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) ul li > a:hover {
+    background-color: var(--bg-3) !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) ul li.active > a.has-sub-items {
+    color: var(--ac) !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) ul li.active > a:not(.has-sub-items) {
+    background-color: var(--bg-4) !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) ul .has-sub-items + ul {
+    margin-top: 0rem !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) .fly-out-top-item-container {
+    color: var(--fg-1) !important;
+    background-color: var(--bg-3) !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) .fly-out-top-item-container::before {
+    border-right-color: var(--bg-4) !important;
+  }
+  .nav-sidebar[data-track-action]:not(#z) .toggle-sidebar-button {
+    box-shadow: inset -1px 0 var(--bg-5) !important;
+  }
   .nav-sidebar .context-header a {
     color: var(--fg-1) !important;
   }
-  .nav-sidebar .context-header:hover {
+  .nav-sidebar .context-header:hover:not([data-track-label]) {
     background-color: var(--bg-3) !important;
   }
   .nav-sidebar .context-header .identicon.s40 {
     line-height: 36px !important;
+  }
+  .nav-sidebar .context-header [class*="avatar"] {
+    box-shadow: none !important;
+  }
+  .nav-sidebar .context-header .sidebar-context-title {
+    color: var(--fg-1) !important;
+  }
+  .nav-sidebar .context-header.active {
+    background-color: transparent !important;
+  }
+  .nav-sidebar .context-header.active > a {
+    background-color: var(--bg-3) !important;
   }
   .nav-sidebar li a {
     margin-right: 0px !important;
@@ -2552,24 +2610,25 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .nav-sidebar li.active > a {
     color: var(--ac) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li > a:hover {
+  .nav-sidebar .sidebar-top-level-items > li:not(.active) > a:hover {
     color: var(--fg-1) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li.active {
+  .nav-sidebar .sidebar-top-level-items > li.active:not([data-track-label]) {
     background-color: var(--bg-3) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li.active > a:hover {
+  .nav-sidebar .sidebar-top-level-items > li.active:not([data-track-label]) > a:hover {
     background-color: var(--bg-4) !important;
   }
-  .nav-sidebar .sidebar-top-level-items > li.active .badge {
+  .nav-sidebar .sidebar-top-level-items > li.active:not([data-track-label]) .badge {
     color: var(--fg-1) !important;
     background-color: var(--bg-5) !important;
   }
   .nav-sidebar .sidebar-top-level-items > li.is-over > a {
+    color: var(--fg-1) !important;
     background-color: var(--bg-3) !important;
   }
   .nav-sidebar .sidebar-top-level-items > li.is-over.active > a {
-    background-color: var(--bg-4) !important;
+    background-color: var(--bg-3) !important;
   }
   .nav-sidebar .sidebar-top-level-items > li:not(.is-showing-fly-out) > ul > li:not(.active) > a:hover,
   .nav-sidebar .sidebar-top-level-items > li:not(.is-showing-fly-out) > ul > li:not(.active) > a:focus {
@@ -2608,7 +2667,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .nav-sidebar .close-nav-button span,
   .nav-sidebar .toggle-sidebar-button svg,
   .nav-sidebar .close-nav-button svg {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .nav-sidebar .toggle-sidebar-button:hover,
   .nav-sidebar .close-nav-button:hover {
@@ -2638,7 +2697,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .right-sidebar .lock-edit,
   .right-sidebar .no-value,
   .right-sidebar a[href = '#'] {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .right-sidebar button[data-testid='edit-button']:not(#z) {
     color: var(--fg-3) !important;
@@ -2845,7 +2904,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .nav-links li a,
   .nav-links li button {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
   .nav-links li a:focus,
   .nav-links li button:focus {
@@ -2965,6 +3024,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .row-content-block button[class*='dropdown-']:not(#z):hover,
   .row-content-block button[class*='dropdown-']:not(#z):focus {
     background-color: var(--bg-3) !important;
+  }
+  .row-content-block .filtered-search-box > .dropdown .gl-button {
+    border-color: transparent !important;
+    border-right-color: var(--bg-5) !important;
   }
   .row-content-block.top-block {
     padding: 16px 0;
@@ -4336,6 +4399,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-text-red-500\! {
     color: var(--v1-5) !important;
   }
+  .gl-text-gray-900 {
+    color: var(--fg-1) !important;
+  }
   .gl-bg-white {
     background-color: var(--bg-0) !important;
   }
@@ -4384,8 +4450,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-sm-text-body {
     color: var(--fg-1) !important;
   }
-  .gl-inset-border-1-gray-100 {
-    box-shadow: inset 0 0 0 1px var(--bg-5);
+  .gl-inset-border-1-gray-100,
+  .gl-inset-border-1-gray-100\! {
+    box-shadow: inset 0 0 0 1px var(--bg-5) !important;
   }
   .gl-new-dropdown button[class*='close'] {
     border-color: transparent !important;
@@ -5057,9 +5124,10 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     clear: both;
   }
   .committer {
-    color: var(--fg-4) !important;
+    color: var(--fg-3) !important;
   }
-  .commit .commit-author-link {
+  .commit .commit-author-link,
+  .commit-row-message {
     color: var(--fg-1) !important;
   }
   .commit a,
@@ -5078,44 +5146,77 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     font-family: var(--mono-font);
     background-color: transparent !important;
   }
-  .pipeline-graph.pipeline-tab-content {
+  .pipeline-graph > div,
+  .js-pipeline-graph > div {
     background-color: var(--bg-2) !important;
   }
-  .pipeline-graph .build {
+  .pipeline-graph .ci-status-text,
+  .js-pipeline-graph .ci-status-text {
+    color: var(--fg-1) !important;
+  }
+  .pipeline-graph .build,
+  .js-pipeline-graph .build,
+  .pipeline-graph .gl-build,
+  .js-pipeline-graph .gl-build {
     width: 100% !important;
   }
-  .pipeline-graph .build-content {
+  .pipeline-graph .build-content,
+  .js-pipeline-graph .build-content,
+  .pipeline-graph .gl-build-content,
+  .js-pipeline-graph .gl-build-content {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
     transition: 0.1s ease !important;
   }
-  .pipeline-graph .build-content:hover {
-    color: var(--fg-4) !important;
+  .pipeline-graph .build-content:hover,
+  .js-pipeline-graph .build-content:hover,
+  .pipeline-graph .gl-build-content:hover,
+  .js-pipeline-graph .gl-build-content:hover {
     background-color: var(--bg-3) !important;
   }
-  .pipeline-graph .build .linked-pipeline-content {
+  .pipeline-graph .build .linked-pipeline-content,
+  .js-pipeline-graph .build .linked-pipeline-content,
+  .pipeline-graph .gl-build .linked-pipeline-content,
+  .js-pipeline-graph .gl-build .linked-pipeline-content {
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
     border-radius: 8px !important;
   }
-  .pipeline-graph .build .linked-pipeline-content::before {
+  .pipeline-graph .build .linked-pipeline-content::before,
+  .js-pipeline-graph .build .linked-pipeline-content::before,
+  .pipeline-graph .gl-build .linked-pipeline-content::before,
+  .js-pipeline-graph .gl-build .linked-pipeline-content::before {
     content: unset !important;
   }
-  .pipeline-graph .build .linked-pipeline-content:hover {
+  .pipeline-graph .build .linked-pipeline-content:hover,
+  .js-pipeline-graph .build .linked-pipeline-content:hover,
+  .pipeline-graph .gl-build .linked-pipeline-content:hover,
+  .js-pipeline-graph .gl-build .linked-pipeline-content:hover {
     background-color: var(--bg-0) !important;
   }
   .pipeline-graph .curve::before,
+  .js-pipeline-graph .curve::before,
   .pipeline-graph .build:not(first-child)::before,
+  .js-pipeline-graph .build:not(first-child)::before,
+  .pipeline-graph .gl-build:not(first-child)::before,
+  .js-pipeline-graph .gl-build:not(first-child)::before,
   .stage-container::before,
   .pipeline-graph .curve::after,
+  .js-pipeline-graph .curve::after,
   .pipeline-graph .build:not(first-child)::after,
+  .js-pipeline-graph .build:not(first-child)::after,
+  .pipeline-graph .gl-build:not(first-child)::after,
+  .js-pipeline-graph .gl-build:not(first-child)::after,
   .stage-container::after {
     border-color: var(--bg-5) !important;
   }
   .ci-build-text,
   .ci-status-text,
-  .pipeline-graph .build-content .gl-font-weight-100 {
+  .pipeline-graph .build-content .gl-font-weight-100,
+  .js-pipeline-graph .build-content .gl-font-weight-100,
+  .pipeline-graph .gl-build-content .gl-font-weight-100,
+  .js-pipeline-graph .gl-build-content .gl-font-weight-100 {
     font-weight: normal !important;
     color: var(--fg-4) !important;
   }
@@ -5326,6 +5427,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
+  }
+  .mr-state-widget .mr-widget-body .gl-font-weight-bold {
+    color: var(--fg-3) !important;
   }
   .report-block {
     color: var(--fg-1) !important;
@@ -6209,6 +6313,21 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .calendar svg.contrib-calendar > g rect[fill ^= 'rgb(37'] {
     opacity: 1;
   }
+  .calendar svg.contrib-calendar > g .user-contrib-cell[data-level="0"] {
+    opacity: 0.06;
+  }
+  .calendar svg.contrib-calendar > g .user-contrib-cell[data-level="1"] {
+    opacity: 0.2;
+  }
+  .calendar svg.contrib-calendar > g .user-contrib-cell[data-level="2"] {
+    opacity: 0.45;
+  }
+  .calendar svg.contrib-calendar > g .user-contrib-cell[data-level="3"] {
+    opacity: 0.7;
+  }
+  .calendar svg.contrib-calendar > g .user-contrib-cell[data-level="4"] {
+    opacity: 1;
+  }
   .user-profile .projects-block,
   .user-profile .activities-block {
     padding: 0 12px;
@@ -6465,6 +6584,13 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .emoji-menu input {
     background-color: var(--bg-1) !important;
+  }
+  .emoji-picker-category-active {
+    color: var(--fg-1) !important;
+    border-color: var(--ac) !important;
+  }
+  .emoji-picker-category-header {
+    background: linear-gradient(to top, transparent, var(--bg-2)) !important;
   }
   .line-resolve-all {
     border-color: var(--bg-5) !important;
