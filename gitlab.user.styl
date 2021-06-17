@@ -604,6 +604,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /.commit, /.pushed-new, /.pushed-to { &-icon svg { g: fg4 }}
         /.imported, /.commented-on, /.accepted { &-icon svg { g: v66 }}
 
+        /// CI/CD runners. #170
+        &[data-testid="status-active-icon"] { g: v45 }
+
         /// Misc.
         &.ic-eye-slash { g: v26 } /// Confidential issues.
         &.text-success { g: v46 } /// Green checkmark.
