@@ -1994,32 +1994,43 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
 
         /// Added in Gitlab v14.0.
-        /.sidebar-refactoring & {
+        &[data-track-action]:not(#z) {
             /// Fix top offset.
             if (nb_height) { top: 50px i }
-            // outline: 1px solid red i
 
-            /// Fix white space.
-            li a { margin-right: 6px i }
+            ul {
+                li > a {
+                    margin-right: 6px i
+                    b: none i
+                    &:hover { c: 0 0 bg3 }
+                }
 
-            /// Add missing border.
-            .toggle-sidebar-button { b: inset -1px 0 bg5 i }
+                /// Fix active tree.
+                li.active > a {
+                    &.has-sub-items { c: ac }
+                    &:not(.has-sub-items) { c: 0 0 bg4 }
+                }
+
+                /// Remove odd white space. @upstream
+                .has-sub-items + ul { margin-top: 0rem i }
+            }
 
             /// Reset fly-out menu header.
             .fly-out-top-item-container {
-                c: fg1 0 bg4
+                c: fg1 0 bg3
                 &::before { border-right-color: bg4 i }
             }
 
-            /// Remove border on active item.
-            ul:not(#z) > li.active a { b: none i }
+            /// Add missing border to collapse button.
+            .toggle-sidebar-button { b: inset -1px 0 bg5 i }
         }
 
         /// Header.
         .context-header {
             a { c: fg1 }
-            &:hover { c: 0 0 bg3 }
+            &:hover:not([data-track-label]) { c: 0 0 bg3 }
             .identicon.s40 { line-height: 36px i }
+            [class*="avatar"] { b: none i }
 
             /// New sidebar.
             .sidebar-context-title { c: fg1 }
@@ -2046,15 +2057,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// First level.
         .sidebar-top-level-items > li {
-            > a:hover { c: fg1 }
-            &.active:not(.context-header) {
+            &:not(.active) > a:hover { c: fg1 }
+            &.active:not([data-track-label]) {
                 c: 0 0 bg3
                 > a:hover { c: 0 0 bg4 }
                 .badge { c: fg1 0 bg5 }
             }
             &.is-over {
                 > a { c: fg1 0 bg3 }
-                &.active > a { c: 0 0 bg4 }
+                &.active > a { c: 0 0 bg3 }
             }
 
             /// Second level.
@@ -2091,7 +2102,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         .toggle-sidebar-button,
         .close-nav-button {
             c: 0 bg5 bg2
-            span, svg { c: fg4 }
+            span, svg { c: fg3 }
             &:hover {
                 c: 0 0 bg3
                 > span, > svg { c: fg1 }
