@@ -3927,9 +3927,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     }
 
     // Project -> Pipelines.
-    [class*="pipeline-graph"] {
+    .pipeline-graph, .js-pipeline-graph {
         /// Pipelines -> Tab background.
-        &.pipeline-tab-content { c: 0 0 hl }
+        > div { c: 0 0 hl }
         .ci-status-text { c: fg1 } // OBSOLETE
 
         /// Pipelines -> Stages.
