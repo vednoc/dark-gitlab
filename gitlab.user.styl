@@ -4012,7 +4012,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &-content {
                 c: fg1 bg5 bg1
                 transition: 0.1s ease i
-                &:hover { c: cm 0 bg3 }
+                &:hover { c: 0 0 bg3 }
             }
             /// Downstream.
             .linked-pipeline-content {
@@ -4048,7 +4048,8 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             }
 
             /// Remove max-width. Added in GitLab v14.0.
-            .gl-pipeline-job-width { width: 100% }
+            [class*="gl-pipeline-job-width"] { width: 100% i }
+            .gl-font-weight-100 { margin-right: 0.5rem i }
 
             /// Projects -> Show full name. OBSOLETE
             .ci-job-name-component {
