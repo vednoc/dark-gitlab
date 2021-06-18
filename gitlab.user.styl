@@ -1597,11 +1597,12 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /.input-group {
             &-append, &-prepend {
                 c: 0 0 t
-                > [class *= '-text'] {
-                    c: fg1 bg5
-                    /// Project -> Edit labels. #29
-                    &:not(.label-color-preview) { c: 0 0 bg3 }
-                }
+
+                > [class*='-text'] { c: fg1 bg5 }
+
+                /// Button states.
+                .btn:focus { c: fg1 bg5 bg2; b: $f v64 i }
+                .btn:active { c: fg1 bg5 bg4 0 0 0 }
             }
         }
 
