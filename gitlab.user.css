@@ -6,7 +6,7 @@
 @homepageURL  https://gitlab.com/vednoc/dark-gitlab
 @supportURL   https://gitlab.com/vednoc/dark-gitlab/issues
 @updateURL    https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.css
-@version      2.0.0-rc.13
+@version      2.0.0-rc.14
 @license      MIT
 ==/UserStyle== */
 
@@ -66,7 +66,7 @@ regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.or
 regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
 regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
   :root {
-    --version: '🌚 Dark-GitLab v2.0.0-rc.13';
+    --version: '🌚 Dark-GitLab v2.0.0-rc.14';
     --bshadow: 0 4px 8px var(--shadow);
     --shadow: rgba(0,0,0,0.251);
     --inverse: #fff;
@@ -951,6 +951,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .navbar ul[class] > li .caret-down {
     fill: var(--fg-4) !important;
   }
+  .navbar ul[class] > li .nav-link {
+    color: var(--fg-1) !important;
+  }
   .navbar ul[class] .top-nav-menu-item:hover,
   .navbar ul[class] .top-nav-menu-item:focus {
     background-color: var(--bg-3) !important;
@@ -1666,7 +1669,6 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .btn:focus {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
-    background-color: var(--bg-4) !important;
     box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
   .btn:active {
@@ -1696,20 +1698,22 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .btn-default:focus,
   .btn-cancel:focus {
-    background-color: var(--bg-4) !important;
     box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
+  .btn-comment-and-close:not(#z),
   .btn-secondary {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
     background-color: var(--bg-1) !important;
   }
+  .btn-comment-and-close:not(#z):hover,
   .btn-secondary:hover {
     background-color: var(--bg-3) !important;
   }
+  .btn-comment-and-close:not(#z):focus,
   .btn-secondary:focus {
     background-color: var(--bg-4) !important;
-    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--bg-3) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
   }
   .btn-remove,
   .btn-danger {
@@ -1989,14 +1993,23 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .input-group-prepend {
     background-color: transparent !important;
   }
-  .input-group-append > [class *= '-text'],
-  .input-group-prepend > [class *= '-text'] {
+  .input-group-append > [class*='-text'],
+  .input-group-prepend > [class*='-text'] {
     color: var(--fg-1) !important;
     border-color: var(--bg-5) !important;
   }
-  .input-group-append > [class *= '-text']:not(.label-color-preview),
-  .input-group-prepend > [class *= '-text']:not(.label-color-preview) {
-    background-color: var(--bg-3) !important;
+  .input-group-append .btn:focus,
+  .input-group-prepend .btn:focus {
+    color: var(--fg-1) !important;
+    border-color: var(--bg-5) !important;
+    background-color: var(--bg-2) !important;
+    box-shadow: 0 0 0 1px var(--bg-1), 0 0 0 0.25rem var(--v6-4) !important;
+  }
+  .input-group-append .btn:active,
+  .input-group-prepend .btn:active {
+    color: var(--fg-1);
+    border-color: var(--bg-5);
+    background-color: var(--bg-4);
   }
   .project-repo-buttons .count {
     background-color: var(--bg-3) !important;
@@ -2225,15 +2238,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     background-color: var(--bg-1) !important;
   }
   .badge.issues-count {
-    color: var(--inverse) !important;
+    color: var(--v9-9) !important;
     background-color: var(--v4-5) !important;
   }
   .badge.merge-requests-count {
-    color: var(--inverse) !important;
+    color: var(--v9-9) !important;
     background-color: var(--v2-5) !important;
   }
   .badge.todos-count {
-    color: var(--inverse) !important;
+    color: var(--v9-9) !important;
     background-color: var(--v6-5) !important;
   }
   .badge-pill {
@@ -2558,6 +2571,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .nav-sidebar[data-track-action]:not(#z) ul li.active > a:not(.has-sub-items) {
     background-color: var(--bg-4) !important;
   }
+  .nav-sidebar[data-track-action]:not(#z) ul li.active {
+    box-shadow: none !important;
+  }
   .nav-sidebar[data-track-action]:not(#z) ul .has-sub-items + ul {
     margin-top: 0rem !important;
   }
@@ -2689,7 +2705,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     color: var(--fg-1) !important;
   }
   .right-sidebar .block {
-    border-color: var(--bg-5) !important;
+    border-color: var(--bg-4) !important;
   }
   .right-sidebar a:not(.btn):hover {
     color: var(--v0-8);
@@ -2753,6 +2769,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .right-sidebar .issuable-sidebar {
     overflow-y: auto !important;
+  }
+  .right-sidebar .issuable-sidebar-header {
+    border-color: var(--bg-4) !important;
   }
   .right-sidebar .issuable-sidebar-header .btn-default:not(.gutter-toggle),
   .right-sidebar .issuable-sidebar .dropdown .btn-default:not(.gutter-toggle),
@@ -2884,6 +2903,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .right-sidebar.right-sidebar-collapsed .sidebar-collapsed-icon svg {
     fill: var(--fg-4) !important;
+  }
+  .right-sidebar.right-sidebar-collapsed .sidebar-collapsed-container:not(:hover) {
+    background-color: transparent !important;
   }
   .right-sidebar.right-sidebar-collapsed .gutter-toggle:hover,
   .right-sidebar.right-sidebar-collapsed .block > .sub-block:hover,
@@ -3770,8 +3792,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .pagination .active .page-link,
   .pagination .page-link.active {
-    color: var(--v0-9) !important;
-    background-color: var(--v0-1) !important;
+    color: var(--v9-9) !important;
+    border-color: var(--v0-7) !important;
+    background-color: var(--v0-3) !important;
   }
   .md {
     color: var(--fg-1) !important;
@@ -3779,7 +3802,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .md h1,
   .md h2 {
     color: var(--fg-1) !important;
-    border-color: var(--bg-4) !important;
+    border-color: var(--bg-3) !important;
   }
   .md hr {
     border-color: var(--bg-4) !important;
@@ -4151,6 +4174,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     filter: invert(0.8) brightness(110%) hue-rotate(180deg);
     box-shadow: none !important;
   }
+  .gl-alert-title {
+    color: var(--v9-9) !important;
+  }
   .gl-alert-body a,
   .gl-alert-actions a {
     font-weight: bold;
@@ -4163,39 +4189,47 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: currentColor !important;
   }
   .gl-alert-warning {
-    color: var(--v9-9) !important;
-    background-color: var(--v2-2) !important;
+    color: var(--v9-7) !important;
+    border-color: var(--v2-3) !important;
+    background-color: var(--v2-1) !important;
   }
   .gl-alert-warning .gl-alert-icon {
-    fill: var(--v9-7) !important;
+    fill: var(--v2-8) !important;
   }
   .gl-alert-danger {
-    color: var(--v9-9) !important;
-    background-color: var(--v1-2) !important;
+    color: var(--v9-7) !important;
+    border-color: var(--v1-3) !important;
+    background-color: var(--v1-1) !important;
   }
   .gl-alert-danger .gl-alert-icon {
-    fill: var(--v9-7) !important;
+    fill: var(--v1-8) !important;
   }
   .gl-alert-success {
-    color: var(--v9-9) !important;
-    background-color: var(--v4-2) !important;
+    color: var(--v9-7) !important;
+    border-color: var(--v4-3) !important;
+    background-color: var(--v4-1) !important;
   }
   .gl-alert-success .gl-alert-icon {
-    fill: var(--v9-7) !important;
+    fill: var(--v4-8) !important;
   }
   .gl-alert-info {
-    color: var(--v9-9) !important;
-    background-color: var(--v6-2) !important;
+    color: var(--v9-7) !important;
+    border-color: var(--v6-3) !important;
+    background-color: var(--v6-1) !important;
   }
   .gl-alert-info .gl-alert-icon {
-    fill: var(--v9-7) !important;
+    fill: var(--v6-8) !important;
   }
   .gl-alert-tip {
     color: var(--fg-2) !important;
+    border-color: var(--bg-4) !important;
     background-color: var(--bg-2) !important;
   }
   .gl-alert-tip .gl-alert-icon {
-    fill: var(--fg-3) !important;
+    fill: var(--fg-4) !important;
+  }
+  .alert-wrapper > .gl-alert {
+    border-bottom: 1px solid;
   }
   .flash-container svg {
     fill: currentColor !important;
@@ -4426,8 +4460,14 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   .gl-bg-blue-50 {
     background-color: var(--v6-2) !important;
   }
+  .gl-bg-blue-50\! {
+    background-color: var(--v6-1) !important;
+  }
   .gl-bg-red-50 {
     background-color: var(--v1-0) !important;
+  }
+  .gl-border-gray-50 {
+    border-color: var(--bg-4) !important;
   }
   .gl-border-gray-100,
   .gl-border-gray-200 {
@@ -4444,6 +4484,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
   }
   .gl-border-b-gray-100 {
     border-color: var(--bg-5) !important;
+  }
+  .gl-border-b-gray-200 {
+    border-color: var(--bg-4) !important;
   }
   .gl-border-t-gray-100 {
     border-color: var(--bg-5) !important;
@@ -6739,10 +6782,11 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     fill: var(--fg-1) !important;
   }
   .md-area.is-focused {
+    border-color: var(--v6-6) !important;
     box-shadow: 0 0 0 0.2rem var(--v6-3) !important;
   }
-  .md-area.is-focused.gfm-form {
-    box-shadow: 0 0 0 1px var(--v6-5), 0 0 0 0.25rem var(--v6-3) !important;
+  .md-area.is-focused.gfm-form:not(data-uploads-spath*='/wikis/attachments') {
+    box-shadow: 0 0 0 1px var(--v6-6), 0 0 0 0.25rem var(--v6-3) !important;
   }
   .md-area .markdown-selector {
     color: var(--ac) !important;
