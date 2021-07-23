@@ -2139,7 +2139,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     .right-sidebar {
         c: 0 bd hl;
         .title { c: fg }
-        .block { c: 0 bd }
+        .block { c: 0 bg4 }
         a:not(.btn):hover { color: v08 }
         .edit-link, .lock-edit, .no-value, a[href = '#'] { c: fg3 }
         button[data-testid='edit-button']:not(#z) { c: fg3 }
@@ -2196,6 +2196,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         /// Issues -> Sidebar.
         .issuable-sidebar {
             overflow-y: auto i;
+            &-header { c: 0 bg4 } // #172
             &-header, .dropdown {
                 .btn-default:not(.gutter-toggle),
                 [data-toggle='dropdown'] {
@@ -2290,6 +2291,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
                 c: fg;
                 svg { g: cm }
             }
+
+            /// Fix 'add a to-do' button.
+            .sidebar-collapsed-container:not(:hover) { c: 0 0 t }
 
             /// Fix on-hover background colors.
             .gutter-toggle,
@@ -3458,6 +3462,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
 
         /// Border-color overrides.
         &-border-gray {
+            &-50 { c: 0 bg4 } // #172
             &-100, &-200 { c: 0 bd }
             /.border {
                 border: 1px solid bd i
