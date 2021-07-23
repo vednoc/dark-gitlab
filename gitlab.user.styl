@@ -3002,7 +3002,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
     // Global -> Markdown area.
     .md {
         c: fg;
-        h1, h2 { c: fg1 bg4 }
+        h1, h2 { c: fg1 bg3 }
         hr { c: 0 bg4 }
         a, p { > code { padding: 2px 4px }}
         a, a > code { c: ac }
@@ -3461,6 +3461,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &-green-100.gl-text-green-800 { c: v48 v42 v42 } // Pending comments.
             &-green-500 { c: 0 0 v45 }
             &-blue-50 { c: 0 0 v62 }
+            &-blue-50\\\! { c: 0 0 v61 }
             &-red {
                 &-50 { c: 0 0 v10 }
             }
@@ -3478,6 +3479,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         }
         &-border {
             &-b-gray-100 { c: 0 bd }
+            &-b-gray-200 { c: 0 bg4 }
             &-t-gray-100 { c: 0 bg5 }
         }
 
@@ -5194,7 +5196,9 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             &.is-focused {
                 c: 0 v66
                 b: 0 0 0 0.2rem v63 i // OBSOLETE
-                &.gfm-form { b: 0 0 0 1px v66, 0 0 0 0.25rem v63 i }
+                &.gfm-form:not(data-uploads-spath*='/wikis/attachments') {
+                    b: 0 0 0 1px v66, 0 0 0 0.25rem v63 i
+                }
             }
             .markdown-selector { c: ac }
             .markdown-area { c: fg 0 t }
