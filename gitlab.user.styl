@@ -1430,7 +1430,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         & {
             c: fg1 bg5 bg2 0 0 0
             &:hover { c: fg1 bg5 bg3 0 0 0 }
-            &:focus { c: fg1 bg5 bg4; b: $f v64 i }
+            &:focus { c: fg1 bg5; b: $f v64 i }
             &:active { c: fg1 bg5 bg4 0 0 0 }
             &[href].gl-link { color: fg1 }
         }
@@ -1447,14 +1447,15 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
         &-cancel {
             c: fg1 bg5 bg2
             &:hover { c: 0 0 bg3 }
-            &:focus { c: 0 0 bg4; b: $f v64 i }
+            &:focus { b: $f v64 i }
         }
 
         /// Background-color buttons.
+        &-comment-and-close:not(#z),
         &-secondary {
             c: fg1 bg5 bg1
             &:hover { c: 0 0 bg3 }
-            &:focus { c: 0 0 bg4; b: $f bg3 i }
+            &:focus { c: 0 0 bg4; b: $f v64 i }
         }
 
         /// Red.
@@ -2990,7 +2991,7 @@ regexp('^https?://(web.archive.org/web/.*)?((next|www)\.)?(gitlab\.(?!(io|biterg
             c: fg1 bg5 bg3
             &:not(.active):hover { c: 0 0 bg4; b: none }
             ../ .disabled .page-link { c: fg5 0 bg2 }
-            ../ .active .page-link, &.active { c: v09 0 v01 }
+            ../ .active .page-link, &.active { c: v99 v07 v03 }
         }
     }
 
