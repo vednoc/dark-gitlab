@@ -1,6 +1,20 @@
 #+STARTUP: nofold
 
 * Changelog
+** 2.0.0-rc.14 [2021-07-23 Fri]
+Updated styles for the new GitLab v14.1 release.
+
+*** Improved
+- Added better colors for alerts below navbar
+- Added better styles for some button events
+- Updated colors for 'Menu' text and badges
+- Switched to dimmer colors for Markdown headings
+
+*** Bug Fixes
+- Added overrides for broken border colors ([[https://gitlab.com/vednoc/dark-gitlab/-/issues/172][#172]])
+- Removed box-shadow from items in left navbar
+- Added new styles for WYSIWYG editor
+
 ** 2.0.0-rc.13 [2021-06-18 Fri]
 Updated styles for the upcoming GitLab v14.0 release while preserving backwards
 compatibility with previous releases.
